@@ -28,37 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnLogin = new System.Windows.Forms.Button();
-            this.BtnEnd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtUserId = new System.Windows.Forms.TextBox();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
+            this.BtnEnd = new System.Windows.Forms.Button();
+            this.BtnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // BtnLogin
-            // 
-            this.BtnLogin.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnLogin.Location = new System.Drawing.Point(23, 217);
-            this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(220, 45);
-            this.BtnLogin.TabIndex = 0;
-            this.BtnLogin.Text = "ログイン";
-            this.BtnLogin.UseVisualStyleBackColor = true;
-            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
-            // 
-            // BtnEnd
-            // 
-            this.BtnEnd.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnEnd.Location = new System.Drawing.Point(343, 217);
-            this.BtnEnd.Name = "BtnEnd";
-            this.BtnEnd.Size = new System.Drawing.Size(220, 45);
-            this.BtnEnd.TabIndex = 1;
-            this.BtnEnd.Text = "終了";
-            this.BtnEnd.UseVisualStyleBackColor = true;
-            this.BtnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
             // 
             // label1
             // 
@@ -123,6 +101,34 @@
             this.LblVersion.TabIndex = 10;
             this.LblVersion.Text = "LblVersion";
             this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnEnd
+            // 
+            this.BtnEnd.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnEnd.Image = global::QrSorterInspectionApp.Properties.Resources.exit_icon_small;
+            this.BtnEnd.Location = new System.Drawing.Point(343, 217);
+            this.BtnEnd.Name = "BtnEnd";
+            this.BtnEnd.Size = new System.Drawing.Size(220, 45);
+            this.BtnEnd.TabIndex = 1;
+            this.BtnEnd.Text = "終了";
+            this.BtnEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnEnd.UseVisualStyleBackColor = true;
+            this.BtnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
+            // 
+            // BtnLogin
+            // 
+            this.BtnLogin.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnLogin.Image = global::QrSorterInspectionApp.Properties.Resources.login;
+            this.BtnLogin.Location = new System.Drawing.Point(23, 217);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(220, 45);
+            this.BtnLogin.TabIndex = 0;
+            this.BtnLogin.Text = "ログイン";
+            this.BtnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // LoginForm
             // 
