@@ -49,6 +49,11 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                CommonModule.OutPutLogFile("■「ログイン」ボタンクリック");
+                MenuForm form = new MenuForm();
+                form.Show(this);
+                this.Hide();
+
 
             }
             catch (Exception ex)
@@ -66,7 +71,7 @@ namespace QrSorterInspectionApp
             
             try
             {
-                CommonModule.OutPutLogFile("QRソータ検査アプリの終了");
+                CommonModule.OutPutLogFile("ログイン画面からQRソータ検査アプリの終了");
                 this.Dispose();
             }
             catch (Exception ex)
