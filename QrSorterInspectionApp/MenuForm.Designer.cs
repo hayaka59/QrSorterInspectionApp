@@ -93,7 +93,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button4.Image = global::QrSorterInspectionApp.Properties.Resources.database;
+            this.button4.Image = global::QrSorterInspectionApp.Properties.Resources.qr_code1;
             this.button4.Location = new System.Drawing.Point(536, 360);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(478, 125);
@@ -145,7 +145,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button1.Image = global::QrSorterInspectionApp.Properties.Resources.stock;
+            this.button1.Image = global::QrSorterInspectionApp.Properties.Resources.qr_code;
             this.button1.Location = new System.Drawing.Point(30, 75);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(984, 125);

@@ -118,5 +118,11 @@
   <ItemGroup>
     <None Include="icon\database.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\qr_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\download.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

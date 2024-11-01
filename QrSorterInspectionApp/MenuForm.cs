@@ -50,6 +50,7 @@ namespace QrSorterInspectionApp
         private void BtnEnd_Click(object sender, EventArgs e)
         {
             CommonModule.OutPutLogFile("メニュー画面からQRソータ検査アプリの終了");
+            Owner.Dispose();
             this.Dispose();
         }
     }
