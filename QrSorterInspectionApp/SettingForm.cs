@@ -38,7 +38,24 @@ namespace QrSorterInspectionApp
                 LsbJobListSorter.Items.Add("チューリッヒ① 封筒");
                 LsbJobListSorter.SelectedIndex = 0;
 
+                LsbJobListFeeder.Items.Clear();
+                LsbJobListFeeder.Items.Add("テスト ハガキ");
+                LsbJobListFeeder.Items.Add("テスト 封筒");
+                LsbJobListFeeder.Items.Add("チューリッヒ① ハガキ");
+                LsbJobListFeeder.Items.Add("チューリッヒ① 封筒");
+                LsbJobListFeeder.SelectedIndex = 0;
 
+                TxtJobName.Text = "チューリッヒ";
+                CmbMedia.Items.Clear();
+                CmbMedia.Items.Add("ハガキ");
+                CmbMedia.Items.Add("封筒");
+                CmbMedia.SelectedIndex = 0;
+
+                RchTxtQrInfo.Text = "1234567890";
+                RchTxtQrInfo.Text += "1234567890";
+                RchTxtQrInfo.Text += "1234567890";
+                RchTxtQrInfo.Text += "1234567890";
+                RchTxtQrInfo.Text += "1234567";
             }
             catch (Exception ex)
             {
@@ -54,6 +71,7 @@ namespace QrSorterInspectionApp
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Owner.Show();
+            Owner.Refresh();
             this.Dispose();
         }
 
@@ -96,6 +114,27 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【LsbJobList_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Test(object sender, EventArgs e)
+        {
+            try
+            {
+                // QR全体
+                RchTxtQrInfo.Select(0, RchTxtQrInfo.Text.Length);
+                RchTxtQrInfo.SelectionBackColor = Color.White;
+                RchTxtQrInfo.SelectionColor = Color.Black;
+
+                // ファクトリー番号
+                RchTxtQrInfo.SelectionStart = decimal.ToInt32(numericUpDown1.Value) - 1;
+                RchTxtQrInfo.SelectionLength = decimal.ToInt32(numericUpDown2.Value);
+                RchTxtQrInfo.SelectionBackColor = Color.LightPink;
+                RchTxtQrInfo.SelectionColor = Color.Black;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【Test】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
