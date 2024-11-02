@@ -53,5 +53,25 @@ namespace QrSorterInspectionApp
             Owner.Dispose();
             this.Dispose();
         }
+
+        /// <summary>
+        /// 「設定」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnSetting_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CommonModule.OutPutLogFile("■メニュー画面：「設定」ボタンクリック");
+                SettingForm form = new SettingForm();
+                form.Show(this);
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnSetting_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
