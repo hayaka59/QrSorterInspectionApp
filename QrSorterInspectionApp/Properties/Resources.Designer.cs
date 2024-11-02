@@ -63,6 +63,36 @@ namespace QrSorterInspectionApp.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap back_arrow {
+            get {
+                object obj = ResourceManager.GetObject("back_arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap check {
+            get {
+                object obj = ResourceManager.GetObject("check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap copy_icon {
+            get {
+                object obj = ResourceManager.GetObject("copy_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap database {
             get {
                 object obj = ResourceManager.GetObject("database", resourceCulture);
@@ -146,6 +176,16 @@ namespace QrSorterInspectionApp.Properties {
         internal static System.Drawing.Bitmap qr_code1 {
             get {
                 object obj = ResourceManager.GetObject("qr_code1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap save_icon {
+            get {
+                object obj = ResourceManager.GetObject("save_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

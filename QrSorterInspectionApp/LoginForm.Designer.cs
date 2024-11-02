@@ -110,7 +110,7 @@
             this.BtnEnd.Name = "BtnEnd";
             this.BtnEnd.Size = new System.Drawing.Size(220, 45);
             this.BtnEnd.TabIndex = 1;
-            this.BtnEnd.Text = "終了";
+            this.BtnEnd.Text = " 終了";
             this.BtnEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnEnd.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(220, 45);
             this.BtnLogin.TabIndex = 0;
-            this.BtnLogin.Text = "ログイン";
+            this.BtnLogin.Text = " ログイン";
             this.BtnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnLogin.UseVisualStyleBackColor = true;

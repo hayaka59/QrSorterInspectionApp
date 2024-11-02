@@ -53,8 +53,6 @@ namespace QrSorterInspectionApp
                 MenuForm form = new MenuForm();
                 form.Show(this);
                 this.Hide();
-
-
             }
             catch (Exception ex)
             {
