@@ -43,7 +43,7 @@
             // 
             this.LblVersion.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblVersion.ForeColor = System.Drawing.Color.Blue;
-            this.LblVersion.Location = new System.Drawing.Point(899, 666);
+            this.LblVersion.Location = new System.Drawing.Point(1762, 996);
             this.LblVersion.Name = "LblVersion";
             this.LblVersion.Size = new System.Drawing.Size(130, 25);
             this.LblVersion.TabIndex = 12;
@@ -57,18 +57,18 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1051, 45);
+            this.label1.Size = new System.Drawing.Size(1903, 45);
             this.label1.TabIndex = 11;
             this.label1.Text = "メニュー画面";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnEnd
             // 
-            this.BtnEnd.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnEnd.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnEnd.Image = global::QrSorterInspectionApp.Properties.Resources.exit;
-            this.BtnEnd.Location = new System.Drawing.Point(536, 506);
+            this.BtnEnd.Location = new System.Drawing.Point(961, 725);
             this.BtnEnd.Name = "BtnEnd";
-            this.BtnEnd.Size = new System.Drawing.Size(478, 125);
+            this.BtnEnd.Size = new System.Drawing.Size(750, 200);
             this.BtnEnd.TabIndex = 19;
             this.BtnEnd.Text = "　終了";
             this.BtnEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -78,11 +78,11 @@
             // 
             // BtnLogOut
             // 
-            this.BtnLogOut.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnLogOut.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnLogOut.Image = global::QrSorterInspectionApp.Properties.Resources.door;
-            this.BtnLogOut.Location = new System.Drawing.Point(30, 506);
+            this.BtnLogOut.Location = new System.Drawing.Point(194, 725);
             this.BtnLogOut.Name = "BtnLogOut";
-            this.BtnLogOut.Size = new System.Drawing.Size(500, 125);
+            this.BtnLogOut.Size = new System.Drawing.Size(750, 200);
             this.BtnLogOut.TabIndex = 18;
             this.BtnLogOut.Text = "　ログアウト";
             this.BtnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -92,11 +92,11 @@
             // 
             // button4
             // 
-            this.button4.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button4.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button4.Image = global::QrSorterInspectionApp.Properties.Resources.download;
-            this.button4.Location = new System.Drawing.Point(536, 360);
+            this.button4.Location = new System.Drawing.Point(961, 503);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(478, 125);
+            this.button4.Size = new System.Drawing.Size(750, 200);
             this.button4.TabIndex = 17;
             this.button4.Text = "　ログ管理";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -105,11 +105,11 @@
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button5.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button5.Image = global::QrSorterInspectionApp.Properties.Resources.maintenance_icon;
-            this.button5.Location = new System.Drawing.Point(30, 360);
+            this.button5.Location = new System.Drawing.Point(194, 503);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(500, 125);
+            this.button5.Size = new System.Drawing.Size(750, 200);
             this.button5.TabIndex = 16;
             this.button5.Text = "　保守";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -118,11 +118,11 @@
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button3.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button3.Image = global::QrSorterInspectionApp.Properties.Resources.sv_op;
-            this.button3.Location = new System.Drawing.Point(536, 217);
+            this.button3.Location = new System.Drawing.Point(961, 283);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(478, 125);
+            this.button3.Size = new System.Drawing.Size(750, 200);
             this.button3.TabIndex = 15;
             this.button3.Text = "　SV・OP";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -131,11 +131,11 @@
             // 
             // BtnSetting
             // 
-            this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnSetting.Image = global::QrSorterInspectionApp.Properties.Resources.setting;
-            this.BtnSetting.Location = new System.Drawing.Point(30, 217);
+            this.BtnSetting.Location = new System.Drawing.Point(194, 283);
             this.BtnSetting.Name = "BtnSetting";
-            this.BtnSetting.Size = new System.Drawing.Size(500, 125);
+            this.BtnSetting.Size = new System.Drawing.Size(750, 200);
             this.BtnSetting.TabIndex = 14;
             this.BtnSetting.Text = "　設定";
             this.BtnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -145,11 +145,11 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button1.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button1.Image = global::QrSorterInspectionApp.Properties.Resources.qr_code;
-            this.button1.Location = new System.Drawing.Point(30, 75);
+            this.button1.Location = new System.Drawing.Point(194, 83);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(984, 125);
+            this.button1.Size = new System.Drawing.Size(1517, 178);
             this.button1.TabIndex = 13;
             this.button1.Text = "　QRソータ検査";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -160,7 +160,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 700);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ControlBox = false;
             this.Controls.Add(this.BtnEnd);
             this.Controls.Add(this.BtnLogOut);
             this.Controls.Add(this.button4);
