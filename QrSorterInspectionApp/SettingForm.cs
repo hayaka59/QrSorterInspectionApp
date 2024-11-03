@@ -64,7 +64,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// 「戻る」ボタン処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

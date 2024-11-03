@@ -73,5 +73,25 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【BtnSetting_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// 「QRソーター検査」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnQrSorterInspect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CommonModule.OutPutLogFile("■メニュー画面：「QRソーター検査」ボタンクリック");
+                QrSorterInspectionForm form = new QrSorterInspectionForm();
+                form.Show(this);
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnQrSorterInspect_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

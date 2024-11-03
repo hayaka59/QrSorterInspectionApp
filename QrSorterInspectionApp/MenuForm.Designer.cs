@@ -36,7 +36,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.BtnSetting = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnQrSorterInspect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -66,27 +66,27 @@
             // 
             this.BtnEnd.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnEnd.Image = global::QrSorterInspectionApp.Properties.Resources.exit;
-            this.BtnEnd.Location = new System.Drawing.Point(961, 725);
+            this.BtnEnd.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnEnd.Location = new System.Drawing.Point(961, 742);
             this.BtnEnd.Name = "BtnEnd";
             this.BtnEnd.Size = new System.Drawing.Size(750, 200);
             this.BtnEnd.TabIndex = 19;
-            this.BtnEnd.Text = "　終了";
-            this.BtnEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnEnd.Text = "終了";
+            this.BtnEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnEnd.UseVisualStyleBackColor = true;
             this.BtnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
             // 
             // BtnLogOut
             // 
             this.BtnLogOut.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnLogOut.Image = global::QrSorterInspectionApp.Properties.Resources.door;
-            this.BtnLogOut.Location = new System.Drawing.Point(194, 725);
+            this.BtnLogOut.Image = global::QrSorterInspectionApp.Properties.Resources.login_big;
+            this.BtnLogOut.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnLogOut.Location = new System.Drawing.Point(194, 742);
             this.BtnLogOut.Name = "BtnLogOut";
             this.BtnLogOut.Size = new System.Drawing.Size(750, 200);
             this.BtnLogOut.TabIndex = 18;
-            this.BtnLogOut.Text = "　ログアウト";
-            this.BtnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnLogOut.Text = "ログアウト";
+            this.BtnLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnLogOut.UseVisualStyleBackColor = true;
             this.BtnLogOut.Click += new System.EventHandler(this.BtnLogOut_Click);
             // 
@@ -94,67 +94,68 @@
             // 
             this.button4.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button4.Image = global::QrSorterInspectionApp.Properties.Resources.download;
-            this.button4.Location = new System.Drawing.Point(961, 503);
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button4.Location = new System.Drawing.Point(961, 520);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(750, 200);
             this.button4.TabIndex = 17;
-            this.button4.Text = "　ログ管理";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button4.Text = "ログ管理";
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button5.Image = global::QrSorterInspectionApp.Properties.Resources.maintenance_icon;
-            this.button5.Location = new System.Drawing.Point(194, 503);
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button5.Location = new System.Drawing.Point(194, 520);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(750, 200);
             this.button5.TabIndex = 16;
-            this.button5.Text = "　保守";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button5.Text = "保守";
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button3.Image = global::QrSorterInspectionApp.Properties.Resources.sv_op;
-            this.button3.Location = new System.Drawing.Point(961, 283);
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.Location = new System.Drawing.Point(961, 300);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(750, 200);
             this.button3.TabIndex = 15;
-            this.button3.Text = "　SV・OP";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button3.Text = "SV・OP";
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button3.UseVisualStyleBackColor = true;
             // 
             // BtnSetting
             // 
             this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnSetting.Image = global::QrSorterInspectionApp.Properties.Resources.setting;
-            this.BtnSetting.Location = new System.Drawing.Point(194, 283);
+            this.BtnSetting.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnSetting.Location = new System.Drawing.Point(194, 300);
             this.BtnSetting.Name = "BtnSetting";
             this.BtnSetting.Size = new System.Drawing.Size(750, 200);
             this.BtnSetting.TabIndex = 14;
-            this.BtnSetting.Text = "　設定";
-            this.BtnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnSetting.Text = "設定";
+            this.BtnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnSetting.UseVisualStyleBackColor = true;
             this.BtnSetting.Click += new System.EventHandler(this.BtnSetting_Click);
             // 
-            // button1
+            // BtnQrSorterInspect
             // 
-            this.button1.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button1.Image = global::QrSorterInspectionApp.Properties.Resources.qr_code;
-            this.button1.Location = new System.Drawing.Point(194, 83);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1517, 178);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "　QRソータ検査";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnQrSorterInspect.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnQrSorterInspect.Image = global::QrSorterInspectionApp.Properties.Resources.qr_code;
+            this.BtnQrSorterInspect.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnQrSorterInspect.Location = new System.Drawing.Point(194, 83);
+            this.BtnQrSorterInspect.Name = "BtnQrSorterInspect";
+            this.BtnQrSorterInspect.Size = new System.Drawing.Size(1517, 200);
+            this.BtnQrSorterInspect.TabIndex = 13;
+            this.BtnQrSorterInspect.Text = "QRソータ検査";
+            this.BtnQrSorterInspect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnQrSorterInspect.UseVisualStyleBackColor = true;
+            this.BtnQrSorterInspect.Click += new System.EventHandler(this.BtnQrSorterInspect_Click);
             // 
             // MenuForm
             // 
@@ -168,7 +169,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.BtnSetting);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnQrSorterInspect);
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -186,7 +187,7 @@
 
         internal System.Windows.Forms.Label LblVersion;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnQrSorterInspect;
         private System.Windows.Forms.Button BtnSetting;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
