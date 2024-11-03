@@ -1184,7 +1184,7 @@
             this.BtnJobDataCopy.Name = "BtnJobDataCopy";
             this.BtnJobDataCopy.Size = new System.Drawing.Size(360, 42);
             this.BtnJobDataCopy.TabIndex = 199;
-            this.BtnJobDataCopy.Text = " コピー";
+            this.BtnJobDataCopy.Text = " JOB内容のコピー";
             this.BtnJobDataCopy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnJobDataCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnJobDataCopy.UseVisualStyleBackColor = true;
