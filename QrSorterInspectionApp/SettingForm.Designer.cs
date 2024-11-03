@@ -102,6 +102,7 @@
             this.BtnJobDataCopy = new System.Windows.Forms.Button();
             this.TabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label38 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox11 = new System.Windows.Forms.ComboBox();
             this.comboBox12 = new System.Windows.Forms.ComboBox();
@@ -121,7 +122,6 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -219,7 +219,7 @@
             this.TabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.TabPage1.Size = new System.Drawing.Size(1242, 846);
             this.TabPage1.TabIndex = 0;
-            this.TabPage1.Text = "QRフィーダ設定";
+            this.TabPage1.Text = "QRフィーダー設定";
             // 
             // RchTxtQrInfo
             // 
@@ -975,7 +975,7 @@
             this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label19.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(397, 413);
+            this.label19.Location = new System.Drawing.Point(396, 413);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(170, 36);
             this.label19.TabIndex = 219;
@@ -1206,7 +1206,7 @@
             this.TabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.TabPage2.Size = new System.Drawing.Size(1242, 846);
             this.TabPage2.TabIndex = 1;
-            this.TabPage2.Text = "ソータ設定";
+            this.TabPage2.Text = "ソーター設定";
             // 
             // groupBox2
             // 
@@ -1240,6 +1240,19 @@
             this.groupBox2.TabIndex = 288;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ソータ設定";
+            // 
+            // label38
+            // 
+            this.label38.BackColor = System.Drawing.Color.Transparent;
+            this.label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label38.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label38.ForeColor = System.Drawing.Color.Black;
+            this.label38.Location = new System.Drawing.Point(497, 174);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(125, 36);
+            this.label38.TabIndex = 267;
+            this.label38.Text = "D4832";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
@@ -1466,19 +1479,6 @@
             this.textBox10.Text = "999";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label38
-            // 
-            this.label38.BackColor = System.Drawing.Color.Transparent;
-            this.label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label38.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label38.ForeColor = System.Drawing.Color.Black;
-            this.label38.Location = new System.Drawing.Point(497, 174);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(125, 36);
-            this.label38.TabIndex = 267;
-            this.label38.Text = "D4832";
-            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBox11
             // 
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1656,7 +1656,7 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1370, 968);
+            this.BtnClose.Location = new System.Drawing.Point(1399, 968);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(166, 50);
             this.BtnClose.TabIndex = 178;
@@ -1670,7 +1670,7 @@
             // 
             this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnApply.Image = global::QrSorterInspectionApp.Properties.Resources.check;
-            this.BtnApply.Location = new System.Drawing.Point(369, 968);
+            this.BtnApply.Location = new System.Drawing.Point(323, 968);
             this.BtnApply.Name = "BtnApply";
             this.BtnApply.Size = new System.Drawing.Size(166, 50);
             this.BtnApply.TabIndex = 177;
