@@ -59,6 +59,12 @@
     <Compile Include="LogListForm.Designer.cs">
       <DependentUpon>LogListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaintenanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintenanceForm.Designer.cs">
+      <DependentUpon>MaintenanceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogListForm.resx">
       <DependentUpon>LogListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintenanceForm.resx">
+      <DependentUpon>MaintenanceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
@@ -180,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="icon\login_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\trash_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

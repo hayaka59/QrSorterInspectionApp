@@ -115,7 +115,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// 「ログ管理」ボタン処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -132,6 +132,27 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【BtnLogManagement_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// 「保守」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnMaintenance_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CommonModule.OutPutLogFile("■メニュー画面：「保守」ボタンクリック");
+                MaintenanceForm form = new MaintenanceForm();
+                form.Show(this);
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnLogManagement_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
