@@ -406,7 +406,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(83, 49);
             this.label20.TabIndex = 261;
-            this.label20.Text = "99";
+            this.label20.Text = "50";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox3
@@ -442,7 +442,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(83, 49);
             this.label18.TabIndex = 264;
-            this.label18.Text = "99";
+            this.label18.Text = "50";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox4
@@ -466,7 +466,7 @@
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(83, 49);
             this.label23.TabIndex = 267;
-            this.label23.Text = "99";
+            this.label23.Text = "50";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox2
@@ -490,7 +490,7 @@
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(83, 49);
             this.label25.TabIndex = 270;
-            this.label25.Text = "99";
+            this.label25.Text = "50";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label26

@@ -185,23 +185,24 @@ namespace QrSorterInspectionApp
                 {
                     iBox1Count++;
                     LblBox1.Text = iBox1Count.ToString("0");
+                    LblPocket1.Text = "QR" + iOKCount.ToString("000000000");
                 }
                 else if (iBoxNumber == 2)
                 {
                     iBox2Count++;
                     LblBox2.Text = iBox2Count.ToString("0");
-
+                    LblPocket2.Text = "QR" + iOKCount.ToString("000000000");
                 }
                 else if (iBoxNumber == 3)
                 {
                     iBox3Count++;
                     LblBox3.Text = iBox3Count.ToString("0");
-
+                    LblPocket3.Text = "QR" + iOKCount.ToString("000000000");
                 }
                 else if (iBoxNumber == 4) {
                     iBox4Count++;
                     LblBox4.Text = iBox4Count.ToString("0");
-
+                    LblPocket4.Text = "QR" + iOKCount.ToString("000000000");
                 }
                 iBoxNumber++;
                 if (iBoxNumber > 4) {

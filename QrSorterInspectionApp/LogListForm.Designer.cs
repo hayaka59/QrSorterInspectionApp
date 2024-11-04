@@ -37,6 +37,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LsbLogList = new System.Windows.Forms.ListBox();
+            this.LblContent = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -87,6 +88,7 @@
             this.CmbLogType.Name = "CmbLogType";
             this.CmbLogType.Size = new System.Drawing.Size(299, 36);
             this.CmbLogType.TabIndex = 261;
+            this.CmbLogType.SelectedIndexChanged += new System.EventHandler(this.CmbLogType_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -148,6 +150,19 @@
             this.LsbLogList.Name = "LsbLogList";
             this.LsbLogList.Size = new System.Drawing.Size(1116, 228);
             this.LsbLogList.TabIndex = 263;
+            this.LsbLogList.SelectedIndexChanged += new System.EventHandler(this.LsbLogList_SelectedIndexChanged);
+            // 
+            // LblContent
+            // 
+            this.LblContent.BackColor = System.Drawing.Color.White;
+            this.LblContent.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblContent.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblContent.Location = new System.Drawing.Point(544, 551);
+            this.LblContent.Name = "LblContent";
+            this.LblContent.Size = new System.Drawing.Size(820, 175);
+            this.LblContent.TabIndex = 264;
+            this.LblContent.Text = "LblContent";
+            this.LblContent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LogListForm
             // 
@@ -155,6 +170,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.LblContent);
             this.Controls.Add(this.LsbLogList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbLogType);
@@ -186,5 +202,6 @@
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox LsbLogList;
+        internal System.Windows.Forms.Label LblContent;
     }
 }

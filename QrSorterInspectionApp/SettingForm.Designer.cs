@@ -58,23 +58,23 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.NmUpDnManagementNoKeta = new System.Windows.Forms.NumericUpDown();
+            this.NmUpDnManagementNoStart = new System.Windows.Forms.NumericUpDown();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.NmUpDnFileTypeKeta = new System.Windows.Forms.NumericUpDown();
+            this.NmUpDnFileTypeStart = new System.Windows.Forms.NumericUpDown();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.NmUpDnPostalDateKeta = new System.Windows.Forms.NumericUpDown();
+            this.NmUpDnPostalDateStart = new System.Windows.Forms.NumericUpDown();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.NmUpDnPropertyIdKeta = new System.Windows.Forms.NumericUpDown();
+            this.NmUpDnPropertyIdStart = new System.Windows.Forms.NumericUpDown();
             this.NumUpDwnQrAllDigit = new System.Windows.Forms.NumericUpDown();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CmbDoubleFeed = new System.Windows.Forms.ComboBox();
+            this.CmbDuplication = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -141,14 +141,14 @@
             this.TabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnFileTypeKeta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnFileTypeStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPostalDateKeta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPostalDateStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdKeta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).BeginInit();
             this.TabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -172,23 +172,23 @@
             this.TabPage1.Controls.Add(this.groupBox1);
             this.TabPage1.Controls.Add(this.label34);
             this.TabPage1.Controls.Add(this.label35);
-            this.TabPage1.Controls.Add(this.numericUpDown7);
-            this.TabPage1.Controls.Add(this.numericUpDown8);
+            this.TabPage1.Controls.Add(this.NmUpDnManagementNoKeta);
+            this.TabPage1.Controls.Add(this.NmUpDnManagementNoStart);
             this.TabPage1.Controls.Add(this.label32);
             this.TabPage1.Controls.Add(this.label33);
-            this.TabPage1.Controls.Add(this.numericUpDown5);
-            this.TabPage1.Controls.Add(this.numericUpDown6);
+            this.TabPage1.Controls.Add(this.NmUpDnFileTypeKeta);
+            this.TabPage1.Controls.Add(this.NmUpDnFileTypeStart);
             this.TabPage1.Controls.Add(this.label30);
             this.TabPage1.Controls.Add(this.label31);
-            this.TabPage1.Controls.Add(this.numericUpDown3);
-            this.TabPage1.Controls.Add(this.numericUpDown4);
+            this.TabPage1.Controls.Add(this.NmUpDnPostalDateKeta);
+            this.TabPage1.Controls.Add(this.NmUpDnPostalDateStart);
             this.TabPage1.Controls.Add(this.label28);
             this.TabPage1.Controls.Add(this.label27);
-            this.TabPage1.Controls.Add(this.numericUpDown2);
-            this.TabPage1.Controls.Add(this.numericUpDown1);
+            this.TabPage1.Controls.Add(this.NmUpDnPropertyIdKeta);
+            this.TabPage1.Controls.Add(this.NmUpDnPropertyIdStart);
             this.TabPage1.Controls.Add(this.NumUpDwnQrAllDigit);
-            this.TabPage1.Controls.Add(this.comboBox2);
-            this.TabPage1.Controls.Add(this.comboBox1);
+            this.TabPage1.Controls.Add(this.CmbDoubleFeed);
+            this.TabPage1.Controls.Add(this.CmbDuplication);
             this.TabPage1.Controls.Add(this.label14);
             this.TabPage1.Controls.Add(this.label16);
             this.TabPage1.Controls.Add(this.button1);
@@ -493,7 +493,7 @@
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(82, 36);
             this.textBox17.TabIndex = 260;
-            this.textBox17.Text = "999";
+            this.textBox17.Text = "50";
             this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox18
@@ -504,7 +504,7 @@
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(82, 36);
             this.textBox18.TabIndex = 261;
-            this.textBox18.Text = "999";
+            this.textBox18.Text = "50";
             this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox19
@@ -515,7 +515,7 @@
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(82, 36);
             this.textBox19.TabIndex = 262;
-            this.textBox19.Text = "999";
+            this.textBox19.Text = "50";
             this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox20
@@ -526,7 +526,7 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(82, 36);
             this.textBox20.TabIndex = 263;
-            this.textBox20.Text = "999";
+            this.textBox20.Text = "50";
             this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label25
@@ -579,53 +579,55 @@
             this.label35.Text = "開始";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // numericUpDown7
+            // NmUpDnManagementNoKeta
             // 
-            this.numericUpDown7.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.numericUpDown7.Location = new System.Drawing.Point(1035, 312);
-            this.numericUpDown7.Maximum = new decimal(new int[] {
+            this.NmUpDnManagementNoKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NmUpDnManagementNoKeta.Location = new System.Drawing.Point(1035, 312);
+            this.NmUpDnManagementNoKeta.Maximum = new decimal(new int[] {
             128,
             0,
             0,
             0});
-            this.numericUpDown7.Minimum = new decimal(new int[] {
+            this.NmUpDnManagementNoKeta.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(67, 36);
-            this.numericUpDown7.TabIndex = 282;
-            this.numericUpDown7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown7.Value = new decimal(new int[] {
-            1,
+            this.NmUpDnManagementNoKeta.Name = "NmUpDnManagementNoKeta";
+            this.NmUpDnManagementNoKeta.Size = new System.Drawing.Size(67, 36);
+            this.NmUpDnManagementNoKeta.TabIndex = 282;
+            this.NmUpDnManagementNoKeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NmUpDnManagementNoKeta.Value = new decimal(new int[] {
+            17,
             0,
             0,
             0});
+            this.NmUpDnManagementNoKeta.ValueChanged += new System.EventHandler(this.NmUpDnManagementNoKeta_ValueChanged);
             // 
-            // numericUpDown8
+            // NmUpDnManagementNoStart
             // 
-            this.numericUpDown8.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.numericUpDown8.Location = new System.Drawing.Point(917, 312);
-            this.numericUpDown8.Maximum = new decimal(new int[] {
+            this.NmUpDnManagementNoStart.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NmUpDnManagementNoStart.Location = new System.Drawing.Point(917, 312);
+            this.NmUpDnManagementNoStart.Maximum = new decimal(new int[] {
             128,
             0,
             0,
             0});
-            this.numericUpDown8.Minimum = new decimal(new int[] {
+            this.NmUpDnManagementNoStart.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(67, 36);
-            this.numericUpDown8.TabIndex = 281;
-            this.numericUpDown8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown8.Value = new decimal(new int[] {
-            1,
+            this.NmUpDnManagementNoStart.Name = "NmUpDnManagementNoStart";
+            this.NmUpDnManagementNoStart.Size = new System.Drawing.Size(67, 36);
+            this.NmUpDnManagementNoStart.TabIndex = 281;
+            this.NmUpDnManagementNoStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NmUpDnManagementNoStart.Value = new decimal(new int[] {
+            15,
             0,
             0,
             0});
+            this.NmUpDnManagementNoStart.ValueChanged += new System.EventHandler(this.NmUpDnManagementNoStart_ValueChanged);
             // 
             // label32
             // 
@@ -651,53 +653,55 @@
             this.label33.Text = "開始";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // numericUpDown5
+            // NmUpDnFileTypeKeta
             // 
-            this.numericUpDown5.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.numericUpDown5.Location = new System.Drawing.Point(1035, 266);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
+            this.NmUpDnFileTypeKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NmUpDnFileTypeKeta.Location = new System.Drawing.Point(1035, 266);
+            this.NmUpDnFileTypeKeta.Maximum = new decimal(new int[] {
             128,
             0,
             0,
             0});
-            this.numericUpDown5.Minimum = new decimal(new int[] {
+            this.NmUpDnFileTypeKeta.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(67, 36);
-            this.numericUpDown5.TabIndex = 278;
-            this.numericUpDown5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown5.Value = new decimal(new int[] {
+            this.NmUpDnFileTypeKeta.Name = "NmUpDnFileTypeKeta";
+            this.NmUpDnFileTypeKeta.Size = new System.Drawing.Size(67, 36);
+            this.NmUpDnFileTypeKeta.TabIndex = 278;
+            this.NmUpDnFileTypeKeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NmUpDnFileTypeKeta.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.NmUpDnFileTypeKeta.ValueChanged += new System.EventHandler(this.NmUpDnFileTypeKeta_ValueChanged);
             // 
-            // numericUpDown6
+            // NmUpDnFileTypeStart
             // 
-            this.numericUpDown6.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.numericUpDown6.Location = new System.Drawing.Point(916, 266);
-            this.numericUpDown6.Maximum = new decimal(new int[] {
+            this.NmUpDnFileTypeStart.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NmUpDnFileTypeStart.Location = new System.Drawing.Point(916, 266);
+            this.NmUpDnFileTypeStart.Maximum = new decimal(new int[] {
             128,
             0,
             0,
             0});
-            this.numericUpDown6.Minimum = new decimal(new int[] {
+            this.NmUpDnFileTypeStart.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(67, 36);
-            this.numericUpDown6.TabIndex = 277;
-            this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown6.Value = new decimal(new int[] {
-            1,
+            this.NmUpDnFileTypeStart.Name = "NmUpDnFileTypeStart";
+            this.NmUpDnFileTypeStart.Size = new System.Drawing.Size(67, 36);
+            this.NmUpDnFileTypeStart.TabIndex = 277;
+            this.NmUpDnFileTypeStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NmUpDnFileTypeStart.Value = new decimal(new int[] {
+            6,
             0,
             0,
             0});
+            this.NmUpDnFileTypeStart.ValueChanged += new System.EventHandler(this.NmUpDnFileTypeStart_ValueChanged);
             // 
             // label30
             // 
@@ -723,53 +727,55 @@
             this.label31.Text = "開始";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // numericUpDown3
+            // NmUpDnPostalDateKeta
             // 
-            this.numericUpDown3.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.numericUpDown3.Location = new System.Drawing.Point(1035, 218);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.NmUpDnPostalDateKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NmUpDnPostalDateKeta.Location = new System.Drawing.Point(1035, 218);
+            this.NmUpDnPostalDateKeta.Maximum = new decimal(new int[] {
             128,
             0,
             0,
             0});
-            this.numericUpDown3.Minimum = new decimal(new int[] {
+            this.NmUpDnPostalDateKeta.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(67, 36);
-            this.numericUpDown3.TabIndex = 274;
-            this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown3.Value = new decimal(new int[] {
-            1,
+            this.NmUpDnPostalDateKeta.Name = "NmUpDnPostalDateKeta";
+            this.NmUpDnPostalDateKeta.Size = new System.Drawing.Size(67, 36);
+            this.NmUpDnPostalDateKeta.TabIndex = 274;
+            this.NmUpDnPostalDateKeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NmUpDnPostalDateKeta.Value = new decimal(new int[] {
+            8,
             0,
             0,
             0});
+            this.NmUpDnPostalDateKeta.ValueChanged += new System.EventHandler(this.NmUpDnPostalDateKeta_ValueChanged);
             // 
-            // numericUpDown4
+            // NmUpDnPostalDateStart
             // 
-            this.numericUpDown4.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.numericUpDown4.Location = new System.Drawing.Point(916, 218);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
+            this.NmUpDnPostalDateStart.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NmUpDnPostalDateStart.Location = new System.Drawing.Point(916, 218);
+            this.NmUpDnPostalDateStart.Maximum = new decimal(new int[] {
             128,
             0,
             0,
             0});
-            this.numericUpDown4.Minimum = new decimal(new int[] {
+            this.NmUpDnPostalDateStart.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(67, 36);
-            this.numericUpDown4.TabIndex = 273;
-            this.numericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            1,
+            this.NmUpDnPostalDateStart.Name = "NmUpDnPostalDateStart";
+            this.NmUpDnPostalDateStart.Size = new System.Drawing.Size(67, 36);
+            this.NmUpDnPostalDateStart.TabIndex = 273;
+            this.NmUpDnPostalDateStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NmUpDnPostalDateStart.Value = new decimal(new int[] {
+            7,
             0,
             0,
             0});
+            this.NmUpDnPostalDateStart.ValueChanged += new System.EventHandler(this.NmUpDnPostalDateStart_ValueChanged);
             // 
             // label28
             // 
@@ -795,55 +801,55 @@
             this.label27.Text = "開始";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // numericUpDown2
+            // NmUpDnPropertyIdKeta
             // 
-            this.numericUpDown2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.numericUpDown2.Location = new System.Drawing.Point(1035, 168);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.NmUpDnPropertyIdKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NmUpDnPropertyIdKeta.Location = new System.Drawing.Point(1035, 168);
+            this.NmUpDnPropertyIdKeta.Maximum = new decimal(new int[] {
             128,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.NmUpDnPropertyIdKeta.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(67, 36);
-            this.numericUpDown2.TabIndex = 270;
-            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            1,
+            this.NmUpDnPropertyIdKeta.Name = "NmUpDnPropertyIdKeta";
+            this.NmUpDnPropertyIdKeta.Size = new System.Drawing.Size(67, 36);
+            this.NmUpDnPropertyIdKeta.TabIndex = 270;
+            this.NmUpDnPropertyIdKeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NmUpDnPropertyIdKeta.Value = new decimal(new int[] {
+            5,
             0,
             0,
             0});
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.Test);
+            this.NmUpDnPropertyIdKeta.ValueChanged += new System.EventHandler(this.NmUpDnPropertyIdKeta_ValueChanged);
             // 
-            // numericUpDown1
+            // NmUpDnPropertyIdStart
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.numericUpDown1.Location = new System.Drawing.Point(916, 168);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.NmUpDnPropertyIdStart.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NmUpDnPropertyIdStart.Location = new System.Drawing.Point(916, 168);
+            this.NmUpDnPropertyIdStart.Maximum = new decimal(new int[] {
             128,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.NmUpDnPropertyIdStart.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(67, 36);
-            this.numericUpDown1.TabIndex = 269;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.NmUpDnPropertyIdStart.Name = "NmUpDnPropertyIdStart";
+            this.NmUpDnPropertyIdStart.Size = new System.Drawing.Size(67, 36);
+            this.NmUpDnPropertyIdStart.TabIndex = 269;
+            this.NmUpDnPropertyIdStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NmUpDnPropertyIdStart.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.Test);
+            this.NmUpDnPropertyIdStart.ValueChanged += new System.EventHandler(this.NmUpDnPropertyIdStart_ValueChanged);
             // 
             // NumUpDwnQrAllDigit
             // 
@@ -864,34 +870,35 @@
             this.NumUpDwnQrAllDigit.TabIndex = 268;
             this.NumUpDwnQrAllDigit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NumUpDwnQrAllDigit.Value = new decimal(new int[] {
-            1,
+            47,
             0,
             0,
             0});
+            this.NumUpDwnQrAllDigit.ValueChanged += new System.EventHandler(this.NumUpDwnQrAllDigit_ValueChanged);
             // 
-            // comboBox2
+            // CmbDoubleFeed
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.IntegralHeight = false;
-            this.comboBox2.ItemHeight = 28;
-            this.comboBox2.Location = new System.Drawing.Point(1043, 66);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(105, 36);
-            this.comboBox2.TabIndex = 243;
+            this.CmbDoubleFeed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDoubleFeed.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbDoubleFeed.FormattingEnabled = true;
+            this.CmbDoubleFeed.IntegralHeight = false;
+            this.CmbDoubleFeed.ItemHeight = 28;
+            this.CmbDoubleFeed.Location = new System.Drawing.Point(1043, 66);
+            this.CmbDoubleFeed.Name = "CmbDoubleFeed";
+            this.CmbDoubleFeed.Size = new System.Drawing.Size(105, 36);
+            this.CmbDoubleFeed.TabIndex = 243;
             // 
-            // comboBox1
+            // CmbDuplication
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.ItemHeight = 28;
-            this.comboBox1.Location = new System.Drawing.Point(1043, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(105, 36);
-            this.comboBox1.TabIndex = 242;
+            this.CmbDuplication.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDuplication.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbDuplication.FormattingEnabled = true;
+            this.CmbDuplication.IntegralHeight = false;
+            this.CmbDuplication.ItemHeight = 28;
+            this.CmbDuplication.Location = new System.Drawing.Point(1043, 22);
+            this.CmbDuplication.Name = "CmbDuplication";
+            this.CmbDuplication.Size = new System.Drawing.Size(105, 36);
+            this.CmbDuplication.TabIndex = 242;
             // 
             // label14
             // 
@@ -1056,7 +1063,7 @@
             // 
             // label9
             // 
-            this.label9.BackColor = System.Drawing.Color.Lime;
+            this.label9.BackColor = System.Drawing.Color.LimeGreen;
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label9.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label9.ForeColor = System.Drawing.Color.Black;
@@ -1702,14 +1709,14 @@
             this.TabPage1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnFileTypeKeta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnFileTypeStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPostalDateKeta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPostalDateStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdKeta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).EndInit();
             this.TabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1758,8 +1765,8 @@
         internal System.Windows.Forms.Button button1;
         internal System.Windows.Forms.Label label14;
         internal System.Windows.Forms.Label label16;
-        internal System.Windows.Forms.ComboBox comboBox2;
-        internal System.Windows.Forms.ComboBox comboBox1;
+        internal System.Windows.Forms.ComboBox CmbDoubleFeed;
+        internal System.Windows.Forms.ComboBox CmbDuplication;
         internal System.Windows.Forms.ComboBox comboBox3;
         internal System.Windows.Forms.Label label22;
         internal System.Windows.Forms.Label label21;
@@ -1786,22 +1793,22 @@
         private System.Windows.Forms.TextBox textBox18;
         internal System.Windows.Forms.NumericUpDown NumUpDwnQrAllDigit;
         internal System.Windows.Forms.Label label27;
-        internal System.Windows.Forms.NumericUpDown numericUpDown2;
-        internal System.Windows.Forms.NumericUpDown numericUpDown1;
+        internal System.Windows.Forms.NumericUpDown NmUpDnPropertyIdKeta;
+        internal System.Windows.Forms.NumericUpDown NmUpDnPropertyIdStart;
         internal System.Windows.Forms.Label label28;
         private System.Windows.Forms.GroupBox groupBox1;
         internal System.Windows.Forms.Label label34;
         internal System.Windows.Forms.Label label35;
-        internal System.Windows.Forms.NumericUpDown numericUpDown7;
-        internal System.Windows.Forms.NumericUpDown numericUpDown8;
+        internal System.Windows.Forms.NumericUpDown NmUpDnManagementNoKeta;
+        internal System.Windows.Forms.NumericUpDown NmUpDnManagementNoStart;
         internal System.Windows.Forms.Label label32;
         internal System.Windows.Forms.Label label33;
-        internal System.Windows.Forms.NumericUpDown numericUpDown5;
-        internal System.Windows.Forms.NumericUpDown numericUpDown6;
+        internal System.Windows.Forms.NumericUpDown NmUpDnFileTypeKeta;
+        internal System.Windows.Forms.NumericUpDown NmUpDnFileTypeStart;
         internal System.Windows.Forms.Label label30;
         internal System.Windows.Forms.Label label31;
-        internal System.Windows.Forms.NumericUpDown numericUpDown3;
-        internal System.Windows.Forms.NumericUpDown numericUpDown4;
+        internal System.Windows.Forms.NumericUpDown NmUpDnPostalDateKeta;
+        internal System.Windows.Forms.NumericUpDown NmUpDnPostalDateStart;
         private System.Windows.Forms.GroupBox groupBox2;
         internal System.Windows.Forms.Label label10;
         internal System.Windows.Forms.ComboBox comboBox11;
