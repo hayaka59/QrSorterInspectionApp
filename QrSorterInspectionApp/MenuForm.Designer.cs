@@ -33,7 +33,7 @@
             this.BtnEnd = new System.Windows.Forms.Button();
             this.BtnLogOut = new System.Windows.Forms.Button();
             this.BtnLogManagement = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.BtnMaintenance = new System.Windows.Forms.Button();
             this.BtnAccountSet = new System.Windows.Forms.Button();
             this.BtnSetting = new System.Windows.Forms.Button();
             this.BtnQrSorterInspect = new System.Windows.Forms.Button();
@@ -104,18 +104,19 @@
             this.BtnLogManagement.UseVisualStyleBackColor = true;
             this.BtnLogManagement.Click += new System.EventHandler(this.BtnLogManagement_Click);
             // 
-            // button5
+            // BtnMaintenance
             // 
-            this.button5.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button5.Image = global::QrSorterInspectionApp.Properties.Resources.maintenance_icon;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.Location = new System.Drawing.Point(194, 520);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(750, 200);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "保守";
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button5.UseVisualStyleBackColor = true;
+            this.BtnMaintenance.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnMaintenance.Image = global::QrSorterInspectionApp.Properties.Resources.maintenance_icon;
+            this.BtnMaintenance.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnMaintenance.Location = new System.Drawing.Point(194, 520);
+            this.BtnMaintenance.Name = "BtnMaintenance";
+            this.BtnMaintenance.Size = new System.Drawing.Size(750, 200);
+            this.BtnMaintenance.TabIndex = 16;
+            this.BtnMaintenance.Text = "保守";
+            this.BtnMaintenance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnMaintenance.UseVisualStyleBackColor = true;
+            this.BtnMaintenance.Click += new System.EventHandler(this.BtnMaintenance_Click);
             // 
             // BtnAccountSet
             // 
@@ -168,7 +169,7 @@
             this.Controls.Add(this.BtnEnd);
             this.Controls.Add(this.BtnLogOut);
             this.Controls.Add(this.BtnLogManagement);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.BtnMaintenance);
             this.Controls.Add(this.BtnAccountSet);
             this.Controls.Add(this.BtnSetting);
             this.Controls.Add(this.BtnQrSorterInspect);
@@ -193,7 +194,7 @@
         private System.Windows.Forms.Button BtnSetting;
         private System.Windows.Forms.Button BtnAccountSet;
         private System.Windows.Forms.Button BtnLogManagement;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button BtnMaintenance;
         private System.Windows.Forms.Button BtnEnd;
         private System.Windows.Forms.Button BtnLogOut;
     }
