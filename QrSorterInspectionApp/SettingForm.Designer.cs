@@ -493,7 +493,7 @@
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(82, 36);
             this.textBox17.TabIndex = 260;
-            this.textBox17.Text = "999";
+            this.textBox17.Text = "50";
             this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox18
@@ -504,7 +504,7 @@
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(82, 36);
             this.textBox18.TabIndex = 261;
-            this.textBox18.Text = "999";
+            this.textBox18.Text = "50";
             this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox19
@@ -515,7 +515,7 @@
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(82, 36);
             this.textBox19.TabIndex = 262;
-            this.textBox19.Text = "999";
+            this.textBox19.Text = "50";
             this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox20
@@ -526,7 +526,7 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(82, 36);
             this.textBox20.TabIndex = 263;
-            this.textBox20.Text = "999";
+            this.textBox20.Text = "50";
             this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label25
