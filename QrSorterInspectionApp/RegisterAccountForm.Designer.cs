@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.LblTitle = new System.Windows.Forms.Label();
-            this.BtnSave = new System.Windows.Forms.Button();
-            this.BtnClose = new System.Windows.Forms.Button();
             this.LblVersion = new System.Windows.Forms.Label();
             this.LsvAccount = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
@@ -42,6 +40,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CmbAuthority = new System.Windows.Forms.ComboBox();
+            this.BtnSave = new System.Windows.Forms.Button();
+            this.BtnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblTitle
@@ -55,34 +55,6 @@
             this.LblTitle.TabIndex = 236;
             this.LblTitle.Text = "SV・OP設定";
             this.LblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnSave
-            // 
-            this.BtnSave.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnSave.Image = global::QrSorterInspectionApp.Properties.Resources.save_icon;
-            this.BtnSave.Location = new System.Drawing.Point(330, 906);
-            this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(205, 50);
-            this.BtnSave.TabIndex = 238;
-            this.BtnSave.Text = "保存";
-            this.BtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnSave.UseVisualStyleBackColor = true;
-            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1214, 906);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(205, 50);
-            this.BtnClose.TabIndex = 237;
-            this.BtnClose.Text = "戻る";
-            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // LblVersion
             // 
@@ -210,10 +182,38 @@
             this.CmbAuthority.FormattingEnabled = true;
             this.CmbAuthority.IntegralHeight = false;
             this.CmbAuthority.ItemHeight = 28;
-            this.CmbAuthority.Location = new System.Drawing.Point(1119, 304);
+            this.CmbAuthority.Location = new System.Drawing.Point(1120, 304);
             this.CmbAuthority.Name = "CmbAuthority";
             this.CmbAuthority.Size = new System.Drawing.Size(299, 36);
             this.CmbAuthority.TabIndex = 257;
+            // 
+            // BtnSave
+            // 
+            this.BtnSave.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnSave.Image = global::QrSorterInspectionApp.Properties.Resources.save_icon;
+            this.BtnSave.Location = new System.Drawing.Point(330, 906);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(205, 50);
+            this.BtnSave.TabIndex = 238;
+            this.BtnSave.Text = "保存";
+            this.BtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
+            this.BtnClose.Location = new System.Drawing.Point(1214, 906);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(205, 50);
+            this.BtnClose.TabIndex = 237;
+            this.BtnClose.Text = "戻る";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // RegisterAccountForm
             // 
