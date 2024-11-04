@@ -34,7 +34,7 @@
             this.BtnLogOut = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BtnAccountSet = new System.Windows.Forms.Button();
             this.BtnSetting = new System.Windows.Forms.Button();
             this.BtnQrSorterInspect = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -116,18 +116,19 @@
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // BtnAccountSet
             // 
-            this.button3.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button3.Image = global::QrSorterInspectionApp.Properties.Resources.sv_op;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.Location = new System.Drawing.Point(961, 300);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(750, 200);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "SV・OP";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnAccountSet.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnAccountSet.Image = global::QrSorterInspectionApp.Properties.Resources.sv_op;
+            this.BtnAccountSet.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnAccountSet.Location = new System.Drawing.Point(961, 300);
+            this.BtnAccountSet.Name = "BtnAccountSet";
+            this.BtnAccountSet.Size = new System.Drawing.Size(750, 200);
+            this.BtnAccountSet.TabIndex = 15;
+            this.BtnAccountSet.Text = "SV・OP";
+            this.BtnAccountSet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.BtnAccountSet.UseVisualStyleBackColor = true;
+            this.BtnAccountSet.Click += new System.EventHandler(this.BtnAccountSet_Click);
             // 
             // BtnSetting
             // 
@@ -167,7 +168,7 @@
             this.Controls.Add(this.BtnLogOut);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.BtnAccountSet);
             this.Controls.Add(this.BtnSetting);
             this.Controls.Add(this.BtnQrSorterInspect);
             this.Controls.Add(this.LblVersion);
@@ -189,7 +190,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnQrSorterInspect;
         private System.Windows.Forms.Button BtnSetting;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BtnAccountSet;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button BtnEnd;
