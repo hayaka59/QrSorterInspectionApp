@@ -113,5 +113,25 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【BtnAccountSet_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnLogManagement_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CommonModule.OutPutLogFile("■メニュー画面：「ログ管理」ボタンクリック");
+                LogListForm form = new LogListForm();
+                form.Show(this);
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnLogManagement_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
