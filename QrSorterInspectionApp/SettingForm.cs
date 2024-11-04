@@ -51,11 +51,23 @@ namespace QrSorterInspectionApp
                 CmbMedia.Items.Add("封筒");
                 CmbMedia.SelectedIndex = 0;
 
+                CmbDuplication.Items.Clear();
+                CmbDuplication.Items.Add("ON");
+                CmbDuplication.Items.Add("OFF");
+                CmbDuplication.SelectedIndex = 0;
+
+                CmbDoubleFeed.Items.Clear();
+                CmbDoubleFeed.Items.Add("ON");
+                CmbDoubleFeed.Items.Add("OFF");
+                CmbDoubleFeed.SelectedIndex = 0;
+
                 RchTxtQrInfo.Text = "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567";
+
+                SetColorForQrData();
             }
             catch (Exception ex)
             {
@@ -106,9 +118,9 @@ namespace QrSorterInspectionApp
             string[] sArray;
             try
             {
-                sArray = LsbJobListSorter.Text.Split(' ');
-                LblJobName.Text = sArray[0];
-                LblMedia.Text = sArray[1];
+                sArray = LsbJobListFeeder.Text.Split(' ');
+                TxtJobName.Text = sArray[0];
+                CmbMedia.Text = sArray[1];
 
             }
             catch (Exception ex)
@@ -117,7 +129,7 @@ namespace QrSorterInspectionApp
             }
         }
 
-        private void Test(object sender, EventArgs e)
+        private void SetColorForQrData()
         {
             try
             {
@@ -125,16 +137,84 @@ namespace QrSorterInspectionApp
                 RchTxtQrInfo.Select(0, RchTxtQrInfo.Text.Length);
                 RchTxtQrInfo.SelectionBackColor = Color.White;
                 RchTxtQrInfo.SelectionColor = Color.Black;
-
-                // ファクトリー番号
-                RchTxtQrInfo.SelectionStart = decimal.ToInt32(numericUpDown1.Value) - 1;
-                RchTxtQrInfo.SelectionLength = decimal.ToInt32(numericUpDown2.Value);
-                RchTxtQrInfo.SelectionBackColor = Color.LightPink;
+                // 物件ID
+                RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnPropertyIdStart.Value) - 1;
+                RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnPropertyIdKeta.Value);
+                RchTxtQrInfo.SelectionBackColor = Color.LimeGreen;
+                RchTxtQrInfo.SelectionColor = Color.Black;
+                // 局出し日
+                RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnPostalDateStart.Value) - 1;
+                RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnPostalDateKeta.Value);
+                RchTxtQrInfo.SelectionBackColor = Color.SkyBlue;
+                RchTxtQrInfo.SelectionColor = Color.Black;
+                // ファイル区分
+                RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnFileTypeStart.Value) - 1;
+                RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnFileTypeKeta.Value);
+                RchTxtQrInfo.SelectionBackColor = Color.Orange;
+                RchTxtQrInfo.SelectionColor = Color.Black;
+                // 物件ID
+                RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnManagementNoStart.Value) - 1;
+                RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnManagementNoKeta.Value);
+                RchTxtQrInfo.SelectionBackColor = Color.Red;
                 RchTxtQrInfo.SelectionColor = Color.Black;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【Test】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【SetColorForQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void NmUpDnPropertyIdStart_ValueChanged(object sender, EventArgs e)
+        {
+            SetColorForQrData();
+        }
+
+        private void NmUpDnPropertyIdKeta_ValueChanged(object sender, EventArgs e)
+        {
+            SetColorForQrData();
+        }
+
+        private void NmUpDnPostalDateStart_ValueChanged(object sender, EventArgs e)
+        {
+            SetColorForQrData();
+        }
+
+        private void NmUpDnPostalDateKeta_ValueChanged(object sender, EventArgs e)
+        {
+            SetColorForQrData();
+        }
+
+        private void NmUpDnFileTypeStart_ValueChanged(object sender, EventArgs e)
+        {
+            SetColorForQrData();
+        }
+
+        private void NmUpDnFileTypeKeta_ValueChanged(object sender, EventArgs e)
+        {
+            SetColorForQrData();
+        }
+
+        private void NmUpDnManagementNoStart_ValueChanged(object sender, EventArgs e)
+        {
+            SetColorForQrData();
+        }
+
+        private void NmUpDnManagementNoKeta_ValueChanged(object sender, EventArgs e)
+        {
+            SetColorForQrData();
+        }
+
+        private void NumUpDwnQrAllDigit_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string sData = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+                RchTxtQrInfo.Text = sData.Substring(0, decimal.ToInt32(NumUpDwnQrAllDigit.Value));
+                SetColorForQrData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SetColorForQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
