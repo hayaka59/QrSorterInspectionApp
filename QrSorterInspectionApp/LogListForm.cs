@@ -59,5 +59,44 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【BtnClose_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void CmbLogType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CmbLogType.SelectedIndex == 0) {
+                    LsbLogList.Items.Clear();
+                    LsbLogList.Items.Add("機械ログ_2024年10月28日_XXXXXXXXXXXX");
+                    LsbLogList.Items.Add("機械ログ_2024年10月29日_YYYYYYYYYYYY");
+                    LsbLogList.Items.Add("機械ログ_2024年10月30日_ZZZZZZZZZZZZ");
+
+                }
+                else
+                {
+                    LsbLogList.Items.Clear();
+                    LsbLogList.Items.Add("検査ログ_2024年10月28日_09時01分12秒");
+                    LsbLogList.Items.Add("検査ログ_2024年10月29日_09時02分24秒");
+                    LsbLogList.Items.Add("検査ログ_2024年10月30日_09時03分40秒");
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CmbLogType_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LsbLogList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string SelectFileName = LsbLogList.SelectedItems[0].ToString();
+                LblContent.Text = "選択したファイル（" + SelectFileName + "）" + Environment.NewLine + "の内容を表示する";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【LsbLogList_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
