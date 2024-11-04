@@ -54,22 +54,15 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.BtnStopInspection = new System.Windows.Forms.Button();
-            this.BtnClose = new System.Windows.Forms.Button();
-            this.BtnStartInspection = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
             this.LblBox3 = new System.Windows.Forms.Label();
             this.LblBox1 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.LblBox4 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.LblBox2 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -88,10 +81,17 @@
             this.LblTotalCount = new System.Windows.Forms.Label();
             this.LblOKCount = new System.Windows.Forms.Label();
             this.LblNGCount = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnStopInspection = new System.Windows.Forms.Button();
+            this.BtnClose = new System.Windows.Forms.Button();
+            this.BtnStartInspection = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -285,6 +285,8 @@
             // LsvOKHistory
             // 
             this.LsvOKHistory.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsvOKHistory.FullRowSelect = true;
+            this.LsvOKHistory.GridLines = true;
             this.LsvOKHistory.HideSelection = false;
             this.LsvOKHistory.Location = new System.Drawing.Point(61, 365);
             this.LsvOKHistory.Name = "LsvOKHistory";
@@ -295,6 +297,8 @@
             // LsvNGHistory
             // 
             this.LsvNGHistory.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsvNGHistory.FullRowSelect = true;
+            this.LsvNGHistory.GridLines = true;
             this.LsvNGHistory.HideSelection = false;
             this.LsvNGHistory.Location = new System.Drawing.Point(650, 365);
             this.LsvNGHistory.Name = "LsvNGHistory";
@@ -380,48 +384,6 @@
             this.label14.Text = "ポケット１";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BtnStopInspection
-            // 
-            this.BtnStopInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnStopInspection.Image = global::QrSorterInspectionApp.Properties.Resources.standing;
-            this.BtnStopInspection.Location = new System.Drawing.Point(280, 972);
-            this.BtnStopInspection.Name = "BtnStopInspection";
-            this.BtnStopInspection.Size = new System.Drawing.Size(205, 50);
-            this.BtnStopInspection.TabIndex = 182;
-            this.BtnStopInspection.Text = "検査終了";
-            this.BtnStopInspection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnStopInspection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnStopInspection.UseVisualStyleBackColor = true;
-            this.BtnStopInspection.Click += new System.EventHandler(this.BtnStopInspection_Click);
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(504, 972);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(205, 50);
-            this.BtnClose.TabIndex = 181;
-            this.BtnClose.Text = "戻る";
-            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
-            // BtnStartInspection
-            // 
-            this.BtnStartInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnStartInspection.Image = global::QrSorterInspectionApp.Properties.Resources.running_icon;
-            this.BtnStartInspection.Location = new System.Drawing.Point(61, 972);
-            this.BtnStartInspection.Name = "BtnStartInspection";
-            this.BtnStartInspection.Size = new System.Drawing.Size(205, 50);
-            this.BtnStartInspection.TabIndex = 180;
-            this.BtnStartInspection.Text = "検査開始";
-            this.BtnStartInspection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnStartInspection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnStartInspection.UseVisualStyleBackColor = true;
-            this.BtnStartInspection.Click += new System.EventHandler(this.BtnStartInspection_Click);
-            // 
             // label15
             // 
             this.label15.BackColor = System.Drawing.Color.LightGreen;
@@ -434,16 +396,6 @@
             this.label15.TabIndex = 257;
             this.label15.Text = "検査中";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1237, 365);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(280, 178);
-            this.pictureBox1.TabIndex = 260;
-            this.pictureBox1.TabStop = false;
             // 
             // label20
             // 
@@ -493,16 +445,6 @@
             this.label18.Text = "99";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1542, 365);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(280, 178);
-            this.pictureBox2.TabIndex = 263;
-            this.pictureBox2.TabStop = false;
-            // 
             // LblBox4
             // 
             this.LblBox4.BackColor = System.Drawing.Color.White;
@@ -527,16 +469,6 @@
             this.label23.Text = "99";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1237, 589);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(280, 178);
-            this.pictureBox3.TabIndex = 266;
-            this.pictureBox3.TabStop = false;
-            // 
             // LblBox2
             // 
             this.LblBox2.BackColor = System.Drawing.Color.White;
@@ -560,16 +492,6 @@
             this.label25.TabIndex = 270;
             this.label25.Text = "99";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1542, 589);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(280, 178);
-            this.pictureBox4.TabIndex = 269;
-            this.pictureBox4.TabStop = false;
             // 
             // label26
             // 
@@ -786,6 +708,88 @@
             this.LblNGCount.Text = "99,999";
             this.LblNGCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(1542, 589);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(280, 178);
+            this.pictureBox4.TabIndex = 269;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1237, 589);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(280, 178);
+            this.pictureBox3.TabIndex = 266;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1542, 365);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(280, 178);
+            this.pictureBox2.TabIndex = 263;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1237, 365);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(280, 178);
+            this.pictureBox1.TabIndex = 260;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BtnStopInspection
+            // 
+            this.BtnStopInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnStopInspection.Image = global::QrSorterInspectionApp.Properties.Resources.standing;
+            this.BtnStopInspection.Location = new System.Drawing.Point(280, 972);
+            this.BtnStopInspection.Name = "BtnStopInspection";
+            this.BtnStopInspection.Size = new System.Drawing.Size(205, 50);
+            this.BtnStopInspection.TabIndex = 182;
+            this.BtnStopInspection.Text = "検査終了";
+            this.BtnStopInspection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnStopInspection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnStopInspection.UseVisualStyleBackColor = true;
+            this.BtnStopInspection.Click += new System.EventHandler(this.BtnStopInspection_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
+            this.BtnClose.Location = new System.Drawing.Point(504, 972);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(205, 50);
+            this.BtnClose.TabIndex = 181;
+            this.BtnClose.Text = "戻る";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // BtnStartInspection
+            // 
+            this.BtnStartInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnStartInspection.Image = global::QrSorterInspectionApp.Properties.Resources.running_icon;
+            this.BtnStartInspection.Location = new System.Drawing.Point(61, 972);
+            this.BtnStartInspection.Name = "BtnStartInspection";
+            this.BtnStartInspection.Size = new System.Drawing.Size(205, 50);
+            this.BtnStartInspection.TabIndex = 180;
+            this.BtnStartInspection.Text = "検査開始";
+            this.BtnStartInspection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnStartInspection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnStartInspection.UseVisualStyleBackColor = true;
+            this.BtnStartInspection.Click += new System.EventHandler(this.BtnStartInspection_Click);
+            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -853,12 +857,12 @@
             this.MinimizeBox = false;
             this.Name = "QrSorterInspectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QrSorterInspectionForm";
+            this.Text = "QRフィーダー＆ソーター検査画面";
             this.Load += new System.EventHandler(this.QrSorterInspectionForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

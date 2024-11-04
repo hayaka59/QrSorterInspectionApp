@@ -68,6 +68,12 @@
     <Compile Include="QrSorterInspectionForm.Designer.cs">
       <DependentUpon>QrSorterInspectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegisterAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterAccountForm.Designer.cs">
+      <DependentUpon>RegisterAccountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="QrSorterInspectionForm.resx">
       <DependentUpon>QrSorterInspectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterAccountForm.resx">
+      <DependentUpon>RegisterAccountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
