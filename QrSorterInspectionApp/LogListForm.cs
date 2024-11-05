@@ -34,6 +34,7 @@ namespace QrSorterInspectionApp
                 CmbLogType.Items.Add("検査ログ");
                 CmbLogType.SelectedIndex = 0;
 
+                LblContent.Text = "";
             }
             catch (Exception ex)
             {
@@ -90,6 +91,10 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                if (LsbLogList.SelectedItem == null)
+                {
+                    return;
+                }
                 string SelectFileName = LsbLogList.SelectedItems[0].ToString();
                 LblContent.Text = "選択したファイル（" + SelectFileName + "）" + Environment.NewLine + "の内容を表示する";
             }
