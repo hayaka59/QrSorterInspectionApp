@@ -67,6 +67,62 @@ namespace QrSorterInspectionApp
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567";
 
+
+                CmbPocket1.Items.Clear();
+                CmbPocket2.Items.Clear();
+                CmbPocket3.Items.Clear();
+                CmbPocket4.Items.Clear();
+                CmbPocket1.Items.Add("グループ1");
+                CmbPocket1.Items.Add("グループ2");
+                CmbPocket1.Items.Add("グループ3");
+                CmbPocket1.Items.Add("グループ4");
+                CmbPocket1.SelectedIndex = 0;
+                CmbPocket2.Items.Add("グループ1");
+                CmbPocket2.Items.Add("グループ2");
+                CmbPocket2.Items.Add("グループ3");
+                CmbPocket2.Items.Add("グループ4");
+                CmbPocket2.SelectedIndex = 0;
+                CmbPocket3.Items.Add("グループ1");
+                CmbPocket3.Items.Add("グループ2");
+                CmbPocket3.Items.Add("グループ3");
+                CmbPocket3.Items.Add("グループ4");
+                CmbPocket3.SelectedIndex = 0;
+                CmbPocket4.Items.Add("グループ1");
+                CmbPocket4.Items.Add("グループ2");
+                CmbPocket4.Items.Add("グループ3");
+                CmbPocket4.Items.Add("グループ4");
+                CmbPocket4.SelectedIndex = 0;
+
+                CmbQrItem1.Items.Clear();
+                CmbQrItem2.Items.Clear();
+                CmbQrItem3.Items.Clear();
+                CmbQrItem4.Items.Clear();
+                CmbQrItem1.Items.Add("物件ID");
+                CmbQrItem1.Items.Add("局出し日");
+                CmbQrItem1.Items.Add("ファイル区分");
+                CmbQrItem1.Items.Add("管理No");
+                CmbQrItem1.SelectedIndex = 0;
+
+                CmbQrItem2.Items.Add("物件ID");
+                CmbQrItem2.Items.Add("局出し日");
+                CmbQrItem2.Items.Add("ファイル区分");
+                CmbQrItem2.Items.Add("管理No");
+                CmbQrItem2.SelectedIndex = 0;
+
+                CmbQrItem3.Items.Add("物件ID");
+                CmbQrItem3.Items.Add("局出し日");
+                CmbQrItem3.Items.Add("ファイル区分");
+                CmbQrItem3.Items.Add("管理No");
+                CmbQrItem3.SelectedIndex = 0;
+
+                CmbQrItem4.Items.Add("物件ID");
+                CmbQrItem4.Items.Add("局出し日");
+                CmbQrItem4.Items.Add("ファイル区分");
+                CmbQrItem4.Items.Add("管理No");
+                CmbQrItem4.SelectedIndex = 0;
+
+
+
                 SetColorForQrData();
             }
             catch (Exception ex)
