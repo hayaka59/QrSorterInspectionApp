@@ -40,6 +40,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CmbAuthority = new System.Windows.Forms.ComboBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -98,7 +101,7 @@
             this.TxtJobName.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.TxtJobName.Location = new System.Drawing.Point(1119, 147);
             this.TxtJobName.Name = "TxtJobName";
-            this.TxtJobName.Size = new System.Drawing.Size(300, 36);
+            this.TxtJobName.Size = new System.Drawing.Size(353, 36);
             this.TxtJobName.TabIndex = 249;
             this.TxtJobName.Text = "taro toppan";
             // 
@@ -121,7 +124,7 @@
             this.textBox1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBox1.Location = new System.Drawing.Point(1119, 198);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 36);
+            this.textBox1.Size = new System.Drawing.Size(353, 36);
             this.textBox1.TabIndex = 253;
             this.textBox1.Text = "凸版 太郎";
             // 
@@ -145,7 +148,7 @@
             this.textBox2.Location = new System.Drawing.Point(1119, 250);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(300, 36);
+            this.textBox2.Size = new System.Drawing.Size(353, 36);
             this.textBox2.TabIndex = 255;
             this.textBox2.Text = "12345678";
             // 
@@ -184,8 +187,47 @@
             this.CmbAuthority.ItemHeight = 28;
             this.CmbAuthority.Location = new System.Drawing.Point(1120, 304);
             this.CmbAuthority.Name = "CmbAuthority";
-            this.CmbAuthority.Size = new System.Drawing.Size(299, 36);
+            this.CmbAuthority.Size = new System.Drawing.Size(352, 36);
             this.CmbAuthority.TabIndex = 257;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button3.Image = global::QrSorterInspectionApp.Properties.Resources.delete;
+            this.button3.Location = new System.Drawing.Point(1302, 396);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(170, 40);
+            this.button3.TabIndex = 260;
+            this.button3.Text = "削除";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button2.Image = global::QrSorterInspectionApp.Properties.Resources.update;
+            this.button2.Location = new System.Drawing.Point(1126, 396);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(170, 40);
+            this.button2.TabIndex = 259;
+            this.button2.Text = "編集";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button1.Image = global::QrSorterInspectionApp.Properties.Resources.new_plus;
+            this.button1.Location = new System.Drawing.Point(950, 396);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 40);
+            this.button1.TabIndex = 258;
+            this.button1.Text = "追加";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // BtnSave
             // 
@@ -199,13 +241,14 @@
             this.BtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Visible = false;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // BtnClose
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1214, 906);
+            this.BtnClose.Location = new System.Drawing.Point(1504, 906);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(205, 50);
             this.BtnClose.TabIndex = 237;
@@ -221,6 +264,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.CmbAuthority);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
@@ -263,5 +309,8 @@
         internal System.Windows.Forms.Label label2;
         internal System.Windows.Forms.Label label3;
         internal System.Windows.Forms.ComboBox CmbAuthority;
+        internal System.Windows.Forms.Button button1;
+        internal System.Windows.Forms.Button button2;
+        internal System.Windows.Forms.Button button3;
     }
 }
