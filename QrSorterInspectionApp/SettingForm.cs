@@ -66,7 +66,7 @@ namespace QrSorterInspectionApp
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567";
-
+                RchTxtQrInfoForSorter.Text = RchTxtQrInfo.Text;
 
                 CmbPocket1.Items.Clear();
                 CmbPocket2.Items.Clear();
@@ -120,8 +120,6 @@ namespace QrSorterInspectionApp
                 CmbQrItem4.Items.Add("ファイル区分");
                 CmbQrItem4.Items.Add("管理No");
                 CmbQrItem4.SelectedIndex = 0;
-
-
 
                 SetColorForQrData();
             }
@@ -189,30 +187,68 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                SetColorForQrDataSub(RchTxtQrInfo);
+                SetColorForQrDataSub(RchTxtQrInfoForSorter);
+
+                //// QR全体
+                //RchTxtQrInfo.Select(0, RchTxtQrInfo.Text.Length);
+                //RchTxtQrInfo.SelectionBackColor = Color.White;
+                //RchTxtQrInfo.SelectionColor = Color.Black;
+                //// 物件ID
+                //RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnPropertyIdStart.Value) - 1;
+                //RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnPropertyIdKeta.Value);
+                //RchTxtQrInfo.SelectionBackColor = Color.LimeGreen;
+                //RchTxtQrInfo.SelectionColor = Color.Black;
+                //// 局出し日
+                //RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnPostalDateStart.Value) - 1;
+                //RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnPostalDateKeta.Value);
+                //RchTxtQrInfo.SelectionBackColor = Color.SkyBlue;
+                //RchTxtQrInfo.SelectionColor = Color.Black;
+                //// ファイル区分
+                //RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnFileTypeStart.Value) - 1;
+                //RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnFileTypeKeta.Value);
+                //RchTxtQrInfo.SelectionBackColor = Color.Orange;
+                //RchTxtQrInfo.SelectionColor = Color.Black;
+                //// 物件ID
+                //RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnManagementNoStart.Value) - 1;
+                //RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnManagementNoKeta.Value);
+                //RchTxtQrInfo.SelectionBackColor = Color.Red;
+                //RchTxtQrInfo.SelectionColor = Color.Black;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SetColorForQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SetColorForQrDataSub(RichTextBox richTextBox)
+        {
+            try
+            {
                 // QR全体
-                RchTxtQrInfo.Select(0, RchTxtQrInfo.Text.Length);
-                RchTxtQrInfo.SelectionBackColor = Color.White;
-                RchTxtQrInfo.SelectionColor = Color.Black;
+                richTextBox.Select(0, RchTxtQrInfo.Text.Length);
+                richTextBox.SelectionBackColor = Color.White;
+                richTextBox.SelectionColor = Color.Black;
                 // 物件ID
-                RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnPropertyIdStart.Value) - 1;
-                RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnPropertyIdKeta.Value);
-                RchTxtQrInfo.SelectionBackColor = Color.LimeGreen;
-                RchTxtQrInfo.SelectionColor = Color.Black;
+                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnPropertyIdStart.Value) - 1;
+                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnPropertyIdKeta.Value);
+                richTextBox.SelectionBackColor = Color.LimeGreen;
+                richTextBox.SelectionColor = Color.Black;
                 // 局出し日
-                RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnPostalDateStart.Value) - 1;
-                RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnPostalDateKeta.Value);
-                RchTxtQrInfo.SelectionBackColor = Color.SkyBlue;
-                RchTxtQrInfo.SelectionColor = Color.Black;
+                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnPostalDateStart.Value) - 1;
+                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnPostalDateKeta.Value);
+                richTextBox.SelectionBackColor = Color.SkyBlue;
+                richTextBox.SelectionColor = Color.Black;
                 // ファイル区分
-                RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnFileTypeStart.Value) - 1;
-                RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnFileTypeKeta.Value);
-                RchTxtQrInfo.SelectionBackColor = Color.Orange;
-                RchTxtQrInfo.SelectionColor = Color.Black;
+                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnFileTypeStart.Value) - 1;
+                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnFileTypeKeta.Value);
+                richTextBox.SelectionBackColor = Color.Orange;
+                richTextBox.SelectionColor = Color.Black;
                 // 物件ID
-                RchTxtQrInfo.SelectionStart = decimal.ToInt32(NmUpDnManagementNoStart.Value) - 1;
-                RchTxtQrInfo.SelectionLength = decimal.ToInt32(NmUpDnManagementNoKeta.Value);
-                RchTxtQrInfo.SelectionBackColor = Color.Red;
-                RchTxtQrInfo.SelectionColor = Color.Black;
+                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnManagementNoStart.Value) - 1;
+                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnManagementNoKeta.Value);
+                richTextBox.SelectionBackColor = Color.Red;
+                richTextBox.SelectionColor = Color.Black;
             }
             catch (Exception ex)
             {
@@ -266,6 +302,8 @@ namespace QrSorterInspectionApp
             {
                 string sData = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
                 RchTxtQrInfo.Text = sData.Substring(0, decimal.ToInt32(NumUpDwnQrAllDigit.Value));
+                RchTxtQrInfoForSorter.Text = sData.Substring(0, decimal.ToInt32(NumUpDwnQrAllDigit.Value));
+
                 SetColorForQrData();
             }
             catch (Exception ex)

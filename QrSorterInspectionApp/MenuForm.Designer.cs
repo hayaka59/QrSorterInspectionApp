@@ -49,6 +49,7 @@
             this.LblVersion.TabIndex = 12;
             this.LblVersion.Text = "LblVersion";
             this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblVersion.DoubleClick += new System.EventHandler(this.LblVersion_DoubleClick);
             // 
             // label1
             // 
