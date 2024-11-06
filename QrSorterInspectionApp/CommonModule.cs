@@ -94,5 +94,58 @@ namespace QrSorterInspectionApp
             }
         }
 
+
+        /// <summary>
+        /// ユーザーアカウントファイルの読込処理
+        /// </summary>
+        public static void ReadUserAccountFile()
+        {
+            string sReadDataPath;
+            string sData;
+
+            try
+            {
+                sReadDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_USER_ACCOUNT_FILE_NAME;
+
+                PubConstClass.lstUserAccount.Clear();
+                using (StreamReader sr = new StreamReader(sReadDataPath, Encoding.Default))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        sData = sr.ReadLine();
+                        PubConstClass.lstUserAccount.Add(sData);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ReadUserAccountFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        public static void WriteUserAccountFile()
+        {
+            string sPutDataPath;
+
+            try
+            {
+                sPutDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_USER_ACCOUNT_FILE_NAME;
+
+                // 上書モードで書き込む
+                using (StreamWriter sw = new StreamWriter(sPutDataPath, false, Encoding.Default))
+                {
+                    foreach (var item in PubConstClass.lstUserAccount)
+                    {
+                        sw.WriteLine(item);
+                    }                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, "【WriteUserAccountFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
