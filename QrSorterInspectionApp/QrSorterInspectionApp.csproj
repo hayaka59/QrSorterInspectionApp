@@ -233,5 +233,14 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\new_plus.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
