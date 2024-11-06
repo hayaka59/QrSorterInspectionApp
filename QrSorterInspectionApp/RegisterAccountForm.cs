@@ -174,7 +174,17 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                string sData = "";
+                sData += TxtId.Text + ",";
+                sData += TxtName.Text + ",";
+                sData += CmbAuthority.Text + ",";
+                sData += TxtPassword.Text;
 
+                int idx = LsvAccount.SelectedItems[0].Index;
+                PubConstClass.lstUserAccount[idx] = sData;
+
+                CommonModule.WriteUserAccountFile();
+                DisplayAccountAll();
             }
             catch (Exception ex)
             {
@@ -191,7 +201,11 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                int idx = LsvAccount.SelectedItems[0].Index;
+                PubConstClass.lstUserAccount.RemoveAt(idx);
 
+                CommonModule.WriteUserAccountFile();
+                DisplayAccountAll();
             }
             catch (Exception ex)
             {
