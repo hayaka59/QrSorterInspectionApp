@@ -242,5 +242,11 @@
   <ItemGroup>
     <None Include="icon\new_plus.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\password_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\password_close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
