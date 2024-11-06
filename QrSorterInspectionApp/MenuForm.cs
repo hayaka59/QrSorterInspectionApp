@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace QrSorterInspectionApp
             InitializeComponent();
         }
 
+        /// <summary>
+        /// フォームロード処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuForm_Load(object sender, EventArgs e)
         {
             try
@@ -38,6 +44,7 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
+            CommonModule.OutPutLogFile("■メニュー画面：「ログアウト」ボタンクリック");
             Owner.Show();
             this.Dispose();
         }
@@ -49,7 +56,7 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnEnd_Click(object sender, EventArgs e)
         {
-            CommonModule.OutPutLogFile("メニュー画面からQRソータ検査アプリの終了");
+            CommonModule.OutPutLogFile("■メニュー画面：「終了」ボタンクリック");
             Owner.Dispose();
             this.Dispose();
         }
@@ -153,6 +160,42 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【BtnLogManagement_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        /// <summary>
+        /// バージョン表示ラベルのダブルクリック処理（デバッグ用）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LblVersion_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] sArray;
+                List<string> readData= new List<string>();
+                string sDataAll;
+
+                readData.Clear();
+                CommonModule.OutPutLogFile("読込開始");
+                string strReadDataPath = "C:\\GreenCoop\\GREENCOOP_DATA\\4EFYK520P2【500万件データ】.CSV";
+                using (StreamReader sr = new StreamReader(strReadDataPath, Encoding.Default))
+                {
+                    sDataAll = sr.ReadToEnd();
+
+                    //while (!sr.EndOfStream)
+                    //{
+                    //    string sData = sr.ReadLine();
+                    //    readData.Add(sData);
+                    //}
+                }
+                CommonModule.OutPutLogFile("読込終了");
+
+                string b = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【LblVersion_DoubleClick】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

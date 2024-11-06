@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QrSorterInspectionApp
 {
@@ -18,7 +20,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// フォームロード処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -53,15 +55,30 @@ namespace QrSorterInspectionApp
                 CmbAuthority.Items.Add("SV");
                 CmbAuthority.SelectedIndex = 1;
 
-                DisplayAccount("taro toppan", "凸版 太郎", "SV");
-                DisplayAccount("admin", "システム管理者", "SV");
-                DisplayAccount("id001", "〇〇 〇〇", "OP");
-                DisplayAccount("id002", "〇〇 〇〇", "OP");
+                DisplayAccountAll();
 
             }
             catch (Exception ex)
             {                
                 MessageBox.Show(ex.Message, "【RegisterAccountForm_Load】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DisplayAccountAll()
+        {
+            try
+            {
+                LsvAccount.Items.Clear();
+                CommonModule.ReadUserAccountFile();
+                foreach (var item in PubConstClass.lstUserAccount)
+                {
+                    string[] sArray = item.Split(',');
+                    DisplayAccount(sArray[0], sArray[1], sArray[2]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【DisplayAccountAll】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -124,11 +141,36 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 「保存」ボタン処理
+        /// 「追加」ボタン処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sData = "";
+                sData += TxtId.Text + ",";
+                sData += TxtName.Text + ",";                
+                sData += CmbAuthority.Text + ",";
+                sData += TxtPassword.Text;
+
+                PubConstClass.lstUserAccount.Add(sData);
+                CommonModule.WriteUserAccountFile();
+                DisplayAccountAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnAdd_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 「更新」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
@@ -136,8 +178,80 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【BtnSave_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【BtnUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// 「削除」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnDelete_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LsvAccount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                // 選択項目があるかどうかを確認する
+                if (LsvAccount.SelectedItems.Count == 0)
+                {
+                    // 選択項目がないので処理をせず抜ける
+                    return;
+                }
+
+                int idx = LsvAccount.SelectedItems[0].Index;
+                string[] sArray = PubConstClass.lstUserAccount[idx].Split(',');
+                TxtId.Text = sArray[0];
+                TxtName.Text = sArray[1];
+                TxtPassword.Text = sArray[3];
+                if (sArray[2] == "OP")
+                {
+                    // OP
+                    CmbAuthority.SelectedIndex = 0;
+                }
+                else
+                {
+                    // SV
+                    CmbAuthority.SelectedIndex = 1;
+                }
+
+                //// 選択項目を取得する
+                //ListViewItem itemx = LsvAccount.SelectedItems[0];
+                //TxtId.Text = itemx.Text;
+                //TxtName.Text = itemx.SubItems[1].Text;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnDelete_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnPassword_Click(object sender, EventArgs e)
+        {
+            if (TxtPassword.PasswordChar.ToString() == "*")
+            {
+                TxtPassword.PasswordChar = '\0';
+                BtnPassword.Image = Properties.Resources.password_close;
+            }
+            else
+            {
+                TxtPassword.PasswordChar = '*';
+                BtnPassword.Image = Properties.Resources.password_open;
+            }
+            
         }
     }
 }
