@@ -141,6 +141,28 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private string GetAcountData()
+        {
+            try
+            {
+                string sMessage = Environment.NewLine;
+                sMessage += "ＩＤ：" + TxtId.Text + Environment.NewLine;
+                sMessage += "名前：" + TxtName.Text + Environment.NewLine;
+                sMessage += "権限：" + CmbAuthority.Text + Environment.NewLine;
+                sMessage += "パスワード：" + TxtPassword.Text;
+                return sMessage;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【GetAcountData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "アカウントデータが取得できませんでした";
+            }
+        }
+
+        /// <summary>
         /// 「追加」ボタン処理
         /// </summary>
         /// <param name="sender"></param>
@@ -149,15 +171,30 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                string sMessage = GetAcountData();
+                DialogResult dialogResult = MessageBox.Show($"下記アカウントを追加しますか？{sMessage}","確認",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
+
+                // 追加アカウントデータ作成
                 string sData = "";
                 sData += TxtId.Text + ",";
-                sData += TxtName.Text + ",";                
+                sData += TxtName.Text + ",";
                 sData += CmbAuthority.Text + ",";
                 sData += TxtPassword.Text;
-
+                // アカウントデータの追加
                 PubConstClass.lstUserAccount.Add(sData);
+                // ユーザーアカウントファイルに書込
                 CommonModule.WriteUserAccountFile();
+                // アカウントデータ表示
                 DisplayAccountAll();
+                // 最終行の選択とフォーカスセット
+                int idx = LsvAccount.Items.Count - 1;
+                LsvAccount.Items[idx].Selected = true;
+                LsvAccount.Select();
+                LsvAccount.Items[idx].Focused = true;
             }
             catch (Exception ex)
             {
@@ -174,7 +211,30 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                string sMessage = GetAcountData();
+                DialogResult dialogResult = MessageBox.Show($"下記アカウントで更新しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
 
+                // 更新アカウントデータ作成
+                string sData = "";
+                sData += TxtId.Text + ",";
+                sData += TxtName.Text + ",";
+                sData += CmbAuthority.Text + ",";
+                sData += TxtPassword.Text;
+                // アカウントデータの更新
+                int idx = LsvAccount.SelectedItems[0].Index;
+                PubConstClass.lstUserAccount[idx] = sData;
+                // ユーザーアカウントファイルに書込
+                CommonModule.WriteUserAccountFile();
+                // アカウントデータ表示
+                DisplayAccountAll();
+                // 行選択とフォーカスセット
+                LsvAccount.Items[idx].Selected = true;
+                LsvAccount.Select();
+                LsvAccount.Items[idx].Focused = true;
             }
             catch (Exception ex)
             {
@@ -191,7 +251,29 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                string sMessage = GetAcountData();
+                DialogResult dialogResult = MessageBox.Show($"下記アカウントを削除しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
 
+                // 選択行番号取得とデータ削除
+                int idx = LsvAccount.SelectedItems[0].Index;                
+                PubConstClass.lstUserAccount.RemoveAt(idx);
+                // ユーザーアカウントファイルに書込
+                CommonModule.WriteUserAccountFile();
+                // アカウントデータ表示
+                DisplayAccountAll();
+
+                if (idx >= LsvAccount.Items.Count)
+                {
+                    idx = LsvAccount.Items.Count - 1;
+                }
+                // 行選択とフォーカスセット
+                LsvAccount.Items[idx].Selected = true;
+                LsvAccount.Select();
+                LsvAccount.Items[idx].Focused = true;
             }
             catch (Exception ex)
             {
@@ -226,12 +308,6 @@ namespace QrSorterInspectionApp
                     // SV
                     CmbAuthority.SelectedIndex = 1;
                 }
-
-                //// 選択項目を取得する
-                //ListViewItem itemx = LsvAccount.SelectedItems[0];
-                //TxtId.Text = itemx.Text;
-                //TxtName.Text = itemx.SubItems[1].Text;
-
             }
             catch (Exception ex)
             {
@@ -250,8 +326,7 @@ namespace QrSorterInspectionApp
             {
                 TxtPassword.PasswordChar = '*';
                 BtnPassword.Image = Properties.Resources.password_open;
-            }
-            
+            }            
         }
     }
 }

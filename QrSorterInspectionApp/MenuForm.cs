@@ -30,6 +30,18 @@ namespace QrSorterInspectionApp
                 LblVersion.Text = PubConstClass.DEF_VERSION;
                 CommonModule.OutPutLogFile("メニュー画面を表示しました");
 
+                LblUserInfo.Text = "";
+                LblUserInfo.Text += "ＩＤ：" + PubConstClass.sUserId + Environment.NewLine;
+                LblUserInfo.Text += "名前：" + PubConstClass.sUserName + Environment.NewLine;
+                LblUserInfo.Text += "権限：" + PubConstClass.sUserAuthority + Environment.NewLine;
+                LblUserInfo.Text += "ＰＷ：" + PubConstClass.sUserPassword;
+
+                if (PubConstClass.sUserAuthority=="OP")
+                {
+                    BtnSetting.Enabled = false;
+                    BtnMaintenance.Enabled = false;
+                }
+
             }
             catch (Exception ex)
             {
@@ -171,26 +183,34 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                string[] sArray;
-                List<string> readData= new List<string>();
-                string sDataAll;
-
-                readData.Clear();
-                CommonModule.OutPutLogFile("読込開始");
-                string strReadDataPath = "C:\\GreenCoop\\GREENCOOP_DATA\\4EFYK520P2【500万件データ】.CSV";
-                using (StreamReader sr = new StreamReader(strReadDataPath, Encoding.Default))
+                if (LblUserInfo.Visible == false)
                 {
-                    sDataAll = sr.ReadToEnd();
-
-                    //while (!sr.EndOfStream)
-                    //{
-                    //    string sData = sr.ReadLine();
-                    //    readData.Add(sData);
-                    //}
+                    LblUserInfo.Visible = true;
                 }
-                CommonModule.OutPutLogFile("読込終了");
+                else
+                {
+                    LblUserInfo.Visible = false;
+                }
 
-                string b = "";
+                //string[] sArray;
+                //List<string> readData= new List<string>();
+                //string sDataAll;
+
+                //readData.Clear();
+                //CommonModule.OutPutLogFile("読込開始");
+                //string strReadDataPath = "C:\\GreenCoop\\GREENCOOP_DATA\\4EFYK520P2【500万件データ】.CSV";
+                //using (StreamReader sr = new StreamReader(strReadDataPath, Encoding.Default))
+                //{
+                //    sDataAll = sr.ReadToEnd();
+
+                //    //while (!sr.EndOfStream)
+                //    //{
+                //    //    string sData = sr.ReadLine();
+                //    //    readData.Add(sData);
+                //    //}
+                //}
+                //CommonModule.OutPutLogFile("読込終了");
+
             }
             catch (Exception ex)
             {

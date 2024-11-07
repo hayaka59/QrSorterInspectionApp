@@ -21,5 +21,9 @@ namespace QrSorterInspectionApp
         public static List<string> lstUserAccount = new List<string>();         // ユーザーアカウント情報
         public const string DEF_USER_ACCOUNT_FILE_NAME = "userAccount.txt";     // ユーザーアカウントファイル名
 
+        public static string sUserId;
+        public static string sUserName;
+        public static string sUserPassword;
+        public static string sUserAuthority;
     }
 }
