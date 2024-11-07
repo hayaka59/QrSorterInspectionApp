@@ -37,6 +37,8 @@
             this.BtnAccountSet = new System.Windows.Forms.Button();
             this.BtnSetting = new System.Windows.Forms.Button();
             this.BtnQrSorterInspect = new System.Windows.Forms.Button();
+            this.LblStatus = new System.Windows.Forms.Label();
+            this.LblUserInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -161,12 +163,39 @@
             this.BtnQrSorterInspect.UseVisualStyleBackColor = true;
             this.BtnQrSorterInspect.Click += new System.EventHandler(this.BtnQrSorterInspect_Click);
             // 
+            // LblStatus
+            // 
+            this.LblStatus.BackColor = System.Drawing.Color.LightCoral;
+            this.LblStatus.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblStatus.ForeColor = System.Drawing.Color.Blue;
+            this.LblStatus.Location = new System.Drawing.Point(194, 959);
+            this.LblStatus.Name = "LblStatus";
+            this.LblStatus.Size = new System.Drawing.Size(1517, 62);
+            this.LblStatus.TabIndex = 265;
+            this.LblStatus.Text = "LblStatus";
+            this.LblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblStatus.Visible = false;
+            // 
+            // LblUserInfo
+            // 
+            this.LblUserInfo.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblUserInfo.ForeColor = System.Drawing.Color.Blue;
+            this.LblUserInfo.Location = new System.Drawing.Point(1717, 824);
+            this.LblUserInfo.Name = "LblUserInfo";
+            this.LblUserInfo.Size = new System.Drawing.Size(175, 118);
+            this.LblUserInfo.TabIndex = 266;
+            this.LblUserInfo.Text = "LblUserInfo";
+            this.LblUserInfo.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.LblUserInfo.Visible = false;
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.LblUserInfo);
+            this.Controls.Add(this.LblStatus);
             this.Controls.Add(this.BtnEnd);
             this.Controls.Add(this.BtnLogOut);
             this.Controls.Add(this.BtnLogManagement);
@@ -198,5 +227,7 @@
         private System.Windows.Forms.Button BtnMaintenance;
         private System.Windows.Forms.Button BtnEnd;
         private System.Windows.Forms.Button BtnLogOut;
+        internal System.Windows.Forms.Label LblStatus;
+        internal System.Windows.Forms.Label LblUserInfo;
     }
 }
