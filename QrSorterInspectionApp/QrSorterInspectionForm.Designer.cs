@@ -400,13 +400,13 @@
             // label20
             // 
             this.label20.BackColor = System.Drawing.Color.White;
-            this.label20.Font = new System.Drawing.Font("メイリオ", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label20.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(1428, 489);
+            this.label20.Location = new System.Drawing.Point(1438, 490);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(83, 49);
+            this.label20.Size = new System.Drawing.Size(73, 49);
             this.label20.TabIndex = 261;
-            this.label20.Text = "50";
+            this.label20.Text = "999";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox3
@@ -436,13 +436,13 @@
             // label18
             // 
             this.label18.BackColor = System.Drawing.Color.White;
-            this.label18.Font = new System.Drawing.Font("メイリオ", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label18.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(1733, 489);
+            this.label18.Location = new System.Drawing.Point(1744, 489);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(83, 49);
+            this.label18.Size = new System.Drawing.Size(73, 49);
             this.label18.TabIndex = 264;
-            this.label18.Text = "50";
+            this.label18.Text = "999";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox4
@@ -460,13 +460,13 @@
             // label23
             // 
             this.label23.BackColor = System.Drawing.Color.White;
-            this.label23.Font = new System.Drawing.Font("メイリオ", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label23.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(1428, 713);
+            this.label23.Location = new System.Drawing.Point(1433, 716);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(83, 49);
             this.label23.TabIndex = 267;
-            this.label23.Text = "50";
+            this.label23.Text = "999";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox2
@@ -484,13 +484,13 @@
             // label25
             // 
             this.label25.BackColor = System.Drawing.Color.White;
-            this.label25.Font = new System.Drawing.Font("メイリオ", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label25.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(1733, 713);
+            this.label25.Location = new System.Drawing.Point(1738, 716);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(83, 49);
             this.label25.TabIndex = 270;
-            this.label25.Text = "50";
+            this.label25.Text = "999";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label26
@@ -731,7 +731,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = global::QrSorterInspectionApp.Properties.Resources.sorter_back_thin1;
             this.pictureBox2.Location = new System.Drawing.Point(1542, 365);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(280, 178);
@@ -741,7 +741,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::QrSorterInspectionApp.Properties.Resources.sorter_back_thin1;
             this.pictureBox1.Location = new System.Drawing.Point(1237, 365);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(280, 178);
