@@ -149,15 +149,23 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                // 追加アカウントデータ作成
                 string sData = "";
                 sData += TxtId.Text + ",";
                 sData += TxtName.Text + ",";                
                 sData += CmbAuthority.Text + ",";
                 sData += TxtPassword.Text;
-
+                // アカウントデータの追加
                 PubConstClass.lstUserAccount.Add(sData);
+                // ユーザーアカウントファイルに書込
                 CommonModule.WriteUserAccountFile();
+                // アカウントデータ表示
                 DisplayAccountAll();
+                // 最終行の選択とフォーカスセット
+                int idx = LsvAccount.Items.Count - 1;
+                LsvAccount.Items[idx].Selected = true;
+                LsvAccount.Select();
+                LsvAccount.Items[idx].Focused = true;
             }
             catch (Exception ex)
             {
@@ -174,17 +182,23 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                // 更新アカウントデータ作成
                 string sData = "";
                 sData += TxtId.Text + ",";
                 sData += TxtName.Text + ",";
                 sData += CmbAuthority.Text + ",";
                 sData += TxtPassword.Text;
-
+                // アカウントデータの更新
                 int idx = LsvAccount.SelectedItems[0].Index;
                 PubConstClass.lstUserAccount[idx] = sData;
-
+                // ユーザーアカウントファイルに書込
                 CommonModule.WriteUserAccountFile();
+                // アカウントデータ表示
                 DisplayAccountAll();
+                // 行選択とフォーカスセット
+                LsvAccount.Items[idx].Selected = true;
+                LsvAccount.Select();
+                LsvAccount.Items[idx].Focused = true;
             }
             catch (Exception ex)
             {
@@ -201,11 +215,22 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                int idx = LsvAccount.SelectedItems[0].Index;
+                // 選択行番号取得とデータ削除
+                int idx = LsvAccount.SelectedItems[0].Index;                
                 PubConstClass.lstUserAccount.RemoveAt(idx);
-
+                // ユーザーアカウントファイルに書込
                 CommonModule.WriteUserAccountFile();
+                // アカウントデータ表示
                 DisplayAccountAll();
+
+                if (idx >= LsvAccount.Items.Count)
+                {
+                    idx = LsvAccount.Items.Count - 1;
+                }
+                // 行選択とフォーカスセット
+                LsvAccount.Items[idx].Selected = true;
+                LsvAccount.Select();
+                LsvAccount.Items[idx].Focused = true;
             }
             catch (Exception ex)
             {
