@@ -326,8 +326,7 @@ namespace QrSorterInspectionApp
             {
                 TxtPassword.PasswordChar = '*';
                 BtnPassword.Image = Properties.Resources.password_open;
-            }
-            
+            }            
         }
     }
 }

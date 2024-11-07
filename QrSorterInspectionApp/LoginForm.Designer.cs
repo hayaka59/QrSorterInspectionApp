@@ -36,6 +36,7 @@
             this.LblVersion = new System.Windows.Forms.Label();
             this.BtnEnd = new System.Windows.Forms.Button();
             this.BtnLogin = new System.Windows.Forms.Button();
+            this.BtnPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -54,9 +55,9 @@
             // 
             this.TxtUserId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtUserId.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtUserId.Location = new System.Drawing.Point(191, 74);
+            this.TxtUserId.Location = new System.Drawing.Point(185, 79);
             this.TxtUserId.Name = "TxtUserId";
-            this.TxtUserId.Size = new System.Drawing.Size(350, 43);
+            this.TxtUserId.Size = new System.Drawing.Size(293, 43);
             this.TxtUserId.TabIndex = 3;
             this.TxtUserId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -64,17 +65,17 @@
             // 
             this.TxtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtPassword.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtPassword.Location = new System.Drawing.Point(191, 137);
+            this.TxtPassword.Location = new System.Drawing.Point(185, 142);
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '*';
-            this.TxtPassword.Size = new System.Drawing.Size(350, 43);
+            this.TxtPassword.Size = new System.Drawing.Size(293, 43);
             this.TxtPassword.TabIndex = 4;
             this.TxtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(39, 76);
+            this.label2.Location = new System.Drawing.Point(33, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 37);
             this.label2.TabIndex = 5;
@@ -84,7 +85,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(39, 139);
+            this.label3.Location = new System.Drawing.Point(33, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 37);
             this.label3.TabIndex = 6;
@@ -95,7 +96,7 @@
             // 
             this.LblVersion.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblVersion.ForeColor = System.Drawing.Color.Blue;
-            this.LblVersion.Location = new System.Drawing.Point(460, 267);
+            this.LblVersion.Location = new System.Drawing.Point(453, 274);
             this.LblVersion.Name = "LblVersion";
             this.LblVersion.Size = new System.Drawing.Size(130, 25);
             this.LblVersion.TabIndex = 10;
@@ -130,12 +131,26 @@
             this.BtnLogin.UseVisualStyleBackColor = true;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
+            // BtnPassword
+            // 
+            this.BtnPassword.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnPassword.Image = global::QrSorterInspectionApp.Properties.Resources.password_open;
+            this.BtnPassword.Location = new System.Drawing.Point(486, 145);
+            this.BtnPassword.Name = "BtnPassword";
+            this.BtnPassword.Size = new System.Drawing.Size(65, 40);
+            this.BtnPassword.TabIndex = 262;
+            this.BtnPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPassword.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPassword.UseVisualStyleBackColor = true;
+            this.BtnPassword.Click += new System.EventHandler(this.BtnPassword_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 294);
+            this.ClientSize = new System.Drawing.Size(594, 307);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnPassword);
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -164,6 +179,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         internal System.Windows.Forms.Label LblVersion;
+        internal System.Windows.Forms.Button BtnPassword;
     }
 }
 
