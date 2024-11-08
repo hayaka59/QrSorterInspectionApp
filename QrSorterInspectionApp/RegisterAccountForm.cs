@@ -54,8 +54,16 @@ namespace QrSorterInspectionApp
                 CmbAuthority.Items.Add("OP");
                 CmbAuthority.Items.Add("SV");
                 CmbAuthority.SelectedIndex = 1;
-
+                if (PubConstClass.sUserAuthority == "OP")
+                {
+                    // 権限が「OP」の時は変更不可
+                    CmbAuthority.Enabled = false;
+                }
+                // アカウント情報の表示
                 DisplayAccountAll();
+
+                LsvAccount.Items[iFindIndex].Selected = true;   // 設定行を選択
+                LsvAccount.EnsureVisible(iFindIndex);           // 設定行を表示範囲に移動
 
             }
             catch (Exception ex)
@@ -64,6 +72,8 @@ namespace QrSorterInspectionApp
             }
         }
 
+        private int iFindIndex = 0;
+
         /// <summary>
         /// 全てのアカウント情報の表示
         /// </summary>
@@ -71,12 +81,31 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                int iLoopIndex = 0;
                 LsvAccount.Items.Clear();
                 CommonModule.ReadEncodeUserAccountFile();
                 foreach (var item in PubConstClass.lstUserAccount)
                 {
                     string[] sArray = item.Split(',');
-                    DisplayAccount(sArray[0], sArray[1], sArray[2]);
+                    if (PubConstClass.sUserAuthority == "SV")
+                    {
+                        // SV
+                        DisplayAccount(sArray[0], sArray[1], sArray[2]);
+                        if (PubConstClass.sUserId == sArray[0])
+                        {
+                            iFindIndex = iLoopIndex;
+                        }
+                        iLoopIndex++;
+                    }
+                    else
+                    {
+                        // OP
+                        if (PubConstClass.sUserId == sArray[0])
+                        {
+                            // ユーザーIDが一致したデータのみ表示
+                            DisplayAccount(sArray[0], sArray[1], sArray[2]);
+                        }
+                    }                    
                 }
             }
             catch (Exception ex)
