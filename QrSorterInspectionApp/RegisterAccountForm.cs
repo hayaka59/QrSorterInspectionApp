@@ -58,6 +58,10 @@ namespace QrSorterInspectionApp
                 {
                     // 権限が「OP」の時は変更不可
                     CmbAuthority.Enabled = false;
+                    // 「削除」ボタン使用不可
+                    BtnDelete.Enabled = false;
+                    // 「追加」ボタン使用不可
+                    BtnAdd.Enabled = false;
                 }
                 // アカウント情報の表示
                 DisplayAccountAll();
