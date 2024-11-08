@@ -55,6 +55,7 @@
             // 
             this.TxtUserId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtUserId.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtUserId.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TxtUserId.Location = new System.Drawing.Point(185, 79);
             this.TxtUserId.Name = "TxtUserId";
             this.TxtUserId.Size = new System.Drawing.Size(293, 43);
@@ -65,6 +66,7 @@
             // 
             this.TxtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtPassword.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtPassword.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TxtPassword.Location = new System.Drawing.Point(185, 142);
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '*';

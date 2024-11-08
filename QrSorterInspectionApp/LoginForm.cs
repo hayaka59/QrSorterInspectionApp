@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QrSorterInspectionApp
 {
@@ -26,16 +27,19 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                // バージョン表示
                 LblVersion.Text = PubConstClass.DEF_VERSION;
-
                 PubConstClass.objSyncHist = new object();
-
                 CommonModule.OutPutLogFile("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
                 CommonModule.OutPutLogFile("【" + "QRソータ検査アプリバージョン" + "】を起動しました。");
                 CommonModule.OutPutLogFile("■QRソータ検査アプリバージョン「" + PubConstClass.DEF_VERSION + "」");
-
+                // 暗号化されたユーザーアカウントファイルの読込
                 CommonModule.ReadEncodeUserAccountFile();
-
+                // IMEモードの禁止
+                TxtUserId.ImeMode = ImeMode.Disable;
+                TxtPassword.ImeMode = ImeMode.Disable;
+                // ユーザーIDにセットフォーカス
+                ActiveControl = TxtUserId;
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message, "【LoginForm_Load】", MessageBoxButtons.OK, MessageBoxIcon.Error);
