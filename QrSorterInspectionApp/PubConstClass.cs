@@ -19,7 +19,9 @@ namespace QrSorterInspectionApp
         public static object objSyncHist;
 
         public static List<string> lstUserAccount = new List<string>();         // ユーザーアカウント情報
-        public const string DEF_USER_ACCOUNT_FILE_NAME = "userAccount.txt";     // ユーザーアカウントファイル名
+        public const string DEF_USER_ACCOUNT_FILE_NAME = "UserAccount.txt";     // 復号化ユーザーアカウントファイル名
+        public const string DEF_USER_ACCOUNT_ENC_FILE_NAME = "UserAccount.enc"; // 暗号化ユーザーアカウントファイル名
+        public const string DEF_DES_KEY = "QRINSPCT";       // 8文字
 
         public static string sUserId;
         public static string sUserName;

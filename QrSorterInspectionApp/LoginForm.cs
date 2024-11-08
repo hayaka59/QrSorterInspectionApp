@@ -34,7 +34,7 @@ namespace QrSorterInspectionApp
                 CommonModule.OutPutLogFile("【" + "QRソータ検査アプリバージョン" + "】を起動しました。");
                 CommonModule.OutPutLogFile("■QRソータ検査アプリバージョン「" + PubConstClass.DEF_VERSION + "」");
 
-                CommonModule.ReadUserAccountFile();
+                CommonModule.ReadEncodeUserAccountFile();
 
             }
             catch (Exception ex) {
