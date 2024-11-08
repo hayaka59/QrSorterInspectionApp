@@ -34,6 +34,10 @@
             this.CmbSaveMonth = new System.Windows.Forms.ComboBox();
             this.Label36 = new System.Windows.Forms.Label();
             this.GroupBox7 = new System.Windows.Forms.GroupBox();
+            this.CmbComParityVar = new System.Windows.Forms.ComboBox();
+            this.Label27 = new System.Windows.Forms.Label();
+            this.CmbComIsParty = new System.Windows.Forms.ComboBox();
+            this.Label26 = new System.Windows.Forms.Label();
             this.CmbComStopBit = new System.Windows.Forms.ComboBox();
             this.Label28 = new System.Windows.Forms.Label();
             this.CmbComDataLength = new System.Windows.Forms.ComboBox();
@@ -50,13 +54,12 @@
             this.GroupBox5 = new System.Windows.Forms.GroupBox();
             this.TxtMachineName = new System.Windows.Forms.TextBox();
             this.Label32 = new System.Windows.Forms.Label();
+            this.TxtUserAccount = new System.Windows.Forms.TextBox();
+            this.BtnDecript = new System.Windows.Forms.Button();
+            this.BtnEncript = new System.Windows.Forms.Button();
             this.BtnDeleteLogData = new System.Windows.Forms.Button();
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
-            this.CmbComParityVar = new System.Windows.Forms.ComboBox();
-            this.Label27 = new System.Windows.Forms.Label();
-            this.CmbComIsParty = new System.Windows.Forms.ComboBox();
-            this.Label26 = new System.Windows.Forms.Label();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox12.SuspendLayout();
@@ -144,6 +147,48 @@
             this.GroupBox7.TabIndex = 246;
             this.GroupBox7.TabStop = false;
             this.GroupBox7.Text = "RS-232C設定";
+            // 
+            // CmbComParityVar
+            // 
+            this.CmbComParityVar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbComParityVar.FormattingEnabled = true;
+            this.CmbComParityVar.Location = new System.Drawing.Point(187, 172);
+            this.CmbComParityVar.Name = "CmbComParityVar";
+            this.CmbComParityVar.Size = new System.Drawing.Size(121, 32);
+            this.CmbComParityVar.TabIndex = 97;
+            // 
+            // Label27
+            // 
+            this.Label27.BackColor = System.Drawing.Color.Blue;
+            this.Label27.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Label27.ForeColor = System.Drawing.Color.White;
+            this.Label27.Location = new System.Drawing.Point(23, 174);
+            this.Label27.Name = "Label27";
+            this.Label27.Size = new System.Drawing.Size(163, 30);
+            this.Label27.TabIndex = 96;
+            this.Label27.Text = "パリティ種別";
+            this.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CmbComIsParty
+            // 
+            this.CmbComIsParty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbComIsParty.FormattingEnabled = true;
+            this.CmbComIsParty.Location = new System.Drawing.Point(187, 137);
+            this.CmbComIsParty.Name = "CmbComIsParty";
+            this.CmbComIsParty.Size = new System.Drawing.Size(121, 32);
+            this.CmbComIsParty.TabIndex = 95;
+            // 
+            // Label26
+            // 
+            this.Label26.BackColor = System.Drawing.Color.Blue;
+            this.Label26.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Label26.ForeColor = System.Drawing.Color.White;
+            this.Label26.Location = new System.Drawing.Point(23, 138);
+            this.Label26.Name = "Label26";
+            this.Label26.Size = new System.Drawing.Size(163, 30);
+            this.Label26.TabIndex = 94;
+            this.Label26.Text = "パリティ無効／有効";
+            this.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CmbComStopBit
             // 
@@ -321,6 +366,44 @@
             this.Label32.Text = "号機名称";
             this.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // TxtUserAccount
+            // 
+            this.TxtUserAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtUserAccount.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtUserAccount.Location = new System.Drawing.Point(598, 647);
+            this.TxtUserAccount.Multiline = true;
+            this.TxtUserAccount.Name = "TxtUserAccount";
+            this.TxtUserAccount.Size = new System.Drawing.Size(688, 324);
+            this.TxtUserAccount.TabIndex = 252;
+            // 
+            // BtnDecript
+            // 
+            this.BtnDecript.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnDecript.Image = global::QrSorterInspectionApp.Properties.Resources.decrypt;
+            this.BtnDecript.Location = new System.Drawing.Point(598, 600);
+            this.BtnDecript.Name = "BtnDecript";
+            this.BtnDecript.Size = new System.Drawing.Size(316, 45);
+            this.BtnDecript.TabIndex = 251;
+            this.BtnDecript.Text = "ファイルの復号化";
+            this.BtnDecript.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDecript.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnDecript.UseVisualStyleBackColor = true;
+            this.BtnDecript.Click += new System.EventHandler(this.BtnDecript_Click);
+            // 
+            // BtnEncript
+            // 
+            this.BtnEncript.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnEncript.Image = global::QrSorterInspectionApp.Properties.Resources.encrypt;
+            this.BtnEncript.Location = new System.Drawing.Point(970, 600);
+            this.BtnEncript.Name = "BtnEncript";
+            this.BtnEncript.Size = new System.Drawing.Size(316, 45);
+            this.BtnEncript.TabIndex = 250;
+            this.BtnEncript.Text = "ファイルの暗号化";
+            this.BtnEncript.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEncript.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnEncript.UseVisualStyleBackColor = true;
+            this.BtnEncript.Click += new System.EventHandler(this.BtnEncript_Click);
+            // 
             // BtnDeleteLogData
             // 
             this.BtnDeleteLogData.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -362,54 +445,15 @@
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // CmbComParityVar
-            // 
-            this.CmbComParityVar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbComParityVar.FormattingEnabled = true;
-            this.CmbComParityVar.Location = new System.Drawing.Point(187, 172);
-            this.CmbComParityVar.Name = "CmbComParityVar";
-            this.CmbComParityVar.Size = new System.Drawing.Size(121, 32);
-            this.CmbComParityVar.TabIndex = 97;
-            // 
-            // Label27
-            // 
-            this.Label27.BackColor = System.Drawing.Color.Blue;
-            this.Label27.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Label27.ForeColor = System.Drawing.Color.White;
-            this.Label27.Location = new System.Drawing.Point(23, 174);
-            this.Label27.Name = "Label27";
-            this.Label27.Size = new System.Drawing.Size(163, 30);
-            this.Label27.TabIndex = 96;
-            this.Label27.Text = "パリティ種別";
-            this.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CmbComIsParty
-            // 
-            this.CmbComIsParty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbComIsParty.FormattingEnabled = true;
-            this.CmbComIsParty.Location = new System.Drawing.Point(187, 137);
-            this.CmbComIsParty.Name = "CmbComIsParty";
-            this.CmbComIsParty.Size = new System.Drawing.Size(121, 32);
-            this.CmbComIsParty.TabIndex = 95;
-            // 
-            // Label26
-            // 
-            this.Label26.BackColor = System.Drawing.Color.Blue;
-            this.Label26.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Label26.ForeColor = System.Drawing.Color.White;
-            this.Label26.Location = new System.Drawing.Point(23, 138);
-            this.Label26.Name = "Label26";
-            this.Label26.Size = new System.Drawing.Size(163, 30);
-            this.Label26.TabIndex = 94;
-            this.Label26.Text = "パリティ無効／有効";
-            this.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.TxtUserAccount);
+            this.Controls.Add(this.BtnDecript);
+            this.Controls.Add(this.BtnEncript);
             this.Controls.Add(this.GroupBox11);
             this.Controls.Add(this.GroupBox7);
             this.Controls.Add(this.GroupBox12);
@@ -435,6 +479,7 @@
             this.GroupBox5.ResumeLayout(false);
             this.GroupBox5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -468,5 +513,8 @@
         internal System.Windows.Forms.Label Label27;
         internal System.Windows.Forms.ComboBox CmbComIsParty;
         internal System.Windows.Forms.Label Label26;
+        internal System.Windows.Forms.Button BtnEncript;
+        internal System.Windows.Forms.Button BtnDecript;
+        private System.Windows.Forms.TextBox TxtUserAccount;
     }
 }

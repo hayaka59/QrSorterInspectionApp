@@ -64,12 +64,15 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// 全てのアカウント情報の表示
+        /// </summary>
         private void DisplayAccountAll()
         {
             try
             {
                 LsvAccount.Items.Clear();
-                CommonModule.ReadUserAccountFile();
+                CommonModule.ReadEncodeUserAccountFile();
                 foreach (var item in PubConstClass.lstUserAccount)
                 {
                     string[] sArray = item.Split(',');
@@ -187,7 +190,7 @@ namespace QrSorterInspectionApp
                 // アカウントデータの追加
                 PubConstClass.lstUserAccount.Add(sData);
                 // ユーザーアカウントファイルに書込
-                CommonModule.WriteUserAccountFile();
+                CommonModule.WriteEncodeUserAccountFile();
                 // アカウントデータ表示
                 DisplayAccountAll();
                 // 最終行の選択とフォーカスセット
@@ -228,7 +231,7 @@ namespace QrSorterInspectionApp
                 int idx = LsvAccount.SelectedItems[0].Index;
                 PubConstClass.lstUserAccount[idx] = sData;
                 // ユーザーアカウントファイルに書込
-                CommonModule.WriteUserAccountFile();
+                CommonModule.WriteEncodeUserAccountFile();
                 // アカウントデータ表示
                 DisplayAccountAll();
                 // 行選択とフォーカスセット
@@ -262,7 +265,7 @@ namespace QrSorterInspectionApp
                 int idx = LsvAccount.SelectedItems[0].Index;                
                 PubConstClass.lstUserAccount.RemoveAt(idx);
                 // ユーザーアカウントファイルに書込
-                CommonModule.WriteUserAccountFile();
+                CommonModule.WriteEncodeUserAccountFile();
                 // アカウントデータ表示
                 DisplayAccountAll();
 

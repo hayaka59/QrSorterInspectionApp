@@ -131,7 +131,58 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【BtnApply_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        private void BtnEncript_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string inputFile = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) +
+                                    PubConstClass.DEF_USER_ACCOUNT_FILE_NAME;
+                string outputFile = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + 
+                                    PubConstClass.DEF_USER_ACCOUNT_ENC_FILE_NAME;
+                // 8文字のキー（DESは64ビット長のキーを使用）
+                string key = PubConstClass.DEF_DES_KEY;
+
+                CommonModule.EncryptFile(inputFile, outputFile, key);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnEncript_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 「復号」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnDecript_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string inputFile = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) +
+                                    PubConstClass.DEF_USER_ACCOUNT_ENC_FILE_NAME;
+                string outputFile = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) +
+                                    PubConstClass.DEF_USER_ACCOUNT_FILE_NAME;
+                // 8文字のキー（DESは64ビット長のキーを使用）
+                string key = PubConstClass.DEF_DES_KEY;
+
+                CommonModule.DecryptFile(inputFile, outputFile, key);
+
+                CommonModule.ReadUserAccountFile();
+
+                TxtUserAccount.Text = "";
+                foreach (var item in PubConstClass.lstUserAccount)
+                {
+                    TxtUserAccount.Text += item + Environment.NewLine;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnDecript_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

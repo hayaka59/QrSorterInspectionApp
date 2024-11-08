@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace, "【IncludeTrailingPathDelimiter】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【IncludeTrailingPathDelimiter】", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "";
             }
             return IncludeTrailingPathDelimiter;
@@ -89,14 +90,39 @@ namespace QrSorterInspectionApp
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.StackTrace, "【OutPutLogFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "【OutPutLogFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
+        /// <summary>
+        /// 暗号化されたユーザーアカウントファイルの読込
+        /// </summary>
+        public static void ReadEncodeUserAccountFile()
+        {
+            try
+            {
+                string inputFile = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) +
+                                    PubConstClass.DEF_USER_ACCOUNT_ENC_FILE_NAME;
+                string outputFile = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) +
+                                    PubConstClass.DEF_USER_ACCOUNT_FILE_NAME;
+                // 8文字のキー（DESは64ビット長のキーを使用）
+                string key = PubConstClass.DEF_DES_KEY;
+                // 暗号化されたユーザーアカウントファイルから平文のユーザーアカウントファイル作成
+                CommonModule.DecryptFile(inputFile, outputFile, key);
+                // 平文のユーザーアカウントファイルの読込
+                ReadUserAccountFile();
+                // 平文のユーザーアカウントファイルの削除
+                File.Delete(outputFile);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ReadEncodeUserAccountFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         /// <summary>
-        /// ユーザーアカウントファイルの読込処理
+        /// 平文のユーザーアカウントファイルの読込処理
         /// </summary>
         public static void ReadUserAccountFile()
         {
@@ -123,7 +149,36 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// 暗号化されたユーザーアカウントファイルの書込
+        /// </summary>
+        public static void WriteEncodeUserAccountFile()
+        {
+            try
+            {
+                // 平文のユーザーアカウントの作成
+                WriteUserAccountFile();
+                // 平文のユーザーアカウントファイルから暗号化されたユーザーアカウントを作成
+                string inputFile = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) +
+                    PubConstClass.DEF_USER_ACCOUNT_FILE_NAME;
+                string outputFile = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) +
+                                    PubConstClass.DEF_USER_ACCOUNT_ENC_FILE_NAME;
+                // 8文字のキー（DESは64ビット長のキーを使用）
+                string key = PubConstClass.DEF_DES_KEY;
+                CommonModule.EncryptFile(inputFile, outputFile, key);
 
+                // 平文のユーザーアカウントファイルの削除
+                File.Delete(inputFile);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【WriteEncodeUserAccountFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 平文のユーザーアカウントファイルの作成
+        /// </summary>
         public static void WriteUserAccountFile()
         {
             string sPutDataPath;
@@ -143,9 +198,82 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace, "【WriteUserAccountFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【WriteUserAccountFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// 平文ファイルを暗号化する
+        /// </summary>
+        /// <param name="inputFile">平文ファイル</param>
+        /// <param name="outputFile">暗号化ファイル</param>
+        /// <param name="key">キー（8桁）</param>
+        public static void EncryptFile(string inputFile, string outputFile, string key)
+        {
+            try
+            {
+                using (FileStream fsInput = new FileStream(inputFile, FileMode.Open, FileAccess.Read))
+                using (FileStream fsOutput = new FileStream(outputFile, FileMode.Create, FileAccess.Write))
+                using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
+                {
+                    des.Key = Encoding.UTF8.GetBytes(key);
+                    des.IV = Encoding.UTF8.GetBytes(key);
+
+                    ICryptoTransform encryptor = des.CreateEncryptor();
+                    using (CryptoStream cryptoStream = new CryptoStream(fsOutput, encryptor, CryptoStreamMode.Write))
+                    {
+                        byte[] buffer = new byte[4096];
+                        int bytesRead;
+
+                        while ((bytesRead = fsInput.Read(buffer, 0, buffer.Length)) > 0)
+                        {
+                            cryptoStream.Write(buffer, 0, bytesRead);
+                        }
+                    }
+                }
+                CommonModule.OutPutLogFile($"【暗号化】暗号化ファイルを作成しました：{outputFile}");                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【EncryptFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 暗号化ファイルを復号化する
+        /// </summary>
+        /// <param name="inputFile">暗号ファイル</param>
+        /// <param name="outputFile">平文ファイル</param>
+        /// <param name="key"></param>
+        public static void DecryptFile(string inputFile, string outputFile, string key)
+        {
+            try
+            {
+                using (FileStream fsInput = new FileStream(inputFile, FileMode.Open, FileAccess.Read))
+                using (FileStream fsOutput = new FileStream(outputFile, FileMode.Create, FileAccess.Write))
+                using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
+                {
+                    des.Key = Encoding.UTF8.GetBytes(key);
+                    des.IV = Encoding.UTF8.GetBytes(key);
+
+                    ICryptoTransform decryptor = des.CreateDecryptor();
+                    using (CryptoStream cryptoStream = new CryptoStream(fsInput, decryptor, CryptoStreamMode.Read))
+                    {
+                        byte[] buffer = new byte[4096];
+                        int bytesRead;
+
+                        while ((bytesRead = cryptoStream.Read(buffer, 0, buffer.Length)) > 0)
+                        {
+                            fsOutput.Write(buffer, 0, bytesRead);
+                        }
+                    }
+                }
+                CommonModule.OutPutLogFile($"【復号化】平文ファイルを作成しました：{outputFile}");                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【DecryptFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
