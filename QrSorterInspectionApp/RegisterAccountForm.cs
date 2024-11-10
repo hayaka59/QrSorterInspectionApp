@@ -66,9 +66,20 @@ namespace QrSorterInspectionApp
                 // アカウント情報の表示
                 DisplayAccountAll();
 
-                LsvAccount.Items[iFindIndex].Selected = true;   // 設定行を選択
-                LsvAccount.EnsureVisible(iFindIndex);           // 設定行を表示範囲に移動
-
+                if (LsvAccount.Items.Count > 0)
+                {
+                    LsvAccount.Items[iFindIndex].Selected = true;   // 設定行を選択
+                    LsvAccount.EnsureVisible(iFindIndex);           // 設定行を表示範囲に移動
+                }
+                else
+                {
+                    TxtId.Text = "";
+                    TxtName.Text = "";
+                    TxtPassword.Text = "";
+                    CmbAuthority.SelectedIndex = 1;
+                    BtnUpdate.Enabled = false;
+                    BtnDelete.Enabled = false;
+                }
             }
             catch (Exception ex)
             {                
@@ -199,6 +210,43 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
+        /// ユーザーIDの重複チェック
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private bool CheckFoDuplicateId(string id)
+        {
+            try
+            {
+                bool iFind = false;
+                foreach (var item in PubConstClass.lstUserAccount)
+                {
+                    string[] sArray = item.Split(',');
+                    if (sArray[0].Trim() == id)
+                    {
+                        iFind = true;
+                    }
+                }
+                if (iFind)
+                {
+                    // 重複あり
+                    return true;
+                }
+                else
+                {
+                    // 重複なし
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CheckFoDuplicateId】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // エラー発生時は重複ありで返却
+                return true;
+            }
+        }
+
+        /// <summary>
         /// 「追加」ボタン処理
         /// </summary>
         /// <param name="sender"></param>
@@ -207,6 +255,14 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                // JOB名の重複登録チェック
+                bool bRet = CheckFoDuplicateId(TxtId.Text);
+                if (bRet)
+                {
+                    MessageBox.Show($"ID「{TxtId.Text}」は既に存在します", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 string sMessage = GetAcountData();
                 DialogResult dialogResult = MessageBox.Show($"下記アカウントを追加しますか？{sMessage}","確認",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
@@ -297,19 +353,33 @@ namespace QrSorterInspectionApp
                 // 選択行番号取得とデータ削除
                 int idx = LsvAccount.SelectedItems[0].Index;                
                 PubConstClass.lstUserAccount.RemoveAt(idx);
+
+                if (PubConstClass.lstUserAccount.Count == 0)
+                {
+                    BtnUpdate.Enabled = false;
+                    BtnDelete.Enabled = false;
+                    TxtId.Text = "";
+                    TxtName.Text = "";
+                    TxtPassword.Text = "";
+                    CmbAuthority.SelectedIndex = 0;
+                }
+
                 // ユーザーアカウントファイルに書込
                 CommonModule.WriteEncodeUserAccountFile();
                 // アカウントデータ表示
                 DisplayAccountAll();
 
-                if (idx >= LsvAccount.Items.Count)
+                if (LsvAccount.Items.Count > 0)
                 {
-                    idx = LsvAccount.Items.Count - 1;
+                    if (idx >= LsvAccount.Items.Count)
+                    {
+                        idx = LsvAccount.Items.Count - 1;
+                    }
+                    // 行選択とフォーカスセット
+                    LsvAccount.Items[idx].Selected = true;
+                    LsvAccount.Select();
+                    LsvAccount.Items[idx].Focused = true;
                 }
-                // 行選択とフォーカスセット
-                LsvAccount.Items[idx].Selected = true;
-                LsvAccount.Select();
-                LsvAccount.Items[idx].Focused = true;
             }
             catch (Exception ex)
             {
