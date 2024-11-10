@@ -260,5 +260,8 @@
   <ItemGroup>
     <None Include="icon\decrypt.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="定義ファイル\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
