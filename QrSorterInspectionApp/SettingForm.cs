@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.AxHost;
 
 namespace QrSorterInspectionApp
 {
@@ -110,6 +112,7 @@ namespace QrSorterInspectionApp
                 CmbQrItem4.SelectedIndex = 0;
                 #endregion
 
+                ClearDisplayData();
                 // ジョブ登録リストファイル読込
                 ReadJobEntryListFile();
                 // JOB一覧表示
@@ -117,6 +120,11 @@ namespace QrSorterInspectionApp
                 // QR桁数情報色の設定
                 SetColorForQrData();
 
+                if (PubConstClass.lstJobEntryList.Count == 0)
+                {
+                    BtnUpdate.Enabled = false;
+                    BtnDelete.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -134,6 +142,10 @@ namespace QrSorterInspectionApp
                 string[] sArray;
                 LsbJobListFeeder.Items.Clear();
                 LsbJobListSorter.Items.Clear();
+                if (PubConstClass.lstJobEntryList.Count == 0)
+                {
+                    return;
+                }
                 foreach (var item in PubConstClass.lstJobEntryList)
                 {
                     sArray = item.Split(',');
@@ -171,10 +183,11 @@ namespace QrSorterInspectionApp
             string[] sArray;
             try
             {
-                sArray = LsbJobListSorter.Text.Split(' ');
+                sArray = PubConstClass.lstJobEntryList[LsbJobListSorter.SelectedIndex].Split(',');
+                // JOB名
                 LblJobName.Text = sArray[0];
+                // 媒体
                 LblMedia.Text = sArray[1];
-
             }
             catch (Exception ex)
             {
@@ -191,7 +204,7 @@ namespace QrSorterInspectionApp
         {
             string[] sArray;
             try
-            {
+            {                
                 sArray = PubConstClass.lstJobEntryList[LsbJobListFeeder.SelectedIndex].Split(',');
                 // JOB名
                 TxtJobName.Text = sArray[0];
@@ -469,27 +482,13 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 「追加」ボタン処理
+        /// 全てのジョブ登録データ名称の取得
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnAdd_Click(object sender, EventArgs e)
+        /// <returns></returns>
+        private string GetAllJobEntryData()
         {
             try
             {
-                // JOB名の重複登録チェック
-                bool bRet = CheckFoDuplicateJobName(TxtJobName.Text);
-                if (bRet)
-                {
-                    MessageBox.Show($"ジョブ名「{TxtJobName.Text}」は既に存在します", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                string sMessage = GetJobEntryData();
-                DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを追加しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Cancel)
-                {
-                    return;
-                }
                 string sData = "";
                 // JOB名
                 sData += TxtJobName.Text.Trim() + ",";
@@ -524,11 +523,48 @@ namespace QrSorterInspectionApp
                 // 仕分け②
                 sData += TxtSorting2.Text;
 
+                return sData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【GetAllJobEntryData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
+            }
+        }
+
+
+        /// <summary>
+        /// 「追加」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // JOB名の重複登録チェック
+                bool bRet = CheckFoDuplicateJobName(TxtJobName.Text);
+                if (bRet)
+                {
+                    MessageBox.Show($"ジョブ名「{TxtJobName.Text}」は既に存在します", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                string sMessage = GetJobEntryData();
+                DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを追加しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
+
+                // 全てのジョブ登録データ名称の取得
+                string sData = GetAllJobEntryData();
+
                 // ジョブ登録データの追加
                 PubConstClass.lstJobEntryList.Add(sData);
 
                 // ジョブ登録リストファイルの書込み
                 WriteJobEntryListFile();
+
                 // JOB一覧表示
                 DisplayJobName();
             }
@@ -547,6 +583,24 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                string sMessage = GetJobEntryData();
+                DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを更新しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
+
+                // 全てのジョブ登録データ名称の取得
+                string sData = GetAllJobEntryData();
+
+                // ジョブ登録データの追加
+                PubConstClass.lstJobEntryList[LsbJobListFeeder.SelectedIndex] = sData;
+
+                // ジョブ登録リストファイルの書込み
+                WriteJobEntryListFile();
+
+                // JOB一覧表示
+                DisplayJobName();
 
             }
             catch (Exception ex)
@@ -564,12 +618,74 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                string sMessage = GetJobEntryData();
+                DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを削除しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
 
+                PubConstClass.lstJobEntryList.RemoveAt(LsbJobListFeeder.SelectedIndex);
+                if (PubConstClass.lstJobEntryList.Count == 0)
+                {
+                    BtnUpdate.Enabled = false;
+                    BtnDelete.Enabled = false;
+                    ClearDisplayData();
+                }
+                // ジョブ登録リストファイルの書込み
+                WriteJobEntryListFile();
+                // JOB一覧表示
+                DisplayJobName();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnDelete_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void ClearDisplayData()
+        {
+            try
+            {
+                // JOB名
+                TxtJobName.Text = "";
+                // 媒体
+                CmbMedia.SelectedIndex = 0;
+                // 受領日
+                DtpDateReceipt.Text = DateTime.Now.ToString();
+                // QR桁数
+                NumUpDwnQrAllDigit.Value = 47;
+                // 重複検査
+                CmbDuplication.SelectedIndex = 0;
+                // Wフィード検査
+                CmbDoubleFeed.SelectedIndex = 0;
+                // QR読取項目①
+                TxtQrReadItem1.Text = "1";
+                NmUpDnPropertyIdStart.Value = 1;
+                NmUpDnPropertyIdKeta.Value = 1;
+                // QR読取項目②
+                TxtQrReadItem2.Text = "1";
+                NmUpDnPostalDateStart.Value = 2;
+                NmUpDnPostalDateKeta.Value = 1;
+                // QR読取項目③
+                TxtQrReadItem3.Text = "1";
+                NmUpDnFileTypeStart.Value = 3;
+                NmUpDnFileTypeKeta.Value = 1;
+                // QR読取項目④
+                TxtQrReadItem4.Text = "1";
+                NmUpDnManagementNoStart.Value = 4;
+                NmUpDnManagementNoKeta.Value = 1;
+                // 仕分け①
+                TxtSorting1.Text = "";
+                // 仕分け②
+                TxtSorting2.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ClearDisplayData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }
