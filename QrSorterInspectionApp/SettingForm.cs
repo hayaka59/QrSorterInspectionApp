@@ -412,6 +412,42 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
+        /// ジョブ名の重複チェック
+        /// </summary>
+        /// <param name="jobName"></param>
+        /// <returns></returns>
+        private bool CheckFoDuplicateJobName(string jobName)
+        {
+            try
+            {
+                bool iFind = false;
+                foreach(var item in PubConstClass.lstJobEntryList)
+                {
+                    string[] sArray = item.Split(',');
+                    if (sArray[0].Trim() == jobName) {
+                        iFind = true;
+                    }
+                }
+                if (iFind)
+                {
+                    // 重複あり
+                    return true;
+                }
+                else
+                {
+                    // 重複なし
+                    return false;
+                }                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CheckFoDuplicateJobName】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // エラー発生時は重複ありで返却
+                return true;
+            }
+        }
+
+        /// <summary>
         /// ジョブ登録データ名称の取得
         /// </summary>
         /// <returns></returns>
@@ -441,6 +477,13 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                // JOB名の重複登録チェック
+                bool bRet = CheckFoDuplicateJobName(TxtJobName.Text);
+                if (bRet)
+                {
+                    MessageBox.Show($"ジョブ名「{TxtJobName.Text}」は既に存在します", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 string sMessage = GetJobEntryData();
                 DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを追加しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
