@@ -30,9 +30,9 @@
         {
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.TabPage1 = new System.Windows.Forms.TabPage();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnUpdate = new System.Windows.Forms.Button();
+            this.BtnAdd = new System.Windows.Forms.Button();
             this.RchTxtQrInfo = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
@@ -106,7 +106,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.CmbMedia = new System.Windows.Forms.ComboBox();
-            this.BtnJobDataCopy = new System.Windows.Forms.Button();
             this.TabPage2 = new System.Windows.Forms.TabPage();
             this.RchTxtQrInfoForSorter = new System.Windows.Forms.RichTextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -174,6 +173,7 @@
             this.LblMedia = new System.Windows.Forms.Label();
             this.Label29 = new System.Windows.Forms.Label();
             this.LblJobName = new System.Windows.Forms.Label();
+            this.BtnJobDataCopy = new System.Windows.Forms.Button();
             this.LblTitle = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
             this.BtnClose = new System.Windows.Forms.Button();
@@ -209,9 +209,9 @@
             // TabPage1
             // 
             this.TabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.TabPage1.Controls.Add(this.button15);
-            this.TabPage1.Controls.Add(this.button16);
-            this.TabPage1.Controls.Add(this.button17);
+            this.TabPage1.Controls.Add(this.BtnDelete);
+            this.TabPage1.Controls.Add(this.BtnUpdate);
+            this.TabPage1.Controls.Add(this.BtnAdd);
             this.TabPage1.Controls.Add(this.RchTxtQrInfo);
             this.TabPage1.Controls.Add(this.groupBox1);
             this.TabPage1.Controls.Add(this.label34);
@@ -235,7 +235,6 @@
             this.TabPage1.Controls.Add(this.CmbDuplication);
             this.TabPage1.Controls.Add(this.label14);
             this.TabPage1.Controls.Add(this.label16);
-            this.TabPage1.Controls.Add(this.button1);
             this.TabPage1.Controls.Add(this.LsbJobListFeeder);
             this.TabPage1.Controls.Add(this.label7);
             this.TabPage1.Controls.Add(this.label8);
@@ -264,44 +263,47 @@
             this.TabPage1.TabIndex = 0;
             this.TabPage1.Text = "QRフィーダー設定";
             // 
-            // button15
+            // BtnDelete
             // 
-            this.button15.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button15.Image = global::QrSorterInspectionApp.Properties.Resources.delete;
-            this.button15.Location = new System.Drawing.Point(749, 22);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(170, 45);
-            this.button15.TabIndex = 289;
-            this.button15.Text = "削除";
-            this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button15.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button15.UseVisualStyleBackColor = true;
+            this.BtnDelete.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnDelete.Image = global::QrSorterInspectionApp.Properties.Resources.delete;
+            this.BtnDelete.Location = new System.Drawing.Point(749, 22);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(170, 45);
+            this.BtnDelete.TabIndex = 289;
+            this.BtnDelete.Text = "削除";
+            this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // button16
+            // BtnUpdate
             // 
-            this.button16.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button16.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.button16.Location = new System.Drawing.Point(573, 22);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(170, 45);
-            this.button16.TabIndex = 288;
-            this.button16.Text = "編集";
-            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button16.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button16.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
+            this.BtnUpdate.Location = new System.Drawing.Point(573, 22);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Size = new System.Drawing.Size(170, 45);
+            this.BtnUpdate.TabIndex = 288;
+            this.BtnUpdate.Text = "更新";
+            this.BtnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
-            // button17
+            // BtnAdd
             // 
-            this.button17.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button17.Image = global::QrSorterInspectionApp.Properties.Resources.new_plus;
-            this.button17.Location = new System.Drawing.Point(397, 22);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(170, 45);
-            this.button17.TabIndex = 287;
-            this.button17.Text = "追加";
-            this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button17.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button17.UseVisualStyleBackColor = true;
+            this.BtnAdd.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnAdd.Image = global::QrSorterInspectionApp.Properties.Resources.new_plus;
+            this.BtnAdd.Location = new System.Drawing.Point(397, 22);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(170, 45);
+            this.BtnAdd.TabIndex = 287;
+            this.BtnAdd.Text = "追加";
+            this.BtnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAdd.UseVisualStyleBackColor = true;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // RchTxtQrInfo
             // 
@@ -1056,7 +1058,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button1.Image = global::QrSorterInspectionApp.Properties.Resources.save_icon;
-            this.button1.Location = new System.Drawing.Point(885, 786);
+            this.button1.Location = new System.Drawing.Point(37, 629);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 43);
             this.button1.TabIndex = 239;
@@ -1310,20 +1312,6 @@
             this.CmbMedia.Size = new System.Drawing.Size(299, 36);
             this.CmbMedia.TabIndex = 198;
             // 
-            // BtnJobDataCopy
-            // 
-            this.BtnJobDataCopy.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnJobDataCopy.Image = global::QrSorterInspectionApp.Properties.Resources.copy_icon;
-            this.BtnJobDataCopy.Location = new System.Drawing.Point(37, 570);
-            this.BtnJobDataCopy.Name = "BtnJobDataCopy";
-            this.BtnJobDataCopy.Size = new System.Drawing.Size(242, 42);
-            this.BtnJobDataCopy.TabIndex = 199;
-            this.BtnJobDataCopy.Text = " JOB内容のコピー";
-            this.BtnJobDataCopy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnJobDataCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnJobDataCopy.UseVisualStyleBackColor = true;
-            this.BtnJobDataCopy.Visible = false;
-            // 
             // TabPage2
             // 
             this.TabPage2.BackColor = System.Drawing.SystemColors.Control;
@@ -1405,7 +1393,7 @@
             this.button18.Image = global::QrSorterInspectionApp.Properties.Resources.delete;
             this.button18.Location = new System.Drawing.Point(762, 90);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(170, 40);
+            this.button18.Size = new System.Drawing.Size(170, 45);
             this.button18.TabIndex = 293;
             this.button18.Text = "削除";
             this.button18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1418,9 +1406,9 @@
             this.button19.Image = global::QrSorterInspectionApp.Properties.Resources.update;
             this.button19.Location = new System.Drawing.Point(586, 90);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(170, 40);
+            this.button19.Size = new System.Drawing.Size(170, 45);
             this.button19.TabIndex = 292;
-            this.button19.Text = "編集";
+            this.button19.Text = "更新";
             this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button19.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button19.UseVisualStyleBackColor = true;
@@ -1431,7 +1419,7 @@
             this.button20.Image = global::QrSorterInspectionApp.Properties.Resources.new_plus;
             this.button20.Location = new System.Drawing.Point(410, 90);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(170, 40);
+            this.button20.Size = new System.Drawing.Size(170, 45);
             this.button20.TabIndex = 291;
             this.button20.Text = "追加";
             this.button20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2351,6 +2339,20 @@
             this.LblJobName.Text = "チューリッヒ";
             this.LblJobName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // BtnJobDataCopy
+            // 
+            this.BtnJobDataCopy.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnJobDataCopy.Image = global::QrSorterInspectionApp.Properties.Resources.copy_icon;
+            this.BtnJobDataCopy.Location = new System.Drawing.Point(37, 570);
+            this.BtnJobDataCopy.Name = "BtnJobDataCopy";
+            this.BtnJobDataCopy.Size = new System.Drawing.Size(242, 42);
+            this.BtnJobDataCopy.TabIndex = 199;
+            this.BtnJobDataCopy.Text = " JOB内容のコピー";
+            this.BtnJobDataCopy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnJobDataCopy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnJobDataCopy.UseVisualStyleBackColor = true;
+            this.BtnJobDataCopy.Visible = false;
+            // 
             // LblTitle
             // 
             this.LblTitle.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -2413,6 +2415,7 @@
             this.Controls.Add(this.TabControl1);
             this.Controls.Add(this.LblTitle);
             this.Controls.Add(this.BtnJobDataCopy);
+            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -2585,9 +2588,9 @@
         internal System.Windows.Forms.Label label40;
         internal System.Windows.Forms.ComboBox comboBox24;
         internal System.Windows.Forms.Label label53;
-        internal System.Windows.Forms.Button button15;
-        internal System.Windows.Forms.Button button16;
-        internal System.Windows.Forms.Button button17;
+        internal System.Windows.Forms.Button BtnDelete;
+        internal System.Windows.Forms.Button BtnUpdate;
+        internal System.Windows.Forms.Button BtnAdd;
         internal System.Windows.Forms.Button button18;
         internal System.Windows.Forms.Button button19;
         internal System.Windows.Forms.Button button20;
