@@ -73,11 +73,15 @@ namespace QrSorterInspectionApp
                 }
                 else
                 {
+                    // アカウント情報が無い場合は表示データクリア
                     TxtId.Text = "";
                     TxtName.Text = "";
                     TxtPassword.Text = "";
+                    // 権限は「SV」とする
                     CmbAuthority.SelectedIndex = 1;
+                    // 「更新」ボタン使用不可
                     BtnUpdate.Enabled = false;
+                    // 「削除」ボタン使用不可
                     BtnDelete.Enabled = false;
                 }
             }
@@ -188,7 +192,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// 現在のアカウント情報を取得
         /// </summary>
         /// <returns></returns>
         private string GetAcountData()
@@ -387,6 +391,11 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// アカウントリスト行の変更
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LsvAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -417,19 +426,26 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【BtnDelete_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【LsvAccount_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// パスワードアイコンクリック処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnPassword_Click(object sender, EventArgs e)
         {
             if (TxtPassword.PasswordChar.ToString() == "*")
             {
+                // パスワードを表示する
                 TxtPassword.PasswordChar = '\0';
                 BtnPassword.Image = Properties.Resources.password_close;
             }
             else
             {
+                // パスワードを「*」で非表示
                 TxtPassword.PasswordChar = '*';
                 BtnPassword.Image = Properties.Resources.password_open;
             }            
