@@ -26,6 +26,12 @@ namespace QrSorterInspectionApp
         public static List<string> lstJobEntryList = new List<string>();        // ユーザーアカウント情報
         public const string DEF_JOB_ENTRY_FILE_NAME = "JobEntryList.txt";       // 復号化ユーザーアカウントファイル名
 
+        public static List<string> lstBoxList = new List<string>();             // 
+        public const string DEF_BOX1_LIST_NAME = "Box1List.txt";                // BOX1の名前
+        public const string DEF_BOX2_LIST_NAME = "Box2List.txt";                // BOX2の名前
+        public const string DEF_BOX3_LIST_NAME = "Box3List.txt";                // BOX3の名前
+        public const string DEF_BOX4_LIST_NAME = "Box4List.txt";                // BOX4の名前
+
         public static string sUserId;
         public static string sUserName;
         public static string sUserPassword;
