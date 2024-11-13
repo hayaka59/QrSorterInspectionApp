@@ -112,6 +112,23 @@ namespace QrSorterInspectionApp
                 CmbQrItem4.SelectedIndex = 0;
                 #endregion
 
+                #region 不着事由区分
+                CmbNonDeliveryReasonSorting1.Items.Clear();
+                CmbNonDeliveryReasonSorting1.Items.Add("１：宛所尋ね当たらず");
+                CmbNonDeliveryReasonSorting1.Items.Add("２：転居先不明");
+                CmbNonDeliveryReasonSorting1.Items.Add("３：不着事由区分３");
+                CmbNonDeliveryReasonSorting1.Items.Add("４：不着事由区分４");
+                CmbNonDeliveryReasonSorting1.Items.Add("５：受取拒否");
+                CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
+                CmbNonDeliveryReasonSorting2.Items.Clear();
+                CmbNonDeliveryReasonSorting2.Items.Add("１：宛所尋ね当たらず");
+                CmbNonDeliveryReasonSorting2.Items.Add("２：転居先不明");
+                CmbNonDeliveryReasonSorting2.Items.Add("３：不着事由区分３");
+                CmbNonDeliveryReasonSorting2.Items.Add("４：不着事由区分４");
+                CmbNonDeliveryReasonSorting2.Items.Add("５：受取拒否");
+                CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
+                #endregion
+
                 ClearDisplayData();
                 // ジョブ登録リストファイル読込
                 ReadJobEntryListFile();
@@ -119,7 +136,6 @@ namespace QrSorterInspectionApp
                 DisplayJobName();
                 // QR桁数情報色の設定
                 SetColorForQrData();
-
 
                 // TODO：ソーター設定画面設計の為
                 SetGroupItem(CmbGroup);
