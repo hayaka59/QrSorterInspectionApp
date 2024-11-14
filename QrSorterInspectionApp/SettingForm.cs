@@ -51,6 +51,33 @@ namespace QrSorterInspectionApp
                 CmbDoubleFeed.Items.Add("OFF");
                 CmbDoubleFeed.SelectedIndex = 0;
                 #endregion
+                #region 超音波検知
+                CmbUltrasonicDetection.Items.Clear();
+                CmbUltrasonicDetection.Items.Add("ON");
+                CmbUltrasonicDetection.Items.Add("OFF");
+                CmbUltrasonicDetection.SelectedIndex = 0;
+                #endregion
+                #region 桁数チェック
+                CmbCheckNumberOfDigits.Items.Clear();
+                CmbCheckNumberOfDigits.Items.Add("ON");
+                CmbCheckNumberOfDigits.Items.Add("OFF");
+                CmbCheckNumberOfDigits.SelectedIndex = 0;
+                #endregion
+                #region ログ作成条件
+                CmbLogCreationConditions.Items.Clear();
+                CmbLogCreationConditions.Items.Add("ポケット単位");
+                CmbLogCreationConditions.Items.Add("全件");
+                CmbLogCreationConditions.SelectedIndex = 0;
+                #endregion
+                #region 読取機能
+                CmbReadingFunction.Items.Clear();
+                CmbReadingFunction.Items.Add("QR");
+                CmbReadingFunction.Items.Add("NW7");
+                CmbReadingFunction.Items.Add("CODE39");
+                CmbReadingFunction.Items.Add("CODE128");
+                CmbReadingFunction.Items.Add("JAN");
+                CmbReadingFunction.SelectedIndex = 0;
+                #endregion
                 #region QR桁数
                 RchTxtQrInfo.Text = "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
@@ -58,8 +85,7 @@ namespace QrSorterInspectionApp
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567";                
                 #endregion
-
-                #region 不着事由区分
+                #region 不着事由区分１
                 CmbNonDeliveryReasonSorting1.Items.Clear();
                 CmbNonDeliveryReasonSorting1.Items.Add("１：宛所尋ね当たらず");
                 CmbNonDeliveryReasonSorting1.Items.Add("２：転居先不明");
@@ -67,6 +93,8 @@ namespace QrSorterInspectionApp
                 CmbNonDeliveryReasonSorting1.Items.Add("４：不着事由区分４");
                 CmbNonDeliveryReasonSorting1.Items.Add("５：受取拒否");
                 CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
+                #endregion
+                #region 不着事由区分１
                 CmbNonDeliveryReasonSorting2.Items.Clear();
                 CmbNonDeliveryReasonSorting2.Items.Add("１：宛所尋ね当たらず");
                 CmbNonDeliveryReasonSorting2.Items.Add("２：転居先不明");
@@ -84,34 +112,44 @@ namespace QrSorterInspectionApp
                 // QR桁数情報色の設定
                 SetColorForQrData();
 
-                // TODO：ソーター設定画面設計の為
+                #region ソーター設定画面
                 SetGroupItem(CmbGroup);
+                CmbGroup.Items.RemoveAt(4);
                 SetGroupItem(CmbGroup1);
                 SetGroupItem(CmbGroup2);
                 SetGroupItem(CmbGroup3);
                 SetGroupItem(CmbGroup4);
+                SetGroupItem(CmbGroup5);
                 CmbGroup.SelectedIndex = 0;
                 CmbGroup1.SelectedIndex = 0;
                 CmbGroup2.SelectedIndex = 0;
                 CmbGroup3.SelectedIndex = 2;
                 CmbGroup4.SelectedIndex = 3;
+                CmbGroup5.SelectedIndex = 4;
                 TxtPocketName1.Text = "コメリ";
                 TxtPocketName2.Text = "コメリ";
                 TxtPocketName3.Text = "武蔵野BK";
                 TxtPocketName4.Text = "西日本シティーBK";
+                TxtPocketName5.Text = "リジェクト";
+                #endregion
 
                 if (PubConstClass.lstJobEntryList.Count == 0)
                 {
+                    // ジョブ登録件数が「0」の場合は「更新」「削除」ボタンは使用不可
                     BtnUpdate.Enabled = false;
                     BtnDelete.Enabled = false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【BtnSetting_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【SettingForm_Load】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// ソーター設定のグループコンボボックス設定
+        /// </summary>
+        /// <param name="comboBox"></param>
         private void SetGroupItem(ComboBox comboBox)
         {
             try
@@ -121,6 +159,7 @@ namespace QrSorterInspectionApp
                 comboBox.Items.Add("グループ2");
                 comboBox.Items.Add("グループ3");
                 comboBox.Items.Add("グループ4");
+                comboBox.Items.Add("リジェクト");
             }
             catch(Exception ex)
             {
@@ -681,7 +720,7 @@ namespace QrSorterInspectionApp
             }
         }
 
-        private void LstBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void LstBoxName_SelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayBoxQritem();
         }
@@ -693,7 +732,6 @@ namespace QrSorterInspectionApp
             // リストボックス名一覧の表示
             DisplayListBox(LstBoxName);
         }
-
 
         /// <summary>
         /// リストボックス名一覧の表示
