@@ -22,7 +22,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// フォームロード処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -56,60 +56,7 @@ namespace QrSorterInspectionApp
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
-                RchTxtQrInfo.Text += "1234567";
-                RchTxtQrInfoForSorter.Text = RchTxtQrInfo.Text;
-                #endregion
-                #region ポケット①②③④
-                CmbPocket1.Items.Clear();
-                CmbPocket2.Items.Clear();
-                CmbPocket3.Items.Clear();
-                CmbPocket4.Items.Clear();
-                CmbPocket1.Items.Add("グループ1");
-                CmbPocket1.Items.Add("グループ2");
-                CmbPocket1.Items.Add("グループ3");
-                CmbPocket1.Items.Add("グループ4");
-                CmbPocket1.SelectedIndex = 0;
-                CmbPocket2.Items.Add("グループ1");
-                CmbPocket2.Items.Add("グループ2");
-                CmbPocket2.Items.Add("グループ3");
-                CmbPocket2.Items.Add("グループ4");
-                CmbPocket2.SelectedIndex = 0;
-                CmbPocket3.Items.Add("グループ1");
-                CmbPocket3.Items.Add("グループ2");
-                CmbPocket3.Items.Add("グループ3");
-                CmbPocket3.Items.Add("グループ4");
-                CmbPocket3.SelectedIndex = 0;
-                CmbPocket4.Items.Add("グループ1");
-                CmbPocket4.Items.Add("グループ2");
-                CmbPocket4.Items.Add("グループ3");
-                CmbPocket4.Items.Add("グループ4");
-                CmbPocket4.SelectedIndex = 0;
-                #endregion
-                #region QR項目①②③④
-                CmbQrItem1.Items.Clear();
-                CmbQrItem2.Items.Clear();
-                CmbQrItem3.Items.Clear();
-                CmbQrItem4.Items.Clear();
-                CmbQrItem1.Items.Add("物件ID");
-                CmbQrItem1.Items.Add("局出し日");
-                CmbQrItem1.Items.Add("ファイル区分");
-                CmbQrItem1.Items.Add("管理No");
-                CmbQrItem1.SelectedIndex = 0;
-                CmbQrItem2.Items.Add("物件ID");
-                CmbQrItem2.Items.Add("局出し日");
-                CmbQrItem2.Items.Add("ファイル区分");
-                CmbQrItem2.Items.Add("管理No");
-                CmbQrItem2.SelectedIndex = 0;
-                CmbQrItem3.Items.Add("物件ID");
-                CmbQrItem3.Items.Add("局出し日");
-                CmbQrItem3.Items.Add("ファイル区分");
-                CmbQrItem3.Items.Add("管理No");
-                CmbQrItem3.SelectedIndex = 0;
-                CmbQrItem4.Items.Add("物件ID");
-                CmbQrItem4.Items.Add("局出し日");
-                CmbQrItem4.Items.Add("ファイル区分");
-                CmbQrItem4.Items.Add("管理No");
-                CmbQrItem4.SelectedIndex = 0;
+                RchTxtQrInfo.Text += "1234567";                
                 #endregion
 
                 #region 不着事由区分
@@ -190,7 +137,6 @@ namespace QrSorterInspectionApp
             {
                 string[] sArray;
                 LsbJobListFeeder.Items.Clear();
-                LsbJobListSorter.Items.Clear();
                 if (PubConstClass.lstJobEntryList.Count == 0)
                 {
                     return;
@@ -199,10 +145,8 @@ namespace QrSorterInspectionApp
                 {
                     sArray = item.Split(',');
                     LsbJobListFeeder.Items.Add(sArray[0]);
-                    LsbJobListSorter.Items.Add(sArray[0]);
                 }
                 LsbJobListFeeder.SelectedIndex = 0;
-                LsbJobListSorter.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -220,28 +164,6 @@ namespace QrSorterInspectionApp
             Owner.Show();
             Owner.Refresh();
             this.Dispose();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LsbJobListSorter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string[] sArray;
-            try
-            {
-                sArray = PubConstClass.lstJobEntryList[LsbJobListSorter.SelectedIndex].Split(',');
-                // JOB名
-                LblJobName.Text = sArray[0];
-                // 媒体
-                LblMedia.Text = sArray[1];
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【LsbJobList_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         /// <summary>
@@ -298,16 +220,9 @@ namespace QrSorterInspectionApp
                 NmUpDnManagementNoStart.Value = decimal.Parse(sArray[16]);
                 NmUpDnManagementNoKeta.Value = decimal.Parse(sArray[17]);
                 // 仕分け①
-                TxtSorting1.Text = sArray[18];
+                
                 // 仕分け②
-                TxtSorting2.Text = sArray[19];
-
-                // TODO：
-                //CmbGroup1.SelectedIndex = 0;
-                //CmbGroup2.SelectedIndex = 0;
-                //CmbGroup3.SelectedIndex = 0;
-                //CmbGroup4.SelectedIndex = 0;
-
+                
             }
             catch (Exception ex)
             {
@@ -322,8 +237,7 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                SetColorForQrDataSub(RchTxtQrInfo);
-                SetColorForQrDataSub(RchTxtQrInfoForSorter);
+                SetColorForQrDataSub(RchTxtQrInfo);                
             }
             catch (Exception ex)
             {
@@ -412,17 +326,20 @@ namespace QrSorterInspectionApp
 
         private void NumUpDwnQrAllDigit_ValueChanged(object sender, EventArgs e)
         {
+            string sData = "";
             try
             {
-                string sData = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
-                RchTxtQrInfo.Text = sData.Substring(0, decimal.ToInt32(NumUpDwnQrAllDigit.Value));
-                RchTxtQrInfoForSorter.Text = sData.Substring(0, decimal.ToInt32(NumUpDwnQrAllDigit.Value));
+                //                 1         2         3         4         5
+                sData += "12345678901234567890123456789012345678901234567890";
+                sData += "12345678901234567890123456789012345678901234567890";
+                sData += "12345678901234567890123456789012345678901234567890";
+                RchTxtQrInfo.Text = sData.Substring(0, decimal.ToInt32(NumUpDwnQrAllDigit.Value));                
 
                 SetColorForQrData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【SetColorForQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【NumUpDwnQrAllDigit_ValueChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -575,9 +492,9 @@ namespace QrSorterInspectionApp
                 sData += NmUpDnManagementNoStart.Value.ToString() + ",";
                 sData += NmUpDnManagementNoKeta.Value.ToString() + ",";
                 // 仕分け①
-                sData += TxtSorting1.Text + ",";
+                
                 // 仕分け②
-                sData += TxtSorting2.Text;
+                
 
                 return sData;
             }
@@ -731,9 +648,9 @@ namespace QrSorterInspectionApp
                 NmUpDnManagementNoStart.Value = 4;
                 NmUpDnManagementNoKeta.Value = 1;
                 // 仕分け①
-                TxtSorting1.Text = "";
+                CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
                 // 仕分け②
-                TxtSorting2.Text = "";
+                CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
