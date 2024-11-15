@@ -132,7 +132,7 @@ namespace QrSorterInspectionApp
 
                 ClearDisplayData();
                 // ジョブ登録リストファイル読込
-                ReadJobEntryListFile();
+                CommonModule.ReadJobEntryListFile();
                 // JOB一覧表示
                 DisplayJobName();
                 // QR桁数情報色の設定
@@ -325,6 +325,12 @@ namespace QrSorterInspectionApp
                 // ポケット④：グループID
                 CmbGroup4.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
                 iIndex++;
+                // ポケット⑤：名称
+                TxtPocketName5.Text = sArray[iIndex].Trim();
+                iIndex++;
+                // ポケット⑤：グループID
+                CmbGroup5.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
+                iIndex++;
 
             }
             catch (Exception ex)
@@ -446,33 +452,33 @@ namespace QrSorterInspectionApp
             }
         }
 
-        /// <summary>
-        /// ジョブ登録リストファイルの読込
-        /// </summary>
-        private void ReadJobEntryListFile()
-        {
-            string sReadDataPath;
-            string sData;
+        ///// <summary>
+        ///// ジョブ登録リストファイルの読込
+        ///// </summary>
+        //private void ReadJobEntryListFile()
+        //{
+        //    string sReadDataPath;
+        //    string sData;
 
-            try
-            {
-                sReadDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_JOB_ENTRY_FILE_NAME;
+        //    try
+        //    {
+        //        sReadDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_JOB_ENTRY_FILE_NAME;
 
-                PubConstClass.lstJobEntryList.Clear();
-                using (StreamReader sr = new StreamReader(sReadDataPath, Encoding.Default))
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        sData = sr.ReadLine();
-                        PubConstClass.lstJobEntryList.Add(sData);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【ReadJobEntryListFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //        PubConstClass.lstJobEntryList.Clear();
+        //        using (StreamReader sr = new StreamReader(sReadDataPath, Encoding.Default))
+        //        {
+        //            while (!sr.EndOfStream)
+        //            {
+        //                sData = sr.ReadLine();
+        //                PubConstClass.lstJobEntryList.Add(sData);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "【ReadJobEntryListFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         /// <summary>
         /// ジョブ登録リストファイルの書込み
@@ -624,6 +630,10 @@ namespace QrSorterInspectionApp
                 sData += TxtPocketName4.Text.Trim() + ","; ;
                 // ポケット④：グループID
                 sData += (CmbGroup4.SelectedIndex + 1).ToString() + ","; ;
+                // ポケット⑤：名称
+                sData += TxtPocketName5.Text.Trim() + ","; ;
+                // ポケット⑤：グループID
+                sData += (CmbGroup5.SelectedIndex + 1).ToString() + ","; ;
 
                 return sData;
             }
