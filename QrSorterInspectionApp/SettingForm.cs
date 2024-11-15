@@ -276,10 +276,10 @@ namespace QrSorterInspectionApp
                 NmUpDnManagementNoKeta.Value = decimal.Parse(sArray[iIndex]);
                 iIndex++;
                 // 仕分け①
-                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[iIndex]);
+                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[iIndex]) - 1;
                 iIndex++;
                 // 仕分け②
-                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[iIndex]);
+                CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[iIndex]) - 1;
                 iIndex++;
 
                 // 重複検査
@@ -572,12 +572,10 @@ namespace QrSorterInspectionApp
                 sData += CmbMedia.Text.Trim() + ",";
                 // 受領日
                 sData += DtpDateReceipt.Text.Trim() + ",";
+                // 受領日入力
+                sData += CmbDateReceipt.Text.Trim() + ","; ;
                 // QR桁数
                 sData += NumUpDwnQrAllDigit.Value.ToString() + ",";
-                // 重複検査
-                sData += CmbDuplication.Text + ",";
-                // Wフィード検査
-                sData += CmbDoubleFeed.Text + ",";
                 // QR読取項目①
                 sData += TxtQrReadItem1.Text + ",";
                 sData += NmUpDnPropertyIdStart.Value.ToString() + ",";
@@ -595,9 +593,37 @@ namespace QrSorterInspectionApp
                 sData += NmUpDnManagementNoStart.Value.ToString() + ",";
                 sData += NmUpDnManagementNoKeta.Value.ToString() + ",";
                 // 仕分け①
-                
+                sData += (CmbNonDeliveryReasonSorting1.SelectedIndex + 1).ToString() + ","; ;
                 // 仕分け②
-                
+                sData += (CmbNonDeliveryReasonSorting2.SelectedIndex + 1).ToString() + ","; ;
+                // 重複検査
+                sData += CmbDuplication.Text + ","; ;
+                // Wフィード検査
+                sData += CmbDoubleFeed.Text + ","; ;
+                // 超音波検知
+                sData += CmbUltrasonicDetection.Text + ","; ;
+                // 桁数チェック
+                sData += CmbCheckNumberOfDigits.Text + ","; ;
+                // ログ作成条件
+                sData += (CmbLogCreationConditions.SelectedIndex + 1).ToString() + ","; ;
+                // 読取機能
+                sData += (CmbReadingFunction.SelectedIndex + 1).ToString() + ","; ;
+                // ポケット①：名称
+                sData += TxtPocketName1.Text.Trim() + ","; ;
+                // ポケット①：グループID
+                sData += (CmbGroup1.SelectedIndex + 1).ToString() + ","; ;
+                // ポケット②：名称
+                sData += TxtPocketName2.Text.Trim() + ","; ;
+                // ポケット②：グループID
+                sData += (CmbGroup2.SelectedIndex + 1).ToString() + ","; ;
+                // ポケット③：名称
+                sData += TxtPocketName3.Text.Trim() + ","; ;
+                // ポケット③：グループID
+                sData += (CmbGroup3.SelectedIndex + 1).ToString() + ","; ;
+                // ポケット④：名称
+                sData += TxtPocketName4.Text.Trim() + ","; ;
+                // ポケット④：グループID
+                sData += (CmbGroup4.SelectedIndex + 1).ToString() + ","; ;
 
                 return sData;
             }
