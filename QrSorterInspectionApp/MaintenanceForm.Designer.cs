@@ -32,6 +32,7 @@
             this.LblVersion = new System.Windows.Forms.Label();
             this.GroupBox11 = new System.Windows.Forms.GroupBox();
             this.CmbSaveMonth = new System.Windows.Forms.ComboBox();
+            this.BtnDeleteLogData = new System.Windows.Forms.Button();
             this.Label36 = new System.Windows.Forms.Label();
             this.GroupBox7 = new System.Windows.Forms.GroupBox();
             this.CmbComParityVar = new System.Windows.Forms.ComboBox();
@@ -57,7 +58,6 @@
             this.TxtUserAccount = new System.Windows.Forms.TextBox();
             this.BtnDecript = new System.Windows.Forms.Button();
             this.BtnEncript = new System.Windows.Forms.Button();
-            this.BtnDeleteLogData = new System.Windows.Forms.Button();
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.GroupBox11.SuspendLayout();
@@ -89,6 +89,8 @@
             this.LblVersion.TabIndex = 241;
             this.LblVersion.Text = "LblVersion";
             this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblVersion.Click += new System.EventHandler(this.LblVersion_Click);
+            this.LblVersion.DoubleClick += new System.EventHandler(this.LblVersion_DoubleClick);
             // 
             // GroupBox11
             // 
@@ -113,6 +115,19 @@
             this.CmbSaveMonth.Name = "CmbSaveMonth";
             this.CmbSaveMonth.Size = new System.Drawing.Size(199, 32);
             this.CmbSaveMonth.TabIndex = 90;
+            // 
+            // BtnDeleteLogData
+            // 
+            this.BtnDeleteLogData.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnDeleteLogData.Image = global::QrSorterInspectionApp.Properties.Resources.trash_icon;
+            this.BtnDeleteLogData.Location = new System.Drawing.Point(19, 73);
+            this.BtnDeleteLogData.Name = "BtnDeleteLogData";
+            this.BtnDeleteLogData.Size = new System.Drawing.Size(288, 48);
+            this.BtnDeleteLogData.TabIndex = 89;
+            this.BtnDeleteLogData.Text = "ログデータ手動削除";
+            this.BtnDeleteLogData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDeleteLogData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnDeleteLogData.UseVisualStyleBackColor = true;
             // 
             // Label36
             // 
@@ -375,6 +390,7 @@
             this.TxtUserAccount.Name = "TxtUserAccount";
             this.TxtUserAccount.Size = new System.Drawing.Size(688, 324);
             this.TxtUserAccount.TabIndex = 252;
+            this.TxtUserAccount.Visible = false;
             // 
             // BtnDecript
             // 
@@ -388,6 +404,7 @@
             this.BtnDecript.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnDecript.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDecript.UseVisualStyleBackColor = true;
+            this.BtnDecript.Visible = false;
             this.BtnDecript.Click += new System.EventHandler(this.BtnDecript_Click);
             // 
             // BtnEncript
@@ -402,20 +419,8 @@
             this.BtnEncript.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnEncript.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnEncript.UseVisualStyleBackColor = true;
+            this.BtnEncript.Visible = false;
             this.BtnEncript.Click += new System.EventHandler(this.BtnEncript_Click);
-            // 
-            // BtnDeleteLogData
-            // 
-            this.BtnDeleteLogData.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnDeleteLogData.Image = global::QrSorterInspectionApp.Properties.Resources.trash_icon;
-            this.BtnDeleteLogData.Location = new System.Drawing.Point(19, 73);
-            this.BtnDeleteLogData.Name = "BtnDeleteLogData";
-            this.BtnDeleteLogData.Size = new System.Drawing.Size(288, 48);
-            this.BtnDeleteLogData.TabIndex = 89;
-            this.BtnDeleteLogData.Text = "ログデータ手動削除";
-            this.BtnDeleteLogData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDeleteLogData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnDeleteLogData.UseVisualStyleBackColor = true;
             // 
             // BtnApply
             // 
