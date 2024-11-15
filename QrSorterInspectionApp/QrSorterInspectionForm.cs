@@ -82,6 +82,37 @@ namespace QrSorterInspectionApp
                 LsvNGHistory.Columns.AddRange(colHeaderNG);
                 #endregion
 
+                #region 不着事由区分１
+                CmbNonDeliveryReasonSorting1.Items.Clear();
+                CmbNonDeliveryReasonSorting1.Items.Add("１：宛所尋ね当たらず");
+                CmbNonDeliveryReasonSorting1.Items.Add("２：転居先不明");
+                CmbNonDeliveryReasonSorting1.Items.Add("３：不着事由区分３");
+                CmbNonDeliveryReasonSorting1.Items.Add("４：不着事由区分４");
+                CmbNonDeliveryReasonSorting1.Items.Add("５：受取拒否");
+                CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
+                #endregion
+                #region 不着事由区分１
+                CmbNonDeliveryReasonSorting2.Items.Clear();
+                CmbNonDeliveryReasonSorting2.Items.Add("１：宛所尋ね当たらず");
+                CmbNonDeliveryReasonSorting2.Items.Add("２：転居先不明");
+                CmbNonDeliveryReasonSorting2.Items.Add("３：不着事由区分３");
+                CmbNonDeliveryReasonSorting2.Items.Add("４：不着事由区分４");
+                CmbNonDeliveryReasonSorting2.Items.Add("５：受取拒否");
+                CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
+                #endregion
+
+                #region ジョブ名
+                // ジョブ登録リストファイル読込
+                CommonModule.ReadJobEntryListFile();
+                CmbJobName.Items.Clear();
+                foreach (var items in PubConstClass.lstJobEntryList)
+                {
+                    string[] sArray = items.Split(',');
+                    CmbJobName.Items.Add(sArray[0]);
+                }
+                CmbJobName.SelectedIndex = 0;
+                #endregion
+
                 TimDateTime.Interval = 1000;
                 TimDateTime.Enabled = true;
 
@@ -89,6 +120,7 @@ namespace QrSorterInspectionApp
                 LblBox2.Text = "0";
                 LblBox3.Text = "0";
                 LblBox4.Text = "0";
+                LblBox5.Text = "0";
                 LblBoxEject.Text = "0";
 
                 LblTotalCount.Text = "0";
@@ -99,7 +131,10 @@ namespace QrSorterInspectionApp
                 LblPocket2.Text = "";
                 LblPocket3.Text = "";
                 LblPocket4.Text = "";
+                LblPocket5.Text = "";
 
+                // 停止中
+                SetStatus(0);
 
             }
             catch (Exception ex)
@@ -224,6 +259,9 @@ namespace QrSorterInspectionApp
                         LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
                     }
                 }
+
+                // 検査中
+                SetStatus(1);
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -263,11 +301,85 @@ namespace QrSorterInspectionApp
                         LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
                     }
                 }
+
+                // 停止中
+                SetStatus(0);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// ジョブ名選択処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CmbJobName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] sArray = PubConstClass.lstJobEntryList[CmbJobName.SelectedIndex].Split(',');
+
+                DtpDateReceipt.Text = sArray[2];
+
+                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[17]);
+                CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[18]);
+
+                LblBoxTitle1.Text = "BOX_01 " + sArray[25];
+                LblBoxTitle2.Text = "BOX_02 " + sArray[27];
+                LblBoxTitle3.Text = "BOX_03 " + sArray[29];
+                LblBoxTitle4.Text = "BOX_04 " + sArray[31];
+                LblBoxTitle5.Text = "BOX_05 " + sArray[33];
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CmbJobName_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SetStatus(int status)
+        {
+            try
+            {
+                switch (status)
+                {
+                    case 0:
+                        LblStatus.Text = "停止中";
+                        LblStatus.BackColor = Color.LightGray;
+                        LblStatus.ForeColor = Color.Black;
+                        break;
+
+                    case 1:
+                        LblStatus.Text = "検査中";
+                        LblStatus.BackColor = Color.LightGreen;
+                        LblStatus.ForeColor = Color.Black;
+                        break;
+
+                    case 2:
+                        LblStatus.Text = "エラー";
+                        LblStatus.BackColor = Color.OrangeRed;
+                        LblStatus.ForeColor = Color.White;
+                        break;
+
+                    default:
+                        LblStatus.Text = "停止中";
+                        LblStatus.BackColor = Color.LightGray;
+                        LblStatus.ForeColor = Color.Black;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SetStatus】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LblVersion_DoubleClick(object sender, EventArgs e)
+        {
+           SetStatus(2);
         }
     }
 }
