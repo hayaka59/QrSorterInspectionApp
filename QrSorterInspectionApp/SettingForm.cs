@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -332,6 +333,9 @@ namespace QrSorterInspectionApp
                 CmbGroup5.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
                 iIndex++;
 
+                // グループ１～４を更新する
+                CmbGroup.SelectedIndex = 1;
+                CmbGroup.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -678,6 +682,22 @@ namespace QrSorterInspectionApp
 
                 // JOB一覧表示
                 DisplayJobName();
+
+                // 新規ジョブのBOXファイルが存在するか確認
+                string sFolder = "";
+                string sJobFolder = "\\JOB\\";
+                sJobFolder += "JOB" + LsbJobListFeeder.Items.Count.ToString("00000") + "\\";
+                sFolder = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
+                if (!Directory.Exists(sFolder))
+                {
+                    // フォルダを作成
+                    Directory.CreateDirectory(sFolder);
+                    // ファイルが無い場合は空ファイルを作成
+                    File.Create(sFolder + "Box1List.txt").Close();
+                    File.Create(sFolder + "Box2List.txt").Close();
+                    File.Create(sFolder + "Box3List.txt").Close();
+                    File.Create(sFolder + "Box4List.txt").Close();
+                }
             }
             catch (Exception ex)
             {
@@ -831,6 +851,17 @@ namespace QrSorterInspectionApp
             ReadBoxListFile(CmbGroup.SelectedIndex);
             // リストボックス名一覧の表示
             DisplayListBox(LstBoxName);
+
+            if (LstBoxName.Items.Count == 0)
+            {
+                BtnPocketUpdate.Enabled = false;
+                BtnPcketDelete.Enabled = false;
+            }
+            else
+            {
+                BtnPocketUpdate.Enabled = true;
+                BtnPcketDelete.Enabled = true;
+            }
         }
 
         /// <summary>
@@ -842,6 +873,16 @@ namespace QrSorterInspectionApp
             try
             {
                 listBox.Items.Clear();
+                if (PubConstClass.lstBoxList.Count == 0)
+                {
+                    // 登録データが無いので表示をクリア
+                    TxtBoxName.Text = "";
+                    TxtBoxQrItem1.Text = "";
+                    TxtBoxQrItem2.Text = "";
+                    TxtBoxQrItem3.Text = "";
+                    TxtBoxQrItem4.Text = "";
+                    return;
+                }
                 foreach (var item in PubConstClass.lstBoxList)
                 {
                     String[] sArray = item.ToString().Split(',');
@@ -1080,6 +1121,11 @@ namespace QrSorterInspectionApp
 
                 // リストボックス名一覧の表示
                 DisplayListBox(LstBoxName);
+
+                // 「更新」「削除」ボタンの有効化
+                BtnPocketUpdate.Enabled = true;
+                BtnPcketDelete.Enabled = true;
+
             }
             catch (Exception ex)
             {
@@ -1145,6 +1191,17 @@ namespace QrSorterInspectionApp
 
                 // リストボックス名一覧の表示
                 DisplayListBox(LstBoxName);
+
+                if (LstBoxName.Items.Count == 0)
+                {
+                    BtnPocketUpdate.Enabled = false;
+                    BtnPcketDelete.Enabled = false;
+                }
+                else
+                {
+                    BtnPocketUpdate.Enabled = true;
+                    BtnPcketDelete.Enabled = true;
+                }
             }
             catch (Exception ex)
             {
