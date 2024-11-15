@@ -22,7 +22,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// フォームロード処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -51,68 +51,47 @@ namespace QrSorterInspectionApp
                 CmbDoubleFeed.Items.Add("OFF");
                 CmbDoubleFeed.SelectedIndex = 0;
                 #endregion
+                #region 受領日入力
+                CmbDateReceipt.Items.Clear();
+                CmbDateReceipt.Items.Add("ON");
+                CmbDateReceipt.Items.Add("OFF");
+                CmbDateReceipt.SelectedIndex = 0;
+                #endregion
+                #region 超音波検知
+                CmbUltrasonicDetection.Items.Clear();
+                CmbUltrasonicDetection.Items.Add("ON");
+                CmbUltrasonicDetection.Items.Add("OFF");
+                CmbUltrasonicDetection.SelectedIndex = 0;
+                #endregion
+                #region 桁数チェック
+                CmbCheckNumberOfDigits.Items.Clear();
+                CmbCheckNumberOfDigits.Items.Add("ON");
+                CmbCheckNumberOfDigits.Items.Add("OFF");
+                CmbCheckNumberOfDigits.SelectedIndex = 0;
+                #endregion
+                #region ログ作成条件
+                CmbLogCreationConditions.Items.Clear();
+                CmbLogCreationConditions.Items.Add("ポケット単位");
+                CmbLogCreationConditions.Items.Add("全件");
+                CmbLogCreationConditions.SelectedIndex = 0;
+                #endregion
+                #region 読取機能
+                CmbReadingFunction.Items.Clear();
+                CmbReadingFunction.Items.Add("QR");
+                CmbReadingFunction.Items.Add("NW7");
+                CmbReadingFunction.Items.Add("CODE39");
+                CmbReadingFunction.Items.Add("CODE128");
+                CmbReadingFunction.Items.Add("JAN");
+                CmbReadingFunction.SelectedIndex = 0;
+                #endregion
                 #region QR桁数
                 RchTxtQrInfo.Text = "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
-                RchTxtQrInfo.Text += "1234567";
-                RchTxtQrInfoForSorter.Text = RchTxtQrInfo.Text;
+                RchTxtQrInfo.Text += "1234567";                
                 #endregion
-                #region ポケット①②③④
-                CmbPocket1.Items.Clear();
-                CmbPocket2.Items.Clear();
-                CmbPocket3.Items.Clear();
-                CmbPocket4.Items.Clear();
-                CmbPocket1.Items.Add("グループ1");
-                CmbPocket1.Items.Add("グループ2");
-                CmbPocket1.Items.Add("グループ3");
-                CmbPocket1.Items.Add("グループ4");
-                CmbPocket1.SelectedIndex = 0;
-                CmbPocket2.Items.Add("グループ1");
-                CmbPocket2.Items.Add("グループ2");
-                CmbPocket2.Items.Add("グループ3");
-                CmbPocket2.Items.Add("グループ4");
-                CmbPocket2.SelectedIndex = 0;
-                CmbPocket3.Items.Add("グループ1");
-                CmbPocket3.Items.Add("グループ2");
-                CmbPocket3.Items.Add("グループ3");
-                CmbPocket3.Items.Add("グループ4");
-                CmbPocket3.SelectedIndex = 0;
-                CmbPocket4.Items.Add("グループ1");
-                CmbPocket4.Items.Add("グループ2");
-                CmbPocket4.Items.Add("グループ3");
-                CmbPocket4.Items.Add("グループ4");
-                CmbPocket4.SelectedIndex = 0;
-                #endregion
-                #region QR項目①②③④
-                CmbQrItem1.Items.Clear();
-                CmbQrItem2.Items.Clear();
-                CmbQrItem3.Items.Clear();
-                CmbQrItem4.Items.Clear();
-                CmbQrItem1.Items.Add("物件ID");
-                CmbQrItem1.Items.Add("局出し日");
-                CmbQrItem1.Items.Add("ファイル区分");
-                CmbQrItem1.Items.Add("管理No");
-                CmbQrItem1.SelectedIndex = 0;
-                CmbQrItem2.Items.Add("物件ID");
-                CmbQrItem2.Items.Add("局出し日");
-                CmbQrItem2.Items.Add("ファイル区分");
-                CmbQrItem2.Items.Add("管理No");
-                CmbQrItem2.SelectedIndex = 0;
-                CmbQrItem3.Items.Add("物件ID");
-                CmbQrItem3.Items.Add("局出し日");
-                CmbQrItem3.Items.Add("ファイル区分");
-                CmbQrItem3.Items.Add("管理No");
-                CmbQrItem3.SelectedIndex = 0;
-                CmbQrItem4.Items.Add("物件ID");
-                CmbQrItem4.Items.Add("局出し日");
-                CmbQrItem4.Items.Add("ファイル区分");
-                CmbQrItem4.Items.Add("管理No");
-                CmbQrItem4.SelectedIndex = 0;
-                #endregion
-
-                #region 不着事由区分
+                #region 不着事由区分１
                 CmbNonDeliveryReasonSorting1.Items.Clear();
                 CmbNonDeliveryReasonSorting1.Items.Add("１：宛所尋ね当たらず");
                 CmbNonDeliveryReasonSorting1.Items.Add("２：転居先不明");
@@ -120,6 +99,8 @@ namespace QrSorterInspectionApp
                 CmbNonDeliveryReasonSorting1.Items.Add("４：不着事由区分４");
                 CmbNonDeliveryReasonSorting1.Items.Add("５：受取拒否");
                 CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
+                #endregion
+                #region 不着事由区分１
                 CmbNonDeliveryReasonSorting2.Items.Clear();
                 CmbNonDeliveryReasonSorting2.Items.Add("１：宛所尋ね当たらず");
                 CmbNonDeliveryReasonSorting2.Items.Add("２：転居先不明");
@@ -127,6 +108,26 @@ namespace QrSorterInspectionApp
                 CmbNonDeliveryReasonSorting2.Items.Add("４：不着事由区分４");
                 CmbNonDeliveryReasonSorting2.Items.Add("５：受取拒否");
                 CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
+                #endregion
+                #region ソーター設定画面
+                SetGroupItem(CmbGroup);
+                CmbGroup.Items.RemoveAt(4);
+                SetGroupItem(CmbGroup1);
+                SetGroupItem(CmbGroup2);
+                SetGroupItem(CmbGroup3);
+                SetGroupItem(CmbGroup4);
+                SetGroupItem(CmbGroup5);
+                CmbGroup.SelectedIndex = 0;
+                CmbGroup1.SelectedIndex = 0;
+                CmbGroup2.SelectedIndex = 0;
+                CmbGroup3.SelectedIndex = 2;
+                CmbGroup4.SelectedIndex = 3;
+                CmbGroup5.SelectedIndex = 4;
+                TxtPocketName1.Text = "コメリ";
+                TxtPocketName2.Text = "コメリ";
+                TxtPocketName3.Text = "武蔵野BK";
+                TxtPocketName4.Text = "西日本シティーBK";
+                TxtPocketName5.Text = "リジェクト";
                 #endregion
 
                 ClearDisplayData();
@@ -137,34 +138,23 @@ namespace QrSorterInspectionApp
                 // QR桁数情報色の設定
                 SetColorForQrData();
 
-                // TODO：ソーター設定画面設計の為
-                SetGroupItem(CmbGroup);
-                SetGroupItem(CmbGroup1);
-                SetGroupItem(CmbGroup2);
-                SetGroupItem(CmbGroup3);
-                SetGroupItem(CmbGroup4);
-                CmbGroup.SelectedIndex = 0;
-                CmbGroup1.SelectedIndex = 0;
-                CmbGroup2.SelectedIndex = 0;
-                CmbGroup3.SelectedIndex = 2;
-                CmbGroup4.SelectedIndex = 3;
-                TxtPocketName1.Text = "コメリ";
-                TxtPocketName2.Text = "コメリ";
-                TxtPocketName3.Text = "武蔵野BK";
-                TxtPocketName4.Text = "西日本シティーBK";
-
                 if (PubConstClass.lstJobEntryList.Count == 0)
                 {
+                    // ジョブ登録件数が「0」の場合は「更新」「削除」ボタンは使用不可
                     BtnUpdate.Enabled = false;
                     BtnDelete.Enabled = false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【BtnSetting_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【SettingForm_Load】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// ソーター設定のグループコンボボックス設定
+        /// </summary>
+        /// <param name="comboBox"></param>
         private void SetGroupItem(ComboBox comboBox)
         {
             try
@@ -174,6 +164,7 @@ namespace QrSorterInspectionApp
                 comboBox.Items.Add("グループ2");
                 comboBox.Items.Add("グループ3");
                 comboBox.Items.Add("グループ4");
+                comboBox.Items.Add("リジェクト");
             }
             catch(Exception ex)
             {
@@ -190,7 +181,6 @@ namespace QrSorterInspectionApp
             {
                 string[] sArray;
                 LsbJobListFeeder.Items.Clear();
-                LsbJobListSorter.Items.Clear();
                 if (PubConstClass.lstJobEntryList.Count == 0)
                 {
                     return;
@@ -199,10 +189,8 @@ namespace QrSorterInspectionApp
                 {
                     sArray = item.Split(',');
                     LsbJobListFeeder.Items.Add(sArray[0]);
-                    LsbJobListSorter.Items.Add(sArray[0]);
                 }
                 LsbJobListFeeder.SelectedIndex = 0;
-                LsbJobListSorter.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -223,95 +211,125 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LsbJobListSorter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string[] sArray;
-            try
-            {
-                sArray = PubConstClass.lstJobEntryList[LsbJobListSorter.SelectedIndex].Split(',');
-                // JOB名
-                LblJobName.Text = sArray[0];
-                // 媒体
-                LblMedia.Text = sArray[1];
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【LsbJobList_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
         /// 「QRフィーダー設定」タブのジョブ一覧リスト選択処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void LsbJobListFeeder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[] sArray;
-            try
-            {                
-                sArray = PubConstClass.lstJobEntryList[LsbJobListFeeder.SelectedIndex].Split(',');
-                // JOB名
-                TxtJobName.Text = sArray[0];
-                // 媒体
-                CmbMedia.Text = sArray[1];
-                // 受領日
-                DtpDateReceipt.Text = sArray[2];
-                // QR桁数
-                NumUpDwnQrAllDigit.Value = decimal.Parse(sArray[3]);
-                // 重複検査
-                if (sArray[4].Trim() == "ON")
-                {
-                    CmbDuplication.SelectedIndex = 0;
-                }
-                else
-                {
-                    CmbDuplication.SelectedIndex = 1;
-                }
-                // Wフィード検査
-                if (sArray[5].Trim() == "ON")
-                {
-                    CmbDoubleFeed.SelectedIndex = 0;
-                }
-                else
-                {
-                    CmbDoubleFeed.SelectedIndex = 1;
-                }
-                // QR読取項目①
-                TxtQrReadItem1.Text = sArray[6];
-                NmUpDnPropertyIdStart.Value = decimal.Parse(sArray[7]);
-                NmUpDnPropertyIdKeta.Value = decimal.Parse(sArray[8]);
-                // QR読取項目②
-                TxtQrReadItem2.Text = sArray[9];
-                NmUpDnPostalDateStart.Value = decimal.Parse(sArray[10]);
-                NmUpDnPostalDateKeta.Value = decimal.Parse(sArray[11]);
-                // QR読取項目③
-                TxtQrReadItem3.Text = sArray[12];
-                NmUpDnFileTypeStart.Value = decimal.Parse(sArray[13]);
-                NmUpDnFileTypeKeta.Value = decimal.Parse(sArray[14]);
-                // QR読取項目④
-                TxtQrReadItem4.Text = sArray[15];
-                NmUpDnManagementNoStart.Value = decimal.Parse(sArray[16]);
-                NmUpDnManagementNoKeta.Value = decimal.Parse(sArray[17]);
-                // 仕分け①
-                TxtSorting1.Text = sArray[18];
-                // 仕分け②
-                TxtSorting2.Text = sArray[19];
+            GetEntryJobItem(LsbJobListFeeder.SelectedIndex);
+        }
 
-                // TODO：
-                //CmbGroup1.SelectedIndex = 0;
-                //CmbGroup2.SelectedIndex = 0;
-                //CmbGroup3.SelectedIndex = 0;
-                //CmbGroup4.SelectedIndex = 0;
+        /// <summary>
+        /// 登録ジュブ項目を取得し表示する
+        /// </summary>
+        /// <param name="iJobIndex"></param>
+        private void GetEntryJobItem(int iJobIndex)
+        {
+            string[] sArray;
+
+            try
+            {
+                int iIndex = 0;
+                sArray = PubConstClass.lstJobEntryList[iJobIndex].Split(',');
+                // JOB名
+                TxtJobName.Text = sArray[iIndex];
+                iIndex++;
+                // 媒体
+                CmbMedia.Text = sArray[iIndex];
+                iIndex++;
+                // 受領日
+                DtpDateReceipt.Text = sArray[iIndex];
+                iIndex++;
+                // 受領日入力
+                CmbDateReceipt.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
+                // QR桁数
+                NumUpDwnQrAllDigit.Value = decimal.Parse(sArray[iIndex]);
+                iIndex++;
+                // QR読取項目①
+                TxtQrReadItem1.Text = sArray[iIndex];
+                iIndex++;
+                NmUpDnPropertyIdStart.Value = decimal.Parse(sArray[iIndex]);
+                iIndex++;
+                NmUpDnPropertyIdKeta.Value = decimal.Parse(sArray[iIndex]);
+                iIndex++;
+                // QR読取項目②
+                TxtQrReadItem2.Text = sArray[iIndex];
+                iIndex++;
+                NmUpDnPostalDateStart.Value = decimal.Parse(sArray[iIndex]);
+                iIndex++;
+                NmUpDnPostalDateKeta.Value = decimal.Parse(sArray[iIndex]);
+                iIndex++;
+                // QR読取項目③
+                TxtQrReadItem3.Text = sArray[iIndex];
+                iIndex++;
+                NmUpDnFileTypeStart.Value = decimal.Parse(sArray[iIndex]);
+                iIndex++;
+                NmUpDnFileTypeKeta.Value = decimal.Parse(sArray[iIndex]);
+                iIndex++;
+                // QR読取項目④
+                TxtQrReadItem4.Text = sArray[iIndex];
+                iIndex++;
+                NmUpDnManagementNoStart.Value = decimal.Parse(sArray[iIndex]);
+                iIndex++;
+                NmUpDnManagementNoKeta.Value = decimal.Parse(sArray[iIndex]);
+                iIndex++;
+                // 仕分け①
+                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[iIndex]) - 1;
+                iIndex++;
+                // 仕分け②
+                CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[iIndex]) - 1;
+                iIndex++;
+
+                // 重複検査
+                CmbDuplication.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
+                // Wフィード検査
+                CmbDoubleFeed.SelectedIndex = sArray[iIndex].Trim() == "ON"? 0 : 1;
+                iIndex++;
+                // 超音波検知
+                CmbUltrasonicDetection.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
+                // 桁数チェック
+                CmbCheckNumberOfDigits.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
+                // ログ作成条件
+                CmbLogCreationConditions.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
+                iIndex++;
+                // 読取機能
+                CmbReadingFunction.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
+                iIndex++;
+
+                // ポケット①：名称
+                TxtPocketName1.Text = sArray[iIndex].Trim();
+                iIndex++;
+                // ポケット①：グループID
+                CmbGroup1.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
+                iIndex++;
+                // ポケット②：名称
+                TxtPocketName2.Text = sArray[iIndex].Trim();
+                iIndex++;
+                // ポケット②：グループID
+                CmbGroup2.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
+                iIndex++;
+                // ポケット③：名称
+                TxtPocketName3.Text = sArray[iIndex].Trim();
+                iIndex++;
+                // ポケット③：グループID
+                CmbGroup3.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
+                iIndex++;
+                // ポケット④：名称
+                TxtPocketName4.Text = sArray[iIndex].Trim();
+                iIndex++;
+                // ポケット④：グループID
+                CmbGroup4.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
+                iIndex++;
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【LsbJobList_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【GetEntryJobItem】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -322,8 +340,7 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                SetColorForQrDataSub(RchTxtQrInfo);
-                SetColorForQrDataSub(RchTxtQrInfoForSorter);
+                SetColorForQrDataSub(RchTxtQrInfo);                
             }
             catch (Exception ex)
             {
@@ -412,17 +429,20 @@ namespace QrSorterInspectionApp
 
         private void NumUpDwnQrAllDigit_ValueChanged(object sender, EventArgs e)
         {
+            string sData = "";
             try
             {
-                string sData = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
-                RchTxtQrInfo.Text = sData.Substring(0, decimal.ToInt32(NumUpDwnQrAllDigit.Value));
-                RchTxtQrInfoForSorter.Text = sData.Substring(0, decimal.ToInt32(NumUpDwnQrAllDigit.Value));
+                //                 1         2         3         4         5
+                sData += "12345678901234567890123456789012345678901234567890";
+                sData += "12345678901234567890123456789012345678901234567890";
+                sData += "12345678901234567890123456789012345678901234567890";
+                RchTxtQrInfo.Text = sData.Substring(0, decimal.ToInt32(NumUpDwnQrAllDigit.Value));                
 
                 SetColorForQrData();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【SetColorForQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【NumUpDwnQrAllDigit_ValueChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -552,12 +572,10 @@ namespace QrSorterInspectionApp
                 sData += CmbMedia.Text.Trim() + ",";
                 // 受領日
                 sData += DtpDateReceipt.Text.Trim() + ",";
+                // 受領日入力
+                sData += CmbDateReceipt.Text.Trim() + ","; ;
                 // QR桁数
                 sData += NumUpDwnQrAllDigit.Value.ToString() + ",";
-                // 重複検査
-                sData += CmbDuplication.Text + ",";
-                // Wフィード検査
-                sData += CmbDoubleFeed.Text + ",";
                 // QR読取項目①
                 sData += TxtQrReadItem1.Text + ",";
                 sData += NmUpDnPropertyIdStart.Value.ToString() + ",";
@@ -575,9 +593,37 @@ namespace QrSorterInspectionApp
                 sData += NmUpDnManagementNoStart.Value.ToString() + ",";
                 sData += NmUpDnManagementNoKeta.Value.ToString() + ",";
                 // 仕分け①
-                sData += TxtSorting1.Text + ",";
+                sData += (CmbNonDeliveryReasonSorting1.SelectedIndex + 1).ToString() + ","; ;
                 // 仕分け②
-                sData += TxtSorting2.Text;
+                sData += (CmbNonDeliveryReasonSorting2.SelectedIndex + 1).ToString() + ","; ;
+                // 重複検査
+                sData += CmbDuplication.Text + ","; ;
+                // Wフィード検査
+                sData += CmbDoubleFeed.Text + ","; ;
+                // 超音波検知
+                sData += CmbUltrasonicDetection.Text + ","; ;
+                // 桁数チェック
+                sData += CmbCheckNumberOfDigits.Text + ","; ;
+                // ログ作成条件
+                sData += (CmbLogCreationConditions.SelectedIndex + 1).ToString() + ","; ;
+                // 読取機能
+                sData += (CmbReadingFunction.SelectedIndex + 1).ToString() + ","; ;
+                // ポケット①：名称
+                sData += TxtPocketName1.Text.Trim() + ","; ;
+                // ポケット①：グループID
+                sData += (CmbGroup1.SelectedIndex + 1).ToString() + ","; ;
+                // ポケット②：名称
+                sData += TxtPocketName2.Text.Trim() + ","; ;
+                // ポケット②：グループID
+                sData += (CmbGroup2.SelectedIndex + 1).ToString() + ","; ;
+                // ポケット③：名称
+                sData += TxtPocketName3.Text.Trim() + ","; ;
+                // ポケット③：グループID
+                sData += (CmbGroup3.SelectedIndex + 1).ToString() + ","; ;
+                // ポケット④：名称
+                sData += TxtPocketName4.Text.Trim() + ","; ;
+                // ポケット④：グループID
+                sData += (CmbGroup4.SelectedIndex + 1).ToString() + ","; ;
 
                 return sData;
             }
@@ -731,9 +777,9 @@ namespace QrSorterInspectionApp
                 NmUpDnManagementNoStart.Value = 4;
                 NmUpDnManagementNoKeta.Value = 1;
                 // 仕分け①
-                TxtSorting1.Text = "";
+                CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
                 // 仕分け②
-                TxtSorting2.Text = "";
+                CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -764,7 +810,7 @@ namespace QrSorterInspectionApp
             }
         }
 
-        private void LstBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void LstBoxName_SelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayBoxQritem();
         }
@@ -776,7 +822,6 @@ namespace QrSorterInspectionApp
             // リストボックス名一覧の表示
             DisplayListBox(LstBoxName);
         }
-
 
         /// <summary>
         /// リストボックス名一覧の表示
@@ -808,11 +853,20 @@ namespace QrSorterInspectionApp
         {
             string sReadDataPath;
             string sData;
-
+            int iJobIndex;
             try
             {
+                if(LsbJobListFeeder.SelectedIndex == -1)
+                {
+                    iJobIndex = 1;
+                }
+                else
+                {
+                    iJobIndex = LsbJobListFeeder.SelectedIndex + 1;
+                }
+
                 string sJobFolder = "\\JOB\\";
-                sJobFolder += "JOB" + (LsbJobListFeeder.SelectedIndex + 1).ToString("00000") + "\\";
+                sJobFolder += "JOB" + iJobIndex.ToString("00000") + "\\";
                 sReadDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
                 switch (iGroupIndex)
                 {
