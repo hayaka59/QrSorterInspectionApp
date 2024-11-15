@@ -340,6 +340,10 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// ステータス表示
+        /// </summary>
+        /// <param name="status"></param>
         private void SetStatus(int status)
         {
             try
@@ -377,9 +381,46 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// バージョンボタンダブルクリック処理（デバッグ用）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LblVersion_DoubleClick(object sender, EventArgs e)
         {
-           SetStatus(2);
+            // 「エラー」のステータスとする 
+            SetStatus(2);
+        }
+
+        private void BtnSetting_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CommonModule.OutPutLogFile("■検査画面：「設定」ボタンクリック");
+                SettingForm form = new SettingForm();
+                form.ShowDialog(this);
+                //this.Hide();
+
+                #region ジョブ名
+                // ジョブ登録リストファイル読込
+                CommonModule.ReadJobEntryListFile();
+                CmbJobName.Items.Clear();
+                foreach (var items in PubConstClass.lstJobEntryList)
+                {
+                    string[] sArray = items.Split(',');
+                    CmbJobName.Items.Add(sArray[0]);
+                }
+                CmbJobName.SelectedIndex = 0;
+                #endregion
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SetStatus】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

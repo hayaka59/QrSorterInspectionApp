@@ -78,6 +78,15 @@
             this.LblTotalCount = new System.Windows.Forms.Label();
             this.LblOKCount = new System.Windows.Forms.Label();
             this.LblNGCount = new System.Windows.Forms.Label();
+            this.LblBoxTitle5 = new System.Windows.Forms.Label();
+            this.LblBox5 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.CmbNonDeliveryReasonSorting2 = new System.Windows.Forms.ComboBox();
+            this.CmbNonDeliveryReasonSorting1 = new System.Windows.Forms.ComboBox();
+            this.CmbJobName = new System.Windows.Forms.ComboBox();
+            this.LblPocket5 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.BtnSetting = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -85,15 +94,7 @@
             this.BtnStopInspection = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.BtnStartInspection = new System.Windows.Forms.Button();
-            this.LblBoxTitle5 = new System.Windows.Forms.Label();
-            this.LblBox5 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.CmbNonDeliveryReasonSorting2 = new System.Windows.Forms.ComboBox();
-            this.CmbNonDeliveryReasonSorting1 = new System.Windows.Forms.ComboBox();
-            this.CmbJobName = new System.Windows.Forms.ComboBox();
-            this.LblPocket5 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -529,13 +530,12 @@
             this.LblBoxEject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblBoxEject.Font = new System.Drawing.Font("メイリオ", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblBoxEject.ForeColor = System.Drawing.Color.OrangeRed;
-            this.LblBoxEject.Location = new System.Drawing.Point(1237, 795);
+            this.LblBoxEject.Location = new System.Drawing.Point(942, 104);
             this.LblBoxEject.Name = "LblBoxEject";
             this.LblBoxEject.Size = new System.Drawing.Size(280, 178);
             this.LblBoxEject.TabIndex = 276;
             this.LblBoxEject.Text = "999";
             this.LblBoxEject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LblBoxEject.Visible = false;
             // 
             // label31
             // 
@@ -543,13 +543,12 @@
             this.label31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label31.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label31.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label31.Location = new System.Drawing.Point(1237, 765);
+            this.label31.Location = new System.Drawing.Point(942, 74);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(280, 31);
             this.label31.TabIndex = 277;
             this.label31.Text = "BOX リジェクト";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label31.Visible = false;
             // 
             // label32
             // 
@@ -688,6 +687,120 @@
             this.LblNGCount.Text = "99,999";
             this.LblNGCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // LblBoxTitle5
+            // 
+            this.LblBoxTitle5.BackColor = System.Drawing.Color.SeaGreen;
+            this.LblBoxTitle5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblBoxTitle5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblBoxTitle5.ForeColor = System.Drawing.Color.White;
+            this.LblBoxTitle5.Location = new System.Drawing.Point(1237, 542);
+            this.LblBoxTitle5.Name = "LblBoxTitle5";
+            this.LblBoxTitle5.Size = new System.Drawing.Size(280, 31);
+            this.LblBoxTitle5.TabIndex = 291;
+            this.LblBoxTitle5.Text = "LblBoxTitle5";
+            this.LblBoxTitle5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LblBox5
+            // 
+            this.LblBox5.BackColor = System.Drawing.Color.White;
+            this.LblBox5.Font = new System.Drawing.Font("メイリオ", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblBox5.ForeColor = System.Drawing.Color.OrangeRed;
+            this.LblBox5.Location = new System.Drawing.Point(1243, 583);
+            this.LblBox5.Name = "LblBox5";
+            this.LblBox5.Size = new System.Drawing.Size(163, 104);
+            this.LblBox5.TabIndex = 290;
+            this.LblBox5.Text = "999";
+            this.LblBox5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label22
+            // 
+            this.label22.BackColor = System.Drawing.Color.White;
+            this.label22.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(1433, 478);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(83, 40);
+            this.label22.TabIndex = 289;
+            this.label22.Text = "999";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CmbNonDeliveryReasonSorting2
+            // 
+            this.CmbNonDeliveryReasonSorting2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbNonDeliveryReasonSorting2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbNonDeliveryReasonSorting2.FormattingEnabled = true;
+            this.CmbNonDeliveryReasonSorting2.IntegralHeight = false;
+            this.CmbNonDeliveryReasonSorting2.ItemHeight = 28;
+            this.CmbNonDeliveryReasonSorting2.Location = new System.Drawing.Point(230, 221);
+            this.CmbNonDeliveryReasonSorting2.Name = "CmbNonDeliveryReasonSorting2";
+            this.CmbNonDeliveryReasonSorting2.Size = new System.Drawing.Size(299, 36);
+            this.CmbNonDeliveryReasonSorting2.TabIndex = 302;
+            // 
+            // CmbNonDeliveryReasonSorting1
+            // 
+            this.CmbNonDeliveryReasonSorting1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbNonDeliveryReasonSorting1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbNonDeliveryReasonSorting1.FormattingEnabled = true;
+            this.CmbNonDeliveryReasonSorting1.IntegralHeight = false;
+            this.CmbNonDeliveryReasonSorting1.ItemHeight = 28;
+            this.CmbNonDeliveryReasonSorting1.Location = new System.Drawing.Point(230, 176);
+            this.CmbNonDeliveryReasonSorting1.Name = "CmbNonDeliveryReasonSorting1";
+            this.CmbNonDeliveryReasonSorting1.Size = new System.Drawing.Size(299, 36);
+            this.CmbNonDeliveryReasonSorting1.TabIndex = 301;
+            // 
+            // CmbJobName
+            // 
+            this.CmbJobName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbJobName.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbJobName.FormattingEnabled = true;
+            this.CmbJobName.IntegralHeight = false;
+            this.CmbJobName.ItemHeight = 28;
+            this.CmbJobName.Location = new System.Drawing.Point(230, 76);
+            this.CmbJobName.Name = "CmbJobName";
+            this.CmbJobName.Size = new System.Drawing.Size(299, 36);
+            this.CmbJobName.TabIndex = 303;
+            this.CmbJobName.SelectedIndexChanged += new System.EventHandler(this.CmbJobName_SelectedIndexChanged);
+            // 
+            // LblPocket5
+            // 
+            this.LblPocket5.BackColor = System.Drawing.Color.White;
+            this.LblPocket5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblPocket5.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblPocket5.ForeColor = System.Drawing.Color.Black;
+            this.LblPocket5.Location = new System.Drawing.Point(180, 840);
+            this.LblPocket5.Name = "LblPocket5";
+            this.LblPocket5.Size = new System.Drawing.Size(221, 36);
+            this.LblPocket5.TabIndex = 305;
+            this.LblPocket5.Text = "ポケット５";
+            this.LblPocket5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label24.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(60, 840);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(123, 36);
+            this.label24.TabIndex = 304;
+            this.label24.Text = "ポケット５";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnSetting
+            // 
+            this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnSetting.Image = global::QrSorterInspectionApp.Properties.Resources.setting_small;
+            this.BtnSetting.Location = new System.Drawing.Point(568, 221);
+            this.BtnSetting.Name = "BtnSetting";
+            this.BtnSetting.Size = new System.Drawing.Size(215, 50);
+            this.BtnSetting.TabIndex = 306;
+            this.BtnSetting.Text = "設定";
+            this.BtnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnSetting.UseVisualStyleBackColor = true;
+            this.BtnSetting.Click += new System.EventHandler(this.BtnSetting_Click);
+            // 
             // pictureBox4
             // 
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -770,43 +883,6 @@
             this.BtnStartInspection.UseVisualStyleBackColor = true;
             this.BtnStartInspection.Click += new System.EventHandler(this.BtnStartInspection_Click);
             // 
-            // LblBoxTitle5
-            // 
-            this.LblBoxTitle5.BackColor = System.Drawing.Color.SeaGreen;
-            this.LblBoxTitle5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblBoxTitle5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblBoxTitle5.ForeColor = System.Drawing.Color.White;
-            this.LblBoxTitle5.Location = new System.Drawing.Point(1237, 542);
-            this.LblBoxTitle5.Name = "LblBoxTitle5";
-            this.LblBoxTitle5.Size = new System.Drawing.Size(280, 31);
-            this.LblBoxTitle5.TabIndex = 291;
-            this.LblBoxTitle5.Text = "LblBoxTitle5";
-            this.LblBoxTitle5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // LblBox5
-            // 
-            this.LblBox5.BackColor = System.Drawing.Color.White;
-            this.LblBox5.Font = new System.Drawing.Font("メイリオ", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblBox5.ForeColor = System.Drawing.Color.OrangeRed;
-            this.LblBox5.Location = new System.Drawing.Point(1243, 583);
-            this.LblBox5.Name = "LblBox5";
-            this.LblBox5.Size = new System.Drawing.Size(163, 104);
-            this.LblBox5.TabIndex = 290;
-            this.LblBox5.Text = "999";
-            this.LblBox5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.BackColor = System.Drawing.Color.White;
-            this.label22.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(1433, 478);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(83, 40);
-            this.label22.TabIndex = 289;
-            this.label22.Text = "999";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pictureBox5
             // 
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -817,75 +893,13 @@
             this.pictureBox5.TabIndex = 288;
             this.pictureBox5.TabStop = false;
             // 
-            // CmbNonDeliveryReasonSorting2
-            // 
-            this.CmbNonDeliveryReasonSorting2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbNonDeliveryReasonSorting2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbNonDeliveryReasonSorting2.FormattingEnabled = true;
-            this.CmbNonDeliveryReasonSorting2.IntegralHeight = false;
-            this.CmbNonDeliveryReasonSorting2.ItemHeight = 28;
-            this.CmbNonDeliveryReasonSorting2.Location = new System.Drawing.Point(230, 221);
-            this.CmbNonDeliveryReasonSorting2.Name = "CmbNonDeliveryReasonSorting2";
-            this.CmbNonDeliveryReasonSorting2.Size = new System.Drawing.Size(299, 36);
-            this.CmbNonDeliveryReasonSorting2.TabIndex = 302;
-            // 
-            // CmbNonDeliveryReasonSorting1
-            // 
-            this.CmbNonDeliveryReasonSorting1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbNonDeliveryReasonSorting1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbNonDeliveryReasonSorting1.FormattingEnabled = true;
-            this.CmbNonDeliveryReasonSorting1.IntegralHeight = false;
-            this.CmbNonDeliveryReasonSorting1.ItemHeight = 28;
-            this.CmbNonDeliveryReasonSorting1.Location = new System.Drawing.Point(230, 176);
-            this.CmbNonDeliveryReasonSorting1.Name = "CmbNonDeliveryReasonSorting1";
-            this.CmbNonDeliveryReasonSorting1.Size = new System.Drawing.Size(299, 36);
-            this.CmbNonDeliveryReasonSorting1.TabIndex = 301;
-            // 
-            // CmbJobName
-            // 
-            this.CmbJobName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbJobName.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbJobName.FormattingEnabled = true;
-            this.CmbJobName.IntegralHeight = false;
-            this.CmbJobName.ItemHeight = 28;
-            this.CmbJobName.Location = new System.Drawing.Point(230, 76);
-            this.CmbJobName.Name = "CmbJobName";
-            this.CmbJobName.Size = new System.Drawing.Size(299, 36);
-            this.CmbJobName.TabIndex = 303;
-            this.CmbJobName.SelectedIndexChanged += new System.EventHandler(this.CmbJobName_SelectedIndexChanged);
-            // 
-            // LblPocket5
-            // 
-            this.LblPocket5.BackColor = System.Drawing.Color.White;
-            this.LblPocket5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblPocket5.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblPocket5.ForeColor = System.Drawing.Color.Black;
-            this.LblPocket5.Location = new System.Drawing.Point(180, 840);
-            this.LblPocket5.Name = "LblPocket5";
-            this.LblPocket5.Size = new System.Drawing.Size(221, 36);
-            this.LblPocket5.TabIndex = 305;
-            this.LblPocket5.Text = "ポケット５";
-            this.LblPocket5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label24
-            // 
-            this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label24.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(60, 840);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(123, 36);
-            this.label24.TabIndex = 304;
-            this.label24.Text = "ポケット５";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnSetting);
             this.Controls.Add(this.LblPocket5);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.CmbJobName);
@@ -1030,5 +1044,6 @@
         internal System.Windows.Forms.ComboBox CmbJobName;
         internal System.Windows.Forms.Label LblPocket5;
         internal System.Windows.Forms.Label label24;
+        internal System.Windows.Forms.Button BtnSetting;
     }
 }

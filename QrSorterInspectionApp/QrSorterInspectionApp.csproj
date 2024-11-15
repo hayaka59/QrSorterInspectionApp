@@ -263,5 +263,8 @@
   <ItemGroup>
     <Folder Include="定義ファイル\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\setting_small.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
