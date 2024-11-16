@@ -82,24 +82,19 @@ namespace QrSorterInspectionApp
                 LsvNGHistory.Columns.AddRange(colHeaderNG);
                 #endregion
 
-                #region 不着事由区分１
+                #region 不着事由区分
+                CommonModule.ReadNonDeliveryList();
                 CmbNonDeliveryReasonSorting1.Items.Clear();
-                CmbNonDeliveryReasonSorting1.Items.Add("１：宛所尋ね当たらず");
-                CmbNonDeliveryReasonSorting1.Items.Add("２：転居先不明");
-                CmbNonDeliveryReasonSorting1.Items.Add("３：不着事由区分３");
-                CmbNonDeliveryReasonSorting1.Items.Add("４：不着事由区分４");
-                CmbNonDeliveryReasonSorting1.Items.Add("５：受取拒否");
-                CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
-                #endregion
-                #region 不着事由区分１
                 CmbNonDeliveryReasonSorting2.Items.Clear();
-                CmbNonDeliveryReasonSorting2.Items.Add("１：宛所尋ね当たらず");
-                CmbNonDeliveryReasonSorting2.Items.Add("２：転居先不明");
-                CmbNonDeliveryReasonSorting2.Items.Add("３：不着事由区分３");
-                CmbNonDeliveryReasonSorting2.Items.Add("４：不着事由区分４");
-                CmbNonDeliveryReasonSorting2.Items.Add("５：受取拒否");
+                foreach (string items in PubConstClass.lstNonDeliveryList)
+                {
+                    string[] sArray = items.Split(',');
+                    CmbNonDeliveryReasonSorting1.Items.Add(sArray[0] + "：" + sArray[1]);
+                    CmbNonDeliveryReasonSorting2.Items.Add(sArray[0] + "：" + sArray[1]);
+                }
+                CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
                 CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
-                #endregion
+                #endregion                                
 
                 #region ジョブ名
                 // ジョブ登録リストファイル読込
