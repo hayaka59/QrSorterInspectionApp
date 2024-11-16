@@ -184,5 +184,16 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【BtnDecript_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void LblVersion_DoubleClick(object sender, EventArgs e)
+        {
+            BtnDecript.Visible = true;
+            TxtUserAccount.Visible = true;
+        }
+
+        private void LblVersion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

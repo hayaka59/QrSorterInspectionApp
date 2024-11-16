@@ -96,6 +96,62 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
+        /// ジョブ登録リストファイルの読込
+        /// </summary>
+        public static void ReadJobEntryListFile()
+        {
+            string sReadDataPath;
+            string sData;
+
+            try
+            {
+                sReadDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_JOB_ENTRY_FILE_NAME;
+
+                PubConstClass.lstJobEntryList.Clear();
+                using (StreamReader sr = new StreamReader(sReadDataPath, Encoding.Default))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        sData = sr.ReadLine();
+                        PubConstClass.lstJobEntryList.Add(sData);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ReadJobEntryListFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 不着事由情報ファイル読込
+        /// </summary>
+        public static void ReadNonDeliveryList()
+        {
+            string sReadDataPath;
+            string sData;
+
+            try
+            {
+                sReadDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_NON_DELIVERY;
+
+                PubConstClass.lstNonDeliveryList.Clear();
+                using (StreamReader sr = new StreamReader(sReadDataPath, Encoding.Default))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        sData = sr.ReadLine();
+                        PubConstClass.lstNonDeliveryList.Add(sData);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ReadNonDeliveryList】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
         /// 暗号化されたユーザーアカウントファイルの読込
         /// </summary>
         public static void ReadEncodeUserAccountFile()

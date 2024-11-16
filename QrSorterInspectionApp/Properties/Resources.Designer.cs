@@ -293,6 +293,16 @@ namespace QrSorterInspectionApp.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap setting_small {
+            get {
+                object obj = ResourceManager.GetObject("setting_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap sorter_back_thin {
             get {
                 object obj = ResourceManager.GetObject("sorter_back_thin", resourceCulture);

@@ -32,6 +32,9 @@ namespace QrSorterInspectionApp
         public const string DEF_BOX3_LIST_NAME = "Box3List.txt";                // BOX3の名前
         public const string DEF_BOX4_LIST_NAME = "Box4List.txt";                // BOX4の名前
 
+        public static List<string> lstNonDeliveryList = new List<string>();     // 不着事由情報
+        public const string DEF_NON_DELIVERY = "NonDeliveryReasonSorting.txt";  // 不着事由格納ファイル
+
         public static string sUserId;
         public static string sUserName;
         public static string sUserPassword;
