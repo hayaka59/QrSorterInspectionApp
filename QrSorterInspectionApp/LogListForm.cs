@@ -34,7 +34,62 @@ namespace QrSorterInspectionApp
                 CmbLogType.Items.Add("検査ログ");
                 CmbLogType.SelectedIndex = 0;
 
-                LblContent.Text = "";
+                #region 検査ログのヘッダー設定
+                // ListViewのカラムヘッダー設定
+                LsvAccount.View = View.Details;
+                ColumnHeader col01 = new ColumnHeader();
+                ColumnHeader col02 = new ColumnHeader();
+                ColumnHeader col03 = new ColumnHeader();
+                ColumnHeader col04 = new ColumnHeader();
+                ColumnHeader col05 = new ColumnHeader();
+                ColumnHeader col06 = new ColumnHeader();
+                ColumnHeader col07 = new ColumnHeader();
+                ColumnHeader col08 = new ColumnHeader();
+                ColumnHeader col09 = new ColumnHeader();
+                ColumnHeader col10 = new ColumnHeader();
+                ColumnHeader col11 = new ColumnHeader();
+                col01.Text = "　　日付";
+                col02.Text = "時刻";
+                col03.Text = "読取値";
+                col04.Text = "判定";
+                col05.Text = "正解データファイル名";
+                col06.Text = "受領日";
+                //col07.Text = "作業員情報（機械情報）";
+                col07.Text = "作業員情報";
+                //col08.Text = "物件情報（DPS/BPO/Broad等）";
+                col08.Text = "物件情報";
+                col09.Text = "エラーコード";
+                col10.Text = "仕分けコード①";
+                col11.Text = "仕分けコード②";
+                col01.TextAlign = HorizontalAlignment.Center;
+                col02.TextAlign = HorizontalAlignment.Center;
+                col03.TextAlign = HorizontalAlignment.Center;
+                col04.TextAlign = HorizontalAlignment.Center;
+                col05.TextAlign = HorizontalAlignment.Center;
+                col06.TextAlign = HorizontalAlignment.Center;
+                col07.TextAlign = HorizontalAlignment.Center;
+                col08.TextAlign = HorizontalAlignment.Center;
+                col09.TextAlign = HorizontalAlignment.Center;
+                col10.TextAlign = HorizontalAlignment.Center;
+                col11.TextAlign = HorizontalAlignment.Center;
+                col01.Width = 130;         // 日付
+                col02.Width = 130;         // 時刻
+                col03.Width = 150;         // 読取値
+                col04.Width = 150;         // 判定
+                col05.Width = 180;         // 正解データファイル名
+                col06.Width = 150;         // 受領日
+                col07.Width = 150;         // 作業員情報（機械情報）
+                col08.Width = 150;         // 物件情報（DPS/BPO/Broad等）
+                col09.Width = 150;         // エラーコード
+                col10.Width = 150;         // 仕分けコード①
+                col11.Width = 150;         // 仕分けコード②
+                ColumnHeader[] colHeaderOK = new[] { col01, col02, col03, col04, col05,
+                                                     col06, col07, col08, col09, col10,
+                                                     col11
+                                                   };
+                LsvAccount.Columns.AddRange(colHeaderOK);
+                #endregion
+
             }
             catch (Exception ex)
             {
@@ -43,7 +98,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// 「戻る」ボタン処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -87,6 +142,13 @@ namespace QrSorterInspectionApp
             }
         }
 
+        private int iPreviouslySelectedRow = 0;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LsbLogList_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -95,13 +157,110 @@ namespace QrSorterInspectionApp
                 {
                     return;
                 }
-                string SelectFileName = LsbLogList.SelectedItems[0].ToString();
-                LblContent.Text = "選択したファイル（" + SelectFileName + "）" + Environment.NewLine + "の内容を表示する";
+                if (iPreviouslySelectedRow == LsbLogList.SelectedIndex)
+                {
+                    // 選択業が変わらない場合は何もしない
+                    return;
+                }
+                iPreviouslySelectedRow = LsbLogList.SelectedIndex;
+
+                LsvAccount.Items.Clear();
+                for (int i = 0; i < 100; i++)
+                {
+                    DisplayOneData();
+                }
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "【LsbLogList_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void DisplayOneData()
+        {
+            try
+            {
+                string[] col = new string[11];
+                ListViewItem itm;
+
+                col[0] = DateTime.Now.ToString("yyyy/MM/dd");
+                col[1] = DateTime.Now.ToString("HH:mm:ss");
+                col[2] = DateTime.Now.ToString("HHmmss-fff");
+                col[3] = DateTime.Now.ToString("HHmmss-fff");
+                col[4] = DateTime.Now.ToString("HHmmss-fff");
+                col[5] = DateTime.Now.ToString("HHmmss-fff");
+                col[6] = DateTime.Now.ToString("HHmmss-fff");
+                col[7] = DateTime.Now.ToString("HHmmss-fff");
+                col[8] = DateTime.Now.ToString("HHmmss-fff");
+                col[9] = DateTime.Now.ToString("HHmmss-fff");
+                col[10] = DateTime.Now.ToString("HHmmss-fff");
+
+                // データの表示
+                itm = new ListViewItem(col);
+                LsvAccount.Items.Add(itm);
+                LsvAccount.Items[LsvAccount.Items.Count - 1].UseItemStyleForSubItems = false;
+                LsvAccount.Select();
+                LsvAccount.Items[LsvAccount.Items.Count - 1].EnsureVisible();
+
+                if (LsvAccount.Items.Count % 2 == 1)
+                {
+                    for (int iIndex = 0; iIndex < 11; iIndex++)
+                    {
+                        // 奇数行の色反転
+                        LsvAccount.Items[LsvAccount.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【DisplayOneData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DisplayOneData();
+
+            //try
+            //{
+            //    string[] col = new string[11];
+            //    ListViewItem itm;
+
+            //    col[0] = DateTime.Now.ToString("yyyy/MM/dd");
+            //    col[1] = DateTime.Now.ToString("HH:mm:ss");
+            //    col[2] = DateTime.Now.ToString("HH:mm:ss.fff");
+            //    col[3] = "1234567890";
+            //    col[4] = "1234567890";
+            //    col[5] = "1234567890";
+            //    col[6] = "1234567890";
+            //    col[7] = "1234567890";
+            //    col[8] = "1234567890";
+            //    col[9] = "1234567890";
+            //    col[10] = "1234567890";
+
+            //    // データの表示
+            //    itm = new ListViewItem(col);
+            //    LsvAccount.Items.Add(itm);
+            //    LsvAccount.Items[LsvAccount.Items.Count - 1].UseItemStyleForSubItems = false;
+            //    LsvAccount.Select();
+            //    LsvAccount.Items[LsvAccount.Items.Count - 1].EnsureVisible();
+
+            //    if (LsvAccount.Items.Count % 2 == 1)
+            //    {
+            //        for (int iIndex = 0; iIndex < 11; iIndex++)
+            //        {
+            //            // 奇数行の色反転
+            //            LsvAccount.Items[LsvAccount.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }
+    
+    
     }
 }

@@ -37,7 +37,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LsbLogList = new System.Windows.Forms.ListBox();
-            this.LblContent = new System.Windows.Forms.Label();
+            this.BtnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -55,7 +55,7 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1311, 973);
+            this.BtnClose.Location = new System.Drawing.Point(1547, 973);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(205, 50);
             this.BtnClose.TabIndex = 241;
@@ -84,7 +84,7 @@
             this.CmbLogType.FormattingEnabled = true;
             this.CmbLogType.IntegralHeight = false;
             this.CmbLogType.ItemHeight = 28;
-            this.CmbLogType.Location = new System.Drawing.Point(570, 97);
+            this.CmbLogType.Location = new System.Drawing.Point(278, 92);
             this.CmbLogType.Name = "CmbLogType";
             this.CmbLogType.Size = new System.Drawing.Size(299, 36);
             this.CmbLogType.TabIndex = 261;
@@ -96,7 +96,7 @@
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(400, 96);
+            this.label3.Location = new System.Drawing.Point(108, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(170, 36);
             this.label3.TabIndex = 260;
@@ -105,13 +105,13 @@
             // 
             // LsvAccount
             // 
-            this.LsvAccount.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsvAccount.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LsvAccount.FullRowSelect = true;
             this.LsvAccount.GridLines = true;
             this.LsvAccount.HideSelection = false;
-            this.LsvAccount.Location = new System.Drawing.Point(400, 456);
+            this.LsvAccount.Location = new System.Drawing.Point(108, 452);
             this.LsvAccount.Name = "LsvAccount";
-            this.LsvAccount.Size = new System.Drawing.Size(1116, 490);
+            this.LsvAccount.Size = new System.Drawing.Size(1686, 488);
             this.LsvAccount.TabIndex = 258;
             this.LsvAccount.UseCompatibleStateImageBehavior = false;
             // 
@@ -119,11 +119,11 @@
             // 
             this.label9.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label9.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label9.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(400, 425);
+            this.label9.Location = new System.Drawing.Point(108, 422);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(1116, 31);
+            this.label9.Size = new System.Drawing.Size(1686, 31);
             this.label9.TabIndex = 259;
             this.label9.Text = "選択したログの内容";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -132,37 +132,36 @@
             // 
             this.label1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(400, 152);
+            this.label1.Location = new System.Drawing.Point(108, 152);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1116, 31);
+            this.label1.Size = new System.Drawing.Size(1686, 31);
             this.label1.TabIndex = 262;
             this.label1.Text = "機械ログ一覧";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LsbLogList
             // 
-            this.LsbLogList.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsbLogList.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LsbLogList.FormattingEnabled = true;
-            this.LsbLogList.ItemHeight = 28;
-            this.LsbLogList.Location = new System.Drawing.Point(400, 182);
+            this.LsbLogList.ItemHeight = 24;
+            this.LsbLogList.Location = new System.Drawing.Point(108, 182);
             this.LsbLogList.Name = "LsbLogList";
-            this.LsbLogList.Size = new System.Drawing.Size(1116, 228);
+            this.LsbLogList.Size = new System.Drawing.Size(1686, 220);
             this.LsbLogList.TabIndex = 263;
             this.LsbLogList.SelectedIndexChanged += new System.EventHandler(this.LsbLogList_SelectedIndexChanged);
             // 
-            // LblContent
+            // BtnTest
             // 
-            this.LblContent.BackColor = System.Drawing.Color.White;
-            this.LblContent.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblContent.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.LblContent.Location = new System.Drawing.Point(544, 551);
-            this.LblContent.Name = "LblContent";
-            this.LblContent.Size = new System.Drawing.Size(820, 175);
-            this.LblContent.TabIndex = 264;
-            this.LblContent.Text = "LblContent";
-            this.LblContent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnTest.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnTest.Location = new System.Drawing.Point(108, 962);
+            this.BtnTest.Name = "BtnTest";
+            this.BtnTest.Size = new System.Drawing.Size(291, 61);
+            this.BtnTest.TabIndex = 265;
+            this.BtnTest.Text = "テストボタン";
+            this.BtnTest.UseVisualStyleBackColor = true;
+            this.BtnTest.Click += new System.EventHandler(this.button1_Click);
             // 
             // LogListForm
             // 
@@ -170,7 +169,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
-            this.Controls.Add(this.LblContent);
+            this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.LsbLogList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbLogType);
@@ -202,6 +201,6 @@
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox LsbLogList;
-        internal System.Windows.Forms.Label LblContent;
+        private System.Windows.Forms.Button BtnTest;
     }
 }
