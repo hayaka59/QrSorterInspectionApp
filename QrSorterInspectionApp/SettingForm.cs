@@ -40,42 +40,27 @@ namespace QrSorterInspectionApp
                 CmbMedia.Items.Add("封筒");
                 CmbMedia.SelectedIndex = 0;
                 #endregion
-                #region 重複検査
-                CmbDuplication.Items.Clear();
-                CmbDuplication.Items.Add("ON");
-                CmbDuplication.Items.Add("OFF");
-                CmbDuplication.SelectedIndex = 0;
-                #endregion
-                #region Wフィード検査
-                CmbDoubleFeed.Items.Clear();
-                CmbDoubleFeed.Items.Add("ON");
-                CmbDoubleFeed.Items.Add("OFF");
-                CmbDoubleFeed.SelectedIndex = 0;
-                #endregion
-                #region 受領日入力
-                CmbDateReceipt.Items.Clear();
-                CmbDateReceipt.Items.Add("ON");
-                CmbDateReceipt.Items.Add("OFF");
-                CmbDateReceipt.SelectedIndex = 0;
-                #endregion
-                #region 超音波検知
-                CmbUltrasonicDetection.Items.Clear();
-                CmbUltrasonicDetection.Items.Add("ON");
-                CmbUltrasonicDetection.Items.Add("OFF");
-                CmbUltrasonicDetection.SelectedIndex = 0;
-                #endregion
-                #region 桁数チェック
-                CmbCheckNumberOfDigits.Items.Clear();
-                CmbCheckNumberOfDigits.Items.Add("ON");
-                CmbCheckNumberOfDigits.Items.Add("OFF");
-                CmbCheckNumberOfDigits.SelectedIndex = 0;
-                #endregion
+                
+                // 重複検査
+                SetComboOnOff(CmbDuplication);
+                // Ｗフィード検査
+                SetComboOnOff(CmbDoubleFeed);
+                // 受領日入力
+                SetComboOnOff(CmbDateReceipt);
+                // 読取チェック
+                SetComboOnOff(CmbReadCheck);
+                // 超音波検知
+                SetComboOnOff(CmbUltrasonicDetection);
+                // 桁数チェック
+                SetComboOnOff(CmbCheckNumberOfDigits);
+                
                 #region ログ作成条件
                 CmbLogCreationConditions.Items.Clear();
                 CmbLogCreationConditions.Items.Add("ポケット単位");
                 CmbLogCreationConditions.Items.Add("全件");
                 CmbLogCreationConditions.SelectedIndex = 0;
                 #endregion
+                
                 #region 読取機能
                 CmbReadingFunction.Items.Clear();
                 CmbReadingFunction.Items.Add("QR");
@@ -85,6 +70,7 @@ namespace QrSorterInspectionApp
                 CmbReadingFunction.Items.Add("JAN");
                 CmbReadingFunction.SelectedIndex = 0;
                 #endregion
+                
                 #region QR桁数
                 RchTxtQrInfo.Text = "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
@@ -92,6 +78,7 @@ namespace QrSorterInspectionApp
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567";
                 #endregion
+                
                 #region 不着事由区分
                 CommonModule.ReadNonDeliveryList();
                 CmbNonDeliveryReasonSorting1.Items.Clear();
@@ -104,10 +91,12 @@ namespace QrSorterInspectionApp
                 }
                 CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
                 CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
-                #endregion                                
+                SetComboOnOff(CmbNonDeliveryOnOff1);
+                SetComboOnOff(CmbNonDeliveryOnOff2);
+                #endregion
                 #region ソーター設定画面
                 SetGroupItem(CmbGroup);
-                CmbGroup.Items.RemoveAt(4);
+                CmbGroup.Items.RemoveAt(5);
                 SetGroupItem(CmbGroup1);
                 SetGroupItem(CmbGroup2);
                 SetGroupItem(CmbGroup3);
@@ -124,6 +113,19 @@ namespace QrSorterInspectionApp
                 TxtPocketName3.Text = "武蔵野BK";
                 TxtPocketName4.Text = "西日本シティーBK";
                 TxtPocketName5.Text = "リジェクト";
+                #endregion
+
+                #region 数量（ポケット切替件数）
+                TxtQuantity1.Text = "0";
+                TxtQuantity2.Text = "0";
+                TxtQuantity3.Text = "0";
+                TxtQuantity4.Text = "0";
+                TxtQuantity5.Text = "0";
+                SetComboOnOff(CmbQuantOnOff1);
+                SetComboOnOff(CmbQuantOnOff2);
+                SetComboOnOff(CmbQuantOnOff3);
+                SetComboOnOff(CmbQuantOnOff4);
+                SetComboOnOff(CmbQuantOnOff5);
                 #endregion
 
                 ClearDisplayData();
@@ -147,6 +149,21 @@ namespace QrSorterInspectionApp
             }
         }
 
+        private void SetComboOnOff(ComboBox comboBox)
+        {
+            try
+            {
+                comboBox.Items.Clear();
+                comboBox.Items.Add("ON");
+                comboBox.Items.Add("OFF");
+                comboBox.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SetComboOnOff】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         /// <summary>
         /// ソーター設定のグループコンボボックス設定
         /// </summary>
@@ -160,6 +177,7 @@ namespace QrSorterInspectionApp
                 comboBox.Items.Add("グループ2");
                 comboBox.Items.Add("グループ3");
                 comboBox.Items.Add("グループ4");
+                comboBox.Items.Add("グループ5");
                 comboBox.Items.Add("リジェクト");
             }
             catch(Exception ex)
