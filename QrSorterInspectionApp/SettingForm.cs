@@ -94,6 +94,7 @@ namespace QrSorterInspectionApp
                 SetComboOnOff(CmbNonDeliveryOnOff1);
                 SetComboOnOff(CmbNonDeliveryOnOff2);
                 #endregion
+
                 #region ソーター設定画面
                 SetGroupItem(CmbGroup);
                 CmbGroup.Items.RemoveAt(5);
@@ -149,6 +150,10 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// 「ON/OFF」のコンボボックス設定
+        /// </summary>
+        /// <param name="comboBox"></param>
         private void SetComboOnOff(ComboBox comboBox)
         {
             try
@@ -187,7 +192,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// JOB一覧表示
+        /// JOB名称一覧表示
         /// </summary>
         private void DisplayJobName()
         {
@@ -225,7 +230,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 「QRフィーダー設定」タブのジョブ一覧リスト選択処理
+        /// ジョブ名称一覧リスト選択処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -261,6 +266,12 @@ namespace QrSorterInspectionApp
                 // QR桁数
                 NumUpDwnQrAllDigit.Value = decimal.Parse(sArray[iIndex]);
                 iIndex++;
+                // 受領日入力
+                CmbDateReceipt.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
+                // 読取チェック
+                CmbReadCheck.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;                
                 // QR読取項目①
                 TxtQrReadItem1.Text = sArray[iIndex];
                 iIndex++;
@@ -295,7 +306,12 @@ namespace QrSorterInspectionApp
                 // 仕分け②
                 CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[iIndex]) - 1;
                 iIndex++;
-
+                // 仕分け①チェック
+                CmbNonDeliveryOnOff1.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
+                // 仕分け②チェック
+                CmbNonDeliveryOnOff2.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
                 // 重複検査
                 CmbDuplication.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
                 iIndex++;
@@ -314,7 +330,6 @@ namespace QrSorterInspectionApp
                 // 読取機能
                 CmbReadingFunction.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
                 iIndex++;
-
                 // ポケット①：名称
                 TxtPocketName1.Text = sArray[iIndex].Trim();
                 iIndex++;
@@ -344,6 +359,36 @@ namespace QrSorterInspectionApp
                 iIndex++;
                 // ポケット⑤：グループID
                 CmbGroup5.SelectedIndex = int.Parse(sArray[iIndex].Trim()) - 1;
+                iIndex++;
+                // ポケット①切替件数
+                TxtQuantity1.Text = sArray[iIndex].Trim();
+                iIndex++;
+                // ポケット②切替件数
+                TxtQuantity2.Text = sArray[iIndex].Trim();
+                iIndex++;
+                // ポケット③切替件数
+                TxtQuantity3.Text = sArray[iIndex].Trim();
+                iIndex++;
+                // ポケット④切替件数
+                TxtQuantity4.Text = sArray[iIndex].Trim();
+                iIndex++;
+                // ポケット⑤切替件数
+                TxtQuantity5.Text = sArray[iIndex].Trim();
+                iIndex++;
+                // ポケット①切替件数チェック
+                CmbQuantOnOff1.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
+                // ポケット②切替件数チェック
+                CmbQuantOnOff2.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
+                // ポケット③切替件数チェック
+                CmbQuantOnOff3.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
+                // ポケット④切替件数チェック
+                CmbQuantOnOff4.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
+                iIndex++;
+                // ポケット⑤切替件数チェック
+                CmbQuantOnOff5.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
                 iIndex++;
 
                 // グループ１～４を更新する
