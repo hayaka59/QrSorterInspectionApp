@@ -266,9 +266,6 @@ namespace QrSorterInspectionApp
                 // QR桁数
                 NumUpDwnQrAllDigit.Value = decimal.Parse(sArray[iIndex]);
                 iIndex++;
-                // 受領日入力
-                CmbDateReceipt.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
-                iIndex++;
                 // 読取チェック
                 CmbReadCheck.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
                 iIndex++;                
@@ -514,34 +511,6 @@ namespace QrSorterInspectionApp
             }
         }
 
-        ///// <summary>
-        ///// ジョブ登録リストファイルの読込
-        ///// </summary>
-        //private void ReadJobEntryListFile()
-        //{
-        //    string sReadDataPath;
-        //    string sData;
-
-        //    try
-        //    {
-        //        sReadDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_JOB_ENTRY_FILE_NAME;
-
-        //        PubConstClass.lstJobEntryList.Clear();
-        //        using (StreamReader sr = new StreamReader(sReadDataPath, Encoding.Default))
-        //        {
-        //            while (!sr.EndOfStream)
-        //            {
-        //                sData = sr.ReadLine();
-        //                PubConstClass.lstJobEntryList.Add(sData);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "【ReadJobEntryListFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
         /// <summary>
         /// ジョブ登録リストファイルの書込み
         /// </summary>
@@ -644,6 +613,8 @@ namespace QrSorterInspectionApp
                 sData += CmbDateReceipt.Text.Trim() + ","; ;
                 // QR桁数
                 sData += NumUpDwnQrAllDigit.Value.ToString() + ",";
+                // 読取チェック
+                sData += CmbReadCheck.Text.Trim() + ",";
                 // QR読取項目①
                 sData += TxtQrReadItem1.Text + ",";
                 sData += NmUpDnPropertyIdStart.Value.ToString() + ",";
@@ -660,10 +631,16 @@ namespace QrSorterInspectionApp
                 sData += TxtQrReadItem4.Text + ",";
                 sData += NmUpDnManagementNoStart.Value.ToString() + ",";
                 sData += NmUpDnManagementNoKeta.Value.ToString() + ",";
-                // 仕分け①
+                // 不着事由仕分け①
                 sData += (CmbNonDeliveryReasonSorting1.SelectedIndex + 1).ToString() + ","; ;
-                // 仕分け②
+                // 不着事由仕分け②
                 sData += (CmbNonDeliveryReasonSorting2.SelectedIndex + 1).ToString() + ","; ;
+                
+                // 不着事由仕分け①チェック
+                sData += CmbNonDeliveryOnOff1.Text.Trim() + ",";
+                // 不着事由仕分け②チェック
+                sData += CmbNonDeliveryOnOff2.Text.Trim() + ",";
+
                 // 重複検査
                 sData += CmbDuplication.Text + ","; ;
                 // Wフィード検査
@@ -696,6 +673,28 @@ namespace QrSorterInspectionApp
                 sData += TxtPocketName5.Text.Trim() + ","; ;
                 // ポケット⑤：グループID
                 sData += (CmbGroup5.SelectedIndex + 1).ToString() + ","; ;
+
+                // ポケット①切替件数
+                sData += TxtQuantity1.Text.Trim() + ","; ;
+                // ポケット②切替件数
+                sData += TxtQuantity2.Text.Trim() + ","; ;
+                // ポケット③切替件数
+                sData += TxtQuantity3.Text.Trim() + ","; ;
+                // ポケット④切替件数
+                sData += TxtQuantity4.Text.Trim() + ","; ;
+                // ポケット⑤切替件数
+                sData += TxtQuantity5.Text.Trim() + ","; ;
+
+                // ポケット切替件数①チェック
+                sData += CmbQuantOnOff1.Text.Trim() + ",";
+                // ポケット切替件数②チェック
+                sData += CmbQuantOnOff2.Text.Trim() + ",";
+                // ポケット切替件数③チェック
+                sData += CmbQuantOnOff3.Text.Trim() + ",";
+                // ポケット切替件数④チェック
+                sData += CmbQuantOnOff4.Text.Trim() + ",";
+                // ポケット切替件数⑤チェック
+                sData += CmbQuantOnOff5.Text.Trim() + ",";
 
                 return sData;
             }
