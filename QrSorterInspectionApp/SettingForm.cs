@@ -135,7 +135,7 @@ namespace QrSorterInspectionApp
                 // JOB一覧表示
                 DisplayJobName();
                 // QR桁数情報色の設定
-                SetColorForQrData();
+                SetColorForQrData(sender, e);
 
                 if (PubConstClass.lstJobEntryList.Count == 0)
                 {
@@ -207,7 +207,8 @@ namespace QrSorterInspectionApp
                 foreach (var item in PubConstClass.lstJobEntryList)
                 {
                     sArray = item.Split(',');
-                    LsbJobListFeeder.Items.Add(sArray[0]);
+                    // JOB名称のセット
+                    LsbJobListFeeder.Items.Add(sArray[1]);
                 }
                 LsbJobListFeeder.SelectedIndex = 0;
             }
@@ -239,6 +240,9 @@ namespace QrSorterInspectionApp
             GetEntryJobItem(LsbJobListFeeder.SelectedIndex);
         }
 
+        // フォルダ作成日時
+        private string sFolderCreationDateAndTime = "";
+        
         /// <summary>
         /// 登録ジュブ項目を取得し表示する
         /// </summary>
@@ -251,6 +255,9 @@ namespace QrSorterInspectionApp
             {
                 int iIndex = 0;
                 sArray = PubConstClass.lstJobEntryList[iJobIndex].Split(',');
+                // フォルダ作成日時
+                sFolderCreationDateAndTime = sArray[iIndex];
+                iIndex++;
                 // JOB名
                 TxtJobName.Text = sArray[iIndex];
                 iIndex++;
@@ -401,7 +408,7 @@ namespace QrSorterInspectionApp
         /// <summary>
         /// QR桁数情報色の設定
         /// </summary>
-        private void SetColorForQrData()
+        private void SetColorForQrData(object sender, EventArgs e)
         {
             try
             {
@@ -452,46 +459,6 @@ namespace QrSorterInspectionApp
             }
         }
 
-        private void NmUpDnPropertyIdStart_ValueChanged(object sender, EventArgs e)
-        {
-            SetColorForQrData();
-        }
-
-        private void NmUpDnPropertyIdKeta_ValueChanged(object sender, EventArgs e)
-        {
-            SetColorForQrData();
-        }
-
-        private void NmUpDnPostalDateStart_ValueChanged(object sender, EventArgs e)
-        {
-            SetColorForQrData();
-        }
-
-        private void NmUpDnPostalDateKeta_ValueChanged(object sender, EventArgs e)
-        {
-            SetColorForQrData();
-        }
-
-        private void NmUpDnFileTypeStart_ValueChanged(object sender, EventArgs e)
-        {
-            SetColorForQrData();
-        }
-
-        private void NmUpDnFileTypeKeta_ValueChanged(object sender, EventArgs e)
-        {
-            SetColorForQrData();
-        }
-
-        private void NmUpDnManagementNoStart_ValueChanged(object sender, EventArgs e)
-        {
-            SetColorForQrData();
-        }
-
-        private void NmUpDnManagementNoKeta_ValueChanged(object sender, EventArgs e)
-        {
-            SetColorForQrData();
-        }
-
         private void NumUpDwnQrAllDigit_ValueChanged(object sender, EventArgs e)
         {
             string sData = "";
@@ -503,7 +470,7 @@ namespace QrSorterInspectionApp
                 sData += "12345678901234567890123456789012345678901234567890";
                 RchTxtQrInfo.Text = sData.Substring(0, decimal.ToInt32(NumUpDwnQrAllDigit.Value));                
 
-                SetColorForQrData();
+                SetColorForQrData(sender, e);
             }
             catch (Exception ex)
             {
@@ -597,12 +564,20 @@ namespace QrSorterInspectionApp
         /// <summary>
         /// 全てのジョブ登録データ名称の取得
         /// </summary>
+        /// <param name="iMode">0：追加／1：更新</param>
         /// <returns></returns>
-        private string GetAllJobEntryData()
+        private string GetAllJobEntryData(int iMode)
         {
             try
             {
                 string sData = "";
+                // フォルダ作成日時
+                if(iMode == 0)
+                {
+                    // 追加の場合はフォルダ作成日時を更新する
+                    sFolderCreationDateAndTime = "JOB" + DateTime.Now.ToString("yyyyMMddHHmmss");
+                }
+                sData += sFolderCreationDateAndTime + ",";
                 // JOB名
                 sData += TxtJobName.Text.Trim() + ",";
                 // 媒体
@@ -729,7 +704,7 @@ namespace QrSorterInspectionApp
                 }
 
                 // 全てのジョブ登録データ名称の取得
-                string sData = GetAllJobEntryData();
+                string sData = GetAllJobEntryData(0);
 
                 // ジョブ登録データの追加
                 PubConstClass.lstJobEntryList.Add(sData);
@@ -737,13 +712,11 @@ namespace QrSorterInspectionApp
                 // ジョブ登録リストファイルの書込み
                 WriteJobEntryListFile();
 
-                // JOB一覧表示
-                DisplayJobName();
-
                 // 新規ジョブのBOXファイルが存在するか確認
                 string sFolder = "";
                 string sJobFolder = "\\JOB\\";
-                sJobFolder += "JOB" + LsbJobListFeeder.Items.Count.ToString("00000") + "\\";
+                //sJobFolder += "JOB" + LsbJobListFeeder.Items.Count.ToString("00000") + "\\";
+                sJobFolder += sFolderCreationDateAndTime + "\\";
                 sFolder = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
                 if (!Directory.Exists(sFolder))
                 {
@@ -755,6 +728,9 @@ namespace QrSorterInspectionApp
                     File.Create(sFolder + "Box3List.txt").Close();
                     File.Create(sFolder + "Box4List.txt").Close();
                 }
+
+                // JOB一覧表示
+                DisplayJobName();
             }
             catch (Exception ex)
             {
@@ -779,7 +755,7 @@ namespace QrSorterInspectionApp
                 }
 
                 // 全てのジョブ登録データ名称の取得
-                string sData = GetAllJobEntryData();
+                string sData = GetAllJobEntryData(1);
 
                 // ジョブ登録データの追加
                 PubConstClass.lstJobEntryList[LsbJobListFeeder.SelectedIndex] = sData;
@@ -822,6 +798,18 @@ namespace QrSorterInspectionApp
                 }
                 // ジョブ登録リストファイルの書込み
                 WriteJobEntryListFile();
+
+                string sFolder = "";
+                string sJobFolder = "\\JOB\\";
+                sJobFolder += sFolderCreationDateAndTime + "\\";
+                sFolder = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
+                if (Directory.Exists(sFolder))
+                {
+                    // 存在する場合はフォルダを削除
+                    Directory.Delete(sFolder, true);
+                    CommonModule.OutPutLogFile("【BtnDelete_Click】削除フォルダ：" + sFolder);
+                }
+
                 // JOB一覧表示
                 DisplayJobName();
             }
@@ -961,20 +949,27 @@ namespace QrSorterInspectionApp
         {
             string sReadDataPath;
             string sData;
-            int iJobIndex;
+            //int iJobIndex;
             try
             {
-                if(LsbJobListFeeder.SelectedIndex == -1)
+                if (sFolderCreationDateAndTime=="")
                 {
-                    iJobIndex = 1;
-                }
-                else
-                {
-                    iJobIndex = LsbJobListFeeder.SelectedIndex + 1;
+                    return;
                 }
 
+                //if(LsbJobListFeeder.SelectedIndex == -1)
+                //{
+                //    iJobIndex = 1;
+                //}
+                //else
+                //{
+                //    iJobIndex = LsbJobListFeeder.SelectedIndex + 1;
+                //}
+
                 string sJobFolder = "\\JOB\\";
-                sJobFolder += "JOB" + iJobIndex.ToString("00000") + "\\";
+                //sJobFolder += "JOB" + iJobIndex.ToString("00000") + "\\";
+                sJobFolder += sFolderCreationDateAndTime + "\\";
+
                 sReadDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
                 switch (iGroupIndex)
                 {
@@ -990,10 +985,14 @@ namespace QrSorterInspectionApp
                     case 3:
                         sReadDataPath += PubConstClass.DEF_BOX4_LIST_NAME;
                         break;
+                    case 4:
+                        sReadDataPath += PubConstClass.DEF_BOX5_LIST_NAME;
+                        break;
                     default:
                         sReadDataPath += sJobFolder + PubConstClass.DEF_BOX1_LIST_NAME;
                         break;
                 }
+                CommonModule.OutPutLogFile("【ReadBoxListFile】" + sReadDataPath);
                 PubConstClass.lstBoxList.Clear();
                 using (StreamReader sr = new StreamReader(sReadDataPath, Encoding.Default))
                 {
@@ -1105,7 +1104,8 @@ namespace QrSorterInspectionApp
             try
             {
                 string sJobFolder = "\\JOB\\";
-                sJobFolder += "JOB" + (LsbJobListFeeder.SelectedIndex + 1).ToString("00000") + "\\";
+                //sJobFolder += "JOB" + (LsbJobListFeeder.SelectedIndex + 1).ToString("00000") + "\\";
+                sJobFolder += sFolderCreationDateAndTime + "\\";
                 sReadDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
                 switch (iGroupIndex)
                 {
@@ -1121,10 +1121,14 @@ namespace QrSorterInspectionApp
                     case 3:
                         sReadDataPath += PubConstClass.DEF_BOX4_LIST_NAME;
                         break;
+                    case 4:
+                        sReadDataPath += PubConstClass.DEF_BOX5_LIST_NAME;
+                        break;
                     default:
                         sReadDataPath += sJobFolder + PubConstClass.DEF_BOX1_LIST_NAME;
                         break;
                 }
+                CommonModule.OutPutLogFile("【WriteBoxEntryListFile】" + sReadDataPath);
                 // 上書モードで書き込む
                 using (StreamWriter sw = new StreamWriter(sReadDataPath, false, Encoding.Default))
                 {
@@ -1133,7 +1137,6 @@ namespace QrSorterInspectionApp
                         sw.WriteLine(item);
                     }
                 }
-
             }
             catch (Exception ex)
             {

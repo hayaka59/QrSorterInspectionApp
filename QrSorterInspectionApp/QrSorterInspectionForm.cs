@@ -324,9 +324,9 @@ namespace QrSorterInspectionApp
                 // 不着事由仕分②
                 CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[19]) - 1;
                 // 不着事由仕分①チェック  
-                CmbNonDeliveryReasonSorting1.Enabled = sArray[20] == "ON" ? true : false;
+                CmbNonDeliveryReasonSorting1.Enabled = sArray[20] == "ON";
                 // 不着事由仕分②チェック
-                CmbNonDeliveryReasonSorting2.Enabled = sArray[21] == "ON" ? true : false;
+                CmbNonDeliveryReasonSorting2.Enabled = sArray[21] == "ON";
 
                 // ポケット①名称
                 LblBoxTitle1.Text = "BOX_01 " + sArray[28];
