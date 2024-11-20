@@ -714,8 +714,7 @@ namespace QrSorterInspectionApp
 
                 // 新規ジョブのBOXファイルが存在するか確認
                 string sFolder = "";
-                string sJobFolder = "\\JOB\\";
-                //sJobFolder += "JOB" + LsbJobListFeeder.Items.Count.ToString("00000") + "\\";
+                string sJobFolder = "\\JOB\\";                
                 sJobFolder += sFolderCreationDateAndTime + "\\";
                 sFolder = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
                 if (!Directory.Exists(sFolder))
@@ -727,6 +726,7 @@ namespace QrSorterInspectionApp
                     File.Create(sFolder + "Box2List.txt").Close();
                     File.Create(sFolder + "Box3List.txt").Close();
                     File.Create(sFolder + "Box4List.txt").Close();
+                    File.Create(sFolder + "Box5List.txt").Close();
                 }
 
                 // JOB一覧表示
@@ -805,7 +805,7 @@ namespace QrSorterInspectionApp
                 sFolder = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
                 if (Directory.Exists(sFolder))
                 {
-                    // 存在する場合はフォルダを削除
+                    // 存在する場合はフォルダ（サブフォルダ等を含む）を削除
                     Directory.Delete(sFolder, true);
                     CommonModule.OutPutLogFile("【BtnDelete_Click】削除フォルダ：" + sFolder);
                 }
@@ -949,7 +949,7 @@ namespace QrSorterInspectionApp
         {
             string sReadDataPath;
             string sData;
-            //int iJobIndex;
+
             try
             {
                 if (sFolderCreationDateAndTime=="")
@@ -957,17 +957,7 @@ namespace QrSorterInspectionApp
                     return;
                 }
 
-                //if(LsbJobListFeeder.SelectedIndex == -1)
-                //{
-                //    iJobIndex = 1;
-                //}
-                //else
-                //{
-                //    iJobIndex = LsbJobListFeeder.SelectedIndex + 1;
-                //}
-
-                string sJobFolder = "\\JOB\\";
-                //sJobFolder += "JOB" + iJobIndex.ToString("00000") + "\\";
+                string sJobFolder = "\\JOB\\";                
                 sJobFolder += sFolderCreationDateAndTime + "\\";
 
                 sReadDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
@@ -1103,8 +1093,7 @@ namespace QrSorterInspectionApp
 
             try
             {
-                string sJobFolder = "\\JOB\\";
-                //sJobFolder += "JOB" + (LsbJobListFeeder.SelectedIndex + 1).ToString("00000") + "\\";
+                string sJobFolder = "\\JOB\\";                
                 sJobFolder += sFolderCreationDateAndTime + "\\";
                 sReadDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
                 switch (iGroupIndex)
