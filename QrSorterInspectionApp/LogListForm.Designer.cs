@@ -37,7 +37,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LsbLogList = new System.Windows.Forms.ListBox();
-            this.BtnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -152,24 +151,12 @@
             this.LsbLogList.TabIndex = 263;
             this.LsbLogList.SelectedIndexChanged += new System.EventHandler(this.LsbLogList_SelectedIndexChanged);
             // 
-            // BtnTest
-            // 
-            this.BtnTest.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnTest.Location = new System.Drawing.Point(108, 962);
-            this.BtnTest.Name = "BtnTest";
-            this.BtnTest.Size = new System.Drawing.Size(291, 61);
-            this.BtnTest.TabIndex = 265;
-            this.BtnTest.Text = "テストボタン";
-            this.BtnTest.UseVisualStyleBackColor = true;
-            this.BtnTest.Click += new System.EventHandler(this.button1_Click);
-            // 
             // LogListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
-            this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.LsbLogList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbLogType);
@@ -201,6 +188,5 @@
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox LsbLogList;
-        private System.Windows.Forms.Button BtnTest;
     }
 }
