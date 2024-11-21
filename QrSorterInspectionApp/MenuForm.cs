@@ -193,18 +193,15 @@ namespace QrSorterInspectionApp
                 {
                     LblUserInfo.Visible = false;
                 }
-
                 //string[] sArray;
                 //List<string> readData= new List<string>();
                 //string sDataAll;
-
                 //readData.Clear();
                 //CommonModule.OutPutLogFile("読込開始");
                 //string strReadDataPath = "C:\\GreenCoop\\GREENCOOP_DATA\\4EFYK520P2【500万件データ】.CSV";
                 //using (StreamReader sr = new StreamReader(strReadDataPath, Encoding.Default))
                 //{
                 //    sDataAll = sr.ReadToEnd();
-
                 //    //while (!sr.EndOfStream)
                 //    //{
                 //    //    string sData = sr.ReadLine();
@@ -212,7 +209,6 @@ namespace QrSorterInspectionApp
                 //    //}
                 //}
                 //CommonModule.OutPutLogFile("読込終了");
-
             }
             catch (Exception ex)
             {
