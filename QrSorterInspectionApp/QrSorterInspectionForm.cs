@@ -316,18 +316,39 @@ namespace QrSorterInspectionApp
             try
             {
                 string[] sArray = PubConstClass.lstJobEntryList[CmbJobName.SelectedIndex].Split(',');
-
+                
+                // 受領日
                 DtpDateReceipt.Text = sArray[2];
+                // 不着事由仕分①
+                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[18]) - 1;
+                // 不着事由仕分②
+                CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[19]) - 1;
+                // 不着事由仕分①チェック  
+                CmbNonDeliveryReasonSorting1.Enabled = sArray[20] == "ON";
+                // 不着事由仕分②チェック
+                CmbNonDeliveryReasonSorting2.Enabled = sArray[21] == "ON";
 
-                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[17]);
-                CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[18]);
+                // ポケット①名称
+                LblBoxTitle1.Text = "BOX_01 " + sArray[28];
+                // ポケット②名称
+                LblBoxTitle2.Text = "BOX_02 " + sArray[30];
+                // ポケット③名称
+                LblBoxTitle3.Text = "BOX_03 " + sArray[32];
+                // ポケット④名称
+                LblBoxTitle4.Text = "BOX_04 " + sArray[34];
+                // ポケット⑤名称
+                LblBoxTitle5.Text = "BOX_05 " + sArray[36];
 
-                LblBoxTitle1.Text = "BOX_01 " + sArray[25];
-                LblBoxTitle2.Text = "BOX_02 " + sArray[27];
-                LblBoxTitle3.Text = "BOX_03 " + sArray[29];
-                LblBoxTitle4.Text = "BOX_04 " + sArray[31];
-                LblBoxTitle5.Text = "BOX_05 " + sArray[33];
-
+                // ポケット１切替件数
+                LblQuantity1.Text = sArray[43] == "ON" ? sArray[38]: "---";
+                // ポケット２切替件数
+                LblQuantity2.Text = sArray[44] == "ON" ? sArray[39] : "---";
+                // ポケット３切替件数
+                LblQuantity3.Text = sArray[45] == "ON" ? sArray[40] : "---";
+                // ポケット４切替件数
+                LblQuantity4.Text = sArray[46] == "ON" ? sArray[41] : "---";
+                // ポケット５切替件数
+                LblQuantity5.Text = sArray[47] == "ON" ? sArray[42] : "---";
             }
             catch (Exception ex)
             {

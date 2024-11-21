@@ -215,52 +215,6 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【DisplayOneData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DisplayOneData();
-
-            //try
-            //{
-            //    string[] col = new string[11];
-            //    ListViewItem itm;
-
-            //    col[0] = DateTime.Now.ToString("yyyy/MM/dd");
-            //    col[1] = DateTime.Now.ToString("HH:mm:ss");
-            //    col[2] = DateTime.Now.ToString("HH:mm:ss.fff");
-            //    col[3] = "1234567890";
-            //    col[4] = "1234567890";
-            //    col[5] = "1234567890";
-            //    col[6] = "1234567890";
-            //    col[7] = "1234567890";
-            //    col[8] = "1234567890";
-            //    col[9] = "1234567890";
-            //    col[10] = "1234567890";
-
-            //    // データの表示
-            //    itm = new ListViewItem(col);
-            //    LsvAccount.Items.Add(itm);
-            //    LsvAccount.Items[LsvAccount.Items.Count - 1].UseItemStyleForSubItems = false;
-            //    LsvAccount.Select();
-            //    LsvAccount.Items[LsvAccount.Items.Count - 1].EnsureVisible();
-
-            //    if (LsvAccount.Items.Count % 2 == 1)
-            //    {
-            //        for (int iIndex = 0; iIndex < 11; iIndex++)
-            //        {
-            //            // 奇数行の色反転
-            //            LsvAccount.Items[LsvAccount.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
-    
-    
+        }      
     }
 }

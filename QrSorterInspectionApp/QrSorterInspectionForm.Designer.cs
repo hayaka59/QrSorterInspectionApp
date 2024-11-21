@@ -52,14 +52,14 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.LblStatus = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.LblQuantity3 = new System.Windows.Forms.Label();
             this.LblBox3 = new System.Windows.Forms.Label();
             this.LblBox1 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.LblQuantity1 = new System.Windows.Forms.Label();
             this.LblBox4 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.LblQuantity5 = new System.Windows.Forms.Label();
             this.LblBox2 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.LblQuantity2 = new System.Windows.Forms.Label();
             this.LblBoxTitle3 = new System.Windows.Forms.Label();
             this.LblBoxTitle1 = new System.Windows.Forms.Label();
             this.LblBoxTitle2 = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             this.LblNGCount = new System.Windows.Forms.Label();
             this.LblBoxTitle5 = new System.Windows.Forms.Label();
             this.LblBox5 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.LblQuantity4 = new System.Windows.Forms.Label();
             this.CmbNonDeliveryReasonSorting2 = new System.Windows.Forms.ComboBox();
             this.CmbNonDeliveryReasonSorting1 = new System.Windows.Forms.ComboBox();
             this.CmbJobName = new System.Windows.Forms.ComboBox();
@@ -376,17 +376,17 @@
             this.LblStatus.Text = "検査中";
             this.LblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label20
+            // LblQuantity3
             // 
-            this.label20.BackColor = System.Drawing.Color.White;
-            this.label20.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(1743, 921);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(74, 42);
-            this.label20.TabIndex = 261;
-            this.label20.Text = "999";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblQuantity3.BackColor = System.Drawing.Color.White;
+            this.LblQuantity3.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblQuantity3.ForeColor = System.Drawing.Color.Black;
+            this.LblQuantity3.Location = new System.Drawing.Point(1743, 921);
+            this.LblQuantity3.Name = "LblQuantity3";
+            this.LblQuantity3.Size = new System.Drawing.Size(74, 42);
+            this.LblQuantity3.TabIndex = 261;
+            this.LblQuantity3.Text = "999";
+            this.LblQuantity3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox3
             // 
@@ -412,17 +412,17 @@
             this.LblBox1.Text = "999";
             this.LblBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label18
+            // LblQuantity1
             // 
-            this.label18.BackColor = System.Drawing.Color.White;
-            this.label18.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(1744, 473);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(74, 45);
-            this.label18.TabIndex = 264;
-            this.label18.Text = "999";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblQuantity1.BackColor = System.Drawing.Color.White;
+            this.LblQuantity1.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblQuantity1.ForeColor = System.Drawing.Color.Black;
+            this.LblQuantity1.Location = new System.Drawing.Point(1744, 473);
+            this.LblQuantity1.Name = "LblQuantity1";
+            this.LblQuantity1.Size = new System.Drawing.Size(74, 45);
+            this.LblQuantity1.TabIndex = 264;
+            this.LblQuantity1.Text = "999";
+            this.LblQuantity1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox4
             // 
@@ -436,17 +436,17 @@
             this.LblBox4.Text = "999";
             this.LblBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label23
+            // LblQuantity5
             // 
-            this.label23.BackColor = System.Drawing.Color.White;
-            this.label23.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(1433, 699);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(83, 41);
-            this.label23.TabIndex = 267;
-            this.label23.Text = "999";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblQuantity5.BackColor = System.Drawing.Color.White;
+            this.LblQuantity5.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblQuantity5.ForeColor = System.Drawing.Color.Black;
+            this.LblQuantity5.Location = new System.Drawing.Point(1433, 699);
+            this.LblQuantity5.Name = "LblQuantity5";
+            this.LblQuantity5.Size = new System.Drawing.Size(83, 41);
+            this.LblQuantity5.TabIndex = 267;
+            this.LblQuantity5.Text = "999";
+            this.LblQuantity5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox2
             // 
@@ -460,17 +460,17 @@
             this.LblBox2.Text = "999";
             this.LblBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label25
+            // LblQuantity2
             // 
-            this.label25.BackColor = System.Drawing.Color.White;
-            this.label25.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(1738, 700);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(83, 40);
-            this.label25.TabIndex = 270;
-            this.label25.Text = "999";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblQuantity2.BackColor = System.Drawing.Color.White;
+            this.LblQuantity2.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblQuantity2.ForeColor = System.Drawing.Color.Black;
+            this.LblQuantity2.Location = new System.Drawing.Point(1738, 700);
+            this.LblQuantity2.Name = "LblQuantity2";
+            this.LblQuantity2.Size = new System.Drawing.Size(83, 40);
+            this.LblQuantity2.TabIndex = 270;
+            this.LblQuantity2.Text = "999";
+            this.LblQuantity2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBoxTitle3
             // 
@@ -712,17 +712,17 @@
             this.LblBox5.Text = "999";
             this.LblBox5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label22
+            // LblQuantity4
             // 
-            this.label22.BackColor = System.Drawing.Color.White;
-            this.label22.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(1433, 478);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(83, 40);
-            this.label22.TabIndex = 289;
-            this.label22.Text = "999";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblQuantity4.BackColor = System.Drawing.Color.White;
+            this.LblQuantity4.Font = new System.Drawing.Font("メイリオ", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblQuantity4.ForeColor = System.Drawing.Color.Black;
+            this.LblQuantity4.Location = new System.Drawing.Point(1433, 478);
+            this.LblQuantity4.Name = "LblQuantity4";
+            this.LblQuantity4.Size = new System.Drawing.Size(83, 40);
+            this.LblQuantity4.TabIndex = 289;
+            this.LblQuantity4.Text = "999";
+            this.LblQuantity4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CmbNonDeliveryReasonSorting2
             // 
@@ -908,7 +908,7 @@
             this.Controls.Add(this.CmbNonDeliveryReasonSorting1);
             this.Controls.Add(this.LblBoxTitle5);
             this.Controls.Add(this.LblBox5);
-            this.Controls.Add(this.label22);
+            this.Controls.Add(this.LblQuantity4);
             this.Controls.Add(this.LblNGCount);
             this.Controls.Add(this.LblOKCount);
             this.Controls.Add(this.LblTotalCount);
@@ -928,16 +928,16 @@
             this.Controls.Add(this.LsvOKHistory);
             this.Controls.Add(this.LsvNGHistory);
             this.Controls.Add(this.LblBox2);
-            this.Controls.Add(this.label25);
+            this.Controls.Add(this.LblQuantity2);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.LblBox4);
-            this.Controls.Add(this.label23);
+            this.Controls.Add(this.LblQuantity5);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.LblBox1);
-            this.Controls.Add(this.label18);
+            this.Controls.Add(this.LblQuantity1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.LblBox3);
-            this.Controls.Add(this.label20);
+            this.Controls.Add(this.LblQuantity3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.LblStatus);
             this.Controls.Add(this.label13);
@@ -1006,16 +1006,16 @@
         internal System.Windows.Forms.Label label14;
         internal System.Windows.Forms.Label LblStatus;
         private System.Windows.Forms.PictureBox pictureBox1;
-        internal System.Windows.Forms.Label label20;
+        internal System.Windows.Forms.Label LblQuantity3;
         internal System.Windows.Forms.Label LblBox3;
         internal System.Windows.Forms.Label LblBox1;
-        internal System.Windows.Forms.Label label18;
+        internal System.Windows.Forms.Label LblQuantity1;
         private System.Windows.Forms.PictureBox pictureBox2;
         internal System.Windows.Forms.Label LblBox4;
-        internal System.Windows.Forms.Label label23;
+        internal System.Windows.Forms.Label LblQuantity5;
         private System.Windows.Forms.PictureBox pictureBox3;
         internal System.Windows.Forms.Label LblBox2;
-        internal System.Windows.Forms.Label label25;
+        internal System.Windows.Forms.Label LblQuantity2;
         private System.Windows.Forms.PictureBox pictureBox4;
         internal System.Windows.Forms.Label LblBoxTitle3;
         internal System.Windows.Forms.Label LblBoxTitle1;
@@ -1037,7 +1037,7 @@
         internal System.Windows.Forms.Label LblNGCount;
         internal System.Windows.Forms.Label LblBoxTitle5;
         internal System.Windows.Forms.Label LblBox5;
-        internal System.Windows.Forms.Label label22;
+        internal System.Windows.Forms.Label LblQuantity4;
         private System.Windows.Forms.PictureBox pictureBox5;
         internal System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting2;
         internal System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting1;
