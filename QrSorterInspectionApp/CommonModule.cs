@@ -431,7 +431,7 @@ namespace QrSorterInspectionApp
         /// システム定義ファイルの書込処理
         /// </summary>
         /// <remarks></remarks>
-        public static void WritetSystemDefinition()
+        public static void WriteSystemDefinition()
         {
             string strPutDataPath;
 
@@ -467,6 +467,39 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【WritetSystemDefinition】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        /// <summary>
+        /// ディスクの空き領域をチェック
+        /// </summary>
+        /// <remarks></remarks>
+        public static void CheckAvairableFreeSpace()
+        {
+            long lngAvailableValue;
+            string strMessage;
+
+            try
+            {
+                DriveInfo drive = new DriveInfo(PubConstClass.pblInternalTranFolder.Substring(0, 1));
+
+                if (drive.IsReady == true)
+                {
+                    lngAvailableValue = drive.AvailableFreeSpace;
+
+                    if ((lngAvailableValue / (double)1024 / 1024 / 1024) < Convert.ToDouble(PubConstClass.pblHddSpace))
+                    {
+                        strMessage = "ドライブ「" + PubConstClass.pblInternalTranFolder.Substring(0, 1) + "」の空き領域（" +
+                            (lngAvailableValue / (double)1024 / 1024 / 1024).ToString("F1") + " GB）が、" + PubConstClass.pblHddSpace + " GB より少なくなっています。";
+                        // MsgBox("空き領域：" & (lngAvailableValue / 1024 / 1024 / 1024).ToString & " GB")                        
+                        MessageBox.Show(strMessage, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CheckAvairableFreeSpace】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

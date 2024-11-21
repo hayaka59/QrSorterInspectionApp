@@ -29,31 +29,39 @@ namespace QrSorterInspectionApp
                 LblVersion.Text = PubConstClass.DEF_VERSION;
                 CommonModule.OutPutLogFile("保守画面を表示しました");
 
+                CommonModule.ReadSystemDefinition();
+
+                // 号機名
+                TxtMachineName.Text = PubConstClass.pblMachineName;
 
                 #region ログ保存
                 CmbSaveMonth.Items.Clear();
                 for (int N = 1; N <= 36; N++)
                 {
                     CmbSaveMonth.Items.Add(N.ToString() + "ヶ月");
+                }                
+                if (PubConstClass.pblSaveLogMonth != "")
+                {
+                    CmbSaveMonth.SelectedIndex = Convert.ToInt32(PubConstClass.pblSaveLogMonth) - 1;
                 }
-                CmbSaveMonth.SelectedIndex = 2;
-                //if (PubConstClass.pblSaveLogMonth != "")
-                //{
-                //    CmbSaveMonth.SelectedIndex = Convert.ToInt32(PubConstClass.pblSaveLogMonth) - 1;
-                //}
-                //else
-                //{
-                //    CmbSaveMonth.SelectedIndex = 0;
-                //}
+                else
+                {
+                    CmbSaveMonth.SelectedIndex = 0;
+                }
                 #endregion
 
+                // ディスク空き容量チェック
+                TxtHddSpace.Text = PubConstClass.pblHddSpace;
+
+                // 内部実績ログ格納フォルダ
+                TxtInternalTran.Text = PubConstClass.pblInternalTranFolder;
 
                 // COMポート名
                 CmbComPort.Items.Clear();
                 for (int iIndex = 1; iIndex <= 15; iIndex++)
                     CmbComPort.Items.Add("COM" + Convert.ToString(iIndex));
-                //CmbComPort.SelectedIndex = Convert.ToInt32(PubConstClass.pblComPort.Substring(3, 1)) - 1;
-                CmbComPort.SelectedIndex = 0;
+                CmbComPort.SelectedIndex = Convert.ToInt32(PubConstClass.pblComPort.Substring(3, 1)) - 1;
+                
                 // COM通信速度
                 CmbComSpeed.Items.Clear();
                 CmbComSpeed.Items.Add("4800");
@@ -62,32 +70,32 @@ namespace QrSorterInspectionApp
                 CmbComSpeed.Items.Add("38400");
                 CmbComSpeed.Items.Add("57600");
                 CmbComSpeed.Items.Add("115200");
-                //CmbComSpeed.SelectedIndex = Convert.ToInt32(PubConstClass.pblComSpeed);
-                CmbComSpeed.SelectedIndex = 3;
+                CmbComSpeed.SelectedIndex = Convert.ToInt32(PubConstClass.pblComSpeed);
+                
                 // COMデータ長
                 CmbComDataLength.Items.Clear();
                 CmbComDataLength.Items.Add("8bit");
                 CmbComDataLength.Items.Add("7bit");
-                //CmbComDataLength.SelectedIndex = Convert.ToInt32(PubConstClass.pblComDataLength);
-                CmbComDataLength.SelectedIndex = 0;
+                CmbComDataLength.SelectedIndex = Convert.ToInt32(PubConstClass.pblComDataLength);
+                
                 // COMパリティの有無
                 CmbComIsParty.Items.Clear();
                 CmbComIsParty.Items.Add("無効");
                 CmbComIsParty.Items.Add("有効");
-                //CmbComIsParty.SelectedIndex = Convert.ToInt32(PubConstClass.pblComIsParity);
-                CmbComIsParty.SelectedIndex = 0;
+                CmbComIsParty.SelectedIndex = Convert.ToInt32(PubConstClass.pblComIsParity);
+                
                 // COMパリティ種別
                 CmbComParityVar.Items.Clear();
                 CmbComParityVar.Items.Add("奇数");
                 CmbComParityVar.Items.Add("偶数");
-                //CmbComParityVar.SelectedIndex = Convert.ToInt32(PubConstClass.pblComParityVar);
-                CmbComParityVar.SelectedIndex = 0;
+                CmbComParityVar.SelectedIndex = Convert.ToInt32(PubConstClass.pblComParityVar);
+                
                 // COMストップビット
                 CmbComStopBit.Items.Clear();
                 CmbComStopBit.Items.Add("1bit");
                 CmbComStopBit.Items.Add("2bit");
-                //CmbComStopBit.SelectedIndex = Convert.ToInt32(PubConstClass.pblComStopBit);
-                CmbComStopBit.SelectedIndex = 0;
+                CmbComStopBit.SelectedIndex = Convert.ToInt32(PubConstClass.pblComStopBit);
+                
 
 
             }
@@ -123,13 +131,41 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnApply_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult;
+
             try
             {
+                dialogResult = MessageBox.Show("設定を保存しますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
+                if (dialogResult == DialogResult.OK)
+                {
+                    // 号機名称
+                    PubConstClass.pblMachineName = TxtMachineName.Text;
+                    // ディスク空き容量
+                    PubConstClass.pblHddSpace = TxtHddSpace.Text;
+                    // ログの保存期間
+                    PubConstClass.pblSaveLogMonth = (CmbSaveMonth.SelectedIndex + 1).ToString();
+                    
+                    PubConstClass.pblComPort = CmbComPort.SelectedItem.ToString();
+                    PubConstClass.pblComSpeed = CmbComSpeed.SelectedIndex.ToString();
+                    PubConstClass.pblComDataLength = CmbComDataLength.SelectedIndex.ToString();
+                    PubConstClass.pblComIsParity = CmbComIsParty.SelectedIndex.ToString();
+                    PubConstClass.pblComParityVar = CmbComParityVar.SelectedIndex.ToString();
+                    PubConstClass.pblComStopBit = CmbComStopBit.SelectedIndex.ToString();
+
+                    // 内部実績ログ格納フォルダ
+                    PubConstClass.pblInternalTranFolder = TxtInternalTran.Text;
+
+                    // システム定義ファイルの書き込み処理
+                    CommonModule.WriteSystemDefinition();
+
+                    // ディスクの空き領域をチェック
+                    CommonModule.CheckAvairableFreeSpace();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【BtnApply_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.StackTrace, "【BtnApply_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -194,6 +230,30 @@ namespace QrSorterInspectionApp
         private void LblVersion_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnInternalTran_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+            try
+            {
+                fbd.Description = "内部実績ログ格納フォルダを選択してください。";
+
+                fbd.RootFolder = Environment.SpecialFolder.Desktop;
+                fbd.SelectedPath = PubConstClass.pblInternalTranFolder;
+
+                // 新規フォルダ作成を表示
+                fbd.ShowNewFolderButton = true;
+
+                if (fbd.ShowDialog(this) == DialogResult.OK)
+                    // 選択されたフォルダを表示する
+                    TxtInternalTran.Text = fbd.SelectedPath;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnInternalTran_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
