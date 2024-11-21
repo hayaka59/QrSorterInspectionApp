@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaintenanceForm));
             this.LblTitle = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
             this.GroupBox11 = new System.Windows.Forms.GroupBox();
@@ -47,8 +48,6 @@
             this.Label6 = new System.Windows.Forms.Label();
             this.CmbComPort = new System.Windows.Forms.ComboBox();
             this.Label23 = new System.Windows.Forms.Label();
-            this.GroupBox12 = new System.Windows.Forms.GroupBox();
-            this.TxtPassword = new System.Windows.Forms.TextBox();
             this.GroupBox6 = new System.Windows.Forms.GroupBox();
             this.TxtHddSpace = new System.Windows.Forms.TextBox();
             this.Label29 = new System.Windows.Forms.Label();
@@ -60,11 +59,15 @@
             this.BtnEncript = new System.Windows.Forms.Button();
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
+            this.GroupBox8 = new System.Windows.Forms.GroupBox();
+            this.TxtInternalTran = new System.Windows.Forms.TextBox();
+            this.BtnInternalTran = new System.Windows.Forms.Button();
+            this.Label33 = new System.Windows.Forms.Label();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
-            this.GroupBox12.SuspendLayout();
             this.GroupBox6.SuspendLayout();
             this.GroupBox5.SuspendLayout();
+            this.GroupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblTitle
@@ -289,28 +292,6 @@
             this.Label23.Text = "ポート";
             this.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // GroupBox12
-            // 
-            this.GroupBox12.Controls.Add(this.TxtPassword);
-            this.GroupBox12.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox12.Location = new System.Drawing.Point(598, 471);
-            this.GroupBox12.Name = "GroupBox12";
-            this.GroupBox12.Size = new System.Drawing.Size(328, 80);
-            this.GroupBox12.TabIndex = 245;
-            this.GroupBox12.TabStop = false;
-            this.GroupBox12.Text = "パスワード設定";
-            // 
-            // TxtPassword
-            // 
-            this.TxtPassword.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtPassword.Location = new System.Drawing.Point(32, 31);
-            this.TxtPassword.MaxLength = 10;
-            this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Size = new System.Drawing.Size(260, 31);
-            this.TxtPassword.TabIndex = 0;
-            this.TxtPassword.Text = "0000";
-            this.TxtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // GroupBox6
             // 
             this.GroupBox6.Controls.Add(this.TxtHddSpace);
@@ -325,6 +306,7 @@
             // 
             // TxtHddSpace
             // 
+            this.TxtHddSpace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtHddSpace.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.TxtHddSpace.Location = new System.Drawing.Point(23, 33);
             this.TxtHddSpace.MaxLength = 4;
@@ -360,6 +342,7 @@
             // 
             // TxtMachineName
             // 
+            this.TxtMachineName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtMachineName.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.TxtMachineName.Location = new System.Drawing.Point(108, 27);
             this.TxtMachineName.MaxLength = 100;
@@ -450,18 +433,67 @@
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // GroupBox8
+            // 
+            this.GroupBox8.BackColor = System.Drawing.SystemColors.Control;
+            this.GroupBox8.Controls.Add(this.TxtInternalTran);
+            this.GroupBox8.Controls.Add(this.BtnInternalTran);
+            this.GroupBox8.Controls.Add(this.Label33);
+            this.GroupBox8.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.GroupBox8.Location = new System.Drawing.Point(598, 477);
+            this.GroupBox8.Name = "GroupBox8";
+            this.GroupBox8.Size = new System.Drawing.Size(1085, 85);
+            this.GroupBox8.TabIndex = 253;
+            this.GroupBox8.TabStop = false;
+            this.GroupBox8.Text = "内部実績ログ格納フォルダ";
+            // 
+            // TxtInternalTran
+            // 
+            this.TxtInternalTran.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtInternalTran.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtInternalTran.Location = new System.Drawing.Point(179, 32);
+            this.TxtInternalTran.Name = "TxtInternalTran";
+            this.TxtInternalTran.Size = new System.Drawing.Size(728, 39);
+            this.TxtInternalTran.TabIndex = 90;
+            // 
+            // BtnInternalTran
+            // 
+            this.BtnInternalTran.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnInternalTran.Image = ((System.Drawing.Image)(resources.GetObject("BtnInternalTran.Image")));
+            this.BtnInternalTran.Location = new System.Drawing.Point(919, 25);
+            this.BtnInternalTran.Name = "BtnInternalTran";
+            this.BtnInternalTran.Size = new System.Drawing.Size(150, 50);
+            this.BtnInternalTran.TabIndex = 89;
+            this.BtnInternalTran.Text = "選択...";
+            this.BtnInternalTran.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnInternalTran.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnInternalTran.UseVisualStyleBackColor = true;
+            this.BtnInternalTran.Click += new System.EventHandler(this.BtnInternalTran_Click);
+            // 
+            // Label33
+            // 
+            this.Label33.BackColor = System.Drawing.Color.Blue;
+            this.Label33.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Label33.ForeColor = System.Drawing.Color.White;
+            this.Label33.Location = new System.Drawing.Point(19, 31);
+            this.Label33.Name = "Label33";
+            this.Label33.Size = new System.Drawing.Size(160, 40);
+            this.Label33.TabIndex = 88;
+            this.Label33.Text = "フォルダ";
+            this.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.GroupBox8);
             this.Controls.Add(this.TxtUserAccount);
             this.Controls.Add(this.BtnDecript);
             this.Controls.Add(this.BtnEncript);
             this.Controls.Add(this.GroupBox11);
             this.Controls.Add(this.GroupBox7);
-            this.Controls.Add(this.GroupBox12);
             this.Controls.Add(this.GroupBox6);
             this.Controls.Add(this.GroupBox5);
             this.Controls.Add(this.BtnApply);
@@ -477,12 +509,12 @@
             this.Load += new System.EventHandler(this.MaintenanceForm_Load);
             this.GroupBox11.ResumeLayout(false);
             this.GroupBox7.ResumeLayout(false);
-            this.GroupBox12.ResumeLayout(false);
-            this.GroupBox12.PerformLayout();
             this.GroupBox6.ResumeLayout(false);
             this.GroupBox6.PerformLayout();
             this.GroupBox5.ResumeLayout(false);
             this.GroupBox5.PerformLayout();
+            this.GroupBox8.ResumeLayout(false);
+            this.GroupBox8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,8 +538,6 @@
         internal System.Windows.Forms.Label Label6;
         internal System.Windows.Forms.ComboBox CmbComPort;
         internal System.Windows.Forms.Label Label23;
-        internal System.Windows.Forms.GroupBox GroupBox12;
-        internal System.Windows.Forms.TextBox TxtPassword;
         internal System.Windows.Forms.GroupBox GroupBox6;
         internal System.Windows.Forms.TextBox TxtHddSpace;
         internal System.Windows.Forms.Label Label29;
@@ -521,5 +551,9 @@
         internal System.Windows.Forms.Button BtnEncript;
         internal System.Windows.Forms.Button BtnDecript;
         private System.Windows.Forms.TextBox TxtUserAccount;
+        internal System.Windows.Forms.GroupBox GroupBox8;
+        internal System.Windows.Forms.TextBox TxtInternalTran;
+        internal System.Windows.Forms.Button BtnInternalTran;
+        internal System.Windows.Forms.Label Label33;
     }
 }

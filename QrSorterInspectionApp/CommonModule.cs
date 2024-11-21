@@ -331,5 +331,176 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【DecryptFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        /// <summary>
+        /// システム定義ファイルの読込処理
+        /// </summary>
+        /// <remarks></remarks>
+        public static void ReadSystemDefinition()
+        {
+            string strReadDataPath;
+            string[] strArray;
+
+            try
+            {
+                strReadDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_FILENAME;
+
+                using (StreamReader sr = new StreamReader(strReadDataPath, Encoding.Default))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        strArray = sr.ReadLine().Split(',');
+                        switch (strArray[0])
+                        {
+                            // 号機名称
+                            case PubConstClass.DEF_MACHINE_NAME:
+                                {
+                                    PubConstClass.pblMachineName = strArray[1];
+                                    break;
+                                }
+                            // ログ保存期間
+                            case PubConstClass.DEF_LOGSAVE_MONTH:
+                                {
+                                    PubConstClass.pblSaveLogMonth = strArray[1];
+                                    break;
+                                }
+                            // ディスク空き容量
+                            case PubConstClass.DEF_HDD_SPACE:
+                                {
+                                    PubConstClass.pblHddSpace = strArray[1];
+                                    break;
+                                }
+                            // 内部実績ログ格納フォルダ
+                            case PubConstClass.DEF_INTERNAL_TRAN_FOLDER:
+                                {
+                                    PubConstClass.pblInternalTranFolder = strArray[1];
+                                    break;
+                                }
+                            // COMポート名
+                            case PubConstClass.DEF_COMPORT:
+                                {
+                                    PubConstClass.pblComPort = strArray[1];
+                                    break;
+                                }
+                            // COM通信速度
+                            case PubConstClass.DEF_COM_SPEED:
+                                {
+                                    PubConstClass.pblComSpeed = strArray[1];
+                                    break;
+                                }
+                            // COMデータ長
+                            case PubConstClass.DEF_COM_DATA_LENGTH:
+                                {
+                                    PubConstClass.pblComDataLength = strArray[1];
+                                    break;
+                                }
+                            // COMパリティ有無
+                            case PubConstClass.DEF_COM_IS_PARITY:
+                                {
+                                    PubConstClass.pblComIsParity = strArray[1];
+                                    break;
+                                }
+                            // COMパリティ種別
+                            case PubConstClass.DEF_COM_PARITY_VAR:
+                                {
+                                    PubConstClass.pblComParityVar = strArray[1];
+                                    break;
+                                }
+                            // COMストップビット
+                            case PubConstClass.DEF_COM_STOPBIT:
+                                {
+                                    PubConstClass.pblComStopBit = strArray[1];
+                                    break;
+                                }
+                            default:
+                                {
+                                    break;
+                                }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ReadSystemDefinition】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// システム定義ファイルの書込処理
+        /// </summary>
+        /// <remarks></remarks>
+        public static void WriteSystemDefinition()
+        {
+            string strPutDataPath;
+
+            try
+            {
+                strPutDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_FILENAME;
+
+                // 上書モードで書き込む
+                using (StreamWriter sw = new StreamWriter(strPutDataPath, false, Encoding.Default))
+                {
+                    // 号機名称
+                    sw.WriteLine(PubConstClass.DEF_MACHINE_NAME + "," + PubConstClass.pblMachineName);
+                    // ログ保存期間
+                    sw.WriteLine(PubConstClass.DEF_LOGSAVE_MONTH + "," + PubConstClass.pblSaveLogMonth);
+                    // ディスク空き容量
+                    sw.WriteLine(PubConstClass.DEF_HDD_SPACE + "," + PubConstClass.pblHddSpace);
+                    // 内部実績ログ格納フォルダ
+                    sw.WriteLine(PubConstClass.DEF_INTERNAL_TRAN_FOLDER + "," + PubConstClass.pblInternalTranFolder);
+                    // COMポート名
+                    sw.WriteLine(PubConstClass.DEF_COMPORT + "," + PubConstClass.pblComPort);
+                    // COM通信速度
+                    sw.WriteLine(PubConstClass.DEF_COM_SPEED + "," + PubConstClass.pblComSpeed);
+                    // COMデータ長
+                    sw.WriteLine(PubConstClass.DEF_COM_DATA_LENGTH + "," + PubConstClass.pblComDataLength);
+                    // COMパリティ有無
+                    sw.WriteLine(PubConstClass.DEF_COM_IS_PARITY + "," + PubConstClass.pblComIsParity);
+                    // COMパリティ種別
+                    sw.WriteLine(PubConstClass.DEF_COM_PARITY_VAR + "," + PubConstClass.pblComParityVar);
+                    // COMストップビット
+                    sw.WriteLine(PubConstClass.DEF_COM_STOPBIT + "," + PubConstClass.pblComStopBit);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【WritetSystemDefinition】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        /// <summary>
+        /// ディスクの空き領域をチェック
+        /// </summary>
+        /// <remarks></remarks>
+        public static void CheckAvairableFreeSpace()
+        {
+            long lngAvailableValue;
+            string strMessage;
+
+            try
+            {
+                DriveInfo drive = new DriveInfo(PubConstClass.pblInternalTranFolder.Substring(0, 1));
+
+                if (drive.IsReady == true)
+                {
+                    lngAvailableValue = drive.AvailableFreeSpace;
+
+                    if ((lngAvailableValue / (double)1024 / 1024 / 1024) < Convert.ToDouble(PubConstClass.pblHddSpace))
+                    {
+                        strMessage = "ドライブ「" + PubConstClass.pblInternalTranFolder.Substring(0, 1) + "」の空き領域（" +
+                            (lngAvailableValue / (double)1024 / 1024 / 1024).ToString("F1") + " GB）が、" + PubConstClass.pblHddSpace + " GB より少なくなっています。";
+                        // MsgBox("空き領域：" & (lngAvailableValue / 1024 / 1024 / 1024).ToString & " GB")                        
+                        MessageBox.Show(strMessage, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CheckAvairableFreeSpace】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

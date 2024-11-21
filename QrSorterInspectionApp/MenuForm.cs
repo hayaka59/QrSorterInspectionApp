@@ -30,6 +30,8 @@ namespace QrSorterInspectionApp
                 LblVersion.Text = PubConstClass.DEF_VERSION;
                 CommonModule.OutPutLogFile("メニュー画面を表示しました");
 
+                CommonModule.ReadSystemDefinition();
+
                 LblUserInfo.Text = "";
                 LblUserInfo.Text += "ＩＤ：" + PubConstClass.sUserId + Environment.NewLine;
                 LblUserInfo.Text += "名前：" + PubConstClass.sUserName + Environment.NewLine;
