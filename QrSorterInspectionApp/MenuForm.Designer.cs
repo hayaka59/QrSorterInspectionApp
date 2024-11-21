@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LblVersion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnEnd = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this.BtnQrSorterInspect = new System.Windows.Forms.Button();
             this.LblStatus = new System.Windows.Forms.Label();
             this.LblUserInfo = new System.Windows.Forms.Label();
+            this.SerialPort = new System.IO.Ports.SerialPort(this.components);
             this.SuspendLayout();
             // 
             // LblVersion
@@ -229,5 +231,6 @@
         private System.Windows.Forms.Button BtnLogOut;
         internal System.Windows.Forms.Label LblStatus;
         internal System.Windows.Forms.Label LblUserInfo;
+        internal System.IO.Ports.SerialPort SerialPort;
     }
 }

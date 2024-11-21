@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,22 @@ namespace QrSorterInspectionApp
                 CommonModule.OutPutLogFile("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
                 CommonModule.OutPutLogFile("【" + "QRソータ検査アプリバージョン" + "】を起動しました。");
                 CommonModule.OutPutLogFile("■QRソータ検査アプリバージョン「" + PubConstClass.DEF_VERSION + "」");
+
+                // 設定ファイルの存在チェック
+                if (ConfigurationFileExistenceCheck() == false)
+                {
+                    // 設定ファイルがない場合
+                    this.Dispose();
+                }
+                // 二重起動のチェック
+                if (System.Diagnostics.Process.GetProcessesByName(System.Diagnostics.Process.GetCurrentProcess().ProcessName).Length > 1)
+                {
+                    // すでに起動していると判断する
+                    CommonModule.OutPutLogFile("二重起動はできません。");
+                    MessageBox.Show("二重起動はできません。", "確認", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Dispose();
+                }
+
                 // 暗号化されたユーザーアカウントファイルの読込
                 CommonModule.ReadEncodeUserAccountFile();
                 // IMEモードの禁止
@@ -98,6 +115,10 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// IDとパスワードのチェック処理
+        /// </summary>
+        /// <returns></returns>
         private bool CheckUserAndPassword()
         {
             try
@@ -139,7 +160,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// 「目のアイコン」ボタン処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -160,6 +181,44 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message, "【BtnPassword_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 設定ファイルの存在チェック
+        /// </summary>
+        private bool ConfigurationFileExistenceCheck()
+        {
+            List<string> sCheckFileName = new List<string>() {
+                                                                "QrSorterInspectionApp.def",
+                                                                "NonDeliveryReasonSorting.txt",
+                                                                "JobEntryList.txt",
+                                                                "UserAccount.enc",
+                                                              };
+            try
+            {
+                string sNoFindFileName = "";
+                string sStartPath = CommonModule.IncludeTrailingPathDelimiter(Environment.CurrentDirectory);
+
+                foreach (string s in sCheckFileName)
+                {
+                    if (File.Exists(sStartPath + s) == false)
+                    {
+                        sNoFindFileName += s + Environment.NewLine;
+                    }
+                }
+
+                if (sNoFindFileName != "")
+                {
+                    MessageBox.Show(sNoFindFileName, "下記の設定ファイルが見つかりません", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ConfigurationFileExistenceCheck】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
     }

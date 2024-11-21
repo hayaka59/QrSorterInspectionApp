@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace QrSorterInspectionApp
 {
@@ -32,6 +34,92 @@ namespace QrSorterInspectionApp
 
                 CommonModule.ReadSystemDefinition();
 
+                #region シリアルポートの設定とオープン
+                // シリアルポート名の設定
+                SerialPort.PortName = PubConstClass.pblComPort;
+                // シリアルポートの通信速度指定
+                switch (PubConstClass.pblComSpeed)
+                {
+                    case "0":
+                        SerialPort.BaudRate = 4800;
+                        break;
+                    case "1":
+                        SerialPort.BaudRate = 9600;
+                        break;
+                    case "2":
+                        SerialPort.BaudRate = 19200;
+                        break;
+                    case "3":
+                        SerialPort.BaudRate = 38400;
+                        break;
+                    case "4":
+                        SerialPort.BaudRate = 57600;
+                        break;
+                    case "5":
+                        SerialPort.BaudRate = 115200;
+                        break;
+                    default:
+                        SerialPort.BaudRate = 38400;
+                        break;
+                }
+                // シリアルポートのパリティ指定
+                switch (PubConstClass.pblComParityVar)
+                {
+                    case "0":
+                        SerialPort.Parity = Parity.Odd;
+                        break;
+                    case "1":
+                        SerialPort.Parity = Parity.Even;
+                        break;
+                    default:
+                        SerialPort.Parity = Parity.Even;
+                        break;
+                }
+
+                // シリアルポートのパリティ有無
+                if (PubConstClass.pblComIsParity == "0")
+                    SerialPort.Parity = Parity.None;
+
+                // シリアルポートのビット数指定
+                switch (PubConstClass.pblComDataLength)
+                {
+                    case "0":
+                        SerialPort.DataBits = 8;
+                        break;
+                    case "1":
+                        SerialPort.DataBits = 7;
+                        break;
+                    default:
+                        SerialPort.DataBits = 8;
+                        break;
+                }
+
+                // シリアルポートのストップビット指定
+                switch (PubConstClass.pblComStopBit)
+                {
+                    case "0":
+                        SerialPort.StopBits = StopBits.One;
+                        break;
+                    case "1":
+                        SerialPort.StopBits = StopBits.Two;
+                        break;
+                    default:
+                        SerialPort.StopBits = StopBits.One;
+                        break;
+                }
+
+                // シリアルポートのオープン
+                SerialPort.Open();
+                #endregion
+
+                // シリアルポートにデータ送信（動作可コマンド）
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_a + "\r");
+                SerialPort.Write(dat, 0, dat.GetLength(0));
+                //LoggingSerialSendData(PubConstClass.CMD_SEND_a);
+
+                // ディスクの空き領域をチェック
+                CommonModule.CheckAvairableFreeSpace();
+
                 LblUserInfo.Text = "";
                 LblUserInfo.Text += "ＩＤ：" + PubConstClass.sUserId + Environment.NewLine;
                 LblUserInfo.Text += "名前：" + PubConstClass.sUserName + Environment.NewLine;
@@ -44,9 +132,12 @@ namespace QrSorterInspectionApp
                     BtnMaintenance.Enabled = false;
                 }
 
+                LblStatus.Visible = false;
             }
             catch (Exception ex)
             {
+                LblStatus.Text = ex.Message;
+                LblStatus.Visible = true;
                 MessageBox.Show(ex.Message, "【MenuForm_Load】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -193,18 +284,15 @@ namespace QrSorterInspectionApp
                 {
                     LblUserInfo.Visible = false;
                 }
-
                 //string[] sArray;
                 //List<string> readData= new List<string>();
                 //string sDataAll;
-
                 //readData.Clear();
                 //CommonModule.OutPutLogFile("読込開始");
                 //string strReadDataPath = "C:\\GreenCoop\\GREENCOOP_DATA\\4EFYK520P2【500万件データ】.CSV";
                 //using (StreamReader sr = new StreamReader(strReadDataPath, Encoding.Default))
                 //{
                 //    sDataAll = sr.ReadToEnd();
-
                 //    //while (!sr.EndOfStream)
                 //    //{
                 //    //    string sData = sr.ReadLine();
@@ -212,7 +300,6 @@ namespace QrSorterInspectionApp
                 //    //}
                 //}
                 //CommonModule.OutPutLogFile("読込終了");
-
             }
             catch (Exception ex)
             {
