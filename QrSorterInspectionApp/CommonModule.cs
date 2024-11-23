@@ -502,5 +502,72 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【CheckAvairableFreeSpace】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// 指定した月より古い下記のファイルを削除する
+        /// （１）内部実績ログ格納フォルダ
+        /// （２）履歴履歴ログファイル
+        /// </summary>
+        /// <param name="intMinusMonth"></param>
+        /// <remarks></remarks>
+        public static void DeleteLogFiles(int intMinusMonth)
+        {
+            string[] strArray;
+            string strCompDate;
+
+            try
+            {
+                // 現在の日付（年月日）を求める
+                DateTime dtCurrent = DateTime.Now;
+
+                // 現在日付から指定月を減算
+                DateTime dtPassDate = dtCurrent.AddMonths(-(intMinusMonth));
+
+                if (Directory.Exists(IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder)) == false)
+                {
+                    OutPutLogFile("「" + IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + "」フォルダが存在しません。");
+                }
+                else
+                {
+                    // 削除対象ファイル（稼動ログ）の取得
+                    foreach (string strDeleteFolder in Directory.GetDirectories(IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder),
+                                                                                                             "*", SearchOption.TopDirectoryOnly))
+                    {
+                        // OutPutLogFile("ログファイル一覧取得：" & strDeleteFile)
+                        strArray = strDeleteFolder.Split('\\');
+                        // 「YYYYMMDD」部分を切り出す                    
+                        strCompDate = strArray[strArray.Length - 1];
+                        if (string.Compare(strCompDate, dtPassDate.ToString("yyyyMMdd")) < 0)
+                        {
+                            // ファイルを削除する
+                            Directory.Delete(strDeleteFolder, true);
+                            OutPutLogFile("【稼動ログ】削除対象ファイル（" + strDeleteFolder + "）を削除しました。");
+                        }
+                    }
+                }
+
+                // 削除対象ファイル（操作履歴ログ）の取得
+                foreach (string strDeleteFile in Directory.GetFiles(IncludeTrailingPathDelimiter(Application.StartupPath) +
+                                                                    @"OPHISTORYLOG\", "*.LOG", SearchOption.AllDirectories))
+                {
+
+                    // OutPutLogFile("ログファイル一覧取得：" & strDeleteFile)
+                    strArray = strDeleteFile.Split('\\');
+                    // 「YYYYMMDD」部分を切り出す
+                    strCompDate = strArray[strArray.Length - 1].Substring(strArray[strArray.Length - 1].Length - 12, 8);
+                    if (string.Compare(strCompDate, dtPassDate.ToString("yyyyMMdd")) < 0)
+                    {
+                        // ファイルを削除する
+                        File.Delete(strDeleteFile);
+                        OutPutLogFile("【操作履歴ログ】削除対象ファイル（" + strDeleteFile + "）を削除しました。");
+                    }
+                }
+                OutPutLogFile("削除処理が完了しました。");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, "【DeleteLogFiles】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
