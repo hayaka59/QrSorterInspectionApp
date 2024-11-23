@@ -131,6 +131,7 @@
             this.BtnDeleteLogData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnDeleteLogData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDeleteLogData.UseVisualStyleBackColor = true;
+            this.BtnDeleteLogData.Click += new System.EventHandler(this.BtnDeleteLogData_Click);
             // 
             // Label36
             // 

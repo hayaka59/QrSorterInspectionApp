@@ -168,24 +168,6 @@ namespace QrSorterInspectionApp
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TimTestRun_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                TimTestRun.Enabled = false;
-                MessageBox.Show(ex.Message, "【TimDateTime_Tick】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private int iOKCount = 0;
         private int iNGCount = 0;
         private int iBoxNumber = 1;
@@ -195,6 +177,11 @@ namespace QrSorterInspectionApp
         private int iBox3Count = 0;
         private int iBox4Count = 0;
 
+        /// <summary>
+        /// 「検査開始」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnStartInspection_Click(object sender, EventArgs e)
         {
             try
@@ -263,6 +250,11 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// 「検査終了」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnStopInspection_Click(object sender, EventArgs e)
         {
             try
@@ -413,6 +405,11 @@ namespace QrSorterInspectionApp
             SetStatus(2);
         }
 
+        /// <summary>
+        /// 「設定」ボタンクリック処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSetting_Click(object sender, EventArgs e)
         {
             try
@@ -420,7 +417,6 @@ namespace QrSorterInspectionApp
                 CommonModule.OutPutLogFile("■検査画面：「設定」ボタンクリック");
                 SettingForm form = new SettingForm();
                 form.ShowDialog(this);
-                //this.Hide();
 
                 #region ジョブ名
                 // ジョブ登録リストファイル読込
@@ -433,10 +429,6 @@ namespace QrSorterInspectionApp
                 }
                 CmbJobName.SelectedIndex = 0;
                 #endregion
-
-
-
-
             }
             catch (Exception ex)
             {

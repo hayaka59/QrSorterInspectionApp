@@ -32,7 +32,7 @@ namespace QrSorterInspectionApp
                 LblVersion.Text = PubConstClass.DEF_VERSION;
                 PubConstClass.objSyncHist = new object();
                 CommonModule.OutPutLogFile("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
-                CommonModule.OutPutLogFile("【" + "QRソータ検査アプリバージョン" + "】を起動しました。");
+                CommonModule.OutPutLogFile("【" + "QRソータ検査アプリ" + "】を起動しました。");
                 CommonModule.OutPutLogFile("■QRソータ検査アプリバージョン「" + PubConstClass.DEF_VERSION + "」");
 
                 // 設定ファイルの存在チェック

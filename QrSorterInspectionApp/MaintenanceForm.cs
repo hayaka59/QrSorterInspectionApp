@@ -255,5 +255,10 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【BtnInternalTran_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnDeleteLogData_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

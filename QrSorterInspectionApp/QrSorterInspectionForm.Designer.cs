@@ -70,7 +70,6 @@
             this.label33 = new System.Windows.Forms.Label();
             this.LblDateTime = new System.Windows.Forms.Label();
             this.TimDateTime = new System.Windows.Forms.Timer(this.components);
-            this.TimTestRun = new System.Windows.Forms.Timer(this.components);
             this.LblPocket1 = new System.Windows.Forms.Label();
             this.LblPocket2 = new System.Windows.Forms.Label();
             this.LblPocket4 = new System.Windows.Forms.Label();
@@ -596,10 +595,6 @@
             // 
             this.TimDateTime.Tick += new System.EventHandler(this.TimDateTime_Tick);
             // 
-            // TimTestRun
-            // 
-            this.TimTestRun.Tick += new System.EventHandler(this.TimTestRun_Tick);
-            // 
             // LblPocket1
             // 
             this.LblPocket1.BackColor = System.Drawing.Color.White;
@@ -1083,7 +1078,6 @@
         internal System.Windows.Forms.Label label33;
         internal System.Windows.Forms.Label LblDateTime;
         internal System.Windows.Forms.Timer TimDateTime;
-        internal System.Windows.Forms.Timer TimTestRun;
         internal System.Windows.Forms.Label LblPocket1;
         internal System.Windows.Forms.Label LblPocket2;
         internal System.Windows.Forms.Label LblPocket4;
