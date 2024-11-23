@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnEnd = new System.Windows.Forms.Button();
+            this.LblVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnEnd
@@ -43,12 +44,24 @@
             this.BtnEnd.UseVisualStyleBackColor = true;
             this.BtnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
             // 
+            // LblVersion
+            // 
+            this.LblVersion.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblVersion.ForeColor = System.Drawing.Color.Blue;
+            this.LblVersion.Location = new System.Drawing.Point(724, 517);
+            this.LblVersion.Name = "LblVersion";
+            this.LblVersion.Size = new System.Drawing.Size(130, 25);
+            this.LblVersion.TabIndex = 11;
+            this.LblVersion.Text = "LblVersion";
+            this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.BtnEnd);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -63,6 +76,7 @@
         #endregion
 
         private System.Windows.Forms.Button BtnEnd;
+        internal System.Windows.Forms.Label LblVersion;
     }
 }
 

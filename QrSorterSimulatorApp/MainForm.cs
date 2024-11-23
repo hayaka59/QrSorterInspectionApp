@@ -21,6 +21,12 @@ namespace QrSorterSimulatorApp
         {
             try
             {
+                // バージョン表示
+                LblVersion.Text = PubConstClass.DEF_VERSION;
+                PubConstClass.objSyncHist = new object();
+                CommonModule.OutPutLogFile("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+                CommonModule.OutPutLogFile("【" + "検査アプリシミュレータ" + "】を起動しました。");
+                CommonModule.OutPutLogFile("■検査アプリバージョン「" + PubConstClass.DEF_VERSION + "」");
 
             }
             catch (Exception ex)
