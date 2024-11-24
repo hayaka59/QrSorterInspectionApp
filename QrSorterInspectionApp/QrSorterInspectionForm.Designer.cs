@@ -98,6 +98,8 @@
             this.TxtFileType = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.TxtSeqNum = new System.Windows.Forms.TextBox();
+            this.SerialPortQr = new System.IO.Ports.SerialPort(this.components);
+            this.LblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -844,7 +846,7 @@
             // 
             this.BtnStopInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnStopInspection.Image = global::QrSorterInspectionApp.Properties.Resources.standing;
-            this.BtnStopInspection.Location = new System.Drawing.Point(299, 966);
+            this.BtnStopInspection.Location = new System.Drawing.Point(272, 966);
             this.BtnStopInspection.Name = "BtnStopInspection";
             this.BtnStopInspection.Size = new System.Drawing.Size(205, 50);
             this.BtnStopInspection.TabIndex = 182;
@@ -858,7 +860,7 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(538, 966);
+            this.BtnClose.Location = new System.Drawing.Point(483, 966);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(205, 50);
             this.BtnClose.TabIndex = 181;
@@ -939,12 +941,26 @@
             this.TxtSeqNum.Text = "TxtSeqNum";
             this.TxtSeqNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // LblError
+            // 
+            this.LblError.BackColor = System.Drawing.Color.LightCoral;
+            this.LblError.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblError.ForeColor = System.Drawing.Color.Blue;
+            this.LblError.Location = new System.Drawing.Point(705, 954);
+            this.LblError.Name = "LblError";
+            this.LblError.Size = new System.Drawing.Size(812, 62);
+            this.LblError.TabIndex = 317;
+            this.LblError.Text = "LblError";
+            this.LblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblError.Visible = false;
+            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.LblError);
             this.Controls.Add(this.TxtSeqNum);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.TxtFileType);
@@ -1099,5 +1115,7 @@
         private System.Windows.Forms.TextBox TxtFileType;
         internal System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox TxtSeqNum;
+        internal System.IO.Ports.SerialPort SerialPortQr;
+        internal System.Windows.Forms.Label LblError;
     }
 }
