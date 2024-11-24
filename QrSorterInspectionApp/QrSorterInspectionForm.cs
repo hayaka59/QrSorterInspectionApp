@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +14,8 @@ namespace QrSorterInspectionApp
 {
     public partial class QrSorterInspectionForm : Form
     {
+        private delegate void Delegate_RcvDataToTextBox(string data);
+
         public QrSorterInspectionForm()
         {
             InitializeComponent();
@@ -108,34 +112,180 @@ namespace QrSorterInspectionApp
                 CmbJobName.SelectedIndex = 0;
                 #endregion
 
+                // 年月日時分秒タイマーセット
                 TimDateTime.Interval = 1000;
                 TimDateTime.Enabled = true;
 
+                LblTotalCount.Text = "0";   // 総数カウンタクリア
+                LblOKCount.Text = "0";      // OKカウンタクリア
+                LblNGCount.Text = "0";      // NGカウンタクリア
+
+                #region ソーターポケットカウンタクリア
                 LblBox1.Text = "0";
                 LblBox2.Text = "0";
                 LblBox3.Text = "0";
                 LblBox4.Text = "0";
                 LblBox5.Text = "0";
                 LblBoxEject.Text = "0";
+                #endregion
 
-                LblTotalCount.Text = "0";
-                LblOKCount.Text = "0";
-                LblNGCount.Text = "0";
-                
+                #region ソーターポケット予測値クリア
                 LblPocket1.Text = "";
                 LblPocket2.Text = "";
                 LblPocket3.Text = "";
                 LblPocket4.Text = "";
                 LblPocket5.Text = "";
+                #endregion
 
                 // 停止中
                 SetStatus(0);
 
+                #region シリアルポートの設定
+                // データ受信イベントの設定
+                SerialPortQr.DataReceived += new SerialDataReceivedEventHandler(SerialPortQr_DataReceived);
+                // シリアルポート名の設定
+                SerialPortQr.PortName = PubConstClass.pblComPort;
+                // シリアルポートの通信速度指定
+                switch (PubConstClass.pblComSpeed)
+                {
+                    case "0":
+                        {
+                            SerialPortQr.BaudRate = 4800;
+                            break;
+                        }
+
+                    case "1":
+                        {
+                            SerialPortQr.BaudRate = 9600;
+                            break;
+                        }
+
+                    case "2":
+                        {
+                            SerialPortQr.BaudRate = 19200;
+                            break;
+                        }
+
+                    case "3":
+                        {
+                            SerialPortQr.BaudRate = 38400;
+                            break;
+                        }
+
+                    case "4":
+                        {
+                            SerialPortQr.BaudRate = 57600;
+                            break;
+                        }
+
+                    case "5":
+                        {
+                            SerialPortQr.BaudRate = 115200;
+                            break;
+                        }
+
+                    default:
+                        {
+                            SerialPortQr.BaudRate = 38400;
+                            break;
+                        }
+                }
+                // シリアルポートのパリティ指定
+                switch (PubConstClass.pblComParityVar)
+                {
+                    case "0":
+                        {
+                            SerialPortQr.Parity = Parity.Odd;
+                            break;
+                        }
+
+                    case "1":
+                        {
+                            SerialPortQr.Parity = Parity.Even;
+                            break;
+                        }
+
+                    default:
+                        {
+                            SerialPortQr.Parity = Parity.Even;
+                            break;
+                        }
+                }
+                // シリアルポートのパリティ有無
+                if (PubConstClass.pblComIsParity == "0")
+                    SerialPortQr.Parity = Parity.None;
+                // シリアルポートのビット数指定
+                switch (PubConstClass.pblComDataLength)
+                {
+                    case "0":
+                        {
+                            SerialPortQr.DataBits = 8;
+                            break;
+                        }
+
+                    case "1":
+                        {
+                            SerialPortQr.DataBits = 7;
+                            break;
+                        }
+
+                    default:
+                        {
+                            SerialPortQr.DataBits = 8;
+                            break;
+                        }
+                }
+                // シリアルポートのストップビット指定
+                switch (PubConstClass.pblComStopBit)
+                {
+                    case "0":
+                        {
+                            SerialPortQr.StopBits = StopBits.One;
+                            break;
+                        }
+
+                    case "1":
+                        {
+                            SerialPortQr.StopBits = StopBits.Two;
+                            break;
+                        }
+
+                    default:
+                        {
+                            SerialPortQr.StopBits = StopBits.One;
+                            break;
+                        }
+                }
+                #endregion
+
+                // シリアルポートのオープン
+                SerialPortQr.Open();
+                LblError.Visible = false;
+
+                // リストビューのダブルバッファを有効とする
+                EnableDoubleBuffering(LsvOKHistory);
+                EnableDoubleBuffering(LsvNGHistory);
             }
             catch (Exception ex)
             {
+                LblError.Text = ex.Message;
+                LblError.Visible = true;
                 MessageBox.Show(ex.Message, "【QrSorterInspectionForm_Load】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// コントロールのDoubleBufferedプロパティをTrueにする
+        /// </summary>
+        /// <param name="control"></param>
+        public static void EnableDoubleBuffering(Control control)
+        {
+            control.GetType().InvokeMember("DoubleBuffered",
+                                            BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+                                            null/* TODO Change to default(_) if this is not a reference type */,
+                                            control,
+                                            new object[] { true }
+                                            );
         }
 
         /// <summary>
@@ -433,6 +583,170 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【SetStatus】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        /// <summary>
+        /// 無線ハンディQRリーダーからデータ受信
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <remarks></remarks>
+        private void SerialPortQr_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            string data;
+            object[] args = new object[1];
+
+            data = "";
+
+            try
+            {
+                // シリアルポートをオープンしていない場合、処理を行わない。
+                if (SerialPortQr.IsOpen == false)
+                    return;
+                // <CR>まで読み込む
+                //data = SerialPortQr.ReadTo(ControlChars.Cr.ToString());
+                data = SerialPortQr.ReadTo("\r");
+
+                //if (data.IndexOf("?") > 0)
+                //{
+                //    CommonModule.OutPutLogFile("■受信（パリティエラー）：" + data.ToString() + "<CR>");
+                //    BeginInvoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), "パリティエラー：" + "data.ToString" + ControlChars.Cr);
+                //}
+
+                // 受信データの格納
+                BeginInvoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), data.ToString() + "\r");
+            }
+            catch (TimeoutException)
+            {
+                // ディスカードするデータ
+                CommonModule.OutPutLogFile("■データ受信タイムアウトエラー：<CR>未受信で切り捨てたデータ：" + data);
+            }
+            catch (Exception ex)
+            {
+                CommonModule.OutPutLogFile("【SerialPortQr_DataReceived】" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 受信データによる各コマンド処理
+        /// </summary>
+        /// <param name="data">受信した文字列</param>
+        /// <remarks></remarks>
+        private void RcvDataToTextBox(string data)
+        {
+            string strMessage;
+
+            try
+            {
+                CommonModule.OutPutLogFile("受信データ：" + data.Replace("\r", "<CR>"));
+
+                if (data.Length < 9)
+                {
+                    CommonModule.OutPutLogFile("■不正データ受信：" + data.Replace("\r", "<CR>"));
+                    return;
+                }
+
+                DisplaySeisanLogData(data);
+            }
+            catch (Exception ex)
+            {
+                strMessage = "【RcvDataToTextBox】" + ex.Message;
+                CommonModule.OutPutLogFile(strMessage);
+                MessageBox.Show(strMessage, "システムエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private int intSesanCounter = 0;
+
+        private void DisplaySeisanLogData(string sData)
+        {
+            string[] col = new string[12];
+            ListViewItem itm1;
+            ListViewItem itm2;
+            string[] strArray;
+
+            try
+            {
+                intSesanCounter += 1;                
+                // No.
+                col[0] = intSesanCounter.ToString("000000");
+                
+                strArray = sData.Split(',');
+                // 日時
+                col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                // QRコード
+                col[2] = strArray[0];
+                // トレイ
+                col[3] = strArray[1];
+                // 備考
+                col[4] = strArray[2];
+
+                // データの表示
+                itm1 = new ListViewItem(col);
+                LsvOKHistory.Items.Add(itm1);
+                LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].UseItemStyleForSubItems = false;
+                LsvOKHistory.Select();
+                LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].EnsureVisible();
+
+                itm2 = new ListViewItem(col);
+                LsvNGHistory.Items.Add(itm2);
+                LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].UseItemStyleForSubItems = false;
+                LsvNGHistory.Select();
+                LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].EnsureVisible();
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【DisplaySeisanLogData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonModule.OutPutLogFile("【DisplaySeisanLogData】" + ex.Message);
+            }
+        }
+
+        static byte[] buffer = new byte[1024];
+        static int bufferIndex = 0;
+
+        /// <summary>
+        /// シリアルデータ受信イベント（漢字データ受信対応）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SerialPortQr_DataReceived_Kanji(object sender, SerialDataReceivedEventArgs e)
+        {
+            string data = "";
+
+            try
+            {
+                // シリアルポートをオープンしていない場合、処理を行わない。
+                if (SerialPortQr.IsOpen == false)
+                    return;
+
+                SerialPort sp = (SerialPort)sender;
+                while (sp.BytesToRead > 0)
+                {
+                    byte b = (byte)sp.ReadByte();
+                    buffer[bufferIndex++] = b;
+                    // CRまで読み込む
+                    if (b == '\r')
+                    {
+                        data = Encoding.GetEncoding("Shift_JIS").GetString(buffer, 0, bufferIndex);
+                        Console.WriteLine("Data Received: " + data);
+                        bufferIndex = 0;
+                        BeginInvoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), data + "\r");
+                    }
+                }
+            }
+            catch (TimeoutException)
+            {
+                // ディスカードするデータ
+                CommonModule.OutPutLogFile("■データ受信タイムアウトエラー：<CR>未受信で切り捨てたデータ：" + data);
+            }
+            catch (Exception ex)
+            {
+                CommonModule.OutPutLogFile("【SerialPortBcr_DataReceived】" + ex.Message);
             }
         }
     }

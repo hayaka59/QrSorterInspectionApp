@@ -61,7 +61,7 @@ namespace QrSorterInspectionApp
         public static string pblHddSpace;               // ディスク空き容量
         public static string pblInternalTranFolder;     // 内部実績ログ格納フォルダ
 
-        // COMポート１
+        // COMポート
         public static string pblComPort;                // COMポート名
         public static string pblComSpeed;               // 通信速度
         public static string pblComDataLength;          // データ長（0：8bit／1：7bit）
