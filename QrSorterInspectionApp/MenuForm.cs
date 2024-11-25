@@ -265,7 +265,6 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【BtnLogManagement_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         /// <summary>
