@@ -18,17 +18,17 @@ namespace QrSorterSimulatorApp
         public static object objSyncHist;
 
         // 保守画面
-        public const string DEF_MACHINE_NAME = "号機名称";
-        public const string DEF_LOGSAVE_MONTH = "ログ保存期間";
-        public const string DEF_HDD_SPACE = "ディスク空き容量";
+        public const string DEF_MACHINE_NAME =         "号機名称";
+        public const string DEF_LOGSAVE_MONTH =        "ログ保存期間";
+        public const string DEF_HDD_SPACE =            "ディスク空き容量";
         public const string DEF_INTERNAL_TRAN_FOLDER = "内部実績ログ格納フォルダ";
         // COMポート１
-        public const string DEF_COMPORT = "COMポート名";
-        public const string DEF_COM_SPEED = "COM通信速度";
+        public const string DEF_COMPORT =         "COMポート名";
+        public const string DEF_COM_SPEED =       "COM通信速度";
         public const string DEF_COM_DATA_LENGTH = "COMデータ長";
-        public const string DEF_COM_IS_PARITY = "COMパリティ有無";
-        public const string DEF_COM_PARITY_VAR = "COMパリティ種別";
-        public const string DEF_COM_STOPBIT = "COMストップビット";
+        public const string DEF_COM_IS_PARITY =   "COMパリティ有無";
+        public const string DEF_COM_PARITY_VAR =  "COMパリティ種別";
+        public const string DEF_COM_STOPBIT =     "COMストップビット";
 
         // 保守画面
         public static string pblMachineName;            // 号機名                
