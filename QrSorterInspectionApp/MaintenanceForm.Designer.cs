@@ -101,7 +101,7 @@
             this.GroupBox11.Controls.Add(this.BtnDeleteLogData);
             this.GroupBox11.Controls.Add(this.Label36);
             this.GroupBox11.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox11.Location = new System.Drawing.Point(598, 213);
+            this.GroupBox11.Location = new System.Drawing.Point(596, 234);
             this.GroupBox11.Name = "GroupBox11";
             this.GroupBox11.Size = new System.Drawing.Size(328, 142);
             this.GroupBox11.TabIndex = 247;
@@ -160,7 +160,7 @@
             this.GroupBox7.Controls.Add(this.CmbComPort);
             this.GroupBox7.Controls.Add(this.Label23);
             this.GroupBox7.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox7.Location = new System.Drawing.Point(976, 117);
+            this.GroupBox7.Location = new System.Drawing.Point(974, 138);
             this.GroupBox7.Name = "GroupBox7";
             this.GroupBox7.Size = new System.Drawing.Size(330, 261);
             this.GroupBox7.TabIndex = 246;
@@ -298,7 +298,7 @@
             this.GroupBox6.Controls.Add(this.TxtHddSpace);
             this.GroupBox6.Controls.Add(this.Label29);
             this.GroupBox6.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox6.Location = new System.Drawing.Point(598, 375);
+            this.GroupBox6.Location = new System.Drawing.Point(596, 396);
             this.GroupBox6.Name = "GroupBox6";
             this.GroupBox6.Size = new System.Drawing.Size(328, 75);
             this.GroupBox6.TabIndex = 244;
@@ -334,7 +334,7 @@
             this.GroupBox5.Controls.Add(this.TxtMachineName);
             this.GroupBox5.Controls.Add(this.Label32);
             this.GroupBox5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox5.Location = new System.Drawing.Point(598, 117);
+            this.GroupBox5.Location = new System.Drawing.Point(596, 138);
             this.GroupBox5.Name = "GroupBox5";
             this.GroupBox5.Size = new System.Drawing.Size(328, 75);
             this.GroupBox5.TabIndex = 243;
@@ -369,10 +369,10 @@
             // 
             this.TxtUserAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtUserAccount.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtUserAccount.Location = new System.Drawing.Point(598, 647);
+            this.TxtUserAccount.Location = new System.Drawing.Point(12, 617);
             this.TxtUserAccount.Multiline = true;
             this.TxtUserAccount.Name = "TxtUserAccount";
-            this.TxtUserAccount.Size = new System.Drawing.Size(688, 324);
+            this.TxtUserAccount.Size = new System.Drawing.Size(506, 324);
             this.TxtUserAccount.TabIndex = 252;
             this.TxtUserAccount.Visible = false;
             // 
@@ -380,9 +380,9 @@
             // 
             this.BtnDecript.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnDecript.Image = global::QrSorterInspectionApp.Properties.Resources.decrypt;
-            this.BtnDecript.Location = new System.Drawing.Point(598, 600);
+            this.BtnDecript.Location = new System.Drawing.Point(12, 570);
             this.BtnDecript.Name = "BtnDecript";
-            this.BtnDecript.Size = new System.Drawing.Size(316, 45);
+            this.BtnDecript.Size = new System.Drawing.Size(227, 45);
             this.BtnDecript.TabIndex = 251;
             this.BtnDecript.Text = "ファイルの復号化";
             this.BtnDecript.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -395,9 +395,9 @@
             // 
             this.BtnEncript.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnEncript.Image = global::QrSorterInspectionApp.Properties.Resources.encrypt;
-            this.BtnEncript.Location = new System.Drawing.Point(970, 600);
+            this.BtnEncript.Location = new System.Drawing.Point(291, 570);
             this.BtnEncript.Name = "BtnEncript";
-            this.BtnEncript.Size = new System.Drawing.Size(316, 45);
+            this.BtnEncript.Size = new System.Drawing.Size(227, 45);
             this.BtnEncript.TabIndex = 250;
             this.BtnEncript.Text = "ファイルの暗号化";
             this.BtnEncript.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -410,7 +410,7 @@
             // 
             this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnApply.Image = global::QrSorterInspectionApp.Properties.Resources.check;
-            this.BtnApply.Location = new System.Drawing.Point(98, 907);
+            this.BtnApply.Location = new System.Drawing.Point(615, 722);
             this.BtnApply.Name = "BtnApply";
             this.BtnApply.Size = new System.Drawing.Size(166, 50);
             this.BtnApply.TabIndex = 242;
@@ -424,9 +424,9 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1561, 907);
+            this.BtnClose.Location = new System.Drawing.Point(1224, 713);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(205, 50);
+            this.BtnClose.Size = new System.Drawing.Size(166, 50);
             this.BtnClose.TabIndex = 240;
             this.BtnClose.Text = "戻る";
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -441,9 +441,9 @@
             this.GroupBox8.Controls.Add(this.BtnInternalTran);
             this.GroupBox8.Controls.Add(this.Label33);
             this.GroupBox8.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox8.Location = new System.Drawing.Point(598, 477);
+            this.GroupBox8.Location = new System.Drawing.Point(596, 498);
             this.GroupBox8.Name = "GroupBox8";
-            this.GroupBox8.Size = new System.Drawing.Size(1085, 85);
+            this.GroupBox8.Size = new System.Drawing.Size(867, 85);
             this.GroupBox8.TabIndex = 253;
             this.GroupBox8.TabStop = false;
             this.GroupBox8.Text = "内部実績ログ格納フォルダ";
@@ -452,18 +452,18 @@
             // 
             this.TxtInternalTran.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtInternalTran.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtInternalTran.Location = new System.Drawing.Point(179, 32);
+            this.TxtInternalTran.Location = new System.Drawing.Point(119, 32);
             this.TxtInternalTran.Name = "TxtInternalTran";
-            this.TxtInternalTran.Size = new System.Drawing.Size(728, 39);
+            this.TxtInternalTran.Size = new System.Drawing.Size(589, 39);
             this.TxtInternalTran.TabIndex = 90;
             // 
             // BtnInternalTran
             // 
             this.BtnInternalTran.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnInternalTran.Image = ((System.Drawing.Image)(resources.GetObject("BtnInternalTran.Image")));
-            this.BtnInternalTran.Location = new System.Drawing.Point(919, 25);
+            this.BtnInternalTran.Location = new System.Drawing.Point(714, 25);
             this.BtnInternalTran.Name = "BtnInternalTran";
-            this.BtnInternalTran.Size = new System.Drawing.Size(150, 50);
+            this.BtnInternalTran.Size = new System.Drawing.Size(139, 50);
             this.BtnInternalTran.TabIndex = 89;
             this.BtnInternalTran.Text = "選択...";
             this.BtnInternalTran.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -478,7 +478,7 @@
             this.Label33.ForeColor = System.Drawing.Color.White;
             this.Label33.Location = new System.Drawing.Point(19, 31);
             this.Label33.Name = "Label33";
-            this.Label33.Size = new System.Drawing.Size(160, 40);
+            this.Label33.Size = new System.Drawing.Size(100, 40);
             this.Label33.TabIndex = 88;
             this.Label33.Text = "フォルダ";
             this.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

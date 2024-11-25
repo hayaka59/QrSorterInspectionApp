@@ -588,7 +588,7 @@ namespace QrSorterInspectionApp
 
 
         /// <summary>
-        /// 無線ハンディQRリーダーからデータ受信
+        /// 検査装置からのデータ受信処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

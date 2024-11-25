@@ -93,5 +93,111 @@ namespace QrSorterSimulatorApp
                 }
             }
         }
+
+
+        /// <summary>
+        /// システム定義ファイルの読込処理
+        /// </summary>
+        /// <remarks></remarks>
+        public static void ReadSystemDefinition()
+        {
+            string strReadDataPath;
+            string[] strArray;
+
+            try
+            {
+                strReadDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_FILENAME;
+
+                using (StreamReader sr = new StreamReader(strReadDataPath, Encoding.Default))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        strArray = sr.ReadLine().Split(',');
+                        switch (strArray[0])
+                        {
+                            // COMポート名
+                            case PubConstClass.DEF_COMPORT:
+                                {
+                                    PubConstClass.pblComPort = strArray[1];
+                                    break;
+                                }
+                            // COM通信速度
+                            case PubConstClass.DEF_COM_SPEED:
+                                {
+                                    PubConstClass.pblComSpeed = strArray[1];
+                                    break;
+                                }
+                            // COMデータ長
+                            case PubConstClass.DEF_COM_DATA_LENGTH:
+                                {
+                                    PubConstClass.pblComDataLength = strArray[1];
+                                    break;
+                                }
+                            // COMパリティ有無
+                            case PubConstClass.DEF_COM_IS_PARITY:
+                                {
+                                    PubConstClass.pblComIsParity = strArray[1];
+                                    break;
+                                }
+                            // COMパリティ種別
+                            case PubConstClass.DEF_COM_PARITY_VAR:
+                                {
+                                    PubConstClass.pblComParityVar = strArray[1];
+                                    break;
+                                }
+                            // COMストップビット
+                            case PubConstClass.DEF_COM_STOPBIT:
+                                {
+                                    PubConstClass.pblComStopBit = strArray[1];
+                                    break;
+                                }
+                            default:
+                                {
+                                    break;
+                                }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ReadSystemDefinition】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// システム定義ファイルの書込処理
+        /// </summary>
+        /// <remarks></remarks>
+        public static void WriteSystemDefinition()
+        {
+            string strPutDataPath;
+
+            try
+            {
+                strPutDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_FILENAME;
+
+                // 上書モードで書き込む
+                using (StreamWriter sw = new StreamWriter(strPutDataPath, false, Encoding.Default))
+                {
+                    // COMポート名
+                    sw.WriteLine(PubConstClass.DEF_COMPORT + "," + PubConstClass.pblComPort);
+                    // COM通信速度
+                    sw.WriteLine(PubConstClass.DEF_COM_SPEED + "," + PubConstClass.pblComSpeed);
+                    // COMデータ長
+                    sw.WriteLine(PubConstClass.DEF_COM_DATA_LENGTH + "," + PubConstClass.pblComDataLength);
+                    // COMパリティ有無
+                    sw.WriteLine(PubConstClass.DEF_COM_IS_PARITY + "," + PubConstClass.pblComIsParity);
+                    // COMパリティ種別
+                    sw.WriteLine(PubConstClass.DEF_COM_PARITY_VAR + "," + PubConstClass.pblComParityVar);
+                    // COMストップビット
+                    sw.WriteLine(PubConstClass.DEF_COM_STOPBIT + "," + PubConstClass.pblComStopBit);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【WritetSystemDefinition】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
