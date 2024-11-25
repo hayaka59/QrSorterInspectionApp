@@ -43,18 +43,18 @@ namespace QrSorterInspectionApp
                 ColumnHeader colOK5 = new ColumnHeader();
                 colOK1.Text = "No.";
                 colOK2.Text = "日時";
-                colOK3.Text = "QRコード";
-                colOK4.Text = "トレイ";
-                colOK5.Text = "備考";
+                colOK3.Text = "読取値";
+                colOK4.Text = "判定";
+                colOK5.Text = "トレイ";
                 colOK1.TextAlign = HorizontalAlignment.Center;
                 colOK2.TextAlign = HorizontalAlignment.Center;
                 colOK3.TextAlign = HorizontalAlignment.Center;
                 colOK4.TextAlign = HorizontalAlignment.Center;
                 colOK5.TextAlign = HorizontalAlignment.Center;
-                colOK1.Width = 70;          // 
-                colOK2.Width = 200;         // 
-                colOK3.Width = 150;         // 
-                colOK4.Width = 90;          // 
+                colOK1.Width = 60;          // 
+                colOK2.Width = 190;         // 
+                colOK3.Width = 200;         // 
+                colOK4.Width = 50;          // 
                 colOK5.Width = 60;          // 
                 ColumnHeader[] colHeaderOK = new[] { colOK1, colOK2, colOK3, colOK4, colOK5 };                
                 LsvOKHistory.Columns.AddRange(colHeaderOK);
@@ -69,18 +69,18 @@ namespace QrSorterInspectionApp
                 ColumnHeader colNG5 = new ColumnHeader();
                 colNG1.Text = "No.";
                 colNG2.Text = "日時";
-                colNG3.Text = "QRコード";
-                colNG4.Text = "トレイ";
-                colNG5.Text = "備考";
+                colNG3.Text = "読取値";
+                colNG4.Text = "判定";
+                colNG5.Text = "トレイ";
                 colNG1.TextAlign = HorizontalAlignment.Center;
                 colNG2.TextAlign = HorizontalAlignment.Center;
                 colNG3.TextAlign = HorizontalAlignment.Center;
                 colNG4.TextAlign = HorizontalAlignment.Center;
                 colNG5.TextAlign = HorizontalAlignment.Center;
-                colNG1.Width = 70;          // 
-                colNG2.Width = 200;         // 
-                colNG3.Width = 150;         // 
-                colNG4.Width = 90;          // 
+                colNG1.Width = 60;          // 
+                colNG2.Width = 190;         // 
+                colNG3.Width = 200;         // 
+                colNG4.Width = 50;          // 
                 colNG5.Width = 60;          // 
                 ColumnHeader[] colHeaderNG = new[] { colNG1, colNG2, colNG3, colNG4, colNG5 };
                 LsvNGHistory.Columns.AddRange(colHeaderNG);
@@ -326,6 +326,7 @@ namespace QrSorterInspectionApp
         private int iBox2Count = 0;
         private int iBox3Count = 0;
         private int iBox4Count = 0;
+        private int iBox5Count = 0;
 
         /// <summary>
         /// 「検査開始」ボタン処理
@@ -676,28 +677,80 @@ namespace QrSorterInspectionApp
                 strArray = sData.Split(',');
                 // 日時
                 col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                // QRコード
-                col[2] = strArray[0];
-                // トレイ
-                col[3] = strArray[1];
-                // 備考
-                col[4] = strArray[2];
+                // 読取値（QRコード）
+                col[2] = strArray[0].Trim();
+                // 判定（OK/NG）
+                col[3] = strArray[1].Trim();
+                // エラーコード
+                //col[4] = strArray[2];
+                // トレイ情報
+                col[4] = strArray[3].Trim();
 
                 // データの表示
-                itm1 = new ListViewItem(col);
-                LsvOKHistory.Items.Add(itm1);
-                LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].UseItemStyleForSubItems = false;
-                LsvOKHistory.Select();
-                LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].EnsureVisible();
+                if (col[3] == "NG")
+                {
+                    itm2 = new ListViewItem(col);
+                    LsvNGHistory.Items.Add(itm2);
+                    LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].UseItemStyleForSubItems = false;
+                    LsvNGHistory.Select();
+                    LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].EnsureVisible();
+                    if (LsvNGHistory.Items.Count % 2 == 1)
+                    {
+                        for (int iIndex = 0; iIndex < 5; iIndex++)
+                        {
+                            // 奇数行の色反転
+                            LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
+                        }
+                    }
+                }
+                else
+                {
+                    itm1 = new ListViewItem(col);
+                    LsvOKHistory.Items.Add(itm1);
+                    LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].UseItemStyleForSubItems = false;
+                    LsvOKHistory.Select();
+                    LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].EnsureVisible();
 
-                itm2 = new ListViewItem(col);
-                LsvNGHistory.Items.Add(itm2);
-                LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].UseItemStyleForSubItems = false;
-                LsvNGHistory.Select();
-                LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].EnsureVisible();
+                    if (LsvOKHistory.Items.Count % 2 == 1)
+                    {
+                        for (int iIndex = 0; iIndex < 5; iIndex++)
+                        {
+                            // 奇数行の色反転
+                            LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
+                        }
+                    }
 
-
-
+                    switch (col[4])
+                    {
+                        case "1":
+                            iBox1Count++;
+                            LblBox1.Text = iBox1Count.ToString("0");
+                            LblPocket1.Text = col[2];
+                            break;
+                        case "2":
+                            iBox2Count++;
+                            LblBox2.Text = iBox2Count.ToString("0");
+                            LblPocket2.Text = col[2];
+                            break;
+                        case "3":
+                            iBox3Count++;
+                            LblBox3.Text = iBox3Count.ToString("0");
+                            LblPocket3.Text = col[2];
+                            break;
+                        case "4":
+                            iBox4Count++;
+                            LblBox4.Text = iBox4Count.ToString("0");
+                            LblPocket4.Text = col[2];
+                            break;
+                        case "5":
+                            iBox5Count++;
+                            LblBox5.Text = iBox5Count.ToString("0");
+                            LblPocket5.Text = col[2];
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
             catch (Exception ex)
             {
