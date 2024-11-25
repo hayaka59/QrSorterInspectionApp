@@ -38,6 +38,7 @@ namespace QrSorterSimulatorApp
         //public static string pblHddSpace;               // ディスク空き容量
         //public static string pblInternalTranFolder;     // 内部実績ログ格納フォルダ
 
+        public static string pblMainFormTitle;
         // COMポート
         public static string pblComPort;                // COMポート名
         public static string pblComSpeed;               // 通信速度

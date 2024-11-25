@@ -29,59 +29,59 @@ namespace QrSorterSimulatorApp
                 LblVersion.Text = PubConstClass.DEF_VERSION;
                 PubConstClass.objSyncHist = new object();
                 CommonModule.OutPutLogFile("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
-                CommonModule.OutPutLogFile("【" + "検査アプリシミュレータ" + "】を起動しました。");
-                CommonModule.OutPutLogFile("■検査アプリバージョン「" + PubConstClass.DEF_VERSION + "」");
+                CommonModule.OutPutLogFile("【" + "シミュレータ" + "】を起動しました。");
+                CommonModule.OutPutLogFile("■シミュレータ★バージョン「" + PubConstClass.DEF_VERSION + "」");
 
-
-                PubConstClass.pblComPort = "COM4";
-                PubConstClass.pblComSpeed = "3";
-                PubConstClass.pblComParityVar = "1";
-                PubConstClass.pblComIsParity = "1";
-                PubConstClass.pblComDataLength = "0";
-                PubConstClass.pblComStopBit = "0";
-
-
+                CommonModule.ReadSystemDefinition();
+                String sTitle = "";
                 #region シリアルポートの設定
                 // データ受信イベントの設定
                 SerialPortQr.DataReceived += new SerialDataReceivedEventHandler(SerialPortQr_DataReceived);
                 // シリアルポート名の設定
                 SerialPortQr.PortName = PubConstClass.pblComPort;
+                sTitle += PubConstClass.pblComPort + "／";
                 // シリアルポートの通信速度指定
                 switch (PubConstClass.pblComSpeed)
                 {
                     case "0":
                         {
                             SerialPortQr.BaudRate = 4800;
+                            sTitle += "4800bps／";
                             break;
                         }
 
                     case "1":
                         {
                             SerialPortQr.BaudRate = 9600;
+                            sTitle += "9600bps／";
                             break;
                         }
 
                     case "2":
                         {
                             SerialPortQr.BaudRate = 19200;
+                            sTitle += "19200bps／";
                             break;
                         }
 
                     case "3":
                         {
                             SerialPortQr.BaudRate = 38400;
+                            sTitle += "38400bps／";
                             break;
                         }
 
                     case "4":
                         {
                             SerialPortQr.BaudRate = 57600;
+                            sTitle += "57600bps／";
                             break;
                         }
 
                     case "5":
                         {
                             SerialPortQr.BaudRate = 115200;
+                            sTitle += "115200bps／";
                             break;
                         }
 
@@ -97,12 +97,14 @@ namespace QrSorterSimulatorApp
                     case "0":
                         {
                             SerialPortQr.Parity = Parity.Odd;
+                            sTitle += "奇数／";
                             break;
                         }
 
                     case "1":
                         {
                             SerialPortQr.Parity = Parity.Even;
+                            sTitle += "偶数／";
                             break;
                         }
 
@@ -114,19 +116,24 @@ namespace QrSorterSimulatorApp
                 }
                 // シリアルポートのパリティ有無
                 if (PubConstClass.pblComIsParity == "0")
+                {
                     SerialPortQr.Parity = Parity.None;
+                    sTitle += "パリティ無し／";
+                }                    
                 // シリアルポートのビット数指定
                 switch (PubConstClass.pblComDataLength)
                 {
                     case "0":
                         {
                             SerialPortQr.DataBits = 8;
+                            sTitle += "8ビット／";
                             break;
                         }
 
                     case "1":
                         {
                             SerialPortQr.DataBits = 7;
+                            sTitle += "7ビット／";
                             break;
                         }
 
@@ -142,12 +149,14 @@ namespace QrSorterSimulatorApp
                     case "0":
                         {
                             SerialPortQr.StopBits = StopBits.One;
+                            sTitle += "ストップビット１ ］";
                             break;
                         }
 
                     case "1":
                         {
                             SerialPortQr.StopBits = StopBits.Two;
+                            sTitle += "ストップビット２ ］";
                             break;
                         }
 
@@ -158,6 +167,9 @@ namespace QrSorterSimulatorApp
                         }
                 }
                 #endregion
+
+                //this.Text = "【メインメニュー画面】 ［ " + sTitle;
+                PubConstClass.pblMainFormTitle = "【メインメニュー画面】 ［ " + sTitle;
 
                 // シリアルポートのオープン
                 SerialPortQr.Open();
@@ -172,11 +184,16 @@ namespace QrSorterSimulatorApp
             }
         }
 
+        /// <summary>
+        /// 「終了」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnEnd_Click(object sender, EventArgs e)
         {
             try
             {
-                //CommonModule.OutPutLogFile("ログイン画面からQRソータ検査アプリの終了");
+                CommonModule.OutPutLogFile("シミュレーターの終了");
                 this.Dispose();
             }
             catch (Exception ex)
@@ -184,7 +201,6 @@ namespace QrSorterSimulatorApp
                 MessageBox.Show(ex.Message, "【BtnEnd_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         /// <summary>
         /// データ受信
@@ -205,14 +221,7 @@ namespace QrSorterSimulatorApp
                 if (SerialPortQr.IsOpen == false)
                     return;
                 // <CR>まで読み込む
-                //data = SerialPortQr.ReadTo(ControlChars.Cr.ToString());
                 data = SerialPortQr.ReadTo("\r");
-
-                //if (data.IndexOf("?") > 0)
-                //{
-                //    CommonModule.OutPutLogFile("■受信（パリティエラー）：" + data.ToString() + "<CR>");
-                //    BeginInvoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), "パリティエラー：" + "data.ToString" + ControlChars.Cr);
-                //}
 
                 // 受信データの格納
                 BeginInvoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), data.ToString() + "\r");
@@ -243,64 +252,17 @@ namespace QrSorterSimulatorApp
 
                 if (data.Length < 9)
                 {
-                    CommonModule.OutPutLogFile("■不正データ受信：" + data.Replace("\r", "<CR>"));
-                    return;
+                    //CommonModule.OutPutLogFile("■不正データ受信：" + data.Replace("\r", "<CR>"));
+                    //return;
                 }
 
                 LsbRecvBox.Items.Add(data);
-                //DisplaySeisanLogData(data);
             }
             catch (Exception ex)
             {
                 strMessage = "【RcvDataToTextBox】" + ex.Message;
                 CommonModule.OutPutLogFile(strMessage);
                 MessageBox.Show(strMessage, "システムエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        private int intSesanCounter = 0;
-
-        private void DisplaySeisanLogData(string sData)
-        {
-            string[] col = new string[12];
-            ListViewItem itm1;
-            ListViewItem itm2;
-            string[] strArray;
-
-            try
-            {
-                intSesanCounter += 1;
-                // No.
-                col[0] = intSesanCounter.ToString("000000");
-
-                strArray = sData.Split(',');
-                // 日時
-                col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                // QRコード
-                col[2] = strArray[0];
-                // トレイ
-                col[3] = strArray[1];
-                // 備考
-                col[4] = strArray[2];
-
-                //// データの表示
-                //itm1 = new ListViewItem(col);
-                //LsvOKHistory.Items.Add(itm1);
-                //LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].UseItemStyleForSubItems = false;
-                //LsvOKHistory.Select();
-                //LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].EnsureVisible();
-
-                //itm2 = new ListViewItem(col);
-                //LsvNGHistory.Items.Add(itm2);
-                //LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].UseItemStyleForSubItems = false;
-                //LsvNGHistory.Select();
-                //LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].EnsureVisible();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【DisplaySeisanLogData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                CommonModule.OutPutLogFile("【DisplaySeisanLogData】" + ex.Message);
             }
         }
 
@@ -332,6 +294,18 @@ namespace QrSorterSimulatorApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnMaintenance_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Text = PubConstClass.pblMainFormTitle;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MainForm_Activated】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -43,6 +43,7 @@
             this.Label23 = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
             this.BtnClose = new System.Windows.Forms.Button();
+            this.BtnApply = new System.Windows.Forms.Button();
             this.GroupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -208,7 +209,7 @@
             // BtnClose
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Location = new System.Drawing.Point(735, 458);
+            this.BtnClose.Location = new System.Drawing.Point(477, 421);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(126, 50);
             this.BtnClose.TabIndex = 248;
@@ -217,12 +218,24 @@
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // BtnApply
+            // 
+            this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnApply.Location = new System.Drawing.Point(273, 421);
+            this.BtnApply.Name = "BtnApply";
+            this.BtnApply.Size = new System.Drawing.Size(126, 50);
+            this.BtnApply.TabIndex = 250;
+            this.BtnApply.Text = "適用";
+            this.BtnApply.UseVisualStyleBackColor = true;
+            this.BtnApply.Click += new System.EventHandler(this.BtnApply_Click);
+            // 
             // MaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnApply);
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.GroupBox7);
@@ -254,5 +267,6 @@
         internal System.Windows.Forms.Label Label23;
         internal System.Windows.Forms.Label LblVersion;
         internal System.Windows.Forms.Button BtnClose;
+        internal System.Windows.Forms.Button BtnApply;
     }
 }

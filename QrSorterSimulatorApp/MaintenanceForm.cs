@@ -96,5 +96,37 @@ namespace QrSorterSimulatorApp
                 MessageBox.Show(ex.Message, "【BtnClose_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// 「適用」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnApply_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult;
+
+            try
+            {
+                dialogResult = MessageBox.Show("設定を保存しますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    PubConstClass.pblComPort = CmbComPort.SelectedItem.ToString();
+                    PubConstClass.pblComSpeed = CmbComSpeed.SelectedIndex.ToString();
+                    PubConstClass.pblComDataLength = CmbComDataLength.SelectedIndex.ToString();
+                    PubConstClass.pblComIsParity = CmbComIsParty.SelectedIndex.ToString();
+                    PubConstClass.pblComParityVar = CmbComParityVar.SelectedIndex.ToString();
+                    PubConstClass.pblComStopBit = CmbComStopBit.SelectedIndex.ToString();
+
+                    // システム定義ファイルの書き込み処理
+                    CommonModule.WriteSystemDefinition();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, "【BtnApply_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
