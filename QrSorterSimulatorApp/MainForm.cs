@@ -319,5 +319,20 @@ namespace QrSorterSimulatorApp
                 MessageBox.Show(ex.Message, "【BtnSendTestData_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnMaintenance_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CommonModule.OutPutLogFile("「保守」ボタンクリック");
+                MaintenanceForm form = new MaintenanceForm();
+                form.Show(this);
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnMaintenance_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

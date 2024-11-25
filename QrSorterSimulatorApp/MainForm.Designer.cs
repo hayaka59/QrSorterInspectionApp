@@ -36,6 +36,7 @@
             this.SerialPortQr = new System.IO.Ports.SerialPort(this.components);
             this.LblError = new System.Windows.Forms.Label();
             this.BtnSendTestData = new System.Windows.Forms.Button();
+            this.BtnMaintenance = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnEnd
@@ -46,7 +47,6 @@
             this.BtnEnd.Size = new System.Drawing.Size(146, 45);
             this.BtnEnd.TabIndex = 2;
             this.BtnEnd.Text = " 終了";
-            this.BtnEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnEnd.UseVisualStyleBackColor = true;
             this.BtnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
             // 
@@ -106,12 +106,24 @@
             this.BtnSendTestData.UseVisualStyleBackColor = true;
             this.BtnSendTestData.Click += new System.EventHandler(this.BtnSendTestData_Click);
             // 
+            // BtnMaintenance
+            // 
+            this.BtnMaintenance.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnMaintenance.Location = new System.Drawing.Point(16, 435);
+            this.BtnMaintenance.Name = "BtnMaintenance";
+            this.BtnMaintenance.Size = new System.Drawing.Size(263, 45);
+            this.BtnMaintenance.TabIndex = 320;
+            this.BtnMaintenance.Text = "保守画面";
+            this.BtnMaintenance.UseVisualStyleBackColor = true;
+            this.BtnMaintenance.Click += new System.EventHandler(this.BtnMaintenance_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnMaintenance);
             this.Controls.Add(this.BtnSendTestData);
             this.Controls.Add(this.LblError);
             this.Controls.Add(this.LsbSendBox);
@@ -137,6 +149,7 @@
         internal System.IO.Ports.SerialPort SerialPortQr;
         internal System.Windows.Forms.Label LblError;
         private System.Windows.Forms.Button BtnSendTestData;
+        private System.Windows.Forms.Button BtnMaintenance;
     }
 }
 
