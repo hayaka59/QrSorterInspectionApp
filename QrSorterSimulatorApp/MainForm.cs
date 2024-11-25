@@ -171,6 +171,26 @@ namespace QrSorterSimulatorApp
                 //this.Text = "【メインメニュー画面】 ［ " + sTitle;
                 PubConstClass.pblMainFormTitle = "【メインメニュー画面】 ［ " + sTitle;
 
+                CmbJudge.Items.Clear();
+                CmbJudge.Items.Add("OK");
+                CmbJudge.Items.Add("NG");
+                CmbJudge.SelectedIndex = 0;
+
+                CmbErrorCode.Items.Clear();
+                CmbErrorCode.Items.Add("000");
+                CmbErrorCode.Items.Add("100");
+                CmbErrorCode.Items.Add("200");
+                CmbErrorCode.Items.Add("300");
+                CmbErrorCode.SelectedIndex = 0;
+
+                CmbTray.Items.Clear();
+                CmbTray.Items.Add("1");
+                CmbTray.Items.Add("2");
+                CmbTray.Items.Add("3");
+                CmbTray.Items.Add("4");
+                CmbTray.Items.Add("5");
+                CmbTray.SelectedIndex = 0;
+
                 // シリアルポートのオープン
                 SerialPortQr.Open();
                 LblError.Visible = false;
@@ -266,12 +286,25 @@ namespace QrSorterSimulatorApp
             }
         }
 
+        /// <summary>
+        /// 「テストデータ送信」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSendTestData_Click(object sender, EventArgs e)
         {
             try
             {
-                string sData = "1234567890,abcedfg,ABCDEFG,hijklmn";
-                // 
+                string sData = TxtPropertyId.Text.Trim();
+                sData += "1";
+                sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");
+                sData += TxtUniqueKey.Text.Replace("_"," ") + ",";
+
+                sData += CmbJudge.Text + ",";
+                sData += CmbErrorCode.Text + ",";
+                sData += CmbTray.Text + ",";
+
+                // 送信データのセット
                 byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LsbSendBox.Items.Add(sData);
@@ -282,11 +315,16 @@ namespace QrSorterSimulatorApp
             }
         }
 
+        /// <summary>
+        /// 「設定」アイコン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnMaintenance_Click(object sender, EventArgs e)
         {
             try
             {
-                CommonModule.OutPutLogFile("「保守」ボタンクリック");
+                CommonModule.OutPutLogFile("「設定」アイコンクリック");
                 MaintenanceForm form = new MaintenanceForm();
                 form.Show(this);
                 this.Hide();
@@ -297,6 +335,11 @@ namespace QrSorterSimulatorApp
             }
         }
 
+        /// <summary>
+        /// メインフォームがアクティブになった時の処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Activated(object sender, EventArgs e)
         {
             try
@@ -307,6 +350,36 @@ namespace QrSorterSimulatorApp
             {
                 MessageBox.Show(ex.Message, "【MainForm_Activated】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAutoSend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TimSendData.Enabled)
+                {
+                    TimSendData.Enabled = false;
+                }
+                else
+                {
+                    TimSendData.Interval = 300;
+                    TimSendData.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnAutoSend_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TimSendData_Tick(object sender, EventArgs e)
+        {
+            BtnSendTestData.PerformClick();
         }
     }
 }
