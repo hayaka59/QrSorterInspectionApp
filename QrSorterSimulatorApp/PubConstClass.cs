@@ -14,10 +14,13 @@ namespace QrSorterSimulatorApp
         public const string CMD_RECIEVE_A = "A";   // 
         public const string CMD_RECIEVE_B = "B";   // 
 
-        public const string DEF_VERSION = "Ver.0.0.0.0";                // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
+        public const string DEF_VERSION = "Ver.0.0.0.0";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
         public static object objSyncHist;
 
-        public const string DEF_FILENAME = "QrSorterSimulatorApp.def";  // DEFファイル名称
+        public const string DEF_FILENAME = "QrSorterSimulatorApp.def";          // DEFファイル名称
+        public static List<string> lstNonDeliveryList = new List<string>();     // 不着事由情報
+        public const string DEF_NON_DELIVERY = "NonDeliveryReasonSorting.txt";  // 不着事由格納ファイル
+
 
         // 保守画面
         //public const string DEF_MACHINE_NAME =         "号機名称";

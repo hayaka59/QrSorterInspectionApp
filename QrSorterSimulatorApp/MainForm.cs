@@ -191,6 +191,17 @@ namespace QrSorterSimulatorApp
                 CmbTray.Items.Add("5");
                 CmbTray.SelectedIndex = 0;
 
+                #region 不着事由区分
+                CommonModule.ReadNonDeliveryList();
+                CmbNonDeliveryReasonSorting.Items.Clear();                
+                foreach (string items in PubConstClass.lstNonDeliveryList)
+                {
+                    string[] sArray = items.Split(',');
+                    CmbNonDeliveryReasonSorting.Items.Add(sArray[0] + "：" + sArray[1]);                    
+                }
+                CmbNonDeliveryReasonSorting.SelectedIndex = 0;                
+                #endregion     
+
                 // シリアルポートのオープン
                 SerialPortQr.Open();
                 LblError.Visible = false;
@@ -270,13 +281,13 @@ namespace QrSorterSimulatorApp
             {
                 CommonModule.OutPutLogFile("受信データ：" + data.Replace("\r", "<CR>"));
 
-                if (data.Length < 9)
-                {
-                    //CommonModule.OutPutLogFile("■不正データ受信：" + data.Replace("\r", "<CR>"));
-                    //return;
-                }
+                //if (data.Length < 9)
+                //{
+                //    CommonModule.OutPutLogFile("■不正データ受信：" + data.Replace("\r", "<CR>"));
+                //    return;
+                //}
 
-                LsbRecvBox.Items.Add(data);
+                LsbRecvBox.Items.Add(data.Replace("\r", "<CR>"));
             }
             catch (Exception ex)
             {
@@ -295,13 +306,18 @@ namespace QrSorterSimulatorApp
         {
             try
             {
-                string sData = TxtPropertyId.Text.Trim();
-                sData += "1";
-                sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");
-                sData += TxtUniqueKey.Text.Replace("_"," ") + ",";
-
+                // 読取値（31桁）：物件ID（5桁）＋（1st/2st）＋局出し日（YYYYMMDD）＋ユニークキー（17桁）
+                string sData = TxtPropertyId.Text.Trim();                   // 物件ID
+                sData += "1";                                               // （1st/2st）
+                sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");    // 局出し日（YYYYMMDD）
+                sData += TxtUniqueKey.Text.Replace("_"," ") + ",";          // ユニークキー
+                // 判定（OK/NG）
                 sData += CmbJudge.Text + ",";
+                // エラーコード
                 sData += CmbErrorCode.Text + ",";
+                // 不着事由
+                sData += (CmbNonDeliveryReasonSorting.SelectedIndex + 1).ToString() + ",";
+                // トレイ情報
                 sData += CmbTray.Text + ",";
 
                 // 送信データのセット
