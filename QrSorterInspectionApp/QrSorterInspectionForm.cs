@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
@@ -265,6 +266,9 @@ namespace QrSorterInspectionApp
                 // リストビューのダブルバッファを有効とする
                 EnableDoubleBuffering(LsvOKHistory);
                 EnableDoubleBuffering(LsvNGHistory);
+
+                // ログ保存フォルダの確認
+                CheckAndCreateLogStorageFolder();
             }
             catch (Exception ex)
             {
@@ -275,10 +279,79 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
+        /// ログ保存フォルダのチェック及び作成
+        /// </summary>
+        private void CheckAndCreateLogStorageFolder()
+        {
+            string sFolderPath;
+            string sCurrentDate;
+
+            try
+            {
+                sCurrentDate = DateTime.Now.ToString("yyyyMMdd");
+
+                // 保守画面で指定したログフォルダ
+                if (Directory.Exists(PubConstClass.pblInternalTranFolder) == false)
+                {
+                    Directory.CreateDirectory(PubConstClass.pblInternalTranFolder);
+                }
+                // 今日の日付のフォルダ
+                sFolderPath = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
+                sFolderPath += sCurrentDate;
+                if (Directory.Exists(sFolderPath) == false)
+                {
+                    Directory.CreateDirectory(sFolderPath);
+                }
+
+                // 不着事由名称１のフォルダ
+                sFolderPath = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
+                sFolderPath += CommonModule.IncludeTrailingPathDelimiter(sCurrentDate);
+                sFolderPath += CmbNonDeliveryReasonSorting1.Text;
+                if (Directory.Exists(sFolderPath) == false)
+                {
+                    Directory.CreateDirectory(sFolderPath);
+                }
+
+                // 不着事由名称２のフォルダ
+                sFolderPath = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
+                sFolderPath += CommonModule.IncludeTrailingPathDelimiter(sCurrentDate);
+                sFolderPath += CmbNonDeliveryReasonSorting2.Text;
+                if (Directory.Exists(sFolderPath) == false)
+                {
+                    Directory.CreateDirectory(sFolderPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CheckAndCreateLogStorageFolder】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void SaveLogData(string sLogFilePath, string sData)
+        {           
+            try
+            {
+                //strPutDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_FILENAME;
+
+                // 上書モードで書き込む
+                using (StreamWriter sw = new StreamWriter(sLogFilePath, false, Encoding.Default))
+                {
+                    // 
+                    sw.WriteLine(sData);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【WritetSystemDefinition】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
         /// コントロールのDoubleBufferedプロパティをTrueにする
         /// </summary>
         /// <param name="control"></param>
-        public static void EnableDoubleBuffering(Control control)
+        private void EnableDoubleBuffering(Control control)
         {
             control.GetType().InvokeMember("DoubleBuffered",
                                             BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
