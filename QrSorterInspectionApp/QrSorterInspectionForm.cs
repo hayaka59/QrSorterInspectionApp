@@ -16,6 +16,25 @@ namespace QrSorterInspectionApp
     public partial class QrSorterInspectionForm : Form
     {
         private delegate void Delegate_RcvDataToTextBox(string data);
+        private string sCurrentDate;
+        private int iOKCount = 0;
+        private int iNGCount = 0;
+        private int iBoxNumber = 1;
+        private int iBox1Count = 0;
+        private int iBox2Count = 0;
+        private int iBox3Count = 0;
+        private int iBox4Count = 0;
+        private int iBox5Count = 0;
+        private int intSesanCounter = 0;
+
+        private string sDateOfReceipt;          // 受領日
+        private string sOutputDateAndTime;      // 出力日時
+        private string sNonDeliveryReason1;     // 不着事由１
+        private string sNonDeliveryReason2;     // 不着事由２
+
+
+        private byte[] buffer = new byte[1024];
+        private int bufferIndex = 0;
 
         public QrSorterInspectionForm()
         {
@@ -283,8 +302,7 @@ namespace QrSorterInspectionApp
         /// </summary>
         private void CheckAndCreateLogStorageFolder()
         {
-            string sFolderPath;
-            string sCurrentDate;
+            string sFolderPath;            
 
             try
             {
@@ -304,22 +322,29 @@ namespace QrSorterInspectionApp
                 }
 
                 // 不着事由名称１のフォルダ
+                sNonDeliveryReason1 = (CmbNonDeliveryReasonSorting1.SelectedIndex + 1).ToString("00");
                 sFolderPath = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
-                sFolderPath += CommonModule.IncludeTrailingPathDelimiter(sCurrentDate);
-                sFolderPath += CmbNonDeliveryReasonSorting1.Text;
+                sFolderPath += CommonModule.IncludeTrailingPathDelimiter(sCurrentDate);                
+                sFolderPath += sNonDeliveryReason1;
                 if (Directory.Exists(sFolderPath) == false)
                 {
                     Directory.CreateDirectory(sFolderPath);
                 }
 
                 // 不着事由名称２のフォルダ
+                sNonDeliveryReason2 = (CmbNonDeliveryReasonSorting2.SelectedIndex + 1).ToString("00");
                 sFolderPath = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
                 sFolderPath += CommonModule.IncludeTrailingPathDelimiter(sCurrentDate);
-                sFolderPath += CmbNonDeliveryReasonSorting2.Text;
+                sFolderPath += sNonDeliveryReason2;
                 if (Directory.Exists(sFolderPath) == false)
                 {
                     Directory.CreateDirectory(sFolderPath);
                 }
+
+                // 受領日
+                sDateOfReceipt = DtpDateReceipt.Value.ToString("yyyyMMdd");
+                // 出力日
+                sOutputDateAndTime = DateTime.Now.ToString("yyyyMMddHHmmss");
             }
             catch (Exception ex)
             {
@@ -328,14 +353,28 @@ namespace QrSorterInspectionApp
         }
 
 
-        private void SaveLogData(string sLogFilePath, string sData)
-        {           
+        private void SaveLogData(string sNonDeliveryReason, string sData)
+        {
+            string sLogFilePath;
+            string sLogFileName;
+
             try
             {
-                //strPutDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_FILENAME;
+                sLogFileName = "受領日＋区分＋連番_";
+                sLogFileName += sNonDeliveryReason1 + "_";
+                sLogFileName += sNonDeliveryReason2 + "_";
+                sLogFileName += sDateOfReceipt + "_";
+                sLogFileName += sOutputDateAndTime + ".csv";
 
-                // 上書モードで書き込む
-                using (StreamWriter sw = new StreamWriter(sLogFilePath, false, Encoding.Default))
+                //strPutDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_FILENAME;
+                // 保守画面で設定したフォルダ
+                sLogFilePath = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
+                sLogFilePath += sCurrentDate + "\\";
+                sLogFilePath += sNonDeliveryReason + "\\";
+
+
+                // 追加モードで書き込む
+                using (StreamWriter sw = new StreamWriter(sLogFilePath + sLogFileName, true, Encoding.Default))
                 {
                     // 
                     sw.WriteLine(sData);
@@ -343,7 +382,8 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【WritetSystemDefinition】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonModule.OutPutLogFile($"【SaveLogData】システムエラー：{ex.Message}");
+                MessageBox.Show(ex.Message, "【SaveLogData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -390,16 +430,6 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【TimDateTime_Tick】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private int iOKCount = 0;
-        private int iNGCount = 0;
-        private int iBoxNumber = 1;
-
-        private int iBox1Count = 0;
-        private int iBox2Count = 0;
-        private int iBox3Count = 0;
-        private int iBox4Count = 0;
-        private int iBox5Count = 0;
 
         /// <summary>
         /// 「検査開始」ボタン処理
@@ -570,6 +600,9 @@ namespace QrSorterInspectionApp
                 LblQuantity4.Text = sArray[47] == "ON" ? sArray[42] : "---";
                 // ポケット５切替件数
                 LblQuantity5.Text = sArray[48] == "ON" ? sArray[43] : "---";
+
+                // ログ保存フォルダの確認
+                CheckAndCreateLogStorageFolder();
             }
             catch (Exception ex)
             {
@@ -660,7 +693,6 @@ namespace QrSorterInspectionApp
             }
         }
 
-
         /// <summary>
         /// 検査装置からのデータ受信処理
         /// </summary>
@@ -732,15 +764,13 @@ namespace QrSorterInspectionApp
             }
         }
 
-        private int intSesanCounter = 0;
-
         private void DisplaySeisanLogData(string sData)
         {
             string[] col = new string[12];
             ListViewItem itm1;
             ListViewItem itm2;
             string[] strArray;
-
+            string sNonDel;
             try
             {
                 intSesanCounter += 1;                
@@ -756,8 +786,12 @@ namespace QrSorterInspectionApp
                 col[3] = strArray[1].Trim();
                 // エラーコード
                 //col[4] = strArray[2];
+                
+                // 不着事由
+                sNonDel = strArray[3].Trim().PadLeft(2,'0');
+                
                 // トレイ情報
-                col[4] = strArray[3].Trim();
+                col[4] = strArray[4].Trim();
 
                 // データの表示
                 if (col[3] == "NG")
@@ -835,6 +869,8 @@ namespace QrSorterInspectionApp
 
                 // 総数のカウント表示
                 LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
+                // 
+                SaveLogData(sNonDel, sData.Replace("\r",""));
             }
             catch (Exception ex)
             {
@@ -842,9 +878,6 @@ namespace QrSorterInspectionApp
                 CommonModule.OutPutLogFile("【DisplaySeisanLogData】" + ex.Message);
             }
         }
-
-        static byte[] buffer = new byte[1024];
-        static int bufferIndex = 0;
 
         /// <summary>
         /// シリアルデータ受信イベント（漢字データ受信対応）
