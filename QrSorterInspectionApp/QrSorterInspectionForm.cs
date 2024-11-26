@@ -689,6 +689,10 @@ namespace QrSorterInspectionApp
                 // データの表示
                 if (col[3] == "NG")
                 {
+                    // NGのカウント表示
+                    iNGCount++;
+                    LblNGCount.Text = iNGCount.ToString("#,##0");
+
                     itm2 = new ListViewItem(col);
                     LsvNGHistory.Items.Add(itm2);
                     LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].UseItemStyleForSubItems = false;
@@ -705,6 +709,10 @@ namespace QrSorterInspectionApp
                 }
                 else
                 {
+                    // OKのカウント表示
+                    iOKCount++;
+                    LblOKCount.Text = iOKCount.ToString("#,##0");
+
                     itm1 = new ListViewItem(col);
                     LsvOKHistory.Items.Add(itm1);
                     LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].UseItemStyleForSubItems = false;
@@ -751,6 +759,9 @@ namespace QrSorterInspectionApp
                             break;
                     }
                 }
+
+                // 総数のカウント表示
+                LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
             }
             catch (Exception ex)
             {
