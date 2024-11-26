@@ -54,6 +54,8 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.TimSendData = new System.Windows.Forms.Timer(this.components);
             this.BtnAutoSend = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.CmbNonDeliveryReasonSorting = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -62,6 +64,7 @@
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnEnd
@@ -304,12 +307,33 @@
             this.BtnAutoSend.UseVisualStyleBackColor = true;
             this.BtnAutoSend.Click += new System.EventHandler(this.BtnAutoSend_Click);
             // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.CmbNonDeliveryReasonSorting);
+            this.groupBox9.Location = new System.Drawing.Point(16, 279);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(263, 60);
+            this.groupBox9.TabIndex = 327;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "不着事由";
+            // 
+            // CmbNonDeliveryReasonSorting
+            // 
+            this.CmbNonDeliveryReasonSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbNonDeliveryReasonSorting.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbNonDeliveryReasonSorting.FormattingEnabled = true;
+            this.CmbNonDeliveryReasonSorting.Location = new System.Drawing.Point(6, 18);
+            this.CmbNonDeliveryReasonSorting.Name = "CmbNonDeliveryReasonSorting";
+            this.CmbNonDeliveryReasonSorting.Size = new System.Drawing.Size(244, 32);
+            this.CmbNonDeliveryReasonSorting.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.BtnAutoSend);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox7);
@@ -341,6 +365,7 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -372,6 +397,8 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Timer TimSendData;
         private System.Windows.Forms.Button BtnAutoSend;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting;
     }
 }
 
