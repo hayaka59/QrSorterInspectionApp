@@ -310,7 +310,8 @@ namespace QrSorterSimulatorApp
                 string sData = TxtPropertyId.Text.Trim();                   // 物件ID
                 sData += "1";                                               // （1st/2st）
                 sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");    // 局出し日（YYYYMMDD）
-                sData += TxtUniqueKey.Text.Replace("_"," ") + ",";          // ユニークキー
+                //sData += TxtUniqueKey.Text.Replace("_", " ") + ",";          // ユニークキー
+                sData += "-" + DateTime.Now.ToString("yyMMdd_HHmmssfff") + ",";          // ユニークキー
                 // 判定（OK/NG）
                 sData += CmbJudge.Text + ",";
                 // エラーコード
