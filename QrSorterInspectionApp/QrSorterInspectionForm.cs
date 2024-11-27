@@ -776,27 +776,44 @@ namespace QrSorterInspectionApp
             ListViewItem itm2;
             string[] strArray;
             string sNonDel;
+            string sLogData = "";
+            string sWriteDate;
+            string sWriteTime;
+
             try
             {
+                sWriteDate = DateTime.Now.ToString("yyyy/MM/dd");
+                sWriteTime = DateTime.Now.ToString("HH:mm:ss");
+
                 intSesanCounter += 1;                
                 // No.
                 col[0] = intSesanCounter.ToString("00000");
                 
                 strArray = sData.Split(',');
                 // 日時
-                col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                col[1] = sWriteDate + " " + sWriteTime;
                 // 読取値（QRコード）
                 col[2] = strArray[0].Trim();
                 // 判定（OK/NG）
                 col[3] = strArray[1].Trim();
                 // エラーコード
-                //col[4] = strArray[2];
-                
+                //col[4] = strArray[2];                
                 // 不着事由
-                sNonDel = strArray[3].Trim().PadLeft(2,'0');
-                
+                sNonDel = strArray[3].Trim().PadLeft(2,'0');                
                 // トレイ情報
                 col[4] = strArray[4].Trim();
+
+                sLogData += sWriteDate + ",";                           // 日付
+                sLogData += sWriteTime + ",";                           // 時刻
+                sLogData += strArray[0].Trim() + ",";                   // 読取値
+                sLogData += strArray[1].Trim() + ",";                   // 判定
+                sLogData += "FILE NAME" + ",";                          // 正解データファイル名
+                sLogData += sDateOfReceipt + ",";                       // 受領日
+                sLogData += PubConstClass.sUserId + ",";                // 作業者情報                
+                sLogData += strArray[0].Trim().Substring(0,5) + ",";    // 物件ID
+                sLogData += strArray[2] + ",";                          // エラー
+                sLogData += sNonDeliveryReason1 + ",";                  // 仕分１
+                sLogData += sNonDeliveryReason2 + ",";                  // 仕分２
 
                 // データの表示
                 if (col[3] == "NG")
@@ -875,7 +892,8 @@ namespace QrSorterInspectionApp
                 // 総数のカウント表示
                 LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
                 // 
-                SaveLogData(sNonDel, sData.Replace("\r",""));
+                //SaveLogData(sNonDel, sData.Replace("\r", ""));
+                SaveLogData(sNonDel, sLogData);
 
                 if ((iOKCount + iNGCount) % 100 == 0)
                 {
