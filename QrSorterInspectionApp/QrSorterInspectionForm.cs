@@ -16,22 +16,22 @@ namespace QrSorterInspectionApp
     public partial class QrSorterInspectionForm : Form
     {
         private delegate void Delegate_RcvDataToTextBox(string data);
-        private string sCurrentDate;
-        private int iOKCount = 0;
-        private int iNGCount = 0;
-        private int iBoxNumber = 1;
-        private int iBox1Count = 0;
-        private int iBox2Count = 0;
-        private int iBox3Count = 0;
-        private int iBox4Count = 0;
-        private int iBox5Count = 0;
-        private int intSesanCounter = 0;
 
+        private string sCurrentDate;            // 現在の年月日
         private string sDateOfReceipt;          // 受領日
         private string sOutputDateAndTime;      // 出力日時
         private string sNonDeliveryReason1;     // 不着事由１
         private string sNonDeliveryReason2;     // 不着事由２
 
+        private int iOKCount = 0;               // OK用カウンタ
+        private int iNGCount = 0;               // NG用カウンタ
+        private int iBoxNumber = 1;             //
+        private int iBox1Count = 0;             // ボックス１用カウンタ
+        private int iBox2Count = 0;             // ボックス２用カウンタ
+        private int iBox3Count = 0;             // ボックス３用カウンタ
+        private int iBox4Count = 0;             // ボックス４用カウンタ
+        private int iBox5Count = 0;             // ボックス５用カウンタ
+        private int intSesanCounter = 0;
 
         private byte[] buffer = new byte[1024];
         private int bufferIndex = 0;
@@ -352,7 +352,11 @@ namespace QrSorterInspectionApp
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sNonDeliveryReason"></param>
+        /// <param name="sData"></param>
         private void SaveLogData(string sNonDeliveryReason, string sData)
         {
             string sLogFilePath;
@@ -360,7 +364,9 @@ namespace QrSorterInspectionApp
 
             try
             {
-                sLogFileName = "受領日＋区分＋連番_";
+                //sLogFileName = "受領日＋区分＋連番_";
+                sLogFileName = "受領日＋区分＋";
+                sLogFileName += TxtSeqNum.Text.Trim() + "_";
                 sLogFileName += sNonDeliveryReason1 + "_";
                 sLogFileName += sNonDeliveryReason2 + "_";
                 sLogFileName += sDateOfReceipt + "_";
@@ -371,7 +377,6 @@ namespace QrSorterInspectionApp
                 sLogFilePath = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
                 sLogFilePath += sCurrentDate + "\\";
                 sLogFilePath += sNonDeliveryReason + "\\";
-
 
                 // 追加モードで書き込む
                 using (StreamWriter sw = new StreamWriter(sLogFilePath + sLogFileName, true, Encoding.Default))
@@ -771,27 +776,44 @@ namespace QrSorterInspectionApp
             ListViewItem itm2;
             string[] strArray;
             string sNonDel;
+            string sLogData = "";
+            string sWriteDate;
+            string sWriteTime;
+
             try
             {
+                sWriteDate = DateTime.Now.ToString("yyyy/MM/dd");
+                sWriteTime = DateTime.Now.ToString("HH:mm:ss");
+
                 intSesanCounter += 1;                
                 // No.
-                col[0] = intSesanCounter.ToString("000000");
+                col[0] = intSesanCounter.ToString("00000");
                 
                 strArray = sData.Split(',');
                 // 日時
-                col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                col[1] = sWriteDate + " " + sWriteTime;
                 // 読取値（QRコード）
                 col[2] = strArray[0].Trim();
                 // 判定（OK/NG）
                 col[3] = strArray[1].Trim();
                 // エラーコード
-                //col[4] = strArray[2];
-                
+                //col[4] = strArray[2];                
                 // 不着事由
-                sNonDel = strArray[3].Trim().PadLeft(2,'0');
-                
+                sNonDel = strArray[3].Trim().PadLeft(2,'0');                
                 // トレイ情報
                 col[4] = strArray[4].Trim();
+
+                sLogData += sWriteDate + ",";                           // 日付
+                sLogData += sWriteTime + ",";                           // 時刻
+                sLogData += strArray[0].Trim() + ",";                   // 読取値
+                sLogData += strArray[1].Trim() + ",";                   // 判定
+                sLogData += "FILE NAME" + ",";                          // 正解データファイル名
+                sLogData += sDateOfReceipt + ",";                       // 受領日
+                sLogData += PubConstClass.sUserId + ",";                // 作業者情報                
+                sLogData += strArray[0].Trim().Substring(0,5) + ",";    // 物件ID
+                sLogData += strArray[2] + ",";                          // エラー
+                sLogData += sNonDeliveryReason1 + ",";                  // 仕分１
+                sLogData += sNonDeliveryReason2 + ",";                  // 仕分２
 
                 // データの表示
                 if (col[3] == "NG")
@@ -870,7 +892,13 @@ namespace QrSorterInspectionApp
                 // 総数のカウント表示
                 LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
                 // 
-                SaveLogData(sNonDel, sData.Replace("\r",""));
+                //SaveLogData(sNonDel, sData.Replace("\r", ""));
+                SaveLogData(sNonDel, sLogData);
+
+                if ((iOKCount + iNGCount) % 100 == 0)
+                {
+                    TxtSeqNum.Text = (int.Parse(TxtSeqNum.Text) + 1).ToString("0000");
+                }
             }
             catch (Exception ex)
             {

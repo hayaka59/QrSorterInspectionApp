@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -118,6 +119,8 @@ namespace QrSorterInspectionApp
 
         private void CmbLogType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string[] sArray;
+
             try
             {
                 if (CmbLogType.SelectedIndex == 0) {
@@ -130,10 +133,16 @@ namespace QrSorterInspectionApp
                 else
                 {
                     LsbLogList.Items.Clear();
-                    LsbLogList.Items.Add("検査ログ_2024年10月28日_09時01分12秒");
-                    LsbLogList.Items.Add("検査ログ_2024年10月29日_09時02分24秒");
-                    LsbLogList.Items.Add("検査ログ_2024年10月30日_09時03分40秒");
-
+                    // 検査ログ対象ファイルの取得
+                    foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                      PubConstClass.pblInternalTranFolder),
+                                                                      "*", SearchOption.AllDirectories))
+                    {
+                        CommonModule.OutPutLogFile($"■検査ログ対象ファイル：{sTranFile}");
+                        sArray = sTranFile.Split('\\');
+                        //LsbLogList.Items.Add(sArray[sArray.Length - 1]);
+                        LsbLogList.Items.Add(sTranFile);
+                    }
                 }
             }
             catch (Exception ex)
