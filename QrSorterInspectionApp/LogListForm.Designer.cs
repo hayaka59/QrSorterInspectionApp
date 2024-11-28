@@ -33,7 +33,7 @@
             this.LblTitle = new System.Windows.Forms.Label();
             this.CmbLogType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.LsvAccount = new System.Windows.Forms.ListView();
+            this.LsvLogContent = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LsbLogList = new System.Windows.Forms.ListBox();
@@ -41,11 +41,13 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.LblLogFileCount = new System.Windows.Forms.Label();
+            this.LblContentCount = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -113,17 +115,17 @@
             this.label3.Text = "ログの種類";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LsvAccount
+            // LsvLogContent
             // 
-            this.LsvAccount.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LsvAccount.FullRowSelect = true;
-            this.LsvAccount.GridLines = true;
-            this.LsvAccount.HideSelection = false;
-            this.LsvAccount.Location = new System.Drawing.Point(108, 452);
-            this.LsvAccount.Name = "LsvAccount";
-            this.LsvAccount.Size = new System.Drawing.Size(1686, 488);
-            this.LsvAccount.TabIndex = 258;
-            this.LsvAccount.UseCompatibleStateImageBehavior = false;
+            this.LsvLogContent.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsvLogContent.FullRowSelect = true;
+            this.LsvLogContent.GridLines = true;
+            this.LsvLogContent.HideSelection = false;
+            this.LsvLogContent.Location = new System.Drawing.Point(108, 452);
+            this.LsvLogContent.Name = "LsvLogContent";
+            this.LsvLogContent.Size = new System.Drawing.Size(1686, 488);
+            this.LsvLogContent.TabIndex = 258;
+            this.LsvLogContent.UseCompatibleStateImageBehavior = false;
             // 
             // label9
             // 
@@ -206,16 +208,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "検査日付";
             // 
-            // checkBox2
+            // label4
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.checkBox2.Location = new System.Drawing.Point(592, 101);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(58, 20);
-            this.checkBox2.TabIndex = 269;
-            this.checkBox2.Text = "全件";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label4.Location = new System.Drawing.Point(242, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 24);
+            this.label4.TabIndex = 269;
+            this.label4.Text = "～";
             // 
             // dateTimePicker2
             // 
@@ -226,15 +227,16 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(171, 31);
             this.dateTimePicker2.TabIndex = 268;
             // 
-            // label4
+            // checkBox2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(242, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 24);
-            this.label4.TabIndex = 269;
-            this.label4.Text = "～";
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.checkBox2.Location = new System.Drawing.Point(592, 101);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(58, 20);
+            this.checkBox2.TabIndex = 269;
+            this.checkBox2.Text = "全件";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -257,12 +259,38 @@
             this.checkBox3.Text = "含む";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
+            // LblLogFileCount
+            // 
+            this.LblLogFileCount.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.LblLogFileCount.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblLogFileCount.ForeColor = System.Drawing.Color.White;
+            this.LblLogFileCount.Location = new System.Drawing.Point(122, 157);
+            this.LblLogFileCount.Name = "LblLogFileCount";
+            this.LblLogFileCount.Size = new System.Drawing.Size(273, 23);
+            this.LblLogFileCount.TabIndex = 271;
+            this.LblLogFileCount.Text = "LblLogFileCount";
+            this.LblLogFileCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LblContentCount
+            // 
+            this.LblContentCount.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.LblContentCount.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblContentCount.ForeColor = System.Drawing.Color.White;
+            this.LblContentCount.Location = new System.Drawing.Point(122, 427);
+            this.LblContentCount.Name = "LblContentCount";
+            this.LblContentCount.Size = new System.Drawing.Size(273, 23);
+            this.LblContentCount.TabIndex = 272;
+            this.LblContentCount.Text = "LblContentCount";
+            this.LblContentCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // LogListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.LblContentCount);
+            this.Controls.Add(this.LblLogFileCount);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.groupBox1);
@@ -270,7 +298,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbLogType);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.LsvAccount);
+            this.Controls.Add(this.LsvLogContent);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.BtnClose);
@@ -298,7 +326,7 @@
         internal System.Windows.Forms.Label LblTitle;
         internal System.Windows.Forms.ComboBox CmbLogType;
         internal System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListView LsvAccount;
+        private System.Windows.Forms.ListView LsvLogContent;
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox LsbLogList;
@@ -311,5 +339,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Label LblLogFileCount;
+        private System.Windows.Forms.Label LblContentCount;
     }
 }
