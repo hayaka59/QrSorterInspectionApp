@@ -91,6 +91,18 @@ namespace QrSorterInspectionApp
                 LsvLogContent.Columns.AddRange(colHeaderOK);
                 #endregion
 
+                #region 不着事由の項目設定
+                CommonModule.ReadNonDeliveryList();
+                cmbReasonForNonDelivery.Items.Clear();
+                foreach(var items in PubConstClass.lstNonDeliveryList)
+                {
+                    cmbReasonForNonDelivery.Items.Add(items);
+                }
+                cmbReasonForNonDelivery.SelectedIndex = 0;
+                #endregion
+
+                ChkAllItem.Checked = true;
+
                 LblLogFileCount.Text = "";
                 LblContentCount.Text = "";
             }
@@ -243,6 +255,27 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【DisplayOneData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }      
+        }
+
+        private void ChkAllItem_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ChkAllItem.Checked)
+                {
+                    GrpInspectionDate.Enabled = false;
+                    GrpReasonForNonDelivery.Enabled = false;
+                }
+                else
+                {
+                    GrpInspectionDate.Enabled = true;
+                    GrpReasonForNonDelivery.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ChkAllItem_CheckedChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
