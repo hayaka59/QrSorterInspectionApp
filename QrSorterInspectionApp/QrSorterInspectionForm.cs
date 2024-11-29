@@ -71,11 +71,11 @@ namespace QrSorterInspectionApp
                 colOK3.TextAlign = HorizontalAlignment.Center;
                 colOK4.TextAlign = HorizontalAlignment.Center;
                 colOK5.TextAlign = HorizontalAlignment.Center;
-                colOK1.Width = 60;          // 
-                colOK2.Width = 190;         // 
-                colOK3.Width = 200;         // 
-                colOK4.Width = 50;          // 
-                colOK5.Width = 60;          // 
+                colOK1.Width = 80;          // 
+                colOK2.Width = 200;         // 
+                colOK3.Width = 370;         // 
+                colOK4.Width = 70;          // 
+                colOK5.Width = 70;          // 
                 ColumnHeader[] colHeaderOK = new[] { colOK1, colOK2, colOK3, colOK4, colOK5 };                
                 LsvOKHistory.Columns.AddRange(colHeaderOK);
                 #endregion
@@ -97,11 +97,11 @@ namespace QrSorterInspectionApp
                 colNG3.TextAlign = HorizontalAlignment.Center;
                 colNG4.TextAlign = HorizontalAlignment.Center;
                 colNG5.TextAlign = HorizontalAlignment.Center;
-                colNG1.Width = 60;          // 
-                colNG2.Width = 190;         // 
-                colNG3.Width = 200;         // 
-                colNG4.Width = 50;          // 
-                colNG5.Width = 60;          // 
+                colNG1.Width = 80;          // 
+                colNG2.Width = 200;         // 
+                colNG3.Width = 370;         // 
+                colNG4.Width = 70;          // 
+                colNG5.Width = 70;          // 
                 ColumnHeader[] colHeaderNG = new[] { colNG1, colNG2, colNG3, colNG4, colNG5 };
                 LsvNGHistory.Columns.AddRange(colHeaderNG);
                 #endregion
