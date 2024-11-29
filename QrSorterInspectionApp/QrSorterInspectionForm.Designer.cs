@@ -47,10 +47,6 @@
             this.LsvNGHistory = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.LblStatus = new System.Windows.Forms.Label();
             this.LblQuantity3 = new System.Windows.Forms.Label();
             this.LblBox3 = new System.Windows.Forms.Label();
@@ -84,7 +80,6 @@
             this.CmbNonDeliveryReasonSorting1 = new System.Windows.Forms.ComboBox();
             this.CmbJobName = new System.Windows.Forms.ComboBox();
             this.LblPocket5 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.BtnSetting = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -315,58 +310,6 @@
             this.label10.TabIndex = 248;
             this.label10.Text = "NG履歴";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label11.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(961, 181);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 36);
-            this.label11.TabIndex = 251;
-            this.label11.Text = "ポケット４";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label12.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(961, 146);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(123, 36);
-            this.label12.TabIndex = 249;
-            this.label12.Text = "ポケット３";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label13.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(961, 111);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(123, 36);
-            this.label13.TabIndex = 255;
-            this.label13.Text = "ポケット２";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label14
-            // 
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label14.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(961, 76);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(123, 36);
-            this.label14.TabIndex = 253;
-            this.label14.Text = "ポケット１";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblStatus
             // 
@@ -775,19 +718,6 @@
             this.LblPocket5.Text = "ポケット５";
             this.LblPocket5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label24
-            // 
-            this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label24.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(961, 216);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(123, 36);
-            this.label24.TabIndex = 304;
-            this.label24.Text = "ポケット５";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // BtnSetting
             // 
             this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -967,7 +897,6 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.BtnSetting);
             this.Controls.Add(this.LblPocket5);
-            this.Controls.Add(this.label24);
             this.Controls.Add(this.CmbJobName);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.CmbNonDeliveryReasonSorting2);
@@ -1006,10 +935,6 @@
             this.Controls.Add(this.LblQuantity3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.LblStatus);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
@@ -1067,10 +992,6 @@
         private System.Windows.Forms.ListView LsvNGHistory;
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.Label label10;
-        internal System.Windows.Forms.Label label11;
-        internal System.Windows.Forms.Label label12;
-        internal System.Windows.Forms.Label label13;
-        internal System.Windows.Forms.Label label14;
         internal System.Windows.Forms.Label LblStatus;
         private System.Windows.Forms.PictureBox pictureBox1;
         internal System.Windows.Forms.Label LblQuantity3;
@@ -1109,7 +1030,6 @@
         internal System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting1;
         internal System.Windows.Forms.ComboBox CmbJobName;
         internal System.Windows.Forms.Label LblPocket5;
-        internal System.Windows.Forms.Label label24;
         internal System.Windows.Forms.Button BtnSetting;
         internal System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox TxtFileType;
