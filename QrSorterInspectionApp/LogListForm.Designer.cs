@@ -33,21 +33,24 @@
             this.LblTitle = new System.Windows.Forms.Label();
             this.CmbLogType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.LsvAccount = new System.Windows.Forms.ListView();
+            this.LsvLogContent = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.LsbLogList = new System.Windows.Forms.ListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.cmbReasonForNonDelivery = new System.Windows.Forms.ComboBox();
+            this.dtTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.ChkInspectionDate = new System.Windows.Forms.CheckBox();
+            this.GrpInspectionDate = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.dtTimePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.ChkAllItem = new System.Windows.Forms.CheckBox();
+            this.GrpReasonForNonDelivery = new System.Windows.Forms.GroupBox();
+            this.ChkReasonForNonDelivery = new System.Windows.Forms.CheckBox();
+            this.LblLogFileCount = new System.Windows.Forms.Label();
+            this.LblContentCount = new System.Windows.Forms.Label();
+            this.BtnUpdate = new System.Windows.Forms.Button();
+            this.GrpInspectionDate.SuspendLayout();
+            this.GrpReasonForNonDelivery.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -113,17 +116,17 @@
             this.label3.Text = "ログの種類";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LsvAccount
+            // LsvLogContent
             // 
-            this.LsvAccount.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LsvAccount.FullRowSelect = true;
-            this.LsvAccount.GridLines = true;
-            this.LsvAccount.HideSelection = false;
-            this.LsvAccount.Location = new System.Drawing.Point(108, 452);
-            this.LsvAccount.Name = "LsvAccount";
-            this.LsvAccount.Size = new System.Drawing.Size(1686, 488);
-            this.LsvAccount.TabIndex = 258;
-            this.LsvAccount.UseCompatibleStateImageBehavior = false;
+            this.LsvLogContent.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsvLogContent.FullRowSelect = true;
+            this.LsvLogContent.GridLines = true;
+            this.LsvLogContent.HideSelection = false;
+            this.LsvLogContent.Location = new System.Drawing.Point(108, 452);
+            this.LsvLogContent.Name = "LsvLogContent";
+            this.LsvLogContent.Size = new System.Drawing.Size(1686, 488);
+            this.LsvLogContent.TabIndex = 258;
+            this.LsvLogContent.UseCompatibleStateImageBehavior = false;
             // 
             // label9
             // 
@@ -162,69 +165,49 @@
             this.LsbLogList.TabIndex = 263;
             this.LsbLogList.SelectedIndexChanged += new System.EventHandler(this.LsbLogList_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cmbReasonForNonDelivery
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.ItemHeight = 28;
-            this.comboBox1.Location = new System.Drawing.Point(69, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 36);
-            this.comboBox1.TabIndex = 265;
+            this.cmbReasonForNonDelivery.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReasonForNonDelivery.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.cmbReasonForNonDelivery.FormattingEnabled = true;
+            this.cmbReasonForNonDelivery.IntegralHeight = false;
+            this.cmbReasonForNonDelivery.ItemHeight = 28;
+            this.cmbReasonForNonDelivery.Location = new System.Drawing.Point(66, 13);
+            this.cmbReasonForNonDelivery.Name = "cmbReasonForNonDelivery";
+            this.cmbReasonForNonDelivery.Size = new System.Drawing.Size(242, 36);
+            this.cmbReasonForNonDelivery.TabIndex = 265;
             // 
-            // dateTimePicker1
+            // dtTimePickerFrom
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(67, 17);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(171, 31);
-            this.dateTimePicker1.TabIndex = 266;
+            this.dtTimePickerFrom.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerFrom.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerFrom.Location = new System.Drawing.Point(67, 17);
+            this.dtTimePickerFrom.Name = "dtTimePickerFrom";
+            this.dtTimePickerFrom.Size = new System.Drawing.Size(171, 31);
+            this.dtTimePickerFrom.TabIndex = 266;
             // 
-            // checkBox1
+            // ChkInspectionDate
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(17, 26);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(46, 16);
-            this.checkBox1.TabIndex = 267;
-            this.checkBox1.Text = "含む";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ChkInspectionDate.AutoSize = true;
+            this.ChkInspectionDate.Location = new System.Drawing.Point(17, 26);
+            this.ChkInspectionDate.Name = "ChkInspectionDate";
+            this.ChkInspectionDate.Size = new System.Drawing.Size(46, 16);
+            this.ChkInspectionDate.TabIndex = 267;
+            this.ChkInspectionDate.Text = "含む";
+            this.ChkInspectionDate.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // GrpInspectionDate
             // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Location = new System.Drawing.Point(661, 75);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(456, 60);
-            this.groupBox1.TabIndex = 268;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "検査日付";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.checkBox2.Location = new System.Drawing.Point(592, 101);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(58, 20);
-            this.checkBox2.TabIndex = 269;
-            this.checkBox2.Text = "全件";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(271, 17);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(171, 31);
-            this.dateTimePicker2.TabIndex = 268;
+            this.GrpInspectionDate.Controls.Add(this.label4);
+            this.GrpInspectionDate.Controls.Add(this.dtTimePickerTo);
+            this.GrpInspectionDate.Controls.Add(this.ChkInspectionDate);
+            this.GrpInspectionDate.Controls.Add(this.dtTimePickerFrom);
+            this.GrpInspectionDate.Location = new System.Drawing.Point(661, 75);
+            this.GrpInspectionDate.Name = "GrpInspectionDate";
+            this.GrpInspectionDate.Size = new System.Drawing.Size(456, 60);
+            this.GrpInspectionDate.TabIndex = 268;
+            this.GrpInspectionDate.TabStop = false;
+            this.GrpInspectionDate.Text = "検査日付";
             // 
             // label4
             // 
@@ -236,26 +219,85 @@
             this.label4.TabIndex = 269;
             this.label4.Text = "～";
             // 
-            // groupBox2
+            // dtTimePickerTo
             // 
-            this.groupBox2.Controls.Add(this.checkBox3);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Location = new System.Drawing.Point(1128, 72);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(298, 60);
-            this.groupBox2.TabIndex = 270;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "不着事由";
+            this.dtTimePickerTo.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerTo.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerTo.Location = new System.Drawing.Point(271, 17);
+            this.dtTimePickerTo.Name = "dtTimePickerTo";
+            this.dtTimePickerTo.Size = new System.Drawing.Size(171, 31);
+            this.dtTimePickerTo.TabIndex = 268;
             // 
-            // checkBox3
+            // ChkAllItem
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(17, 26);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(46, 16);
-            this.checkBox3.TabIndex = 267;
-            this.checkBox3.Text = "含む";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.ChkAllItem.AutoSize = true;
+            this.ChkAllItem.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ChkAllItem.Location = new System.Drawing.Point(592, 101);
+            this.ChkAllItem.Name = "ChkAllItem";
+            this.ChkAllItem.Size = new System.Drawing.Size(58, 20);
+            this.ChkAllItem.TabIndex = 269;
+            this.ChkAllItem.Text = "全件";
+            this.ChkAllItem.UseVisualStyleBackColor = true;
+            this.ChkAllItem.CheckedChanged += new System.EventHandler(this.ChkAllItem_CheckedChanged);
+            // 
+            // GrpReasonForNonDelivery
+            // 
+            this.GrpReasonForNonDelivery.Controls.Add(this.ChkReasonForNonDelivery);
+            this.GrpReasonForNonDelivery.Controls.Add(this.cmbReasonForNonDelivery);
+            this.GrpReasonForNonDelivery.Location = new System.Drawing.Point(1131, 75);
+            this.GrpReasonForNonDelivery.Name = "GrpReasonForNonDelivery";
+            this.GrpReasonForNonDelivery.Size = new System.Drawing.Size(317, 60);
+            this.GrpReasonForNonDelivery.TabIndex = 270;
+            this.GrpReasonForNonDelivery.TabStop = false;
+            this.GrpReasonForNonDelivery.Text = "不着事由";
+            // 
+            // ChkReasonForNonDelivery
+            // 
+            this.ChkReasonForNonDelivery.AutoSize = true;
+            this.ChkReasonForNonDelivery.Location = new System.Drawing.Point(17, 26);
+            this.ChkReasonForNonDelivery.Name = "ChkReasonForNonDelivery";
+            this.ChkReasonForNonDelivery.Size = new System.Drawing.Size(46, 16);
+            this.ChkReasonForNonDelivery.TabIndex = 267;
+            this.ChkReasonForNonDelivery.Text = "含む";
+            this.ChkReasonForNonDelivery.UseVisualStyleBackColor = true;
+            // 
+            // LblLogFileCount
+            // 
+            this.LblLogFileCount.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.LblLogFileCount.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblLogFileCount.ForeColor = System.Drawing.Color.White;
+            this.LblLogFileCount.Location = new System.Drawing.Point(122, 157);
+            this.LblLogFileCount.Name = "LblLogFileCount";
+            this.LblLogFileCount.Size = new System.Drawing.Size(273, 23);
+            this.LblLogFileCount.TabIndex = 271;
+            this.LblLogFileCount.Text = "LblLogFileCount";
+            this.LblLogFileCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LblContentCount
+            // 
+            this.LblContentCount.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.LblContentCount.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblContentCount.ForeColor = System.Drawing.Color.White;
+            this.LblContentCount.Location = new System.Drawing.Point(122, 427);
+            this.LblContentCount.Name = "LblContentCount";
+            this.LblContentCount.Size = new System.Drawing.Size(273, 23);
+            this.LblContentCount.TabIndex = 272;
+            this.LblContentCount.Text = "LblContentCount";
+            this.LblContentCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // BtnUpdate
+            // 
+            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
+            this.BtnUpdate.Location = new System.Drawing.Point(1477, 86);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Size = new System.Drawing.Size(170, 45);
+            this.BtnUpdate.TabIndex = 273;
+            this.BtnUpdate.Text = "更新";
+            this.BtnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // LogListForm
             // 
@@ -263,14 +305,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.BtnUpdate);
+            this.Controls.Add(this.LblContentCount);
+            this.Controls.Add(this.LblLogFileCount);
+            this.Controls.Add(this.GrpReasonForNonDelivery);
+            this.Controls.Add(this.ChkAllItem);
+            this.Controls.Add(this.GrpInspectionDate);
             this.Controls.Add(this.LsbLogList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbLogType);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.LsvAccount);
+            this.Controls.Add(this.LsvLogContent);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.BtnClose);
@@ -282,10 +327,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ログ参照";
             this.Load += new System.EventHandler(this.LogListForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.GrpInspectionDate.ResumeLayout(false);
+            this.GrpInspectionDate.PerformLayout();
+            this.GrpReasonForNonDelivery.ResumeLayout(false);
+            this.GrpReasonForNonDelivery.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,18 +343,21 @@
         internal System.Windows.Forms.Label LblTitle;
         internal System.Windows.Forms.ComboBox CmbLogType;
         internal System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListView LsvAccount;
+        private System.Windows.Forms.ListView LsvLogContent;
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox LsbLogList;
-        internal System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        internal System.Windows.Forms.ComboBox cmbReasonForNonDelivery;
+        private System.Windows.Forms.DateTimePicker dtTimePickerFrom;
+        private System.Windows.Forms.CheckBox ChkInspectionDate;
+        private System.Windows.Forms.GroupBox GrpInspectionDate;
+        private System.Windows.Forms.CheckBox ChkAllItem;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.DateTimePicker dtTimePickerTo;
+        private System.Windows.Forms.GroupBox GrpReasonForNonDelivery;
+        private System.Windows.Forms.CheckBox ChkReasonForNonDelivery;
+        private System.Windows.Forms.Label LblLogFileCount;
+        private System.Windows.Forms.Label LblContentCount;
+        internal System.Windows.Forms.Button BtnUpdate;
     }
 }
