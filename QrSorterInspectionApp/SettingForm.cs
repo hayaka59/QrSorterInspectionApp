@@ -109,6 +109,10 @@ namespace QrSorterInspectionApp
                 CmbGroup3.SelectedIndex = 2;
                 CmbGroup4.SelectedIndex = 3;
                 CmbGroup5.SelectedIndex = 4;
+
+                CmbGroup6.Items.Add("リジェクト");
+                CmbGroup6.SelectedIndex = 0;
+
                 TxtPocketName1.Text = "コメリ";
                 TxtPocketName2.Text = "コメリ";
                 TxtPocketName3.Text = "武蔵野BK";
