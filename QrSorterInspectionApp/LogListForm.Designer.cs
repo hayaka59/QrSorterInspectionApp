@@ -38,16 +38,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LsbLogList = new System.Windows.Forms.ListBox();
             this.cmbReasonForNonDelivery = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.ChkInspectionDate = new System.Windows.Forms.CheckBox();
             this.GrpInspectionDate = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtTimePickerTo = new System.Windows.Forms.DateTimePicker();
             this.ChkAllItem = new System.Windows.Forms.CheckBox();
             this.GrpReasonForNonDelivery = new System.Windows.Forms.GroupBox();
             this.ChkReasonForNonDelivery = new System.Windows.Forms.CheckBox();
             this.LblLogFileCount = new System.Windows.Forms.Label();
             this.LblContentCount = new System.Windows.Forms.Label();
+            this.BtnUpdate = new System.Windows.Forms.Button();
             this.GrpInspectionDate.SuspendLayout();
             this.GrpReasonForNonDelivery.SuspendLayout();
             this.SuspendLayout();
@@ -176,14 +177,14 @@
             this.cmbReasonForNonDelivery.Size = new System.Drawing.Size(242, 36);
             this.cmbReasonForNonDelivery.TabIndex = 265;
             // 
-            // dateTimePicker1
+            // dtTimePickerFrom
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(67, 17);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(171, 31);
-            this.dateTimePicker1.TabIndex = 266;
+            this.dtTimePickerFrom.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerFrom.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerFrom.Location = new System.Drawing.Point(67, 17);
+            this.dtTimePickerFrom.Name = "dtTimePickerFrom";
+            this.dtTimePickerFrom.Size = new System.Drawing.Size(171, 31);
+            this.dtTimePickerFrom.TabIndex = 266;
             // 
             // ChkInspectionDate
             // 
@@ -198,9 +199,9 @@
             // GrpInspectionDate
             // 
             this.GrpInspectionDate.Controls.Add(this.label4);
-            this.GrpInspectionDate.Controls.Add(this.dateTimePicker2);
+            this.GrpInspectionDate.Controls.Add(this.dtTimePickerTo);
             this.GrpInspectionDate.Controls.Add(this.ChkInspectionDate);
-            this.GrpInspectionDate.Controls.Add(this.dateTimePicker1);
+            this.GrpInspectionDate.Controls.Add(this.dtTimePickerFrom);
             this.GrpInspectionDate.Location = new System.Drawing.Point(661, 75);
             this.GrpInspectionDate.Name = "GrpInspectionDate";
             this.GrpInspectionDate.Size = new System.Drawing.Size(456, 60);
@@ -218,14 +219,14 @@
             this.label4.TabIndex = 269;
             this.label4.Text = "～";
             // 
-            // dateTimePicker2
+            // dtTimePickerTo
             // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(271, 17);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(171, 31);
-            this.dateTimePicker2.TabIndex = 268;
+            this.dtTimePickerTo.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerTo.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerTo.Location = new System.Drawing.Point(271, 17);
+            this.dtTimePickerTo.Name = "dtTimePickerTo";
+            this.dtTimePickerTo.Size = new System.Drawing.Size(171, 31);
+            this.dtTimePickerTo.TabIndex = 268;
             // 
             // ChkAllItem
             // 
@@ -284,12 +285,27 @@
             this.LblContentCount.Text = "LblContentCount";
             this.LblContentCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // BtnUpdate
+            // 
+            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
+            this.BtnUpdate.Location = new System.Drawing.Point(1477, 86);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Size = new System.Drawing.Size(170, 45);
+            this.BtnUpdate.TabIndex = 273;
+            this.BtnUpdate.Text = "更新";
+            this.BtnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
             // LogListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.LblContentCount);
             this.Controls.Add(this.LblLogFileCount);
             this.Controls.Add(this.GrpReasonForNonDelivery);
@@ -332,15 +348,16 @@
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox LsbLogList;
         internal System.Windows.Forms.ComboBox cmbReasonForNonDelivery;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtTimePickerFrom;
         private System.Windows.Forms.CheckBox ChkInspectionDate;
         private System.Windows.Forms.GroupBox GrpInspectionDate;
         private System.Windows.Forms.CheckBox ChkAllItem;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtTimePickerTo;
         private System.Windows.Forms.GroupBox GrpReasonForNonDelivery;
         private System.Windows.Forms.CheckBox ChkReasonForNonDelivery;
         private System.Windows.Forms.Label LblLogFileCount;
         private System.Windows.Forms.Label LblContentCount;
+        internal System.Windows.Forms.Button BtnUpdate;
     }
 }

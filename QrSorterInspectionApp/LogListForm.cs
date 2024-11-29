@@ -187,6 +187,7 @@ namespace QrSorterInspectionApp
                 {
                     return;
                 }
+
                 //if (iPreviouslySelectedRow == LsbLogList.SelectedIndex)
                 //{
                 //    // 選択行が変わらない場合は何もしない
@@ -264,7 +265,7 @@ namespace QrSorterInspectionApp
                 if (ChkAllItem.Checked)
                 {
                     GrpInspectionDate.Enabled = false;
-                    GrpReasonForNonDelivery.Enabled = false;
+                    GrpReasonForNonDelivery.Enabled = false;                    
                 }
                 else
                 {
@@ -275,6 +276,72 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【ChkAllItem_CheckedChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 「更新」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            string[] sArray;
+            try
+            {
+                if (ChkAllItem.Checked)
+                {
+                    CmbLogType.SelectedIndex = 0;
+                    CmbLogType.SelectedIndex = 1;
+                    return;
+                }
+
+                lstLogFileList.Clear();
+                LsbLogList.Items.Clear();
+                // 検査ログ対象ファイルの取得
+                foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                  PubConstClass.pblInternalTranFolder),
+                                                                  "*", SearchOption.AllDirectories))
+                {
+                    CommonModule.OutPutLogFile($"■検査ログ対象ファイル：{sTranFile}");
+                    sArray = sTranFile.Split('\\');
+                    if (ChkInspectionDate.Checked)
+                    {
+                        if (int.Parse(dtTimePickerFrom.Value.ToString("yyyyMMdd")) <= int.Parse(sArray[sArray.Length - 3]) &
+                            int.Parse(dtTimePickerTo.Value.ToString("yyyyMMdd")) >= int.Parse(sArray[sArray.Length - 3]))
+                        {
+                            if (ChkReasonForNonDelivery.Checked)
+                            {
+                                if (cmbReasonForNonDelivery.SelectedIndex + 1 == int.Parse(sArray[sArray.Length - 2]))
+                                {
+                                    LsbLogList.Items.Add(sArray[sArray.Length - 1]);
+                                    lstLogFileList.Add(sTranFile);
+                                }
+                            }
+                            else
+                            {
+                                LsbLogList.Items.Add(sArray[sArray.Length - 1]);
+                                lstLogFileList.Add(sTranFile);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (ChkReasonForNonDelivery.Checked)
+                        {
+                            if (cmbReasonForNonDelivery.SelectedIndex + 1 == int.Parse(sArray[sArray.Length - 2]))
+                            {
+                                LsbLogList.Items.Add(sArray[sArray.Length - 1]);
+                                lstLogFileList.Add(sTranFile);
+                            }
+                        }
+                    }
+                }
+                LblLogFileCount.Text = $"検査ログファイル件数：{LsbLogList.Items.Count.ToString("#,###")} 件";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
