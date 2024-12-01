@@ -24,8 +24,8 @@ namespace QrSorterInspectionApp
         public const string DEF_USER_ACCOUNT_ENC_FILE_NAME = "UserAccount.enc"; // 暗号化ユーザーアカウントファイル名
         public const string DEF_DES_KEY = "QRINSPCT";                           // 暗号・復号用キー（8文字）
 
-        public static List<string> lstJobEntryList = new List<string>();        // ユーザーアカウント情報
-        public const string DEF_JOB_ENTRY_FILE_NAME = "JobEntryList.txt";       // 復号化ユーザーアカウントファイル名
+        public static List<string> lstJobEntryList = new List<string>();        // 登録ジョブ情報
+        public const string DEF_JOB_ENTRY_FILE_NAME = "JobEntryList.txt";       // 登録ジョブファイル名
 
         public static List<string> lstBoxList = new List<string>();             // 
         public const string DEF_BOX1_LIST_NAME = "Box1List.txt";                // BOX1の名前

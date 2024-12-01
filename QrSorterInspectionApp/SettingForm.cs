@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -140,6 +141,8 @@ namespace QrSorterInspectionApp
                 DisplayJobName();
                 // QR桁数情報色の設定
                 SetColorForQrData(sender, e);
+
+                LblSelectedFile.Text = "";
 
                 if (PubConstClass.lstJobEntryList.Count == 0)
                 {
@@ -877,7 +880,7 @@ namespace QrSorterInspectionApp
                 LblBox1QrReadItem3.Text = "QR読取項目③：" + TxtQrReadItem3.Text;
                 LblBox1QrReadItem4.Text = "QR読取項目④：" + TxtQrReadItem4.Text;
                 sArray = PubConstClass.lstBoxList[LstBoxName.SelectedIndex].Split(',');
-                TxtBoxName.Text = sArray[1];
+                TxtGrpName.Text = sArray[1];
                 TxtBoxQrItem1.Text = sArray[2];
                 TxtBoxQrItem2.Text = sArray[3];
                 TxtBoxQrItem3.Text = sArray[4];
@@ -911,6 +914,50 @@ namespace QrSorterInspectionApp
                 BtnPocketUpdate.Enabled = true;
                 BtnPcketDelete.Enabled = true;
             }
+
+
+            try
+            {
+                string[] sArray;
+                ReadBoxListFile(0);
+                if (PubConstClass.lstBoxList.Count>0)
+                {
+                    sArray = PubConstClass.lstBoxList[0].Split(',');
+                    TxtGrpName1.Text = sArray[1];
+                }
+
+                ReadBoxListFile(1);
+                if (PubConstClass.lstBoxList.Count > 0)
+                {
+                    sArray = PubConstClass.lstBoxList[0].Split(',');
+                    TxtGrpName2.Text = sArray[1];
+                }
+
+                ReadBoxListFile(2);
+                if (PubConstClass.lstBoxList.Count > 0)
+                {
+                    sArray = PubConstClass.lstBoxList[0].Split(',');
+                    TxtGrpName3.Text = sArray[1];
+                }
+
+                ReadBoxListFile(3);
+                if (PubConstClass.lstBoxList.Count > 0)
+                {
+                    sArray = PubConstClass.lstBoxList[0].Split(',');
+                    TxtGrpName4.Text = sArray[1];
+                }
+
+                ReadBoxListFile(4);
+                if (PubConstClass.lstBoxList.Count > 0)
+                {
+                    sArray = PubConstClass.lstBoxList[0].Split(',');
+                    TxtGrpName5.Text = sArray[1];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CmbGroup_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -925,7 +972,7 @@ namespace QrSorterInspectionApp
                 if (PubConstClass.lstBoxList.Count == 0)
                 {
                     // 登録データが無いので表示をクリア
-                    TxtBoxName.Text = "";
+                    TxtGrpName.Text = "";
                     TxtBoxQrItem1.Text = "";
                     TxtBoxQrItem2.Text = "";
                     TxtBoxQrItem3.Text = "";
@@ -1072,7 +1119,7 @@ namespace QrSorterInspectionApp
                 sData += iNumber.ToString("000") + ",";
 
                 // グループ項目名
-                sData += TxtBoxName.Text.Trim() + ",";
+                sData += TxtGrpName.Text.Trim() + ",";
                 // QR読取項目①
                 sData += TxtBoxQrItem1.Text + ",";
                 // QR読取項目②
@@ -1150,13 +1197,13 @@ namespace QrSorterInspectionApp
                 ReadBoxListFile(CmbGroup.SelectedIndex);
 
                 // BOX名の重複登録チェック
-                bool bRet = CheckDuplicateBoxName(TxtBoxName.Text);
+                bool bRet = CheckDuplicateBoxName(TxtGrpName.Text);
                 if (bRet)
                 {
-                    MessageBox.Show($"ジョブ名「{TxtBoxName.Text}」は既に存在します", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"ジョブ名「{TxtGrpName.Text}」は既に存在します", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                string sMessage = GetBoxEntryData(TxtBoxName);
+                string sMessage = GetBoxEntryData(TxtGrpName);
                 DialogResult dialogResult = MessageBox.Show($"下記データを追加しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
                 {
@@ -1195,7 +1242,7 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                string sMessage = GetBoxEntryData(TxtBoxName);
+                string sMessage = GetBoxEntryData(TxtGrpName);
                 DialogResult dialogResult = MessageBox.Show($"下記データを更新しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
                 {
@@ -1229,7 +1276,7 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                string sMessage = GetBoxEntryData(TxtBoxName);
+                string sMessage = GetBoxEntryData(TxtGrpName);
                 DialogResult dialogResult = MessageBox.Show($"下記データを削除しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
                 {
@@ -1265,6 +1312,45 @@ namespace QrSorterInspectionApp
         private void BtnApply_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnJobSelect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+
+
+                CommonModule.OutPutLogFile("■「丁合指示データ取込」ボタンクリック");
+                // 初期表示するフォルダの指定（「空の文字列」の時は現在のディレクトリを表示）
+                //ofd.InitialDirectory = @"C:\";
+                // 「ファイルの種類」に表示される選択肢の指定
+                ofd.Filter = "TXTファイル(*.csv;*.CSV)|*.csv;*.CSV|すべてのファイル(*.*)|*.*";
+                // 「ファイルの種類」ではじめに「すべてのファイル(*.*)|*.*」を選択
+                ofd.FilterIndex = 2;
+                // タイトルを設定
+                ofd.Title = "丁合指示データファイルを選択してください";
+                // ダイアログボックスを閉じる前に現在のディレクトリを復元
+                ofd.RestoreDirectory = true;
+                // 存在しないファイルの名前が指定されたとき警告を表示
+                ofd.CheckFileExists = true;
+                // 存在しないパスが指定されたとき警告を表示
+                ofd.CheckPathExists = true;
+                // ダイアログを表示する
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    // 「OK」ボタンがクリック（選択されたファイル名を表示）
+                    LblSelectedFile.Text = ofd.FileName;
+                    // 読込処理
+                    CommonModule.ReadJobEntryListFile(LblSelectedFile.Text);
+
+                    GetEntryJobItem(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnJobSelect_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
