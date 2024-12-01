@@ -123,6 +123,32 @@ namespace QrSorterInspectionApp
             }
         }
 
+        public static void ReadJobEntryListFile(string sFileName)
+        {
+            //string sReadDataPath;
+            string sData;
+
+            try
+            {
+                //sReadDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_JOB_ENTRY_FILE_NAME;
+
+                PubConstClass.lstJobEntryList.Clear();
+                using (StreamReader sr = new StreamReader(sFileName, Encoding.Default))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        sData = sr.ReadLine();
+                        PubConstClass.lstJobEntryList.Add(sData);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ReadJobEntryListFile(sFileName)】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         /// <summary>
         /// 不着事由情報ファイル読込
         /// </summary>
