@@ -27,13 +27,8 @@ namespace QrSorterInspectionApp
         public static List<string> lstJobEntryList = new List<string>();        // 登録ジョブ情報
         public const string DEF_JOB_ENTRY_FILE_NAME = "JobEntryList.txt";       // 登録ジョブファイル名
 
-        public static List<string> lstBoxList = new List<string>();             // 
-        public const string DEF_BOX1_LIST_NAME = "Box1List.txt";                // BOX1の名前
-        public const string DEF_BOX2_LIST_NAME = "Box2List.txt";                // BOX2の名前
-        public const string DEF_BOX3_LIST_NAME = "Box3List.txt";                // BOX3の名前
-        public const string DEF_BOX4_LIST_NAME = "Box4List.txt";                // BOX4の名前
-        public const string DEF_BOX5_LIST_NAME = "Box5List.txt";                // BOX5の名前
 
+        public static List<string> lstGroupInfo = new List<string>();           // グループ１～５の情報
         public static List<string> lstNonDeliveryList = new List<string>();     // 不着事由情報
         public const string DEF_NON_DELIVERY = "NonDeliveryReasonSorting.txt";  // 不着事由格納ファイル
 
@@ -68,7 +63,5 @@ namespace QrSorterInspectionApp
         public static string pblComIsParity;            // パリティの有無（0：無効／1：有効）
         public static string pblComParityVar;           // パリティ種別（0：奇数／1：偶数）
         public static string pblComStopBit;             // ストップビット（0：1bit／1：2bit）
-
-
     }
 }

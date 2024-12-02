@@ -123,23 +123,37 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// ジョブ登録情報及びグループ１～５の情報を読み取る
+        /// </summary>
+        /// <param name="sFileName"></param>
         public static void ReadJobEntryListFile(string sFileName)
         {
-            //string sReadDataPath;
             string sData;
 
             try
             {
-                //sReadDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_JOB_ENTRY_FILE_NAME;
-
                 PubConstClass.lstJobEntryList.Clear();
+                PubConstClass.lstGroupInfo.Clear();
                 using (StreamReader sr = new StreamReader(sFileName, Encoding.Default))
                 {
-                    while (!sr.EndOfStream)
-                    {
-                        sData = sr.ReadLine();
-                        PubConstClass.lstJobEntryList.Add(sData);
-                    }
+                    sData = sr.ReadLine();
+                    PubConstClass.lstJobEntryList.Add(sData);
+                    // グループ１情報読取
+                    sData = sr.ReadLine();
+                    PubConstClass.lstGroupInfo.Add(sData);
+                    // グループ２情報読取
+                    sData = sr.ReadLine();
+                    PubConstClass.lstGroupInfo.Add(sData);
+                    // グループ３情報読取
+                    sData = sr.ReadLine();
+                    PubConstClass.lstGroupInfo.Add(sData);
+                    // グループ４情報読取
+                    sData = sr.ReadLine();
+                    PubConstClass.lstGroupInfo.Add(sData);
+                    // グループ５情報読取
+                    sData = sr.ReadLine();
+                    PubConstClass.lstGroupInfo.Add(sData);
                 }
             }
             catch (Exception ex)
@@ -147,7 +161,6 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【ReadJobEntryListFile(sFileName)】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         /// <summary>
         /// 不着事由情報ファイル読込
