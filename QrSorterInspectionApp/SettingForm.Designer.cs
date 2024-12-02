@@ -1141,6 +1141,7 @@
             this.CmbGroup5.Name = "CmbGroup5";
             this.CmbGroup5.Size = new System.Drawing.Size(105, 32);
             this.CmbGroup5.TabIndex = 338;
+            this.CmbGroup5.SelectedIndexChanged += new System.EventHandler(this.CmbGroup5_SelectedIndexChanged);
             // 
             // groupBox4
             // 
@@ -1367,6 +1368,7 @@
             this.CmbGroup1.Name = "CmbGroup1";
             this.CmbGroup1.Size = new System.Drawing.Size(105, 32);
             this.CmbGroup1.TabIndex = 334;
+            this.CmbGroup1.SelectedIndexChanged += new System.EventHandler(this.CmbGroup1_SelectedIndexChanged);
             // 
             // TxtPocketName4
             // 
@@ -1390,6 +1392,7 @@
             this.CmbGroup4.Name = "CmbGroup4";
             this.CmbGroup4.Size = new System.Drawing.Size(105, 32);
             this.CmbGroup4.TabIndex = 333;
+            this.CmbGroup4.SelectedIndexChanged += new System.EventHandler(this.CmbGroup4_SelectedIndexChanged);
             // 
             // TxtPocketName3
             // 
@@ -1413,6 +1416,7 @@
             this.CmbGroup3.Name = "CmbGroup3";
             this.CmbGroup3.Size = new System.Drawing.Size(105, 32);
             this.CmbGroup3.TabIndex = 330;
+            this.CmbGroup3.SelectedIndexChanged += new System.EventHandler(this.CmbGroup3_SelectedIndexChanged);
             // 
             // TxtPocketName2
             // 
@@ -1436,6 +1440,7 @@
             this.CmbGroup2.Name = "CmbGroup2";
             this.CmbGroup2.Size = new System.Drawing.Size(105, 32);
             this.CmbGroup2.TabIndex = 327;
+            this.CmbGroup2.SelectedIndexChanged += new System.EventHandler(this.CmbGroup2_SelectedIndexChanged);
             // 
             // BtnDelete
             // 

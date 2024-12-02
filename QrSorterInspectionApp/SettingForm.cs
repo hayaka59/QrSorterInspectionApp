@@ -378,15 +378,15 @@ namespace QrSorterInspectionApp
                 CmbQuantOnOff5.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
                 iIndex++;
 
-                sArray = PubConstClass.lstGroupInfo[0].Split(',');
+                sArray = PubConstClass.lstGroupInfo[CmbGroup1.SelectedIndex].Split(',');
                 TxtGrpName1.Text = sArray[0];
-                sArray = PubConstClass.lstGroupInfo[1].Split(',');
+                sArray = PubConstClass.lstGroupInfo[CmbGroup2.SelectedIndex].Split(',');
                 TxtGrpName2.Text = sArray[0];
-                sArray = PubConstClass.lstGroupInfo[2].Split(',');
+                sArray = PubConstClass.lstGroupInfo[CmbGroup3.SelectedIndex].Split(',');
                 TxtGrpName3.Text = sArray[0];
-                sArray = PubConstClass.lstGroupInfo[3].Split(',');
+                sArray = PubConstClass.lstGroupInfo[CmbGroup4.SelectedIndex].Split(',');
                 TxtGrpName4.Text = sArray[0];
-                sArray = PubConstClass.lstGroupInfo[4].Split(',');
+                sArray = PubConstClass.lstGroupInfo[CmbGroup5.SelectedIndex].Split(',');
                 TxtGrpName5.Text = sArray[0];
                 
                 // QR読取項目１～４を更新する
@@ -471,6 +471,35 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【NumUpDwnQrAllDigit_ValueChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void WriteNewJobFile(string sFileName ,string sData)
+        {
+            string sPutDataPath = "";
+
+            try
+            {
+                sPutDataPath += CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath);
+                sPutDataPath += "\\JOB\\";
+                sPutDataPath += sFileName;
+
+                // 上書モードで書き込む
+                using (StreamWriter sw = new StreamWriter(sPutDataPath, false, Encoding.Default))
+                {
+                    sw.WriteLine(sData);
+
+                    sw.WriteLine(PubConstClass.lstGroupInfo[0]);
+                    sw.WriteLine(PubConstClass.lstGroupInfo[1]);
+                    sw.WriteLine(PubConstClass.lstGroupInfo[2]);
+                    sw.WriteLine(PubConstClass.lstGroupInfo[3]);
+                    sw.WriteLine(PubConstClass.lstGroupInfo[4]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【WriteNewJobFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         /// <summary>
         /// ジョブ登録リストファイルの書込み
@@ -558,20 +587,12 @@ namespace QrSorterInspectionApp
         /// <summary>
         /// 全てのジョブ登録データ名称の取得
         /// </summary>
-        /// <param name="iMode">0：追加／1：更新</param>
         /// <returns></returns>
-        private string GetAllJobEntryData(int iMode)
+        private string GetAllJobEntryData()
         {
             try
             {
-                string sData = "";
-                // フォルダ作成日時
-                if(iMode == 0)
-                {
-                    // 追加の場合はフォルダ作成日時を更新する
-                    sFolderCreationDateAndTime = "JOB" + DateTime.Now.ToString("yyyyMMddHHmmss");
-                }
-                sData += sFolderCreationDateAndTime + ",";
+                string sData = "";               
                 // JOB名
                 sData += TxtJobName.Text.Trim() + ",";
                 // 媒体
@@ -683,13 +704,13 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                // JOB名の重複登録チェック
-                bool bRet = CheckDuplicateJobName(TxtJobName.Text);
-                if (bRet)
-                {
-                    MessageBox.Show($"ジョブ名「{TxtJobName.Text}」は既に存在します", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //// JOB名の重複登録チェック
+                //bool bRet = CheckDuplicateJobName(TxtJobName.Text);
+                //if (bRet)
+                //{
+                //    MessageBox.Show($"ジョブ名「{TxtJobName.Text}」は既に存在します", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
                 string sMessage = GetJobEntryData();
                 DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを追加しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
@@ -698,33 +719,36 @@ namespace QrSorterInspectionApp
                 }
 
                 // 全てのジョブ登録データ名称の取得
-                string sData = GetAllJobEntryData(0);
+                string sData = GetAllJobEntryData();
 
                 // ジョブ登録データの追加
-                PubConstClass.lstJobEntryList.Add(sData);
+                //PubConstClass.lstJobEntryList.Add(sData);
+
+                // 
+                WriteNewJobFile(TxtJobName.Text + ".csv", sData);
 
                 // ジョブ登録リストファイルの書込み
-                WriteJobEntryListFile();
+                //WriteJobEntryListFile();
 
                 // 新規ジョブのBOXファイルが存在するか確認
-                string sFolder = "";
-                string sJobFolder = "\\JOB\\";                
-                sJobFolder += sFolderCreationDateAndTime + "\\";
-                sFolder = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
-                if (!Directory.Exists(sFolder))
-                {
-                    // フォルダを作成
-                    Directory.CreateDirectory(sFolder);
-                    // ファイルが無い場合は空ファイルを作成
-                    File.Create(sFolder + "Box1List.txt").Close();
-                    File.Create(sFolder + "Box2List.txt").Close();
-                    File.Create(sFolder + "Box3List.txt").Close();
-                    File.Create(sFolder + "Box4List.txt").Close();
-                    File.Create(sFolder + "Box5List.txt").Close();
-                }
+                //string sFolder = "";
+                //string sJobFolder = "\\JOB\\";                
+                //sJobFolder += sFolderCreationDateAndTime + "\\";
+                //sFolder = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
+                //if (!Directory.Exists(sFolder))
+                //{
+                //    // フォルダを作成
+                //    Directory.CreateDirectory(sFolder);
+                //    // ファイルが無い場合は空ファイルを作成
+                //    File.Create(sFolder + "Box1List.txt").Close();
+                //    File.Create(sFolder + "Box2List.txt").Close();
+                //    File.Create(sFolder + "Box3List.txt").Close();
+                //    File.Create(sFolder + "Box4List.txt").Close();
+                //    File.Create(sFolder + "Box5List.txt").Close();
+                //}
 
                 // JOB一覧表示
-                DisplayJobName();
+                //DisplayJobName();
             }
             catch (Exception ex)
             {
@@ -749,7 +773,7 @@ namespace QrSorterInspectionApp
                 }
 
                 // 全てのジョブ登録データ名称の取得
-                string sData = GetAllJobEntryData(1);
+                string sData = GetAllJobEntryData();
 
                 // ジョブ登録データの追加
                 PubConstClass.lstJobEntryList[LsbJobListFeeder.SelectedIndex] = sData;
@@ -900,24 +924,24 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem3.Text = sArray[3];
                 TxtBoxQrItem4.Text = sArray[4];
                 // 選択したグループ名の表示
-                switch (CmbGroup.SelectedIndex)
-                {
-                    case 0:
-                        TxtGrpName1.Text = sArray[0];
-                        break;
-                    case 1:
-                        TxtGrpName2.Text = sArray[0];
-                        break;
-                    case 2:
-                        TxtGrpName3.Text = sArray[0];
-                        break;
-                    case 3:
-                        TxtGrpName4.Text = sArray[0];
-                        break;
-                    case 4:
-                        TxtGrpName5.Text = sArray[0];
-                        break;
-                }
+                //switch (CmbGroup.SelectedIndex)
+                //{
+                //    case 0:
+                //        TxtGrpName1.Text = sArray[0];
+                //        break;
+                //    case 1:
+                //        TxtGrpName2.Text = sArray[0];
+                //        break;
+                //    case 2:
+                //        TxtGrpName3.Text = sArray[0];
+                //        break;
+                //    case 3:
+                //        TxtGrpName4.Text = sArray[0];
+                //        break;
+                //    case 4:
+                //        TxtGrpName5.Text = sArray[0];
+                //        break;
+                //}
             }
             catch (Exception ex)
             {
@@ -1025,6 +1049,63 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【BtnJobSelect_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void CmbGroup1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup1.SelectedIndex > 4)
+            {
+                return;
+            }
+            string[] sArray = PubConstClass.lstGroupInfo[CmbGroup1.SelectedIndex].Split(',');
+            TxtGrpName1.Text = sArray[0];
+        }
+
+        private void CmbGroup2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup2.SelectedIndex > 4)
+            {
+                return;
+            }
+            string[] sArray = PubConstClass.lstGroupInfo[CmbGroup2.SelectedIndex].Split(',');
+            TxtGrpName2.Text = sArray[0];
+
+        }
+
+        private void CmbGroup3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup3.SelectedIndex > 4)
+            {
+                return;
+            }
+
+            string[] sArray = PubConstClass.lstGroupInfo[CmbGroup3.SelectedIndex].Split(',');
+            TxtGrpName3.Text = sArray[0];
+
+        }
+
+        private void CmbGroup4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup4.SelectedIndex > 4)
+            {
+                return;
+            }
+
+            string[] sArray = PubConstClass.lstGroupInfo[CmbGroup4.SelectedIndex].Split(',');
+            TxtGrpName4.Text = sArray[0];
+
+        }
+
+        private void CmbGroup5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup5.SelectedIndex > 4)
+            {
+                return;
+            }
+
+            string[] sArray = PubConstClass.lstGroupInfo[CmbGroup5.SelectedIndex].Split(',');
+            TxtGrpName5.Text = sArray[0];
+
         }
     }
 }
