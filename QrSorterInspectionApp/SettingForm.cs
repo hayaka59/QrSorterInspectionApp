@@ -1320,7 +1320,6 @@ namespace QrSorterInspectionApp
             {
                 OpenFileDialog ofd = new OpenFileDialog();
 
-
                 CommonModule.OutPutLogFile("■「丁合指示データ取込」ボタンクリック");
                 // 初期表示するフォルダの指定（「空の文字列」の時は現在のディレクトリを表示）
                 //ofd.InitialDirectory = @"C:\";
@@ -1340,9 +1339,12 @@ namespace QrSorterInspectionApp
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     // 「OK」ボタンがクリック（選択されたファイル名を表示）
-                    LblSelectedFile.Text = ofd.FileName;
+                    string sFileName = ofd.FileName;
+                    string[] sArray= sFileName.Split('\\');
+                    // ファイル名のみを表示する
+                    LblSelectedFile.Text = sArray[sArray.Length - 1];
                     // 読込処理
-                    CommonModule.ReadJobEntryListFile(LblSelectedFile.Text);
+                    CommonModule.ReadJobEntryListFile(sFileName);
 
                     GetEntryJobItem(0);
                 }
