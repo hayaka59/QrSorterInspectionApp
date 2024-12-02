@@ -57,7 +57,6 @@
             this.NmUpDnPropertyIdKeta = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.LstBoxName = new System.Windows.Forms.ListBox();
             this.CmbNonDeliveryOnOff2 = new System.Windows.Forms.ComboBox();
             this.CmbNonDeliveryOnOff1 = new System.Windows.Forms.ComboBox();
             this.CmbDateReceipt = new System.Windows.Forms.ComboBox();
@@ -66,8 +65,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.CmbReadingFunction = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.BtnPocketAdd = new System.Windows.Forms.Button();
-            this.BtnPcketDelete = new System.Windows.Forms.Button();
             this.CmbCheckNumberOfDigits = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.CmbUltrasonicDetection = new System.Windows.Forms.ComboBox();
@@ -164,7 +161,6 @@
             // LblSelectedFile
             // 
             this.LblSelectedFile.BackColor = System.Drawing.Color.White;
-            this.LblSelectedFile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblSelectedFile.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblSelectedFile.ForeColor = System.Drawing.Color.Black;
             this.LblSelectedFile.Location = new System.Drawing.Point(70, 156);
@@ -635,19 +631,6 @@
             this.label28.Text = "桁数";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LstBoxName
-            // 
-            this.LstBoxName.BackColor = System.Drawing.Color.LightCyan;
-            this.LstBoxName.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LstBoxName.FormattingEnabled = true;
-            this.LstBoxName.ItemHeight = 24;
-            this.LstBoxName.Location = new System.Drawing.Point(1095, 993);
-            this.LstBoxName.Name = "LstBoxName";
-            this.LstBoxName.Size = new System.Drawing.Size(192, 28);
-            this.LstBoxName.TabIndex = 313;
-            this.LstBoxName.Visible = false;
-            this.LstBoxName.SelectedIndexChanged += new System.EventHandler(this.LstBoxName_SelectedIndexChanged);
-            // 
             // CmbNonDeliveryOnOff2
             // 
             this.CmbNonDeliveryOnOff2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -748,36 +731,6 @@
             this.label5.TabIndex = 305;
             this.label5.Text = "読取機能";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnPocketAdd
-            // 
-            this.BtnPocketAdd.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnPocketAdd.Image = global::QrSorterInspectionApp.Properties.Resources.new_plus;
-            this.BtnPocketAdd.Location = new System.Drawing.Point(1304, 981);
-            this.BtnPocketAdd.Name = "BtnPocketAdd";
-            this.BtnPocketAdd.Size = new System.Drawing.Size(93, 40);
-            this.BtnPocketAdd.TabIndex = 315;
-            this.BtnPocketAdd.Text = "追加";
-            this.BtnPocketAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPocketAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnPocketAdd.UseVisualStyleBackColor = true;
-            this.BtnPocketAdd.Visible = false;
-            this.BtnPocketAdd.Click += new System.EventHandler(this.BtnPocketAdd_Click);
-            // 
-            // BtnPcketDelete
-            // 
-            this.BtnPcketDelete.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnPcketDelete.Image = global::QrSorterInspectionApp.Properties.Resources.delete;
-            this.BtnPcketDelete.Location = new System.Drawing.Point(1403, 981);
-            this.BtnPcketDelete.Name = "BtnPcketDelete";
-            this.BtnPcketDelete.Size = new System.Drawing.Size(93, 40);
-            this.BtnPcketDelete.TabIndex = 317;
-            this.BtnPcketDelete.Text = "削除";
-            this.BtnPcketDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPcketDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnPcketDelete.UseVisualStyleBackColor = true;
-            this.BtnPcketDelete.Visible = false;
-            this.BtnPcketDelete.Click += new System.EventHandler(this.BtnPcketDelete_Click);
             // 
             // CmbCheckNumberOfDigits
             // 
@@ -1623,6 +1576,7 @@
             this.LsbJobListFeeder.Name = "LsbJobListFeeder";
             this.LsbJobListFeeder.Size = new System.Drawing.Size(360, 88);
             this.LsbJobListFeeder.TabIndex = 204;
+            this.LsbJobListFeeder.Visible = false;
             this.LsbJobListFeeder.SelectedIndexChanged += new System.EventHandler(this.LsbJobListFeeder_SelectedIndexChanged);
             // 
             // label7
@@ -1681,6 +1635,7 @@
             this.label2.TabIndex = 205;
             this.label2.Text = "JOB一覧";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Visible = false;
             // 
             // label4
             // 
@@ -1828,13 +1783,10 @@
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.LstBoxName);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnApply);
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.LblTitle);
-            this.Controls.Add(this.BtnPcketDelete);
-            this.Controls.Add(this.BtnPocketAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1902,10 +1854,7 @@
         private System.Windows.Forms.TextBox TxtBoxQrItem3;
         private System.Windows.Forms.TextBox TxtBoxQrItem2;
         private System.Windows.Forms.TextBox TxtBoxQrItem1;
-        internal System.Windows.Forms.Button BtnPcketDelete;
         internal System.Windows.Forms.Button BtnPocketUpdate;
-        internal System.Windows.Forms.Button BtnPocketAdd;
-        private System.Windows.Forms.ListBox LstBoxName;
         internal System.Windows.Forms.ComboBox CmbGroup;
         private System.Windows.Forms.TextBox TxtGrpName;
         internal System.Windows.Forms.Label label42;

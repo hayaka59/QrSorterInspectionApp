@@ -107,18 +107,11 @@ namespace QrSorterInspectionApp
                 CmbGroup.SelectedIndex = 0;
                 CmbGroup1.SelectedIndex = 0;
                 CmbGroup2.SelectedIndex = 0;
-                CmbGroup3.SelectedIndex = 2;
-                CmbGroup4.SelectedIndex = 3;
-                CmbGroup5.SelectedIndex = 4;
-
+                CmbGroup3.SelectedIndex = 0;
+                CmbGroup4.SelectedIndex = 0;
+                CmbGroup5.SelectedIndex = 0;
                 CmbGroup6.Items.Add("リジェクト");
                 CmbGroup6.SelectedIndex = 0;
-
-                TxtPocketName1.Text = "コメリ";
-                TxtPocketName2.Text = "コメリ";
-                TxtPocketName3.Text = "武蔵野BK";
-                TxtPocketName4.Text = "西日本シティーBK";
-                TxtPocketName5.Text = "リジェクト";
                 #endregion
 
                 #region 数量（ポケット切替件数）
@@ -134,22 +127,8 @@ namespace QrSorterInspectionApp
                 SetComboOnOff(CmbQuantOnOff5);
                 #endregion
 
-                ClearDisplayData();
-                // ジョブ登録リストファイル読込
-                CommonModule.ReadJobEntryListFile();
-                // JOB一覧表示
-                DisplayJobName();
-                // QR桁数情報色の設定
-                SetColorForQrData(sender, e);
-
-                LblSelectedFile.Text = "";
-
-                if (PubConstClass.lstJobEntryList.Count == 0)
-                {
-                    // ジョブ登録件数が「0」の場合は「更新」「削除」ボタンは使用不可
-                    BtnUpdate.Enabled = false;
-                    BtnDelete.Enabled = false;
-                }
+                // 設定画面の項目をクリアする
+                ClearDisplayData();                
             }
             catch (Exception ex)
             {
@@ -402,6 +381,17 @@ namespace QrSorterInspectionApp
                 CmbQuantOnOff5.SelectedIndex = sArray[iIndex].Trim() == "ON" ? 0 : 1;
                 iIndex++;
 
+                sArray = PubConstClass.lstGroupInfo[0].Split(',');
+                TxtGrpName1.Text = sArray[1];
+                sArray = PubConstClass.lstGroupInfo[1].Split(',');
+                TxtGrpName2.Text = sArray[1];
+                sArray = PubConstClass.lstGroupInfo[2].Split(',');
+                TxtGrpName3.Text = sArray[1];
+                sArray = PubConstClass.lstGroupInfo[3].Split(',');
+                TxtGrpName4.Text = sArray[1];
+                sArray = PubConstClass.lstGroupInfo[4].Split(',');
+                TxtGrpName5.Text = sArray[1];
+                
                 // グループ１～４を更新する
                 CmbGroup.SelectedIndex = 1;
                 CmbGroup.SelectedIndex = 0;
@@ -826,6 +816,9 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// 設定画面の項目をクリアする
+        /// </summary>
         private void ClearDisplayData()
         {
             try
@@ -843,25 +836,45 @@ namespace QrSorterInspectionApp
                 // Wフィード検査
                 CmbDoubleFeed.SelectedIndex = 0;
                 // QR読取項目①
-                TxtQrReadItem1.Text = "1";
+                TxtQrReadItem1.Text = "";
                 NmUpDnPropertyIdStart.Value = 1;
                 NmUpDnPropertyIdKeta.Value = 1;
                 // QR読取項目②
-                TxtQrReadItem2.Text = "1";
-                NmUpDnPostalDateStart.Value = 2;
+                TxtQrReadItem2.Text = "";
+                NmUpDnPostalDateStart.Value = 1;
                 NmUpDnPostalDateKeta.Value = 1;
                 // QR読取項目③
-                TxtQrReadItem3.Text = "1";
-                NmUpDnFileTypeStart.Value = 3;
+                TxtQrReadItem3.Text = "";
+                NmUpDnFileTypeStart.Value = 1;
                 NmUpDnFileTypeKeta.Value = 1;
                 // QR読取項目④
-                TxtQrReadItem4.Text = "1";
-                NmUpDnManagementNoStart.Value = 4;
+                TxtQrReadItem4.Text = "";
+                NmUpDnManagementNoStart.Value = 1;
                 NmUpDnManagementNoKeta.Value = 1;
                 // 仕分け①
                 CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
                 // 仕分け②
                 CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
+                // 選択ジョブファイル名クリア
+                LblSelectedFile.Text = "";
+                // QR読取項目名クリア
+                TxtBoxQrItem1.Text = "";
+                TxtBoxQrItem2.Text = "";
+                TxtBoxQrItem3.Text = "";
+                TxtBoxQrItem4.Text = "";
+                // ポケット名称クリア
+                TxtPocketName1.Text = "";
+                TxtPocketName2.Text = "";
+                TxtPocketName3.Text = "";
+                TxtPocketName4.Text = "";
+                TxtPocketName5.Text = "";
+                // グループ名クリア
+                TxtGrpName.Text = "";
+                TxtGrpName1.Text = "";
+                TxtGrpName2.Text = "";
+                TxtGrpName3.Text = "";
+                TxtGrpName4.Text = "";
+                TxtGrpName5.Text = "";
             }
             catch (Exception ex)
             {
@@ -869,222 +882,43 @@ namespace QrSorterInspectionApp
             }
         }
 
-        private void DisplayBoxQritem()
+        private void CmbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             string[] sArray;
-
             try
             {
-                LblBox1QrReadItem1.Text = "QR読取項目①：" + TxtQrReadItem1.Text;
-                LblBox1QrReadItem2.Text = "QR読取項目②：" + TxtQrReadItem2.Text;
-                LblBox1QrReadItem3.Text = "QR読取項目③：" + TxtQrReadItem3.Text;
-                LblBox1QrReadItem4.Text = "QR読取項目④：" + TxtQrReadItem4.Text;
-                sArray = PubConstClass.lstBoxList[LstBoxName.SelectedIndex].Split(',');
+                if (PubConstClass.lstGroupInfo.Count == 0)
+                {
+                    return;
+                }
+                sArray = PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex].Split(',');
                 TxtGrpName.Text = sArray[1];
                 TxtBoxQrItem1.Text = sArray[2];
                 TxtBoxQrItem2.Text = sArray[3];
                 TxtBoxQrItem3.Text = sArray[4];
                 TxtBoxQrItem4.Text = sArray[5];
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【DisplayBoxQritem】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void LstBoxName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DisplayBoxQritem();
-        }
-
-        private void CmbGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // ボックス名リストファイルの読込
-            ReadBoxListFile(CmbGroup.SelectedIndex);
-            // リストボックス名一覧の表示
-            DisplayListBox(LstBoxName);
-
-            if (LstBoxName.Items.Count == 0)
-            {
-                BtnPocketUpdate.Enabled = false;
-                BtnPcketDelete.Enabled = false;
-            }
-            else
-            {
-                BtnPocketUpdate.Enabled = true;
-                BtnPcketDelete.Enabled = true;
-            }
-
-
-            try
-            {
-                string[] sArray;
-                ReadBoxListFile(0);
-                if (PubConstClass.lstBoxList.Count>0)
+                switch (CmbGroup.SelectedIndex)
                 {
-                    sArray = PubConstClass.lstBoxList[0].Split(',');
-                    TxtGrpName1.Text = sArray[1];
-                }
-
-                ReadBoxListFile(1);
-                if (PubConstClass.lstBoxList.Count > 0)
-                {
-                    sArray = PubConstClass.lstBoxList[0].Split(',');
-                    TxtGrpName2.Text = sArray[1];
-                }
-
-                ReadBoxListFile(2);
-                if (PubConstClass.lstBoxList.Count > 0)
-                {
-                    sArray = PubConstClass.lstBoxList[0].Split(',');
-                    TxtGrpName3.Text = sArray[1];
-                }
-
-                ReadBoxListFile(3);
-                if (PubConstClass.lstBoxList.Count > 0)
-                {
-                    sArray = PubConstClass.lstBoxList[0].Split(',');
-                    TxtGrpName4.Text = sArray[1];
-                }
-
-                ReadBoxListFile(4);
-                if (PubConstClass.lstBoxList.Count > 0)
-                {
-                    sArray = PubConstClass.lstBoxList[0].Split(',');
-                    TxtGrpName5.Text = sArray[1];
+                    case 0:
+                        TxtGrpName1.Text = sArray[1];
+                        break;
+                    case 1:
+                        TxtGrpName2.Text = sArray[1];
+                        break;
+                    case 2:
+                        TxtGrpName3.Text = sArray[1];
+                        break;
+                    case 3:
+                        TxtGrpName4.Text = sArray[1];
+                        break;
+                    case 4:
+                        TxtGrpName5.Text = sArray[1];
+                        break;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【CmbGroup_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// リストボックス名一覧の表示
-        /// </summary>
-        /// <param name="listBox"></param>
-        private void DisplayListBox(ListBox listBox)
-        {
-            try
-            {
-                listBox.Items.Clear();
-                if (PubConstClass.lstBoxList.Count == 0)
-                {
-                    // 登録データが無いので表示をクリア
-                    TxtGrpName.Text = "";
-                    TxtBoxQrItem1.Text = "";
-                    TxtBoxQrItem2.Text = "";
-                    TxtBoxQrItem3.Text = "";
-                    TxtBoxQrItem4.Text = "";
-                    return;
-                }
-                foreach (var item in PubConstClass.lstBoxList)
-                {
-                    String[] sArray = item.ToString().Split(',');
-                    listBox.Items.Add(sArray[1]);
-                }
-                listBox.SelectedIndex = 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【DisplayListBox】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// ボックス名リストファイルの読込
-        /// </summary>
-        /// <param name="iGroupIndex"></param>
-        private void ReadBoxListFile(int iGroupIndex)
-        {
-            string sReadDataPath;
-            string sData;
-
-            try
-            {
-                if (sFolderCreationDateAndTime=="")
-                {
-                    return;
-                }
-
-                string sJobFolder = "\\JOB\\";                
-                sJobFolder += sFolderCreationDateAndTime + "\\";
-
-                sReadDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
-                switch (iGroupIndex)
-                {
-                    case 0:
-                        sReadDataPath += PubConstClass.DEF_BOX1_LIST_NAME;
-                        break;
-                    case 1:
-                        sReadDataPath += PubConstClass.DEF_BOX2_LIST_NAME;
-                        break;
-                    case 2:
-                        sReadDataPath += PubConstClass.DEF_BOX3_LIST_NAME;
-                        break;
-                    case 3:
-                        sReadDataPath += PubConstClass.DEF_BOX4_LIST_NAME;
-                        break;
-                    case 4:
-                        sReadDataPath += PubConstClass.DEF_BOX5_LIST_NAME;
-                        break;
-                    default:
-                        sReadDataPath += sJobFolder + PubConstClass.DEF_BOX1_LIST_NAME;
-                        break;
-                }
-                CommonModule.OutPutLogFile("【ReadBoxListFile】" + sReadDataPath);
-                PubConstClass.lstBoxList.Clear();
-                using (StreamReader sr = new StreamReader(sReadDataPath, Encoding.Default))
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        sData = sr.ReadLine();
-                        PubConstClass.lstBoxList.Add(sData);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【ReadBoxListFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="jobName"></param>
-        /// <returns></returns>
-        private bool CheckDuplicateBoxName(string boxName)
-        {
-            try
-            {
-                bool iFind = false;
-                foreach (var item in PubConstClass.lstBoxList)
-                {
-                    string[] sArray = item.Split(',');
-                    if (sArray[1].Trim() == boxName)
-                    {
-                        iFind = true;
-                    }
-                }
-                if (iFind)
-                {
-                    // 重複あり
-                    return true;
-                }
-                else
-                {
-                    // 重複なし
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【CheckDuplicateBoxName】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // エラー発生時は重複ありで返却
-                return true;
             }
         }
 
@@ -1108,130 +942,7 @@ namespace QrSorterInspectionApp
             }
         }
 
-        private string GetAllBoxEntryData(int iNumber)
-        {
-            try
-            {
-                string sData = "";
 
-                // グループ番号
-                //sData += (PubConstClass.lstBoxList.Count + 1).ToString("000") + ",";
-                sData += iNumber.ToString("000") + ",";
-
-                // グループ項目名
-                sData += TxtGrpName.Text.Trim() + ",";
-                // QR読取項目①
-                sData += TxtBoxQrItem1.Text + ",";
-                // QR読取項目②
-                sData += TxtBoxQrItem2.Text + ",";
-                // QR読取項目③
-                sData += TxtBoxQrItem3.Text + ",";
-                // QR読取項目④
-                sData += TxtBoxQrItem4.Text + ",";
-
-                return sData;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【GetAllBoxEntryData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return "";
-            }
-        }
-
-        private void WriteBoxEntryListFile(int iGroupIndex)
-        {
-            string sReadDataPath;
-
-            try
-            {
-                string sJobFolder = "\\JOB\\";                
-                sJobFolder += sFolderCreationDateAndTime + "\\";
-                sReadDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
-                switch (iGroupIndex)
-                {
-                    case 0:
-                        sReadDataPath += PubConstClass.DEF_BOX1_LIST_NAME;
-                        break;
-                    case 1:
-                        sReadDataPath += PubConstClass.DEF_BOX2_LIST_NAME;
-                        break;
-                    case 2:
-                        sReadDataPath += PubConstClass.DEF_BOX3_LIST_NAME;
-                        break;
-                    case 3:
-                        sReadDataPath += PubConstClass.DEF_BOX4_LIST_NAME;
-                        break;
-                    case 4:
-                        sReadDataPath += PubConstClass.DEF_BOX5_LIST_NAME;
-                        break;
-                    default:
-                        sReadDataPath += sJobFolder + PubConstClass.DEF_BOX1_LIST_NAME;
-                        break;
-                }
-                CommonModule.OutPutLogFile("【WriteBoxEntryListFile】" + sReadDataPath);
-                // 上書モードで書き込む
-                using (StreamWriter sw = new StreamWriter(sReadDataPath, false, Encoding.Default))
-                {
-                    foreach (var item in PubConstClass.lstBoxList)
-                    {
-                        sw.WriteLine(item);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【WriteBoxEntryListFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// 「追加」ボタン処理（ポケット①）
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnPocketAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // ボックス名リストファイルの読込
-                ReadBoxListFile(CmbGroup.SelectedIndex);
-
-                // BOX名の重複登録チェック
-                bool bRet = CheckDuplicateBoxName(TxtGrpName.Text);
-                if (bRet)
-                {
-                    MessageBox.Show($"ジョブ名「{TxtGrpName.Text}」は既に存在します", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                string sMessage = GetBoxEntryData(TxtGrpName);
-                DialogResult dialogResult = MessageBox.Show($"下記データを追加しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Cancel)
-                {
-                    return;
-                }
-
-                // 全てのグループ登録データの取得
-                string sData = GetAllBoxEntryData(PubConstClass.lstBoxList.Count + 1);
-
-                // グループ登録データの追加
-                PubConstClass.lstBoxList.Add(sData);
-
-                // グループ登録リストファイルの書込み
-                WriteBoxEntryListFile(CmbGroup.SelectedIndex);
-
-                // リストボックス名一覧の表示
-                DisplayListBox(LstBoxName);
-
-                // 「更新」「削除」ボタンの有効化
-                BtnPocketUpdate.Enabled = true;
-                BtnPcketDelete.Enabled = true;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【BtnPocketAdd_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         /// <summary>
         /// 「更新」ボタン処理（グループ１～４）
@@ -1250,62 +961,20 @@ namespace QrSorterInspectionApp
                 }
 
                 // 全てのグループ登録データの取得
-                string sData = GetAllBoxEntryData(LstBoxName.SelectedIndex + 1);
+                //string sData = GetAllBoxEntryData(LstBoxName.SelectedIndex + 1);
 
                 // グループ登録データの更新
-                PubConstClass.lstBoxList[LstBoxName.SelectedIndex] = sData;
+                //PubConstClass.lstBoxList[LstBoxName.SelectedIndex] = sData;
 
                 // グループ登録リストファイルの書込み
-                WriteBoxEntryListFile(CmbGroup.SelectedIndex);
+                //WriteBoxEntryListFile(CmbGroup.SelectedIndex);
 
                 // リストボックス名一覧の表示
-                DisplayListBox(LstBoxName);
+                //DisplayListBox(LstBoxName);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnPocketUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// 「削除」ボタン処理（グループ１～４）
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnPcketDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string sMessage = GetBoxEntryData(TxtGrpName);
-                DialogResult dialogResult = MessageBox.Show($"下記データを削除しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Cancel)
-                {
-                    return;
-                }
-
-                // グループ登録データの追加
-                PubConstClass.lstBoxList.RemoveAt(LstBoxName.SelectedIndex);
-
-                // グループ登録リストファイルの書込み
-                WriteBoxEntryListFile(CmbGroup.SelectedIndex);
-
-                // リストボックス名一覧の表示
-                DisplayListBox(LstBoxName);
-
-                if (LstBoxName.Items.Count == 0)
-                {
-                    BtnPocketUpdate.Enabled = false;
-                    BtnPcketDelete.Enabled = false;
-                }
-                else
-                {
-                    BtnPocketUpdate.Enabled = true;
-                    BtnPcketDelete.Enabled = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【BtnPcketDelete_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1343,7 +1012,7 @@ namespace QrSorterInspectionApp
                     string[] sArray= sFileName.Split('\\');
                     // ファイル名のみを表示する
                     LblSelectedFile.Text = sArray[sArray.Length - 1];
-                    // 読込処理
+                    // ジョブ登録情報及びグループ１～５情報の読取り
                     CommonModule.ReadJobEntryListFile(sFileName);
 
                     GetEntryJobItem(0);
