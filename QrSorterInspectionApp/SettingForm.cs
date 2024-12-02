@@ -241,9 +241,6 @@ namespace QrSorterInspectionApp
             {
                 int iIndex = 0;
                 sArray = PubConstClass.lstJobEntryList[iJobIndex].Split(',');
-                // フォルダ作成日時
-                sFolderCreationDateAndTime = sArray[iIndex];
-                iIndex++;
                 // JOB名
                 TxtJobName.Text = sArray[iIndex];
                 iIndex++;
@@ -382,17 +379,17 @@ namespace QrSorterInspectionApp
                 iIndex++;
 
                 sArray = PubConstClass.lstGroupInfo[0].Split(',');
-                TxtGrpName1.Text = sArray[1];
+                TxtGrpName1.Text = sArray[0];
                 sArray = PubConstClass.lstGroupInfo[1].Split(',');
-                TxtGrpName2.Text = sArray[1];
+                TxtGrpName2.Text = sArray[0];
                 sArray = PubConstClass.lstGroupInfo[2].Split(',');
-                TxtGrpName3.Text = sArray[1];
+                TxtGrpName3.Text = sArray[0];
                 sArray = PubConstClass.lstGroupInfo[3].Split(',');
-                TxtGrpName4.Text = sArray[1];
+                TxtGrpName4.Text = sArray[0];
                 sArray = PubConstClass.lstGroupInfo[4].Split(',');
-                TxtGrpName5.Text = sArray[1];
+                TxtGrpName5.Text = sArray[0];
                 
-                // グループ１～４を更新する
+                // QR読取項目１～４を更新する
                 CmbGroup.SelectedIndex = 1;
                 CmbGroup.SelectedIndex = 0;
             }
@@ -678,7 +675,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 「追加」ボタン処理
+        /// 「新規追加」ボタン処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -882,6 +879,11 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// グループ１～５の選択処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             string[] sArray;
@@ -892,27 +894,28 @@ namespace QrSorterInspectionApp
                     return;
                 }
                 sArray = PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex].Split(',');
-                TxtGrpName.Text = sArray[1];
-                TxtBoxQrItem1.Text = sArray[2];
-                TxtBoxQrItem2.Text = sArray[3];
-                TxtBoxQrItem3.Text = sArray[4];
-                TxtBoxQrItem4.Text = sArray[5];
+                TxtGrpName.Text = sArray[0];
+                TxtBoxQrItem1.Text = sArray[1];
+                TxtBoxQrItem2.Text = sArray[2];
+                TxtBoxQrItem3.Text = sArray[3];
+                TxtBoxQrItem4.Text = sArray[4];
+                // 選択したグループ名の表示
                 switch (CmbGroup.SelectedIndex)
                 {
                     case 0:
-                        TxtGrpName1.Text = sArray[1];
+                        TxtGrpName1.Text = sArray[0];
                         break;
                     case 1:
-                        TxtGrpName2.Text = sArray[1];
+                        TxtGrpName2.Text = sArray[0];
                         break;
                     case 2:
-                        TxtGrpName3.Text = sArray[1];
+                        TxtGrpName3.Text = sArray[0];
                         break;
                     case 3:
-                        TxtGrpName4.Text = sArray[1];
+                        TxtGrpName4.Text = sArray[0];
                         break;
                     case 4:
-                        TxtGrpName5.Text = sArray[1];
+                        TxtGrpName5.Text = sArray[0];
                         break;
                 }
             }
@@ -1014,7 +1017,7 @@ namespace QrSorterInspectionApp
                     LblSelectedFile.Text = sArray[sArray.Length - 1];
                     // ジョブ登録情報及びグループ１～５情報の読取り
                     CommonModule.ReadJobEntryListFile(sFileName);
-
+                    // 登録ジョブ項目を取得し表示
                     GetEntryJobItem(0);
                 }
             }
