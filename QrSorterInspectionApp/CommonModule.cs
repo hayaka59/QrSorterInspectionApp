@@ -163,7 +163,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 不着事由情報ファイル読込
+        /// 仕分けマスタ（不着事由情報）ファイル読込
         /// </summary>
         public static void ReadNonDeliveryList()
         {
@@ -187,6 +187,40 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【ReadNonDeliveryList】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 仕分けマスタ（不着事由情報）ファイルの書込
+        /// </summary>
+        /// <param name="sData"></param>
+        public static void WriteNonDeliveryList(string sData)
+        {
+            string sPutDataPath;
+            string[] sArray;
+
+            try
+            {
+                char sSplitChar = '\r';
+                sData = sData.Replace("\n", "");
+
+                sPutDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_NON_DELIVERY;
+                // 上書モードで書き込む
+                using (StreamWriter sw = new StreamWriter(sPutDataPath, false, Encoding.Default))
+                {
+                    sArray = sData.Split(sSplitChar);
+                    foreach (var a in sArray)
+                    {
+                        if (a != "")
+                        {
+                            sw.WriteLine(a);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【WriteNonDeliveryList】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
