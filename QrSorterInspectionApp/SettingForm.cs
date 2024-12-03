@@ -487,11 +487,23 @@ namespace QrSorterInspectionApp
                 {
                     sw.WriteLine(sData);
 
-                    sw.WriteLine(PubConstClass.lstGroupInfo[0]);
-                    sw.WriteLine(PubConstClass.lstGroupInfo[1]);
-                    sw.WriteLine(PubConstClass.lstGroupInfo[2]);
-                    sw.WriteLine(PubConstClass.lstGroupInfo[3]);
-                    sw.WriteLine(PubConstClass.lstGroupInfo[4]);
+                    if (PubConstClass.lstGroupInfo.Count ==0)
+                    {
+                        string sDummyData = "QR読取項目１,12345,20241110,1,E123456789";
+                        sw.WriteLine(sDummyData);
+                        sw.WriteLine(sDummyData);
+                        sw.WriteLine(sDummyData);
+                        sw.WriteLine(sDummyData);
+                        sw.WriteLine(sDummyData);
+                    }
+                    else
+                    {
+                        sw.WriteLine(PubConstClass.lstGroupInfo[0]);
+                        sw.WriteLine(PubConstClass.lstGroupInfo[1]);
+                        sw.WriteLine(PubConstClass.lstGroupInfo[2]);
+                        sw.WriteLine(PubConstClass.lstGroupInfo[3]);
+                        sw.WriteLine(PubConstClass.lstGroupInfo[4]);
+                    }
                 }
             }
             catch (Exception ex)
@@ -782,7 +794,7 @@ namespace QrSorterInspectionApp
                 WriteJobEntryListFile();
 
                 // JOB一覧表示
-                DisplayJobName();
+                //DisplayJobName();
 
             }
             catch (Exception ex)
@@ -800,36 +812,46 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                string sMessage = GetJobEntryData();
-                DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを削除しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                //string sMessage = GetJobEntryData();
+                DialogResult dialogResult = MessageBox.Show($"JOB設定ファイル（{LblSelectedFile.Text}）を削除しますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
                 {
                     return;
                 }
 
-                PubConstClass.lstJobEntryList.RemoveAt(LsbJobListFeeder.SelectedIndex);
-                if (PubConstClass.lstJobEntryList.Count == 0)
+                if (File.Exists(sSelectedFile))
                 {
-                    BtnUpdate.Enabled = false;
-                    BtnDelete.Enabled = false;
+                    File.Delete(sSelectedFile);
                     ClearDisplayData();
+                    CommonModule.OutPutLogFile($"JOB設定ファイル（{sSelectedFile}）を削除しました");
                 }
-                // ジョブ登録リストファイルの書込み
-                WriteJobEntryListFile();
 
-                string sFolder = "";
-                string sJobFolder = "\\JOB\\";
-                sJobFolder += sFolderCreationDateAndTime + "\\";
-                sFolder = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
-                if (Directory.Exists(sFolder))
-                {
-                    // 存在する場合はフォルダ（サブフォルダ等を含む）を削除
-                    Directory.Delete(sFolder, true);
-                    CommonModule.OutPutLogFile("【BtnDelete_Click】削除フォルダ：" + sFolder);
-                }
+                //sSelectedFile
+
+
+                //PubConstClass.lstJobEntryList.RemoveAt(LsbJobListFeeder.SelectedIndex);
+                //if (PubConstClass.lstJobEntryList.Count == 0)
+                //{
+                //    BtnUpdate.Enabled = false;
+                //    BtnDelete.Enabled = false;
+                //    ClearDisplayData();
+                //}
+                // ジョブ登録リストファイルの書込み
+                //WriteJobEntryListFile();
+
+                //string sFolder = "";
+                //string sJobFolder = "\\JOB\\";
+                //sJobFolder += sFolderCreationDateAndTime + "\\";
+                //sFolder = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + sJobFolder;
+                //if (Directory.Exists(sFolder))
+                //{
+                //    // 存在する場合はフォルダ（サブフォルダ等を含む）を削除
+                //    Directory.Delete(sFolder, true);
+                //    CommonModule.OutPutLogFile("【BtnDelete_Click】削除フォルダ：" + sFolder);
+                //}
 
                 // JOB一覧表示
-                DisplayJobName();
+                //DisplayJobName();
             }
             catch (Exception ex)
             {
@@ -896,6 +918,11 @@ namespace QrSorterInspectionApp
                 TxtGrpName3.Text = "";
                 TxtGrpName4.Text = "";
                 TxtGrpName5.Text = "";
+
+                // 「保存」ボタンを使用不可とする
+                BtnUpdate.Enabled = false;
+                // 「削除」ボタンを使用不可とする
+                BtnDelete.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -1010,21 +1037,23 @@ namespace QrSorterInspectionApp
 
         }
 
+        string sSelectedFile = "";
+
         private void BtnJobSelect_Click(object sender, EventArgs e)
         {
             try
             {
                 OpenFileDialog ofd = new OpenFileDialog();
 
-                CommonModule.OutPutLogFile("■「丁合指示データ取込」ボタンクリック");
+                CommonModule.OutPutLogFile("■「JO選択」ボタンクリック");
                 // 初期表示するフォルダの指定（「空の文字列」の時は現在のディレクトリを表示）
                 //ofd.InitialDirectory = @"C:\";
                 // 「ファイルの種類」に表示される選択肢の指定
-                ofd.Filter = "TXTファイル(*.csv;*.CSV)|*.csv;*.CSV|すべてのファイル(*.*)|*.*";
-                // 「ファイルの種類」ではじめに「すべてのファイル(*.*)|*.*」を選択
-                ofd.FilterIndex = 2;
+                ofd.Filter = "CSVファイル(*.csv;*.CSV)|*.csv;*.CSV|すべてのファイル(*.*)|*.*";
+                // 「ファイルの種類」ではじめに「CSVファイル(*.csv;*.CSV)」を選択
+                ofd.FilterIndex = 1;
                 // タイトルを設定
-                ofd.Title = "丁合指示データファイルを選択してください";
+                ofd.Title = "JOB設定ファイルを選択してください";
                 // ダイアログボックスを閉じる前に現在のディレクトリを復元
                 ofd.RestoreDirectory = true;
                 // 存在しないファイルの名前が指定されたとき警告を表示
@@ -1035,14 +1064,18 @@ namespace QrSorterInspectionApp
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     // 「OK」ボタンがクリック（選択されたファイル名を表示）
-                    string sFileName = ofd.FileName;
-                    string[] sArray= sFileName.Split('\\');
+                    sSelectedFile = ofd.FileName;
+                    string[] sArray= sSelectedFile.Split('\\');
                     // ファイル名のみを表示する
                     LblSelectedFile.Text = sArray[sArray.Length - 1];
                     // ジョブ登録情報及びグループ１～５情報の読取り
-                    CommonModule.ReadJobEntryListFile(sFileName);
+                    CommonModule.ReadJobEntryListFile(sSelectedFile);
                     // 登録ジョブ項目を取得し表示
                     GetEntryJobItem(0);
+                    // 「保存」ボタンを使用可とする
+                    BtnUpdate.Enabled = true;
+                    // 「削除」ボタンを使用可とする
+                    BtnDelete.Enabled = true;
                 }
             }
             catch (Exception ex)
