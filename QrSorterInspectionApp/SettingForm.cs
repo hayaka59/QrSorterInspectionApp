@@ -127,8 +127,13 @@ namespace QrSorterInspectionApp
                 SetComboOnOff(CmbQuantOnOff5);
                 #endregion
 
-                // 設定画面の項目をクリアする
-                ClearDisplayData();                
+                // 設定画面の項目クリア
+                ClearDisplayData();
+                // 選択中ジョブフィル名クリア
+                LblSelectedFile.Text = "";
+                BtnAdd.Enabled = false;     // 「新規保存」ボタン使用不可
+                BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可
+                BtnDelete.Enabled = false;  // 「削除」　　ボタン使用不可
             }
             catch (Exception ex)
             {
@@ -716,6 +721,21 @@ namespace QrSorterInspectionApp
         {
             try
             {
+
+                DialogResult dialogResult = MessageBox.Show($"ジョブデータを新規追加しますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
+                // 設定画面の項目クリア
+                ClearDisplayData();
+                // 選択中ジョブフィル名クリア
+                LblSelectedFile.Text = "";
+                BtnAdd.Enabled = false;     // 「新規保存」ボタン使用不可
+                BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可
+                BtnDelete.Enabled = false;  // 「削除」　　ボタン使用不可
+
+
                 //// JOB名の重複登録チェック
                 //bool bRet = CheckDuplicateJobName(TxtJobName.Text);
                 //if (bRet)
@@ -723,21 +743,21 @@ namespace QrSorterInspectionApp
                 //    MessageBox.Show($"ジョブ名「{TxtJobName.Text}」は既に存在します", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //    return;
                 //}
-                string sMessage = GetJobEntryData();
-                DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを追加しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Cancel)
-                {
-                    return;
-                }
+                //string sMessage = GetJobEntryData();
+                //DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを追加しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                //if (dialogResult == DialogResult.Cancel)
+                //{
+                //    return;
+                //}
 
                 // 全てのジョブ登録データ名称の取得
-                string sData = GetAllJobEntryData();
+                //string sData = GetAllJobEntryData();
 
                 // ジョブ登録データの追加
                 //PubConstClass.lstJobEntryList.Add(sData);
 
                 // 
-                WriteNewJobFile(TxtJobName.Text + ".csv", sData);
+                //WriteNewJobFile(TxtJobName.Text + ".csv", sData);
 
                 // ジョブ登録リストファイルの書込み
                 //WriteJobEntryListFile();
@@ -777,6 +797,12 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                if (LblSelectedFile.Text.Trim() == "")
+                {
+                    MessageBox.Show("JOBを選択して下さい", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 string sMessage = GetJobEntryData();
                 DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを更新しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
@@ -787,11 +813,17 @@ namespace QrSorterInspectionApp
                 // 全てのジョブ登録データ名称の取得
                 string sData = GetAllJobEntryData();
 
+                WriteNewJobFile(LblSelectedFile.Text, sData);
+
+                BtnAdd.Enabled = true;      // 「新規保存」ボタン使用可
+                BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可
+                BtnDelete.Enabled = true;   // 「削除」　　ボタン使用可
+
                 // ジョブ登録データの追加
-                PubConstClass.lstJobEntryList[LsbJobListFeeder.SelectedIndex] = sData;
+                //PubConstClass.lstJobEntryList[LsbJobListFeeder.SelectedIndex] = sData;
 
                 // ジョブ登録リストファイルの書込み
-                WriteJobEntryListFile();
+                //WriteJobEntryListFile();
 
                 // JOB一覧表示
                 //DisplayJobName();
@@ -812,6 +844,12 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                if (LblSelectedFile.Text.Trim() == "")
+                {
+                    MessageBox.Show("JOBを選択して下さい", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    return;
+                }
+
                 //string sMessage = GetJobEntryData();
                 DialogResult dialogResult = MessageBox.Show($"JOB設定ファイル（{LblSelectedFile.Text}）を削除しますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
@@ -1072,10 +1110,10 @@ namespace QrSorterInspectionApp
                     CommonModule.ReadJobEntryListFile(sSelectedFile);
                     // 登録ジョブ項目を取得し表示
                     GetEntryJobItem(0);
-                    // 「保存」ボタンを使用可とする
-                    BtnUpdate.Enabled = true;
-                    // 「削除」ボタンを使用可とする
-                    BtnDelete.Enabled = true;
+
+                    BtnAdd.Enabled = true;      // 「新規保存」ボタン使用可
+                    BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可                    
+                    BtnDelete.Enabled = true;   // 「削除」　　ボタン使用可
                 }
             }
             catch (Exception ex)
