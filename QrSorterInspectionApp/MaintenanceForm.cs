@@ -95,9 +95,11 @@ namespace QrSorterInspectionApp
                 CmbComStopBit.Items.Add("1bit");
                 CmbComStopBit.Items.Add("2bit");
                 CmbComStopBit.SelectedIndex = Convert.ToInt32(PubConstClass.pblComStopBit);
-                
 
-
+                // 不着事由情報ファイル読込
+                CommonModule.ReadNonDeliveryList();
+                // 仕分けマスタの内容表示
+                NonDeliveryMaintenance();
             }
             catch (Exception ex)
             {
@@ -287,6 +289,118 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace, "【メンテンス画面】【BtnDeleteLogData_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        /// <summary>
+        /// 仕分けマスタの内容表示（テキスト及びリストビュー）
+        /// </summary>
+        private void NonDeliveryMaintenance()
+        {
+            string[] col = new string[10];
+            string[] sAray;
+            ListViewItem itm;
+
+            try
+            {
+                // 仕分けマスタ（テキスト領域）にデータ表示
+                TxtNonDelivery.Text = "";
+                for (int iIndex = 0; iIndex < PubConstClass.lstNonDeliveryList.Count; iIndex++)
+                {
+                    if (iIndex == PubConstClass.lstNonDeliveryList.Count - 1)
+                    {
+                        TxtNonDelivery.Text += PubConstClass.lstNonDeliveryList[iIndex];
+                    }
+                    else
+                    {
+                        TxtNonDelivery.Text += PubConstClass.lstNonDeliveryList[iIndex] + Environment.NewLine;
+                    }
+                }
+
+                // 仕分けマスタ（リストビュー領域）にデータ表示
+                LblNonDelivery.Text = "仕分け一覧";
+
+                // 仕分けマスタ表示ListViewのカラムヘッダー設定
+                LstNonDelivery.View = View.Details;
+                ColumnHeader col1 = new ColumnHeader();
+                ColumnHeader col2 = new ColumnHeader();
+
+                col1.Text = "番号";
+                col2.Text = "仕分け項目";
+
+                col1.TextAlign = HorizontalAlignment.Center;
+                col2.TextAlign = HorizontalAlignment.Left;
+
+                col1.Width = 70;    // 番号
+                col2.Width = 250;   // 仕分け項目
+
+                ColumnHeader[] colHeader = new[] { col1, col2 };
+                LstNonDelivery.Columns.AddRange(colHeader);
+
+                int iCount = 0;
+                // 生協・デポ一覧ファイル格納リスト取得
+                foreach (string sData in PubConstClass.lstNonDeliveryList)
+                {
+                    sAray = sData.Split(',');
+                    col[0] = "　" + sAray[0];
+                    col[1] = sAray[1];
+                    iCount++;
+                    // データの表示
+                    itm = new ListViewItem(col);
+                    LstNonDelivery.Items.Add(itm);
+                    LstNonDelivery.Items[LstNonDelivery.Items.Count - 1].UseItemStyleForSubItems = false;
+                    if (LstNonDelivery.Items.Count % 2 == 1)
+                    {
+                        for (int iIndex = 0; iIndex < 2; iIndex++)
+                        {
+                            // 奇数行の色反転
+                            LstNonDelivery.Items[LstNonDelivery.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
+                        }
+                    }
+                }
+                LblCount.Text = $"表示件数：{iCount} 件";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CoopDepoMaintenance】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 「仕分けマスタの保存」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnNonDeliverySave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //// 生協・デポ入力データの妥当性チェック
+                //bRet = CoopAndDepoInputValidation(TxtCoopDepo.Text);
+                //if (!bRet)
+                //{
+                //    // 妥当性チェックエラー
+                //    return;
+                //}
+                DialogResult dResult = MessageBox.Show("仕分けマスタファイルを保存しますか？", "保存確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dResult == DialogResult.No)
+                {
+                    // 保存しない
+                    return;
+                }
+                // 仕分けマスタの書込
+                CommonModule.WriteNonDeliveryList(TxtNonDelivery.Text);
+                // 不着事由情報ファイルの読込
+                CommonModule.ReadNonDeliveryList();
+                LstNonDelivery.Clear();
+                // 仕分けマスタの内容表示
+                 NonDeliveryMaintenance();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnNonDeliverySave_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);  
             }
         }
     }

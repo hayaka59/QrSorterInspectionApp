@@ -63,11 +63,20 @@
             this.TxtInternalTran = new System.Windows.Forms.TextBox();
             this.BtnInternalTran = new System.Windows.Forms.Button();
             this.Label33 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox46 = new System.Windows.Forms.GroupBox();
+            this.BtnNonDeliverySave = new System.Windows.Forms.Button();
+            this.TxtNonDelivery = new System.Windows.Forms.TextBox();
+            this.LblCount = new System.Windows.Forms.Label();
+            this.LstNonDelivery = new System.Windows.Forms.ListView();
+            this.LblNonDelivery = new System.Windows.Forms.Label();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox6.SuspendLayout();
             this.GroupBox5.SuspendLayout();
             this.GroupBox8.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox46.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblTitle
@@ -101,7 +110,7 @@
             this.GroupBox11.Controls.Add(this.BtnDeleteLogData);
             this.GroupBox11.Controls.Add(this.Label36);
             this.GroupBox11.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox11.Location = new System.Drawing.Point(596, 234);
+            this.GroupBox11.Location = new System.Drawing.Point(97, 239);
             this.GroupBox11.Name = "GroupBox11";
             this.GroupBox11.Size = new System.Drawing.Size(328, 142);
             this.GroupBox11.TabIndex = 247;
@@ -160,7 +169,7 @@
             this.GroupBox7.Controls.Add(this.CmbComPort);
             this.GroupBox7.Controls.Add(this.Label23);
             this.GroupBox7.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox7.Location = new System.Drawing.Point(974, 138);
+            this.GroupBox7.Location = new System.Drawing.Point(475, 143);
             this.GroupBox7.Name = "GroupBox7";
             this.GroupBox7.Size = new System.Drawing.Size(330, 261);
             this.GroupBox7.TabIndex = 246;
@@ -298,7 +307,7 @@
             this.GroupBox6.Controls.Add(this.TxtHddSpace);
             this.GroupBox6.Controls.Add(this.Label29);
             this.GroupBox6.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox6.Location = new System.Drawing.Point(596, 396);
+            this.GroupBox6.Location = new System.Drawing.Point(97, 401);
             this.GroupBox6.Name = "GroupBox6";
             this.GroupBox6.Size = new System.Drawing.Size(328, 75);
             this.GroupBox6.TabIndex = 244;
@@ -334,7 +343,7 @@
             this.GroupBox5.Controls.Add(this.TxtMachineName);
             this.GroupBox5.Controls.Add(this.Label32);
             this.GroupBox5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox5.Location = new System.Drawing.Point(596, 138);
+            this.GroupBox5.Location = new System.Drawing.Point(97, 143);
             this.GroupBox5.Name = "GroupBox5";
             this.GroupBox5.Size = new System.Drawing.Size(328, 75);
             this.GroupBox5.TabIndex = 243;
@@ -369,10 +378,10 @@
             // 
             this.TxtUserAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtUserAccount.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtUserAccount.Location = new System.Drawing.Point(12, 617);
+            this.TxtUserAccount.Location = new System.Drawing.Point(12, 861);
             this.TxtUserAccount.Multiline = true;
             this.TxtUserAccount.Name = "TxtUserAccount";
-            this.TxtUserAccount.Size = new System.Drawing.Size(506, 324);
+            this.TxtUserAccount.Size = new System.Drawing.Size(506, 155);
             this.TxtUserAccount.TabIndex = 252;
             this.TxtUserAccount.Visible = false;
             // 
@@ -380,7 +389,7 @@
             // 
             this.BtnDecript.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnDecript.Image = global::QrSorterInspectionApp.Properties.Resources.decrypt;
-            this.BtnDecript.Location = new System.Drawing.Point(12, 570);
+            this.BtnDecript.Location = new System.Drawing.Point(12, 814);
             this.BtnDecript.Name = "BtnDecript";
             this.BtnDecript.Size = new System.Drawing.Size(227, 45);
             this.BtnDecript.TabIndex = 251;
@@ -395,7 +404,7 @@
             // 
             this.BtnEncript.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnEncript.Image = global::QrSorterInspectionApp.Properties.Resources.encrypt;
-            this.BtnEncript.Location = new System.Drawing.Point(291, 570);
+            this.BtnEncript.Location = new System.Drawing.Point(291, 814);
             this.BtnEncript.Name = "BtnEncript";
             this.BtnEncript.Size = new System.Drawing.Size(227, 45);
             this.BtnEncript.TabIndex = 250;
@@ -410,7 +419,7 @@
             // 
             this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnApply.Image = global::QrSorterInspectionApp.Properties.Resources.check;
-            this.BtnApply.Location = new System.Drawing.Point(615, 722);
+            this.BtnApply.Location = new System.Drawing.Point(97, 679);
             this.BtnApply.Name = "BtnApply";
             this.BtnApply.Size = new System.Drawing.Size(166, 50);
             this.BtnApply.TabIndex = 242;
@@ -424,7 +433,7 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1224, 713);
+            this.BtnClose.Location = new System.Drawing.Point(1616, 679);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(166, 50);
             this.BtnClose.TabIndex = 240;
@@ -441,7 +450,7 @@
             this.GroupBox8.Controls.Add(this.BtnInternalTran);
             this.GroupBox8.Controls.Add(this.Label33);
             this.GroupBox8.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox8.Location = new System.Drawing.Point(596, 498);
+            this.GroupBox8.Location = new System.Drawing.Point(97, 503);
             this.GroupBox8.Name = "GroupBox8";
             this.GroupBox8.Size = new System.Drawing.Size(867, 85);
             this.GroupBox8.TabIndex = 253;
@@ -483,12 +492,101 @@
             this.Label33.Text = "フォルダ";
             this.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.LblCount);
+            this.groupBox1.Controls.Add(this.groupBox46);
+            this.groupBox1.Controls.Add(this.LstNonDelivery);
+            this.groupBox1.Controls.Add(this.LblNonDelivery);
+            this.groupBox1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox1.Location = new System.Drawing.Point(987, 128);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(786, 450);
+            this.groupBox1.TabIndex = 254;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "仕分けマスタ（NonDeliveryReasonSorting.txt）編集";
+            // 
+            // groupBox46
+            // 
+            this.groupBox46.Controls.Add(this.BtnNonDeliverySave);
+            this.groupBox46.Controls.Add(this.TxtNonDelivery);
+            this.groupBox46.Location = new System.Drawing.Point(18, 34);
+            this.groupBox46.Name = "groupBox46";
+            this.groupBox46.Size = new System.Drawing.Size(363, 397);
+            this.groupBox46.TabIndex = 202;
+            this.groupBox46.TabStop = false;
+            this.groupBox46.Text = "仕分けマスタファイルの内容";
+            // 
+            // BtnNonDeliverySave
+            // 
+            this.BtnNonDeliverySave.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnNonDeliverySave.Image = global::QrSorterInspectionApp.Properties.Resources.save_icon;
+            this.BtnNonDeliverySave.Location = new System.Drawing.Point(16, 336);
+            this.BtnNonDeliverySave.Name = "BtnNonDeliverySave";
+            this.BtnNonDeliverySave.Size = new System.Drawing.Size(322, 42);
+            this.BtnNonDeliverySave.TabIndex = 196;
+            this.BtnNonDeliverySave.Text = "仕分けマスタの保存";
+            this.BtnNonDeliverySave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnNonDeliverySave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnNonDeliverySave.UseVisualStyleBackColor = true;
+            this.BtnNonDeliverySave.Click += new System.EventHandler(this.BtnNonDeliverySave_Click);
+            // 
+            // TxtNonDelivery
+            // 
+            this.TxtNonDelivery.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtNonDelivery.Font = new System.Drawing.Font("ＭＳ ゴシック", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtNonDelivery.Location = new System.Drawing.Point(16, 31);
+            this.TxtNonDelivery.Multiline = true;
+            this.TxtNonDelivery.Name = "TxtNonDelivery";
+            this.TxtNonDelivery.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TxtNonDelivery.Size = new System.Drawing.Size(322, 284);
+            this.TxtNonDelivery.TabIndex = 0;
+            this.TxtNonDelivery.WordWrap = false;
+            // 
+            // LblCount
+            // 
+            this.LblCount.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblCount.ForeColor = System.Drawing.Color.Blue;
+            this.LblCount.Location = new System.Drawing.Point(635, 387);
+            this.LblCount.Name = "LblCount";
+            this.LblCount.Size = new System.Drawing.Size(130, 25);
+            this.LblCount.TabIndex = 257;
+            this.LblCount.Text = "LblCount";
+            this.LblCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LstNonDelivery
+            // 
+            this.LstNonDelivery.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LstNonDelivery.FullRowSelect = true;
+            this.LstNonDelivery.GridLines = true;
+            this.LstNonDelivery.HideSelection = false;
+            this.LstNonDelivery.Location = new System.Drawing.Point(420, 64);
+            this.LstNonDelivery.MultiSelect = false;
+            this.LstNonDelivery.Name = "LstNonDelivery";
+            this.LstNonDelivery.Size = new System.Drawing.Size(345, 320);
+            this.LstNonDelivery.TabIndex = 256;
+            this.LstNonDelivery.UseCompatibleStateImageBehavior = false;
+            // 
+            // LblNonDelivery
+            // 
+            this.LblNonDelivery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.LblNonDelivery.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblNonDelivery.ForeColor = System.Drawing.Color.White;
+            this.LblNonDelivery.Location = new System.Drawing.Point(420, 31);
+            this.LblNonDelivery.Name = "LblNonDelivery";
+            this.LblNonDelivery.Size = new System.Drawing.Size(345, 33);
+            this.LblNonDelivery.TabIndex = 255;
+            this.LblNonDelivery.Text = "LblNonDelivery";
+            this.LblNonDelivery.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.GroupBox8);
             this.Controls.Add(this.TxtUserAccount);
             this.Controls.Add(this.BtnDecript);
@@ -516,6 +614,9 @@
             this.GroupBox5.PerformLayout();
             this.GroupBox8.ResumeLayout(false);
             this.GroupBox8.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox46.ResumeLayout(false);
+            this.groupBox46.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,5 +657,12 @@
         internal System.Windows.Forms.TextBox TxtInternalTran;
         internal System.Windows.Forms.Button BtnInternalTran;
         internal System.Windows.Forms.Label Label33;
+        internal System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox46;
+        internal System.Windows.Forms.Button BtnNonDeliverySave;
+        private System.Windows.Forms.TextBox TxtNonDelivery;
+        internal System.Windows.Forms.Label LblCount;
+        internal System.Windows.Forms.ListView LstNonDelivery;
+        internal System.Windows.Forms.Label LblNonDelivery;
     }
 }

@@ -1577,9 +1577,9 @@
             this.LsbJobListFeeder.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LsbJobListFeeder.FormattingEnabled = true;
             this.LsbJobListFeeder.ItemHeight = 28;
-            this.LsbJobListFeeder.Location = new System.Drawing.Point(70, 283);
+            this.LsbJobListFeeder.Location = new System.Drawing.Point(201, 958);
             this.LsbJobListFeeder.Name = "LsbJobListFeeder";
-            this.LsbJobListFeeder.Size = new System.Drawing.Size(360, 88);
+            this.LsbJobListFeeder.Size = new System.Drawing.Size(360, 60);
             this.LsbJobListFeeder.TabIndex = 204;
             this.LsbJobListFeeder.Visible = false;
             this.LsbJobListFeeder.SelectedIndexChanged += new System.EventHandler(this.LsbJobListFeeder_SelectedIndexChanged);
@@ -1634,7 +1634,7 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(70, 243);
+            this.label2.Location = new System.Drawing.Point(561, 978);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(360, 40);
             this.label2.TabIndex = 205;
@@ -1721,7 +1721,7 @@
             // 
             this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnApply.Image = global::QrSorterInspectionApp.Properties.Resources.check;
-            this.BtnApply.Location = new System.Drawing.Point(206, 968);
+            this.BtnApply.Location = new System.Drawing.Point(23, 968);
             this.BtnApply.Name = "BtnApply";
             this.BtnApply.Size = new System.Drawing.Size(166, 50);
             this.BtnApply.TabIndex = 177;
@@ -1769,8 +1769,6 @@
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.LsbJobListFeeder);
-            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox2.Location = new System.Drawing.Point(130, 85);
@@ -1792,6 +1790,8 @@
             this.Controls.Add(this.BtnApply);
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.LblTitle);
+            this.Controls.Add(this.LsbJobListFeeder);
+            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

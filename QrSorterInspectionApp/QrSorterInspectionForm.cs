@@ -120,17 +120,17 @@ namespace QrSorterInspectionApp
                 CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
                 #endregion                                
 
-                #region ジョブ名
-                // ジョブ登録リストファイル読込
-                CommonModule.ReadJobEntryListFile();
-                CmbJobName.Items.Clear();
-                foreach (var items in PubConstClass.lstJobEntryList)
-                {
-                    string[] sArray = items.Split(',');
-                    CmbJobName.Items.Add(sArray[1]);
-                }
-                CmbJobName.SelectedIndex = 0;
-                #endregion
+                //#region ジョブ名
+                //// ジョブ登録リストファイル読込
+                //CommonModule.ReadJobEntryListFile();
+                //CmbJobName.Items.Clear();
+                //foreach (var items in PubConstClass.lstJobEntryList)
+                //{
+                //    string[] sArray = items.Split(',');
+                //    CmbJobName.Items.Add(sArray[1]);
+                //}
+                //CmbJobName.SelectedIndex = 0;
+                //#endregion
 
                 // 年月日時分秒タイマーセット
                 TimDateTime.Interval = 1000;
@@ -156,6 +156,9 @@ namespace QrSorterInspectionApp
                 LblPocket4.Text = "";
                 LblPocket5.Text = "";
                 #endregion
+
+                TxtFileType.Text = "";
+                TxtSeqNum.Text = "";
 
                 // 停止中
                 SetStatus(0);
@@ -947,5 +950,110 @@ namespace QrSorterInspectionApp
                 CommonModule.OutPutLogFile("【SerialPortBcr_DataReceived】" + ex.Message);
             }
         }
+
+        /// <summary>
+        /// 「JOB選択」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnJobSelect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+
+                CommonModule.OutPutLogFile("■「JO選択」ボタンクリック");
+                // 初期表示するフォルダの指定（「空の文字列」の時は現在のディレクトリを表示）
+                //ofd.InitialDirectory = @"C:\";
+                // 「ファイルの種類」に表示される選択肢の指定
+                ofd.Filter = "CSVファイル(*.csv;*.CSV)|*.csv;*.CSV|すべてのファイル(*.*)|*.*";
+                // 「ファイルの種類」ではじめに「CSVファイル(*.csv;*.CSV)」を選択
+                ofd.FilterIndex = 1;
+                // タイトルを設定
+                ofd.Title = "JOB設定ファイルを選択してください";
+                // ダイアログボックスを閉じる前に現在のディレクトリを復元
+                ofd.RestoreDirectory = true;
+                // 存在しないファイルの名前が指定されたとき警告を表示
+                ofd.CheckFileExists = true;
+                // 存在しないパスが指定されたとき警告を表示
+                ofd.CheckPathExists = true;
+                // ダイアログを表示する
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    // 「OK」ボタンがクリック（選択されたファイル名を表示）
+                    string sSelectedFile = ofd.FileName;
+                    string[] sArray = sSelectedFile.Split('\\');
+                    // ファイル名のみを表示する
+                    LblSelectedFile.Text = sArray[sArray.Length - 1];
+                    // ジョブ登録情報及びグループ１～５情報の読取り
+                    CommonModule.ReadJobEntryListFile(sSelectedFile);
+                    // 登録ジョブ項目を取得し表示
+                    GetEntryInfoAndDisplay();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnJobSelect_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void GetEntryInfoAndDisplay()
+        {
+            try
+            {
+                string[] sArray = PubConstClass.lstJobEntryList[0].Split(',');
+
+                // 受領日
+                DtpDateReceipt.Text = sArray[2];
+                // 不着事由仕分①
+                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[18]) - 1;
+                // 不着事由仕分②
+                CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[19]) - 1;
+
+                TxtFileType.Text = "01";
+
+                // 不着事由仕分①チェック  
+                CmbNonDeliveryReasonSorting1.Enabled = sArray[20] == "ON";
+                // 不着事由仕分②チェック
+                CmbNonDeliveryReasonSorting2.Enabled = sArray[21] == "ON";
+
+                TxtSeqNum.Text = "0001";
+
+                // ポケット①名称
+                LblBoxTitle1.Text = "BOX_01 " + sArray[28];
+                // ポケット②名称
+                LblBoxTitle2.Text = "BOX_02 " + sArray[30];
+                // ポケット③名称
+                LblBoxTitle3.Text = "BOX_03 " + sArray[32];
+                // ポケット④名称
+                LblBoxTitle4.Text = "BOX_04 " + sArray[34];
+                // ポケット⑤名称
+                LblBoxTitle5.Text = "BOX_05 " + sArray[36];
+
+                // ポケット１切替件数
+                LblQuantity1.Text = sArray[43] == "ON" ? sArray[38] : "---";
+                // ポケット２切替件数
+                LblQuantity2.Text = sArray[44] == "ON" ? sArray[39] : "---";
+                // ポケット３切替件数
+                LblQuantity3.Text = sArray[45] == "ON" ? sArray[40] : "---";
+                // ポケット４切替件数
+                LblQuantity4.Text = sArray[46] == "ON" ? sArray[41] : "---";
+                // ポケット５切替件数
+                LblQuantity5.Text = sArray[47] == "ON" ? sArray[42] : "---";
+
+                // ログ保存フォルダの確認
+                //CheckAndCreateLogStorageFolder();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【GetEntryInfoAndDisplay】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }
