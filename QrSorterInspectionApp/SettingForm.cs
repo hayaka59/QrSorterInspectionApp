@@ -492,9 +492,9 @@ namespace QrSorterInspectionApp
                 {
                     sw.WriteLine(sData);
 
-                    if (PubConstClass.lstGroupInfo.Count ==0)
+                    if (PubConstClass.lstGroupInfo.Count == 0)
                     {
-                        string sDummyData = "QR読取項目１,12345,20241110,1,E123456789";
+                        string sDummyData = ",,,,";
                         sw.WriteLine(sDummyData);
                         sw.WriteLine(sDummyData);
                         sw.WriteLine(sDummyData);
@@ -729,6 +729,9 @@ namespace QrSorterInspectionApp
                 }
                 // 設定画面の項目クリア
                 ClearDisplayData();
+                
+                PubConstClass.lstGroupInfo.Clear();
+
                 // 選択中ジョブフィル名クリア
                 LblSelectedFile.Text = "";
                 BtnAdd.Enabled = false;     // 「新規保存」ボタン使用不可
@@ -797,12 +800,19 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                if (LblSelectedFile.Text.Trim() == "")
+                if (TxtJobName.Text.Trim() == "")
                 {
-                    MessageBox.Show("JOBを選択して下さい", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("JOB名を入力して下さい", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-
+                else
+                {
+                    if(LblSelectedFile.Text.Trim() == "")
+                    {
+                        LblSelectedFile.Text = TxtJobName.Text + ".csv";
+                    }
+                }
+                
                 string sMessage = GetJobEntryData();
                 DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを更新しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
@@ -810,14 +820,26 @@ namespace QrSorterInspectionApp
                     return;
                 }
 
+                if (LblSelectedFile.Text != (TxtJobName.Text + ".csv"))
+                {
+                    string sPutDataPath = "";
+                    sPutDataPath += CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath);
+                    sPutDataPath += "\\JOB\\";
+                    sPutDataPath += LblSelectedFile.Text;
+                    File.Delete(sPutDataPath);
+                    LblSelectedFile.Text = TxtJobName.Text + ".csv";
+                }
+
                 // 全てのジョブ登録データ名称の取得
                 string sData = GetAllJobEntryData();
 
+                // ジョブファイルの保存
                 WriteNewJobFile(LblSelectedFile.Text, sData);
 
                 BtnAdd.Enabled = true;      // 「新規保存」ボタン使用可
                 BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可
                 BtnDelete.Enabled = true;   // 「削除」　　ボタン使用可
+
 
                 // ジョブ登録データの追加
                 //PubConstClass.lstJobEntryList[LsbJobListFeeder.SelectedIndex] = sData;
@@ -1051,6 +1073,35 @@ namespace QrSorterInspectionApp
                 {
                     return;
                 }
+
+                // 全てのジョブ登録データ名称の取得
+                string sData = GetAllJobEntryData();
+
+                PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] = "";
+                PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtGrpName.Text + ",";
+                PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtBoxQrItem1.Text + ",";
+                PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtBoxQrItem2.Text + ",";
+                PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtBoxQrItem3.Text + ",";
+                PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtBoxQrItem4.Text + ",";
+
+                switch (CmbGroup.SelectedIndex)
+                {
+                    case 0:
+                        TxtGrpName1.Text = TxtGrpName.Text;
+                        break;
+                    case 1:
+                        TxtGrpName2.Text = TxtGrpName.Text;
+                        break;
+                    case 2:
+                        TxtGrpName3.Text = TxtGrpName.Text;
+                        break;
+                    case 3:
+                        TxtGrpName4.Text = TxtGrpName.Text;
+                        break;
+                }                
+
+                // ジョブファイルの保存
+                WriteNewJobFile(LblSelectedFile.Text, sData);
 
                 // 全てのグループ登録データの取得
                 //string sData = GetAllBoxEntryData(LstBoxName.SelectedIndex + 1);
