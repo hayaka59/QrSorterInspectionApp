@@ -134,6 +134,23 @@ namespace QrSorterInspectionApp
                 BtnAdd.Enabled = false;     // 「新規保存」ボタン使用不可
                 BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可
                 BtnDelete.Enabled = false;  // 「削除」　　ボタン使用不可
+
+                if (PubConstClass.sJobFileNameFromInspectionForm != "")
+                {
+                    string[] sArray = PubConstClass.sJobFileNameFromInspectionForm.Split('\\');
+                    // ファイル名のみを表示する
+                    LblSelectedFile.Text = sArray[sArray.Length - 1];
+                    // ジョブ登録情報及びグループ１～５情報の読取り
+                    CommonModule.ReadJobEntryListFile(PubConstClass.sJobFileNameFromInspectionForm);
+                    // 登録ジョブ項目を取得し表示
+                    GetEntryJobItem(0);
+                    BtnJobSelect.Enabled = false;   // 「JOB選択」　 ボタン使用不可
+                    BtnAdd.Enabled = false;         // 「新規保存」　ボタン使用不可
+                    BtnUpdate.Enabled = true;       // 「保存」　　　ボタン使用可                    
+                    BtnDelete.Enabled = false;      // 「削除」　　　ボタン使用不可
+                    BtnCopyItem.Enabled = false;    // 「項目コピー」ボタン使用不可
+                    BtnPasteItem.Enabled = false;   // 「項目貼付け」ボタン使用不可
+                }
             }
             catch (Exception ex)
             {

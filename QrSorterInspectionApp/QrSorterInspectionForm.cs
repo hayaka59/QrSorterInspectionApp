@@ -174,6 +174,9 @@ namespace QrSorterInspectionApp
                 // 停止中
                 SetStatus(0);
 
+                // 「設定」ボタン使用不可
+                BtnSetting.Enabled = false;
+
                 #region シリアルポートの設定
                 // データ受信イベントの設定
                 SerialPortQr.DataReceived += new SerialDataReceivedEventHandler(SerialPortQr_DataReceived);
@@ -724,6 +727,7 @@ namespace QrSorterInspectionApp
             try
             {
                 CommonModule.OutPutLogFile("■検査画面：「設定」ボタンクリック");
+                //PubConstClass.sJobFileNameFromInspectionForm = "";
                 SettingForm form = new SettingForm();
                 form.ShowDialog(this);
 
@@ -1033,6 +1037,9 @@ namespace QrSorterInspectionApp
                     CommonModule.ReadJobEntryListFile(sSelectedFile);
                     // 登録ジョブ項目を取得し表示
                     GetEntryInfoAndDisplay();
+                    // 「設定」ボタン使用可
+                    BtnSetting.Enabled = true;
+                    PubConstClass.sJobFileNameFromInspectionForm = sSelectedFile;
                 }
             }
             catch (Exception ex)
