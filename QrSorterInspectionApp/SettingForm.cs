@@ -995,6 +995,18 @@ namespace QrSorterInspectionApp
                 TxtGrpName3.Text = "";
                 TxtGrpName4.Text = "";
                 TxtGrpName5.Text = "";
+                // ポケット切替件数クリア
+                TxtQuantity1.Text = "0";
+                TxtQuantity2.Text = "0";
+                TxtQuantity3.Text = "0";
+                TxtQuantity4.Text = "0";
+                TxtQuantity5.Text = "0";
+                // ポケット切替件数ON/OFFクリア
+                CmbQuantOnOff1.Text = "OFF";
+                CmbQuantOnOff2.Text = "OFF";
+                CmbQuantOnOff3.Text = "OFF";
+                CmbQuantOnOff4.Text = "OFF";
+                CmbQuantOnOff5.Text = "OFF";
 
                 // 「保存」ボタンを使用不可とする
                 BtnUpdate.Enabled = false;
@@ -1247,11 +1259,72 @@ namespace QrSorterInspectionApp
 
         }
 
+        List<string> lstCopyItem = new List<string>();
+        List<string> lstCopyGroupInfo = new List<string>();
+
         private void BtnCopyItem_Click(object sender, EventArgs e)
         {
             try
             {
                 MessageBox.Show("表示項目をコピーしますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                lstCopyItem.Clear();
+                lstCopyItem.Add(CmbMedia.Text);
+                lstCopyItem.Add(DtpDateReceipt.Text);
+                lstCopyItem.Add(CmbDateReceipt.Text);
+                lstCopyItem.Add(CmbNonDeliveryReasonSorting1.Text);
+                lstCopyItem.Add(CmbNonDeliveryReasonSorting2.Text);
+                lstCopyItem.Add(CmbNonDeliveryOnOff1.Text);
+                lstCopyItem.Add(CmbNonDeliveryOnOff2.Text);
+                lstCopyItem.Add(CmbReadCheck.Text);
+                lstCopyItem.Add(TxtQrReadItem1.Text);
+                lstCopyItem.Add(NmUpDnPropertyIdStart.Value.ToString());
+                lstCopyItem.Add(NmUpDnPropertyIdKeta.Value.ToString());
+                lstCopyItem.Add(TxtQrReadItem2.Text);
+                lstCopyItem.Add(NmUpDnPostalDateStart.Value.ToString());
+                lstCopyItem.Add(NmUpDnPostalDateKeta.Value.ToString());
+                lstCopyItem.Add(TxtQrReadItem3.Text);
+                lstCopyItem.Add(NmUpDnFileTypeStart.Value.ToString());
+                lstCopyItem.Add(NmUpDnFileTypeKeta.Value.ToString());
+                lstCopyItem.Add(TxtQrReadItem4.Text);
+                lstCopyItem.Add(NmUpDnManagementNoStart.Value.ToString());
+                lstCopyItem.Add(NmUpDnManagementNoKeta.Value.ToString());
+                lstCopyItem.Add(CmbDuplication.Text);
+                lstCopyItem.Add(CmbDoubleFeed.Text);
+                lstCopyItem.Add(CmbUltrasonicDetection.Text);
+                lstCopyItem.Add(CmbCheckNumberOfDigits.Text);
+                lstCopyItem.Add(CmbLogCreationConditions.Text);
+                lstCopyItem.Add(CmbReadingFunction.Text);
+
+                lstCopyItem.Add(TxtPocketName1.Text);
+                lstCopyItem.Add(TxtPocketName2.Text);
+                lstCopyItem.Add(TxtPocketName3.Text);
+                lstCopyItem.Add(TxtPocketName4.Text);
+                lstCopyItem.Add(TxtPocketName5.Text);
+
+                lstCopyItem.Add(TxtGrpName1.Text);
+                lstCopyItem.Add(TxtGrpName2.Text);
+                lstCopyItem.Add(TxtGrpName3.Text);
+                lstCopyItem.Add(TxtGrpName4.Text);
+                lstCopyItem.Add(TxtGrpName5.Text);
+
+                lstCopyItem.Add(TxtQuantity1.Text);
+                lstCopyItem.Add(TxtQuantity2.Text);
+                lstCopyItem.Add(TxtQuantity3.Text);
+                lstCopyItem.Add(TxtQuantity4.Text);
+                lstCopyItem.Add(TxtQuantity5.Text);
+
+                lstCopyItem.Add(CmbQuantOnOff1.Text);
+                lstCopyItem.Add(CmbQuantOnOff2.Text);
+                lstCopyItem.Add(CmbQuantOnOff3.Text);
+                lstCopyItem.Add(CmbQuantOnOff4.Text);
+                lstCopyItem.Add(CmbQuantOnOff5.Text);
+
+                lstCopyGroupInfo.Clear();
+                lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[0]);
+                lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[1]);
+                lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[2]);
+                lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[3]);
+                lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[4]);
             }
             catch (Exception ex)
             {
@@ -1264,6 +1337,105 @@ namespace QrSorterInspectionApp
             try
             {
                 MessageBox.Show("コピーした項目を表示項目として貼り付けますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                int iIndex = 0;
+                CmbMedia.Text = lstCopyItem[iIndex];
+                iIndex++;
+                DtpDateReceipt.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbDateReceipt.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbNonDeliveryReasonSorting1.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbNonDeliveryReasonSorting2.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbNonDeliveryOnOff1.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbNonDeliveryOnOff2.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbReadCheck.Text = lstCopyItem[iIndex]; 
+                iIndex++;
+                TxtQrReadItem1.Text = lstCopyItem[iIndex];
+                iIndex++;
+                NmUpDnPropertyIdStart.Value = int.Parse(lstCopyItem[iIndex]);
+                iIndex++;
+                NmUpDnPropertyIdKeta.Value = int.Parse(lstCopyItem[iIndex]);
+                iIndex++;
+                TxtQrReadItem2.Text = lstCopyItem[iIndex];
+                iIndex++;
+                NmUpDnPostalDateStart.Value = int.Parse(lstCopyItem[iIndex]);
+                iIndex++;
+                NmUpDnPostalDateKeta.Value = int.Parse(lstCopyItem[iIndex]);
+                iIndex++;
+                TxtQrReadItem3.Text = lstCopyItem[iIndex];
+                iIndex++;
+                NmUpDnFileTypeStart.Value = int.Parse(lstCopyItem[iIndex]);
+                iIndex++;
+                NmUpDnFileTypeKeta.Value = int.Parse(lstCopyItem[iIndex]);
+                iIndex++;
+                TxtQrReadItem4.Text = lstCopyItem[iIndex];
+                iIndex++;
+                NmUpDnManagementNoStart.Value = int.Parse(lstCopyItem[iIndex]);
+                iIndex++;
+                NmUpDnManagementNoKeta.Value = int.Parse(lstCopyItem[iIndex]);
+                iIndex++;
+                CmbDuplication.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbDoubleFeed.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbUltrasonicDetection.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbCheckNumberOfDigits.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbLogCreationConditions.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbReadingFunction.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtPocketName1.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtPocketName2.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtPocketName3.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtPocketName4.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtPocketName5.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtGrpName1.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtGrpName2.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtGrpName3.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtGrpName4.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtGrpName5.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtQuantity1.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtQuantity2.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtQuantity3.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtQuantity4.Text = lstCopyItem[iIndex];
+                iIndex++;
+                TxtQuantity5.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbQuantOnOff1.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbQuantOnOff2.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbQuantOnOff3.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbQuantOnOff4.Text = lstCopyItem[iIndex];
+                iIndex++;
+                CmbQuantOnOff5.Text = lstCopyItem[iIndex];
+
+                PubConstClass.lstGroupInfo.Clear();
+                PubConstClass.lstGroupInfo.Add(lstCopyGroupInfo[0]);
+                PubConstClass.lstGroupInfo.Add(lstCopyGroupInfo[1]);
+                PubConstClass.lstGroupInfo.Add(lstCopyGroupInfo[2]);
+                PubConstClass.lstGroupInfo.Add(lstCopyGroupInfo[3]);
+                PubConstClass.lstGroupInfo.Add(lstCopyGroupInfo[4]);
             }
             catch (Exception ex)
             {
