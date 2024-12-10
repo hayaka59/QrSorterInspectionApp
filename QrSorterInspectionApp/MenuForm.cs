@@ -177,6 +177,7 @@ namespace QrSorterInspectionApp
             try
             {
                 CommonModule.OutPutLogFile("■メニュー画面：「設定」ボタンクリック");
+                PubConstClass.sJobFileNameFromInspectionForm = "";
                 SettingForm form = new SettingForm();
                 form.Show(this);
                 this.Hide();

@@ -102,6 +102,7 @@
             this.TxtBoxQrItem3 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem1 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem4 = new System.Windows.Forms.TextBox();
+            this.BtnPocketUpdate = new System.Windows.Forms.Button();
             this.LblBox1QrReadItem1 = new System.Windows.Forms.Label();
             this.LblBox1QrReadItem2 = new System.Windows.Forms.Label();
             this.LblBox1QrReadItem3 = new System.Windows.Forms.Label();
@@ -136,7 +137,6 @@
             this.LblTitle = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BtnPocketUpdate = new System.Windows.Forms.Button();
             this.BtnPasteItem = new System.Windows.Forms.Button();
             this.BtnCopyItem = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
@@ -1216,6 +1216,20 @@
             this.TxtBoxQrItem4.TabIndex = 323;
             this.TxtBoxQrItem4.Text = "TxtBoxQrItem4";
             // 
+            // BtnPocketUpdate
+            // 
+            this.BtnPocketUpdate.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnPocketUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
+            this.BtnPocketUpdate.Location = new System.Drawing.Point(484, 23);
+            this.BtnPocketUpdate.Name = "BtnPocketUpdate";
+            this.BtnPocketUpdate.Size = new System.Drawing.Size(93, 40);
+            this.BtnPocketUpdate.TabIndex = 316;
+            this.BtnPocketUpdate.Text = "更新";
+            this.BtnPocketUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPocketUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPocketUpdate.UseVisualStyleBackColor = true;
+            this.BtnPocketUpdate.Click += new System.EventHandler(this.BtnPocketUpdate_Click);
+            // 
             // LblBox1QrReadItem1
             // 
             this.LblBox1QrReadItem1.BackColor = System.Drawing.Color.Transparent;
@@ -1682,20 +1696,6 @@
             this.groupBox2.TabIndex = 179;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "QRフィーダー設定";
-            // 
-            // BtnPocketUpdate
-            // 
-            this.BtnPocketUpdate.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnPocketUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnPocketUpdate.Location = new System.Drawing.Point(484, 23);
-            this.BtnPocketUpdate.Name = "BtnPocketUpdate";
-            this.BtnPocketUpdate.Size = new System.Drawing.Size(93, 40);
-            this.BtnPocketUpdate.TabIndex = 316;
-            this.BtnPocketUpdate.Text = "更新";
-            this.BtnPocketUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPocketUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnPocketUpdate.UseVisualStyleBackColor = true;
-            this.BtnPocketUpdate.Click += new System.EventHandler(this.BtnPocketUpdate_Click);
             // 
             // BtnPasteItem
             // 
