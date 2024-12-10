@@ -1229,5 +1229,29 @@ namespace QrSorterInspectionApp
             TxtGrpName5.Text = sArray[0];
 
         }
+
+        private void BtnCopyItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("表示項目をコピーしますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnJobSelect_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnPasteItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("コピーした項目を表示項目として貼り付けますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnPasteItem_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

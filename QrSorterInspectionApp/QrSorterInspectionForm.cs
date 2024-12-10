@@ -157,8 +157,19 @@ namespace QrSorterInspectionApp
                 LblPocket5.Text = "";
                 #endregion
 
+                LblSelectedFile.Text = "";
                 TxtFileType.Text = "";
                 TxtSeqNum.Text = "";
+                LblBoxTitle1.Text = "";
+                LblBoxTitle2.Text = "";
+                LblBoxTitle3.Text = "";
+                LblBoxTitle4.Text = "";
+                LblBoxTitle5.Text = "";
+                LblQuantity1.Text = "---";
+                LblQuantity2.Text = "---";
+                LblQuantity3.Text = "---";
+                LblQuantity4.Text = "---";
+                LblQuantity5.Text = "---";
 
                 // 停止中
                 SetStatus(0);
@@ -456,35 +467,49 @@ namespace QrSorterInspectionApp
                 LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
                 col[0] = iOKCount.ToString("00000");
                 col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                col[2] = "QR" + iOKCount.ToString("000000000");
-                col[3] = "トレイ１";
+                //col[2] = "QR" + iOKCount.ToString("000000000");
+                string sDateTime1 = DateTime.Now.ToString("yyyyMMdd");
+                string sDateTime2 = DateTime.Now.ToString("yyMMdd");
+                col[2] = $"D12345{sDateTime1}-{sDateTime2}-{DateTime.Now.ToString("HHmmssfff")}";
+                col[3] = "トレイ" + iBoxNumber.ToString();
                 col[4] = "---";
 
                 if (iBoxNumber == 1)
                 {
                     iBox1Count++;
                     LblBox1.Text = iBox1Count.ToString("0");
-                    LblPocket1.Text = "QR" + iOKCount.ToString("000000000");
+                    //LblPocket1.Text = "QR" + iOKCount.ToString("000000000");
+                    LblPocket1.Text = col[2];
                 }
                 else if (iBoxNumber == 2)
                 {
                     iBox2Count++;
                     LblBox2.Text = iBox2Count.ToString("0");
-                    LblPocket2.Text = "QR" + iOKCount.ToString("000000000");
+                    //LblPocket2.Text = "QR" + iOKCount.ToString("000000000");
+                    LblPocket2.Text = col[2];
                 }
                 else if (iBoxNumber == 3)
                 {
                     iBox3Count++;
                     LblBox3.Text = iBox3Count.ToString("0");
-                    LblPocket3.Text = "QR" + iOKCount.ToString("000000000");
+                    //LblPocket3.Text = "QR" + iOKCount.ToString("000000000");
+                    LblPocket3.Text = col[2];
                 }
                 else if (iBoxNumber == 4) {
                     iBox4Count++;
                     LblBox4.Text = iBox4Count.ToString("0");
-                    LblPocket4.Text = "QR" + iOKCount.ToString("000000000");
+                    //LblPocket4.Text = "QR" + iOKCount.ToString("000000000");
+                    LblPocket4.Text = col[2];
+                }
+                else if (iBoxNumber == 5)
+                {
+                    iBox5Count++;
+                    LblBox5.Text = iBox5Count.ToString("0");
+                    //LblPocket5.Text = "QR" + iOKCount.ToString("000000000");
+                    LblPocket5.Text = col[2];
                 }
                 iBoxNumber++;
-                if (iBoxNumber > 4) {
+                if (iBoxNumber > 5) {
                     iBoxNumber = 1;
                 }
 
@@ -531,8 +556,11 @@ namespace QrSorterInspectionApp
 
                 col[0] = iNGCount.ToString("00000");
                 col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                col[2] = "QR" + iNGCount.ToString("000000000");
-                col[3] = "ﾌｨｰﾄﾞNG";
+                //col[2] = "QR" + iNGCount.ToString("000000000");
+                string sDateTime1 = DateTime.Now.ToString("yyyyMMdd");
+                string sDateTime2 = DateTime.Now.ToString("yyMMdd");
+                col[2] = $"D12345{sDateTime1}-{sDateTime2}-{DateTime.Now.ToString("HHmmssfff")}";
+                col[3] = "NG";
                 col[4] = "---";
 
                 // データの表示
@@ -569,48 +597,48 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                string[] sArray = PubConstClass.lstJobEntryList[CmbJobName.SelectedIndex].Split(',');
+                //string[] sArray = PubConstClass.lstJobEntryList[CmbJobName.SelectedIndex].Split(',');
                 
-                // 受領日
-                DtpDateReceipt.Text = sArray[3];
-                // 不着事由仕分①
-                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[19]) - 1;
-                // 不着事由仕分②
-                CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[20]) - 1;
+                //// 受領日
+                //DtpDateReceipt.Text = sArray[3];
+                //// 不着事由仕分①
+                //CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[19]) - 1;
+                //// 不着事由仕分②
+                //CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[20]) - 1;
 
-                TxtFileType.Text = "01";
+                //TxtFileType.Text = "01";
 
-                // 不着事由仕分①チェック  
-                CmbNonDeliveryReasonSorting1.Enabled = sArray[21] == "ON";
-                // 不着事由仕分②チェック
-                CmbNonDeliveryReasonSorting2.Enabled = sArray[22] == "ON";
+                //// 不着事由仕分①チェック  
+                //CmbNonDeliveryReasonSorting1.Enabled = sArray[21] == "ON";
+                //// 不着事由仕分②チェック
+                //CmbNonDeliveryReasonSorting2.Enabled = sArray[22] == "ON";
 
-                TxtSeqNum.Text = "0001";
+                //TxtSeqNum.Text = "0001";
                     
-                // ポケット①名称
-                LblBoxTitle1.Text = "BOX_01 " + sArray[29];
-                // ポケット②名称
-                LblBoxTitle2.Text = "BOX_02 " + sArray[31];
-                // ポケット③名称
-                LblBoxTitle3.Text = "BOX_03 " + sArray[33];
-                // ポケット④名称
-                LblBoxTitle4.Text = "BOX_04 " + sArray[35];
-                // ポケット⑤名称
-                LblBoxTitle5.Text = "BOX_05 " + sArray[37];
+                //// ポケット①名称
+                //LblBoxTitle1.Text = "BOX_01 " + sArray[29];
+                //// ポケット②名称
+                //LblBoxTitle2.Text = "BOX_02 " + sArray[31];
+                //// ポケット③名称
+                //LblBoxTitle3.Text = "BOX_03 " + sArray[33];
+                //// ポケット④名称
+                //LblBoxTitle4.Text = "BOX_04 " + sArray[35];
+                //// ポケット⑤名称
+                //LblBoxTitle5.Text = "BOX_05 " + sArray[37];
 
-                // ポケット１切替件数
-                LblQuantity1.Text = sArray[44] == "ON" ? sArray[39]: "---";
-                // ポケット２切替件数
-                LblQuantity2.Text = sArray[45] == "ON" ? sArray[40] : "---";
-                // ポケット３切替件数
-                LblQuantity3.Text = sArray[46] == "ON" ? sArray[41] : "---";
-                // ポケット４切替件数
-                LblQuantity4.Text = sArray[47] == "ON" ? sArray[42] : "---";
-                // ポケット５切替件数
-                LblQuantity5.Text = sArray[48] == "ON" ? sArray[43] : "---";
+                //// ポケット１切替件数
+                //LblQuantity1.Text = sArray[44] == "ON" ? sArray[39]: "---";
+                //// ポケット２切替件数
+                //LblQuantity2.Text = sArray[45] == "ON" ? sArray[40] : "---";
+                //// ポケット３切替件数
+                //LblQuantity3.Text = sArray[46] == "ON" ? sArray[41] : "---";
+                //// ポケット４切替件数
+                //LblQuantity4.Text = sArray[47] == "ON" ? sArray[42] : "---";
+                //// ポケット５切替件数
+                //LblQuantity5.Text = sArray[48] == "ON" ? sArray[43] : "---";
 
-                // ログ保存フォルダの確認
-                CheckAndCreateLogStorageFolder();
+                //// ログ保存フォルダの確認
+                //CheckAndCreateLogStorageFolder();
             }
             catch (Exception ex)
             {
@@ -632,12 +660,28 @@ namespace QrSorterInspectionApp
                         LblStatus.Text = "停止中";
                         LblStatus.BackColor = Color.LightGray;
                         LblStatus.ForeColor = Color.Black;
+
+                        BtnJobSelect.Enabled = true;
+                        DtpDateReceipt.Enabled = true;
+                        CmbNonDeliveryReasonSorting1.Enabled = true;
+                        CmbNonDeliveryReasonSorting2.Enabled = true;
+                        BtnSetting.Enabled = true;
+                        BtnStartInspection.Enabled = true;
+
                         break;
 
                     case 1:
                         LblStatus.Text = "検査中";
                         LblStatus.BackColor = Color.LightGreen;
                         LblStatus.ForeColor = Color.Black;
+
+                        BtnJobSelect.Enabled = false;
+                        DtpDateReceipt.Enabled = false;
+                        CmbNonDeliveryReasonSorting1.Enabled = false;
+                        CmbNonDeliveryReasonSorting2.Enabled = false;
+                        BtnSetting.Enabled = false;
+                        BtnStartInspection.Enabled = false;
+
                         break;
 
                     case 2:
