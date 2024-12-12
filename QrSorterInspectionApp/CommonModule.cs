@@ -96,34 +96,6 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// ジョブ登録リストファイルの読込
-        /// </summary>
-        public static void ReadJobEntryListFile()
-        {
-            string sReadDataPath;
-            string sData;
-
-            try
-            {
-                sReadDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_JOB_ENTRY_FILE_NAME;
-
-                PubConstClass.lstJobEntryList.Clear();
-                using (StreamReader sr = new StreamReader(sReadDataPath, Encoding.Default))
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        sData = sr.ReadLine();
-                        PubConstClass.lstJobEntryList.Add(sData);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【ReadJobEntryListFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
         /// ジョブ登録情報及びグループ１～５の情報を読み取る
         /// </summary>
         /// <param name="sFileName"></param>
