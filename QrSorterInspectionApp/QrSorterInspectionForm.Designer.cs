@@ -35,7 +35,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.DtpDateReceipt = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
             this.LblTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,7 +77,6 @@
             this.LblQuantity4 = new System.Windows.Forms.Label();
             this.CmbNonDeliveryReasonSorting2 = new System.Windows.Forms.ComboBox();
             this.CmbNonDeliveryReasonSorting1 = new System.Windows.Forms.ComboBox();
-            this.CmbJobName = new System.Windows.Forms.ComboBox();
             this.LblPocket5 = new System.Windows.Forms.Label();
             this.BtnSetting = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -89,10 +87,6 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.BtnStartInspection = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.TxtFileType = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.TxtSeqNum = new System.Windows.Forms.TextBox();
             this.SerialPortQr = new System.IO.Ports.SerialPort(this.components);
             this.LblError = new System.Windows.Forms.Label();
             this.LblSelectedFile = new System.Windows.Forms.Label();
@@ -163,20 +157,6 @@
             this.DtpDateReceipt.Name = "DtpDateReceipt";
             this.DtpDateReceipt.Size = new System.Drawing.Size(299, 36);
             this.DtpDateReceipt.TabIndex = 229;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(902, 200);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(170, 36);
-            this.label6.TabIndex = 227;
-            this.label6.Text = "JOB名";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label6.Visible = false;
             // 
             // LblTitle
             // 
@@ -696,20 +676,6 @@
             this.CmbNonDeliveryReasonSorting1.Size = new System.Drawing.Size(299, 36);
             this.CmbNonDeliveryReasonSorting1.TabIndex = 301;
             // 
-            // CmbJobName
-            // 
-            this.CmbJobName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbJobName.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbJobName.FormattingEnabled = true;
-            this.CmbJobName.IntegralHeight = false;
-            this.CmbJobName.ItemHeight = 28;
-            this.CmbJobName.Location = new System.Drawing.Point(1072, 200);
-            this.CmbJobName.Name = "CmbJobName";
-            this.CmbJobName.Size = new System.Drawing.Size(299, 36);
-            this.CmbJobName.TabIndex = 303;
-            this.CmbJobName.Visible = false;
-            this.CmbJobName.SelectedIndexChanged += new System.EventHandler(this.CmbJobName_SelectedIndexChanged);
-            // 
             // LblPocket5
             // 
             this.LblPocket5.BackColor = System.Drawing.Color.White;
@@ -781,7 +747,7 @@
             // 
             this.BtnStopInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnStopInspection.Image = global::QrSorterInspectionApp.Properties.Resources.standing;
-            this.BtnStopInspection.Location = new System.Drawing.Point(307, 969);
+            this.BtnStopInspection.Location = new System.Drawing.Point(313, 969);
             this.BtnStopInspection.Name = "BtnStopInspection";
             this.BtnStopInspection.Size = new System.Drawing.Size(205, 50);
             this.BtnStopInspection.TabIndex = 182;
@@ -795,7 +761,7 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(518, 969);
+            this.BtnClose.Location = new System.Drawing.Point(1542, 969);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(205, 50);
             this.BtnClose.TabIndex = 181;
@@ -809,7 +775,7 @@
             // 
             this.BtnStartInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnStartInspection.Image = global::QrSorterInspectionApp.Properties.Resources.running_icon;
-            this.BtnStartInspection.Location = new System.Drawing.Point(96, 969);
+            this.BtnStartInspection.Location = new System.Drawing.Point(102, 969);
             this.BtnStartInspection.Name = "BtnStartInspection";
             this.BtnStartInspection.Size = new System.Drawing.Size(205, 50);
             this.BtnStartInspection.TabIndex = 180;
@@ -829,63 +795,12 @@
             this.pictureBox5.TabIndex = 288;
             this.pictureBox5.TabStop = false;
             // 
-            // label15
-            // 
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label15.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(902, 244);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(170, 36);
-            this.label15.TabIndex = 307;
-            this.label15.Text = "ファイル区分";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label15.Visible = false;
-            // 
-            // TxtFileType
-            // 
-            this.TxtFileType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtFileType.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtFileType.Location = new System.Drawing.Point(1071, 244);
-            this.TxtFileType.Name = "TxtFileType";
-            this.TxtFileType.Size = new System.Drawing.Size(300, 36);
-            this.TxtFileType.TabIndex = 314;
-            this.TxtFileType.Text = "TxtFileType";
-            this.TxtFileType.Visible = false;
-            // 
-            // label16
-            // 
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label16.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(902, 157);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(108, 36);
-            this.label16.TabIndex = 315;
-            this.label16.Text = "連番";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label16.Visible = false;
-            // 
-            // TxtSeqNum
-            // 
-            this.TxtSeqNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtSeqNum.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSeqNum.Location = new System.Drawing.Point(1009, 157);
-            this.TxtSeqNum.Name = "TxtSeqNum";
-            this.TxtSeqNum.Size = new System.Drawing.Size(108, 36);
-            this.TxtSeqNum.TabIndex = 316;
-            this.TxtSeqNum.Text = "TxtSeqNum";
-            this.TxtSeqNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TxtSeqNum.Visible = false;
-            // 
             // LblError
             // 
             this.LblError.BackColor = System.Drawing.Color.LightCoral;
             this.LblError.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblError.ForeColor = System.Drawing.Color.Blue;
-            this.LblError.Location = new System.Drawing.Point(766, 966);
+            this.LblError.Location = new System.Drawing.Point(538, 969);
             this.LblError.Name = "LblError";
             this.LblError.Size = new System.Drawing.Size(970, 62);
             this.LblError.TabIndex = 317;
@@ -929,13 +844,8 @@
             this.Controls.Add(this.LblSelectedFile);
             this.Controls.Add(this.BtnJobSelect);
             this.Controls.Add(this.LblError);
-            this.Controls.Add(this.TxtSeqNum);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.TxtFileType);
-            this.Controls.Add(this.label15);
             this.Controls.Add(this.BtnSetting);
             this.Controls.Add(this.LblPocket5);
-            this.Controls.Add(this.CmbJobName);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.CmbNonDeliveryReasonSorting2);
             this.Controls.Add(this.CmbNonDeliveryReasonSorting1);
@@ -984,7 +894,6 @@
             this.Controls.Add(this.LblTitle);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.DtpDateReceipt);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.BtnStopInspection);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnStartInspection);
@@ -1003,7 +912,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1017,7 +925,6 @@
         internal System.Windows.Forms.Label label19;
         internal System.Windows.Forms.Label label17;
         private System.Windows.Forms.DateTimePicker DtpDateReceipt;
-        internal System.Windows.Forms.Label label6;
         internal System.Windows.Forms.Label LblTitle;
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Label label2;
@@ -1065,13 +972,8 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         internal System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting2;
         internal System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting1;
-        internal System.Windows.Forms.ComboBox CmbJobName;
         internal System.Windows.Forms.Label LblPocket5;
         internal System.Windows.Forms.Button BtnSetting;
-        internal System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox TxtFileType;
-        internal System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox TxtSeqNum;
         internal System.IO.Ports.SerialPort SerialPortQr;
         internal System.Windows.Forms.Label LblError;
         internal System.Windows.Forms.Label LblSelectedFile;
