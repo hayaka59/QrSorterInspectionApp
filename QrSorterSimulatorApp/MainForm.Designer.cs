@@ -193,7 +193,7 @@
             this.groupBox3.Size = new System.Drawing.Size(263, 60);
             this.groupBox3.TabIndex = 323;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "ユニークキー（17桁）  \"_\"はスペース";
+            this.groupBox3.Text = "ユニークキー（17桁）の内、9桁を入力";
             // 
             // TxtUniqueKey
             // 
@@ -204,7 +204,7 @@
             this.TxtUniqueKey.Name = "TxtUniqueKey";
             this.TxtUniqueKey.Size = new System.Drawing.Size(244, 31);
             this.TxtUniqueKey.TabIndex = 0;
-            this.TxtUniqueKey.Text = "-SBZUNUKNMU______";
+            this.TxtUniqueKey.Text = "000000001";
             this.TxtUniqueKey.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox4
