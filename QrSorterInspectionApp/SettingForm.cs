@@ -1005,7 +1005,7 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem2.Text = sArray[2];
                 TxtBoxQrItem3.Text = sArray[3];
                 TxtBoxQrItem4.Text = sArray[4];
-                TxtSaveFolder.Text = sArray[5];
+                TxtSaveFolder.Text = sArray.Length > 5 ? sArray[5]: "デフォルト";
             }
             catch (Exception ex)
             {
@@ -1058,6 +1058,7 @@ namespace QrSorterInspectionApp
                 PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtBoxQrItem2.Text + ",";
                 PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtBoxQrItem3.Text + ",";
                 PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtBoxQrItem4.Text + ",";
+                PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtSaveFolder.Text + ",";
 
                 switch (CmbGroup.SelectedIndex)
                 {
