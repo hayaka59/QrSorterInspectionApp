@@ -69,6 +69,7 @@ namespace QrSorterInspectionApp
                 CmbReadingFunction.Items.Add("CODE39");
                 CmbReadingFunction.Items.Add("CODE128");
                 CmbReadingFunction.Items.Add("JAN");
+                CmbReadingFunction.Items.Add("読取無し");
                 CmbReadingFunction.SelectedIndex = 0;
                 #endregion
                 
@@ -131,12 +132,15 @@ namespace QrSorterInspectionApp
                 ClearDisplayData();
                 // 選択中ジョブフィル名クリア
                 LblSelectedFile.Text = "";
-                BtnAdd.Enabled = false;     // 「新規保存」ボタン使用不可
-                BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可
-                BtnDelete.Enabled = false;  // 「削除」　　ボタン使用不可
+                BtnAdd.Enabled = false;         // 「新規保存」ボタン使用不可
+                BtnUpdate.Enabled = true;       // 「保存」　　ボタン使用可
+                BtnDelete.Enabled = false;      // 「削除」　　ボタン使用不可
+                BtnCopyItem.Enabled = false;    // 「項目コピー」ボタン使用不可
+                BtnPasteItem.Enabled = false;   // 「項目貼付け」ボタン使用不可
 
                 if (PubConstClass.sJobFileNameFromInspectionForm != "")
                 {
+                    LblTitle.Text = "設定（検査画面からの呼出）";
                     string[] sArray = PubConstClass.sJobFileNameFromInspectionForm.Split('\\');
                     // ファイル名のみを表示する
                     LblSelectedFile.Text = sArray[sArray.Length - 1];
@@ -148,8 +152,10 @@ namespace QrSorterInspectionApp
                     BtnAdd.Enabled = false;         // 「新規保存」　ボタン使用不可
                     BtnUpdate.Enabled = true;       // 「保存」　　　ボタン使用可                    
                     BtnDelete.Enabled = false;      // 「削除」　　　ボタン使用不可
-                    BtnCopyItem.Enabled = false;    // 「項目コピー」ボタン使用不可
-                    BtnPasteItem.Enabled = false;   // 「項目貼付け」ボタン使用不可
+                }
+                else
+                {
+                    LblTitle.Text = "設定";
                 }
             }
             catch (Exception ex)
@@ -200,33 +206,6 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// JOB名称一覧表示
-        /// </summary>
-        private void DisplayJobName()
-        {
-            try
-            {
-                string[] sArray;
-                LsbJobListFeeder.Items.Clear();
-                if (PubConstClass.lstJobEntryList.Count == 0)
-                {
-                    return;
-                }
-                foreach (var item in PubConstClass.lstJobEntryList)
-                {
-                    sArray = item.Split(',');
-                    // JOB名称のセット
-                    LsbJobListFeeder.Items.Add(sArray[1]);
-                }
-                LsbJobListFeeder.SelectedIndex = 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【DisplayJobName】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
         /// 「戻る」ボタン処理
         /// </summary>
         /// <param name="sender"></param>
@@ -237,20 +216,7 @@ namespace QrSorterInspectionApp
             Owner.Refresh();
             this.Dispose();
         }
-
-        /// <summary>
-        /// ジョブ名称一覧リスト選択処理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LsbJobListFeeder_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GetEntryJobItem(LsbJobListFeeder.SelectedIndex);
-        }
-
-        // フォルダ作成日時
-        private string sFolderCreationDateAndTime = "";
-        
+       
         /// <summary>
         /// 登録ジュブ項目を取得し表示する
         /// </summary>
@@ -1039,25 +1005,7 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem2.Text = sArray[2];
                 TxtBoxQrItem3.Text = sArray[3];
                 TxtBoxQrItem4.Text = sArray[4];
-                // 選択したグループ名の表示
-                //switch (CmbGroup.SelectedIndex)
-                //{
-                //    case 0:
-                //        TxtGrpName1.Text = sArray[0];
-                //        break;
-                //    case 1:
-                //        TxtGrpName2.Text = sArray[0];
-                //        break;
-                //    case 2:
-                //        TxtGrpName3.Text = sArray[0];
-                //        break;
-                //    case 3:
-                //        TxtGrpName4.Text = sArray[0];
-                //        break;
-                //    case 4:
-                //        TxtGrpName5.Text = sArray[0];
-                //        break;
-                //}
+                TxtSaveFolder.Text = sArray.Length > 5 ? sArray[5]: "デフォルト";
             }
             catch (Exception ex)
             {
@@ -1085,8 +1033,6 @@ namespace QrSorterInspectionApp
             }
         }
 
-
-
         /// <summary>
         /// 「更新」ボタン処理（グループ１～４）
         /// </summary>
@@ -1112,6 +1058,7 @@ namespace QrSorterInspectionApp
                 PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtBoxQrItem2.Text + ",";
                 PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtBoxQrItem3.Text + ",";
                 PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtBoxQrItem4.Text + ",";
+                PubConstClass.lstGroupInfo[CmbGroup.SelectedIndex] += TxtSaveFolder.Text + ",";
 
                 switch (CmbGroup.SelectedIndex)
                 {
@@ -1131,28 +1078,11 @@ namespace QrSorterInspectionApp
 
                 // ジョブファイルの保存
                 WriteNewJobFile(LblSelectedFile.Text, sData);
-
-                // 全てのグループ登録データの取得
-                //string sData = GetAllBoxEntryData(LstBoxName.SelectedIndex + 1);
-
-                // グループ登録データの更新
-                //PubConstClass.lstBoxList[LstBoxName.SelectedIndex] = sData;
-
-                // グループ登録リストファイルの書込み
-                //WriteBoxEntryListFile(CmbGroup.SelectedIndex);
-
-                // リストボックス名一覧の表示
-                //DisplayListBox(LstBoxName);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnPocketUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void BtnApply_Click(object sender, EventArgs e)
-        {
-
         }
 
         string sSelectedFile = "";
@@ -1191,9 +1121,11 @@ namespace QrSorterInspectionApp
                     // 登録ジョブ項目を取得し表示
                     GetEntryJobItem(0);
 
-                    BtnAdd.Enabled = true;      // 「新規保存」ボタン使用可
-                    BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可                    
-                    BtnDelete.Enabled = true;   // 「削除」　　ボタン使用可
+                    BtnAdd.Enabled = true;          // 「新規保存」　ボタン使用可
+                    BtnUpdate.Enabled = true;       // 「保存」　　　ボタン使用可                    
+                    BtnDelete.Enabled = true;       // 「削除」　　　ボタン使用可
+                    BtnCopyItem.Enabled = true;     // 「項目コピー」ボタン使用可
+                    BtnPasteItem.Enabled = false;   // 「項目貼付け」ボタン使用不可
                 }
             }
             catch (Exception ex)
@@ -1262,11 +1194,23 @@ namespace QrSorterInspectionApp
         List<string> lstCopyItem = new List<string>();
         List<string> lstCopyGroupInfo = new List<string>();
 
+        /// <summary>
+        /// 「項目コピー」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCopyItem_Click(object sender, EventArgs e)
         {
             try
             {
-                MessageBox.Show("表示項目をコピーしますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult dialogResult = MessageBox.Show("表示項目をコピーしますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
+                // 「項目貼付け」ボタン使用可
+                BtnPasteItem.Enabled = true;
+
                 lstCopyItem.Clear();
                 lstCopyItem.Add(CmbMedia.Text);
                 lstCopyItem.Add(DtpDateReceipt.Text);
@@ -1275,6 +1219,8 @@ namespace QrSorterInspectionApp
                 lstCopyItem.Add(CmbNonDeliveryReasonSorting2.Text);
                 lstCopyItem.Add(CmbNonDeliveryOnOff1.Text);
                 lstCopyItem.Add(CmbNonDeliveryOnOff2.Text);
+
+                #region QR読取項目①～④
                 lstCopyItem.Add(CmbReadCheck.Text);
                 lstCopyItem.Add(TxtQrReadItem1.Text);
                 lstCopyItem.Add(NmUpDnPropertyIdStart.Value.ToString());
@@ -1288,6 +1234,8 @@ namespace QrSorterInspectionApp
                 lstCopyItem.Add(TxtQrReadItem4.Text);
                 lstCopyItem.Add(NmUpDnManagementNoStart.Value.ToString());
                 lstCopyItem.Add(NmUpDnManagementNoKeta.Value.ToString());
+                #endregion
+
                 lstCopyItem.Add(CmbDuplication.Text);
                 lstCopyItem.Add(CmbDoubleFeed.Text);
                 lstCopyItem.Add(CmbUltrasonicDetection.Text);
@@ -1295,147 +1243,133 @@ namespace QrSorterInspectionApp
                 lstCopyItem.Add(CmbLogCreationConditions.Text);
                 lstCopyItem.Add(CmbReadingFunction.Text);
 
+                #region ポケット①～⑤
                 lstCopyItem.Add(TxtPocketName1.Text);
                 lstCopyItem.Add(TxtPocketName2.Text);
                 lstCopyItem.Add(TxtPocketName3.Text);
                 lstCopyItem.Add(TxtPocketName4.Text);
                 lstCopyItem.Add(TxtPocketName5.Text);
-
+                #endregion
+                #region グループ①～⑤
                 lstCopyItem.Add(TxtGrpName1.Text);
                 lstCopyItem.Add(TxtGrpName2.Text);
                 lstCopyItem.Add(TxtGrpName3.Text);
                 lstCopyItem.Add(TxtGrpName4.Text);
                 lstCopyItem.Add(TxtGrpName5.Text);
-
+                #endregion
+                #region ポケット切替件数①～⑤
                 lstCopyItem.Add(TxtQuantity1.Text);
                 lstCopyItem.Add(TxtQuantity2.Text);
                 lstCopyItem.Add(TxtQuantity3.Text);
                 lstCopyItem.Add(TxtQuantity4.Text);
                 lstCopyItem.Add(TxtQuantity5.Text);
-
+                #endregion
+                #region ポケット切替件数ON/OFF①～⑤
                 lstCopyItem.Add(CmbQuantOnOff1.Text);
                 lstCopyItem.Add(CmbQuantOnOff2.Text);
                 lstCopyItem.Add(CmbQuantOnOff3.Text);
                 lstCopyItem.Add(CmbQuantOnOff4.Text);
                 lstCopyItem.Add(CmbQuantOnOff5.Text);
+                #endregion
 
+                #region グループ情報①～⑤
                 lstCopyGroupInfo.Clear();
                 lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[0]);
                 lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[1]);
                 lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[2]);
                 lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[3]);
                 lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[4]);
+                #endregion
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【BtnJobSelect_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【BtnCopyItem_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// 「項目貼付け」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnPasteItem_Click(object sender, EventArgs e)
         {
             try
             {
-                MessageBox.Show("コピーした項目を表示項目として貼り付けますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult dialogResult = MessageBox.Show("コピーした項目を表示項目として貼り付けますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Cancel)
+                {
+                    return;
+                }
+               
                 int iIndex = 0;
-                CmbMedia.Text = lstCopyItem[iIndex];
-                iIndex++;
-                DtpDateReceipt.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbDateReceipt.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbNonDeliveryReasonSorting1.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbNonDeliveryReasonSorting2.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbNonDeliveryOnOff1.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbNonDeliveryOnOff2.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbReadCheck.Text = lstCopyItem[iIndex]; 
-                iIndex++;
-                TxtQrReadItem1.Text = lstCopyItem[iIndex];
-                iIndex++;
-                NmUpDnPropertyIdStart.Value = int.Parse(lstCopyItem[iIndex]);
-                iIndex++;
-                NmUpDnPropertyIdKeta.Value = int.Parse(lstCopyItem[iIndex]);
-                iIndex++;
-                TxtQrReadItem2.Text = lstCopyItem[iIndex];
-                iIndex++;
-                NmUpDnPostalDateStart.Value = int.Parse(lstCopyItem[iIndex]);
-                iIndex++;
-                NmUpDnPostalDateKeta.Value = int.Parse(lstCopyItem[iIndex]);
-                iIndex++;
-                TxtQrReadItem3.Text = lstCopyItem[iIndex];
-                iIndex++;
-                NmUpDnFileTypeStart.Value = int.Parse(lstCopyItem[iIndex]);
-                iIndex++;
-                NmUpDnFileTypeKeta.Value = int.Parse(lstCopyItem[iIndex]);
-                iIndex++;
-                TxtQrReadItem4.Text = lstCopyItem[iIndex];
-                iIndex++;
-                NmUpDnManagementNoStart.Value = int.Parse(lstCopyItem[iIndex]);
-                iIndex++;
-                NmUpDnManagementNoKeta.Value = int.Parse(lstCopyItem[iIndex]);
-                iIndex++;
-                CmbDuplication.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbDoubleFeed.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbUltrasonicDetection.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbCheckNumberOfDigits.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbLogCreationConditions.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbReadingFunction.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtPocketName1.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtPocketName2.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtPocketName3.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtPocketName4.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtPocketName5.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtGrpName1.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtGrpName2.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtGrpName3.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtGrpName4.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtGrpName5.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtQuantity1.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtQuantity2.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtQuantity3.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtQuantity4.Text = lstCopyItem[iIndex];
-                iIndex++;
-                TxtQuantity5.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbQuantOnOff1.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbQuantOnOff2.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbQuantOnOff3.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbQuantOnOff4.Text = lstCopyItem[iIndex];
-                iIndex++;
-                CmbQuantOnOff5.Text = lstCopyItem[iIndex];
+                CmbMedia.Text = lstCopyItem[iIndex++];
+                DtpDateReceipt.Text = lstCopyItem[iIndex++];
+                CmbDateReceipt.Text = lstCopyItem[iIndex++];
+                CmbNonDeliveryReasonSorting1.Text = lstCopyItem[iIndex++];
+                CmbNonDeliveryReasonSorting2.Text = lstCopyItem[iIndex++];
+                CmbNonDeliveryOnOff1.Text = lstCopyItem[iIndex++];
+                CmbNonDeliveryOnOff2.Text = lstCopyItem[iIndex++];
 
+                #region QR読取項目①～④
+                CmbReadCheck.Text = lstCopyItem[iIndex++]; 
+                TxtQrReadItem1.Text = lstCopyItem[iIndex++];
+                NmUpDnPropertyIdStart.Value = int.Parse(lstCopyItem[iIndex++]);
+                NmUpDnPropertyIdKeta.Value = int.Parse(lstCopyItem[iIndex++]);
+                TxtQrReadItem2.Text = lstCopyItem[iIndex++];
+                NmUpDnPostalDateStart.Value = int.Parse(lstCopyItem[iIndex++]);
+                NmUpDnPostalDateKeta.Value = int.Parse(lstCopyItem[iIndex++]);
+                TxtQrReadItem3.Text = lstCopyItem[iIndex++];
+                NmUpDnFileTypeStart.Value = int.Parse(lstCopyItem[iIndex++]);
+                NmUpDnFileTypeKeta.Value = int.Parse(lstCopyItem[iIndex++]);
+                TxtQrReadItem4.Text = lstCopyItem[iIndex++];
+                NmUpDnManagementNoStart.Value = int.Parse(lstCopyItem[iIndex++]);
+                NmUpDnManagementNoKeta.Value = int.Parse(lstCopyItem[iIndex++]);
+                #endregion
+
+                CmbDuplication.Text = lstCopyItem[iIndex++];
+                CmbDoubleFeed.Text = lstCopyItem[iIndex++];
+                CmbUltrasonicDetection.Text = lstCopyItem[iIndex++];
+                CmbCheckNumberOfDigits.Text = lstCopyItem[iIndex++];
+                CmbLogCreationConditions.Text = lstCopyItem[iIndex++];
+                CmbReadingFunction.Text = lstCopyItem[iIndex++];
+
+                #region ポケット①～⑤
+                TxtPocketName1.Text = lstCopyItem[iIndex++];
+                TxtPocketName2.Text = lstCopyItem[iIndex++];
+                TxtPocketName3.Text = lstCopyItem[iIndex++];
+                TxtPocketName4.Text = lstCopyItem[iIndex++];
+                TxtPocketName5.Text = lstCopyItem[iIndex++];
+                #endregion
+                #region グループ①～⑤
+                TxtGrpName1.Text = lstCopyItem[iIndex++];
+                TxtGrpName2.Text = lstCopyItem[iIndex++];
+                TxtGrpName3.Text = lstCopyItem[iIndex++];
+                TxtGrpName4.Text = lstCopyItem[iIndex++];
+                TxtGrpName5.Text = lstCopyItem[iIndex++];
+                #endregion
+                #region ポケット切替件数①～⑤
+                TxtQuantity1.Text = lstCopyItem[iIndex++];
+                TxtQuantity2.Text = lstCopyItem[iIndex++];
+                TxtQuantity3.Text = lstCopyItem[iIndex++];
+                TxtQuantity4.Text = lstCopyItem[iIndex++];
+                TxtQuantity5.Text = lstCopyItem[iIndex++];
+                #endregion
+                #region ポケット切替件数ON/OFF①～⑤
+                CmbQuantOnOff1.Text = lstCopyItem[iIndex++];
+                CmbQuantOnOff2.Text = lstCopyItem[iIndex++];
+                CmbQuantOnOff3.Text = lstCopyItem[iIndex++];
+                CmbQuantOnOff4.Text = lstCopyItem[iIndex++];
+                CmbQuantOnOff5.Text = lstCopyItem[iIndex++];
+                #endregion
+                #region グループ情報①～⑤
                 PubConstClass.lstGroupInfo.Clear();
                 PubConstClass.lstGroupInfo.Add(lstCopyGroupInfo[0]);
                 PubConstClass.lstGroupInfo.Add(lstCopyGroupInfo[1]);
                 PubConstClass.lstGroupInfo.Add(lstCopyGroupInfo[2]);
                 PubConstClass.lstGroupInfo.Add(lstCopyGroupInfo[3]);
                 PubConstClass.lstGroupInfo.Add(lstCopyGroupInfo[4]);
+                #endregion
             }
             catch (Exception ex)
             {

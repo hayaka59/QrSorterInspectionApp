@@ -307,11 +307,14 @@ namespace QrSorterSimulatorApp
             try
             {
                 // 読取値（31桁）：物件ID（5桁）＋（1st/2st）＋局出し日（YYYYMMDD）＋ユニークキー（17桁）
-                string sData = TxtPropertyId.Text.Trim();                   // 物件ID
-                sData += "1";                                               // （1st/2st）
-                sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");    // 局出し日（YYYYMMDD）
-                //sData += TxtUniqueKey.Text.Replace("_", " ") + ",";          // ユニークキー
-                sData += "-" + DateTime.Now.ToString("yyMMdd_HHmmssfff") + ",";          // ユニークキー
+                string sData = TxtPropertyId.Text.Trim();                           // 物件ID
+                sData += "1";                                                       // （1st/2st）
+                sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");            // 局出し日（YYYYMMDD）
+                // ユニークキー（17桁）をセット
+                sData += "-" + DateTime.Now.ToString("yyMMdd_");                    // ユニークキー（8桁）
+                sData += int.Parse(TxtUniqueKey.Text).ToString("000000000") + ",";  // ユニークキー（9桁）
+                // ユニークキーのインクリメント
+                TxtUniqueKey.Text = (int.Parse(TxtUniqueKey.Text) + 1).ToString("000000000");
                 // 判定（OK/NG）
                 sData += CmbJudge.Text + ",";
                 // エラーコード
