@@ -75,6 +75,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TxtSaveFolder5 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem25 = new System.Windows.Forms.TextBox();
+            this.BtnClose = new System.Windows.Forms.Button();
             this.TxtBoxQrItem35 = new System.Windows.Forms.TextBox();
             this.TxtGroup5 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem15 = new System.Windows.Forms.TextBox();
@@ -148,8 +149,6 @@
             this.CmbGroup3 = new System.Windows.Forms.ComboBox();
             this.TxtPocketName2 = new System.Windows.Forms.TextBox();
             this.CmbGroup2 = new System.Windows.Forms.ComboBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.CmbGroup = new System.Windows.Forms.ComboBox();
             this.RchTxtQrInfo = new System.Windows.Forms.RichTextBox();
             this.NumUpDwnQrAllDigit = new System.Windows.Forms.NumericUpDown();
             this.CmbDoubleFeed = new System.Windows.Forms.ComboBox();
@@ -172,7 +171,6 @@
             this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.BtnClose = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
@@ -183,7 +181,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdKeta)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -958,6 +955,20 @@
             this.TxtBoxQrItem25.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem25.TabIndex = 380;
             this.TxtBoxQrItem25.Text = "TxtBoxQrItem25";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
+            this.BtnClose.Location = new System.Drawing.Point(1438, 415);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(166, 50);
+            this.BtnClose.TabIndex = 178;
+            this.BtnClose.Text = "戻る";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // TxtBoxQrItem35
             // 
@@ -1802,29 +1813,6 @@
             this.CmbGroup2.TabIndex = 327;
             this.CmbGroup2.SelectedIndexChanged += new System.EventHandler(this.CmbGroup2_SelectedIndexChanged);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.CmbGroup);
-            this.groupBox4.Location = new System.Drawing.Point(1261, 376);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(188, 73);
-            this.groupBox4.TabIndex = 335;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "グループ１～５";
-            // 
-            // CmbGroup
-            // 
-            this.CmbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbGroup.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbGroup.FormattingEnabled = true;
-            this.CmbGroup.IntegralHeight = false;
-            this.CmbGroup.ItemHeight = 24;
-            this.CmbGroup.Location = new System.Drawing.Point(17, 27);
-            this.CmbGroup.Name = "CmbGroup";
-            this.CmbGroup.Size = new System.Drawing.Size(159, 32);
-            this.CmbGroup.TabIndex = 310;
-            this.CmbGroup.SelectedIndexChanged += new System.EventHandler(this.CmbGroup_SelectedIndexChanged);
-            // 
             // RchTxtQrInfo
             // 
             this.RchTxtQrInfo.BackColor = System.Drawing.Color.White;
@@ -2057,7 +2045,6 @@
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox2.Location = new System.Drawing.Point(130, 58);
@@ -2151,20 +2138,6 @@
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // BtnClose
-            // 
-            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1438, 415);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(166, 50);
-            this.BtnClose.TabIndex = 178;
-            this.BtnClose.Text = "戻る";
-            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2195,7 +2168,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdKeta)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -2240,7 +2212,6 @@
         private System.Windows.Forms.TextBox TxtBoxQrItem21;
         private System.Windows.Forms.TextBox TxtBoxQrItem11;
         internal System.Windows.Forms.Button BtnPocketUpdate;
-        internal System.Windows.Forms.ComboBox CmbGroup;
         private System.Windows.Forms.TextBox TxtGroup1;
         internal System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox TxtPocketName1;
@@ -2254,7 +2225,6 @@
         private System.Windows.Forms.TextBox TxtPocketName2;
         internal System.Windows.Forms.ComboBox CmbGroup2;
         internal System.Windows.Forms.ComboBox CmbGroup1;
-        private System.Windows.Forms.GroupBox groupBox4;
         internal System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting2;
         internal System.Windows.Forms.Label label19;
         internal System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting1;
