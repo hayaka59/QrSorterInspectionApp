@@ -1466,7 +1466,7 @@
             // 
             this.BtnPocketUpdate.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnPocketUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnPocketUpdate.Location = new System.Drawing.Point(1438, 25);
+            this.BtnPocketUpdate.Location = new System.Drawing.Point(1438, 357);
             this.BtnPocketUpdate.Name = "BtnPocketUpdate";
             this.BtnPocketUpdate.Size = new System.Drawing.Size(166, 47);
             this.BtnPocketUpdate.TabIndex = 316;
@@ -1474,6 +1474,7 @@
             this.BtnPocketUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnPocketUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnPocketUpdate.UseVisualStyleBackColor = true;
+            this.BtnPocketUpdate.Visible = false;
             this.BtnPocketUpdate.Click += new System.EventHandler(this.BtnPocketUpdate_Click);
             // 
             // TxtGrpName2
