@@ -940,7 +940,7 @@
             // 
             this.TxtSaveFolder5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder5.Location = new System.Drawing.Point(1190, 191);
+            this.TxtSaveFolder5.Location = new System.Drawing.Point(1190, 189);
             this.TxtSaveFolder5.Name = "TxtSaveFolder5";
             this.TxtSaveFolder5.Size = new System.Drawing.Size(199, 31);
             this.TxtSaveFolder5.TabIndex = 384;
@@ -950,7 +950,7 @@
             // 
             this.TxtBoxQrItem25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem25.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem25.Location = new System.Drawing.Point(730, 190);
+            this.TxtBoxQrItem25.Location = new System.Drawing.Point(730, 189);
             this.TxtBoxQrItem25.Name = "TxtBoxQrItem25";
             this.TxtBoxQrItem25.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem25.TabIndex = 380;
@@ -974,7 +974,7 @@
             // 
             this.TxtBoxQrItem35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem35.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem35.Location = new System.Drawing.Point(883, 190);
+            this.TxtBoxQrItem35.Location = new System.Drawing.Point(883, 189);
             this.TxtBoxQrItem35.Name = "TxtBoxQrItem35";
             this.TxtBoxQrItem35.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem35.TabIndex = 381;
@@ -985,7 +985,7 @@
             this.TxtGroup5.BackColor = System.Drawing.Color.LightCyan;
             this.TxtGroup5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGroup5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGroup5.Location = new System.Drawing.Point(277, 188);
+            this.TxtGroup5.Location = new System.Drawing.Point(277, 189);
             this.TxtGroup5.Name = "TxtGroup5";
             this.TxtGroup5.Size = new System.Drawing.Size(300, 31);
             this.TxtGroup5.TabIndex = 383;
@@ -1006,7 +1006,7 @@
             // 
             this.TxtBoxQrItem45.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem45.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem45.Location = new System.Drawing.Point(1036, 190);
+            this.TxtBoxQrItem45.Location = new System.Drawing.Point(1036, 189);
             this.TxtBoxQrItem45.Name = "TxtBoxQrItem45";
             this.TxtBoxQrItem45.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem45.TabIndex = 382;
@@ -1016,7 +1016,7 @@
             // 
             this.TxtSaveFolder4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder4.Location = new System.Drawing.Point(1190, 159);
+            this.TxtSaveFolder4.Location = new System.Drawing.Point(1190, 157);
             this.TxtSaveFolder4.Name = "TxtSaveFolder4";
             this.TxtSaveFolder4.Size = new System.Drawing.Size(199, 31);
             this.TxtSaveFolder4.TabIndex = 378;
@@ -1026,7 +1026,7 @@
             // 
             this.TxtBoxQrItem24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem24.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem24.Location = new System.Drawing.Point(730, 158);
+            this.TxtBoxQrItem24.Location = new System.Drawing.Point(730, 157);
             this.TxtBoxQrItem24.Name = "TxtBoxQrItem24";
             this.TxtBoxQrItem24.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem24.TabIndex = 374;
@@ -1036,7 +1036,7 @@
             // 
             this.TxtBoxQrItem34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem34.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem34.Location = new System.Drawing.Point(883, 158);
+            this.TxtBoxQrItem34.Location = new System.Drawing.Point(883, 157);
             this.TxtBoxQrItem34.Name = "TxtBoxQrItem34";
             this.TxtBoxQrItem34.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem34.TabIndex = 375;
@@ -1047,7 +1047,7 @@
             this.TxtGroup4.BackColor = System.Drawing.Color.LightCyan;
             this.TxtGroup4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGroup4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGroup4.Location = new System.Drawing.Point(277, 156);
+            this.TxtGroup4.Location = new System.Drawing.Point(277, 157);
             this.TxtGroup4.Name = "TxtGroup4";
             this.TxtGroup4.Size = new System.Drawing.Size(300, 31);
             this.TxtGroup4.TabIndex = 377;
@@ -1068,7 +1068,7 @@
             // 
             this.TxtBoxQrItem44.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem44.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem44.Location = new System.Drawing.Point(1036, 158);
+            this.TxtBoxQrItem44.Location = new System.Drawing.Point(1036, 157);
             this.TxtBoxQrItem44.Name = "TxtBoxQrItem44";
             this.TxtBoxQrItem44.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem44.TabIndex = 376;
@@ -1078,7 +1078,7 @@
             // 
             this.TxtSaveFolder3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder3.Location = new System.Drawing.Point(1190, 127);
+            this.TxtSaveFolder3.Location = new System.Drawing.Point(1190, 125);
             this.TxtSaveFolder3.Name = "TxtSaveFolder3";
             this.TxtSaveFolder3.Size = new System.Drawing.Size(199, 31);
             this.TxtSaveFolder3.TabIndex = 372;
@@ -1088,7 +1088,7 @@
             // 
             this.TxtBoxQrItem23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem23.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem23.Location = new System.Drawing.Point(730, 126);
+            this.TxtBoxQrItem23.Location = new System.Drawing.Point(730, 125);
             this.TxtBoxQrItem23.Name = "TxtBoxQrItem23";
             this.TxtBoxQrItem23.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem23.TabIndex = 368;
@@ -1098,7 +1098,7 @@
             // 
             this.TxtBoxQrItem33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem33.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem33.Location = new System.Drawing.Point(883, 126);
+            this.TxtBoxQrItem33.Location = new System.Drawing.Point(883, 125);
             this.TxtBoxQrItem33.Name = "TxtBoxQrItem33";
             this.TxtBoxQrItem33.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem33.TabIndex = 369;
@@ -1109,7 +1109,7 @@
             this.TxtGroup3.BackColor = System.Drawing.Color.LightCyan;
             this.TxtGroup3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGroup3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGroup3.Location = new System.Drawing.Point(277, 124);
+            this.TxtGroup3.Location = new System.Drawing.Point(277, 125);
             this.TxtGroup3.Name = "TxtGroup3";
             this.TxtGroup3.Size = new System.Drawing.Size(300, 31);
             this.TxtGroup3.TabIndex = 371;
@@ -1130,7 +1130,7 @@
             // 
             this.TxtBoxQrItem43.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem43.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem43.Location = new System.Drawing.Point(1036, 126);
+            this.TxtBoxQrItem43.Location = new System.Drawing.Point(1036, 125);
             this.TxtBoxQrItem43.Name = "TxtBoxQrItem43";
             this.TxtBoxQrItem43.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem43.TabIndex = 370;
@@ -1140,7 +1140,7 @@
             // 
             this.TxtSaveFolder2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder2.Location = new System.Drawing.Point(1190, 94);
+            this.TxtSaveFolder2.Location = new System.Drawing.Point(1190, 92);
             this.TxtSaveFolder2.Name = "TxtSaveFolder2";
             this.TxtSaveFolder2.Size = new System.Drawing.Size(199, 31);
             this.TxtSaveFolder2.TabIndex = 366;
@@ -1150,7 +1150,7 @@
             // 
             this.TxtBoxQrItem22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem22.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem22.Location = new System.Drawing.Point(730, 93);
+            this.TxtBoxQrItem22.Location = new System.Drawing.Point(730, 92);
             this.TxtBoxQrItem22.Name = "TxtBoxQrItem22";
             this.TxtBoxQrItem22.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem22.TabIndex = 362;
@@ -1160,7 +1160,7 @@
             // 
             this.TxtBoxQrItem32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem32.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem32.Location = new System.Drawing.Point(883, 93);
+            this.TxtBoxQrItem32.Location = new System.Drawing.Point(883, 92);
             this.TxtBoxQrItem32.Name = "TxtBoxQrItem32";
             this.TxtBoxQrItem32.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem32.TabIndex = 363;
@@ -1171,7 +1171,7 @@
             this.TxtGroup2.BackColor = System.Drawing.Color.LightCyan;
             this.TxtGroup2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGroup2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGroup2.Location = new System.Drawing.Point(277, 91);
+            this.TxtGroup2.Location = new System.Drawing.Point(277, 92);
             this.TxtGroup2.Name = "TxtGroup2";
             this.TxtGroup2.Size = new System.Drawing.Size(300, 31);
             this.TxtGroup2.TabIndex = 365;
@@ -1192,7 +1192,7 @@
             // 
             this.TxtBoxQrItem42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem42.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem42.Location = new System.Drawing.Point(1036, 93);
+            this.TxtBoxQrItem42.Location = new System.Drawing.Point(1036, 92);
             this.TxtBoxQrItem42.Name = "TxtBoxQrItem42";
             this.TxtBoxQrItem42.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem42.TabIndex = 364;
@@ -1204,7 +1204,7 @@
             this.label29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label29.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(142, 187);
+            this.label29.Location = new System.Drawing.Point(142, 189);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(134, 31);
             this.label29.TabIndex = 360;
@@ -1217,7 +1217,7 @@
             this.label26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label26.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(142, 155);
+            this.label26.Location = new System.Drawing.Point(142, 157);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(134, 31);
             this.label26.TabIndex = 359;
@@ -1230,7 +1230,7 @@
             this.label25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label25.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(142, 123);
+            this.label25.Location = new System.Drawing.Point(142, 125);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(134, 31);
             this.label25.TabIndex = 358;
@@ -1243,7 +1243,7 @@
             this.label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label24.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(142, 91);
+            this.label24.Location = new System.Drawing.Point(142, 92);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(134, 31);
             this.label24.TabIndex = 357;
@@ -1254,7 +1254,7 @@
             // 
             this.TxtSaveFolder1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder1.Location = new System.Drawing.Point(1190, 61);
+            this.TxtSaveFolder1.Location = new System.Drawing.Point(1190, 59);
             this.TxtSaveFolder1.Name = "TxtSaveFolder1";
             this.TxtSaveFolder1.Size = new System.Drawing.Size(199, 31);
             this.TxtSaveFolder1.TabIndex = 326;
@@ -1277,7 +1277,7 @@
             // 
             this.TxtBoxQrItem21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem21.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem21.Location = new System.Drawing.Point(730, 60);
+            this.TxtBoxQrItem21.Location = new System.Drawing.Point(730, 59);
             this.TxtBoxQrItem21.Name = "TxtBoxQrItem21";
             this.TxtBoxQrItem21.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem21.TabIndex = 321;
@@ -1289,7 +1289,7 @@
             this.label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label22.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(143, 435);
+            this.label22.Location = new System.Drawing.Point(142, 434);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(134, 31);
             this.label22.TabIndex = 354;
@@ -1302,7 +1302,7 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1190, 27);
+            this.label2.Location = new System.Drawing.Point(1190, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(199, 31);
             this.label2.TabIndex = 325;
@@ -1313,7 +1313,7 @@
             // 
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox6.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox6.Location = new System.Drawing.Point(276, 435);
+            this.textBox6.Location = new System.Drawing.Point(277, 434);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(195, 31);
             this.textBox6.TabIndex = 355;
@@ -1324,7 +1324,7 @@
             // 
             this.TxtBoxQrItem31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem31.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem31.Location = new System.Drawing.Point(883, 60);
+            this.TxtBoxQrItem31.Location = new System.Drawing.Point(883, 59);
             this.TxtBoxQrItem31.Name = "TxtBoxQrItem31";
             this.TxtBoxQrItem31.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem31.TabIndex = 322;
@@ -1335,7 +1335,7 @@
             this.TxtGroup1.BackColor = System.Drawing.Color.LightCyan;
             this.TxtGroup1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGroup1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGroup1.Location = new System.Drawing.Point(277, 58);
+            this.TxtGroup1.Location = new System.Drawing.Point(277, 59);
             this.TxtGroup1.Name = "TxtGroup1";
             this.TxtGroup1.Size = new System.Drawing.Size(300, 31);
             this.TxtGroup1.TabIndex = 324;
@@ -1356,7 +1356,7 @@
             // 
             this.TxtBoxQrItem41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtBoxQrItem41.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtBoxQrItem41.Location = new System.Drawing.Point(1036, 60);
+            this.TxtBoxQrItem41.Location = new System.Drawing.Point(1036, 59);
             this.TxtBoxQrItem41.Name = "TxtBoxQrItem41";
             this.TxtBoxQrItem41.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem41.TabIndex = 323;
@@ -1369,7 +1369,7 @@
             this.CmbGroup6.FormattingEnabled = true;
             this.CmbGroup6.IntegralHeight = false;
             this.CmbGroup6.ItemHeight = 24;
-            this.CmbGroup6.Location = new System.Drawing.Point(471, 434);
+            this.CmbGroup6.Location = new System.Drawing.Point(471, 433);
             this.CmbGroup6.Name = "CmbGroup6";
             this.CmbGroup6.Size = new System.Drawing.Size(105, 32);
             this.CmbGroup6.TabIndex = 356;
@@ -1405,7 +1405,7 @@
             this.TxtGrpName5.BackColor = System.Drawing.Color.LightCyan;
             this.TxtGrpName5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGrpName5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGrpName5.Location = new System.Drawing.Point(576, 401);
+            this.TxtGrpName5.Location = new System.Drawing.Point(578, 401);
             this.TxtGrpName5.Name = "TxtGrpName5";
             this.TxtGrpName5.Size = new System.Drawing.Size(300, 31);
             this.TxtGrpName5.TabIndex = 353;
@@ -1430,7 +1430,7 @@
             this.TxtGrpName4.BackColor = System.Drawing.Color.LightCyan;
             this.TxtGrpName4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGrpName4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGrpName4.Location = new System.Drawing.Point(576, 367);
+            this.TxtGrpName4.Location = new System.Drawing.Point(578, 367);
             this.TxtGrpName4.Name = "TxtGrpName4";
             this.TxtGrpName4.Size = new System.Drawing.Size(300, 31);
             this.TxtGrpName4.TabIndex = 352;
@@ -1455,7 +1455,7 @@
             this.TxtGrpName3.BackColor = System.Drawing.Color.LightCyan;
             this.TxtGrpName3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGrpName3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGrpName3.Location = new System.Drawing.Point(576, 333);
+            this.TxtGrpName3.Location = new System.Drawing.Point(578, 333);
             this.TxtGrpName3.Name = "TxtGrpName3";
             this.TxtGrpName3.Size = new System.Drawing.Size(300, 31);
             this.TxtGrpName3.TabIndex = 351;
@@ -1481,7 +1481,7 @@
             this.TxtGrpName2.BackColor = System.Drawing.Color.LightCyan;
             this.TxtGrpName2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGrpName2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGrpName2.Location = new System.Drawing.Point(576, 298);
+            this.TxtGrpName2.Location = new System.Drawing.Point(578, 298);
             this.TxtGrpName2.Name = "TxtGrpName2";
             this.TxtGrpName2.Size = new System.Drawing.Size(300, 31);
             this.TxtGrpName2.TabIndex = 350;
@@ -1493,7 +1493,7 @@
             this.TxtGrpName1.BackColor = System.Drawing.Color.LightCyan;
             this.TxtGrpName1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtGrpName1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGrpName1.Location = new System.Drawing.Point(576, 264);
+            this.TxtGrpName1.Location = new System.Drawing.Point(578, 264);
             this.TxtGrpName1.Name = "TxtGrpName1";
             this.TxtGrpName1.Size = new System.Drawing.Size(300, 31);
             this.TxtGrpName1.TabIndex = 349;
@@ -1634,7 +1634,7 @@
             this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label18.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(143, 400);
+            this.label18.Location = new System.Drawing.Point(142, 400);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(134, 31);
             this.label18.TabIndex = 336;
@@ -1645,7 +1645,7 @@
             // 
             this.TxtPocketName5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtPocketName5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtPocketName5.Location = new System.Drawing.Point(276, 400);
+            this.TxtPocketName5.Location = new System.Drawing.Point(277, 400);
             this.TxtPocketName5.Name = "TxtPocketName5";
             this.TxtPocketName5.Size = new System.Drawing.Size(195, 31);
             this.TxtPocketName5.TabIndex = 337;
@@ -1671,7 +1671,7 @@
             this.label45.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label45.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label45.ForeColor = System.Drawing.Color.Black;
-            this.label45.Location = new System.Drawing.Point(143, 366);
+            this.label45.Location = new System.Drawing.Point(142, 366);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(134, 31);
             this.label45.TabIndex = 331;
@@ -1684,7 +1684,7 @@
             this.label44.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label44.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label44.ForeColor = System.Drawing.Color.Black;
-            this.label44.Location = new System.Drawing.Point(143, 332);
+            this.label44.Location = new System.Drawing.Point(142, 332);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(134, 31);
             this.label44.TabIndex = 328;
@@ -1697,7 +1697,7 @@
             this.label43.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label43.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label43.ForeColor = System.Drawing.Color.Black;
-            this.label43.Location = new System.Drawing.Point(143, 298);
+            this.label43.Location = new System.Drawing.Point(142, 298);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(134, 31);
             this.label43.TabIndex = 325;
@@ -1710,7 +1710,7 @@
             this.label42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label42.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label42.ForeColor = System.Drawing.Color.Black;
-            this.label42.Location = new System.Drawing.Point(143, 264);
+            this.label42.Location = new System.Drawing.Point(142, 264);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(134, 31);
             this.label42.TabIndex = 299;
@@ -1721,7 +1721,7 @@
             // 
             this.TxtPocketName1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtPocketName1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtPocketName1.Location = new System.Drawing.Point(276, 264);
+            this.TxtPocketName1.Location = new System.Drawing.Point(277, 264);
             this.TxtPocketName1.Name = "TxtPocketName1";
             this.TxtPocketName1.Size = new System.Drawing.Size(195, 31);
             this.TxtPocketName1.TabIndex = 300;
@@ -1745,7 +1745,7 @@
             // 
             this.TxtPocketName4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtPocketName4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtPocketName4.Location = new System.Drawing.Point(276, 366);
+            this.TxtPocketName4.Location = new System.Drawing.Point(277, 366);
             this.TxtPocketName4.Name = "TxtPocketName4";
             this.TxtPocketName4.Size = new System.Drawing.Size(195, 31);
             this.TxtPocketName4.TabIndex = 332;
@@ -1769,7 +1769,7 @@
             // 
             this.TxtPocketName3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtPocketName3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtPocketName3.Location = new System.Drawing.Point(276, 332);
+            this.TxtPocketName3.Location = new System.Drawing.Point(277, 332);
             this.TxtPocketName3.Name = "TxtPocketName3";
             this.TxtPocketName3.Size = new System.Drawing.Size(195, 31);
             this.TxtPocketName3.TabIndex = 329;
@@ -1793,7 +1793,7 @@
             // 
             this.TxtPocketName2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtPocketName2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtPocketName2.Location = new System.Drawing.Point(276, 298);
+            this.TxtPocketName2.Location = new System.Drawing.Point(277, 298);
             this.TxtPocketName2.Name = "TxtPocketName2";
             this.TxtPocketName2.Size = new System.Drawing.Size(195, 31);
             this.TxtPocketName2.TabIndex = 326;
