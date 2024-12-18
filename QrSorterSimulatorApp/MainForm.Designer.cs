@@ -56,6 +56,8 @@
             this.BtnAutoSend = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.CmbNonDeliveryReasonSorting = new System.Windows.Forms.ComboBox();
+            this.BtnStart = new System.Windows.Forms.Button();
+            this.BtnStop = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -299,7 +301,7 @@
             // BtnAutoSend
             // 
             this.BtnAutoSend.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnAutoSend.Location = new System.Drawing.Point(12, 446);
+            this.BtnAutoSend.Location = new System.Drawing.Point(16, 446);
             this.BtnAutoSend.Name = "BtnAutoSend";
             this.BtnAutoSend.Size = new System.Drawing.Size(146, 45);
             this.BtnAutoSend.TabIndex = 329;
@@ -327,12 +329,36 @@
             this.CmbNonDeliveryReasonSorting.Size = new System.Drawing.Size(244, 32);
             this.CmbNonDeliveryReasonSorting.TabIndex = 1;
             // 
+            // BtnStart
+            // 
+            this.BtnStart.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnStart.Location = new System.Drawing.Point(16, 359);
+            this.BtnStart.Name = "BtnStart";
+            this.BtnStart.Size = new System.Drawing.Size(122, 45);
+            this.BtnStart.TabIndex = 330;
+            this.BtnStart.Text = "開始";
+            this.BtnStart.UseVisualStyleBackColor = true;
+            this.BtnStart.Click += new System.EventHandler(this.BtnStart_Click);
+            // 
+            // BtnStop
+            // 
+            this.BtnStop.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnStop.Location = new System.Drawing.Point(157, 359);
+            this.BtnStop.Name = "BtnStop";
+            this.BtnStop.Size = new System.Drawing.Size(122, 45);
+            this.BtnStop.TabIndex = 331;
+            this.BtnStop.Text = "停止";
+            this.BtnStop.UseVisualStyleBackColor = true;
+            this.BtnStop.Click += new System.EventHandler(this.BtnStop_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnStop);
+            this.Controls.Add(this.BtnStart);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.BtnAutoSend);
             this.Controls.Add(this.groupBox8);
@@ -399,6 +425,8 @@
         private System.Windows.Forms.Button BtnAutoSend;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting;
+        private System.Windows.Forms.Button BtnStart;
+        private System.Windows.Forms.Button BtnStop;
     }
 }
 

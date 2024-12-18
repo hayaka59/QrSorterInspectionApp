@@ -328,6 +328,7 @@ namespace QrSorterSimulatorApp
                 byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LsbSendBox.Items.Add(sData);
+                LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
             }
             catch (Exception ex)
             {
@@ -397,9 +398,57 @@ namespace QrSorterSimulatorApp
             }
         }
 
+        /// <summary>
+        /// 連続送信処理用タイマー
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TimSendData_Tick(object sender, EventArgs e)
         {
             BtnSendTestData.PerformClick();
+        }
+
+        /// <summary>
+        /// 「開始」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnStart_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_A + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LsbSendBox.Items.Add($"{PubConstClass.CMD_SEND_A}<CR>");
+                LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnStart_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 「停止」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnStop_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_B + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LsbSendBox.Items.Add($"{PubConstClass.CMD_SEND_B}<CR>");
+                LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnStop_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
