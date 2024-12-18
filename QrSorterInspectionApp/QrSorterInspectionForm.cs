@@ -471,6 +471,8 @@ namespace QrSorterInspectionApp
                 // 送信データのセット
                 byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_a + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LblError.Visible = false;
+                
                 // 検査中
                 //SetStatus(1);
 
@@ -564,6 +566,8 @@ namespace QrSorterInspectionApp
                 // 送信データのセット
                 byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_b + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LblError.Visible = false;
+                
                 // 停止中
                 //SetStatus(0);
 
@@ -905,7 +909,11 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                LblError.Text = $"エラーコマンド「{sData.Replace("\r","<CR>")}」受信";
+                LblError.Visible = true;
 
+                // エラー
+                SetStatus(2);
             }
             catch (Exception ex)
             {
