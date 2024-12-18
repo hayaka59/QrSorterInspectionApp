@@ -94,5 +94,29 @@
   <ItemGroup>
     <None Include="icon\settei.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\exit_icon_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\running_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\standing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\bubble.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\back_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\check.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
