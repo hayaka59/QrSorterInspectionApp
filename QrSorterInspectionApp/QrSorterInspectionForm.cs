@@ -467,8 +467,12 @@ namespace QrSorterInspectionApp
         {
             try
             {
+
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_a + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 // 検査中
-                SetStatus(1);
+                //SetStatus(1);
 
                 //string[] col = new string[10];
                 //ListViewItem itm;
@@ -557,9 +561,11 @@ namespace QrSorterInspectionApp
         {
             try
             {
-
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_b + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 // 停止中
-                SetStatus(0);
+                //SetStatus(0);
 
                 //string[] col = new string[10];
                 //ListViewItem itm;
@@ -866,8 +872,8 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                // 「検査開始」ボタン呼出
-                BtnStartInspection.PerformClick();
+                // 検査中
+                SetStatus(1);
             }
             catch (Exception ex)
             {
@@ -882,8 +888,8 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                // 「検査終了」ボタン呼出
-                BtnStopInspection.PerformClick();
+                // 停止中
+                SetStatus(0);
             }
             catch (Exception ex)
             {
