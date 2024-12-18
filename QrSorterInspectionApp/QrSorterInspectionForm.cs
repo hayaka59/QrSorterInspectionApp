@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -466,78 +467,81 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                string[] col = new string[10];
-                ListViewItem itm;
-
-                iOKCount++;
-                LblOKCount.Text = iOKCount.ToString("#,##0");
-                LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
-                col[0] = iOKCount.ToString("00000");
-                col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                //col[2] = "QR" + iOKCount.ToString("000000000");
-                string sDateTime1 = DateTime.Now.ToString("yyyyMMdd");
-                string sDateTime2 = DateTime.Now.ToString("yyMMdd");
-                col[2] = $"D12345{sDateTime1}-{sDateTime2}-{DateTime.Now.ToString("HHmmssfff")}";
-                col[3] = "トレイ" + iBoxNumber.ToString();
-                col[4] = "---";
-
-                if (iBoxNumber == 1)
-                {
-                    iBox1Count++;
-                    LblBox1.Text = iBox1Count.ToString("0");
-                    //LblPocket1.Text = "QR" + iOKCount.ToString("000000000");
-                    LblPocket1.Text = col[2];
-                }
-                else if (iBoxNumber == 2)
-                {
-                    iBox2Count++;
-                    LblBox2.Text = iBox2Count.ToString("0");
-                    //LblPocket2.Text = "QR" + iOKCount.ToString("000000000");
-                    LblPocket2.Text = col[2];
-                }
-                else if (iBoxNumber == 3)
-                {
-                    iBox3Count++;
-                    LblBox3.Text = iBox3Count.ToString("0");
-                    //LblPocket3.Text = "QR" + iOKCount.ToString("000000000");
-                    LblPocket3.Text = col[2];
-                }
-                else if (iBoxNumber == 4) {
-                    iBox4Count++;
-                    LblBox4.Text = iBox4Count.ToString("0");
-                    //LblPocket4.Text = "QR" + iOKCount.ToString("000000000");
-                    LblPocket4.Text = col[2];
-                }
-                else if (iBoxNumber == 5)
-                {
-                    iBox5Count++;
-                    LblBox5.Text = iBox5Count.ToString("0");
-                    //LblPocket5.Text = "QR" + iOKCount.ToString("000000000");
-                    LblPocket5.Text = col[2];
-                }
-                iBoxNumber++;
-                if (iBoxNumber > 5) {
-                    iBoxNumber = 1;
-                }
-
-                // データの表示
-                itm = new ListViewItem(col);
-                LsvOKHistory.Items.Add(itm);
-                LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].UseItemStyleForSubItems = false;
-                LsvOKHistory.Select();
-                LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].EnsureVisible();
-
-                if (LsvOKHistory.Items.Count % 2 == 1)
-                {
-                    for (int iIndex = 0; iIndex < 5; iIndex++)
-                    {
-                        // 奇数行の色反転
-                        LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
-                    }
-                }
-
                 // 検査中
                 SetStatus(1);
+
+                //string[] col = new string[10];
+                //ListViewItem itm;
+
+                //iOKCount++;
+                //LblOKCount.Text = iOKCount.ToString("#,##0");
+                //LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
+                //col[0] = iOKCount.ToString("00000");
+                //col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                ////col[2] = "QR" + iOKCount.ToString("000000000");
+                //string sDateTime1 = DateTime.Now.ToString("yyyyMMdd");
+                //string sDateTime2 = DateTime.Now.ToString("yyMMdd");
+                //col[2] = $"D12345{sDateTime1}-{sDateTime2}-{DateTime.Now.ToString("HHmmssfff")}";
+                //col[3] = "トレイ" + iBoxNumber.ToString();
+                //col[4] = "---";
+
+                //if (iBoxNumber == 1)
+                //{
+                //    iBox1Count++;
+                //    LblBox1.Text = iBox1Count.ToString("0");
+                //    //LblPocket1.Text = "QR" + iOKCount.ToString("000000000");
+                //    LblPocket1.Text = col[2];
+                //}
+                //else if (iBoxNumber == 2)
+                //{
+                //    iBox2Count++;
+                //    LblBox2.Text = iBox2Count.ToString("0");
+                //    //LblPocket2.Text = "QR" + iOKCount.ToString("000000000");
+                //    LblPocket2.Text = col[2];
+                //}
+                //else if (iBoxNumber == 3)
+                //{
+                //    iBox3Count++;
+                //    LblBox3.Text = iBox3Count.ToString("0");
+                //    //LblPocket3.Text = "QR" + iOKCount.ToString("000000000");
+                //    LblPocket3.Text = col[2];
+                //}
+                //else if (iBoxNumber == 4) {
+                //    iBox4Count++;
+                //    LblBox4.Text = iBox4Count.ToString("0");
+                //    //LblPocket4.Text = "QR" + iOKCount.ToString("000000000");
+                //    LblPocket4.Text = col[2];
+                //}
+                //else if (iBoxNumber == 5)
+                //{
+                //    iBox5Count++;
+                //    LblBox5.Text = iBox5Count.ToString("0");
+                //    //LblPocket5.Text = "QR" + iOKCount.ToString("000000000");
+                //    LblPocket5.Text = col[2];
+                //}
+                //iBoxNumber++;
+                //if (iBoxNumber > 5) {
+                //    iBoxNumber = 1;
+                //}
+
+                //// データの表示
+                //itm = new ListViewItem(col);
+                //LsvOKHistory.Items.Add(itm);
+                //LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].UseItemStyleForSubItems = false;
+                //LsvOKHistory.Select();
+                //LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].EnsureVisible();
+
+                //if (LsvOKHistory.Items.Count % 2 == 1)
+                //{
+                //    for (int iIndex = 0; iIndex < 5; iIndex++)
+                //    {
+                //        // 奇数行の色反転
+                //        LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
+                //    }
+                //}
+
+                //// 検査中
+                //SetStatus(1);
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -553,41 +557,45 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                string[] col = new string[10];
-                ListViewItem itm;
-
-                iNGCount++;
-                LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
-                LblNGCount.Text = iNGCount.ToString("#,##0");
-                LblBoxEject.Text = iNGCount.ToString("0");
-
-                col[0] = iNGCount.ToString("00000");
-                col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                //col[2] = "QR" + iNGCount.ToString("000000000");
-                string sDateTime1 = DateTime.Now.ToString("yyyyMMdd");
-                string sDateTime2 = DateTime.Now.ToString("yyMMdd");
-                col[2] = $"D12345{sDateTime1}-{sDateTime2}-{DateTime.Now.ToString("HHmmssfff")}";
-                col[3] = "NG";
-                col[4] = "---";
-
-                // データの表示
-                itm = new ListViewItem(col);
-                LsvNGHistory.Items.Add(itm);
-                LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].UseItemStyleForSubItems = false;
-                LsvNGHistory.Select();
-                LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].EnsureVisible();
-
-                if (LsvNGHistory.Items.Count % 2 == 1)
-                {
-                    for (int iIndex = 0; iIndex < 5; iIndex++)
-                    {
-                        // 奇数行の色反転
-                        LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
-                    }
-                }
 
                 // 停止中
                 SetStatus(0);
+
+                //string[] col = new string[10];
+                //ListViewItem itm;
+
+                //iNGCount++;
+                //LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
+                //LblNGCount.Text = iNGCount.ToString("#,##0");
+                //LblBoxEject.Text = iNGCount.ToString("0");
+
+                //col[0] = iNGCount.ToString("00000");
+                //col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                ////col[2] = "QR" + iNGCount.ToString("000000000");
+                //string sDateTime1 = DateTime.Now.ToString("yyyyMMdd");
+                //string sDateTime2 = DateTime.Now.ToString("yyMMdd");
+                //col[2] = $"D12345{sDateTime1}-{sDateTime2}-{DateTime.Now.ToString("HHmmssfff")}";
+                //col[3] = "NG";
+                //col[4] = "---";
+
+                //// データの表示
+                //itm = new ListViewItem(col);
+                //LsvNGHistory.Items.Add(itm);
+                //LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].UseItemStyleForSubItems = false;
+                //LsvNGHistory.Select();
+                //LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].EnsureVisible();
+
+                //if (LsvNGHistory.Items.Count % 2 == 1)
+                //{
+                //    for (int iIndex = 0; iIndex < 5; iIndex++)
+                //    {
+                //        // 奇数行の色反転
+                //        LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
+                //    }
+                //}
+
+                //// 停止中
+                //SetStatus(0);
             }
             catch (Exception ex)
             {
@@ -808,13 +816,40 @@ namespace QrSorterInspectionApp
             {
                 CommonModule.OutPutLogFile("受信データ：" + data.Replace("\r", "<CR>"));
 
-                if (data.Length < 9)
-                {
-                    CommonModule.OutPutLogFile("■不正データ受信：" + data.Replace("\r", "<CR>"));
-                    return;
-                }
+                //if (data.Length < 9)
+                //{
+                //    CommonModule.OutPutLogFile("■不正データ受信：" + data.Replace("\r", "<CR>"));
+                //    return;
+                //}
 
-                DisplaySeisanLogData(data);
+                // 受信データの先頭１文字を取得
+                string sCommandType = data.Substring(0, 1);
+                switch (sCommandType)
+                {
+                    case "A":
+                        // 開始コマンド
+                        MyProcA();
+                        break;
+
+                    case "B":
+                        // 停止コマンド
+                        MyProcB();
+                        break;
+
+                    case "D":
+                        // データコマンド
+                        MyProcD(data);
+                        break;
+
+                    case "E":
+                        // エラーコマンド
+                        MyProcE(data);
+                        break;
+
+                    default:
+                        // 未定義コマンド
+                        break;
+                }
             }
             catch (Exception ex)
             {
@@ -824,7 +859,59 @@ namespace QrSorterInspectionApp
             }
         }
 
-        private void DisplaySeisanLogData(string sData)
+        /// <summary>
+        /// 開始コマンド処理
+        /// </summary>
+        private void MyProcA()
+        {
+            try
+            {
+                // 「検査開始」ボタン呼出
+                BtnStartInspection.PerformClick();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcA】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 停止コマンド処理
+        /// </summary>
+        private void MyProcB()
+        {
+            try
+            {
+                // 「検査終了」ボタン呼出
+                BtnStopInspection.PerformClick();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcB】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// エラーコマンド処理
+        /// </summary>
+        /// <param name="sData"></param>
+        private void MyProcE(string sData)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcE】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// データコマンドの処理
+        /// </summary>
+        /// <param name="sData"></param>
+        private void MyProcD(string sData)
         {
             string[] col = new string[12];
             ListViewItem itm1;
