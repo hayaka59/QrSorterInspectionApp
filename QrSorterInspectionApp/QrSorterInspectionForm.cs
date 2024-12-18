@@ -182,6 +182,8 @@ namespace QrSorterInspectionApp
                 SetStatus(0);
                 // JOB選択ラベルクリア
                 LblSelectedFile.Text = "";
+                // 「検査開始」ボタン使用不可
+                BtnStartInspection.Enabled = false;
                 // 「設定」ボタン使用不可
                 BtnSetting.Enabled = false;
 
@@ -475,79 +477,6 @@ namespace QrSorterInspectionApp
                 
                 // 検査中
                 //SetStatus(1);
-
-                //string[] col = new string[10];
-                //ListViewItem itm;
-
-                //iOKCount++;
-                //LblOKCount.Text = iOKCount.ToString("#,##0");
-                //LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
-                //col[0] = iOKCount.ToString("00000");
-                //col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                ////col[2] = "QR" + iOKCount.ToString("000000000");
-                //string sDateTime1 = DateTime.Now.ToString("yyyyMMdd");
-                //string sDateTime2 = DateTime.Now.ToString("yyMMdd");
-                //col[2] = $"D12345{sDateTime1}-{sDateTime2}-{DateTime.Now.ToString("HHmmssfff")}";
-                //col[3] = "トレイ" + iBoxNumber.ToString();
-                //col[4] = "---";
-
-                //if (iBoxNumber == 1)
-                //{
-                //    iBox1Count++;
-                //    LblBox1.Text = iBox1Count.ToString("0");
-                //    //LblPocket1.Text = "QR" + iOKCount.ToString("000000000");
-                //    LblPocket1.Text = col[2];
-                //}
-                //else if (iBoxNumber == 2)
-                //{
-                //    iBox2Count++;
-                //    LblBox2.Text = iBox2Count.ToString("0");
-                //    //LblPocket2.Text = "QR" + iOKCount.ToString("000000000");
-                //    LblPocket2.Text = col[2];
-                //}
-                //else if (iBoxNumber == 3)
-                //{
-                //    iBox3Count++;
-                //    LblBox3.Text = iBox3Count.ToString("0");
-                //    //LblPocket3.Text = "QR" + iOKCount.ToString("000000000");
-                //    LblPocket3.Text = col[2];
-                //}
-                //else if (iBoxNumber == 4) {
-                //    iBox4Count++;
-                //    LblBox4.Text = iBox4Count.ToString("0");
-                //    //LblPocket4.Text = "QR" + iOKCount.ToString("000000000");
-                //    LblPocket4.Text = col[2];
-                //}
-                //else if (iBoxNumber == 5)
-                //{
-                //    iBox5Count++;
-                //    LblBox5.Text = iBox5Count.ToString("0");
-                //    //LblPocket5.Text = "QR" + iOKCount.ToString("000000000");
-                //    LblPocket5.Text = col[2];
-                //}
-                //iBoxNumber++;
-                //if (iBoxNumber > 5) {
-                //    iBoxNumber = 1;
-                //}
-
-                //// データの表示
-                //itm = new ListViewItem(col);
-                //LsvOKHistory.Items.Add(itm);
-                //LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].UseItemStyleForSubItems = false;
-                //LsvOKHistory.Select();
-                //LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].EnsureVisible();
-
-                //if (LsvOKHistory.Items.Count % 2 == 1)
-                //{
-                //    for (int iIndex = 0; iIndex < 5; iIndex++)
-                //    {
-                //        // 奇数行の色反転
-                //        LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
-                //    }
-                //}
-
-                //// 検査中
-                //SetStatus(1);
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -570,104 +499,10 @@ namespace QrSorterInspectionApp
                 
                 // 停止中
                 //SetStatus(0);
-
-                //string[] col = new string[10];
-                //ListViewItem itm;
-
-                //iNGCount++;
-                //LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
-                //LblNGCount.Text = iNGCount.ToString("#,##0");
-                //LblBoxEject.Text = iNGCount.ToString("0");
-
-                //col[0] = iNGCount.ToString("00000");
-                //col[1] = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                ////col[2] = "QR" + iNGCount.ToString("000000000");
-                //string sDateTime1 = DateTime.Now.ToString("yyyyMMdd");
-                //string sDateTime2 = DateTime.Now.ToString("yyMMdd");
-                //col[2] = $"D12345{sDateTime1}-{sDateTime2}-{DateTime.Now.ToString("HHmmssfff")}";
-                //col[3] = "NG";
-                //col[4] = "---";
-
-                //// データの表示
-                //itm = new ListViewItem(col);
-                //LsvNGHistory.Items.Add(itm);
-                //LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].UseItemStyleForSubItems = false;
-                //LsvNGHistory.Select();
-                //LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].EnsureVisible();
-
-                //if (LsvNGHistory.Items.Count % 2 == 1)
-                //{
-                //    for (int iIndex = 0; iIndex < 5; iIndex++)
-                //    {
-                //        // 奇数行の色反転
-                //        LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
-                //    }
-                //}
-
-                //// 停止中
-                //SetStatus(0);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// ジョブ名選択処理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CmbJobName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                //string[] sArray = PubConstClass.lstJobEntryList[CmbJobName.SelectedIndex].Split(',');
-                
-                //// 受領日
-                //DtpDateReceipt.Text = sArray[3];
-                //// 不着事由仕分①
-                //CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[19]) - 1;
-                //// 不着事由仕分②
-                //CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[20]) - 1;
-
-                //TxtFileType.Text = "01";
-
-                //// 不着事由仕分①チェック  
-                //CmbNonDeliveryReasonSorting1.Enabled = sArray[21] == "ON";
-                //// 不着事由仕分②チェック
-                //CmbNonDeliveryReasonSorting2.Enabled = sArray[22] == "ON";
-
-                //TxtSeqNum.Text = "0001";
-                    
-                //// ポケット①名称
-                //LblBoxTitle1.Text = "BOX_01 " + sArray[29];
-                //// ポケット②名称
-                //LblBoxTitle2.Text = "BOX_02 " + sArray[31];
-                //// ポケット③名称
-                //LblBoxTitle3.Text = "BOX_03 " + sArray[33];
-                //// ポケット④名称
-                //LblBoxTitle4.Text = "BOX_04 " + sArray[35];
-                //// ポケット⑤名称
-                //LblBoxTitle5.Text = "BOX_05 " + sArray[37];
-
-                //// ポケット１切替件数
-                //LblQuantity1.Text = sArray[44] == "ON" ? sArray[39]: "---";
-                //// ポケット２切替件数
-                //LblQuantity2.Text = sArray[45] == "ON" ? sArray[40] : "---";
-                //// ポケット３切替件数
-                //LblQuantity3.Text = sArray[46] == "ON" ? sArray[41] : "---";
-                //// ポケット４切替件数
-                //LblQuantity4.Text = sArray[47] == "ON" ? sArray[42] : "---";
-                //// ポケット５切替件数
-                //LblQuantity5.Text = sArray[48] == "ON" ? sArray[43] : "---";
-
-                //// ログ保存フォルダの確認
-                //CheckAndCreateLogStorageFolder();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【CmbJobName_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -824,7 +659,7 @@ namespace QrSorterInspectionApp
 
             try
             {
-                CommonModule.OutPutLogFile("受信データ：" + data.Replace("\r", "<CR>"));
+                CommonModule.OutPutLogFile($"受信データ：{data.Replace("\r", "<CR>")}");
 
                 //if (data.Length < 9)
                 //{
@@ -858,6 +693,7 @@ namespace QrSorterInspectionApp
 
                     default:
                         // 未定義コマンド
+                        CommonModule.OutPutLogFile($"未定義コマンドです：{data.Replace("\r", "<CR>")}");
                         break;
                 }
             }
@@ -1131,7 +967,7 @@ namespace QrSorterInspectionApp
             {
                 OpenFileDialog ofd = new OpenFileDialog();
 
-                CommonModule.OutPutLogFile("■「JO選択」ボタンクリック");
+                CommonModule.OutPutLogFile("■「JOB選択」ボタンクリック");
                 // 初期表示するフォルダの指定（「空の文字列」の時は現在のディレクトリを表示）
                 //ofd.InitialDirectory = @"C:\";
                 // 「ファイルの種類」に表示される選択肢の指定
@@ -1158,6 +994,8 @@ namespace QrSorterInspectionApp
                     CommonModule.ReadJobEntryListFile(sSelectedFile);
                     // 登録ジョブ項目を取得し表示
                     GetEntryInfoAndDisplay();
+                    // 「検査開始」ボタン使用可
+                    BtnStartInspection.Enabled = true;
                     // 「設定」ボタン使用可
                     BtnSetting.Enabled = true;
                     PubConstClass.sJobFileNameFromInspectionForm = sSelectedFile;
