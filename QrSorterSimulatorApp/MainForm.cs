@@ -288,6 +288,28 @@ namespace QrSorterSimulatorApp
                 //}
 
                 LsbRecvBox.Items.Add(data.Replace("\r", "<CR>"));
+                LsbRecvBox.SelectedIndex = LsbRecvBox.Items.Count - 1;
+
+                // 受信データの先頭１文字を取得
+                string sCommandType = data.Substring(0, 1);
+                switch (sCommandType)
+                {
+                    case PubConstClass.CMD_RECIEVE_a:
+                        // 開始コマンド
+                        BtnStart.PerformClick();
+                        break;
+
+                    case PubConstClass.CMD_RECIEVE_b:
+                        // 停止コマンド
+                        BtnStop.PerformClick();
+                        break;
+
+                    default:
+                        // 未定義コマンド
+                        break;
+                }
+
+
             }
             catch (Exception ex)
             {
