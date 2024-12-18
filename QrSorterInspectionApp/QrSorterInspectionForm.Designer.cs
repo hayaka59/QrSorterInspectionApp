@@ -118,7 +118,7 @@
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(96, 173);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(170, 36);
+            this.label8.Size = new System.Drawing.Size(192, 36);
             this.label8.TabIndex = 228;
             this.label8.Text = "受領日";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -131,9 +131,9 @@
             this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(96, 257);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(170, 36);
+            this.label19.Size = new System.Drawing.Size(192, 36);
             this.label19.TabIndex = 231;
-            this.label19.Text = "仕分け②";
+            this.label19.Text = "不着事由仕分け②";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
@@ -144,18 +144,18 @@
             this.label17.ForeColor = System.Drawing.Color.Black;
             this.label17.Location = new System.Drawing.Point(96, 215);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(170, 36);
+            this.label17.Size = new System.Drawing.Size(192, 36);
             this.label17.TabIndex = 230;
-            this.label17.Text = "仕分け①";
+            this.label17.Text = "不着事由仕分け①";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DtpDateReceipt
             // 
             this.DtpDateReceipt.Enabled = false;
             this.DtpDateReceipt.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.DtpDateReceipt.Location = new System.Drawing.Point(265, 173);
+            this.DtpDateReceipt.Location = new System.Drawing.Point(289, 174);
             this.DtpDateReceipt.Name = "DtpDateReceipt";
-            this.DtpDateReceipt.Size = new System.Drawing.Size(299, 36);
+            this.DtpDateReceipt.Size = new System.Drawing.Size(276, 36);
             this.DtpDateReceipt.TabIndex = 229;
             // 
             // LblTitle
@@ -659,9 +659,9 @@
             this.CmbNonDeliveryReasonSorting2.FormattingEnabled = true;
             this.CmbNonDeliveryReasonSorting2.IntegralHeight = false;
             this.CmbNonDeliveryReasonSorting2.ItemHeight = 28;
-            this.CmbNonDeliveryReasonSorting2.Location = new System.Drawing.Point(265, 258);
+            this.CmbNonDeliveryReasonSorting2.Location = new System.Drawing.Point(289, 258);
             this.CmbNonDeliveryReasonSorting2.Name = "CmbNonDeliveryReasonSorting2";
-            this.CmbNonDeliveryReasonSorting2.Size = new System.Drawing.Size(299, 36);
+            this.CmbNonDeliveryReasonSorting2.Size = new System.Drawing.Size(276, 36);
             this.CmbNonDeliveryReasonSorting2.TabIndex = 302;
             // 
             // CmbNonDeliveryReasonSorting1
@@ -671,9 +671,9 @@
             this.CmbNonDeliveryReasonSorting1.FormattingEnabled = true;
             this.CmbNonDeliveryReasonSorting1.IntegralHeight = false;
             this.CmbNonDeliveryReasonSorting1.ItemHeight = 28;
-            this.CmbNonDeliveryReasonSorting1.Location = new System.Drawing.Point(265, 215);
+            this.CmbNonDeliveryReasonSorting1.Location = new System.Drawing.Point(289, 216);
             this.CmbNonDeliveryReasonSorting1.Name = "CmbNonDeliveryReasonSorting1";
-            this.CmbNonDeliveryReasonSorting1.Size = new System.Drawing.Size(299, 36);
+            this.CmbNonDeliveryReasonSorting1.Size = new System.Drawing.Size(276, 36);
             this.CmbNonDeliveryReasonSorting1.TabIndex = 301;
             // 
             // LblPocket5
