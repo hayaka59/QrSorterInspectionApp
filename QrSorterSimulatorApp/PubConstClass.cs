@@ -10,6 +10,9 @@ namespace QrSorterSimulatorApp
     {
         public const string CMD_SEND_A = "A";      // 
         public const string CMD_SEND_B = "B";      // 
+        public const string CMD_SEND_C = "C";      // 
+        public const string CMD_SEND_D = "D";      // 
+        public const string CMD_SEND_E = "E";      // 
 
         public const string CMD_RECIEVE_a = "a";   // 
         public const string CMD_RECIEVE_b = "b";   // 

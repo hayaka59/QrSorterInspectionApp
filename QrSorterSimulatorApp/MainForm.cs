@@ -308,8 +308,6 @@ namespace QrSorterSimulatorApp
                         // 未定義コマンド
                         break;
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -470,7 +468,28 @@ namespace QrSorterSimulatorApp
             {
                 MessageBox.Show(ex.Message, "【BtnStop_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        /// <summary>
+        /// 「エラー送信」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnError_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 送信データのセット
+                string sData = PubConstClass.CMD_SEND_E + CmbErrorCode.Text;
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LsbSendBox.Items.Add($"{sData}<CR>");
+                LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnError_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
