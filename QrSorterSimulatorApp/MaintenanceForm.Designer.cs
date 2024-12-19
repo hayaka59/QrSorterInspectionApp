@@ -42,8 +42,8 @@
             this.CmbComPort = new System.Windows.Forms.ComboBox();
             this.Label23 = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
-            this.BtnClose = new System.Windows.Forms.Button();
             this.BtnApply = new System.Windows.Forms.Button();
+            this.BtnClose = new System.Windows.Forms.Button();
             this.GroupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@
             this.GroupBox7.Controls.Add(this.CmbComPort);
             this.GroupBox7.Controls.Add(this.Label23);
             this.GroupBox7.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GroupBox7.Location = new System.Drawing.Point(273, 106);
+            this.GroupBox7.Location = new System.Drawing.Point(304, 155);
             this.GroupBox7.Name = "GroupBox7";
             this.GroupBox7.Size = new System.Drawing.Size(330, 261);
             this.GroupBox7.TabIndex = 247;
@@ -199,41 +199,44 @@
             // 
             this.LblVersion.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblVersion.ForeColor = System.Drawing.Color.Blue;
-            this.LblVersion.Location = new System.Drawing.Point(742, 527);
+            this.LblVersion.Location = new System.Drawing.Point(842, 718);
             this.LblVersion.Name = "LblVersion";
             this.LblVersion.Size = new System.Drawing.Size(130, 25);
             this.LblVersion.TabIndex = 249;
             this.LblVersion.Text = "LblVersion";
             this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // BtnApply
+            // 
+            this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnApply.Image = global::QrSorterSimulatorApp.Properties.Resources.check;
+            this.BtnApply.Location = new System.Drawing.Point(304, 470);
+            this.BtnApply.Name = "BtnApply";
+            this.BtnApply.Size = new System.Drawing.Size(124, 50);
+            this.BtnApply.TabIndex = 250;
+            this.BtnApply.Text = "適用";
+            this.BtnApply.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnApply.UseVisualStyleBackColor = true;
+            this.BtnApply.Click += new System.EventHandler(this.BtnApply_Click);
+            // 
             // BtnClose
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Location = new System.Drawing.Point(477, 421);
+            this.BtnClose.Image = global::QrSorterSimulatorApp.Properties.Resources.back_arrow;
+            this.BtnClose.Location = new System.Drawing.Point(510, 470);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(126, 50);
+            this.BtnClose.Size = new System.Drawing.Size(124, 50);
             this.BtnClose.TabIndex = 248;
             this.BtnClose.Text = "戻る";
             this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // BtnApply
-            // 
-            this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnApply.Location = new System.Drawing.Point(273, 421);
-            this.BtnApply.Name = "BtnApply";
-            this.BtnApply.Size = new System.Drawing.Size(126, 50);
-            this.BtnApply.TabIndex = 250;
-            this.BtnApply.Text = "適用";
-            this.BtnApply.UseVisualStyleBackColor = true;
-            this.BtnApply.Click += new System.EventHandler(this.BtnApply_Click);
-            // 
             // MaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(984, 761);
             this.ControlBox = false;
             this.Controls.Add(this.BtnApply);
             this.Controls.Add(this.LblVersion);
