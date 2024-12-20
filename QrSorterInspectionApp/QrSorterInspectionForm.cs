@@ -49,7 +49,7 @@ namespace QrSorterInspectionApp
         private string sFileNameForGroup3;      // グループ３操作ログファイル名
         private string sFileNameForGroup4;      // グループ４操作ログファイル名
         private string sFileNameForGroup5;      // グループ５操作ログファイル名
-
+        private string sFileNameForAllItems;    // 全件用の操作ログファイル名
         private byte[] buffer = new byte[1024];
         private int bufferIndex = 0;
 
@@ -378,12 +378,13 @@ namespace QrSorterInspectionApp
                 DateTime dtPostDate3 = dtCurrent.AddSeconds(3);
                 DateTime dtPostDate4 = dtCurrent.AddSeconds(4);
                 DateTime dtPostDate5 = dtCurrent.AddSeconds(5);
+                sFileNameForAllItems = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtCurrent.ToString("yyyyMMddHHmmss") + "全件.csv";
                 // グループ１～５の操作ログファイル名を取得
-                sFileNameForGroup1 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMdd_HHmmss") + ".csv";
-                sFileNameForGroup2 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMdd_HHmmss") + ".csv";
-                sFileNameForGroup3 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMdd_HHmmss") + ".csv";
-                sFileNameForGroup4 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMdd_HHmmss") + ".csv";
-                sFileNameForGroup5 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMdd_HHmmss") + ".csv";
+                sFileNameForGroup1 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroup2 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroup3 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroup4 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroup5 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
                 CommonModule.OutPutLogFile($"■sFileNameForGroup1 = {sFileNameForGroup1}");
                 CommonModule.OutPutLogFile($"■sFileNameForGroup2 = {sFileNameForGroup2}");
                 CommonModule.OutPutLogFile($"■sFileNameForGroup3 = {sFileNameForGroup3}");
@@ -801,6 +802,7 @@ namespace QrSorterInspectionApp
             string sLogData = "";
             string sWriteDate;
             string sWriteTime;
+            string sSaveFileName;
 
             try
             {
@@ -925,6 +927,17 @@ namespace QrSorterInspectionApp
                             LsvOKHistory.Items[LsvOKHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
                         }
                     }
+
+                    sSaveFileName = "";
+                    sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
+                    sSaveFileName += sJobFolderName + "\\";
+                    sSaveFileName += sFolderName + "\\";
+                    sSaveFileName += sFileName;
+                    using (StreamWriter sw = new StreamWriter(sSaveFileName, true, Encoding.Default))
+                    {
+                        // OKデータのみを追加モードで書き込む
+                        sw.WriteLine(sLogData);
+                    }
                 }
                 else
                 {
@@ -949,23 +962,17 @@ namespace QrSorterInspectionApp
 
                 // 総数のカウント表示
                 LblTotalCount.Text = (iOKCount + iNGCount).ToString("#,##0");
-                // 
-                //SaveLogData(sNonDel, sData.Replace("\r", ""));
-                //SaveLogData(CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + sJobFolderName + "\\" + sFileName, sLogData);
 
-                string sSaveFileName = "";
+                sSaveFileName = "";
                 sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
                 sSaveFileName += sJobFolderName + "\\";
-                sSaveFileName += sFolderName + "\\";
-                sSaveFileName += sFileName;
-                // 追加モードで書き込む
+                //sSaveFileName += sFolderName + "\\";
+                sSaveFileName += sFileNameForAllItems;
                 using (StreamWriter sw = new StreamWriter(sSaveFileName, true, Encoding.Default))
                 {
-                    // 
+                    // 全件データを追加モードで書き込む
                     sw.WriteLine(sLogData);
                 }
-
-
             }
             catch (Exception ex)
             {
