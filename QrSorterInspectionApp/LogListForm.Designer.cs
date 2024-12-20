@@ -122,9 +122,9 @@
             this.LsvLogContent.FullRowSelect = true;
             this.LsvLogContent.GridLines = true;
             this.LsvLogContent.HideSelection = false;
-            this.LsvLogContent.Location = new System.Drawing.Point(108, 452);
+            this.LsvLogContent.Location = new System.Drawing.Point(38, 452);
             this.LsvLogContent.Name = "LsvLogContent";
-            this.LsvLogContent.Size = new System.Drawing.Size(1686, 488);
+            this.LsvLogContent.Size = new System.Drawing.Size(1827, 488);
             this.LsvLogContent.TabIndex = 258;
             this.LsvLogContent.UseCompatibleStateImageBehavior = false;
             // 
@@ -134,9 +134,9 @@
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label9.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(108, 422);
+            this.label9.Location = new System.Drawing.Point(38, 422);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(1686, 31);
+            this.label9.Size = new System.Drawing.Size(1827, 31);
             this.label9.TabIndex = 259;
             this.label9.Text = "選択したログの内容";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -147,11 +147,11 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(108, 152);
+            this.label1.Location = new System.Drawing.Point(38, 152);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1686, 31);
+            this.label1.Size = new System.Drawing.Size(1827, 31);
             this.label1.TabIndex = 262;
-            this.label1.Text = "機械ログ一覧";
+            this.label1.Text = "検査ログ一覧";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LsbLogList
@@ -159,9 +159,9 @@
             this.LsbLogList.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LsbLogList.FormattingEnabled = true;
             this.LsbLogList.ItemHeight = 24;
-            this.LsbLogList.Location = new System.Drawing.Point(108, 182);
+            this.LsbLogList.Location = new System.Drawing.Point(38, 182);
             this.LsbLogList.Name = "LsbLogList";
-            this.LsbLogList.Size = new System.Drawing.Size(1686, 220);
+            this.LsbLogList.Size = new System.Drawing.Size(1827, 220);
             this.LsbLogList.TabIndex = 263;
             this.LsbLogList.SelectedIndexChanged += new System.EventHandler(this.LsbLogList_SelectedIndexChanged);
             // 
@@ -266,9 +266,9 @@
             this.LblLogFileCount.BackColor = System.Drawing.Color.CornflowerBlue;
             this.LblLogFileCount.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblLogFileCount.ForeColor = System.Drawing.Color.White;
-            this.LblLogFileCount.Location = new System.Drawing.Point(122, 157);
+            this.LblLogFileCount.Location = new System.Drawing.Point(52, 157);
             this.LblLogFileCount.Name = "LblLogFileCount";
-            this.LblLogFileCount.Size = new System.Drawing.Size(273, 23);
+            this.LblLogFileCount.Size = new System.Drawing.Size(414, 23);
             this.LblLogFileCount.TabIndex = 271;
             this.LblLogFileCount.Text = "LblLogFileCount";
             this.LblLogFileCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -278,9 +278,9 @@
             this.LblContentCount.BackColor = System.Drawing.Color.CornflowerBlue;
             this.LblContentCount.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblContentCount.ForeColor = System.Drawing.Color.White;
-            this.LblContentCount.Location = new System.Drawing.Point(122, 427);
+            this.LblContentCount.Location = new System.Drawing.Point(52, 427);
             this.LblContentCount.Name = "LblContentCount";
-            this.LblContentCount.Size = new System.Drawing.Size(273, 23);
+            this.LblContentCount.Size = new System.Drawing.Size(414, 23);
             this.LblContentCount.TabIndex = 272;
             this.LblContentCount.Text = "LblContentCount";
             this.LblContentCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

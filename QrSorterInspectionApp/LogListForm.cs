@@ -33,7 +33,7 @@ namespace QrSorterInspectionApp
                 CmbLogType.Items.Clear();
                 CmbLogType.Items.Add("機械ログ");
                 CmbLogType.Items.Add("検査ログ");
-                CmbLogType.SelectedIndex = 1;
+                CmbLogType.SelectedIndex = 0;
 
                 #region 検査ログのヘッダー設定
                 // ListViewのカラムヘッダー設定
@@ -77,13 +77,13 @@ namespace QrSorterInspectionApp
                 col02.Width = 100;         // 時刻
                 col03.Width = 340;         // 読取値
                 col04.Width = 80;          // 判定
-                col05.Width = 340;         // 正解データファイル名
+                col05.Width = 560;         // 正解データファイル名
                 col06.Width = 110;         // 受領日
-                col07.Width = 130;         // 作業員情報（機械情報）
-                col08.Width = 130;         // 物件情報（DPS/BPO/Broad等）
-                col09.Width = 100;         // エラーコード
-                col10.Width = 100;         // 仕分けコード①
-                col11.Width = 100;         // 仕分けコード②
+                col07.Width = 110;         // 作業員情報（機械情報）
+                col08.Width = 110;         // 物件情報（DPS/BPO/Broad等）
+                col09.Width = 90;          // エラーコード
+                col10.Width = 80;          // 仕分けコード①
+                col11.Width = 80;          // 仕分けコード②
                 ColumnHeader[] colHeaderOK = new[] { col01, col02, col03, col04, col05,
                                                      col06, col07, col08, col09, col10,
                                                      col11
@@ -102,9 +102,11 @@ namespace QrSorterInspectionApp
                 #endregion
 
                 ChkAllItem.Checked = true;
-
+                
                 LblLogFileCount.Text = "";
                 LblContentCount.Text = "";
+
+                CmbLogType.SelectedIndex = 1;
             }
             catch (Exception ex)
             {
