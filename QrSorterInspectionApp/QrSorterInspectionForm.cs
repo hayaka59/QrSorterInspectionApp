@@ -369,7 +369,10 @@ namespace QrSorterInspectionApp
                 // 受領日を取得
                 sDateOfReceipt = DtpDateReceipt.Value.ToString("yyyyMMdd");
                 string sDate = "_" + sDateOfReceipt + "_";
-                
+
+                string[] sFolderNameWork = new string[5];           // グループ１～５フォルダ名        
+                string[] sFileNameForGroupWork = new string[5];     // グループ１～５操作ログファイル名
+
                 // 現在の日付（年月日）を求める
                 DateTime dtCurrent = DateTime.Now;
                 // 現在日付から１秒～５秒を加算
@@ -380,16 +383,28 @@ namespace QrSorterInspectionApp
                 DateTime dtPostDate5 = dtCurrent.AddSeconds(5);
                 sFileNameForAllItems = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtCurrent.ToString("yyyyMMddHHmmss") + "全件.csv";
                 // グループ１～５の操作ログファイル名を取得
-                sFileNameForGroup1 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroup2 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroup3 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroup4 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroup5 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
-                CommonModule.OutPutLogFile($"■sFileNameForGroup1 = {sFileNameForGroup1}");
-                CommonModule.OutPutLogFile($"■sFileNameForGroup2 = {sFileNameForGroup2}");
-                CommonModule.OutPutLogFile($"■sFileNameForGroup3 = {sFileNameForGroup3}");
-                CommonModule.OutPutLogFile($"■sFileNameForGroup4 = {sFileNameForGroup4}");
-                CommonModule.OutPutLogFile($"■sFileNameForGroup5 = {sFileNameForGroup5}");
+                //sFileNameForGroup1 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
+                //sFileNameForGroup2 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
+                //sFileNameForGroup3 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
+                //sFileNameForGroup4 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
+                //sFileNameForGroup5 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
+                //CommonModule.OutPutLogFile($"■sFileNameForGroup1 = {sFileNameForGroup1}");
+                //CommonModule.OutPutLogFile($"■sFileNameForGroup2 = {sFileNameForGroup2}");
+                //CommonModule.OutPutLogFile($"■sFileNameForGroup3 = {sFileNameForGroup3}");
+                //CommonModule.OutPutLogFile($"■sFileNameForGroup4 = {sFileNameForGroup4}");
+                //CommonModule.OutPutLogFile($"■sFileNameForGroup5 = {sFileNameForGroup5}");
+
+                sFileNameForGroupWork[0] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[1] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[2] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[3] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[4] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
+                CommonModule.OutPutLogFile($"■sFileNameForGroupWork[0] = {sFileNameForGroupWork[0]}");
+                CommonModule.OutPutLogFile($"■sFileNameForGroupWork[1] = {sFileNameForGroupWork[1]}");
+                CommonModule.OutPutLogFile($"■sFileNameForGroupWork[2] = {sFileNameForGroupWork[2]}");
+                CommonModule.OutPutLogFile($"■sFileNameForGroupWork[3] = {sFileNameForGroupWork[3]}");
+                CommonModule.OutPutLogFile($"■sFileNameForGroupWork[4] = {sFileNameForGroupWork[4]}");
+
 
                 // JOB名までのフォルダの存在チェックと作成
                 sArray = LblSelectedFile.Text.Split('.');
@@ -398,46 +413,74 @@ namespace QrSorterInspectionApp
                 {
                     Directory.CreateDirectory(sJobFolder);
                 }
+                
                 // グループ１フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[0].Split(',');
-                sFolderName1 = "グループ１_"+sArray[0] + sArray[2];
-                sGrpFolder = sJobFolder + "\\" + sFolderName1;
+                //sFolderName1 = "グループ１_" + sArray[0] + sArray[2];
+                //sGrpFolder = sJobFolder + "\\" + sFolderName1;
+                sFolderNameWork[0] = "グループ１_" + sArray[0] + sArray[2];
+                sGrpFolder = sJobFolder + "\\" + sFolderNameWork[0];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
+                
                 // グループ２フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[1].Split(',');
-                sFolderName2 = "グループ２_" + sArray[0] + sArray[2];
-                sGrpFolder = sJobFolder + "\\" + sFolderName2;
+                //sFolderName2 = "グループ２_" + sArray[0] + sArray[2];
+                //sGrpFolder = sJobFolder + "\\" + sFolderName2;
+                sFolderNameWork[1] = "グループ２_" + sArray[0] + sArray[2];
+                sGrpFolder = sJobFolder + "\\" + sFolderNameWork[1];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
                 // グループ３フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[2].Split(',');
-                sFolderName3 = "グループ３_" + sArray[0] + sArray[2];
-                sGrpFolder = sJobFolder + "\\" + sFolderName3;
+                //sFolderName3 = "グループ３_" + sArray[0] + sArray[2];
+                //sGrpFolder = sJobFolder + "\\" + sFolderName3;
+                sFolderNameWork[2] = "グループ３_" + sArray[0] + sArray[2];
+                sGrpFolder = sJobFolder + "\\" + sFolderNameWork[2];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
                 // グループ４フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[3].Split(',');
-                sFolderName4 = "グループ４_" + sArray[0] + sArray[2];
-                sGrpFolder = sJobFolder + "\\" + sFolderName4;
+                //sFolderName4 = "グループ４_" + sArray[0] + sArray[2];
+                //sGrpFolder = sJobFolder + "\\" + sFolderName4;
+                sFolderNameWork[3] = "グループ４_" + sArray[0] + sArray[2];
+                sGrpFolder = sJobFolder + "\\" + sFolderNameWork[3];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
+
                 // グループ５フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[4].Split(',');
-                sFolderName5 = "グループ５_" + sArray[0] + sArray[2];
-                sGrpFolder = sJobFolder + "\\" + sFolderName5;
+                //sFolderName5 = "グループ５_" + sArray[0] + sArray[2];
+                //sGrpFolder = sJobFolder + "\\" + sFolderName5;
+                sFolderNameWork[4] = "グループ５_" + sArray[0] + sArray[2];
+                sGrpFolder = sJobFolder + "\\" + sFolderNameWork[4];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
+
+                //                 0    1              2  3  4   5      6 7 8      9 0 1            2  3 4       5  6  7 8 9  0  1  2  3  4  5 6 7                8 9                0 1        2 3                 4 5                 6 7  8                               
+                //チューリッヒ⑧封書,封筒,2024年12月19日,ON,47,OFF,物件ID,1,5,届出日,6,8,ファイル区分,14,1,管理No.,15,10,1,2,ON,ON,ON,ON,ON,ON,1,1,コメリ①-1ハガキ,1,コメリ①-2ハガキ,2,武蔵野BK,3,西日本シティーBK1,4,西日本シティーBK2,5,50,50,50,50,50,ON,ON,ON,ON,ON,
+                sArray = PubConstClass.lstJobEntryList[0].Split(',');
+                sFolderName1 = sFolderNameWork[int.Parse(sArray[29]) - 1];
+                sFolderName2 = sFolderNameWork[int.Parse(sArray[31]) - 1];
+                sFolderName3 = sFolderNameWork[int.Parse(sArray[33]) - 1];
+                sFolderName4 = sFolderNameWork[int.Parse(sArray[35]) - 1];
+                sFolderName5 = sFolderNameWork[int.Parse(sArray[37]) - 1];
+
+                sFileNameForGroup1 = sFileNameForGroupWork[int.Parse(sArray[29]) - 1];
+                sFileNameForGroup2 = sFileNameForGroupWork[int.Parse(sArray[31]) - 1];
+                sFileNameForGroup3 = sFileNameForGroupWork[int.Parse(sArray[33]) - 1];
+                sFileNameForGroup4 = sFileNameForGroupWork[int.Parse(sArray[35]) - 1];
+                sFileNameForGroup5 = sFileNameForGroupWork[int.Parse(sArray[37]) - 1];
             }
             catch (Exception ex)
             {
