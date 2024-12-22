@@ -149,6 +149,11 @@ namespace QrSorterInspectionApp
                     BtnAdd.Enabled = false;         // 「新規保存」　ボタン使用不可
                     BtnUpdate.Enabled = true;       // 「保存」　　　ボタン使用可                    
                     BtnDelete.Enabled = false;      // 「削除」　　　ボタン使用不可
+
+                    if (PubConstClass.sUserAuthority == "OP")
+                    {
+                        DisableScreen();
+                    }
                 }
                 else
                 {
@@ -158,6 +163,30 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【SettingForm_Load】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DisableScreen()
+        {
+            try
+            {
+                GrpFeederSetting.Enabled = false;
+                GrpSorterSetting.Enabled = false;
+                //CmbGroup1.Enabled = false;
+                //CmbGroup2.Enabled = false;
+                //CmbGroup3.Enabled = false;
+                //CmbGroup4.Enabled = false;
+                //CmbGroup5.Enabled = false;
+                //CmbGroup6.Enabled = false;
+                //CmbQuantOnOff1.Enabled = false;
+                //CmbQuantOnOff2.Enabled = false;
+                //CmbQuantOnOff3.Enabled = false;
+                //CmbQuantOnOff4.Enabled = false;
+                //CmbQuantOnOff5.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【DisableScreen】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
