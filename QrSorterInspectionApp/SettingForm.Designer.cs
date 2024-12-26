@@ -79,7 +79,6 @@
             this.label36 = new System.Windows.Forms.Label();
             this.TxtSaveFolder5 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem25 = new System.Windows.Forms.TextBox();
-            this.BtnClose = new System.Windows.Forms.Button();
             this.TxtBoxQrItem35 = new System.Windows.Forms.TextBox();
             this.TxtGroup5 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem15 = new System.Windows.Forms.TextBox();
@@ -124,7 +123,6 @@
             this.TxtGrpName4 = new System.Windows.Forms.TextBox();
             this.LblBox1QrReadItem4 = new System.Windows.Forms.Label();
             this.TxtGrpName3 = new System.Windows.Forms.TextBox();
-            this.BtnPocketUpdate = new System.Windows.Forms.Button();
             this.TxtGrpName2 = new System.Windows.Forms.TextBox();
             this.TxtGrpName1 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -153,6 +151,8 @@
             this.CmbGroup3 = new System.Windows.Forms.ComboBox();
             this.TxtPocketName2 = new System.Windows.Forms.TextBox();
             this.CmbGroup2 = new System.Windows.Forms.ComboBox();
+            this.BtnClose = new System.Windows.Forms.Button();
+            this.BtnPocketUpdate = new System.Windows.Forms.Button();
             this.RchTxtQrInfo = new System.Windows.Forms.RichTextBox();
             this.NumUpDwnQrAllDigit = new System.Windows.Forms.NumericUpDown();
             this.CmbDoubleFeed = new System.Windows.Forms.ComboBox();
@@ -937,7 +937,7 @@
             this.GrpSorterSetting.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.GrpSorterSetting.Location = new System.Drawing.Point(130, 542);
             this.GrpSorterSetting.Name = "GrpSorterSetting";
-            this.GrpSorterSetting.Size = new System.Drawing.Size(1432, 486);
+            this.GrpSorterSetting.Size = new System.Drawing.Size(1390, 486);
             this.GrpSorterSetting.TabIndex = 298;
             this.GrpSorterSetting.TabStop = false;
             this.GrpSorterSetting.Text = "ソータ設定";
@@ -998,11 +998,12 @@
             // 
             this.TxtSaveFolder5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder5.Location = new System.Drawing.Point(1187, 189);
+            this.TxtSaveFolder5.Location = new System.Drawing.Point(1086, 428);
             this.TxtSaveFolder5.Name = "TxtSaveFolder5";
-            this.TxtSaveFolder5.Size = new System.Drawing.Size(199, 31);
+            this.TxtSaveFolder5.Size = new System.Drawing.Size(144, 31);
             this.TxtSaveFolder5.TabIndex = 384;
             this.TxtSaveFolder5.Text = "TxtSaveFolder5";
+            this.TxtSaveFolder5.Visible = false;
             // 
             // TxtBoxQrItem25
             // 
@@ -1013,20 +1014,6 @@
             this.TxtBoxQrItem25.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem25.TabIndex = 380;
             this.TxtBoxQrItem25.Text = "TxtBoxQrItem25";
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1585, 976);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(166, 50);
-            this.BtnClose.TabIndex = 178;
-            this.BtnClose.Text = "戻る";
-            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // TxtBoxQrItem35
             // 
@@ -1074,11 +1061,12 @@
             // 
             this.TxtSaveFolder4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder4.Location = new System.Drawing.Point(1187, 157);
+            this.TxtSaveFolder4.Location = new System.Drawing.Point(1086, 396);
             this.TxtSaveFolder4.Name = "TxtSaveFolder4";
-            this.TxtSaveFolder4.Size = new System.Drawing.Size(199, 31);
+            this.TxtSaveFolder4.Size = new System.Drawing.Size(144, 31);
             this.TxtSaveFolder4.TabIndex = 378;
             this.TxtSaveFolder4.Text = "TxtSaveFolder4";
+            this.TxtSaveFolder4.Visible = false;
             // 
             // TxtBoxQrItem24
             // 
@@ -1136,11 +1124,12 @@
             // 
             this.TxtSaveFolder3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder3.Location = new System.Drawing.Point(1187, 125);
+            this.TxtSaveFolder3.Location = new System.Drawing.Point(1086, 364);
             this.TxtSaveFolder3.Name = "TxtSaveFolder3";
-            this.TxtSaveFolder3.Size = new System.Drawing.Size(199, 31);
+            this.TxtSaveFolder3.Size = new System.Drawing.Size(144, 31);
             this.TxtSaveFolder3.TabIndex = 372;
             this.TxtSaveFolder3.Text = "TxtSaveFolder3";
+            this.TxtSaveFolder3.Visible = false;
             // 
             // TxtBoxQrItem23
             // 
@@ -1198,11 +1187,12 @@
             // 
             this.TxtSaveFolder2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder2.Location = new System.Drawing.Point(1187, 92);
+            this.TxtSaveFolder2.Location = new System.Drawing.Point(1086, 331);
             this.TxtSaveFolder2.Name = "TxtSaveFolder2";
-            this.TxtSaveFolder2.Size = new System.Drawing.Size(199, 31);
+            this.TxtSaveFolder2.Size = new System.Drawing.Size(144, 31);
             this.TxtSaveFolder2.TabIndex = 366;
             this.TxtSaveFolder2.Text = "TxtSaveFolder2";
+            this.TxtSaveFolder2.Visible = false;
             // 
             // TxtBoxQrItem22
             // 
@@ -1312,11 +1302,12 @@
             // 
             this.TxtSaveFolder1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder1.Location = new System.Drawing.Point(1187, 59);
+            this.TxtSaveFolder1.Location = new System.Drawing.Point(1086, 298);
             this.TxtSaveFolder1.Name = "TxtSaveFolder1";
-            this.TxtSaveFolder1.Size = new System.Drawing.Size(199, 31);
+            this.TxtSaveFolder1.Size = new System.Drawing.Size(144, 31);
             this.TxtSaveFolder1.TabIndex = 326;
             this.TxtSaveFolder1.Text = "TxtSaveFolder1";
+            this.TxtSaveFolder1.Visible = false;
             // 
             // label23
             // 
@@ -1360,12 +1351,13 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1187, 26);
+            this.label2.Location = new System.Drawing.Point(1086, 265);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 31);
+            this.label2.Size = new System.Drawing.Size(144, 31);
             this.label2.TabIndex = 325;
             this.label2.Text = "保存先フォルダ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Visible = false;
             // 
             // textBox6
             // 
@@ -1519,21 +1511,6 @@
             this.TxtGrpName3.TabIndex = 351;
             this.TxtGrpName3.Text = "TxtGrpName3";
             this.TxtGrpName3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BtnPocketUpdate
-            // 
-            this.BtnPocketUpdate.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnPocketUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnPocketUpdate.Location = new System.Drawing.Point(1585, 918);
-            this.BtnPocketUpdate.Name = "BtnPocketUpdate";
-            this.BtnPocketUpdate.Size = new System.Drawing.Size(166, 47);
-            this.BtnPocketUpdate.TabIndex = 316;
-            this.BtnPocketUpdate.Text = "更新";
-            this.BtnPocketUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPocketUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnPocketUpdate.UseVisualStyleBackColor = true;
-            this.BtnPocketUpdate.Visible = false;
-            this.BtnPocketUpdate.Click += new System.EventHandler(this.BtnPocketUpdate_Click);
             // 
             // TxtGrpName2
             // 
@@ -1871,6 +1848,35 @@
             this.CmbGroup2.Size = new System.Drawing.Size(105, 32);
             this.CmbGroup2.TabIndex = 327;
             this.CmbGroup2.SelectedIndexChanged += new System.EventHandler(this.CmbGroup2_SelectedIndexChanged);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
+            this.BtnClose.Location = new System.Drawing.Point(1585, 976);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(166, 50);
+            this.BtnClose.TabIndex = 178;
+            this.BtnClose.Text = "戻る";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // BtnPocketUpdate
+            // 
+            this.BtnPocketUpdate.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnPocketUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
+            this.BtnPocketUpdate.Location = new System.Drawing.Point(1585, 918);
+            this.BtnPocketUpdate.Name = "BtnPocketUpdate";
+            this.BtnPocketUpdate.Size = new System.Drawing.Size(166, 47);
+            this.BtnPocketUpdate.TabIndex = 316;
+            this.BtnPocketUpdate.Text = "更新";
+            this.BtnPocketUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPocketUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPocketUpdate.UseVisualStyleBackColor = true;
+            this.BtnPocketUpdate.Visible = false;
+            this.BtnPocketUpdate.Click += new System.EventHandler(this.BtnPocketUpdate_Click);
             // 
             // RchTxtQrInfo
             // 
