@@ -121,5 +121,9 @@
   <ItemGroup>
     <None Include="icon\check.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="NonDeliveryReasonSorting.txt" />
+    <Content Include="QrSorterSimulatorApp.def" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

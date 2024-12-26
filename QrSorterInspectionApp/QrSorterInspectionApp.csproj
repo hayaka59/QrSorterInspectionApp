@@ -163,6 +163,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="定義ファイル\UserAccount.enc" />
+    <None Include="定義ファイル\チューリッヒ①コメリ.csv" />
+    <None Include="定義ファイル\チューリッヒ②封書.csv" />
+    <None Include="定義ファイル\チューリッヒ③ハガキ.csv" />
+    <None Include="定義ファイル\チューリッヒ④封書.csv" />
+    <None Include="定義ファイル\チューリッヒ⑤封書.csv" />
+    <None Include="定義ファイル\チューリッヒ⑥封書.csv" />
+    <None Include="定義ファイル\チューリッヒ⑦ハガキ.csv" />
+    <None Include="定義ファイル\チューリッヒ⑧封書.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -263,9 +272,7 @@
   <ItemGroup>
     <None Include="icon\decrypt.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="定義ファイル\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="icon\setting_small.png" />
   </ItemGroup>
@@ -274,6 +281,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="icon\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="定義ファイル\JobEntryList.txt" />
+    <Content Include="定義ファイル\NonDeliveryReasonSorting.txt" />
+    <Content Include="定義ファイル\QrSorterInspectionApp.def" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
