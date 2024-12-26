@@ -72,13 +72,13 @@
             this.label17 = new System.Windows.Forms.Label();
             this.CmbNonDeliveryReasonSorting2 = new System.Windows.Forms.ComboBox();
             this.CmbNonDeliveryReasonSorting1 = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.GrpSorterSetting = new System.Windows.Forms.GroupBox();
+            this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.TxtSaveFolder5 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem25 = new System.Windows.Forms.TextBox();
-            this.BtnClose = new System.Windows.Forms.Button();
             this.TxtBoxQrItem35 = new System.Windows.Forms.TextBox();
             this.TxtGroup5 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem15 = new System.Windows.Forms.TextBox();
@@ -123,7 +123,6 @@
             this.TxtGrpName4 = new System.Windows.Forms.TextBox();
             this.LblBox1QrReadItem4 = new System.Windows.Forms.Label();
             this.TxtGrpName3 = new System.Windows.Forms.TextBox();
-            this.BtnPocketUpdate = new System.Windows.Forms.Button();
             this.TxtGrpName2 = new System.Windows.Forms.TextBox();
             this.TxtGrpName1 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -152,6 +151,8 @@
             this.CmbGroup3 = new System.Windows.Forms.ComboBox();
             this.TxtPocketName2 = new System.Windows.Forms.TextBox();
             this.CmbGroup2 = new System.Windows.Forms.ComboBox();
+            this.BtnClose = new System.Windows.Forms.Button();
+            this.BtnPocketUpdate = new System.Windows.Forms.Button();
             this.RchTxtQrInfo = new System.Windows.Forms.RichTextBox();
             this.NumUpDwnQrAllDigit = new System.Windows.Forms.NumericUpDown();
             this.CmbDoubleFeed = new System.Windows.Forms.ComboBox();
@@ -167,14 +168,13 @@
             this.CmbMedia = new System.Windows.Forms.ComboBox();
             this.LblTitle = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GrpFeederSetting = new System.Windows.Forms.GroupBox();
             this.BtnPasteItem = new System.Windows.Forms.Button();
             this.BtnCopyItem = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.label39 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
@@ -184,9 +184,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPostalDateStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdKeta)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.GrpSorterSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.GrpFeederSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblSelectedFile
@@ -853,96 +853,107 @@
             this.CmbNonDeliveryReasonSorting1.TabIndex = 299;
             this.CmbNonDeliveryReasonSorting1.Visible = false;
             // 
-            // groupBox3
+            // GrpSorterSetting
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox3.Controls.Add(this.label39);
-            this.groupBox3.Controls.Add(this.label38);
-            this.groupBox3.Controls.Add(this.label37);
-            this.groupBox3.Controls.Add(this.label36);
-            this.groupBox3.Controls.Add(this.TxtSaveFolder5);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem25);
-            this.groupBox3.Controls.Add(this.BtnClose);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem35);
-            this.groupBox3.Controls.Add(this.TxtGroup5);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem15);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem45);
-            this.groupBox3.Controls.Add(this.TxtSaveFolder4);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem24);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem34);
-            this.groupBox3.Controls.Add(this.TxtGroup4);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem14);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem44);
-            this.groupBox3.Controls.Add(this.TxtSaveFolder3);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem23);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem33);
-            this.groupBox3.Controls.Add(this.TxtGroup3);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem13);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem43);
-            this.groupBox3.Controls.Add(this.TxtSaveFolder2);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem22);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem32);
-            this.groupBox3.Controls.Add(this.TxtGroup2);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem12);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem42);
-            this.groupBox3.Controls.Add(this.label29);
-            this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.label25);
-            this.groupBox3.Controls.Add(this.label24);
-            this.groupBox3.Controls.Add(this.TxtSaveFolder1);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem21);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem31);
-            this.groupBox3.Controls.Add(this.TxtGroup1);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem11);
-            this.groupBox3.Controls.Add(this.TxtBoxQrItem41);
-            this.groupBox3.Controls.Add(this.CmbGroup6);
-            this.groupBox3.Controls.Add(this.LblBox1QrReadItem1);
-            this.groupBox3.Controls.Add(this.LblBox1QrReadItem2);
-            this.groupBox3.Controls.Add(this.TxtGrpName5);
-            this.groupBox3.Controls.Add(this.LblBox1QrReadItem3);
-            this.groupBox3.Controls.Add(this.TxtGrpName4);
-            this.groupBox3.Controls.Add(this.LblBox1QrReadItem4);
-            this.groupBox3.Controls.Add(this.TxtGrpName3);
-            this.groupBox3.Controls.Add(this.BtnPocketUpdate);
-            this.groupBox3.Controls.Add(this.TxtGrpName2);
-            this.groupBox3.Controls.Add(this.TxtGrpName1);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.CmbQuantOnOff5);
-            this.groupBox3.Controls.Add(this.TxtQuantity5);
-            this.groupBox3.Controls.Add(this.CmbQuantOnOff4);
-            this.groupBox3.Controls.Add(this.TxtQuantity4);
-            this.groupBox3.Controls.Add(this.CmbQuantOnOff3);
-            this.groupBox3.Controls.Add(this.TxtQuantity3);
-            this.groupBox3.Controls.Add(this.CmbQuantOnOff2);
-            this.groupBox3.Controls.Add(this.TxtQuantity2);
-            this.groupBox3.Controls.Add(this.CmbQuantOnOff1);
-            this.groupBox3.Controls.Add(this.TxtQuantity1);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.TxtPocketName5);
-            this.groupBox3.Controls.Add(this.CmbGroup5);
-            this.groupBox3.Controls.Add(this.label45);
-            this.groupBox3.Controls.Add(this.label44);
-            this.groupBox3.Controls.Add(this.label43);
-            this.groupBox3.Controls.Add(this.label42);
-            this.groupBox3.Controls.Add(this.TxtPocketName1);
-            this.groupBox3.Controls.Add(this.CmbGroup1);
-            this.groupBox3.Controls.Add(this.TxtPocketName4);
-            this.groupBox3.Controls.Add(this.CmbGroup4);
-            this.groupBox3.Controls.Add(this.TxtPocketName3);
-            this.groupBox3.Controls.Add(this.CmbGroup3);
-            this.groupBox3.Controls.Add(this.TxtPocketName2);
-            this.groupBox3.Controls.Add(this.CmbGroup2);
-            this.groupBox3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox3.Location = new System.Drawing.Point(130, 542);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1621, 486);
-            this.groupBox3.TabIndex = 298;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "ソータ設定";
+            this.GrpSorterSetting.BackColor = System.Drawing.SystemColors.Control;
+            this.GrpSorterSetting.Controls.Add(this.label39);
+            this.GrpSorterSetting.Controls.Add(this.label38);
+            this.GrpSorterSetting.Controls.Add(this.label37);
+            this.GrpSorterSetting.Controls.Add(this.label36);
+            this.GrpSorterSetting.Controls.Add(this.TxtSaveFolder5);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem25);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem35);
+            this.GrpSorterSetting.Controls.Add(this.TxtGroup5);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem15);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem45);
+            this.GrpSorterSetting.Controls.Add(this.TxtSaveFolder4);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem24);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem34);
+            this.GrpSorterSetting.Controls.Add(this.TxtGroup4);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem14);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem44);
+            this.GrpSorterSetting.Controls.Add(this.TxtSaveFolder3);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem23);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem33);
+            this.GrpSorterSetting.Controls.Add(this.TxtGroup3);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem13);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem43);
+            this.GrpSorterSetting.Controls.Add(this.TxtSaveFolder2);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem22);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem32);
+            this.GrpSorterSetting.Controls.Add(this.TxtGroup2);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem12);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem42);
+            this.GrpSorterSetting.Controls.Add(this.label29);
+            this.GrpSorterSetting.Controls.Add(this.label26);
+            this.GrpSorterSetting.Controls.Add(this.label25);
+            this.GrpSorterSetting.Controls.Add(this.label24);
+            this.GrpSorterSetting.Controls.Add(this.TxtSaveFolder1);
+            this.GrpSorterSetting.Controls.Add(this.label23);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem21);
+            this.GrpSorterSetting.Controls.Add(this.label22);
+            this.GrpSorterSetting.Controls.Add(this.label2);
+            this.GrpSorterSetting.Controls.Add(this.textBox6);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem31);
+            this.GrpSorterSetting.Controls.Add(this.TxtGroup1);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem11);
+            this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem41);
+            this.GrpSorterSetting.Controls.Add(this.CmbGroup6);
+            this.GrpSorterSetting.Controls.Add(this.LblBox1QrReadItem1);
+            this.GrpSorterSetting.Controls.Add(this.LblBox1QrReadItem2);
+            this.GrpSorterSetting.Controls.Add(this.TxtGrpName5);
+            this.GrpSorterSetting.Controls.Add(this.LblBox1QrReadItem3);
+            this.GrpSorterSetting.Controls.Add(this.TxtGrpName4);
+            this.GrpSorterSetting.Controls.Add(this.LblBox1QrReadItem4);
+            this.GrpSorterSetting.Controls.Add(this.TxtGrpName3);
+            this.GrpSorterSetting.Controls.Add(this.TxtGrpName2);
+            this.GrpSorterSetting.Controls.Add(this.TxtGrpName1);
+            this.GrpSorterSetting.Controls.Add(this.label20);
+            this.GrpSorterSetting.Controls.Add(this.CmbQuantOnOff5);
+            this.GrpSorterSetting.Controls.Add(this.TxtQuantity5);
+            this.GrpSorterSetting.Controls.Add(this.CmbQuantOnOff4);
+            this.GrpSorterSetting.Controls.Add(this.TxtQuantity4);
+            this.GrpSorterSetting.Controls.Add(this.CmbQuantOnOff3);
+            this.GrpSorterSetting.Controls.Add(this.TxtQuantity3);
+            this.GrpSorterSetting.Controls.Add(this.CmbQuantOnOff2);
+            this.GrpSorterSetting.Controls.Add(this.TxtQuantity2);
+            this.GrpSorterSetting.Controls.Add(this.CmbQuantOnOff1);
+            this.GrpSorterSetting.Controls.Add(this.TxtQuantity1);
+            this.GrpSorterSetting.Controls.Add(this.label18);
+            this.GrpSorterSetting.Controls.Add(this.TxtPocketName5);
+            this.GrpSorterSetting.Controls.Add(this.CmbGroup5);
+            this.GrpSorterSetting.Controls.Add(this.label45);
+            this.GrpSorterSetting.Controls.Add(this.label44);
+            this.GrpSorterSetting.Controls.Add(this.label43);
+            this.GrpSorterSetting.Controls.Add(this.label42);
+            this.GrpSorterSetting.Controls.Add(this.TxtPocketName1);
+            this.GrpSorterSetting.Controls.Add(this.CmbGroup1);
+            this.GrpSorterSetting.Controls.Add(this.TxtPocketName4);
+            this.GrpSorterSetting.Controls.Add(this.CmbGroup4);
+            this.GrpSorterSetting.Controls.Add(this.TxtPocketName3);
+            this.GrpSorterSetting.Controls.Add(this.CmbGroup3);
+            this.GrpSorterSetting.Controls.Add(this.TxtPocketName2);
+            this.GrpSorterSetting.Controls.Add(this.CmbGroup2);
+            this.GrpSorterSetting.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.GrpSorterSetting.Location = new System.Drawing.Point(130, 542);
+            this.GrpSorterSetting.Name = "GrpSorterSetting";
+            this.GrpSorterSetting.Size = new System.Drawing.Size(1390, 486);
+            this.GrpSorterSetting.TabIndex = 298;
+            this.GrpSorterSetting.TabStop = false;
+            this.GrpSorterSetting.Text = "ソータ設定";
+            // 
+            // label39
+            // 
+            this.label39.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label39.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label39.ForeColor = System.Drawing.Color.White;
+            this.label39.Location = new System.Drawing.Point(472, 241);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(102, 23);
+            this.label39.TabIndex = 388;
+            this.label39.Text = "グループ";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label38
             // 
@@ -987,11 +998,12 @@
             // 
             this.TxtSaveFolder5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder5.Location = new System.Drawing.Point(1187, 189);
+            this.TxtSaveFolder5.Location = new System.Drawing.Point(1086, 428);
             this.TxtSaveFolder5.Name = "TxtSaveFolder5";
-            this.TxtSaveFolder5.Size = new System.Drawing.Size(199, 31);
+            this.TxtSaveFolder5.Size = new System.Drawing.Size(144, 31);
             this.TxtSaveFolder5.TabIndex = 384;
             this.TxtSaveFolder5.Text = "TxtSaveFolder5";
+            this.TxtSaveFolder5.Visible = false;
             // 
             // TxtBoxQrItem25
             // 
@@ -1002,20 +1014,6 @@
             this.TxtBoxQrItem25.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem25.TabIndex = 380;
             this.TxtBoxQrItem25.Text = "TxtBoxQrItem25";
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1438, 415);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(166, 50);
-            this.BtnClose.TabIndex = 178;
-            this.BtnClose.Text = "戻る";
-            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // TxtBoxQrItem35
             // 
@@ -1063,11 +1061,12 @@
             // 
             this.TxtSaveFolder4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder4.Location = new System.Drawing.Point(1187, 157);
+            this.TxtSaveFolder4.Location = new System.Drawing.Point(1086, 396);
             this.TxtSaveFolder4.Name = "TxtSaveFolder4";
-            this.TxtSaveFolder4.Size = new System.Drawing.Size(199, 31);
+            this.TxtSaveFolder4.Size = new System.Drawing.Size(144, 31);
             this.TxtSaveFolder4.TabIndex = 378;
             this.TxtSaveFolder4.Text = "TxtSaveFolder4";
+            this.TxtSaveFolder4.Visible = false;
             // 
             // TxtBoxQrItem24
             // 
@@ -1125,11 +1124,12 @@
             // 
             this.TxtSaveFolder3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder3.Location = new System.Drawing.Point(1187, 125);
+            this.TxtSaveFolder3.Location = new System.Drawing.Point(1086, 364);
             this.TxtSaveFolder3.Name = "TxtSaveFolder3";
-            this.TxtSaveFolder3.Size = new System.Drawing.Size(199, 31);
+            this.TxtSaveFolder3.Size = new System.Drawing.Size(144, 31);
             this.TxtSaveFolder3.TabIndex = 372;
             this.TxtSaveFolder3.Text = "TxtSaveFolder3";
+            this.TxtSaveFolder3.Visible = false;
             // 
             // TxtBoxQrItem23
             // 
@@ -1187,11 +1187,12 @@
             // 
             this.TxtSaveFolder2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder2.Location = new System.Drawing.Point(1187, 92);
+            this.TxtSaveFolder2.Location = new System.Drawing.Point(1086, 331);
             this.TxtSaveFolder2.Name = "TxtSaveFolder2";
-            this.TxtSaveFolder2.Size = new System.Drawing.Size(199, 31);
+            this.TxtSaveFolder2.Size = new System.Drawing.Size(144, 31);
             this.TxtSaveFolder2.TabIndex = 366;
             this.TxtSaveFolder2.Text = "TxtSaveFolder2";
+            this.TxtSaveFolder2.Visible = false;
             // 
             // TxtBoxQrItem22
             // 
@@ -1301,11 +1302,12 @@
             // 
             this.TxtSaveFolder1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtSaveFolder1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder1.Location = new System.Drawing.Point(1187, 59);
+            this.TxtSaveFolder1.Location = new System.Drawing.Point(1086, 298);
             this.TxtSaveFolder1.Name = "TxtSaveFolder1";
-            this.TxtSaveFolder1.Size = new System.Drawing.Size(199, 31);
+            this.TxtSaveFolder1.Size = new System.Drawing.Size(144, 31);
             this.TxtSaveFolder1.TabIndex = 326;
             this.TxtSaveFolder1.Text = "TxtSaveFolder1";
+            this.TxtSaveFolder1.Visible = false;
             // 
             // label23
             // 
@@ -1349,12 +1351,13 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1187, 26);
+            this.label2.Location = new System.Drawing.Point(1086, 265);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 31);
+            this.label2.Size = new System.Drawing.Size(144, 31);
             this.label2.TabIndex = 325;
             this.label2.Text = "保存先フォルダ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Visible = false;
             // 
             // textBox6
             // 
@@ -1508,21 +1511,6 @@
             this.TxtGrpName3.TabIndex = 351;
             this.TxtGrpName3.Text = "TxtGrpName3";
             this.TxtGrpName3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BtnPocketUpdate
-            // 
-            this.BtnPocketUpdate.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnPocketUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnPocketUpdate.Location = new System.Drawing.Point(1438, 357);
-            this.BtnPocketUpdate.Name = "BtnPocketUpdate";
-            this.BtnPocketUpdate.Size = new System.Drawing.Size(166, 47);
-            this.BtnPocketUpdate.TabIndex = 316;
-            this.BtnPocketUpdate.Text = "更新";
-            this.BtnPocketUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPocketUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnPocketUpdate.UseVisualStyleBackColor = true;
-            this.BtnPocketUpdate.Visible = false;
-            this.BtnPocketUpdate.Click += new System.EventHandler(this.BtnPocketUpdate_Click);
             // 
             // TxtGrpName2
             // 
@@ -1861,6 +1849,35 @@
             this.CmbGroup2.TabIndex = 327;
             this.CmbGroup2.SelectedIndexChanged += new System.EventHandler(this.CmbGroup2_SelectedIndexChanged);
             // 
+            // BtnClose
+            // 
+            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
+            this.BtnClose.Location = new System.Drawing.Point(1585, 976);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(166, 50);
+            this.BtnClose.TabIndex = 178;
+            this.BtnClose.Text = "戻る";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // BtnPocketUpdate
+            // 
+            this.BtnPocketUpdate.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnPocketUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
+            this.BtnPocketUpdate.Location = new System.Drawing.Point(1585, 918);
+            this.BtnPocketUpdate.Name = "BtnPocketUpdate";
+            this.BtnPocketUpdate.Size = new System.Drawing.Size(166, 47);
+            this.BtnPocketUpdate.TabIndex = 316;
+            this.BtnPocketUpdate.Text = "更新";
+            this.BtnPocketUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPocketUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPocketUpdate.UseVisualStyleBackColor = true;
+            this.BtnPocketUpdate.Visible = false;
+            this.BtnPocketUpdate.Click += new System.EventHandler(this.BtnPocketUpdate_Click);
+            // 
             // RchTxtQrInfo
             // 
             this.RchTxtQrInfo.BackColor = System.Drawing.Color.White;
@@ -2054,53 +2071,53 @@
             this.LblVersion.Text = "LblVersion";
             this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox2
+            // GrpFeederSetting
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox2.Controls.Add(this.BtnPasteItem);
-            this.groupBox2.Controls.Add(this.BtnCopyItem);
-            this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Controls.Add(this.LblSelectedFile);
-            this.groupBox2.Controls.Add(this.BtnAdd);
-            this.groupBox2.Controls.Add(this.CmbLogCreationConditions);
-            this.groupBox2.Controls.Add(this.BtnJobSelect);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.CmbMedia);
-            this.groupBox2.Controls.Add(this.CmbReadingFunction);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.CmbNonDeliveryOnOff2);
-            this.groupBox2.Controls.Add(this.DtpDateReceipt);
-            this.groupBox2.Controls.Add(this.CmbCheckNumberOfDigits);
-            this.groupBox2.Controls.Add(this.CmbNonDeliveryOnOff1);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.TxtJobName);
-            this.groupBox2.Controls.Add(this.CmbUltrasonicDetection);
-            this.groupBox2.Controls.Add(this.CmbDateReceipt);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.RchTxtQrInfo);
-            this.groupBox2.Controls.Add(this.BtnUpdate);
-            this.groupBox2.Controls.Add(this.NumUpDwnQrAllDigit);
-            this.groupBox2.Controls.Add(this.BtnDelete);
-            this.groupBox2.Controls.Add(this.CmbDoubleFeed);
-            this.groupBox2.Controls.Add(this.CmbNonDeliveryReasonSorting1);
-            this.groupBox2.Controls.Add(this.CmbDuplication);
-            this.groupBox2.Controls.Add(this.CmbNonDeliveryReasonSorting2);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox2.Location = new System.Drawing.Point(130, 58);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1621, 469);
-            this.groupBox2.TabIndex = 179;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "QRフィーダー設定";
+            this.GrpFeederSetting.BackColor = System.Drawing.SystemColors.Control;
+            this.GrpFeederSetting.Controls.Add(this.BtnPasteItem);
+            this.GrpFeederSetting.Controls.Add(this.BtnCopyItem);
+            this.GrpFeederSetting.Controls.Add(this.groupBox1);
+            this.GrpFeederSetting.Controls.Add(this.LblSelectedFile);
+            this.GrpFeederSetting.Controls.Add(this.BtnAdd);
+            this.GrpFeederSetting.Controls.Add(this.CmbLogCreationConditions);
+            this.GrpFeederSetting.Controls.Add(this.BtnJobSelect);
+            this.GrpFeederSetting.Controls.Add(this.label10);
+            this.GrpFeederSetting.Controls.Add(this.CmbMedia);
+            this.GrpFeederSetting.Controls.Add(this.CmbReadingFunction);
+            this.GrpFeederSetting.Controls.Add(this.label6);
+            this.GrpFeederSetting.Controls.Add(this.label5);
+            this.GrpFeederSetting.Controls.Add(this.label4);
+            this.GrpFeederSetting.Controls.Add(this.CmbNonDeliveryOnOff2);
+            this.GrpFeederSetting.Controls.Add(this.DtpDateReceipt);
+            this.GrpFeederSetting.Controls.Add(this.CmbCheckNumberOfDigits);
+            this.GrpFeederSetting.Controls.Add(this.CmbNonDeliveryOnOff1);
+            this.GrpFeederSetting.Controls.Add(this.label3);
+            this.GrpFeederSetting.Controls.Add(this.TxtJobName);
+            this.GrpFeederSetting.Controls.Add(this.CmbUltrasonicDetection);
+            this.GrpFeederSetting.Controls.Add(this.CmbDateReceipt);
+            this.GrpFeederSetting.Controls.Add(this.label1);
+            this.GrpFeederSetting.Controls.Add(this.label8);
+            this.GrpFeederSetting.Controls.Add(this.label12);
+            this.GrpFeederSetting.Controls.Add(this.RchTxtQrInfo);
+            this.GrpFeederSetting.Controls.Add(this.BtnUpdate);
+            this.GrpFeederSetting.Controls.Add(this.NumUpDwnQrAllDigit);
+            this.GrpFeederSetting.Controls.Add(this.BtnDelete);
+            this.GrpFeederSetting.Controls.Add(this.CmbDoubleFeed);
+            this.GrpFeederSetting.Controls.Add(this.CmbNonDeliveryReasonSorting1);
+            this.GrpFeederSetting.Controls.Add(this.CmbDuplication);
+            this.GrpFeederSetting.Controls.Add(this.CmbNonDeliveryReasonSorting2);
+            this.GrpFeederSetting.Controls.Add(this.label14);
+            this.GrpFeederSetting.Controls.Add(this.label17);
+            this.GrpFeederSetting.Controls.Add(this.label16);
+            this.GrpFeederSetting.Controls.Add(this.label19);
+            this.GrpFeederSetting.Controls.Add(this.label7);
+            this.GrpFeederSetting.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.GrpFeederSetting.Location = new System.Drawing.Point(130, 58);
+            this.GrpFeederSetting.Name = "GrpFeederSetting";
+            this.GrpFeederSetting.Size = new System.Drawing.Size(1621, 469);
+            this.GrpFeederSetting.TabIndex = 179;
+            this.GrpFeederSetting.TabStop = false;
+            this.GrpFeederSetting.Text = "QRフィーダー設定";
             // 
             // BtnPasteItem
             // 
@@ -2186,19 +2203,6 @@
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // label39
-            // 
-            this.label39.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label39.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(472, 241);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(102, 23);
-            this.label39.TabIndex = 388;
-            this.label39.Text = "グループ";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2206,10 +2210,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.GrpSorterSetting);
+            this.Controls.Add(this.GrpFeederSetting);
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.LblTitle);
+            this.Controls.Add(this.BtnPocketUpdate);
+            this.Controls.Add(this.BtnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -2227,11 +2233,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPostalDateStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdKeta)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.GrpSorterSetting.ResumeLayout(false);
+            this.GrpSorterSetting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.GrpFeederSetting.ResumeLayout(false);
+            this.GrpFeederSetting.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2263,7 +2269,7 @@
         internal System.Windows.Forms.Button BtnDelete;
         internal System.Windows.Forms.Button BtnUpdate;
         internal System.Windows.Forms.Button BtnAdd;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox GrpSorterSetting;
         internal System.Windows.Forms.Label LblBox1QrReadItem4;
         internal System.Windows.Forms.Label LblBox1QrReadItem3;
         internal System.Windows.Forms.Label LblBox1QrReadItem2;
@@ -2346,7 +2352,7 @@
         internal System.Windows.Forms.ComboBox CmbGroup6;
         internal System.Windows.Forms.Button BtnJobSelect;
         internal System.Windows.Forms.Label LblSelectedFile;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox GrpFeederSetting;
         internal System.Windows.Forms.Button BtnPasteItem;
         internal System.Windows.Forms.Button BtnCopyItem;
         private System.Windows.Forms.TextBox TxtSaveFolder1;

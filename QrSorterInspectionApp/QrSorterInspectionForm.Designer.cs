@@ -91,6 +91,16 @@
             this.LblError = new System.Windows.Forms.Label();
             this.LblSelectedFile = new System.Windows.Forms.Label();
             this.BtnJobSelect = new System.Windows.Forms.Button();
+            this.LblGrpInfo5 = new System.Windows.Forms.Label();
+            this.LblGrpInfo4 = new System.Windows.Forms.Label();
+            this.LblGrpInfo3 = new System.Windows.Forms.Label();
+            this.LblGrpInfo2 = new System.Windows.Forms.Label();
+            this.LblGrpInfo1 = new System.Windows.Forms.Label();
+            this.LblFdrInfo1 = new System.Windows.Forms.Label();
+            this.LblFdrInfo2 = new System.Windows.Forms.Label();
+            this.LblFdrInfo3 = new System.Windows.Forms.Label();
+            this.LblFdrInfo4 = new System.Windows.Forms.Label();
+            this.LblFdrInfo5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -834,12 +844,152 @@
             this.BtnJobSelect.UseVisualStyleBackColor = true;
             this.BtnJobSelect.Click += new System.EventHandler(this.BtnJobSelect_Click);
             // 
+            // LblGrpInfo5
+            // 
+            this.LblGrpInfo5.BackColor = System.Drawing.Color.Moccasin;
+            this.LblGrpInfo5.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGrpInfo5.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblGrpInfo5.Location = new System.Drawing.Point(375, 943);
+            this.LblGrpInfo5.Name = "LblGrpInfo5";
+            this.LblGrpInfo5.Size = new System.Drawing.Size(280, 35);
+            this.LblGrpInfo5.TabIndex = 324;
+            this.LblGrpInfo5.Text = "LblGrpInfo5";
+            this.LblGrpInfo5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblGrpInfo5.Visible = false;
+            // 
+            // LblGrpInfo4
+            // 
+            this.LblGrpInfo4.BackColor = System.Drawing.Color.Moccasin;
+            this.LblGrpInfo4.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGrpInfo4.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblGrpInfo4.Location = new System.Drawing.Point(655, 943);
+            this.LblGrpInfo4.Name = "LblGrpInfo4";
+            this.LblGrpInfo4.Size = new System.Drawing.Size(280, 35);
+            this.LblGrpInfo4.TabIndex = 325;
+            this.LblGrpInfo4.Text = "LblGrpInfo4";
+            this.LblGrpInfo4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblGrpInfo4.Visible = false;
+            // 
+            // LblGrpInfo3
+            // 
+            this.LblGrpInfo3.BackColor = System.Drawing.Color.Moccasin;
+            this.LblGrpInfo3.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGrpInfo3.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblGrpInfo3.Location = new System.Drawing.Point(934, 943);
+            this.LblGrpInfo3.Name = "LblGrpInfo3";
+            this.LblGrpInfo3.Size = new System.Drawing.Size(280, 35);
+            this.LblGrpInfo3.TabIndex = 326;
+            this.LblGrpInfo3.Text = "LblGrpInfo3";
+            this.LblGrpInfo3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblGrpInfo3.Visible = false;
+            // 
+            // LblGrpInfo2
+            // 
+            this.LblGrpInfo2.BackColor = System.Drawing.Color.Moccasin;
+            this.LblGrpInfo2.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGrpInfo2.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblGrpInfo2.Location = new System.Drawing.Point(1213, 943);
+            this.LblGrpInfo2.Name = "LblGrpInfo2";
+            this.LblGrpInfo2.Size = new System.Drawing.Size(280, 35);
+            this.LblGrpInfo2.TabIndex = 327;
+            this.LblGrpInfo2.Text = "LblGrpInfo2";
+            this.LblGrpInfo2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblGrpInfo2.Visible = false;
+            // 
+            // LblGrpInfo1
+            // 
+            this.LblGrpInfo1.BackColor = System.Drawing.Color.Moccasin;
+            this.LblGrpInfo1.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGrpInfo1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblGrpInfo1.Location = new System.Drawing.Point(1492, 943);
+            this.LblGrpInfo1.Name = "LblGrpInfo1";
+            this.LblGrpInfo1.Size = new System.Drawing.Size(280, 35);
+            this.LblGrpInfo1.TabIndex = 328;
+            this.LblGrpInfo1.Text = "LblGrpInfo1";
+            this.LblGrpInfo1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblGrpInfo1.Visible = false;
+            // 
+            // LblFdrInfo1
+            // 
+            this.LblFdrInfo1.BackColor = System.Drawing.Color.Moccasin;
+            this.LblFdrInfo1.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblFdrInfo1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblFdrInfo1.Location = new System.Drawing.Point(1492, 738);
+            this.LblFdrInfo1.Name = "LblFdrInfo1";
+            this.LblFdrInfo1.Size = new System.Drawing.Size(280, 21);
+            this.LblFdrInfo1.TabIndex = 333;
+            this.LblFdrInfo1.Text = "LblFdrInfo1";
+            this.LblFdrInfo1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblFdrInfo1.Visible = false;
+            // 
+            // LblFdrInfo2
+            // 
+            this.LblFdrInfo2.BackColor = System.Drawing.Color.Moccasin;
+            this.LblFdrInfo2.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblFdrInfo2.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblFdrInfo2.Location = new System.Drawing.Point(1213, 738);
+            this.LblFdrInfo2.Name = "LblFdrInfo2";
+            this.LblFdrInfo2.Size = new System.Drawing.Size(280, 21);
+            this.LblFdrInfo2.TabIndex = 332;
+            this.LblFdrInfo2.Text = "LblFdrInfo2";
+            this.LblFdrInfo2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblFdrInfo2.Visible = false;
+            // 
+            // LblFdrInfo3
+            // 
+            this.LblFdrInfo3.BackColor = System.Drawing.Color.Moccasin;
+            this.LblFdrInfo3.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblFdrInfo3.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblFdrInfo3.Location = new System.Drawing.Point(934, 738);
+            this.LblFdrInfo3.Name = "LblFdrInfo3";
+            this.LblFdrInfo3.Size = new System.Drawing.Size(280, 21);
+            this.LblFdrInfo3.TabIndex = 331;
+            this.LblFdrInfo3.Text = "LblFdrInfo3";
+            this.LblFdrInfo3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblFdrInfo3.Visible = false;
+            // 
+            // LblFdrInfo4
+            // 
+            this.LblFdrInfo4.BackColor = System.Drawing.Color.Moccasin;
+            this.LblFdrInfo4.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblFdrInfo4.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblFdrInfo4.Location = new System.Drawing.Point(655, 738);
+            this.LblFdrInfo4.Name = "LblFdrInfo4";
+            this.LblFdrInfo4.Size = new System.Drawing.Size(280, 21);
+            this.LblFdrInfo4.TabIndex = 330;
+            this.LblFdrInfo4.Text = "LblFdrInfo4";
+            this.LblFdrInfo4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblFdrInfo4.Visible = false;
+            // 
+            // LblFdrInfo5
+            // 
+            this.LblFdrInfo5.BackColor = System.Drawing.Color.Moccasin;
+            this.LblFdrInfo5.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblFdrInfo5.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.LblFdrInfo5.Location = new System.Drawing.Point(375, 738);
+            this.LblFdrInfo5.Name = "LblFdrInfo5";
+            this.LblFdrInfo5.Size = new System.Drawing.Size(280, 21);
+            this.LblFdrInfo5.TabIndex = 329;
+            this.LblFdrInfo5.Text = "LblFdrInfo5";
+            this.LblFdrInfo5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblFdrInfo5.Visible = false;
+            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.LblFdrInfo1);
+            this.Controls.Add(this.LblFdrInfo2);
+            this.Controls.Add(this.LblFdrInfo3);
+            this.Controls.Add(this.LblFdrInfo4);
+            this.Controls.Add(this.LblFdrInfo5);
+            this.Controls.Add(this.LblGrpInfo1);
+            this.Controls.Add(this.LblGrpInfo2);
+            this.Controls.Add(this.LblGrpInfo3);
+            this.Controls.Add(this.LblGrpInfo4);
+            this.Controls.Add(this.LblGrpInfo5);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.LblSelectedFile);
             this.Controls.Add(this.BtnJobSelect);
@@ -978,5 +1128,15 @@
         internal System.Windows.Forms.Label LblError;
         internal System.Windows.Forms.Label LblSelectedFile;
         internal System.Windows.Forms.Button BtnJobSelect;
+        internal System.Windows.Forms.Label LblGrpInfo5;
+        internal System.Windows.Forms.Label LblGrpInfo4;
+        internal System.Windows.Forms.Label LblGrpInfo3;
+        internal System.Windows.Forms.Label LblGrpInfo2;
+        internal System.Windows.Forms.Label LblGrpInfo1;
+        internal System.Windows.Forms.Label LblFdrInfo1;
+        internal System.Windows.Forms.Label LblFdrInfo2;
+        internal System.Windows.Forms.Label LblFdrInfo3;
+        internal System.Windows.Forms.Label LblFdrInfo4;
+        internal System.Windows.Forms.Label LblFdrInfo5;
     }
 }

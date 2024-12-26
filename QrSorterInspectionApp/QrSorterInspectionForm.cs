@@ -21,10 +21,6 @@ namespace QrSorterInspectionApp
 
         private List<string> lstPastReceivedQrData = new List<string>();
 
-        //private string sCurrentDate;            // 現在の年月日
-        //private string sOutputDateAndTime;      // 出力日時
-        //private int iBoxNumber = 1;             //
-
         private string sDateOfReceipt;          // 受領日
         private string sNonDeliveryReason1;     // 不着事由１
         private string sNonDeliveryReason2;     // 不着事由２
@@ -175,8 +171,12 @@ namespace QrSorterInspectionApp
                 // 過去に受信したQRデータ一覧のクリア
                 lstPastReceivedQrData.Clear();
 
+                PubConstClass.sPrevDtpDateReceipt = "";  // 前回の受領日
+                PubConstClass.sPrevNonDelivery1 = "";    // 前回の不着事由仕分け１
+                PubConstClass.sPrevNonDelivery2 = "";    // 前回の不着事由仕分け２
+
                 #region テスト確認用に過去に受信したQRデータ一覧（100万件）を作成する
-                string s1 = DateTime.Now.ToString("yyyyMMdd");
+        string s1 = DateTime.Now.ToString("yyyyMMdd");
                 string s2 = DateTime.Now.ToString("yyMMdd");
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
@@ -370,8 +370,8 @@ namespace QrSorterInspectionApp
                 sDateOfReceipt = DtpDateReceipt.Value.ToString("yyyyMMdd");
                 string sDate = "_" + sDateOfReceipt + "_";
 
-                string[] sFolderNameWork = new string[5];           // グループ１～５フォルダ名        
-                string[] sFileNameForGroupWork = new string[5];     // グループ１～５操作ログファイル名
+                string[] sFolderNameWork = new string[6];           // グループ１～５、リジェクト、フォルダ名        
+                string[] sFileNameForGroupWork = new string[6];     // グループ１～５、リジェクト、操作ログファイル名
 
                 // 現在の日付（年月日）を求める
                 DateTime dtCurrent = DateTime.Now;
@@ -383,17 +383,6 @@ namespace QrSorterInspectionApp
                 DateTime dtPostDate5 = dtCurrent.AddSeconds(5);
                 sFileNameForAllItems = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtCurrent.ToString("yyyyMMddHHmmss") + "全件.csv";
                 // グループ１～５の操作ログファイル名を取得
-                //sFileNameForGroup1 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
-                //sFileNameForGroup2 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
-                //sFileNameForGroup3 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
-                //sFileNameForGroup4 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
-                //sFileNameForGroup5 = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
-                //CommonModule.OutPutLogFile($"■sFileNameForGroup1 = {sFileNameForGroup1}");
-                //CommonModule.OutPutLogFile($"■sFileNameForGroup2 = {sFileNameForGroup2}");
-                //CommonModule.OutPutLogFile($"■sFileNameForGroup3 = {sFileNameForGroup3}");
-                //CommonModule.OutPutLogFile($"■sFileNameForGroup4 = {sFileNameForGroup4}");
-                //CommonModule.OutPutLogFile($"■sFileNameForGroup5 = {sFileNameForGroup5}");
-
                 sFileNameForGroupWork[0] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
                 sFileNameForGroupWork[1] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
                 sFileNameForGroupWork[2] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
@@ -405,6 +394,8 @@ namespace QrSorterInspectionApp
                 CommonModule.OutPutLogFile($"■sFileNameForGroupWork[3] = {sFileNameForGroupWork[3]}");
                 CommonModule.OutPutLogFile($"■sFileNameForGroupWork[4] = {sFileNameForGroupWork[4]}");
 
+                sFileNameForGroupWork[5] = "リジェクト.csv";
+                CommonModule.OutPutLogFile($"■sFileNameForGroupWork[5] = {sFileNameForGroupWork[5]}");
 
                 // JOB名までのフォルダの存在チェックと作成
                 sArray = LblSelectedFile.Text.Split('.');
@@ -467,20 +458,33 @@ namespace QrSorterInspectionApp
                     Directory.CreateDirectory(sGrpFolder);
                 }
 
+                sFolderNameWork[5] = "グループ６_リジェクト";
+
                 //                 0    1              2  3  4   5      6 7 8      9 0 1            2  3 4       5  6  7 8 9  0  1  2  3  4  5 6 7                8 9                0 1        2 3                 4 5                 6 7  8                               
                 //チューリッヒ⑧封書,封筒,2024年12月19日,ON,47,OFF,物件ID,1,5,届出日,6,8,ファイル区分,14,1,管理No.,15,10,1,2,ON,ON,ON,ON,ON,ON,1,1,コメリ①-1ハガキ,1,コメリ①-2ハガキ,2,武蔵野BK,3,西日本シティーBK1,4,西日本シティーBK2,5,50,50,50,50,50,ON,ON,ON,ON,ON,
                 sArray = PubConstClass.lstJobEntryList[0].Split(',');
+
                 sFolderName1 = sFolderNameWork[int.Parse(sArray[29]) - 1];
                 sFolderName2 = sFolderNameWork[int.Parse(sArray[31]) - 1];
                 sFolderName3 = sFolderNameWork[int.Parse(sArray[33]) - 1];
                 sFolderName4 = sFolderNameWork[int.Parse(sArray[35]) - 1];
                 sFolderName5 = sFolderNameWork[int.Parse(sArray[37]) - 1];
-
                 sFileNameForGroup1 = sFileNameForGroupWork[int.Parse(sArray[29]) - 1];
                 sFileNameForGroup2 = sFileNameForGroupWork[int.Parse(sArray[31]) - 1];
                 sFileNameForGroup3 = sFileNameForGroupWork[int.Parse(sArray[33]) - 1];
                 sFileNameForGroup4 = sFileNameForGroupWork[int.Parse(sArray[35]) - 1];
                 sFileNameForGroup5 = sFileNameForGroupWork[int.Parse(sArray[37]) - 1];
+
+                LblFdrInfo1.Text = sFolderName1;
+                LblFdrInfo2.Text = sFolderName2;
+                LblFdrInfo3.Text = sFolderName3;
+                LblFdrInfo4.Text = sFolderName4;
+                LblFdrInfo5.Text = sFolderName5;
+                LblGrpInfo1.Text = sFileNameForGroup1;
+                LblGrpInfo2.Text = sFileNameForGroup2;
+                LblGrpInfo3.Text = sFileNameForGroup3;
+                LblGrpInfo4.Text = sFileNameForGroup4;
+                LblGrpInfo5.Text = sFileNameForGroup5;
             }
             catch (Exception ex)
             {
@@ -547,7 +551,24 @@ namespace QrSorterInspectionApp
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LblError.Visible = false;
 
-                CreateInspectionLogFolder();
+                if (PubConstClass.sPrevDtpDateReceipt == "")
+                {
+                    CreateInspectionLogFolder();
+                }
+                else
+                {
+                    if (PubConstClass.sPrevDtpDateReceipt != DtpDateReceipt.Text ||
+                        PubConstClass.sPrevNonDelivery1 != CmbNonDeliveryReasonSorting1.Text ||
+                        PubConstClass.sPrevNonDelivery2 != CmbNonDeliveryReasonSorting2.Text)
+                    {
+                        MessageBox.Show("JOB設定が変更されました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        CreateInspectionLogFolder();
+                    }
+                }
+                
+                PubConstClass.sPrevDtpDateReceipt = DtpDateReceipt.Text;                // 前回の受領日
+                PubConstClass.sPrevNonDelivery1 = CmbNonDeliveryReasonSorting1.Text;    // 前回の不着事由仕分け１
+                PubConstClass.sPrevNonDelivery2 = CmbNonDeliveryReasonSorting2.Text;    // 前回の不着事由仕分け２
 
                 // 検査中
                 //SetStatus(1);
@@ -644,8 +665,32 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void LblVersion_DoubleClick(object sender, EventArgs e)
         {
-            // 「エラー」のステータスとする 
-            //SetStatus(2);
+            if (LblFdrInfo1.Visible == false)
+            {
+                LblFdrInfo1.Visible = true;
+                LblFdrInfo2.Visible = true;
+                LblFdrInfo3.Visible = true;
+                LblFdrInfo4.Visible = true;
+                LblFdrInfo5.Visible = true;
+                LblGrpInfo1.Visible = true;
+                LblGrpInfo2.Visible = true;
+                LblGrpInfo3.Visible = true;
+                LblGrpInfo4.Visible = true;
+                LblGrpInfo5.Visible = true;
+            }
+            else
+            {
+                LblFdrInfo1.Visible = false;
+                LblFdrInfo2.Visible = false;
+                LblFdrInfo3.Visible = false;
+                LblFdrInfo4.Visible = false;
+                LblFdrInfo5.Visible = false;
+                LblGrpInfo1.Visible = false;
+                LblGrpInfo2.Visible = false;
+                LblGrpInfo3.Visible = false;
+                LblGrpInfo4.Visible = false;
+                LblGrpInfo5.Visible = false;
+            }
         }
 
         /// <summary>

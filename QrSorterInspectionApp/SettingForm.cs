@@ -12,7 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using static System.Windows.Forms.AxHost;
 
 namespace QrSorterInspectionApp
 {
@@ -137,7 +136,7 @@ namespace QrSorterInspectionApp
 
                 if (PubConstClass.sJobFileNameFromInspectionForm != "")
                 {
-                    LblTitle.Text = "設定（検査画面からの呼出）";
+                    LblTitle.Text = $"設定（検査画面からの呼出／{PubConstClass.sUserAuthority}ユーザー：{PubConstClass.sUserId}）";
                     string[] sArray = PubConstClass.sJobFileNameFromInspectionForm.Split('\\');
                     // ファイル名のみを表示する
                     LblSelectedFile.Text = sArray[sArray.Length - 1];
@@ -149,6 +148,8 @@ namespace QrSorterInspectionApp
                     BtnAdd.Enabled = false;         // 「新規保存」　ボタン使用不可
                     BtnUpdate.Enabled = true;       // 「保存」　　　ボタン使用可                    
                     BtnDelete.Enabled = false;      // 「削除」　　　ボタン使用不可
+                    // ユーザー権限で設定画面の使用項目を制限する
+                    DisableScreen();
                 }
                 else
                 {
@@ -158,6 +159,48 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【SettingForm_Load】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// ユーザー権限で設定画面の使用項目を制限する
+        /// </summary>
+        private void DisableScreen()
+        {
+            try
+            {
+                if (PubConstClass.sUserAuthority == "OP")
+                {
+                    // OPユーザーの場合は参照モード
+                    // QRフィーダー設定使用不可
+                    GrpFeederSetting.Enabled = false;
+                    // ソーター設定使用不可
+                    GrpSorterSetting.Enabled = false;
+                }
+                else
+                {
+                    // SVユーザーの場合は下記の項目を使用不可
+                    // JOB選択ボタン使用不可
+                    BtnJobSelect.Enabled = false;
+                    // 項目コピーボタン使用不可
+                    BtnCopyItem.Enabled = false;
+                    // 項目貼付けボタン使用不可
+                    BtnPasteItem.Enabled = false;
+                    // 新規保存ボタン使用不可
+                    BtnAdd.Enabled = false;
+                    // 削除ボタン使用不可
+                    BtnDelete.Enabled = false;
+                    // JOB名テキスト入力不可
+                    TxtJobName.Enabled = false;
+                    // 媒体選択コンボボックス使用不可
+                    CmbMedia.Enabled = false;
+                    // ソーター設定使用不可
+                    GrpSorterSetting.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【DisableScreen】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -42,6 +42,13 @@ namespace QrSorterInspectionApp
         public static string sJobFileNameFromInspectionForm = "";               // 検査画面呼出時のジョブファイル名
 
         /// <summary>
+        /// 検査画面
+        /// </summary>
+        public static string sPrevDtpDateReceipt = "";  // 前回の受領日
+        public static string sPrevNonDelivery1 = "";    // 前回の不着事由仕分け１
+        public static string sPrevNonDelivery2 = "";    // 前回の不着事由仕分け２
+
+        /// <summary>
         /// 保守画面
         /// </summary>
         // 保守項目
