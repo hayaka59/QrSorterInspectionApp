@@ -21,10 +21,6 @@ namespace QrSorterInspectionApp
 
         private List<string> lstPastReceivedQrData = new List<string>();
 
-        //private string sCurrentDate;            // 現在の年月日
-        //private string sOutputDateAndTime;      // 出力日時
-        //private int iBoxNumber = 1;             //
-
         private string sDateOfReceipt;          // 受領日
         private string sNonDeliveryReason1;     // 不着事由１
         private string sNonDeliveryReason2;     // 不着事由２
@@ -175,8 +171,12 @@ namespace QrSorterInspectionApp
                 // 過去に受信したQRデータ一覧のクリア
                 lstPastReceivedQrData.Clear();
 
+                PubConstClass.sPrevDtpDateReceipt = "";  // 前回の受領日
+                PubConstClass.sPrevNonDelivery1 = "";    // 前回の不着事由仕分け１
+                PubConstClass.sPrevNonDelivery2 = "";    // 前回の不着事由仕分け２
+
                 #region テスト確認用に過去に受信したQRデータ一覧（100万件）を作成する
-                string s1 = DateTime.Now.ToString("yyyyMMdd");
+        string s1 = DateTime.Now.ToString("yyyyMMdd");
                 string s2 = DateTime.Now.ToString("yyMMdd");
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
@@ -551,7 +551,24 @@ namespace QrSorterInspectionApp
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LblError.Visible = false;
 
-                CreateInspectionLogFolder();
+                if (PubConstClass.sPrevDtpDateReceipt == "")
+                {
+                    CreateInspectionLogFolder();
+                }
+                else
+                {
+                    if (PubConstClass.sPrevDtpDateReceipt != DtpDateReceipt.Text ||
+                        PubConstClass.sPrevNonDelivery1 != CmbNonDeliveryReasonSorting1.Text ||
+                        PubConstClass.sPrevNonDelivery2 != CmbNonDeliveryReasonSorting2.Text)
+                    {
+                        MessageBox.Show("JOB設定が変更されました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        CreateInspectionLogFolder();
+                    }
+                }
+                
+                PubConstClass.sPrevDtpDateReceipt = DtpDateReceipt.Text;                // 前回の受領日
+                PubConstClass.sPrevNonDelivery1 = CmbNonDeliveryReasonSorting1.Text;    // 前回の不着事由仕分け１
+                PubConstClass.sPrevNonDelivery2 = CmbNonDeliveryReasonSorting2.Text;    // 前回の不着事由仕分け２
 
                 // 検査中
                 //SetStatus(1);
