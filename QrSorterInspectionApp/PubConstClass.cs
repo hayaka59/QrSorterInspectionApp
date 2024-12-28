@@ -34,11 +34,13 @@ namespace QrSorterInspectionApp
         /// <summary>
         /// 設定画面        
         /// </summary>
-        public static List<string> lstJobEntryList = new List<string>();        // 登録ジョブ情報
         public const string DEF_JOB_ENTRY_FILE_NAME = "JobEntryList.txt";       // 登録ジョブファイル名
-        public static List<string> lstGroupInfo = new List<string>();           // グループ１～５の情報
-        public static List<string> lstNonDeliveryList = new List<string>();     // 不着事由情報
         public const string DEF_NON_DELIVERY = "NonDeliveryReasonSorting.txt";  // 不着事由格納ファイル
+
+        public static List<string> lstJobEntryList = new List<string>();        // 登録ジョブ情報
+        public static List<string> lstGroupInfo = new List<string>();           // グループ１～５の情報
+        public static List<string> lstPocketInfo = new List<string>();          // ポケット１～５の情報
+        public static List<string> lstNonDeliveryList = new List<string>();     // 不着事由情報
         public static string sJobFileNameFromInspectionForm = "";               // 検査画面呼出時のジョブファイル名
 
         /// <summary>
