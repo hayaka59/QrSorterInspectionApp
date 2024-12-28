@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.AxHost;
 
 namespace QrSorterInspectionApp
 {
@@ -327,6 +328,10 @@ namespace QrSorterInspectionApp
                 CmbLogCreationConditions.SelectedIndex = int.Parse(sArray[iIndex++].Trim()) - 1;
                 // 読取機能
                 CmbReadingFunction.SelectedIndex = int.Parse(sArray[iIndex++].Trim()) - 1;
+
+
+                iIndex = 0;
+                sArray = PubConstClass.lstPocketInfo[0].Split(',');
                 // ポケット①：名称
                 TxtPocketName1.Text = sArray[iIndex++].Trim();
                 // ポケット①：グループID
@@ -367,6 +372,8 @@ namespace QrSorterInspectionApp
                 CmbQuantOnOff4.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
                 // ポケット⑤切替件数チェック
                 CmbQuantOnOff5.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
+
+
 
                 sArray = PubConstClass.lstGroupInfo[0].Split(',');
                 TxtGroup1.Text = sArray[0];
@@ -487,7 +494,13 @@ namespace QrSorterInspectionApp
             }
         }
 
-        private void WriteNewJobFile(string sFileName ,string sData)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sFileName"></param>
+        /// <param name="sFeederData"></param>
+        /// <param name="sPocketData"></param>
+        private void WriteNewJobFile(string sFileName ,string sFeederData, string sPocketData)
         {
             string sPutDataPath = "";
 
@@ -500,8 +513,11 @@ namespace QrSorterInspectionApp
                 // 上書モードで書き込む
                 using (StreamWriter sw = new StreamWriter(sPutDataPath, false, Encoding.Default))
                 {
-                    sw.WriteLine(sData);
-
+                    // フィーダー設定データ書込
+                    sw.WriteLine(sFeederData);
+                    // ポケット設定データ書込
+                    sw.WriteLine(sPocketData);
+                    // グループ設定データ書込
                     if (PubConstClass.lstGroupInfo.Count == 0)
                     {
                         string sDummyData = ",,,,,";
@@ -605,6 +621,70 @@ namespace QrSorterInspectionApp
                 sData += (CmbLogCreationConditions.SelectedIndex + 1).ToString() + ","; ;
                 // 読取機能
                 sData += (CmbReadingFunction.SelectedIndex + 1).ToString() + ","; ;                
+                
+                
+                //// ポケット①：名称
+                //sData += TxtPocketName1.Text.Trim() + ","; ;
+                //// ポケット①：グループID
+                //sData += (CmbGroup1.SelectedIndex + 1).ToString() + ","; ;
+                //// ポケット②：名称
+                //sData += TxtPocketName2.Text.Trim() + ","; ;
+                //// ポケット②：グループID
+                //sData += (CmbGroup2.SelectedIndex + 1).ToString() + ","; ;
+                //// ポケット③：名称
+                //sData += TxtPocketName3.Text.Trim() + ","; ;
+                //// ポケット③：グループID
+                //sData += (CmbGroup3.SelectedIndex + 1).ToString() + ","; ;
+                //// ポケット④：名称
+                //sData += TxtPocketName4.Text.Trim() + ","; ;
+                //// ポケット④：グループID
+                //sData += (CmbGroup4.SelectedIndex + 1).ToString() + ","; ;
+                //// ポケット⑤：名称
+                //sData += TxtPocketName5.Text.Trim() + ","; ;
+                //// ポケット⑤：グループID
+                //sData += (CmbGroup5.SelectedIndex + 1).ToString() + ","; ;
+                //// ポケット①切替件数
+                //sData += TxtQuantity1.Text.Trim() + ","; ;
+                //// ポケット②切替件数
+                //sData += TxtQuantity2.Text.Trim() + ","; ;
+                //// ポケット③切替件数
+                //sData += TxtQuantity3.Text.Trim() + ","; ;
+                //// ポケット④切替件数
+                //sData += TxtQuantity4.Text.Trim() + ","; ;
+                //// ポケット⑤切替件数
+                //sData += TxtQuantity5.Text.Trim() + ","; ;
+                //// ポケット切替件数①チェック
+                //sData += CmbQuantOnOff1.Text.Trim() + ",";
+                //// ポケット切替件数②チェック
+                //sData += CmbQuantOnOff2.Text.Trim() + ",";
+                //// ポケット切替件数③チェック
+                //sData += CmbQuantOnOff3.Text.Trim() + ",";
+                //// ポケット切替件数④チェック
+                //sData += CmbQuantOnOff4.Text.Trim() + ",";
+                //// ポケット切替件数⑤チェック
+                //sData += CmbQuantOnOff5.Text.Trim() + ",";
+
+                // ソーター設定のQR読取項目①～⑤名称更新
+                LblBox1QrReadItem1.Text = TxtQrReadItem1.Text;
+                LblBox1QrReadItem2.Text = TxtQrReadItem2.Text;
+                LblBox1QrReadItem3.Text = TxtQrReadItem3.Text;
+                LblBox1QrReadItem4.Text = TxtQrReadItem4.Text;
+
+                return sData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【GetAllJobEntryData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
+            }
+        }
+
+        private string GetPocketData()
+        {
+            string sData = "";
+
+            try
+            {
                 // ポケット①：名称
                 sData += TxtPocketName1.Text.Trim() + ","; ;
                 // ポケット①：グループID
@@ -646,18 +726,12 @@ namespace QrSorterInspectionApp
                 // ポケット切替件数⑤チェック
                 sData += CmbQuantOnOff5.Text.Trim() + ",";
 
-                // ソーター設定のQR読取項目①～⑤名称更新
-                LblBox1QrReadItem1.Text = TxtQrReadItem1.Text;
-                LblBox1QrReadItem2.Text = TxtQrReadItem2.Text;
-                LblBox1QrReadItem3.Text = TxtQrReadItem3.Text;
-                LblBox1QrReadItem4.Text = TxtQrReadItem4.Text;
-
                 return sData;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【GetAllJobEntryData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return "";
+                MessageBox.Show(ex.Message, "【GetPocketData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return sData;
             }
         }
 
@@ -733,7 +807,10 @@ namespace QrSorterInspectionApp
                 }
 
                 // 全てのジョブ登録データ名称の取得
-                string sData = GetAllJobEntryData();
+                string sFeederData = GetAllJobEntryData();
+
+                string sPocketData = GetPocketData();
+
                 // グループ１情報取得
                 PubConstClass.lstGroupInfo[0] = "";
                 PubConstClass.lstGroupInfo[0] += TxtGroup1.Text + ",";
@@ -775,7 +852,7 @@ namespace QrSorterInspectionApp
                 PubConstClass.lstGroupInfo[4] += TxtBoxQrItem45.Text + ",";
                 PubConstClass.lstGroupInfo[4] += TxtSaveFolder5.Text + ",";
                 // ジョブファイルの保存
-                WriteNewJobFile(LblSelectedFile.Text, sData);
+                WriteNewJobFile(LblSelectedFile.Text, sFeederData, sPocketData);
                 // グループ名の更新
                 // 現在の選択インデックスを保持
                 int iIndex1 = CmbGroup1.SelectedIndex;
@@ -971,74 +1048,6 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【GetBoxEntryData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return "";
-            }
-        }
-
-        /// <summary>
-        /// 「更新」ボタン処理（グループ１～４）
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnPocketUpdate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string sMessage = GetBoxEntryData(TxtGroup1);
-                DialogResult dialogResult = MessageBox.Show($"下記データを更新しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Cancel)
-                {
-                    return;
-                }
-
-                // 全てのジョブ登録データ名称の取得
-                string sData = GetAllJobEntryData();
-
-                PubConstClass.lstGroupInfo[0] = "";
-                PubConstClass.lstGroupInfo[0] += TxtGroup1.Text + ",";
-                PubConstClass.lstGroupInfo[0] += TxtBoxQrItem11.Text + ",";
-                PubConstClass.lstGroupInfo[0] += TxtBoxQrItem21.Text + ",";
-                PubConstClass.lstGroupInfo[0] += TxtBoxQrItem31.Text + ",";
-                PubConstClass.lstGroupInfo[0] += TxtBoxQrItem41.Text + ",";
-                PubConstClass.lstGroupInfo[0] += TxtSaveFolder1.Text + ",";
-
-                PubConstClass.lstGroupInfo[1] = "";
-                PubConstClass.lstGroupInfo[1] += TxtGroup2.Text + ",";
-                PubConstClass.lstGroupInfo[1] += TxtBoxQrItem12.Text + ",";
-                PubConstClass.lstGroupInfo[1] += TxtBoxQrItem22.Text + ",";
-                PubConstClass.lstGroupInfo[1] += TxtBoxQrItem32.Text + ",";
-                PubConstClass.lstGroupInfo[1] += TxtBoxQrItem42.Text + ",";
-                PubConstClass.lstGroupInfo[1] += TxtSaveFolder2.Text + ",";
-
-                PubConstClass.lstGroupInfo[2] = "";
-                PubConstClass.lstGroupInfo[2] += TxtGroup3.Text + ",";
-                PubConstClass.lstGroupInfo[2] += TxtBoxQrItem13.Text + ",";
-                PubConstClass.lstGroupInfo[2] += TxtBoxQrItem23.Text + ",";
-                PubConstClass.lstGroupInfo[2] += TxtBoxQrItem33.Text + ",";
-                PubConstClass.lstGroupInfo[2] += TxtBoxQrItem43.Text + ",";
-                PubConstClass.lstGroupInfo[2] += TxtSaveFolder3.Text + ",";
-
-                PubConstClass.lstGroupInfo[3] = "";
-                PubConstClass.lstGroupInfo[3] += TxtGroup4.Text + ",";
-                PubConstClass.lstGroupInfo[3] += TxtBoxQrItem14.Text + ",";
-                PubConstClass.lstGroupInfo[3] += TxtBoxQrItem24.Text + ",";
-                PubConstClass.lstGroupInfo[3] += TxtBoxQrItem34.Text + ",";
-                PubConstClass.lstGroupInfo[3] += TxtBoxQrItem44.Text + ",";
-                PubConstClass.lstGroupInfo[3] += TxtSaveFolder4.Text + ",";
-
-                PubConstClass.lstGroupInfo[4] = "";
-                PubConstClass.lstGroupInfo[4] += TxtGroup5.Text + ",";
-                PubConstClass.lstGroupInfo[4] += TxtBoxQrItem15.Text + ",";
-                PubConstClass.lstGroupInfo[4] += TxtBoxQrItem25.Text + ",";
-                PubConstClass.lstGroupInfo[4] += TxtBoxQrItem35.Text + ",";
-                PubConstClass.lstGroupInfo[4] += TxtBoxQrItem45.Text + ",";
-                PubConstClass.lstGroupInfo[4] += TxtSaveFolder5.Text + ",";
-
-                // ジョブファイルの保存
-                WriteNewJobFile(LblSelectedFile.Text, sData);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【BtnPocketUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

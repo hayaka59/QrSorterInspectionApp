@@ -106,11 +106,15 @@ namespace QrSorterInspectionApp
             try
             {
                 PubConstClass.lstJobEntryList.Clear();
+                PubConstClass.lstPocketInfo.Clear();
                 PubConstClass.lstGroupInfo.Clear();
                 using (StreamReader sr = new StreamReader(sFileName, Encoding.Default))
                 {
                     sData = sr.ReadLine();
                     PubConstClass.lstJobEntryList.Add(sData);
+                    // ポケット１～５情報読取
+                    sData = sr.ReadLine();
+                    PubConstClass.lstPocketInfo.Add(sData);
                     // グループ１情報読取
                     sData = sr.ReadLine();
                     PubConstClass.lstGroupInfo.Add(sData);
@@ -130,7 +134,8 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【ReadJobEntryListFile(sFileName)】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.Message, "【ReadJobEntryListFile(sFileName)】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "JOB登録ファイル読み込みエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

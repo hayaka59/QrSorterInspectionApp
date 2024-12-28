@@ -152,7 +152,6 @@
             this.TxtPocketName2 = new System.Windows.Forms.TextBox();
             this.CmbGroup2 = new System.Windows.Forms.ComboBox();
             this.BtnClose = new System.Windows.Forms.Button();
-            this.BtnPocketUpdate = new System.Windows.Forms.Button();
             this.RchTxtQrInfo = new System.Windows.Forms.RichTextBox();
             this.NumUpDwnQrAllDigit = new System.Windows.Forms.NumericUpDown();
             this.CmbDoubleFeed = new System.Windows.Forms.ComboBox();
@@ -1863,21 +1862,6 @@
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // BtnPocketUpdate
-            // 
-            this.BtnPocketUpdate.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnPocketUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnPocketUpdate.Location = new System.Drawing.Point(1585, 918);
-            this.BtnPocketUpdate.Name = "BtnPocketUpdate";
-            this.BtnPocketUpdate.Size = new System.Drawing.Size(166, 47);
-            this.BtnPocketUpdate.TabIndex = 316;
-            this.BtnPocketUpdate.Text = "更新";
-            this.BtnPocketUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnPocketUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnPocketUpdate.UseVisualStyleBackColor = true;
-            this.BtnPocketUpdate.Visible = false;
-            this.BtnPocketUpdate.Click += new System.EventHandler(this.BtnPocketUpdate_Click);
-            // 
             // RchTxtQrInfo
             // 
             this.RchTxtQrInfo.BackColor = System.Drawing.Color.White;
@@ -2214,7 +2198,6 @@
             this.Controls.Add(this.GrpFeederSetting);
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.LblTitle);
-            this.Controls.Add(this.BtnPocketUpdate);
             this.Controls.Add(this.BtnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -2278,7 +2261,6 @@
         private System.Windows.Forms.TextBox TxtBoxQrItem31;
         private System.Windows.Forms.TextBox TxtBoxQrItem21;
         private System.Windows.Forms.TextBox TxtBoxQrItem11;
-        internal System.Windows.Forms.Button BtnPocketUpdate;
         private System.Windows.Forms.TextBox TxtGroup1;
         internal System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox TxtPocketName1;
