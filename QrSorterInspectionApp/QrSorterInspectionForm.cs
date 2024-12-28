@@ -1166,9 +1166,10 @@ namespace QrSorterInspectionApp
         /// </summary>
         private void GetEntryInfoAndDisplay()
         {
+            string[] sArray;
             try
             {
-                string[] sArray = PubConstClass.lstJobEntryList[0].Split(',');
+                sArray = PubConstClass.lstJobEntryList[0].Split(',');
 
                 // 受領日
                 DtpDateReceipt.Text = sArray[2];
@@ -1186,27 +1187,32 @@ namespace QrSorterInspectionApp
 
                 //TxtSeqNum.Text = "0001";
 
+                sArray = PubConstClass.lstPocketInfo[0].Split(',');
+
+                //             0 1              2 3        4 5                  6 7                  8 9  0  1  2  3  4  5
+                //コメリ①ハガキ,1,コメリ②ハガキ,2,武蔵野BK,3,西日本シティーBK①,4,西日本シティーBK②,5,50,50,50,50,50,ON,ON,ON,ON,ON,
+
                 // ポケット①名称
-                LblBoxTitle1.Text = "BOX_01 " + sArray[28];
+                LblBoxTitle1.Text = "BOX_01 " + sArray[0];
                 // ポケット②名称
-                LblBoxTitle2.Text = "BOX_02 " + sArray[30];
+                LblBoxTitle2.Text = "BOX_02 " + sArray[2];
                 // ポケット③名称
-                LblBoxTitle3.Text = "BOX_03 " + sArray[32];
+                LblBoxTitle3.Text = "BOX_03 " + sArray[4];
                 // ポケット④名称
-                LblBoxTitle4.Text = "BOX_04 " + sArray[34];
+                LblBoxTitle4.Text = "BOX_04 " + sArray[6];
                 // ポケット⑤名称
-                LblBoxTitle5.Text = "BOX_05 " + sArray[36];
+                LblBoxTitle5.Text = "BOX_05 " + sArray[8];
 
                 // ポケット１切替件数
-                LblQuantity1.Text = sArray[43] == "ON" ? sArray[38] : "---";
+                LblQuantity1.Text = sArray[15] == "ON" ? sArray[10] : "---";
                 // ポケット２切替件数
-                LblQuantity2.Text = sArray[44] == "ON" ? sArray[39] : "---";
+                LblQuantity2.Text = sArray[16] == "ON" ? sArray[11] : "---";
                 // ポケット３切替件数
-                LblQuantity3.Text = sArray[45] == "ON" ? sArray[40] : "---";
+                LblQuantity3.Text = sArray[17] == "ON" ? sArray[12] : "---";
                 // ポケット４切替件数
-                LblQuantity4.Text = sArray[46] == "ON" ? sArray[41] : "---";
+                LblQuantity4.Text = sArray[18] == "ON" ? sArray[13] : "---";
                 // ポケット５切替件数
-                LblQuantity5.Text = sArray[47] == "ON" ? sArray[42] : "---";
+                LblQuantity5.Text = sArray[19] == "ON" ? sArray[14] : "---";
 
                 // ログ保存フォルダの確認
                 //CheckAndCreateLogStorageFolder();
