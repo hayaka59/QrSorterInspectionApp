@@ -381,7 +381,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem21.Text = sArray[2];
                 TxtBoxQrItem31.Text = sArray[3];
                 TxtBoxQrItem41.Text = sArray[4];
-                TxtSaveFolder1.Text = sArray[5];
 
                 sArray = PubConstClass.lstGroupInfo[1].Split(',');
                 TxtGroup2.Text = sArray[0];
@@ -389,7 +388,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem22.Text = sArray[2];
                 TxtBoxQrItem32.Text = sArray[3];
                 TxtBoxQrItem42.Text = sArray[4];
-                TxtSaveFolder2.Text = sArray[5];
 
                 sArray = PubConstClass.lstGroupInfo[2].Split(',');
                 TxtGroup3.Text = sArray[0];
@@ -397,7 +395,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem23.Text = sArray[2];
                 TxtBoxQrItem33.Text = sArray[3];
                 TxtBoxQrItem43.Text = sArray[4];
-                TxtSaveFolder3.Text = sArray[5];
 
                 sArray = PubConstClass.lstGroupInfo[3].Split(',');
                 TxtGroup4.Text = sArray[0];
@@ -405,7 +402,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem24.Text = sArray[2];
                 TxtBoxQrItem34.Text = sArray[3];
                 TxtBoxQrItem44.Text = sArray[4];
-                TxtSaveFolder4.Text = sArray[5];
 
                 sArray = PubConstClass.lstGroupInfo[4].Split(',');
                 TxtGroup5.Text = sArray[0];
@@ -413,7 +409,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem25.Text = sArray[2];
                 TxtBoxQrItem35.Text = sArray[3];
                 TxtBoxQrItem45.Text = sArray[4];
-                TxtSaveFolder5.Text = sArray[5];
             }
             catch (Exception ex)
             {
@@ -818,7 +813,6 @@ namespace QrSorterInspectionApp
                 PubConstClass.lstGroupInfo[0] += TxtBoxQrItem21.Text + ",";
                 PubConstClass.lstGroupInfo[0] += TxtBoxQrItem31.Text + ",";
                 PubConstClass.lstGroupInfo[0] += TxtBoxQrItem41.Text + ",";
-                PubConstClass.lstGroupInfo[0] += TxtSaveFolder1.Text + ",";
                 // グループ２情報取得
                 PubConstClass.lstGroupInfo[1] = "";
                 PubConstClass.lstGroupInfo[1] += TxtGroup2.Text + ",";
@@ -826,7 +820,6 @@ namespace QrSorterInspectionApp
                 PubConstClass.lstGroupInfo[1] += TxtBoxQrItem22.Text + ",";
                 PubConstClass.lstGroupInfo[1] += TxtBoxQrItem32.Text + ",";
                 PubConstClass.lstGroupInfo[1] += TxtBoxQrItem42.Text + ",";
-                PubConstClass.lstGroupInfo[1] += TxtSaveFolder2.Text + ",";
                 // グループ３情報取得
                 PubConstClass.lstGroupInfo[2] = "";
                 PubConstClass.lstGroupInfo[2] += TxtGroup3.Text + ",";
@@ -834,7 +827,6 @@ namespace QrSorterInspectionApp
                 PubConstClass.lstGroupInfo[2] += TxtBoxQrItem23.Text + ",";
                 PubConstClass.lstGroupInfo[2] += TxtBoxQrItem33.Text + ",";
                 PubConstClass.lstGroupInfo[2] += TxtBoxQrItem43.Text + ",";
-                PubConstClass.lstGroupInfo[2] += TxtSaveFolder3.Text + ",";
                 // グループ４情報取得
                 PubConstClass.lstGroupInfo[3] = "";
                 PubConstClass.lstGroupInfo[3] += TxtGroup4.Text + ",";
@@ -842,7 +834,6 @@ namespace QrSorterInspectionApp
                 PubConstClass.lstGroupInfo[3] += TxtBoxQrItem24.Text + ",";
                 PubConstClass.lstGroupInfo[3] += TxtBoxQrItem34.Text + ",";
                 PubConstClass.lstGroupInfo[3] += TxtBoxQrItem44.Text + ",";
-                PubConstClass.lstGroupInfo[3] += TxtSaveFolder4.Text + ",";
                 // グループ５情報取得
                 PubConstClass.lstGroupInfo[4] = "";
                 PubConstClass.lstGroupInfo[4] += TxtGroup5.Text + ",";
@@ -850,7 +841,6 @@ namespace QrSorterInspectionApp
                 PubConstClass.lstGroupInfo[4] += TxtBoxQrItem25.Text + ",";
                 PubConstClass.lstGroupInfo[4] += TxtBoxQrItem35.Text + ",";
                 PubConstClass.lstGroupInfo[4] += TxtBoxQrItem45.Text + ",";
-                PubConstClass.lstGroupInfo[4] += TxtSaveFolder5.Text + ",";
                 // ジョブファイルの保存
                 WriteNewJobFile(LblSelectedFile.Text, sFeederData, sPocketData);
                 // グループ名の更新
@@ -983,12 +973,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem43.Text = "";
                 TxtBoxQrItem44.Text = "";
                 TxtBoxQrItem45.Text = "";
-                // グループ１～５の保存先フォルダ名クリア
-                TxtSaveFolder1.Text = "";
-                TxtSaveFolder2.Text = "";
-                TxtSaveFolder3.Text = "";
-                TxtSaveFolder4.Text = "";
-                TxtSaveFolder5.Text = "";
                 // ポケット名称クリア
                 TxtPocketName1.Text = "";
                 TxtPocketName2.Text = "";
@@ -1002,11 +986,11 @@ namespace QrSorterInspectionApp
                 TxtGroup4.Text = "";
                 TxtGroup5.Text = "";
                 // ポケット①～⑤のグループ名クリア
-                TxtGrpName1.Text = "";
-                TxtGrpName2.Text = "";
-                TxtGrpName3.Text = "";
-                TxtGrpName4.Text = "";
-                TxtGrpName5.Text = "";
+                LblGroup1.Text = "";
+                LblGroup2.Text = "";
+                LblGroup3.Text = "";
+                LblGroup4.Text = "";
+                LblGroup5.Text = "";
                 // ポケット切替件数クリア
                 TxtQuantity1.Text = "0";
                 TxtQuantity2.Text = "0";
@@ -1028,26 +1012,6 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【ClearDisplayData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="textBox"></param>
-        /// <returns></returns>
-        private string GetBoxEntryData(TextBox textBox)
-        {
-            try
-            {
-                string sMessage = Environment.NewLine + Environment.NewLine;
-                sMessage += "グループ項目：" + textBox.Text + Environment.NewLine;
-                return sMessage;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【GetBoxEntryData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return "";
             }
         }
 
@@ -1111,22 +1075,22 @@ namespace QrSorterInspectionApp
         {
             if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup1.SelectedIndex > 4)
             {
-                TxtGrpName1.Text = "リジェクト";
+                LblGroup1.Text = "リジェクト";
                 return;
             }
             string[] sArray = PubConstClass.lstGroupInfo[CmbGroup1.SelectedIndex].Split(',');
-            TxtGrpName1.Text = sArray[0];
+            LblGroup1.Text = sArray[0];
         }
 
         private void CmbGroup2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup2.SelectedIndex > 4)
             {
-                TxtGrpName2.Text = "リジェクト";
+                LblGroup2.Text = "リジェクト";
                 return;
             }
             string[] sArray = PubConstClass.lstGroupInfo[CmbGroup2.SelectedIndex].Split(',');
-            TxtGrpName2.Text = sArray[0];
+            LblGroup2.Text = sArray[0];
 
         }
 
@@ -1134,12 +1098,12 @@ namespace QrSorterInspectionApp
         {
             if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup3.SelectedIndex > 4)
             {
-                TxtGrpName3.Text = "リジェクト";
+                LblGroup3.Text = "リジェクト";
                 return;
             }
 
             string[] sArray = PubConstClass.lstGroupInfo[CmbGroup3.SelectedIndex].Split(',');
-            TxtGrpName3.Text = sArray[0];
+            LblGroup3.Text = sArray[0];
 
         }
 
@@ -1147,12 +1111,12 @@ namespace QrSorterInspectionApp
         {
             if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup4.SelectedIndex > 4)
             {
-                TxtGrpName4.Text = "リジェクト";
+                LblGroup4.Text = "リジェクト";
                 return;
             }
 
             string[] sArray = PubConstClass.lstGroupInfo[CmbGroup4.SelectedIndex].Split(',');
-            TxtGrpName4.Text = sArray[0];
+            LblGroup4.Text = sArray[0];
 
         }
 
@@ -1160,17 +1124,17 @@ namespace QrSorterInspectionApp
         {
             if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup5.SelectedIndex > 4)
             {
-                TxtGrpName5.Text = "リジェクト";
+                LblGroup5.Text = "リジェクト";
                 return;
             }
 
             string[] sArray = PubConstClass.lstGroupInfo[CmbGroup5.SelectedIndex].Split(',');
-            TxtGrpName5.Text = sArray[0];
+            LblGroup5.Text = sArray[0];
 
         }
 
-        List<string> lstCopyItem = new List<string>();
-        List<string> lstCopyGroupInfo = new List<string>();
+        private List<string> lstCopyItem = new List<string>();
+        private List<string> lstCopyGroupInfo = new List<string>();
 
         /// <summary>
         /// 「項目コピー」ボタン処理
@@ -1229,11 +1193,11 @@ namespace QrSorterInspectionApp
                 lstCopyItem.Add(TxtPocketName5.Text);
                 #endregion
                 #region グループ①～⑤
-                lstCopyItem.Add(TxtGrpName1.Text);
-                lstCopyItem.Add(TxtGrpName2.Text);
-                lstCopyItem.Add(TxtGrpName3.Text);
-                lstCopyItem.Add(TxtGrpName4.Text);
-                lstCopyItem.Add(TxtGrpName5.Text);
+                lstCopyItem.Add(LblGroup1.Text);
+                lstCopyItem.Add(LblGroup2.Text);
+                lstCopyItem.Add(LblGroup3.Text);
+                lstCopyItem.Add(LblGroup4.Text);
+                lstCopyItem.Add(LblGroup5.Text);
                 #endregion
                 #region ポケット切替件数①～⑤
                 lstCopyItem.Add(TxtQuantity1.Text);
@@ -1320,11 +1284,11 @@ namespace QrSorterInspectionApp
                 TxtPocketName5.Text = lstCopyItem[iIndex++];
                 #endregion
                 #region グループ①～⑤
-                TxtGrpName1.Text = lstCopyItem[iIndex++];
-                TxtGrpName2.Text = lstCopyItem[iIndex++];
-                TxtGrpName3.Text = lstCopyItem[iIndex++];
-                TxtGrpName4.Text = lstCopyItem[iIndex++];
-                TxtGrpName5.Text = lstCopyItem[iIndex++];
+                LblGroup1.Text = lstCopyItem[iIndex++];
+                LblGroup2.Text = lstCopyItem[iIndex++];
+                LblGroup3.Text = lstCopyItem[iIndex++];
+                LblGroup4.Text = lstCopyItem[iIndex++];
+                LblGroup5.Text = lstCopyItem[iIndex++];
                 #endregion
                 #region ポケット切替件数①～⑤
                 TxtQuantity1.Text = lstCopyItem[iIndex++];
@@ -1355,7 +1319,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem21.Text = sArray[2];
                 TxtBoxQrItem31.Text = sArray[3];
                 TxtBoxQrItem41.Text = sArray[4];
-                TxtSaveFolder1.Text = sArray[5];
 
                 sArray = PubConstClass.lstGroupInfo[1].Split(',');
                 TxtGroup2.Text = sArray[0];
@@ -1363,7 +1326,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem22.Text = sArray[2];
                 TxtBoxQrItem32.Text = sArray[3];
                 TxtBoxQrItem42.Text = sArray[4];
-                TxtSaveFolder2.Text = sArray[5];
 
                 sArray = PubConstClass.lstGroupInfo[2].Split(',');
                 TxtGroup3.Text = sArray[0];
@@ -1371,7 +1333,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem23.Text = sArray[2];
                 TxtBoxQrItem33.Text = sArray[3];
                 TxtBoxQrItem43.Text = sArray[4];
-                TxtSaveFolder3.Text = sArray[5];
 
                 sArray = PubConstClass.lstGroupInfo[3].Split(',');
                 TxtGroup4.Text = sArray[0];
@@ -1379,7 +1340,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem24.Text = sArray[2];
                 TxtBoxQrItem34.Text = sArray[3];
                 TxtBoxQrItem44.Text = sArray[4];
-                TxtSaveFolder4.Text = sArray[5];
 
                 sArray = PubConstClass.lstGroupInfo[4].Split(',');
                 TxtGroup5.Text = sArray[0];
@@ -1387,8 +1347,6 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem25.Text = sArray[2];
                 TxtBoxQrItem35.Text = sArray[3];
                 TxtBoxQrItem45.Text = sArray[4];
-                TxtSaveFolder5.Text = sArray[5];
-
             }
             catch (Exception ex)
             {

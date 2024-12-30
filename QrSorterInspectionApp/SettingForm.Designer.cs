@@ -77,25 +77,21 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.TxtSaveFolder5 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem25 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem35 = new System.Windows.Forms.TextBox();
             this.TxtGroup5 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem15 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem45 = new System.Windows.Forms.TextBox();
-            this.TxtSaveFolder4 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem24 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem34 = new System.Windows.Forms.TextBox();
             this.TxtGroup4 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem14 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem44 = new System.Windows.Forms.TextBox();
-            this.TxtSaveFolder3 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem23 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem33 = new System.Windows.Forms.TextBox();
             this.TxtGroup3 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem13 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem43 = new System.Windows.Forms.TextBox();
-            this.TxtSaveFolder2 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem22 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem32 = new System.Windows.Forms.TextBox();
             this.TxtGroup2 = new System.Windows.Forms.TextBox();
@@ -105,11 +101,9 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.TxtSaveFolder1 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.TxtBoxQrItem21 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.TxtBoxQrItem31 = new System.Windows.Forms.TextBox();
             this.TxtGroup1 = new System.Windows.Forms.TextBox();
@@ -118,13 +112,8 @@
             this.CmbGroup6 = new System.Windows.Forms.ComboBox();
             this.LblBox1QrReadItem1 = new System.Windows.Forms.Label();
             this.LblBox1QrReadItem2 = new System.Windows.Forms.Label();
-            this.TxtGrpName5 = new System.Windows.Forms.TextBox();
             this.LblBox1QrReadItem3 = new System.Windows.Forms.Label();
-            this.TxtGrpName4 = new System.Windows.Forms.TextBox();
             this.LblBox1QrReadItem4 = new System.Windows.Forms.Label();
-            this.TxtGrpName3 = new System.Windows.Forms.TextBox();
-            this.TxtGrpName2 = new System.Windows.Forms.TextBox();
-            this.TxtGrpName1 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.CmbQuantOnOff5 = new System.Windows.Forms.ComboBox();
             this.TxtQuantity5 = new System.Windows.Forms.TextBox();
@@ -174,6 +163,11 @@
             this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
+            this.LblGroup1 = new System.Windows.Forms.Label();
+            this.LblGroup2 = new System.Windows.Forms.Label();
+            this.LblGroup3 = new System.Windows.Forms.Label();
+            this.LblGroup4 = new System.Windows.Forms.Label();
+            this.LblGroup5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
@@ -855,29 +849,30 @@
             // GrpSorterSetting
             // 
             this.GrpSorterSetting.BackColor = System.Drawing.SystemColors.Control;
+            this.GrpSorterSetting.Controls.Add(this.LblGroup5);
+            this.GrpSorterSetting.Controls.Add(this.LblGroup4);
+            this.GrpSorterSetting.Controls.Add(this.LblGroup3);
+            this.GrpSorterSetting.Controls.Add(this.LblGroup2);
+            this.GrpSorterSetting.Controls.Add(this.LblGroup1);
             this.GrpSorterSetting.Controls.Add(this.label39);
             this.GrpSorterSetting.Controls.Add(this.label38);
             this.GrpSorterSetting.Controls.Add(this.label37);
             this.GrpSorterSetting.Controls.Add(this.label36);
-            this.GrpSorterSetting.Controls.Add(this.TxtSaveFolder5);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem25);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem35);
             this.GrpSorterSetting.Controls.Add(this.TxtGroup5);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem15);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem45);
-            this.GrpSorterSetting.Controls.Add(this.TxtSaveFolder4);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem24);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem34);
             this.GrpSorterSetting.Controls.Add(this.TxtGroup4);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem14);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem44);
-            this.GrpSorterSetting.Controls.Add(this.TxtSaveFolder3);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem23);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem33);
             this.GrpSorterSetting.Controls.Add(this.TxtGroup3);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem13);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem43);
-            this.GrpSorterSetting.Controls.Add(this.TxtSaveFolder2);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem22);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem32);
             this.GrpSorterSetting.Controls.Add(this.TxtGroup2);
@@ -887,11 +882,9 @@
             this.GrpSorterSetting.Controls.Add(this.label26);
             this.GrpSorterSetting.Controls.Add(this.label25);
             this.GrpSorterSetting.Controls.Add(this.label24);
-            this.GrpSorterSetting.Controls.Add(this.TxtSaveFolder1);
             this.GrpSorterSetting.Controls.Add(this.label23);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem21);
             this.GrpSorterSetting.Controls.Add(this.label22);
-            this.GrpSorterSetting.Controls.Add(this.label2);
             this.GrpSorterSetting.Controls.Add(this.textBox6);
             this.GrpSorterSetting.Controls.Add(this.TxtBoxQrItem31);
             this.GrpSorterSetting.Controls.Add(this.TxtGroup1);
@@ -900,13 +893,8 @@
             this.GrpSorterSetting.Controls.Add(this.CmbGroup6);
             this.GrpSorterSetting.Controls.Add(this.LblBox1QrReadItem1);
             this.GrpSorterSetting.Controls.Add(this.LblBox1QrReadItem2);
-            this.GrpSorterSetting.Controls.Add(this.TxtGrpName5);
             this.GrpSorterSetting.Controls.Add(this.LblBox1QrReadItem3);
-            this.GrpSorterSetting.Controls.Add(this.TxtGrpName4);
             this.GrpSorterSetting.Controls.Add(this.LblBox1QrReadItem4);
-            this.GrpSorterSetting.Controls.Add(this.TxtGrpName3);
-            this.GrpSorterSetting.Controls.Add(this.TxtGrpName2);
-            this.GrpSorterSetting.Controls.Add(this.TxtGrpName1);
             this.GrpSorterSetting.Controls.Add(this.label20);
             this.GrpSorterSetting.Controls.Add(this.CmbQuantOnOff5);
             this.GrpSorterSetting.Controls.Add(this.TxtQuantity5);
@@ -993,17 +981,6 @@
             this.label36.Text = "グループ名";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TxtSaveFolder5
-            // 
-            this.TxtSaveFolder5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtSaveFolder5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder5.Location = new System.Drawing.Point(1086, 428);
-            this.TxtSaveFolder5.Name = "TxtSaveFolder5";
-            this.TxtSaveFolder5.Size = new System.Drawing.Size(144, 31);
-            this.TxtSaveFolder5.TabIndex = 384;
-            this.TxtSaveFolder5.Text = "TxtSaveFolder5";
-            this.TxtSaveFolder5.Visible = false;
-            // 
             // TxtBoxQrItem25
             // 
             this.TxtBoxQrItem25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1055,17 +1032,6 @@
             this.TxtBoxQrItem45.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem45.TabIndex = 382;
             this.TxtBoxQrItem45.Text = "TxtBoxQrItem45";
-            // 
-            // TxtSaveFolder4
-            // 
-            this.TxtSaveFolder4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtSaveFolder4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder4.Location = new System.Drawing.Point(1086, 396);
-            this.TxtSaveFolder4.Name = "TxtSaveFolder4";
-            this.TxtSaveFolder4.Size = new System.Drawing.Size(144, 31);
-            this.TxtSaveFolder4.TabIndex = 378;
-            this.TxtSaveFolder4.Text = "TxtSaveFolder4";
-            this.TxtSaveFolder4.Visible = false;
             // 
             // TxtBoxQrItem24
             // 
@@ -1119,17 +1085,6 @@
             this.TxtBoxQrItem44.TabIndex = 376;
             this.TxtBoxQrItem44.Text = "TxtBoxQrItem44";
             // 
-            // TxtSaveFolder3
-            // 
-            this.TxtSaveFolder3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtSaveFolder3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder3.Location = new System.Drawing.Point(1086, 364);
-            this.TxtSaveFolder3.Name = "TxtSaveFolder3";
-            this.TxtSaveFolder3.Size = new System.Drawing.Size(144, 31);
-            this.TxtSaveFolder3.TabIndex = 372;
-            this.TxtSaveFolder3.Text = "TxtSaveFolder3";
-            this.TxtSaveFolder3.Visible = false;
-            // 
             // TxtBoxQrItem23
             // 
             this.TxtBoxQrItem23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1181,17 +1136,6 @@
             this.TxtBoxQrItem43.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem43.TabIndex = 370;
             this.TxtBoxQrItem43.Text = "TxtBoxQrItem43";
-            // 
-            // TxtSaveFolder2
-            // 
-            this.TxtSaveFolder2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtSaveFolder2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder2.Location = new System.Drawing.Point(1086, 331);
-            this.TxtSaveFolder2.Name = "TxtSaveFolder2";
-            this.TxtSaveFolder2.Size = new System.Drawing.Size(144, 31);
-            this.TxtSaveFolder2.TabIndex = 366;
-            this.TxtSaveFolder2.Text = "TxtSaveFolder2";
-            this.TxtSaveFolder2.Visible = false;
             // 
             // TxtBoxQrItem22
             // 
@@ -1297,17 +1241,6 @@
             this.label24.Text = "グループ２";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TxtSaveFolder1
-            // 
-            this.TxtSaveFolder1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtSaveFolder1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtSaveFolder1.Location = new System.Drawing.Point(1086, 298);
-            this.TxtSaveFolder1.Name = "TxtSaveFolder1";
-            this.TxtSaveFolder1.Size = new System.Drawing.Size(144, 31);
-            this.TxtSaveFolder1.TabIndex = 326;
-            this.TxtSaveFolder1.Text = "TxtSaveFolder1";
-            this.TxtSaveFolder1.Visible = false;
-            // 
             // label23
             // 
             this.label23.BackColor = System.Drawing.Color.Transparent;
@@ -1343,20 +1276,6 @@
             this.label22.TabIndex = 354;
             this.label22.Text = "リジェクト";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1086, 265);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 31);
-            this.label2.TabIndex = 325;
-            this.label2.Text = "保存先フォルダ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Visible = false;
             // 
             // textBox6
             // 
@@ -1449,18 +1368,6 @@
             this.LblBox1QrReadItem2.Text = "QR読取項目②";
             this.LblBox1QrReadItem2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TxtGrpName5
-            // 
-            this.TxtGrpName5.BackColor = System.Drawing.Color.LightCyan;
-            this.TxtGrpName5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtGrpName5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGrpName5.Location = new System.Drawing.Point(578, 401);
-            this.TxtGrpName5.Name = "TxtGrpName5";
-            this.TxtGrpName5.Size = new System.Drawing.Size(300, 31);
-            this.TxtGrpName5.TabIndex = 353;
-            this.TxtGrpName5.Text = "TxtGrpName5";
-            this.TxtGrpName5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // LblBox1QrReadItem3
             // 
             this.LblBox1QrReadItem3.BackColor = System.Drawing.Color.Transparent;
@@ -1474,18 +1381,6 @@
             this.LblBox1QrReadItem3.Text = "QR読取項目③";
             this.LblBox1QrReadItem3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TxtGrpName4
-            // 
-            this.TxtGrpName4.BackColor = System.Drawing.Color.LightCyan;
-            this.TxtGrpName4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtGrpName4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGrpName4.Location = new System.Drawing.Point(578, 367);
-            this.TxtGrpName4.Name = "TxtGrpName4";
-            this.TxtGrpName4.Size = new System.Drawing.Size(300, 31);
-            this.TxtGrpName4.TabIndex = 352;
-            this.TxtGrpName4.Text = "TxtGrpName4";
-            this.TxtGrpName4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // LblBox1QrReadItem4
             // 
             this.LblBox1QrReadItem4.BackColor = System.Drawing.Color.Transparent;
@@ -1498,42 +1393,6 @@
             this.LblBox1QrReadItem4.TabIndex = 320;
             this.LblBox1QrReadItem4.Text = "QR読取項目④";
             this.LblBox1QrReadItem4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TxtGrpName3
-            // 
-            this.TxtGrpName3.BackColor = System.Drawing.Color.LightCyan;
-            this.TxtGrpName3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtGrpName3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGrpName3.Location = new System.Drawing.Point(578, 333);
-            this.TxtGrpName3.Name = "TxtGrpName3";
-            this.TxtGrpName3.Size = new System.Drawing.Size(300, 31);
-            this.TxtGrpName3.TabIndex = 351;
-            this.TxtGrpName3.Text = "TxtGrpName3";
-            this.TxtGrpName3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TxtGrpName2
-            // 
-            this.TxtGrpName2.BackColor = System.Drawing.Color.LightCyan;
-            this.TxtGrpName2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtGrpName2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGrpName2.Location = new System.Drawing.Point(578, 298);
-            this.TxtGrpName2.Name = "TxtGrpName2";
-            this.TxtGrpName2.Size = new System.Drawing.Size(300, 31);
-            this.TxtGrpName2.TabIndex = 350;
-            this.TxtGrpName2.Text = "TxtGrpName2";
-            this.TxtGrpName2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TxtGrpName1
-            // 
-            this.TxtGrpName1.BackColor = System.Drawing.Color.LightCyan;
-            this.TxtGrpName1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtGrpName1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtGrpName1.Location = new System.Drawing.Point(578, 264);
-            this.TxtGrpName1.Name = "TxtGrpName1";
-            this.TxtGrpName1.Size = new System.Drawing.Size(300, 31);
-            this.TxtGrpName1.TabIndex = 349;
-            this.TxtGrpName1.Text = "TxtGrpName1";
-            this.TxtGrpName1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label20
             // 
@@ -2187,6 +2046,71 @@
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
+            // LblGroup1
+            // 
+            this.LblGroup1.BackColor = System.Drawing.Color.LightCyan;
+            this.LblGroup1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblGroup1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGroup1.ForeColor = System.Drawing.Color.Black;
+            this.LblGroup1.Location = new System.Drawing.Point(578, 264);
+            this.LblGroup1.Name = "LblGroup1";
+            this.LblGroup1.Size = new System.Drawing.Size(300, 31);
+            this.LblGroup1.TabIndex = 389;
+            this.LblGroup1.Text = "LblGroup1";
+            this.LblGroup1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblGroup2
+            // 
+            this.LblGroup2.BackColor = System.Drawing.Color.LightCyan;
+            this.LblGroup2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblGroup2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGroup2.ForeColor = System.Drawing.Color.Black;
+            this.LblGroup2.Location = new System.Drawing.Point(578, 298);
+            this.LblGroup2.Name = "LblGroup2";
+            this.LblGroup2.Size = new System.Drawing.Size(300, 31);
+            this.LblGroup2.TabIndex = 390;
+            this.LblGroup2.Text = "LblGroup2";
+            this.LblGroup2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblGroup3
+            // 
+            this.LblGroup3.BackColor = System.Drawing.Color.LightCyan;
+            this.LblGroup3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblGroup3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGroup3.ForeColor = System.Drawing.Color.Black;
+            this.LblGroup3.Location = new System.Drawing.Point(578, 333);
+            this.LblGroup3.Name = "LblGroup3";
+            this.LblGroup3.Size = new System.Drawing.Size(300, 31);
+            this.LblGroup3.TabIndex = 391;
+            this.LblGroup3.Text = "LblGroup3";
+            this.LblGroup3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblGroup4
+            // 
+            this.LblGroup4.BackColor = System.Drawing.Color.LightCyan;
+            this.LblGroup4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblGroup4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGroup4.ForeColor = System.Drawing.Color.Black;
+            this.LblGroup4.Location = new System.Drawing.Point(578, 367);
+            this.LblGroup4.Name = "LblGroup4";
+            this.LblGroup4.Size = new System.Drawing.Size(300, 31);
+            this.LblGroup4.TabIndex = 392;
+            this.LblGroup4.Text = "LblGroup4";
+            this.LblGroup4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblGroup5
+            // 
+            this.LblGroup5.BackColor = System.Drawing.Color.LightCyan;
+            this.LblGroup5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblGroup5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGroup5.ForeColor = System.Drawing.Color.Black;
+            this.LblGroup5.Location = new System.Drawing.Point(578, 401);
+            this.LblGroup5.Name = "LblGroup5";
+            this.LblGroup5.Size = new System.Drawing.Size(300, 31);
+            this.LblGroup5.TabIndex = 393;
+            this.LblGroup5.Text = "LblGroup5";
+            this.LblGroup5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2324,11 +2248,6 @@
         private System.Windows.Forms.TextBox TxtQrReadItem2;
         internal System.Windows.Forms.ComboBox CmbReadCheck;
         internal System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox TxtGrpName5;
-        private System.Windows.Forms.TextBox TxtGrpName4;
-        private System.Windows.Forms.TextBox TxtGrpName3;
-        private System.Windows.Forms.TextBox TxtGrpName2;
-        private System.Windows.Forms.TextBox TxtGrpName1;
         internal System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox textBox6;
         internal System.Windows.Forms.ComboBox CmbGroup6;
@@ -2337,32 +2256,26 @@
         private System.Windows.Forms.GroupBox GrpFeederSetting;
         internal System.Windows.Forms.Button BtnPasteItem;
         internal System.Windows.Forms.Button BtnCopyItem;
-        private System.Windows.Forms.TextBox TxtSaveFolder1;
-        internal System.Windows.Forms.Label label2;
         internal System.Windows.Forms.Label label23;
         internal System.Windows.Forms.Label label29;
         internal System.Windows.Forms.Label label26;
         internal System.Windows.Forms.Label label25;
         internal System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox TxtSaveFolder5;
         private System.Windows.Forms.TextBox TxtBoxQrItem25;
         private System.Windows.Forms.TextBox TxtBoxQrItem35;
         private System.Windows.Forms.TextBox TxtGroup5;
         private System.Windows.Forms.TextBox TxtBoxQrItem15;
         private System.Windows.Forms.TextBox TxtBoxQrItem45;
-        private System.Windows.Forms.TextBox TxtSaveFolder4;
         private System.Windows.Forms.TextBox TxtBoxQrItem24;
         private System.Windows.Forms.TextBox TxtBoxQrItem34;
         private System.Windows.Forms.TextBox TxtGroup4;
         private System.Windows.Forms.TextBox TxtBoxQrItem14;
         private System.Windows.Forms.TextBox TxtBoxQrItem44;
-        private System.Windows.Forms.TextBox TxtSaveFolder3;
         private System.Windows.Forms.TextBox TxtBoxQrItem23;
         private System.Windows.Forms.TextBox TxtBoxQrItem33;
         private System.Windows.Forms.TextBox TxtGroup3;
         private System.Windows.Forms.TextBox TxtBoxQrItem13;
         private System.Windows.Forms.TextBox TxtBoxQrItem43;
-        private System.Windows.Forms.TextBox TxtSaveFolder2;
         private System.Windows.Forms.TextBox TxtBoxQrItem22;
         private System.Windows.Forms.TextBox TxtBoxQrItem32;
         private System.Windows.Forms.TextBox TxtGroup2;
@@ -2372,5 +2285,10 @@
         internal System.Windows.Forms.Label label38;
         internal System.Windows.Forms.Label label37;
         internal System.Windows.Forms.Label label39;
+        internal System.Windows.Forms.Label LblGroup5;
+        internal System.Windows.Forms.Label LblGroup4;
+        internal System.Windows.Forms.Label LblGroup3;
+        internal System.Windows.Forms.Label LblGroup2;
+        internal System.Windows.Forms.Label LblGroup1;
     }
 }
