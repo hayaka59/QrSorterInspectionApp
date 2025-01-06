@@ -183,12 +183,12 @@ namespace QrSorterInspectionApp
                 // 100万件の過去に受信したQRデータを作成する
                 for (int iIndex = 1; iIndex <= 1000000; iIndex++)
                 {
-                    lstPastReceivedQrData.Add($"D86571{s1}-{s2}_{iIndex.ToString("000000000")}");
+                    lstPastReceivedQrData.Add($"D86571{s1}-{s2}_{iIndex:000000000}");
                 }
                 sw.Stop();
                 CommonModule.OutPutLogFile($"■最初のQRデータ：{lstPastReceivedQrData[0]}");
                 CommonModule.OutPutLogFile($"■最後のQRデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count-1]}");
-                CommonModule.OutPutLogFile($"■{lstPastReceivedQrData.Count.ToString("#,###,##0")}件作成処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
+                CommonModule.OutPutLogFile($"■{lstPastReceivedQrData.Count:#,###,##0}件作成処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
                 #endregion
 
                 // 停止中
@@ -407,9 +407,7 @@ namespace QrSorterInspectionApp
                 
                 // グループ１フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[0].Split(',');
-                //sFolderName1 = "グループ１_" + sArray[0] + sArray[2];
-                //sGrpFolder = sJobFolder + "\\" + sFolderName1;
-                sFolderNameWork[0] = "グループ１_" + sArray[0] + sArray[2];
+                sFolderNameWork[0] = "グループ１_" + sArray[0];
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[0];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
@@ -418,9 +416,7 @@ namespace QrSorterInspectionApp
                 
                 // グループ２フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[1].Split(',');
-                //sFolderName2 = "グループ２_" + sArray[0] + sArray[2];
-                //sGrpFolder = sJobFolder + "\\" + sFolderName2;
-                sFolderNameWork[1] = "グループ２_" + sArray[0] + sArray[2];
+                sFolderNameWork[1] = "グループ２_" + sArray[0];
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[1];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
@@ -428,9 +424,7 @@ namespace QrSorterInspectionApp
                 }
                 // グループ３フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[2].Split(',');
-                //sFolderName3 = "グループ３_" + sArray[0] + sArray[2];
-                //sGrpFolder = sJobFolder + "\\" + sFolderName3;
-                sFolderNameWork[2] = "グループ３_" + sArray[0] + sArray[2];
+                sFolderNameWork[2] = "グループ３_" + sArray[0];
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[2];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
@@ -438,9 +432,7 @@ namespace QrSorterInspectionApp
                 }
                 // グループ４フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[3].Split(',');
-                //sFolderName4 = "グループ４_" + sArray[0] + sArray[2];
-                //sGrpFolder = sJobFolder + "\\" + sFolderName4;
-                sFolderNameWork[3] = "グループ４_" + sArray[0] + sArray[2];
+                sFolderNameWork[3] = "グループ４_" + sArray[0];
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[3];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
@@ -449,9 +441,7 @@ namespace QrSorterInspectionApp
 
                 // グループ５フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[4].Split(',');
-                //sFolderName5 = "グループ５_" + sArray[0] + sArray[2];
-                //sGrpFolder = sJobFolder + "\\" + sFolderName5;
-                sFolderNameWork[4] = "グループ５_" + sArray[0] + sArray[2];
+                sFolderNameWork[4] = "グループ５_" + sArray[0];
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[4];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
@@ -460,20 +450,20 @@ namespace QrSorterInspectionApp
 
                 sFolderNameWork[5] = "グループ６_リジェクト";
 
-                //                 0    1              2  3  4   5      6 7 8      9 0 1            2  3 4       5  6  7 8 9  0  1  2  3  4  5 6 7                8 9                0 1        2 3                 4 5                 6 7  8                               
-                //チューリッヒ⑧封書,封筒,2024年12月19日,ON,47,OFF,物件ID,1,5,届出日,6,8,ファイル区分,14,1,管理No.,15,10,1,2,ON,ON,ON,ON,ON,ON,1,1,コメリ①-1ハガキ,1,コメリ①-2ハガキ,2,武蔵野BK,3,西日本シティーBK1,4,西日本シティーBK2,5,50,50,50,50,50,ON,ON,ON,ON,ON,
-                sArray = PubConstClass.lstJobEntryList[0].Split(',');
+                //             0 1              2 3        4 5                  6 7                  8 9  0
+                //コメリ①ハガキ,1,コメリ②ハガキ,2,武蔵野BK,3,西日本シティーBK①,4,西日本シティーBK②,5,50,50,50,50,50,ON,ON,ON,ON,ON,
+                sArray = PubConstClass.lstPocketInfo[0].Split(',');
 
-                sFolderName1 = sFolderNameWork[int.Parse(sArray[29]) - 1];
-                sFolderName2 = sFolderNameWork[int.Parse(sArray[31]) - 1];
-                sFolderName3 = sFolderNameWork[int.Parse(sArray[33]) - 1];
-                sFolderName4 = sFolderNameWork[int.Parse(sArray[35]) - 1];
-                sFolderName5 = sFolderNameWork[int.Parse(sArray[37]) - 1];
-                sFileNameForGroup1 = sFileNameForGroupWork[int.Parse(sArray[29]) - 1];
-                sFileNameForGroup2 = sFileNameForGroupWork[int.Parse(sArray[31]) - 1];
-                sFileNameForGroup3 = sFileNameForGroupWork[int.Parse(sArray[33]) - 1];
-                sFileNameForGroup4 = sFileNameForGroupWork[int.Parse(sArray[35]) - 1];
-                sFileNameForGroup5 = sFileNameForGroupWork[int.Parse(sArray[37]) - 1];
+                sFolderName1 = sFolderNameWork[int.Parse(sArray[1]) - 1];
+                sFolderName2 = sFolderNameWork[int.Parse(sArray[3]) - 1];
+                sFolderName3 = sFolderNameWork[int.Parse(sArray[5]) - 1];
+                sFolderName4 = sFolderNameWork[int.Parse(sArray[7]) - 1];
+                sFolderName5 = sFolderNameWork[int.Parse(sArray[9]) - 1];
+                sFileNameForGroup1 = sFileNameForGroupWork[int.Parse(sArray[1]) - 1];
+                sFileNameForGroup2 = sFileNameForGroupWork[int.Parse(sArray[3]) - 1];
+                sFileNameForGroup3 = sFileNameForGroupWork[int.Parse(sArray[5]) - 1];
+                sFileNameForGroup4 = sFileNameForGroupWork[int.Parse(sArray[7]) - 1];
+                sFileNameForGroup5 = sFileNameForGroupWork[int.Parse(sArray[9]) - 1];
 
                 LblFdrInfo1.Text = sFolderName1;
                 LblFdrInfo2.Text = sFolderName2;
@@ -924,7 +914,7 @@ namespace QrSorterInspectionApp
                         CommonModule.OutPutLogFile($"■最初のデータ：{lstPastReceivedQrData[0]}");
                         CommonModule.OutPutLogFile($"■最後のデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count - 1]}");                        
                     }
-                    CommonModule.OutPutLogFile($"■{lstPastReceivedQrData.Count.ToString("#,###,##0")}件の検索処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
+                    CommonModule.OutPutLogFile($"■{lstPastReceivedQrData.Count:#,###,##0}件の検索処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
                     #endregion
                 }
 
@@ -1173,19 +1163,15 @@ namespace QrSorterInspectionApp
 
                 // 受領日
                 DtpDateReceipt.Text = sArray[2];
-                // 不着事由仕分①
-                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[18]) - 1;
-                // 不着事由仕分②
-                CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[19]) - 1;
-
-                //TxtFileType.Text = "01";
-
-                // 不着事由仕分①チェック  
-                CmbNonDeliveryReasonSorting1.Enabled = sArray[20] == "ON";
-                // 不着事由仕分②チェック
-                CmbNonDeliveryReasonSorting2.Enabled = sArray[21] == "ON";
-
-                //TxtSeqNum.Text = "0001";
+                
+                //// 不着事由仕分①
+                //CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[18]) - 1;
+                //// 不着事由仕分②
+                //CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[19]) - 1;
+                //// 不着事由仕分①チェック  
+                //CmbNonDeliveryReasonSorting1.Enabled = sArray[20] == "ON";
+                //// 不着事由仕分②チェック
+                //CmbNonDeliveryReasonSorting2.Enabled = sArray[21] == "ON";
 
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
 
