@@ -81,21 +81,22 @@ namespace QrSorterInspectionApp
                 RchTxtQrInfo.Text += "1234567";
                 #endregion
                 
-                #region 不着事由区分
-                CommonModule.ReadNonDeliveryList();
-                CmbNonDeliveryReasonSorting1.Items.Clear();
-                CmbNonDeliveryReasonSorting2.Items.Clear();
-                foreach (string items in PubConstClass.lstNonDeliveryList)
-                {
-                    string[] sArray = items.Split(',');
-                    CmbNonDeliveryReasonSorting1.Items.Add(sArray[0] + "：" + sArray[1]);
-                    CmbNonDeliveryReasonSorting2.Items.Add(sArray[0] + "：" + sArray[1]);
-                }
-                CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
-                CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
-                SetComboOnOff(CmbNonDeliveryOnOff1);
-                SetComboOnOff(CmbNonDeliveryOnOff2);
-                #endregion
+                // hayakawa
+                //#region 不着事由区分
+                //CommonModule.ReadNonDeliveryList();
+                //CmbNonDeliveryReasonSorting1.Items.Clear();
+                //CmbNonDeliveryReasonSorting2.Items.Clear();
+                //foreach (string items in PubConstClass.lstNonDeliveryList)
+                //{
+                //    string[] sArray = items.Split(',');
+                //    CmbNonDeliveryReasonSorting1.Items.Add(sArray[0] + "：" + sArray[1]);
+                //    CmbNonDeliveryReasonSorting2.Items.Add(sArray[0] + "：" + sArray[1]);
+                //}
+                //CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
+                //CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
+                //SetComboOnOff(CmbNonDeliveryOnOff1);
+                //SetComboOnOff(CmbNonDeliveryOnOff2);
+                //#endregion
 
                 #region ソーター設定画面
                 SetGroupItem(CmbGroup1);
@@ -308,14 +309,17 @@ namespace QrSorterInspectionApp
                 LblBox1QrReadItem4.Text = TxtQrReadItem4.Text;
                 NmUpDnManagementNoStart.Value = decimal.Parse(sArray[iIndex++]);
                 NmUpDnManagementNoKeta.Value = decimal.Parse(sArray[iIndex++]);
-                // 仕分け①
-                CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[iIndex++]) - 1;
-                // 仕分け②
-                CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[iIndex++]) - 1;
-                // 仕分け①チェック
-                CmbNonDeliveryOnOff1.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
-                // 仕分け②チェック
-                CmbNonDeliveryOnOff2.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
+
+                // hayakawa
+                //// 仕分け①
+                //CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[iIndex++]) - 1;
+                //// 仕分け②
+                //CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[iIndex++]) - 1;
+                //// 仕分け①チェック
+                //CmbNonDeliveryOnOff1.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
+                //// 仕分け②チェック
+                //CmbNonDeliveryOnOff2.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
+
                 // 重複検査
                 CmbDuplication.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
                 // Wフィード検査
@@ -596,14 +600,17 @@ namespace QrSorterInspectionApp
                 sData += TxtQrReadItem4.Text + ",";
                 sData += NmUpDnManagementNoStart.Value.ToString() + ",";
                 sData += NmUpDnManagementNoKeta.Value.ToString() + ",";
-                // 不着事由仕分け①
-                sData += (CmbNonDeliveryReasonSorting1.SelectedIndex + 1).ToString() + ","; ;
-                // 不着事由仕分け②
-                sData += (CmbNonDeliveryReasonSorting2.SelectedIndex + 1).ToString() + ","; ;                
-                // 不着事由仕分け①チェック
-                sData += CmbNonDeliveryOnOff1.Text.Trim() + ",";
-                // 不着事由仕分け②チェック
-                sData += CmbNonDeliveryOnOff2.Text.Trim() + ",";
+
+                // hayakawa
+                //// 不着事由仕分け①
+                //sData += (CmbNonDeliveryReasonSorting1.SelectedIndex + 1).ToString() + ","; ;
+                //// 不着事由仕分け②
+                //sData += (CmbNonDeliveryReasonSorting2.SelectedIndex + 1).ToString() + ","; ;                
+                //// 不着事由仕分け①チェック
+                //sData += CmbNonDeliveryOnOff1.Text.Trim() + ",";
+                //// 不着事由仕分け②チェック
+                //sData += CmbNonDeliveryOnOff2.Text.Trim() + ",";
+
                 // 重複検査
                 sData += CmbDuplication.Text + ","; ;
                 // Wフィード検査
@@ -943,10 +950,13 @@ namespace QrSorterInspectionApp
                 TxtQrReadItem4.Text = "";
                 NmUpDnManagementNoStart.Value = 1;
                 NmUpDnManagementNoKeta.Value = 1;
-                // 仕分け①
-                CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
-                // 仕分け②
-                CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
+                
+                // hayakawa
+                //// 仕分け①
+                //CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
+                //// 仕分け②
+                //CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
+                
                 // 選択ジョブファイル名クリア
                 LblSelectedFile.Text = "";
                 // グループ１～５のQR読取項目①名クリア
@@ -1157,10 +1167,11 @@ namespace QrSorterInspectionApp
                 lstCopyItem.Add(CmbMedia.Text);
                 lstCopyItem.Add(DtpDateReceipt.Text);
                 lstCopyItem.Add(CmbDateReceipt.Text);
-                lstCopyItem.Add(CmbNonDeliveryReasonSorting1.Text);
-                lstCopyItem.Add(CmbNonDeliveryReasonSorting2.Text);
-                lstCopyItem.Add(CmbNonDeliveryOnOff1.Text);
-                lstCopyItem.Add(CmbNonDeliveryOnOff2.Text);
+                // hayakawa
+                //lstCopyItem.Add(CmbNonDeliveryReasonSorting1.Text);
+                //lstCopyItem.Add(CmbNonDeliveryReasonSorting2.Text);
+                //lstCopyItem.Add(CmbNonDeliveryOnOff1.Text);
+                //lstCopyItem.Add(CmbNonDeliveryOnOff2.Text);
 
                 #region QR読取項目①～④
                 lstCopyItem.Add(CmbReadCheck.Text);
@@ -1248,10 +1259,11 @@ namespace QrSorterInspectionApp
                 CmbMedia.Text = lstCopyItem[iIndex++];
                 DtpDateReceipt.Text = lstCopyItem[iIndex++];
                 CmbDateReceipt.Text = lstCopyItem[iIndex++];
-                CmbNonDeliveryReasonSorting1.Text = lstCopyItem[iIndex++];
-                CmbNonDeliveryReasonSorting2.Text = lstCopyItem[iIndex++];
-                CmbNonDeliveryOnOff1.Text = lstCopyItem[iIndex++];
-                CmbNonDeliveryOnOff2.Text = lstCopyItem[iIndex++];
+                // hayakawa
+                //CmbNonDeliveryReasonSorting1.Text = lstCopyItem[iIndex++];
+                //CmbNonDeliveryReasonSorting2.Text = lstCopyItem[iIndex++];
+                //CmbNonDeliveryOnOff1.Text = lstCopyItem[iIndex++];
+                //CmbNonDeliveryOnOff2.Text = lstCopyItem[iIndex++];
 
                 #region QR読取項目①～④
                 CmbReadCheck.Text = lstCopyItem[iIndex++]; 
