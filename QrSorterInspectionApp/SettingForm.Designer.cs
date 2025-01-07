@@ -56,8 +56,6 @@
             this.NmUpDnPropertyIdKeta = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.CmbNonDeliveryOnOff2 = new System.Windows.Forms.ComboBox();
-            this.CmbNonDeliveryOnOff1 = new System.Windows.Forms.ComboBox();
             this.CmbDateReceipt = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.CmbLogCreationConditions = new System.Windows.Forms.ComboBox();
@@ -68,11 +66,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CmbUltrasonicDetection = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.CmbNonDeliveryReasonSorting2 = new System.Windows.Forms.ComboBox();
-            this.CmbNonDeliveryReasonSorting1 = new System.Windows.Forms.ComboBox();
             this.GrpSorterSetting = new System.Windows.Forms.GroupBox();
+            this.LblGroup5 = new System.Windows.Forms.Label();
+            this.LblGroup4 = new System.Windows.Forms.Label();
+            this.LblGroup3 = new System.Windows.Forms.Label();
+            this.LblGroup2 = new System.Windows.Forms.Label();
+            this.LblGroup1 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -163,11 +162,6 @@
             this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.LblGroup1 = new System.Windows.Forms.Label();
-            this.LblGroup2 = new System.Windows.Forms.Label();
-            this.LblGroup3 = new System.Windows.Forms.Label();
-            this.LblGroup4 = new System.Windows.Forms.Label();
-            this.LblGroup5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
@@ -461,7 +455,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(170, 36);
             this.label15.TabIndex = 311;
-            this.label15.Text = "QR読取項目④";
+            this.label15.Text = "QR読取項目４";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
@@ -474,7 +468,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(170, 36);
             this.label13.TabIndex = 310;
-            this.label13.Text = "QR読取項目③";
+            this.label13.Text = "QR読取項目３";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
@@ -487,7 +481,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(170, 36);
             this.label11.TabIndex = 309;
-            this.label11.Text = "QR読取項目②";
+            this.label11.Text = "QR読取項目２";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TxtQrReadItem4
@@ -554,7 +548,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(170, 36);
             this.label9.TabIndex = 209;
-            this.label9.Text = "QR読取項目①";
+            this.label9.Text = "QR読取項目１";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TxtQrReadItem1
@@ -641,32 +635,6 @@
             this.label28.Text = "桁数";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // CmbNonDeliveryOnOff2
-            // 
-            this.CmbNonDeliveryOnOff2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbNonDeliveryOnOff2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbNonDeliveryOnOff2.FormattingEnabled = true;
-            this.CmbNonDeliveryOnOff2.IntegralHeight = false;
-            this.CmbNonDeliveryOnOff2.ItemHeight = 28;
-            this.CmbNonDeliveryOnOff2.Location = new System.Drawing.Point(335, 266);
-            this.CmbNonDeliveryOnOff2.Name = "CmbNonDeliveryOnOff2";
-            this.CmbNonDeliveryOnOff2.Size = new System.Drawing.Size(93, 36);
-            this.CmbNonDeliveryOnOff2.TabIndex = 312;
-            this.CmbNonDeliveryOnOff2.Visible = false;
-            // 
-            // CmbNonDeliveryOnOff1
-            // 
-            this.CmbNonDeliveryOnOff1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbNonDeliveryOnOff1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbNonDeliveryOnOff1.FormattingEnabled = true;
-            this.CmbNonDeliveryOnOff1.IntegralHeight = false;
-            this.CmbNonDeliveryOnOff1.ItemHeight = 28;
-            this.CmbNonDeliveryOnOff1.Location = new System.Drawing.Point(335, 221);
-            this.CmbNonDeliveryOnOff1.Name = "CmbNonDeliveryOnOff1";
-            this.CmbNonDeliveryOnOff1.Size = new System.Drawing.Size(93, 36);
-            this.CmbNonDeliveryOnOff1.TabIndex = 311;
-            this.CmbNonDeliveryOnOff1.Visible = false;
-            // 
             // CmbDateReceipt
             // 
             this.CmbDateReceipt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -674,7 +642,7 @@
             this.CmbDateReceipt.FormattingEnabled = true;
             this.CmbDateReceipt.IntegralHeight = false;
             this.CmbDateReceipt.ItemHeight = 28;
-            this.CmbDateReceipt.Location = new System.Drawing.Point(1059, 120);
+            this.CmbDateReceipt.Location = new System.Drawing.Point(1074, 121);
             this.CmbDateReceipt.Name = "CmbDateReceipt";
             this.CmbDateReceipt.Size = new System.Drawing.Size(93, 36);
             this.CmbDateReceipt.TabIndex = 310;
@@ -685,7 +653,7 @@
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label12.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(923, 120);
+            this.label12.Location = new System.Drawing.Point(938, 121);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(136, 36);
             this.label12.TabIndex = 309;
@@ -792,60 +760,6 @@
             this.label1.Text = "超音波検知";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label19
-            // 
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label19.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(22, 267);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(170, 36);
-            this.label19.TabIndex = 219;
-            this.label19.Text = "不着事由仕分け②";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label19.Visible = false;
-            // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label17.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(22, 221);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(170, 36);
-            this.label17.TabIndex = 217;
-            this.label17.Text = "不着事由仕分け①";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label17.Visible = false;
-            // 
-            // CmbNonDeliveryReasonSorting2
-            // 
-            this.CmbNonDeliveryReasonSorting2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbNonDeliveryReasonSorting2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbNonDeliveryReasonSorting2.FormattingEnabled = true;
-            this.CmbNonDeliveryReasonSorting2.IntegralHeight = false;
-            this.CmbNonDeliveryReasonSorting2.ItemHeight = 28;
-            this.CmbNonDeliveryReasonSorting2.Location = new System.Drawing.Point(192, 267);
-            this.CmbNonDeliveryReasonSorting2.Name = "CmbNonDeliveryReasonSorting2";
-            this.CmbNonDeliveryReasonSorting2.Size = new System.Drawing.Size(137, 36);
-            this.CmbNonDeliveryReasonSorting2.TabIndex = 300;
-            this.CmbNonDeliveryReasonSorting2.Visible = false;
-            // 
-            // CmbNonDeliveryReasonSorting1
-            // 
-            this.CmbNonDeliveryReasonSorting1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbNonDeliveryReasonSorting1.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbNonDeliveryReasonSorting1.FormattingEnabled = true;
-            this.CmbNonDeliveryReasonSorting1.IntegralHeight = false;
-            this.CmbNonDeliveryReasonSorting1.ItemHeight = 28;
-            this.CmbNonDeliveryReasonSorting1.Location = new System.Drawing.Point(192, 222);
-            this.CmbNonDeliveryReasonSorting1.Name = "CmbNonDeliveryReasonSorting1";
-            this.CmbNonDeliveryReasonSorting1.Size = new System.Drawing.Size(137, 36);
-            this.CmbNonDeliveryReasonSorting1.TabIndex = 299;
-            this.CmbNonDeliveryReasonSorting1.Visible = false;
-            // 
             // GrpSorterSetting
             // 
             this.GrpSorterSetting.BackColor = System.Drawing.SystemColors.Control;
@@ -928,6 +842,71 @@
             this.GrpSorterSetting.TabIndex = 298;
             this.GrpSorterSetting.TabStop = false;
             this.GrpSorterSetting.Text = "ソータ設定";
+            // 
+            // LblGroup5
+            // 
+            this.LblGroup5.BackColor = System.Drawing.Color.LightCyan;
+            this.LblGroup5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblGroup5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGroup5.ForeColor = System.Drawing.Color.Black;
+            this.LblGroup5.Location = new System.Drawing.Point(578, 401);
+            this.LblGroup5.Name = "LblGroup5";
+            this.LblGroup5.Size = new System.Drawing.Size(300, 31);
+            this.LblGroup5.TabIndex = 393;
+            this.LblGroup5.Text = "LblGroup5";
+            this.LblGroup5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblGroup4
+            // 
+            this.LblGroup4.BackColor = System.Drawing.Color.LightCyan;
+            this.LblGroup4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblGroup4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGroup4.ForeColor = System.Drawing.Color.Black;
+            this.LblGroup4.Location = new System.Drawing.Point(578, 367);
+            this.LblGroup4.Name = "LblGroup4";
+            this.LblGroup4.Size = new System.Drawing.Size(300, 31);
+            this.LblGroup4.TabIndex = 392;
+            this.LblGroup4.Text = "LblGroup4";
+            this.LblGroup4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblGroup3
+            // 
+            this.LblGroup3.BackColor = System.Drawing.Color.LightCyan;
+            this.LblGroup3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblGroup3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGroup3.ForeColor = System.Drawing.Color.Black;
+            this.LblGroup3.Location = new System.Drawing.Point(578, 333);
+            this.LblGroup3.Name = "LblGroup3";
+            this.LblGroup3.Size = new System.Drawing.Size(300, 31);
+            this.LblGroup3.TabIndex = 391;
+            this.LblGroup3.Text = "LblGroup3";
+            this.LblGroup3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblGroup2
+            // 
+            this.LblGroup2.BackColor = System.Drawing.Color.LightCyan;
+            this.LblGroup2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblGroup2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGroup2.ForeColor = System.Drawing.Color.Black;
+            this.LblGroup2.Location = new System.Drawing.Point(578, 298);
+            this.LblGroup2.Name = "LblGroup2";
+            this.LblGroup2.Size = new System.Drawing.Size(300, 31);
+            this.LblGroup2.TabIndex = 390;
+            this.LblGroup2.Text = "LblGroup2";
+            this.LblGroup2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblGroup1
+            // 
+            this.LblGroup1.BackColor = System.Drawing.Color.LightCyan;
+            this.LblGroup1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblGroup1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblGroup1.ForeColor = System.Drawing.Color.Black;
+            this.LblGroup1.Location = new System.Drawing.Point(578, 264);
+            this.LblGroup1.Name = "LblGroup1";
+            this.LblGroup1.Size = new System.Drawing.Size(300, 31);
+            this.LblGroup1.TabIndex = 389;
+            this.LblGroup1.Text = "LblGroup1";
+            this.LblGroup1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label39
             // 
@@ -1352,7 +1331,7 @@
             this.LblBox1QrReadItem1.Name = "LblBox1QrReadItem1";
             this.LblBox1QrReadItem1.Size = new System.Drawing.Size(151, 31);
             this.LblBox1QrReadItem1.TabIndex = 311;
-            this.LblBox1QrReadItem1.Text = "QR読取項目①";
+            this.LblBox1QrReadItem1.Text = "QR読取項目１";
             this.LblBox1QrReadItem1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox1QrReadItem2
@@ -1365,7 +1344,7 @@
             this.LblBox1QrReadItem2.Name = "LblBox1QrReadItem2";
             this.LblBox1QrReadItem2.Size = new System.Drawing.Size(151, 31);
             this.LblBox1QrReadItem2.TabIndex = 318;
-            this.LblBox1QrReadItem2.Text = "QR読取項目②";
+            this.LblBox1QrReadItem2.Text = "QR読取項目２";
             this.LblBox1QrReadItem2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox1QrReadItem3
@@ -1378,7 +1357,7 @@
             this.LblBox1QrReadItem3.Name = "LblBox1QrReadItem3";
             this.LblBox1QrReadItem3.Size = new System.Drawing.Size(151, 31);
             this.LblBox1QrReadItem3.TabIndex = 319;
-            this.LblBox1QrReadItem3.Text = "QR読取項目③";
+            this.LblBox1QrReadItem3.Text = "QR読取項目３";
             this.LblBox1QrReadItem3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox1QrReadItem4
@@ -1391,7 +1370,7 @@
             this.LblBox1QrReadItem4.Name = "LblBox1QrReadItem4";
             this.LblBox1QrReadItem4.Size = new System.Drawing.Size(151, 31);
             this.LblBox1QrReadItem4.TabIndex = 320;
-            this.LblBox1QrReadItem4.Text = "QR読取項目④";
+            this.LblBox1QrReadItem4.Text = "QR読取項目４";
             this.LblBox1QrReadItem4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label20
@@ -1532,7 +1511,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(134, 31);
             this.label18.TabIndex = 336;
-            this.label18.Text = "ポケット⑤";
+            this.label18.Text = "ポケット５";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TxtPocketName5
@@ -1569,7 +1548,7 @@
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(134, 31);
             this.label45.TabIndex = 331;
-            this.label45.Text = "ポケット④";
+            this.label45.Text = "ポケット４";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label44
@@ -1582,7 +1561,7 @@
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(134, 31);
             this.label44.TabIndex = 328;
-            this.label44.Text = "ポケット③";
+            this.label44.Text = "ポケット３";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label43
@@ -1595,7 +1574,7 @@
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(134, 31);
             this.label43.TabIndex = 325;
-            this.label43.Text = "ポケット②";
+            this.label43.Text = "ポケット２";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label42
@@ -1608,7 +1587,7 @@
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(134, 31);
             this.label42.TabIndex = 299;
-            this.label42.Text = "ポケット①";
+            this.label42.Text = "ポケット１";
             this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TxtPocketName1
@@ -1730,7 +1709,7 @@
             this.RchTxtQrInfo.Name = "RchTxtQrInfo";
             this.RchTxtQrInfo.ReadOnly = true;
             this.RchTxtQrInfo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.RchTxtQrInfo.Size = new System.Drawing.Size(847, 38);
+            this.RchTxtQrInfo.Size = new System.Drawing.Size(856, 38);
             this.RchTxtQrInfo.TabIndex = 286;
             this.RchTxtQrInfo.Text = "";
             // 
@@ -1930,10 +1909,8 @@
             this.GrpFeederSetting.Controls.Add(this.label6);
             this.GrpFeederSetting.Controls.Add(this.label5);
             this.GrpFeederSetting.Controls.Add(this.label4);
-            this.GrpFeederSetting.Controls.Add(this.CmbNonDeliveryOnOff2);
             this.GrpFeederSetting.Controls.Add(this.DtpDateReceipt);
             this.GrpFeederSetting.Controls.Add(this.CmbCheckNumberOfDigits);
-            this.GrpFeederSetting.Controls.Add(this.CmbNonDeliveryOnOff1);
             this.GrpFeederSetting.Controls.Add(this.label3);
             this.GrpFeederSetting.Controls.Add(this.TxtJobName);
             this.GrpFeederSetting.Controls.Add(this.CmbUltrasonicDetection);
@@ -1946,13 +1923,9 @@
             this.GrpFeederSetting.Controls.Add(this.NumUpDwnQrAllDigit);
             this.GrpFeederSetting.Controls.Add(this.BtnDelete);
             this.GrpFeederSetting.Controls.Add(this.CmbDoubleFeed);
-            this.GrpFeederSetting.Controls.Add(this.CmbNonDeliveryReasonSorting1);
             this.GrpFeederSetting.Controls.Add(this.CmbDuplication);
-            this.GrpFeederSetting.Controls.Add(this.CmbNonDeliveryReasonSorting2);
             this.GrpFeederSetting.Controls.Add(this.label14);
-            this.GrpFeederSetting.Controls.Add(this.label17);
             this.GrpFeederSetting.Controls.Add(this.label16);
-            this.GrpFeederSetting.Controls.Add(this.label19);
             this.GrpFeederSetting.Controls.Add(this.label7);
             this.GrpFeederSetting.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.GrpFeederSetting.Location = new System.Drawing.Point(130, 58);
@@ -1994,7 +1967,7 @@
             // 
             this.BtnAdd.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnAdd.Image = global::QrSorterInspectionApp.Properties.Resources.new_plus;
-            this.BtnAdd.Location = new System.Drawing.Point(945, 30);
+            this.BtnAdd.Location = new System.Drawing.Point(937, 30);
             this.BtnAdd.Name = "BtnAdd";
             this.BtnAdd.Size = new System.Drawing.Size(170, 82);
             this.BtnAdd.TabIndex = 287;
@@ -2022,7 +1995,7 @@
             // 
             this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.save_icon;
-            this.BtnUpdate.Location = new System.Drawing.Point(1121, 30);
+            this.BtnUpdate.Location = new System.Drawing.Point(1122, 30);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(170, 82);
             this.BtnUpdate.TabIndex = 288;
@@ -2036,7 +2009,7 @@
             // 
             this.BtnDelete.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnDelete.Image = global::QrSorterInspectionApp.Properties.Resources.delete;
-            this.BtnDelete.Location = new System.Drawing.Point(1297, 30);
+            this.BtnDelete.Location = new System.Drawing.Point(1306, 30);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(170, 82);
             this.BtnDelete.TabIndex = 289;
@@ -2045,71 +2018,6 @@
             this.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
-            // LblGroup1
-            // 
-            this.LblGroup1.BackColor = System.Drawing.Color.LightCyan;
-            this.LblGroup1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblGroup1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblGroup1.ForeColor = System.Drawing.Color.Black;
-            this.LblGroup1.Location = new System.Drawing.Point(578, 264);
-            this.LblGroup1.Name = "LblGroup1";
-            this.LblGroup1.Size = new System.Drawing.Size(300, 31);
-            this.LblGroup1.TabIndex = 389;
-            this.LblGroup1.Text = "LblGroup1";
-            this.LblGroup1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LblGroup2
-            // 
-            this.LblGroup2.BackColor = System.Drawing.Color.LightCyan;
-            this.LblGroup2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblGroup2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblGroup2.ForeColor = System.Drawing.Color.Black;
-            this.LblGroup2.Location = new System.Drawing.Point(578, 298);
-            this.LblGroup2.Name = "LblGroup2";
-            this.LblGroup2.Size = new System.Drawing.Size(300, 31);
-            this.LblGroup2.TabIndex = 390;
-            this.LblGroup2.Text = "LblGroup2";
-            this.LblGroup2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LblGroup3
-            // 
-            this.LblGroup3.BackColor = System.Drawing.Color.LightCyan;
-            this.LblGroup3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblGroup3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblGroup3.ForeColor = System.Drawing.Color.Black;
-            this.LblGroup3.Location = new System.Drawing.Point(578, 333);
-            this.LblGroup3.Name = "LblGroup3";
-            this.LblGroup3.Size = new System.Drawing.Size(300, 31);
-            this.LblGroup3.TabIndex = 391;
-            this.LblGroup3.Text = "LblGroup3";
-            this.LblGroup3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LblGroup4
-            // 
-            this.LblGroup4.BackColor = System.Drawing.Color.LightCyan;
-            this.LblGroup4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblGroup4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblGroup4.ForeColor = System.Drawing.Color.Black;
-            this.LblGroup4.Location = new System.Drawing.Point(578, 367);
-            this.LblGroup4.Name = "LblGroup4";
-            this.LblGroup4.Size = new System.Drawing.Size(300, 31);
-            this.LblGroup4.TabIndex = 392;
-            this.LblGroup4.Text = "LblGroup4";
-            this.LblGroup4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LblGroup5
-            // 
-            this.LblGroup5.BackColor = System.Drawing.Color.LightCyan;
-            this.LblGroup5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblGroup5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblGroup5.ForeColor = System.Drawing.Color.Black;
-            this.LblGroup5.Location = new System.Drawing.Point(578, 401);
-            this.LblGroup5.Name = "LblGroup5";
-            this.LblGroup5.Size = new System.Drawing.Size(300, 31);
-            this.LblGroup5.TabIndex = 393;
-            this.LblGroup5.Text = "LblGroup5";
-            this.LblGroup5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SettingForm
             // 
@@ -2159,7 +2067,6 @@
         internal System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker DtpDateReceipt;
         internal System.Windows.Forms.Label label8;
-        internal System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox TxtJobName;
         private System.Windows.Forms.TextBox TxtQrReadItem1;
         internal System.Windows.Forms.Label label7;
@@ -2198,9 +2105,6 @@
         private System.Windows.Forms.TextBox TxtPocketName2;
         internal System.Windows.Forms.ComboBox CmbGroup2;
         internal System.Windows.Forms.ComboBox CmbGroup1;
-        internal System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting2;
-        internal System.Windows.Forms.Label label19;
-        internal System.Windows.Forms.ComboBox CmbNonDeliveryReasonSorting1;
         internal System.Windows.Forms.ComboBox CmbUltrasonicDetection;
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.ComboBox CmbDateReceipt;
@@ -2224,8 +2128,6 @@
         private System.Windows.Forms.TextBox TxtQuantity3;
         internal System.Windows.Forms.ComboBox CmbQuantOnOff2;
         private System.Windows.Forms.TextBox TxtQuantity2;
-        internal System.Windows.Forms.ComboBox CmbNonDeliveryOnOff2;
-        internal System.Windows.Forms.ComboBox CmbNonDeliveryOnOff1;
         internal System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox1;
         internal System.Windows.Forms.Label label34;
