@@ -80,24 +80,7 @@ namespace QrSorterInspectionApp
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567";
                 #endregion
-                
-                // hayakawa
-                //#region 不着事由区分
-                //CommonModule.ReadNonDeliveryList();
-                //CmbNonDeliveryReasonSorting1.Items.Clear();
-                //CmbNonDeliveryReasonSorting2.Items.Clear();
-                //foreach (string items in PubConstClass.lstNonDeliveryList)
-                //{
-                //    string[] sArray = items.Split(',');
-                //    CmbNonDeliveryReasonSorting1.Items.Add(sArray[0] + "：" + sArray[1]);
-                //    CmbNonDeliveryReasonSorting2.Items.Add(sArray[0] + "：" + sArray[1]);
-                //}
-                //CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
-                //CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
-                //SetComboOnOff(CmbNonDeliveryOnOff1);
-                //SetComboOnOff(CmbNonDeliveryOnOff2);
-                //#endregion
-
+               
                 #region ソーター設定画面
                 SetGroupItem(CmbGroup1);
                 SetGroupItem(CmbGroup2);
@@ -310,16 +293,6 @@ namespace QrSorterInspectionApp
                 NmUpDnManagementNoStart.Value = decimal.Parse(sArray[iIndex++]);
                 NmUpDnManagementNoKeta.Value = decimal.Parse(sArray[iIndex++]);
 
-                // hayakawa
-                //// 仕分け①
-                //CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[iIndex++]) - 1;
-                //// 仕分け②
-                //CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[iIndex++]) - 1;
-                //// 仕分け①チェック
-                //CmbNonDeliveryOnOff1.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
-                //// 仕分け②チェック
-                //CmbNonDeliveryOnOff2.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
-
                 // 重複検査
                 CmbDuplication.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
                 // Wフィード検査
@@ -332,7 +305,6 @@ namespace QrSorterInspectionApp
                 CmbLogCreationConditions.SelectedIndex = int.Parse(sArray[iIndex++].Trim()) - 1;
                 // 読取機能
                 CmbReadingFunction.SelectedIndex = int.Parse(sArray[iIndex++].Trim()) - 1;
-
 
                 iIndex = 0;
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
@@ -601,16 +573,6 @@ namespace QrSorterInspectionApp
                 sData += NmUpDnManagementNoStart.Value.ToString() + ",";
                 sData += NmUpDnManagementNoKeta.Value.ToString() + ",";
 
-                // hayakawa
-                //// 不着事由仕分け①
-                //sData += (CmbNonDeliveryReasonSorting1.SelectedIndex + 1).ToString() + ","; ;
-                //// 不着事由仕分け②
-                //sData += (CmbNonDeliveryReasonSorting2.SelectedIndex + 1).ToString() + ","; ;                
-                //// 不着事由仕分け①チェック
-                //sData += CmbNonDeliveryOnOff1.Text.Trim() + ",";
-                //// 不着事由仕分け②チェック
-                //sData += CmbNonDeliveryOnOff2.Text.Trim() + ",";
-
                 // 重複検査
                 sData += CmbDuplication.Text + ","; ;
                 // Wフィード検査
@@ -623,49 +585,7 @@ namespace QrSorterInspectionApp
                 sData += (CmbLogCreationConditions.SelectedIndex + 1).ToString() + ","; ;
                 // 読取機能
                 sData += (CmbReadingFunction.SelectedIndex + 1).ToString() + ","; ;                
-                
-                
-                //// ポケット①：名称
-                //sData += TxtPocketName1.Text.Trim() + ","; ;
-                //// ポケット①：グループID
-                //sData += (CmbGroup1.SelectedIndex + 1).ToString() + ","; ;
-                //// ポケット②：名称
-                //sData += TxtPocketName2.Text.Trim() + ","; ;
-                //// ポケット②：グループID
-                //sData += (CmbGroup2.SelectedIndex + 1).ToString() + ","; ;
-                //// ポケット③：名称
-                //sData += TxtPocketName3.Text.Trim() + ","; ;
-                //// ポケット③：グループID
-                //sData += (CmbGroup3.SelectedIndex + 1).ToString() + ","; ;
-                //// ポケット④：名称
-                //sData += TxtPocketName4.Text.Trim() + ","; ;
-                //// ポケット④：グループID
-                //sData += (CmbGroup4.SelectedIndex + 1).ToString() + ","; ;
-                //// ポケット⑤：名称
-                //sData += TxtPocketName5.Text.Trim() + ","; ;
-                //// ポケット⑤：グループID
-                //sData += (CmbGroup5.SelectedIndex + 1).ToString() + ","; ;
-                //// ポケット①切替件数
-                //sData += TxtQuantity1.Text.Trim() + ","; ;
-                //// ポケット②切替件数
-                //sData += TxtQuantity2.Text.Trim() + ","; ;
-                //// ポケット③切替件数
-                //sData += TxtQuantity3.Text.Trim() + ","; ;
-                //// ポケット④切替件数
-                //sData += TxtQuantity4.Text.Trim() + ","; ;
-                //// ポケット⑤切替件数
-                //sData += TxtQuantity5.Text.Trim() + ","; ;
-                //// ポケット切替件数①チェック
-                //sData += CmbQuantOnOff1.Text.Trim() + ",";
-                //// ポケット切替件数②チェック
-                //sData += CmbQuantOnOff2.Text.Trim() + ",";
-                //// ポケット切替件数③チェック
-                //sData += CmbQuantOnOff3.Text.Trim() + ",";
-                //// ポケット切替件数④チェック
-                //sData += CmbQuantOnOff4.Text.Trim() + ",";
-                //// ポケット切替件数⑤チェック
-                //sData += CmbQuantOnOff5.Text.Trim() + ",";
-
+                               
                 // ソーター設定のQR読取項目①～⑤名称更新
                 LblBox1QrReadItem1.Text = TxtQrReadItem1.Text;
                 LblBox1QrReadItem2.Text = TxtQrReadItem2.Text;
@@ -950,13 +870,7 @@ namespace QrSorterInspectionApp
                 TxtQrReadItem4.Text = "";
                 NmUpDnManagementNoStart.Value = 1;
                 NmUpDnManagementNoKeta.Value = 1;
-                
-                // hayakawa
-                //// 仕分け①
-                //CmbNonDeliveryReasonSorting1.SelectedIndex = 0;
-                //// 仕分け②
-                //CmbNonDeliveryReasonSorting2.SelectedIndex = 0;
-                
+                                
                 // 選択ジョブファイル名クリア
                 LblSelectedFile.Text = "";
                 // グループ１～５のQR読取項目①名クリア
@@ -1167,11 +1081,6 @@ namespace QrSorterInspectionApp
                 lstCopyItem.Add(CmbMedia.Text);
                 lstCopyItem.Add(DtpDateReceipt.Text);
                 lstCopyItem.Add(CmbDateReceipt.Text);
-                // hayakawa
-                //lstCopyItem.Add(CmbNonDeliveryReasonSorting1.Text);
-                //lstCopyItem.Add(CmbNonDeliveryReasonSorting2.Text);
-                //lstCopyItem.Add(CmbNonDeliveryOnOff1.Text);
-                //lstCopyItem.Add(CmbNonDeliveryOnOff2.Text);
 
                 #region QR読取項目①～④
                 lstCopyItem.Add(CmbReadCheck.Text);
@@ -1259,11 +1168,6 @@ namespace QrSorterInspectionApp
                 CmbMedia.Text = lstCopyItem[iIndex++];
                 DtpDateReceipt.Text = lstCopyItem[iIndex++];
                 CmbDateReceipt.Text = lstCopyItem[iIndex++];
-                // hayakawa
-                //CmbNonDeliveryReasonSorting1.Text = lstCopyItem[iIndex++];
-                //CmbNonDeliveryReasonSorting2.Text = lstCopyItem[iIndex++];
-                //CmbNonDeliveryOnOff1.Text = lstCopyItem[iIndex++];
-                //CmbNonDeliveryOnOff2.Text = lstCopyItem[iIndex++];
 
                 #region QR読取項目①～④
                 CmbReadCheck.Text = lstCopyItem[iIndex++]; 
