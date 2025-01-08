@@ -169,9 +169,6 @@
     <None Include="定義ファイル\チューリッヒ③ハガキ.csv" />
     <None Include="定義ファイル\チューリッヒ④封書.csv" />
     <None Include="定義ファイル\チューリッヒ⑤封書.csv" />
-    <None Include="定義ファイル\チューリッヒ⑥封書.csv" />
-    <None Include="定義ファイル\チューリッヒ⑦ハガキ.csv" />
-    <None Include="定義ファイル\チューリッヒ⑧封書.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
