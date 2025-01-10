@@ -384,7 +384,7 @@ namespace QrSorterInspectionApp
                 //    // 妥当性チェックエラー
                 //    return;
                 //}
-                DialogResult dResult = MessageBox.Show("仕分けマスタファイルを保存しますか？", "保存確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dResult = MessageBox.Show("仕分けマスタファイルを保存しますか？", "保存確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dResult == DialogResult.No)
                 {
                     // 保存しない
