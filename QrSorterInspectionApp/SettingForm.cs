@@ -854,6 +854,12 @@ namespace QrSorterInspectionApp
                 CmbDuplication.SelectedIndex = 0;
                 // Wフィード検査
                 CmbDoubleFeed.SelectedIndex = 0;
+                // 超音波検知
+                CmbUltrasonicDetection.SelectedIndex = 0;
+                // 桁数チェック
+                CmbCheckNumberOfDigits.SelectedIndex = 0;
+                // 読取機能
+                CmbReadingFunction.SelectedIndex = 0;
                 // QR読取項目①
                 TxtQrReadItem1.Text = "";
                 NmUpDnPropertyIdStart.Value = 1;
@@ -909,7 +915,13 @@ namespace QrSorterInspectionApp
                 TxtGroup3.Text = "";
                 TxtGroup4.Text = "";
                 TxtGroup5.Text = "";
-                // ポケット①～⑤のグループ名クリア
+                // グループ１～５のグループ名コンボボックス
+                CmbGroup1.SelectedIndex = 0;
+                CmbGroup2.SelectedIndex = 0;
+                CmbGroup3.SelectedIndex = 0;
+                CmbGroup4.SelectedIndex = 0;
+                CmbGroup5.SelectedIndex = 0;
+                // ポケット１～５のグループ名クリア
                 LblGroup1.Text = "";
                 LblGroup2.Text = "";
                 LblGroup3.Text = "";
