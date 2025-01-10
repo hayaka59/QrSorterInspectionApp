@@ -281,12 +281,6 @@ namespace QrSorterSimulatorApp
             {
                 CommonModule.OutPutLogFile("受信データ：" + data.Replace("\r", "<CR>"));
 
-                //if (data.Length < 9)
-                //{
-                //    CommonModule.OutPutLogFile("■不正データ受信：" + data.Replace("\r", "<CR>"));
-                //    return;
-                //}
-
                 LsbRecvBox.Items.Add(data.Replace("\r", "<CR>"));
                 LsbRecvBox.SelectedIndex = LsbRecvBox.Items.Count - 1;
 
@@ -345,7 +339,8 @@ namespace QrSorterSimulatorApp
                 sData += CmbTray.Text + ",";
 
                 // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_D + sData + "\r");                
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LsbSendBox.Items.Add(sData);
                 LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
@@ -438,9 +433,9 @@ namespace QrSorterSimulatorApp
             try
             {
                 // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_A + "\r");
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_B + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
-                LsbSendBox.Items.Add($"{PubConstClass.CMD_SEND_A}<CR>");
+                LsbSendBox.Items.Add($"{PubConstClass.CMD_SEND_B}<CR>");
                 LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
             }
             catch (Exception ex)
@@ -459,9 +454,9 @@ namespace QrSorterSimulatorApp
             try
             {
                 // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_B + "\r");
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_C + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
-                LsbSendBox.Items.Add($"{PubConstClass.CMD_SEND_B}<CR>");
+                LsbSendBox.Items.Add($"{PubConstClass.CMD_SEND_C}<CR>");
                 LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
             }
             catch (Exception ex)

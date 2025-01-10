@@ -303,9 +303,9 @@
             // 
             this.BtnStop.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnStop.Image = global::QrSorterSimulatorApp.Properties.Resources.standing;
-            this.BtnStop.Location = new System.Drawing.Point(183, 398);
+            this.BtnStop.Location = new System.Drawing.Point(175, 398);
             this.BtnStop.Name = "BtnStop";
-            this.BtnStop.Size = new System.Drawing.Size(112, 45);
+            this.BtnStop.Size = new System.Drawing.Size(120, 45);
             this.BtnStop.TabIndex = 331;
             this.BtnStop.Text = "停止";
             this.BtnStop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -319,7 +319,7 @@
             this.BtnStart.Image = global::QrSorterSimulatorApp.Properties.Resources.running_icon;
             this.BtnStart.Location = new System.Drawing.Point(38, 398);
             this.BtnStart.Name = "BtnStart";
-            this.BtnStart.Size = new System.Drawing.Size(113, 45);
+            this.BtnStart.Size = new System.Drawing.Size(120, 45);
             this.BtnStart.TabIndex = 330;
             this.BtnStart.Text = "開始";
             this.BtnStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

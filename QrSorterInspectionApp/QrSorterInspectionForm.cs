@@ -176,7 +176,7 @@ namespace QrSorterInspectionApp
                 PubConstClass.sPrevNonDelivery2 = "";    // 前回の不着事由仕分け２
 
                 #region テスト確認用に過去に受信したQRデータ一覧（100万件）を作成する
-        string s1 = DateTime.Now.ToString("yyyyMMdd");
+                string s1 = DateTime.Now.ToString("yyyyMMdd");
                 string s2 = DateTime.Now.ToString("yyMMdd");
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
@@ -770,34 +770,33 @@ namespace QrSorterInspectionApp
             {
                 CommonModule.OutPutLogFile($"受信データ：{data.Replace("\r", "<CR>")}");
 
-                //if (data.Length < 9)
-                //{
-                //    CommonModule.OutPutLogFile("■不正データ受信：" + data.Replace("\r", "<CR>"));
-                //    return;
-                //}
-
                 // 受信データの先頭１文字を取得
                 string sCommandType = data.Substring(0, 1);
                 switch (sCommandType)
                 {
-                    case "A":
+                    case PubConstClass.CMD_RECIEVE_A:
+
+                        break;
+
+                    case PubConstClass.CMD_RECIEVE_B:
                         // 開始コマンド
-                        MyProcA();
+                        MyProcStart();
                         break;
 
-                    case "B":
+                    case PubConstClass.CMD_RECIEVE_C:
                         // 停止コマンド
-                        MyProcB();
+                        MyProcStop();
                         break;
 
-                    case "D":
+                    case PubConstClass.CMD_RECIEVE_D:
                         // データコマンド
-                        MyProcD(data);
+                        // 先頭１文字（D）を取り除く
+                        MyProcData(data.Substring(1, data.Length - 1));
                         break;
 
-                    case "E":
+                    case PubConstClass.CMD_RECIEVE_E:
                         // エラーコマンド
-                        MyProcE(data);
+                        MyProcError(data);
                         break;
 
                     default:
@@ -817,7 +816,7 @@ namespace QrSorterInspectionApp
         /// <summary>
         /// 開始コマンド処理
         /// </summary>
-        private void MyProcA()
+        private void MyProcStart()
         {
             try
             {
@@ -826,14 +825,14 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【MyProcA】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【MyProcStart】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         /// <summary>
         /// 停止コマンド処理
         /// </summary>
-        private void MyProcB()
+        private void MyProcStop()
         {
             try
             {
@@ -842,7 +841,7 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【MyProcB】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【MyProcStop】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -850,7 +849,7 @@ namespace QrSorterInspectionApp
         /// エラーコマンド処理
         /// </summary>
         /// <param name="sData"></param>
-        private void MyProcE(string sData)
+        private void MyProcError(string sData)
         {
             try
             {
@@ -862,7 +861,7 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【MyProcE】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【MyProcError】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -870,7 +869,7 @@ namespace QrSorterInspectionApp
         /// データコマンドの処理
         /// </summary>
         /// <param name="sData"></param>
-        private void MyProcD(string sData)
+        private void MyProcData(string sData)
         {
             string[] col = new string[12];
             ListViewItem itm1;
@@ -1054,8 +1053,8 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【DisplaySeisanLogData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                CommonModule.OutPutLogFile("【DisplaySeisanLogData】" + ex.Message);
+                MessageBox.Show(ex.Message, "【MyProcData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonModule.OutPutLogFile("【MyProcData】" + ex.Message);
             }
         }
 

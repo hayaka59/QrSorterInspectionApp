@@ -16,6 +16,9 @@ namespace QrSorterSimulatorApp
 
         public const string CMD_RECIEVE_a = "a";   // 
         public const string CMD_RECIEVE_b = "b";   // 
+        public const string CMD_RECIEVE_c = "c";   // 
+        public const string CMD_RECIEVE_d = "d";   // 
+        public const string CMD_RECIEVE_e = "e";   // 
 
         public const string DEF_VERSION = "Ver.0.0.0.0";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
         public static object objSyncHist;
