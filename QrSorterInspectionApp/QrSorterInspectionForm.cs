@@ -22,6 +22,7 @@ namespace QrSorterInspectionApp
         private List<string> lstPastReceivedQrData = new List<string>();
 
         private string sDateOfReceipt;          // 受領日
+        private bool   bDateOfReceipt;          // 受領日入力
         private string sNonDeliveryReason1;     // 不着事由１
         private string sNonDeliveryReason2;     // 不着事由２
 
@@ -1137,6 +1138,8 @@ namespace QrSorterInspectionApp
                     CommonModule.ReadJobEntryListFile(sSelectedFile);
                     // 登録ジョブ項目を取得し表示
                     GetEntryInfoAndDisplay();
+                    // 受領日
+                    DtpDateReceipt.Enabled = bDateOfReceipt;
                     // 「検査開始」ボタン使用可
                     BtnStartInspection.Enabled = true;
                     // 「設定」ボタン使用可
@@ -1149,7 +1152,7 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【BtnJobSelect_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -1162,15 +1165,8 @@ namespace QrSorterInspectionApp
 
                 // 受領日
                 DtpDateReceipt.Text = sArray[2];
-                
-                //// 不着事由仕分①
-                //CmbNonDeliveryReasonSorting1.SelectedIndex = int.Parse(sArray[18]) - 1;
-                //// 不着事由仕分②
-                //CmbNonDeliveryReasonSorting2.SelectedIndex = int.Parse(sArray[19]) - 1;
-                //// 不着事由仕分①チェック  
-                //CmbNonDeliveryReasonSorting1.Enabled = sArray[20] == "ON";
-                //// 不着事由仕分②チェック
-                //CmbNonDeliveryReasonSorting2.Enabled = sArray[21] == "ON";
+                // 受領日入力
+                bDateOfReceipt = sArray[3] == "ON" ? true : false;
 
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
 

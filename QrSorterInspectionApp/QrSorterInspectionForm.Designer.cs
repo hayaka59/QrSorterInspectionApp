@@ -143,7 +143,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(192, 36);
             this.label19.TabIndex = 231;
-            this.label19.Text = "不着事由仕分け②";
+            this.label19.Text = "不着事由仕分け２";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
@@ -156,7 +156,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(192, 36);
             this.label17.TabIndex = 230;
-            this.label17.Text = "不着事由仕分け①";
+            this.label17.Text = "不着事由仕分け１";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DtpDateReceipt
