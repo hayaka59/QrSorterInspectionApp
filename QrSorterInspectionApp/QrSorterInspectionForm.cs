@@ -504,9 +504,25 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            Owner.Show();
-            Owner.Refresh();
-            this.Dispose();
+            try
+            {
+                if (LblSelectedFile.Text.Trim() != "")
+                {
+                    DialogResult dialogResult= MessageBox.Show("メニュー画面に戻りますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Cancel) {
+                        // キャンセル
+                        return;
+                    }
+                }
+                // メニュー画面へ戻る
+                Owner.Show();
+                Owner.Refresh();
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnClose_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -606,28 +622,26 @@ namespace QrSorterInspectionApp
                         LblStatus.Text = "停止中";
                         LblStatus.BackColor = Color.LightGray;
                         LblStatus.ForeColor = Color.Black;
-
                         BtnJobSelect.Enabled = true;
                         DtpDateReceipt.Enabled = true;
                         CmbNonDeliveryReasonSorting1.Enabled = true;
                         CmbNonDeliveryReasonSorting2.Enabled = true;
                         BtnSetting.Enabled = true;
                         BtnStartInspection.Enabled = true;
-
+                        BtnClose.Enabled = true;
                         break;
 
                     case 1:
                         LblStatus.Text = "検査中";
                         LblStatus.BackColor = Color.LightGreen;
                         LblStatus.ForeColor = Color.Black;
-
                         BtnJobSelect.Enabled = false;
                         DtpDateReceipt.Enabled = false;
                         CmbNonDeliveryReasonSorting1.Enabled = false;
                         CmbNonDeliveryReasonSorting2.Enabled = false;
                         BtnSetting.Enabled = false;
                         BtnStartInspection.Enabled = false;
-
+                        BtnClose.Enabled = false;
                         break;
 
                     case 2:
@@ -1174,15 +1188,15 @@ namespace QrSorterInspectionApp
                 //コメリ①ハガキ,1,コメリ②ハガキ,2,武蔵野BK,3,西日本シティーBK①,4,西日本シティーBK②,5,50,50,50,50,50,ON,ON,ON,ON,ON,
 
                 // ポケット①名称
-                LblBoxTitle1.Text = "BOX_01 " + sArray[0];
+                LblBoxTitle1.Text = "【BOX1】 " + sArray[0];
                 // ポケット②名称
-                LblBoxTitle2.Text = "BOX_02 " + sArray[2];
+                LblBoxTitle2.Text = "【BOX2】 " + sArray[2];
                 // ポケット③名称
-                LblBoxTitle3.Text = "BOX_03 " + sArray[4];
+                LblBoxTitle3.Text = "【BOX3】 " + sArray[4];
                 // ポケット④名称
-                LblBoxTitle4.Text = "BOX_04 " + sArray[6];
+                LblBoxTitle4.Text = "【BOX4】 " + sArray[6];
                 // ポケット⑤名称
-                LblBoxTitle5.Text = "BOX_05 " + sArray[8];
+                LblBoxTitle5.Text = "【BOX5】 " + sArray[8];
 
                 // ポケット１切替件数
                 LblQuantity1.Text = sArray[15] == "ON" ? sArray[10] : "---";
