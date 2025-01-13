@@ -19,7 +19,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// フォームロード処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -34,7 +34,6 @@ namespace QrSorterInspectionApp
                 CmbLogType.Items.Add("機械ログ");
                 CmbLogType.Items.Add("検査ログ");
                 CmbLogType.SelectedIndex = 0;
-
                 #region 検査ログのヘッダー設定
                 // ListViewのカラムヘッダー設定
                 LsvLogContent.View = View.Details;
@@ -55,10 +54,8 @@ namespace QrSorterInspectionApp
                 col04.Text = "判定";
                 col05.Text = "正解データファイル名";
                 col06.Text = "受領日";
-                //col07.Text = "作業員情報（機械情報）";
                 col07.Text = "作業員情報";
-                //col08.Text = "物件情報（DPS/BPO/Broad等）";
-                col08.Text = "物件情報";
+                col08.Text = "物件情報";    // 物件情報（DPS/BPO/Broad等）
                 col09.Text = "エラーCD";
                 col10.Text = "仕分①";
                 col11.Text = "仕分②";
@@ -90,7 +87,6 @@ namespace QrSorterInspectionApp
                                                    };
                 LsvLogContent.Columns.AddRange(colHeaderOK);
                 #endregion
-
                 #region 不着事由の項目設定
                 CommonModule.ReadNonDeliveryList();
                 cmbReasonForNonDelivery.Items.Clear();
@@ -172,10 +168,8 @@ namespace QrSorterInspectionApp
             }
         }
 
-        //private int iPreviouslySelectedRow = 0;
-
         /// <summary>
-        /// 
+        /// 検査ログファイル一覧表示の選択行の変更処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -183,6 +177,8 @@ namespace QrSorterInspectionApp
         {
             string sReadLogFile;
             string sData;
+            int iCounter;
+
             try
             {
                 if (LsbLogList.SelectedItem == null)
@@ -190,24 +186,26 @@ namespace QrSorterInspectionApp
                     return;
                 }
 
-                //if (iPreviouslySelectedRow == LsbLogList.SelectedIndex)
-                //{
-                //    // 選択行が変わらない場合は何もしない
-                //    return;
-                //}
-                //iPreviouslySelectedRow = LsbLogList.SelectedIndex;
-
                 LsvLogContent.Items.Clear();
 
                 sReadLogFile = lstLogFileList[LsbLogList.SelectedIndex];
 
+                iCounter = 0;
                 PubConstClass.lstJobEntryList.Clear();
                 using (StreamReader sr = new StreamReader(sReadLogFile, Encoding.Default))
                 {
                     while (!sr.EndOfStream)
                     {
                         sData = sr.ReadLine();
-                        DisplayOneData(sData);                        
+                        if (iCounter > 0)
+                        {
+                            DisplayOneData(sData);
+                        }
+                        else
+                        {
+                            CommonModule.OutPutLogFile($"ヘッダー情報をスキップ：{sData}");
+                        }
+                        iCounter++;
                     }
                 }
                 LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count.ToString("#,###")} 件"; ;
@@ -218,25 +216,52 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// 検査ログデータの１行分の表示
+        /// </summary>
+        /// <param name="sData"></param>
         private void DisplayOneData(string sData)
         {
+            // ●（01）日付
+            // ●（02）時刻
+            // 　（03）期待値
+            // ●（04）読取値
+            // ●（05）判定
+            // ●（06）正解データファイル名
+            // 　（07）重量期待値[g]
+            // 　（08）重量測定値[g]
+            // 　（09）重量公差
+            // 　（10）フラップ最大長[mm]
+            // 　（11）フラップ積算長[mm]
+            // 　（12）フラップ検出回数[回]
+            // 　（13）イベント（コメント）
+            // ●（14）受領日
+            // ●（15）作業員情報（機械情報）
+            // ●（16）物件情報（DPS/BPO/Broad等）
+            // ●（17）エラーコード
+            // 　（18）生産管理番号
+            // ●（19）仕分けコード１
+            // ●（20）仕分けコード２
+            // 　（21）ファイル名（画像）
+            // 　（22）ファイルパス（画像）
+            // 　（23）工場コード
             try
             {
                 string[] sArray = sData.Split(',');
-                
+                // "日付","期待値","読取値","判定","正解データファイル名","重量期待値[g]","重量測定値[g]","重量公差","フラップ最大長[mm]","フラップ積算長[mm]","フラップ検出回数[回]","イベント（コメント）","受領日","作業員情報（機械情報）","物件情報（DPS/BPO/Broad等）","エラーコード","生産管理番号","仕分けコード１","仕分けコード２","ファイル名（画像）","ファイルパス（画像）","工場コード",
                 string[] col = new string[11];                                              
                 ListViewItem itm;
-                col[0] = sArray[0];
-                col[1] = sArray[1];
-                col[2] = sArray[2];
-                col[3] = sArray[3];
-                col[4] = sArray[4];
-                col[5] = sArray[5];
-                col[6] = sArray[6];
-                col[7] = sArray[7];
-                col[8] = sArray[8];
-                col[9] = sArray[9];
-                col[10] = sArray[10];
+                col[0] = sArray[0].Substring(1, sArray[0].Length - 2);      // 日付
+                col[1] = sArray[1].Substring(1, sArray[1].Length - 2);      // 時刻
+                col[2] = sArray[3].Substring(1, sArray[3].Length - 2);      // 読取値
+                col[3] = sArray[4].Substring(1, sArray[4].Length - 2);      // 判定
+                col[4] = sArray[5].Substring(1, sArray[5].Length - 2);      // 正解データファイル名
+                col[5] = sArray[13].Substring(1, sArray[13].Length - 2);    // 受領日
+                col[6] = sArray[14].Substring(1, sArray[14].Length - 2);    // 作業員情報
+                col[7] = sArray[15].Substring(1, sArray[15].Length - 2);    // 物件情報
+                col[8] = sArray[16].Substring(1, sArray[16].Length - 2);    // エラーCD
+                col[9] = sArray[18].Substring(1, sArray[18].Length - 2);    // 仕分①
+                col[10] = sArray[19].Substring(1, sArray[19].Length - 2);   // 仕分②
 
                 // データの表示
                 itm = new ListViewItem(col);

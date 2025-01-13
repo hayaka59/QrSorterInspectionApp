@@ -40,8 +40,7 @@ namespace QrSorterInspectionApp
                 CmbMedia.Items.Add("ハガキ");
                 CmbMedia.Items.Add("封筒");
                 CmbMedia.SelectedIndex = 0;
-                #endregion
-                
+                #endregion                
                 // 重複検査
                 SetComboOnOff(CmbDuplication);
                 // Ｗフィード検査
@@ -53,15 +52,13 @@ namespace QrSorterInspectionApp
                 // 超音波検知
                 SetComboOnOff(CmbUltrasonicDetection);
                 // 桁数チェック
-                SetComboOnOff(CmbCheckNumberOfDigits);
-                
+                SetComboOnOff(CmbCheckNumberOfDigits);                
                 #region ログ作成条件
                 CmbLogCreationConditions.Items.Clear();
                 CmbLogCreationConditions.Items.Add("ポケット単位");
                 CmbLogCreationConditions.Items.Add("全件");
                 CmbLogCreationConditions.SelectedIndex = 0;
-                #endregion
-                
+                #endregion                
                 #region 読取機能
                 CmbReadingFunction.Items.Clear();
                 CmbReadingFunction.Items.Add("QR");
@@ -71,16 +68,14 @@ namespace QrSorterInspectionApp
                 CmbReadingFunction.Items.Add("JAN");
                 CmbReadingFunction.Items.Add("読取無し");
                 CmbReadingFunction.SelectedIndex = 0;
-                #endregion
-                
+                #endregion                
                 #region QR桁数
                 RchTxtQrInfo.Text = "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567";
-                #endregion
-               
+                #endregion               
                 #region ソーター設定画面
                 SetGroupItem(CmbGroup1);
                 SetGroupItem(CmbGroup2);
@@ -95,7 +90,6 @@ namespace QrSorterInspectionApp
                 CmbGroup6.Items.Add("リジェクト");
                 CmbGroup6.SelectedIndex = 0;
                 #endregion
-
                 #region 数量（ポケット切替件数）
                 TxtQuantity1.Text = "0";
                 TxtQuantity2.Text = "0";

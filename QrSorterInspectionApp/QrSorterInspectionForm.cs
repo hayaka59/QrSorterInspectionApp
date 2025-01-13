@@ -985,18 +985,31 @@ namespace QrSorterInspectionApp
                     default:
                         break;
                 }
+                string DQ = "\"";
 
-                sLogData += sWriteDate + ",";                           // 日付
-                sLogData += sWriteTime + ",";                           // 時刻
-                sLogData += strArray[0].Trim() + ",";                   // 読取値
-                sLogData += strArray[1].Trim() + ",";                   // 判定
-                sLogData += sFileName + ",";                            // 正解データファイル名
-                sLogData += sDateOfReceipt + ",";                       // 受領日
-                sLogData += PubConstClass.sUserId + ",";                // 作業者情報                
-                sLogData += strArray[0].Trim().Substring(0,5) + ",";    // 物件ID
-                sLogData += strArray[2] + ",";                          // エラー
-                sLogData += sNonDeliveryReason1 + ",";                  // 仕分１
-                sLogData += sNonDeliveryReason2 + ",";                  // 仕分２
+                sLogData += DQ + sWriteDate + DQ + ",";                             // 日付
+                sLogData += DQ + sWriteTime + DQ + ",";                             // 時刻
+                sLogData += DQ + DQ + ",";                                          // 期待値                       Null
+                sLogData += DQ + strArray[0].Trim() + DQ + ",";                     // 読取値
+                sLogData += DQ + strArray[1].Trim() + DQ + ",";                     // 判定
+                sLogData += DQ + sFileName + DQ + ",";                              // 正解データファイル名
+                sLogData += DQ + DQ + ",";                                          // 重量期待値[g]				Null
+                sLogData += DQ + DQ + ",";                                          // 重量測定値[g]				Null
+                sLogData += DQ + DQ + ",";                                          // 重量公差						Null
+                sLogData += DQ + DQ + ",";                                          // フラップ最大長[mm]			Null
+                sLogData += DQ + DQ + ",";                                          // フラップ積算長[mm]			Null
+                sLogData += DQ + DQ + ",";                                          // フラップ検出回数[回]			Null
+                sLogData += DQ + DQ + ",";                                          // イベント（コメント）			Null
+                sLogData += DQ + sDateOfReceipt + DQ + ",";                         // 受領日
+                sLogData += DQ + PubConstClass.sUserId + DQ + ",";                  // 作業者情報                
+                sLogData += DQ + strArray[0].Trim().Substring(0, 5) + DQ + ",";     // 物件ID
+                sLogData += DQ + strArray[2] + DQ + ",";                            // エラー
+                sLogData += DQ + DQ + ",";                                          // 生産管理番号					Null
+                sLogData += DQ + sNonDeliveryReason1 + DQ + ",";                    // 仕分１
+                sLogData += DQ + sNonDeliveryReason2 + DQ + ",";                    // 仕分２
+                sLogData += DQ + DQ + ",";                                          // ファイル名（画像）			Null
+                sLogData += DQ + DQ + ",";                                          // ファイルパス（画像）			Null
+                sLogData += DQ + DQ + ",";                                          // 工場コード					Null
 
                 // データの表示
                 if (col[3] == "OK")
@@ -1025,6 +1038,16 @@ namespace QrSorterInspectionApp
                     sSaveFileName += sJobFolderName + "\\";
                     sSaveFileName += sFolderName + "\\";
                     sSaveFileName += sFileName;
+                    // ヘッダー情報書込処理
+                    if (!File.Exists(sSaveFileName))
+                    {
+                        using (StreamWriter sw = new StreamWriter(sSaveFileName, true, Encoding.Default))
+                        {
+                            // 書込ファイルが無かったらヘッダー情報を書込
+                            sw.WriteLine(GetHederInfo());
+                        }
+                    }
+                    // 検査データ書込処理
                     using (StreamWriter sw = new StreamWriter(sSaveFileName, true, Encoding.Default))
                     {
                         // OKデータのみを追加モードで書き込む
@@ -1058,8 +1081,17 @@ namespace QrSorterInspectionApp
                 sSaveFileName = "";
                 sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
                 sSaveFileName += sJobFolderName + "\\";
-                //sSaveFileName += sFolderName + "\\";
                 sSaveFileName += sFileNameForAllItems;
+                // ヘッダー情報書込処理
+                if (!File.Exists(sSaveFileName))
+                {
+                    using (StreamWriter sw = new StreamWriter(sSaveFileName, true, Encoding.Default))
+                    {
+                        // 書込ファイルが無かったらヘッダー情報を書込
+                        sw.WriteLine(GetHederInfo());
+                    }
+                }
+                // 検査データ書込処理
                 using (StreamWriter sw = new StreamWriter(sSaveFileName, true, Encoding.Default))
                 {
                     // 全件データを追加モードで書き込む
@@ -1070,6 +1102,48 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【MyProcData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 CommonModule.OutPutLogFile("【MyProcData】" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// ヘッダーデータの取得
+        /// </summary>
+        /// <returns></returns>
+        private string GetHederInfo()
+        {
+            string sHeader = "";
+            
+            try
+            {                
+                sHeader += "\"日付\",";
+                sHeader += "\"時刻\",";
+                sHeader += "\"期待値\",";
+                sHeader += "\"読取値\",";
+                sHeader += "\"判定\",";
+                sHeader += "\"正解データファイル名\",";
+                sHeader += "\"重量期待値[g]\",";
+                sHeader += "\"重量測定値[g]\",";
+                sHeader += "\"重量公差\",";
+                sHeader += "\"フラップ最大長[mm]\",";
+                sHeader += "\"フラップ積算長[mm]\",";
+                sHeader += "\"フラップ検出回数[回]\",";
+                sHeader += "\"イベント（コメント）\",";
+                sHeader += "\"受領日\",";
+                sHeader += "\"作業員情報（機械情報）\",";
+                sHeader += "\"物件情報（DPS/BPO/Broad等）\",";
+                sHeader += "\"エラーコード\",";
+                sHeader += "\"生産管理番号\",";
+                sHeader += "\"仕分けコード１\",";
+                sHeader += "\"仕分けコード２\",";
+                sHeader += "\"ファイル名（画像）\",";
+                sHeader += "\"ファイルパス（画像）\",";
+                sHeader += "\"工場コード\",";
+                return sHeader;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【GetHederInfo】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return sHeader;
             }
         }
 
