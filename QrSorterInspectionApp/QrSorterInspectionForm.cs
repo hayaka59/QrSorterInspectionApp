@@ -1116,6 +1116,7 @@ namespace QrSorterInspectionApp
             try
             {                
                 sHeader += "\"日付\",";
+                sHeader += "\"時刻\",";
                 sHeader += "\"期待値\",";
                 sHeader += "\"読取値\",";
                 sHeader += "\"判定\",";
