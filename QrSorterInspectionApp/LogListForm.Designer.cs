@@ -97,7 +97,7 @@
             this.CmbLogType.FormattingEnabled = true;
             this.CmbLogType.IntegralHeight = false;
             this.CmbLogType.ItemHeight = 28;
-            this.CmbLogType.Location = new System.Drawing.Point(278, 92);
+            this.CmbLogType.Location = new System.Drawing.Point(208, 88);
             this.CmbLogType.Name = "CmbLogType";
             this.CmbLogType.Size = new System.Drawing.Size(299, 36);
             this.CmbLogType.TabIndex = 261;
@@ -109,7 +109,7 @@
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(108, 91);
+            this.label3.Location = new System.Drawing.Point(38, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(170, 36);
             this.label3.TabIndex = 260;
@@ -232,7 +232,7 @@
             // 
             this.ChkAllItem.AutoSize = true;
             this.ChkAllItem.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ChkAllItem.Location = new System.Drawing.Point(592, 101);
+            this.ChkAllItem.Location = new System.Drawing.Point(522, 97);
             this.ChkAllItem.Name = "ChkAllItem";
             this.ChkAllItem.Size = new System.Drawing.Size(58, 20);
             this.ChkAllItem.TabIndex = 269;
