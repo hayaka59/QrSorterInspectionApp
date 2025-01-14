@@ -552,14 +552,30 @@ namespace QrSorterInspectionApp
         {
             try
             {
-
                 // 送信データのセット
                 byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_a + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                // 検査開始時のチェック
+                CheckStartUp();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 検査開始時のチェック
+        /// </summary>
+        private void CheckStartUp()
+        {
+            try
+            {
+                // エラー状況の非表示
                 LblError.Visible = false;
 
                 if (PubConstClass.sPrevDtpDateReceipt == "")
                 {
+                    // １回目の検査開始処理
                     CreateInspectionLogFolder();
                 }
                 else
@@ -568,20 +584,19 @@ namespace QrSorterInspectionApp
                         PubConstClass.sPrevNonDelivery1 != CmbNonDeliveryReasonSorting1.Text ||
                         PubConstClass.sPrevNonDelivery2 != CmbNonDeliveryReasonSorting2.Text)
                     {
+                        // 受領日または不着事由仕分け１、２が変更された。
                         MessageBox.Show("JOB設定が変更されました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         CreateInspectionLogFolder();
                     }
                 }
-                
+                // 設定値の保存
                 PubConstClass.sPrevDtpDateReceipt = DtpDateReceipt.Text;                // 前回の受領日
                 PubConstClass.sPrevNonDelivery1 = CmbNonDeliveryReasonSorting1.Text;    // 前回の不着事由仕分け１
                 PubConstClass.sPrevNonDelivery2 = CmbNonDeliveryReasonSorting2.Text;    // 前回の不着事由仕分け２
-
-                // 検査中
-                //SetStatus(1);
             }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CheckStartUp】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -837,6 +852,8 @@ namespace QrSorterInspectionApp
             {
                 // 検査中
                 SetStatus(1);
+                // 検査開始時のチェック
+                CheckStartUp();
             }
             catch (Exception ex)
             {
