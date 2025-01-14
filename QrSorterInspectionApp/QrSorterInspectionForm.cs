@@ -439,7 +439,6 @@ namespace QrSorterInspectionApp
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
-
                 // グループ５フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[4].Split(',');
                 sFolderNameWork[4] = "グループ５_" + sArray[0];
@@ -448,8 +447,13 @@ namespace QrSorterInspectionApp
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
-
+                // グループ６フォルダ（リジェクト用）の存在チェックと作成
                 sFolderNameWork[5] = "グループ６_リジェクト";
+                sGrpFolder = sJobFolder + "\\" + sFolderNameWork[5];
+                if (Directory.Exists(sGrpFolder) == false)
+                {
+                    Directory.CreateDirectory(sGrpFolder);
+                }
 
                 //             0 1              2 3        4 5                  6 7                  8 9  0
                 //コメリ①ハガキ,1,コメリ②ハガキ,2,武蔵野BK,3,西日本シティーBK①,4,西日本シティーBK②,5,50,50,50,50,50,ON,ON,ON,ON,ON,
@@ -1050,7 +1054,7 @@ namespace QrSorterInspectionApp
                         }
                     }
 
-                    sSaveFileName = "";
+                    sSaveFileName = ""; 
                     sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
                     sSaveFileName += sJobFolderName + "\\";
                     sSaveFileName += sFolderName + "\\";
