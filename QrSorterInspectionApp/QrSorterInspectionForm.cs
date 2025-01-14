@@ -439,7 +439,6 @@ namespace QrSorterInspectionApp
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
-
                 // グループ５フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[4].Split(',');
                 sFolderNameWork[4] = "グループ５_" + sArray[0];
@@ -448,8 +447,13 @@ namespace QrSorterInspectionApp
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
-
+                // グループ６フォルダ（リジェクト用）の存在チェックと作成
                 sFolderNameWork[5] = "グループ６_リジェクト";
+                sGrpFolder = sJobFolder + "\\" + sFolderNameWork[5];
+                if (Directory.Exists(sGrpFolder) == false)
+                {
+                    Directory.CreateDirectory(sGrpFolder);
+                }
 
                 //             0 1              2 3        4 5                  6 7                  8 9  0
                 //コメリ①ハガキ,1,コメリ②ハガキ,2,武蔵野BK,3,西日本シティーBK①,4,西日本シティーBK②,5,50,50,50,50,50,ON,ON,ON,ON,ON,
@@ -552,14 +556,30 @@ namespace QrSorterInspectionApp
         {
             try
             {
-
                 // 送信データのセット
                 byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_a + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                // 検査開始時のチェック
+                CheckStartUp();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 検査開始時のチェック
+        /// </summary>
+        private void CheckStartUp()
+        {
+            try
+            {
+                // エラー状況の非表示
                 LblError.Visible = false;
 
                 if (PubConstClass.sPrevDtpDateReceipt == "")
                 {
+                    // １回目の検査開始処理
                     CreateInspectionLogFolder();
                 }
                 else
@@ -568,20 +588,19 @@ namespace QrSorterInspectionApp
                         PubConstClass.sPrevNonDelivery1 != CmbNonDeliveryReasonSorting1.Text ||
                         PubConstClass.sPrevNonDelivery2 != CmbNonDeliveryReasonSorting2.Text)
                     {
+                        // 受領日または不着事由仕分け１、２が変更された。
                         MessageBox.Show("JOB設定が変更されました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         CreateInspectionLogFolder();
                     }
                 }
-                
+                // 設定値の保存
                 PubConstClass.sPrevDtpDateReceipt = DtpDateReceipt.Text;                // 前回の受領日
                 PubConstClass.sPrevNonDelivery1 = CmbNonDeliveryReasonSorting1.Text;    // 前回の不着事由仕分け１
                 PubConstClass.sPrevNonDelivery2 = CmbNonDeliveryReasonSorting2.Text;    // 前回の不着事由仕分け２
-
-                // 検査中
-                //SetStatus(1);
             }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message, "【BtnStartInspection_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CheckStartUp】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -837,6 +856,8 @@ namespace QrSorterInspectionApp
             {
                 // 検査中
                 SetStatus(1);
+                // 検査開始時のチェック
+                CheckStartUp();
             }
             catch (Exception ex)
             {
@@ -1033,7 +1054,7 @@ namespace QrSorterInspectionApp
                         }
                     }
 
-                    sSaveFileName = "";
+                    sSaveFileName = ""; 
                     sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
                     sSaveFileName += sJobFolderName + "\\";
                     sSaveFileName += sFolderName + "\\";
