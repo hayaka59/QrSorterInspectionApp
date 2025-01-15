@@ -558,7 +558,7 @@ namespace QrSorterInspectionApp
             try
             {
                 // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_a + "\r");
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_b + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 // 検査開始時のチェック
                 CheckStartUp();
@@ -615,7 +615,7 @@ namespace QrSorterInspectionApp
             try
             {
                 // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_b + "\r");
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_c + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LblError.Visible = false;
                 
