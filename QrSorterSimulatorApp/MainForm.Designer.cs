@@ -133,7 +133,7 @@
             this.TxtPropertyId.Name = "TxtPropertyId";
             this.TxtPropertyId.Size = new System.Drawing.Size(81, 31);
             this.TxtPropertyId.TabIndex = 0;
-            this.TxtPropertyId.Text = "D8657";
+            this.TxtPropertyId.Text = "A8657";
             this.TxtPropertyId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dtTimPickPostalDate
@@ -188,6 +188,7 @@
             // 
             // CmbJudge
             // 
+            this.CmbJudge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbJudge.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbJudge.FormattingEnabled = true;
             this.CmbJudge.Location = new System.Drawing.Point(6, 18);
@@ -207,6 +208,7 @@
             // 
             // CmbErrorCode
             // 
+            this.CmbErrorCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbErrorCode.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbErrorCode.FormattingEnabled = true;
             this.CmbErrorCode.Location = new System.Drawing.Point(6, 18);
@@ -226,6 +228,7 @@
             // 
             // CmbTray
             // 
+            this.CmbTray.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTray.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbTray.FormattingEnabled = true;
             this.CmbTray.Location = new System.Drawing.Point(6, 18);
@@ -268,12 +271,13 @@
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.CmbNonDeliveryReasonSorting);
-            this.groupBox9.Location = new System.Drawing.Point(32, 292);
+            this.groupBox9.Location = new System.Drawing.Point(689, 625);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(263, 60);
             this.groupBox9.TabIndex = 327;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "不着事由";
+            this.groupBox9.Visible = false;
             // 
             // CmbNonDeliveryReasonSorting
             // 

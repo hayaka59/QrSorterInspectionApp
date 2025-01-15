@@ -168,27 +168,26 @@ namespace QrSorterSimulatorApp
                 }
                 #endregion
 
-                //this.Text = "【メインメニュー画面】 ［ " + sTitle;
                 PubConstClass.pblMainFormTitle = "【メインメニュー画面】 ［ " + sTitle;
-
+                // 判定
                 CmbJudge.Items.Clear();
                 CmbJudge.Items.Add("OK");
                 CmbJudge.Items.Add("NG");
                 CmbJudge.SelectedIndex = 0;
-
+                // エラーコード
                 CmbErrorCode.Items.Clear();
-                CmbErrorCode.Items.Add("000");
-                CmbErrorCode.Items.Add("100");
-                CmbErrorCode.Items.Add("200");
-                CmbErrorCode.Items.Add("300");
+                for (int i = 0; i < 300; i++){
+                    CmbErrorCode.Items.Add(i.ToString("000"));
+                }
                 CmbErrorCode.SelectedIndex = 0;
-
+                // トレイ情報
                 CmbTray.Items.Clear();
                 CmbTray.Items.Add("1");
                 CmbTray.Items.Add("2");
                 CmbTray.Items.Add("3");
                 CmbTray.Items.Add("4");
                 CmbTray.Items.Add("5");
+                CmbTray.Items.Add("E");
                 CmbTray.SelectedIndex = 0;
 
                 #region 不着事由区分
@@ -205,7 +204,6 @@ namespace QrSorterSimulatorApp
                 // シリアルポートのオープン
                 SerialPortQr.Open();
                 LblError.Visible = false;
-
             }
             catch (Exception ex)
             {
@@ -289,11 +287,16 @@ namespace QrSorterSimulatorApp
                 switch (sCommandType)
                 {
                     case PubConstClass.CMD_RECIEVE_a:
+                        // JOB設定内容
+
+                        break;
+
+                    case PubConstClass.CMD_RECIEVE_b:
                         // 開始コマンド
                         BtnStart.PerformClick();
                         break;
 
-                    case PubConstClass.CMD_RECIEVE_b:
+                    case PubConstClass.CMD_RECIEVE_c:
                         // 停止コマンド
                         BtnStop.PerformClick();
                         break;
@@ -329,18 +332,19 @@ namespace QrSorterSimulatorApp
                 sData += int.Parse(TxtUniqueKey.Text).ToString("000000000") + ",";  // ユニークキー（9桁）
                 // ユニークキーのインクリメント
                 TxtUniqueKey.Text = (int.Parse(TxtUniqueKey.Text) + 1).ToString("000000000");
-                // 判定（OK/NG）
-                sData += CmbJudge.Text + ",";
+                // 判定（OK="0"/NG="1"）
+                sData += CmbJudge.SelectedIndex.ToString("0") + ",";
                 // エラーコード
                 sData += CmbErrorCode.Text + ",";
                 // 不着事由
-                sData += (CmbNonDeliveryReasonSorting.SelectedIndex + 1).ToString() + ",";
+                //sData += (CmbNonDeliveryReasonSorting.SelectedIndex + 1).ToString() + ",";
                 // トレイ情報
                 sData += CmbTray.Text + ",";
 
-                // 送信データのセット
-                //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_D + sData + "\r");                
+                // 先頭に「D,」を付加する
+                sData = PubConstClass.CMD_SEND_D + "," + sData;
+                // 送信データのセット                
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");                
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LsbSendBox.Items.Add(sData);
                 LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;

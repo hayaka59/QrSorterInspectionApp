@@ -33,6 +33,7 @@ namespace QrSorterInspectionApp
         private int iBox3Count = 0;             // ボックス３用カウンタ
         private int iBox4Count = 0;             // ボックス４用カウンタ
         private int iBox5Count = 0;             // ボックス５用カウンタ
+        private int iBoxECount = 0;             // ボックス（Eject）用カウンタ
         private int intSesanCounter = 0;
 
         private string sJobFolderName;          // JOBフォルダ名       
@@ -824,8 +825,8 @@ namespace QrSorterInspectionApp
 
                     case PubConstClass.CMD_RECIEVE_D:
                         // データコマンド
-                        // 先頭１文字（D）を取り除く
-                        MyProcData(data.Substring(1, data.Length - 1));
+                        // 先頭2文字（D,）を取り除く
+                        MyProcData(data.Substring(2, data.Length - 2));
                         break;
 
                     case PubConstClass.CMD_RECIEVE_E:
@@ -911,7 +912,7 @@ namespace QrSorterInspectionApp
             ListViewItem itm1;
             ListViewItem itm2;
             string[] strArray;
-            string sNonDel;
+            //string sNonDel;
             string sLogData = "";
             string sWriteDate;
             string sWriteTime;
@@ -955,13 +956,14 @@ namespace QrSorterInspectionApp
 
                 lstPastReceivedQrData.Add(col[2]);
                 // 判定（OK/NG）
-                col[3] = strArray[1].Trim();
+                //col[3] = strArray[1].Trim();
+                col[3] = strArray[1].Trim() == "0" ? "OK": "NG";
                 // エラーコード
                 //col[4] = strArray[2];                
                 // 不着事由
-                sNonDel = strArray[3].Trim().PadLeft(2,'0');                
+                //sNonDel = strArray[3].Trim().PadLeft(2,'0');                
                 // トレイ情報
-                col[4] = strArray[4].Trim();
+                col[4] = strArray[3].Trim();
 
                 string sFolderName = "";
                 string sFileName = "";
@@ -1003,6 +1005,17 @@ namespace QrSorterInspectionApp
                         sFolderName = sFolderName5;
                         sFileName = sFileNameForGroup5;
                         break;
+
+                    case "E":
+                        iBoxECount++;
+                        LblBoxEject.Text = iBoxECount.ToString("0");
+                        LblPocketEject.Text = col[2];
+                        //sFolderName = sFolderName5;
+                        //sFileName = sFileNameForGroup5;
+                        col[3]= "Eject";
+                        break;
+
+
                     default:
                         break;
                 }
@@ -1012,7 +1025,8 @@ namespace QrSorterInspectionApp
                 sLogData += DQ + sWriteTime + DQ + ",";                             // 時刻
                 sLogData += DQ + DQ + ",";                                          // 期待値                       Null
                 sLogData += DQ + strArray[0].Trim() + DQ + ",";                     // 読取値
-                sLogData += DQ + strArray[1].Trim() + DQ + ",";                     // 判定
+                //sLogData += DQ + strArray[1].Trim() + DQ + ",";                     // 判定
+                sLogData += DQ + col[3] + DQ + ",";                                 // 判定
                 sLogData += DQ + sFileName + DQ + ",";                              // 正解データファイル名
                 sLogData += DQ + DQ + ",";                                          // 重量期待値[g]				Null
                 sLogData += DQ + DQ + ",";                                          // 重量測定値[g]				Null
@@ -1089,6 +1103,7 @@ namespace QrSorterInspectionApp
                     if (LsvNGHistory.Items.Count % 2 == 1)
                     {
                         for (int iIndex = 0; iIndex < 5; iIndex++)
+
                         {
                             // 奇数行の色反転
                             LsvNGHistory.Items[LsvNGHistory.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
