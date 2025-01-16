@@ -101,6 +101,7 @@
             this.LblFdrInfo3 = new System.Windows.Forms.Label();
             this.LblFdrInfo4 = new System.Windows.Forms.Label();
             this.LblFdrInfo5 = new System.Windows.Forms.Label();
+            this.LblPocketEject = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -974,12 +975,26 @@
             this.LblFdrInfo5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblFdrInfo5.Visible = false;
             // 
+            // LblPocketEject
+            // 
+            this.LblPocketEject.BackColor = System.Drawing.Color.White;
+            this.LblPocketEject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LblPocketEject.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblPocketEject.ForeColor = System.Drawing.Color.Black;
+            this.LblPocketEject.Location = new System.Drawing.Point(96, 916);
+            this.LblPocketEject.Name = "LblPocketEject";
+            this.LblPocketEject.Size = new System.Drawing.Size(280, 40);
+            this.LblPocketEject.TabIndex = 334;
+            this.LblPocketEject.Text = "ポケットイジェクト";
+            this.LblPocketEject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.LblPocketEject);
             this.Controls.Add(this.LblFdrInfo1);
             this.Controls.Add(this.LblFdrInfo2);
             this.Controls.Add(this.LblFdrInfo3);
@@ -1138,5 +1153,6 @@
         internal System.Windows.Forms.Label LblFdrInfo3;
         internal System.Windows.Forms.Label LblFdrInfo4;
         internal System.Windows.Forms.Label LblFdrInfo5;
+        internal System.Windows.Forms.Label LblPocketEject;
     }
 }

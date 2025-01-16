@@ -52,6 +52,7 @@
             this.TimSendData = new System.Windows.Forms.Timer(this.components);
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.CmbNonDeliveryReasonSorting = new System.Windows.Forms.ComboBox();
+            this.BtnConfirmation = new System.Windows.Forms.Button();
             this.BtnError = new System.Windows.Forms.Button();
             this.BtnStop = new System.Windows.Forms.Button();
             this.BtnStart = new System.Windows.Forms.Button();
@@ -133,7 +134,7 @@
             this.TxtPropertyId.Name = "TxtPropertyId";
             this.TxtPropertyId.Size = new System.Drawing.Size(81, 31);
             this.TxtPropertyId.TabIndex = 0;
-            this.TxtPropertyId.Text = "D8657";
+            this.TxtPropertyId.Text = "A8657";
             this.TxtPropertyId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dtTimPickPostalDate
@@ -188,6 +189,7 @@
             // 
             // CmbJudge
             // 
+            this.CmbJudge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbJudge.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbJudge.FormattingEnabled = true;
             this.CmbJudge.Location = new System.Drawing.Point(6, 18);
@@ -207,6 +209,7 @@
             // 
             // CmbErrorCode
             // 
+            this.CmbErrorCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbErrorCode.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbErrorCode.FormattingEnabled = true;
             this.CmbErrorCode.Location = new System.Drawing.Point(6, 18);
@@ -226,6 +229,7 @@
             // 
             // CmbTray
             // 
+            this.CmbTray.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTray.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbTray.FormattingEnabled = true;
             this.CmbTray.Location = new System.Drawing.Point(6, 18);
@@ -268,12 +272,13 @@
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.CmbNonDeliveryReasonSorting);
-            this.groupBox9.Location = new System.Drawing.Point(32, 292);
+            this.groupBox9.Location = new System.Drawing.Point(689, 625);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(263, 60);
             this.groupBox9.TabIndex = 327;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "不着事由";
+            this.groupBox9.Visible = false;
             // 
             // CmbNonDeliveryReasonSorting
             // 
@@ -285,6 +290,20 @@
             this.CmbNonDeliveryReasonSorting.Size = new System.Drawing.Size(244, 32);
             this.CmbNonDeliveryReasonSorting.TabIndex = 1;
             // 
+            // BtnConfirmation
+            // 
+            this.BtnConfirmation.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnConfirmation.Image = global::QrSorterSimulatorApp.Properties.Resources.question;
+            this.BtnConfirmation.Location = new System.Drawing.Point(38, 299);
+            this.BtnConfirmation.Name = "BtnConfirmation";
+            this.BtnConfirmation.Size = new System.Drawing.Size(257, 45);
+            this.BtnConfirmation.TabIndex = 333;
+            this.BtnConfirmation.Text = "確認（A）";
+            this.BtnConfirmation.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnConfirmation.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnConfirmation.UseVisualStyleBackColor = true;
+            this.BtnConfirmation.Click += new System.EventHandler(this.BtnConfirmation_Click);
+            // 
             // BtnError
             // 
             this.BtnError.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -293,7 +312,7 @@
             this.BtnError.Name = "BtnError";
             this.BtnError.Size = new System.Drawing.Size(257, 45);
             this.BtnError.TabIndex = 332;
-            this.BtnError.Text = "エラー送信";
+            this.BtnError.Text = "エラー送信（E）";
             this.BtnError.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnError.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnError.UseVisualStyleBackColor = true;
@@ -303,11 +322,11 @@
             // 
             this.BtnStop.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnStop.Image = global::QrSorterSimulatorApp.Properties.Resources.standing;
-            this.BtnStop.Location = new System.Drawing.Point(175, 398);
+            this.BtnStop.Location = new System.Drawing.Point(38, 402);
             this.BtnStop.Name = "BtnStop";
-            this.BtnStop.Size = new System.Drawing.Size(120, 45);
+            this.BtnStop.Size = new System.Drawing.Size(257, 45);
             this.BtnStop.TabIndex = 331;
-            this.BtnStop.Text = "停止";
+            this.BtnStop.Text = "停止（C）";
             this.BtnStop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnStop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnStop.UseVisualStyleBackColor = true;
@@ -317,11 +336,11 @@
             // 
             this.BtnStart.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnStart.Image = global::QrSorterSimulatorApp.Properties.Resources.running_icon;
-            this.BtnStart.Location = new System.Drawing.Point(38, 398);
+            this.BtnStart.Location = new System.Drawing.Point(38, 351);
             this.BtnStart.Name = "BtnStart";
-            this.BtnStart.Size = new System.Drawing.Size(120, 45);
+            this.BtnStart.Size = new System.Drawing.Size(257, 45);
             this.BtnStart.TabIndex = 330;
-            this.BtnStart.Text = "開始";
+            this.BtnStart.Text = "開始（B）";
             this.BtnStart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnStart.UseVisualStyleBackColor = true;
@@ -388,6 +407,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnConfirmation);
             this.Controls.Add(this.BtnError);
             this.Controls.Add(this.BtnStop);
             this.Controls.Add(this.BtnStart);
@@ -460,6 +480,7 @@
         private System.Windows.Forms.Button BtnStart;
         private System.Windows.Forms.Button BtnStop;
         private System.Windows.Forms.Button BtnError;
+        private System.Windows.Forms.Button BtnConfirmation;
     }
 }
 
