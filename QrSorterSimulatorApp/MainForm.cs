@@ -479,7 +479,7 @@ namespace QrSorterSimulatorApp
             try
             {
                 // 送信データのセット
-                string sData = PubConstClass.CMD_SEND_E + CmbErrorCode.Text;
+                string sData = PubConstClass.CMD_SEND_E + "," + CmbErrorCode.Text;
                 byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LsbSendBox.Items.Add($"{sData}<CR>");
