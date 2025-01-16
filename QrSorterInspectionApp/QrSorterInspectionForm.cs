@@ -954,6 +954,8 @@ namespace QrSorterInspectionApp
         /// <param name="sData"></param>
         private void MyProcError(string sData)
         {
+            string sErrorCode;
+
             try
             {
                 LblError.Text = $"エラーコマンド「{sData.Replace("\r","<CR>")}」受信";
@@ -962,8 +964,22 @@ namespace QrSorterInspectionApp
                 // エラー
                 SetStatus(2);
 
+                sErrorCode = sData.Substring(2, 3);
+
                 ErrorMessageForm form = ErrorMessageForm.GetInstance();
-                form.SetMessage($"{sData.Replace("\r", "<CR>")},{sData.Replace("\r", "<CR>")},{sData.Replace("\r", "<CR>")}");
+                //form.SetMessage($"{sData.Replace("\r", "<CR>")},{sData.Replace("\r", "<CR>")},{sData.Replace("\r", "<CR>")}");                
+                if (PubConstClass.dicErrorCodeData.ContainsKey(sErrorCode))
+                {
+                    // 存在する場合
+                    form.SetMessage($"{sErrorCode},{PubConstClass.dicErrorCodeData[sErrorCode]}");
+                    CommonModule.OutPutLogFile($"エラー内容：{sErrorCode},{PubConstClass.dicErrorCodeData[sErrorCode]}");
+                }
+                else
+                {
+                    form.SetMessage($"{sErrorCode},未定義エラー番号,未定義のエラー番号です。");
+                    CommonModule.OutPutLogFile($"エラー内容：{sErrorCode},未定義エラー番号,未定義のエラー番号です。");
+                }
+
                 if (!PubConstClass.bIsOpenErrorMessage)
                 {
                     PubConstClass.bIsOpenErrorMessage = true;

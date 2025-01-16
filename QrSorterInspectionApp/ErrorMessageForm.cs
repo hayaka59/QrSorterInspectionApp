@@ -21,11 +21,19 @@ namespace QrSorterInspectionApp
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static ErrorMessageForm GetInstance()
         {
             return _singleInstance;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sErrorData"></param>
         public ErrorMessageForm(string sErrorData)
         {
             string[] sArray = sErrorData.Split(',');
@@ -43,7 +51,10 @@ namespace QrSorterInspectionApp
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sErrorData"></param>
         public void SetMessage(string sErrorData)
         {
             string[] sArray = sErrorData.Split(',');
@@ -59,43 +70,13 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "エラー【SetMessage】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            //Log.OutPutLogFile(TraceEventType.Information, "■エラー情報読み込み開始");
-
-            //if (LblTitle.Text == "ログエラー")
-            //{
-            //    return;
-            //}
-
-            //LblTitle.Text = "未定義エラー";
-            //LblErrorMessage.Text = _errNumber.ToString() + " エラー";
-
-            //for (int N = 0; N < ClassErrorManager.errorFileData.Count; N++)
-            //{
-            //    string[] items = ClassErrorManager.errorFileData[N].Split(',');
-            //    if (!Int32.TryParse(items[0], out int errCode))
-            //    {
-            //        continue;
-            //    }
-            //    if (Int32.Parse(items[0]) == _errNumber)
-            //    {
-            //        // エラー番号
-            //        LblErrorNumber.Text = _errNumber.ToString();
-            //        // 2列目：エラータイトル
-            //        LblTitle.Text = items[1];
-            //        // 3列目：エラーメッセージ
-            //        LblErrorMessage.Text = items[2];
-            //        break;
-            //    }
-            //}
-            //Log.OutPutLogFile(TraceEventType.Information, "■エラー情報読み込み完了");
         }
 
-        private void ErrorMessageForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnRelease_Click(object sender, EventArgs e)
         {
             // エラーリセットコマンド送信（d）            
