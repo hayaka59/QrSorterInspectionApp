@@ -32,6 +32,12 @@ namespace QrSorterInspectionApp
         public static string sUserAuthority;                                    // ログイン中のユーザー権限
 
         /// <summary>
+        /// メニュー画面
+        /// </summary>
+        public const string DEF_ERROR_FILE = "ErrorMessage.txt";                // エラーメッセージファイル名称
+        public static Dictionary<string, string> dicErrorCodeData;              // エラーコード変換用辞書
+
+        /// <summary>
         /// 検査画面
         /// </summary>
         public static string sPrevDtpDateReceipt = "";                          // 前回の受領日
