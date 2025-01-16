@@ -122,6 +122,7 @@
     <None Include="icon\check.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="icon\question.png" />
     <Content Include="NonDeliveryReasonSorting.txt" />
     <Content Include="QrSorterSimulatorApp.def" />
   </ItemGroup>

@@ -490,5 +490,26 @@ namespace QrSorterSimulatorApp
                 MessageBox.Show(ex.Message, "【BtnError_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// 「確認」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnConfirmation_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_A + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LsbSendBox.Items.Add($"{PubConstClass.CMD_SEND_A}<CR>");
+                LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnConfirmation_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
