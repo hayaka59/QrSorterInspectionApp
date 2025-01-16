@@ -867,16 +867,42 @@ namespace QrSorterInspectionApp
                 {
 
                     string[] sArrayJob = PubConstClass.lstJobEntryList[0].Split(',');
-                    //             0 1              2 3        4 5                  6 7                  8 9  0  1  2  3  4  5
-                    //コメリ①ハガキ,1,コメリ②ハガキ,2,武蔵野BK,3,西日本シティーBK①,4,西日本シティーBK②,5,50,50,50,50,50,ON,ON,ON,ON,ON,
+                    //                    0      1             2   3  4   5      6 7 8      9 0 1            2  3 4      5   6  7  8  9  0  1 2 3  
+                    // チューリッヒ１ハガキ,ハガキ,2025年1月10日,OFF,47,OFF,物件ID,1,5,届出日,6,8,ファイル区分,14,1,管理No.,15,10,ON,ON,ON,ON,1,1,
+
+                    // コメリ１ハガキ,1,コメリ２ハガキ,2,武蔵野BK,3,西日本シティーBK１,4,西日本シティーBK２,5,50,50,50,50,50,ON,ON,ON,ON,ON,
+
+                    // コメリ１,D4830,20241209,1,A123456789,
+                    // コメリ２,D4831,20241210,2,B123456789,
+                    // コメリ３,D4833,20241211,3,C123456789,
+                    // コメリ４,D4834,20241212,4,D123456789,
+                    // コメリ５,D4835,20241213,5,E123456789,
+
                     string[] sArrayPocket = PubConstClass.lstPocketInfo[0].Split(',');
 
-
-
-
                     sData = PubConstClass.CMD_SEND_a + ",";
+                    sData += sArrayJob[1] == "ハガキ" ? "0" : "1";    // (01) 媒体           ：1桁
                     sData += ",";
-
+                    sData += sArrayJob[4];                            // (02) QR桁数         ：2桁
+                    sData += ","; 
+                    sData += sArrayJob[5] == "OFF" ? "0" : "1";       // (03) 読取チェック   ：1桁
+                    sData += ","; 
+                    sData += sArrayJob[7];                            // (04) QR読取項目1開始：2桁
+                    sData += ","; 
+                    sData += sArrayJob[8];                            // (05) QR読取項目1桁数：2桁                    
+                    sData += ","; 
+                    sData += sArrayJob[10];                           // (06) QR読取項目2開始：2桁
+                    sData += ","; 
+                    sData += sArrayJob[11];                           // (07) QR読取項目2桁数：2桁                    
+                    sData += ","; 
+                    sData += sArrayJob[13];                           // (08) QR読取項目3開始：2桁
+                    sData += ","; 
+                    sData += sArrayJob[14];                           // (09) QR読取項目3桁数：2桁                    
+                    sData += ","; 
+                    sData += sArrayJob[16];                           // (10) QR読取項目4開始：2桁
+                    sData += ","; 
+                    sData += sArrayJob[17];                           // (11) QR読取項目4桁数：2桁
+                    sData += ",";
 
                     byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
                     SerialPortQr.Write(dat, 0, dat.GetLength(0));
