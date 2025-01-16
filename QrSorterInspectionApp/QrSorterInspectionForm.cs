@@ -810,7 +810,8 @@ namespace QrSorterInspectionApp
                 switch (sCommandType)
                 {
                     case PubConstClass.CMD_RECIEVE_A:
-
+                        // JOB設定情報の送信
+                        MyProcJobInfomation();
                         break;
 
                     case PubConstClass.CMD_RECIEVE_B:
@@ -845,6 +846,45 @@ namespace QrSorterInspectionApp
                 strMessage = "【RcvDataToTextBox】" + ex.Message;
                 CommonModule.OutPutLogFile(strMessage);
                 MessageBox.Show(strMessage, "システムエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// JOB設定情報の送信
+        /// </summary>
+        private void MyProcJobInfomation()
+        {
+            string sData = "";
+            try
+            {
+                if (LblSelectedFile.Text.Trim() == "")
+                {
+                    // JOBが未選択
+                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_e + "\r");
+                    SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                }
+                else
+                {
+
+                    string[] sArrayJob = PubConstClass.lstJobEntryList[0].Split(',');
+                    //             0 1              2 3        4 5                  6 7                  8 9  0  1  2  3  4  5
+                    //コメリ①ハガキ,1,コメリ②ハガキ,2,武蔵野BK,3,西日本シティーBK①,4,西日本シティーBK②,5,50,50,50,50,50,ON,ON,ON,ON,ON,
+                    string[] sArrayPocket = PubConstClass.lstPocketInfo[0].Split(',');
+
+
+
+
+                    sData = PubConstClass.CMD_SEND_a + ",";
+                    sData += ",";
+
+
+                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                    SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcJobInfomation】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -895,6 +935,19 @@ namespace QrSorterInspectionApp
 
                 // エラー
                 SetStatus(2);
+
+                ErrorMessageForm form = ErrorMessageForm.GetInstance();
+                form.SetMessage($"{sData.Replace("\r", "<CR>")},{sData.Replace("\r", "<CR>")},{sData.Replace("\r", "<CR>")}");
+                if (!PubConstClass.bIsOpenErrorMessage)
+                {
+                    PubConstClass.bIsOpenErrorMessage = true;
+                    // エラーダイアログ表示
+                    form.ShowDialog();
+                }
+                else
+                {
+                    form.Show();
+                }
             }
             catch (Exception ex)
             {
@@ -1286,17 +1339,12 @@ namespace QrSorterInspectionApp
             try
             {
                 sArray = PubConstClass.lstJobEntryList[0].Split(',');
-
                 // 受領日
                 DtpDateReceipt.Text = sArray[2];
                 // 受領日入力
                 bDateOfReceipt = sArray[3] == "ON" ? true : false;
 
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
-
-                //             0 1              2 3        4 5                  6 7                  8 9  0  1  2  3  4  5
-                //コメリ①ハガキ,1,コメリ②ハガキ,2,武蔵野BK,3,西日本シティーBK①,4,西日本シティーBK②,5,50,50,50,50,50,ON,ON,ON,ON,ON,
-
                 // ポケット①名称
                 LblBoxTitle1.Text = "【BOX1】 " + sArray[0];
                 // ポケット②名称
@@ -1318,10 +1366,6 @@ namespace QrSorterInspectionApp
                 LblQuantity4.Text = sArray[18] == "ON" ? sArray[13] : "---";
                 // ポケット５切替件数
                 LblQuantity5.Text = sArray[19] == "ON" ? sArray[14] : "---";
-
-                // ログ保存フォルダの確認
-                //CheckAndCreateLogStorageFolder();
-
             }
             catch (Exception ex)
             {
