@@ -389,5 +389,15 @@ namespace QrSorterInspectionApp.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap 株式会社Ai_R横黒色背景透明 {
+            get {
+                object obj = ResourceManager.GetObject("株式会社Ai-R横黒色背景透明", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
