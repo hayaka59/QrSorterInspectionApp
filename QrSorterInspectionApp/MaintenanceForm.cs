@@ -13,6 +13,7 @@ namespace QrSorterInspectionApp
 {
     public partial class MaintenanceForm : Form
     {
+        private string[] sDipSwitch = new string[16] {"1","0","1","0","1","0","1","0","1","0","1","0","1","0","1","0" };
         public MaintenanceForm()
         {
             InitializeComponent();
@@ -142,6 +143,9 @@ namespace QrSorterInspectionApp
 
                 // 「スタッカー状態と設定」タブの名称設定
                 ReadStackerSetValue();
+
+                // DIP SW の状態を更新
+                UpdateDipSwitchStatus();
             }
             catch (Exception ex)
             {
@@ -330,10 +334,9 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace, "【メンテンス画面】【BtnDeleteLogData_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【メンテンス画面】【BtnDeleteLogData_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         /// <summary>
         /// 仕分けマスタの内容表示（テキスト及びリストビュー）
@@ -857,6 +860,249 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.StackTrace, "【ReadStackerSetValue】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+    
+
+        private void SetDipSwitch(int row, string sDipSwitch, Button btnDipOn, Button btnDipOff)
+        {
+            if (sDipSwitch == "1")
+            {
+                btnDipOn.Visible = true;
+                btnDipOff.Visible = false;
+                LstPanelDipInfo.Items[row].SubItems[1].BackColor = Color.Yellow;
+                LstPanelDipInfo.Items[row].SubItems[1].ForeColor = Color.Black;
+                LstPanelDipInfo.Items[row].SubItems[2].BackColor = Color.White;
+                LstPanelDipInfo.Items[row].SubItems[2].ForeColor = Color.Black;
+            }
+            else
+            {
+                btnDipOn.Visible = false;
+                btnDipOff.Visible = true;
+                LstPanelDipInfo.Items[row].SubItems[1].BackColor = Color.White;
+                LstPanelDipInfo.Items[row].SubItems[1].ForeColor = Color.Black;
+                LstPanelDipInfo.Items[row].SubItems[2].BackColor = Color.Yellow;
+                LstPanelDipInfo.Items[row].SubItems[2].ForeColor = Color.Black;
+            }
+        }
+
+        private void UpdateDipSwitchStatus()
+        {
+            try
+            {
+                SetDipSwitch(0, sDipSwitch[0], BtnDipOn1, BtnDipOff1);
+                SetDipSwitch(1, sDipSwitch[1], BtnDipOn2, BtnDipOff2);
+                SetDipSwitch(2, sDipSwitch[2], BtnDipOn3, BtnDipOff3);
+                SetDipSwitch(3, sDipSwitch[3], BtnDipOn4, BtnDipOff4);
+                SetDipSwitch(4, sDipSwitch[4], BtnDipOn5, BtnDipOff5);
+                SetDipSwitch(5, sDipSwitch[5], BtnDipOn6, BtnDipOff6);
+                SetDipSwitch(6, sDipSwitch[6], BtnDipOn7, BtnDipOff7);
+                SetDipSwitch(7, sDipSwitch[7], BtnDipOn8, BtnDipOff8);
+                SetDipSwitch(8, sDipSwitch[8], BtnDipOn9, BtnDipOff9);
+                SetDipSwitch(9, sDipSwitch[9], BtnDipOn10, BtnDipOff10);
+                SetDipSwitch(10, sDipSwitch[10], BtnDipOn11, BtnDipOff11);
+                SetDipSwitch(11, sDipSwitch[11], BtnDipOn12, BtnDipOff12);
+                SetDipSwitch(12, sDipSwitch[12], BtnDipOn13, BtnDipOff13);
+                SetDipSwitch(13, sDipSwitch[13], BtnDipOn14, BtnDipOff14);
+                SetDipSwitch(14, sDipSwitch[14], BtnDipOn15, BtnDipOff15);
+                SetDipSwitch(15, sDipSwitch[15], BtnDipOn16, BtnDipOff16);                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【メンテンス画面】【UpdateDipSwitchStatus】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnDipOn1_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[0] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff1_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[0] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn2_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[1] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff2_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[1] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn3_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[2] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff3_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[2] = "1";
+            UpdateDipSwitchStatus();
+
+        }
+
+        private void BtnDipOn4_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[3] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff4_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[3] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn5_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[4] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff5_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[4] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn6_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[5] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff6_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[5] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn7_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[6] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff7_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[6] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn8_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[7] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff8_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[7] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn9_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[8] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff9_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[8] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn10_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[9] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff10_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[9] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn11_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[10] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff11_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[10] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn12_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[11] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff12_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[11] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn13_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[12] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff13_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[12] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn14_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[13] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff14_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[13] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn15_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[14] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff15_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[14] = "1";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOn16_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[15] = "0";
+            UpdateDipSwitchStatus();
+        }
+
+        private void BtnDipOff16_Click(object sender, EventArgs e)
+        {
+            sDipSwitch[15] = "1";
+            UpdateDipSwitchStatus();
         }
     }
 }

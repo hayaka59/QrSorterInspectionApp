@@ -33,6 +33,7 @@
             this.LblVersion = new System.Windows.Forms.Label();
             this.GroupBox11 = new System.Windows.Forms.GroupBox();
             this.CmbSaveMonth = new System.Windows.Forms.ComboBox();
+            this.BtnDeleteLogData = new System.Windows.Forms.Button();
             this.Label36 = new System.Windows.Forms.Label();
             this.GroupBox7 = new System.Windows.Forms.GroupBox();
             this.CmbComParityVar = new System.Windows.Forms.ComboBox();
@@ -56,26 +57,20 @@
             this.TxtUserAccount = new System.Windows.Forms.TextBox();
             this.GroupBox8 = new System.Windows.Forms.GroupBox();
             this.TxtInternalTran = new System.Windows.Forms.TextBox();
+            this.BtnInternalTran = new System.Windows.Forms.Button();
             this.Label33 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LblCount = new System.Windows.Forms.Label();
             this.groupBox46 = new System.Windows.Forms.GroupBox();
+            this.BtnNonDeliverySave = new System.Windows.Forms.Button();
             this.TxtNonDelivery = new System.Windows.Forms.TextBox();
             this.LstNonDelivery = new System.Windows.Forms.ListView();
             this.LblNonDelivery = new System.Windows.Forms.Label();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.PctLogo = new System.Windows.Forms.PictureBox();
             this.BtnDecript = new System.Windows.Forms.Button();
-            this.BtnNonDeliverySave = new System.Windows.Forms.Button();
             this.BtnEncript = new System.Windows.Forms.Button();
-            this.BtnInternalTran = new System.Windows.Forms.Button();
-            this.BtnDeleteLogData = new System.Windows.Forms.Button();
-            this.BtnApply = new System.Windows.Forms.Button();
-            this.BtnClose = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.LblRcvData = new System.Windows.Forms.Label();
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
             this.LblDispInPut16 = new System.Windows.Forms.Label();
@@ -136,6 +131,7 @@
             this.RdoOutPut3 = new System.Windows.Forms.RadioButton();
             this.RdoOutPut2 = new System.Windows.Forms.RadioButton();
             this.RdoOutPut1 = new System.Windows.Forms.RadioButton();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.LstPanelDipInfo = new System.Windows.Forms.ListView();
             this.ColumnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -254,6 +250,7 @@
             this.BtnDipOn1 = new System.Windows.Forms.Button();
             this.BtnDipOff1 = new System.Windows.Forms.Button();
             this.Label54 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -327,6 +324,9 @@
             this.RdoStackerOutPut3 = new System.Windows.Forms.RadioButton();
             this.RdoStackerOutPut2 = new System.Windows.Forms.RadioButton();
             this.RdoStackerOutPut1 = new System.Windows.Forms.RadioButton();
+            this.PctLogo = new System.Windows.Forms.PictureBox();
+            this.BtnApply = new System.Windows.Forms.Button();
+            this.BtnClose = new System.Windows.Forms.Button();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox6.SuspendLayout();
@@ -337,12 +337,10 @@
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.GroupBox3.SuspendLayout();
             this.GroupBox2.SuspendLayout();
             this.GrpBoxOutput.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.Panel9.SuspendLayout();
             this.Panel10.SuspendLayout();
             this.Panel11.SuspendLayout();
@@ -359,9 +357,11 @@
             this.Panel3.SuspendLayout();
             this.Panel2.SuspendLayout();
             this.Panel17.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox30.SuspendLayout();
             this.GrpStacker.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // LblTitle
@@ -412,6 +412,20 @@
             this.CmbSaveMonth.Name = "CmbSaveMonth";
             this.CmbSaveMonth.Size = new System.Drawing.Size(199, 32);
             this.CmbSaveMonth.TabIndex = 90;
+            // 
+            // BtnDeleteLogData
+            // 
+            this.BtnDeleteLogData.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnDeleteLogData.Image = global::QrSorterInspectionApp.Properties.Resources.trash_icon;
+            this.BtnDeleteLogData.Location = new System.Drawing.Point(19, 73);
+            this.BtnDeleteLogData.Name = "BtnDeleteLogData";
+            this.BtnDeleteLogData.Size = new System.Drawing.Size(288, 48);
+            this.BtnDeleteLogData.TabIndex = 89;
+            this.BtnDeleteLogData.Text = "ログデータ手動削除";
+            this.BtnDeleteLogData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDeleteLogData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnDeleteLogData.UseVisualStyleBackColor = true;
+            this.BtnDeleteLogData.Click += new System.EventHandler(this.BtnDeleteLogData_Click);
             // 
             // Label36
             // 
@@ -679,6 +693,20 @@
             this.TxtInternalTran.Size = new System.Drawing.Size(589, 39);
             this.TxtInternalTran.TabIndex = 90;
             // 
+            // BtnInternalTran
+            // 
+            this.BtnInternalTran.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnInternalTran.Image = ((System.Drawing.Image)(resources.GetObject("BtnInternalTran.Image")));
+            this.BtnInternalTran.Location = new System.Drawing.Point(714, 25);
+            this.BtnInternalTran.Name = "BtnInternalTran";
+            this.BtnInternalTran.Size = new System.Drawing.Size(139, 50);
+            this.BtnInternalTran.TabIndex = 89;
+            this.BtnInternalTran.Text = "選択...";
+            this.BtnInternalTran.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnInternalTran.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnInternalTran.UseVisualStyleBackColor = true;
+            this.BtnInternalTran.Click += new System.EventHandler(this.BtnInternalTran_Click);
+            // 
             // Label33
             // 
             this.Label33.BackColor = System.Drawing.Color.Blue;
@@ -727,6 +755,20 @@
             this.groupBox46.TabIndex = 202;
             this.groupBox46.TabStop = false;
             this.groupBox46.Text = "仕分けマスタファイルの内容";
+            // 
+            // BtnNonDeliverySave
+            // 
+            this.BtnNonDeliverySave.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnNonDeliverySave.Image = global::QrSorterInspectionApp.Properties.Resources.save_icon;
+            this.BtnNonDeliverySave.Location = new System.Drawing.Point(16, 336);
+            this.BtnNonDeliverySave.Name = "BtnNonDeliverySave";
+            this.BtnNonDeliverySave.Size = new System.Drawing.Size(322, 42);
+            this.BtnNonDeliverySave.TabIndex = 196;
+            this.BtnNonDeliverySave.Text = "仕分けマスタの保存";
+            this.BtnNonDeliverySave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnNonDeliverySave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnNonDeliverySave.UseVisualStyleBackColor = true;
+            this.BtnNonDeliverySave.Click += new System.EventHandler(this.BtnNonDeliverySave_Click);
             // 
             // TxtNonDelivery
             // 
@@ -797,30 +839,6 @@
             this.tabPage1.Text = "システム設定";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.LblRcvData);
-            this.tabPage2.Controls.Add(this.GroupBox3);
-            this.tabPage2.Controls.Add(this.GroupBox2);
-            this.tabPage2.Controls.Add(this.GrpBoxOutput);
-            this.tabPage2.Location = new System.Drawing.Point(4, 33);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1664, 796);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "装置状態";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // PctLogo
-            // 
-            this.PctLogo.Image = global::QrSorterInspectionApp.Properties.Resources.株式会社Ai_R横黒色背景透明;
-            this.PctLogo.Location = new System.Drawing.Point(1299, 954);
-            this.PctLogo.Name = "PctLogo";
-            this.PctLogo.Size = new System.Drawing.Size(288, 42);
-            this.PctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PctLogo.TabIndex = 256;
-            this.PctLogo.TabStop = false;
-            // 
             // BtnDecript
             // 
             this.BtnDecript.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -835,20 +853,6 @@
             this.BtnDecript.UseVisualStyleBackColor = true;
             this.BtnDecript.Visible = false;
             this.BtnDecript.Click += new System.EventHandler(this.BtnDecript_Click);
-            // 
-            // BtnNonDeliverySave
-            // 
-            this.BtnNonDeliverySave.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnNonDeliverySave.Image = global::QrSorterInspectionApp.Properties.Resources.save_icon;
-            this.BtnNonDeliverySave.Location = new System.Drawing.Point(16, 336);
-            this.BtnNonDeliverySave.Name = "BtnNonDeliverySave";
-            this.BtnNonDeliverySave.Size = new System.Drawing.Size(322, 42);
-            this.BtnNonDeliverySave.TabIndex = 196;
-            this.BtnNonDeliverySave.Text = "仕分けマスタの保存";
-            this.BtnNonDeliverySave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnNonDeliverySave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnNonDeliverySave.UseVisualStyleBackColor = true;
-            this.BtnNonDeliverySave.Click += new System.EventHandler(this.BtnNonDeliverySave_Click);
             // 
             // BtnEncript
             // 
@@ -865,119 +869,19 @@
             this.BtnEncript.Visible = false;
             this.BtnEncript.Click += new System.EventHandler(this.BtnEncript_Click);
             // 
-            // BtnInternalTran
+            // tabPage2
             // 
-            this.BtnInternalTran.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnInternalTran.Image = ((System.Drawing.Image)(resources.GetObject("BtnInternalTran.Image")));
-            this.BtnInternalTran.Location = new System.Drawing.Point(714, 25);
-            this.BtnInternalTran.Name = "BtnInternalTran";
-            this.BtnInternalTran.Size = new System.Drawing.Size(139, 50);
-            this.BtnInternalTran.TabIndex = 89;
-            this.BtnInternalTran.Text = "選択...";
-            this.BtnInternalTran.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnInternalTran.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnInternalTran.UseVisualStyleBackColor = true;
-            this.BtnInternalTran.Click += new System.EventHandler(this.BtnInternalTran_Click);
-            // 
-            // BtnDeleteLogData
-            // 
-            this.BtnDeleteLogData.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnDeleteLogData.Image = global::QrSorterInspectionApp.Properties.Resources.trash_icon;
-            this.BtnDeleteLogData.Location = new System.Drawing.Point(19, 73);
-            this.BtnDeleteLogData.Name = "BtnDeleteLogData";
-            this.BtnDeleteLogData.Size = new System.Drawing.Size(288, 48);
-            this.BtnDeleteLogData.TabIndex = 89;
-            this.BtnDeleteLogData.Text = "ログデータ手動削除";
-            this.BtnDeleteLogData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDeleteLogData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnDeleteLogData.UseVisualStyleBackColor = true;
-            this.BtnDeleteLogData.Click += new System.EventHandler(this.BtnDeleteLogData_Click);
-            // 
-            // BtnApply
-            // 
-            this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnApply.Image = global::QrSorterInspectionApp.Properties.Resources.check;
-            this.BtnApply.Location = new System.Drawing.Point(120, 946);
-            this.BtnApply.Name = "BtnApply";
-            this.BtnApply.Size = new System.Drawing.Size(166, 50);
-            this.BtnApply.TabIndex = 242;
-            this.BtnApply.Text = "適用";
-            this.BtnApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnApply.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnApply.UseVisualStyleBackColor = true;
-            this.BtnApply.Click += new System.EventHandler(this.BtnApply_Click);
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1618, 946);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(166, 50);
-            this.BtnClose.TabIndex = 240;
-            this.BtnClose.Text = "戻る";
-            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.LstPanelDipInfo);
-            this.tabPage3.Controls.Add(this.LblBitOrder2);
-            this.tabPage3.Controls.Add(this.Label46);
-            this.tabPage3.Controls.Add(this.Label48);
-            this.tabPage3.Controls.Add(this.Label49);
-            this.tabPage3.Controls.Add(this.Label51);
-            this.tabPage3.Controls.Add(this.Label53);
-            this.tabPage3.Controls.Add(this.Label56);
-            this.tabPage3.Controls.Add(this.Label57);
-            this.tabPage3.Controls.Add(this.Panel9);
-            this.tabPage3.Controls.Add(this.Panel10);
-            this.tabPage3.Controls.Add(this.Panel11);
-            this.tabPage3.Controls.Add(this.Panel12);
-            this.tabPage3.Controls.Add(this.Panel13);
-            this.tabPage3.Controls.Add(this.Panel14);
-            this.tabPage3.Controls.Add(this.Panel15);
-            this.tabPage3.Controls.Add(this.Label90);
-            this.tabPage3.Controls.Add(this.Panel16);
-            this.tabPage3.Controls.Add(this.LblBitOrder1);
-            this.tabPage3.Controls.Add(this.Label74);
-            this.tabPage3.Controls.Add(this.Label73);
-            this.tabPage3.Controls.Add(this.Label72);
-            this.tabPage3.Controls.Add(this.Label71);
-            this.tabPage3.Controls.Add(this.Label70);
-            this.tabPage3.Controls.Add(this.Label69);
-            this.tabPage3.Controls.Add(this.Label68);
-            this.tabPage3.Controls.Add(this.Panel8);
-            this.tabPage3.Controls.Add(this.Panel7);
-            this.tabPage3.Controls.Add(this.Panel6);
-            this.tabPage3.Controls.Add(this.Panel5);
-            this.tabPage3.Controls.Add(this.Panel4);
-            this.tabPage3.Controls.Add(this.Panel3);
-            this.tabPage3.Controls.Add(this.Panel2);
-            this.tabPage3.Controls.Add(this.Label52);
-            this.tabPage3.Controls.Add(this.Panel17);
-            this.tabPage3.Location = new System.Drawing.Point(4, 33);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1664, 796);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "装置設定";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.groupBox4);
-            this.tabPage4.Controls.Add(this.groupBox30);
-            this.tabPage4.Controls.Add(this.GrpStacker);
-            this.tabPage4.Location = new System.Drawing.Point(4, 33);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1664, 796);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "スタッカー状態と設定";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.LblRcvData);
+            this.tabPage2.Controls.Add(this.GroupBox3);
+            this.tabPage2.Controls.Add(this.GroupBox2);
+            this.tabPage2.Controls.Add(this.GrpBoxOutput);
+            this.tabPage2.Location = new System.Drawing.Point(4, 33);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1664, 796);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "装置状態";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // LblRcvData
             // 
@@ -1819,6 +1723,51 @@
             this.RdoOutPut1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut1.UseVisualStyleBackColor = false;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.LstPanelDipInfo);
+            this.tabPage3.Controls.Add(this.LblBitOrder2);
+            this.tabPage3.Controls.Add(this.Label46);
+            this.tabPage3.Controls.Add(this.Label48);
+            this.tabPage3.Controls.Add(this.Label49);
+            this.tabPage3.Controls.Add(this.Label51);
+            this.tabPage3.Controls.Add(this.Label53);
+            this.tabPage3.Controls.Add(this.Label56);
+            this.tabPage3.Controls.Add(this.Label57);
+            this.tabPage3.Controls.Add(this.Panel9);
+            this.tabPage3.Controls.Add(this.Panel10);
+            this.tabPage3.Controls.Add(this.Panel11);
+            this.tabPage3.Controls.Add(this.Panel12);
+            this.tabPage3.Controls.Add(this.Panel13);
+            this.tabPage3.Controls.Add(this.Panel14);
+            this.tabPage3.Controls.Add(this.Panel15);
+            this.tabPage3.Controls.Add(this.Label90);
+            this.tabPage3.Controls.Add(this.Panel16);
+            this.tabPage3.Controls.Add(this.LblBitOrder1);
+            this.tabPage3.Controls.Add(this.Label74);
+            this.tabPage3.Controls.Add(this.Label73);
+            this.tabPage3.Controls.Add(this.Label72);
+            this.tabPage3.Controls.Add(this.Label71);
+            this.tabPage3.Controls.Add(this.Label70);
+            this.tabPage3.Controls.Add(this.Label69);
+            this.tabPage3.Controls.Add(this.Label68);
+            this.tabPage3.Controls.Add(this.Panel8);
+            this.tabPage3.Controls.Add(this.Panel7);
+            this.tabPage3.Controls.Add(this.Panel6);
+            this.tabPage3.Controls.Add(this.Panel5);
+            this.tabPage3.Controls.Add(this.Panel4);
+            this.tabPage3.Controls.Add(this.Panel3);
+            this.tabPage3.Controls.Add(this.Panel2);
+            this.tabPage3.Controls.Add(this.Label52);
+            this.tabPage3.Controls.Add(this.Panel17);
+            this.tabPage3.Location = new System.Drawing.Point(4, 33);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1664, 796);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "装置設定";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // LstPanelDipInfo
             // 
             this.LstPanelDipInfo.BackColor = System.Drawing.Color.White;
@@ -1983,6 +1932,7 @@
             this.BtnDipOn16.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn16.TabIndex = 2;
             this.BtnDipOn16.UseVisualStyleBackColor = true;
+            this.BtnDipOn16.Click += new System.EventHandler(this.BtnDipOn16_Click);
             // 
             // BtnDipOff16
             // 
@@ -1991,6 +1941,7 @@
             this.BtnDipOff16.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff16.TabIndex = 1;
             this.BtnDipOff16.UseVisualStyleBackColor = true;
+            this.BtnDipOff16.Click += new System.EventHandler(this.BtnDipOff16_Click);
             // 
             // Label62
             // 
@@ -2042,6 +1993,7 @@
             this.BtnDipOn15.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn15.TabIndex = 2;
             this.BtnDipOn15.UseVisualStyleBackColor = true;
+            this.BtnDipOn15.Click += new System.EventHandler(this.BtnDipOn15_Click);
             // 
             // BtnDipOff15
             // 
@@ -2050,6 +2002,7 @@
             this.BtnDipOff15.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff15.TabIndex = 1;
             this.BtnDipOff15.UseVisualStyleBackColor = true;
+            this.BtnDipOff15.Click += new System.EventHandler(this.BtnDipOff15_Click);
             // 
             // Label66
             // 
@@ -2101,6 +2054,7 @@
             this.BtnDipOn14.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn14.TabIndex = 2;
             this.BtnDipOn14.UseVisualStyleBackColor = true;
+            this.BtnDipOn14.Click += new System.EventHandler(this.BtnDipOn14_Click);
             // 
             // BtnDipOff14
             // 
@@ -2109,6 +2063,7 @@
             this.BtnDipOff14.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff14.TabIndex = 1;
             this.BtnDipOff14.UseVisualStyleBackColor = true;
+            this.BtnDipOff14.Click += new System.EventHandler(this.BtnDipOff14_Click);
             // 
             // Label77
             // 
@@ -2160,6 +2115,7 @@
             this.BtnDipOn13.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn13.TabIndex = 2;
             this.BtnDipOn13.UseVisualStyleBackColor = true;
+            this.BtnDipOn13.Click += new System.EventHandler(this.BtnDipOn13_Click);
             // 
             // BtnDipOff13
             // 
@@ -2168,6 +2124,7 @@
             this.BtnDipOff13.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff13.TabIndex = 1;
             this.BtnDipOff13.UseVisualStyleBackColor = true;
+            this.BtnDipOff13.Click += new System.EventHandler(this.BtnDipOff13_Click);
             // 
             // Label80
             // 
@@ -2219,6 +2176,7 @@
             this.BtnDipOn12.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn12.TabIndex = 2;
             this.BtnDipOn12.UseVisualStyleBackColor = true;
+            this.BtnDipOn12.Click += new System.EventHandler(this.BtnDipOn12_Click);
             // 
             // BtnDipOff12
             // 
@@ -2227,6 +2185,7 @@
             this.BtnDipOff12.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff12.TabIndex = 1;
             this.BtnDipOff12.UseVisualStyleBackColor = true;
+            this.BtnDipOff12.Click += new System.EventHandler(this.BtnDipOff12_Click);
             // 
             // Label83
             // 
@@ -2278,6 +2237,7 @@
             this.BtnDipOn11.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn11.TabIndex = 2;
             this.BtnDipOn11.UseVisualStyleBackColor = true;
+            this.BtnDipOn11.Click += new System.EventHandler(this.BtnDipOn11_Click);
             // 
             // BtnDipOff11
             // 
@@ -2286,6 +2246,7 @@
             this.BtnDipOff11.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff11.TabIndex = 1;
             this.BtnDipOff11.UseVisualStyleBackColor = true;
+            this.BtnDipOff11.Click += new System.EventHandler(this.BtnDipOff11_Click);
             // 
             // Label86
             // 
@@ -2337,6 +2298,7 @@
             this.BtnDipOn10.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn10.TabIndex = 2;
             this.BtnDipOn10.UseVisualStyleBackColor = true;
+            this.BtnDipOn10.Click += new System.EventHandler(this.BtnDipOn10_Click);
             // 
             // BtnDipOff10
             // 
@@ -2345,6 +2307,7 @@
             this.BtnDipOff10.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff10.TabIndex = 1;
             this.BtnDipOff10.UseVisualStyleBackColor = true;
+            this.BtnDipOff10.Click += new System.EventHandler(this.BtnDipOff10_Click);
             // 
             // Label89
             // 
@@ -2407,6 +2370,7 @@
             this.BtnDipOn9.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn9.TabIndex = 2;
             this.BtnDipOn9.UseVisualStyleBackColor = true;
+            this.BtnDipOn9.Click += new System.EventHandler(this.BtnDipOn9_Click);
             // 
             // BtnDipOff9
             // 
@@ -2415,6 +2379,7 @@
             this.BtnDipOff9.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff9.TabIndex = 1;
             this.BtnDipOff9.UseVisualStyleBackColor = true;
+            this.BtnDipOff9.Click += new System.EventHandler(this.BtnDipOff9_Click);
             // 
             // Label93
             // 
@@ -2554,6 +2519,7 @@
             this.BtnDipOn8.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn8.TabIndex = 2;
             this.BtnDipOn8.UseVisualStyleBackColor = true;
+            this.BtnDipOn8.Click += new System.EventHandler(this.BtnDipOn8_Click);
             // 
             // BtnDipOff8
             // 
@@ -2562,6 +2528,7 @@
             this.BtnDipOff8.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff8.TabIndex = 1;
             this.BtnDipOff8.UseVisualStyleBackColor = true;
+            this.BtnDipOff8.Click += new System.EventHandler(this.BtnDipOff8_Click);
             // 
             // Label67
             // 
@@ -2613,6 +2580,7 @@
             this.BtnDipOn7.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn7.TabIndex = 2;
             this.BtnDipOn7.UseVisualStyleBackColor = true;
+            this.BtnDipOn7.Click += new System.EventHandler(this.BtnDipOn7_Click);
             // 
             // BtnDipOff7
             // 
@@ -2621,6 +2589,7 @@
             this.BtnDipOff7.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff7.TabIndex = 1;
             this.BtnDipOff7.UseVisualStyleBackColor = true;
+            this.BtnDipOff7.Click += new System.EventHandler(this.BtnDipOff7_Click);
             // 
             // Label64
             // 
@@ -2672,6 +2641,7 @@
             this.BtnDipOn6.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn6.TabIndex = 2;
             this.BtnDipOn6.UseVisualStyleBackColor = true;
+            this.BtnDipOn6.Click += new System.EventHandler(this.BtnDipOn6_Click);
             // 
             // BtnDipOff6
             // 
@@ -2680,6 +2650,7 @@
             this.BtnDipOff6.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff6.TabIndex = 1;
             this.BtnDipOff6.UseVisualStyleBackColor = true;
+            this.BtnDipOff6.Click += new System.EventHandler(this.BtnDipOff6_Click);
             // 
             // Label61
             // 
@@ -2731,6 +2702,7 @@
             this.BtnDipOn5.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn5.TabIndex = 2;
             this.BtnDipOn5.UseVisualStyleBackColor = true;
+            this.BtnDipOn5.Click += new System.EventHandler(this.BtnDipOn5_Click);
             // 
             // BtnDipOff5
             // 
@@ -2739,6 +2711,7 @@
             this.BtnDipOff5.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff5.TabIndex = 1;
             this.BtnDipOff5.UseVisualStyleBackColor = true;
+            this.BtnDipOff5.Click += new System.EventHandler(this.BtnDipOff5_Click);
             // 
             // Label58
             // 
@@ -2790,6 +2763,7 @@
             this.BtnDipOn4.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn4.TabIndex = 2;
             this.BtnDipOn4.UseVisualStyleBackColor = true;
+            this.BtnDipOn4.Click += new System.EventHandler(this.BtnDipOn4_Click);
             // 
             // BtnDipOff4
             // 
@@ -2798,6 +2772,7 @@
             this.BtnDipOff4.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff4.TabIndex = 1;
             this.BtnDipOff4.UseVisualStyleBackColor = true;
+            this.BtnDipOff4.Click += new System.EventHandler(this.BtnDipOff4_Click);
             // 
             // Label55
             // 
@@ -2849,6 +2824,7 @@
             this.BtnDipOn3.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn3.TabIndex = 2;
             this.BtnDipOn3.UseVisualStyleBackColor = true;
+            this.BtnDipOn3.Click += new System.EventHandler(this.BtnDipOn3_Click);
             // 
             // BtnDipOff3
             // 
@@ -2857,6 +2833,7 @@
             this.BtnDipOff3.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff3.TabIndex = 1;
             this.BtnDipOff3.UseVisualStyleBackColor = true;
+            this.BtnDipOff3.Click += new System.EventHandler(this.BtnDipOff3_Click);
             // 
             // Label50
             // 
@@ -2908,6 +2885,7 @@
             this.BtnDipOn2.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn2.TabIndex = 2;
             this.BtnDipOn2.UseVisualStyleBackColor = true;
+            this.BtnDipOn2.Click += new System.EventHandler(this.BtnDipOn2_Click);
             // 
             // BtnDipOff2
             // 
@@ -2916,6 +2894,7 @@
             this.BtnDipOff2.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff2.TabIndex = 1;
             this.BtnDipOff2.UseVisualStyleBackColor = true;
+            this.BtnDipOff2.Click += new System.EventHandler(this.BtnDipOff2_Click);
             // 
             // Label47
             // 
@@ -2978,6 +2957,7 @@
             this.BtnDipOn1.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOn1.TabIndex = 2;
             this.BtnDipOn1.UseVisualStyleBackColor = true;
+            this.BtnDipOn1.Click += new System.EventHandler(this.BtnDipOn1_Click);
             // 
             // BtnDipOff1
             // 
@@ -2986,6 +2966,7 @@
             this.BtnDipOff1.Size = new System.Drawing.Size(50, 50);
             this.BtnDipOff1.TabIndex = 1;
             this.BtnDipOff1.UseVisualStyleBackColor = true;
+            this.BtnDipOff1.Click += new System.EventHandler(this.BtnDipOff1_Click);
             // 
             // Label54
             // 
@@ -2994,6 +2975,19 @@
             this.Label54.Name = "Label54";
             this.Label54.Size = new System.Drawing.Size(60, 115);
             this.Label54.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox4);
+            this.tabPage4.Controls.Add(this.groupBox30);
+            this.tabPage4.Controls.Add(this.GrpStacker);
+            this.tabPage4.Location = new System.Drawing.Point(4, 33);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1664, 796);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "スタッカー状態と設定";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -3996,6 +3990,44 @@
             this.RdoStackerOutPut1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoStackerOutPut1.UseVisualStyleBackColor = false;
             // 
+            // PctLogo
+            // 
+            this.PctLogo.Image = global::QrSorterInspectionApp.Properties.Resources.株式会社Ai_R横黒色背景透明;
+            this.PctLogo.Location = new System.Drawing.Point(1299, 954);
+            this.PctLogo.Name = "PctLogo";
+            this.PctLogo.Size = new System.Drawing.Size(288, 42);
+            this.PctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PctLogo.TabIndex = 256;
+            this.PctLogo.TabStop = false;
+            // 
+            // BtnApply
+            // 
+            this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnApply.Image = global::QrSorterInspectionApp.Properties.Resources.check;
+            this.BtnApply.Location = new System.Drawing.Point(120, 946);
+            this.BtnApply.Name = "BtnApply";
+            this.BtnApply.Size = new System.Drawing.Size(166, 50);
+            this.BtnApply.TabIndex = 242;
+            this.BtnApply.Text = "適用";
+            this.BtnApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnApply.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnApply.UseVisualStyleBackColor = true;
+            this.BtnApply.Click += new System.EventHandler(this.BtnApply_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
+            this.BtnClose.Location = new System.Drawing.Point(1618, 946);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(166, 50);
+            this.BtnClose.TabIndex = 240;
+            this.BtnClose.Text = "戻る";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
             // MaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -4030,12 +4062,10 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
             this.GroupBox3.ResumeLayout(false);
             this.GroupBox2.ResumeLayout(false);
             this.GrpBoxOutput.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.Panel9.ResumeLayout(false);
             this.Panel10.ResumeLayout(false);
             this.Panel11.ResumeLayout(false);
@@ -4052,10 +4082,12 @@
             this.Panel3.ResumeLayout(false);
             this.Panel2.ResumeLayout(false);
             this.Panel17.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox30.ResumeLayout(false);
             this.GrpStacker.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
