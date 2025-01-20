@@ -426,6 +426,12 @@ namespace QrSorterInspectionApp
                                     PubConstClass.pblInternalTranFolder = strArray[1];
                                     break;
                                 }
+                            // DIP-SW
+                            case PubConstClass.DEF_DIP_SW:
+                                {
+                                    PubConstClass.pblDipSw = strArray[1];
+                                    break;
+                                }
                             // COMポート名
                             case PubConstClass.DEF_COMPORT:
                                 {
@@ -499,6 +505,8 @@ namespace QrSorterInspectionApp
                     sw.WriteLine(PubConstClass.DEF_HDD_SPACE + "," + PubConstClass.pblHddSpace);
                     // 内部実績ログ格納フォルダ
                     sw.WriteLine(PubConstClass.DEF_INTERNAL_TRAN_FOLDER + "," + PubConstClass.pblInternalTranFolder);
+                    // DIP-SW
+                    sw.WriteLine(PubConstClass.DEF_DIP_SW + "," + PubConstClass.pblDipSw);
                     // COMポート名
                     sw.WriteLine(PubConstClass.DEF_COMPORT + "," + PubConstClass.pblComPort);
                     // COM通信速度

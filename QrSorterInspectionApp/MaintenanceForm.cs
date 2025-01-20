@@ -14,6 +14,7 @@ namespace QrSorterInspectionApp
     public partial class MaintenanceForm : Form
     {
         private string[] sDipSwitch = new string[16] {"1","0","1","0","1","0","1","0","1","0","1","0","1","0","1","0" };
+
         public MaintenanceForm()
         {
             InitializeComponent();
@@ -144,6 +145,11 @@ namespace QrSorterInspectionApp
                 // 「スタッカー状態と設定」タブの名称設定
                 ReadStackerSetValue();
 
+                // 定義ファイルからのDIP SWの値を展開
+                for (int iIndex = 0; iIndex < sDipSwitch.Length; iIndex++)
+                {
+                    sDipSwitch[iIndex] = PubConstClass.pblDipSw.Substring(iIndex, 1);
+                }
                 // DIP SW の状態を更新
                 UpdateDipSwitchStatus();
             }
@@ -193,7 +199,13 @@ namespace QrSorterInspectionApp
                     PubConstClass.pblHddSpace = TxtHddSpace.Text;
                     // ログの保存期間
                     PubConstClass.pblSaveLogMonth = (CmbSaveMonth.SelectedIndex + 1).ToString();
-                    
+                    // DIP SW
+                    PubConstClass.pblDipSw = "";
+                    for (int iIndex = 0; iIndex < sDipSwitch.Length; iIndex++)
+                    {
+                        PubConstClass.pblDipSw += sDipSwitch[iIndex];
+                    }
+                    // 通信設定
                     PubConstClass.pblComPort = CmbComPort.SelectedItem.ToString();
                     PubConstClass.pblComSpeed = CmbComSpeed.SelectedIndex.ToString();
                     PubConstClass.pblComDataLength = CmbComDataLength.SelectedIndex.ToString();
