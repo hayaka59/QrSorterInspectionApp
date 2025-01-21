@@ -60,6 +60,7 @@
             this.BtnMaintenance = new System.Windows.Forms.Button();
             this.BtnSendTestData = new System.Windows.Forms.Button();
             this.BtnEnd = new System.Windows.Forms.Button();
+            this.BtnInputOutput = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -364,7 +365,7 @@
             // 
             this.BtnMaintenance.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnMaintenance.Image = global::QrSorterSimulatorApp.Properties.Resources.settei;
-            this.BtnMaintenance.Location = new System.Drawing.Point(38, 578);
+            this.BtnMaintenance.Location = new System.Drawing.Point(382, 504);
             this.BtnMaintenance.Name = "BtnMaintenance";
             this.BtnMaintenance.Size = new System.Drawing.Size(113, 45);
             this.BtnMaintenance.TabIndex = 320;
@@ -401,12 +402,27 @@
             this.BtnEnd.UseVisualStyleBackColor = true;
             this.BtnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
             // 
+            // BtnInputOutput
+            // 
+            this.BtnInputOutput.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnInputOutput.Image = global::QrSorterSimulatorApp.Properties.Resources.bubble;
+            this.BtnInputOutput.Location = new System.Drawing.Point(38, 600);
+            this.BtnInputOutput.Name = "BtnInputOutput";
+            this.BtnInputOutput.Size = new System.Drawing.Size(257, 45);
+            this.BtnInputOutput.TabIndex = 334;
+            this.BtnInputOutput.Text = "I/O（K）";
+            this.BtnInputOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnInputOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnInputOutput.UseVisualStyleBackColor = true;
+            this.BtnInputOutput.Click += new System.EventHandler(this.BtnInputOutput_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnInputOutput);
             this.Controls.Add(this.BtnConfirmation);
             this.Controls.Add(this.BtnError);
             this.Controls.Add(this.BtnStop);
@@ -481,6 +497,7 @@
         private System.Windows.Forms.Button BtnStop;
         private System.Windows.Forms.Button BtnError;
         private System.Windows.Forms.Button BtnConfirmation;
+        private System.Windows.Forms.Button BtnInputOutput;
     }
 }
 

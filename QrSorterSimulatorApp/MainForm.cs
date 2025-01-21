@@ -511,5 +511,44 @@ namespace QrSorterSimulatorApp
                 MessageBox.Show(ex.Message, "【BtnConfirmation_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private int iIoIndex = 0;
+
+        private void BtnInputOutput_Click(object sender, EventArgs e)
+        {
+            //string sSendData = "1234567890123456";
+
+            try
+            {
+                string sData = "";
+                sData += PubConstClass.CMD_SEND_K;
+
+                if (iIoIndex < 10)
+                {
+                    sData += iIoIndex.ToString("0");
+                }
+                else
+                {
+                    sData += Convert.ToString(iIoIndex, 16).ToUpper();
+                }                
+                sData += DateTime.Now.ToString("HH:mm:ss.fff");
+
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LsbSendBox.Items.Add($"{sData}<CR>");
+                LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
+
+                iIoIndex++;
+                if (iIoIndex >= 16)
+                {
+                    iIoIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnConfirmation_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
