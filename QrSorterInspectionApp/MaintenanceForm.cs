@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace QrSorterInspectionApp
 {
     public partial class MaintenanceForm : Form
     {
+        private delegate void Delegate_RcvDataToTextBox(string data);
+
         private string[] sDipSwitch = new string[16] {"1","0","1","0","1","0","1","0","1","0","1","0","1","0","1","0" };
 
         public MaintenanceForm()
@@ -152,6 +155,129 @@ namespace QrSorterInspectionApp
                 }
                 // DIP SW の状態を更新
                 UpdateDipSwitchStatus();
+
+                #region シリアルポートの設定
+                // データ受信イベントの設定
+                SerialPortMaint.DataReceived += new SerialDataReceivedEventHandler(SerialPortMaint_DataReceived);
+                // シリアルポート名の設定
+                SerialPortMaint.PortName = PubConstClass.pblComPort;
+                // シリアルポートの通信速度指定
+                switch (PubConstClass.pblComSpeed)
+                {
+                    case "0":
+                        {
+                            SerialPortMaint.BaudRate = 4800;
+                            break;
+                        }
+
+                    case "1":
+                        {
+                            SerialPortMaint.BaudRate = 9600;
+                            break;
+                        }
+
+                    case "2":
+                        {
+                            SerialPortMaint.BaudRate = 19200;
+                            break;
+                        }
+
+                    case "3":
+                        {
+                            SerialPortMaint.BaudRate = 38400;
+                            break;
+                        }
+
+                    case "4":
+                        {
+                            SerialPortMaint.BaudRate = 57600;
+                            break;
+                        }
+
+                    case "5":
+                        {
+                            SerialPortMaint.BaudRate = 115200;
+                            break;
+                        }
+
+                    default:
+                        {
+                            SerialPortMaint.BaudRate = 38400;
+                            break;
+                        }
+                }
+                // シリアルポートのパリティ指定
+                switch (PubConstClass.pblComParityVar)
+                {
+                    case "0":
+                        {
+                            SerialPortMaint.Parity = Parity.Odd;
+                            break;
+                        }
+
+                    case "1":
+                        {
+                            SerialPortMaint.Parity = Parity.Even;
+                            break;
+                        }
+
+                    default:
+                        {
+                            SerialPortMaint.Parity = Parity.Even;
+                            break;
+                        }
+                }
+                // シリアルポートのパリティ有無
+                if (PubConstClass.pblComIsParity == "0")
+                    SerialPortMaint.Parity = Parity.None;
+                // シリアルポートのビット数指定
+                switch (PubConstClass.pblComDataLength)
+                {
+                    case "0":
+                        {
+                            SerialPortMaint.DataBits = 8;
+                            break;
+                        }
+
+                    case "1":
+                        {
+                            SerialPortMaint.DataBits = 7;
+                            break;
+                        }
+
+                    default:
+                        {
+                            SerialPortMaint.DataBits = 8;
+                            break;
+                        }
+                }
+                // シリアルポートのストップビット指定
+                switch (PubConstClass.pblComStopBit)
+                {
+                    case "0":
+                        {
+                            SerialPortMaint.StopBits = StopBits.One;
+                            break;
+                        }
+
+                    case "1":
+                        {
+                            SerialPortMaint.StopBits = StopBits.Two;
+                            break;
+                        }
+
+                    default:
+                        {
+                            SerialPortMaint.StopBits = StopBits.One;
+                            break;
+                        }
+                }
+                #endregion
+                // シリアルポートのオープン
+                SerialPortMaint.Open();
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m1+ "\r");
+                SerialPortMaint.Write(dat, 0, dat.GetLength(0));
             }
             catch (Exception ex)
             {
@@ -168,6 +294,14 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                if (SerialPortMaint.IsOpen)
+                {
+                    // 送信データのセット
+                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m0 + "\r");
+                    SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                    // シリアルポートクローズ
+                    SerialPortMaint.Close();
+                }
                 Owner.Show();
                 Owner.Refresh();
                 this.Dispose();
@@ -1115,6 +1249,166 @@ namespace QrSorterInspectionApp
         {
             sDipSwitch[15] = "1";
             UpdateDipSwitchStatus();
+        }
+
+        /// <summary>
+        /// 検査装置からのデータ受信処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <remarks></remarks>
+        private void SerialPortMaint_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            string data;
+            object[] args = new object[1];
+
+            data = "";
+
+            try
+            {
+                // シリアルポートをオープンしていない場合、処理を行わない。
+                if (SerialPortMaint.IsOpen == false)
+                    return;
+                // <CR>まで読み込む
+                data = SerialPortMaint.ReadTo("\r");
+
+                // 受信データの格納
+                BeginInvoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), data.ToString() + "\r");
+            }
+            catch (TimeoutException)
+            {
+                // ディスカードするデータ
+                CommonModule.OutPutLogFile("【保守画面】■データ受信タイムアウトエラー：<CR>未受信で切り捨てたデータ：" + data);
+            }
+            catch (Exception ex)
+            {
+                CommonModule.OutPutLogFile("【保守画面】SerialPortMaint_DataReceived" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 受信データによる各コマンド処理
+        /// </summary>
+        /// <param name="data">受信した文字列</param>
+        /// <remarks></remarks>
+        private void RcvDataToTextBox(string data)
+        {
+            string strMessage;
+
+            try
+            {
+                CommonModule.OutPutLogFile($"【保守画面】受信データ：{data.Replace("\r", "<CR>")}");
+
+                // 受信データの先頭１文字を取得
+                string sCommandType = data.Substring(0, 1);
+                switch (sCommandType)
+                {
+                    case PubConstClass.CMD_RECIEVE_K:
+                        // I/O状態コマンド
+                        MyProcIOStatus(data);
+                        break;
+
+                    case PubConstClass.CMD_RECIEVE_B:
+                        // 開始コマンド
+                        //MyProcStart();
+                        break;
+
+                    case PubConstClass.CMD_RECIEVE_C:
+                        // 停止コマンド
+                        //MyProcStop();
+                        break;
+
+                    case PubConstClass.CMD_RECIEVE_D:
+                        // データコマンド
+                        // 先頭2文字（D,）を取り除く
+                        //MyProcData(data.Substring(2, data.Length - 2));
+                        break;
+
+                    case PubConstClass.CMD_RECIEVE_E:
+                        // エラーコマンド
+                        //MyProcError(data);
+                        break;
+
+                    default:
+                        // 未定義コマンド
+                        CommonModule.OutPutLogFile($"【保守画面】未定義コマンドです：{data.Replace("\r", "<CR>")}");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                strMessage = "【保守画面】RcvDataToTextBox" + ex.Message;
+                CommonModule.OutPutLogFile(strMessage);
+                MessageBox.Show(strMessage, "システムエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    
+    
+        private void MyProcIOStatus(string data)
+        {
+            string sIndex;
+            string sData;
+
+            try
+            {
+                sIndex = data.Substring(1, 1);
+                sData = data.Substring(2, data.Length - 2);
+                switch (sIndex)
+                {
+                    case "0":
+                        LblDispInPut1.Text = sData;
+                        break;
+                    case "1":
+                        LblDispInPut2.Text = sData;
+                        break;
+                    case "2":
+                        LblDispInPut3.Text = sData;
+                        break;
+                    case "3":
+                        LblDispInPut4.Text = sData;
+                        break;
+                    case "4":
+                        LblDispInPut5.Text = sData;
+                        break;
+                    case "5":
+                        LblDispInPut6.Text = sData;
+                        break;
+                    case "6":
+                        LblDispInPut7.Text = sData;
+                        break;
+                    case "7":
+                        LblDispInPut8.Text = sData;
+                        break;
+                    case "8":
+                        LblDispInPut9.Text = sData;
+                        break;
+                    case "9":
+                        LblDispInPut10.Text = sData;
+                        break;
+                    case "A":
+                        LblDispInPut11.Text = sData;
+                        break;
+                    case "B":
+                        LblDispInPut12.Text = sData;
+                        break;
+                    case "C":
+                        LblDispInPut13.Text = sData;
+                        break;
+                    case "D":
+                        LblDispInPut14.Text = sData;
+                        break;
+                    case "E":
+                        LblDispInPut15.Text = sData;
+                        break;
+                    case "F":
+                        LblDispInPut16.Text = sData;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【保守画面】【MyProcIOStatus】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

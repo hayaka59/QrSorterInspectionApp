@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaintenanceForm));
             this.LblTitle = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
@@ -327,6 +328,7 @@
             this.PctLogo = new System.Windows.Forms.PictureBox();
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
+            this.SerialPortMaint = new System.IO.Ports.SerialPort(this.components);
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox6.SuspendLayout();
@@ -4392,5 +4394,6 @@
         internal System.Windows.Forms.RadioButton RdoStackerOutPut3;
         internal System.Windows.Forms.RadioButton RdoStackerOutPut2;
         internal System.Windows.Forms.RadioButton RdoStackerOutPut1;
+        internal System.IO.Ports.SerialPort SerialPortMaint;
     }
 }
