@@ -29,12 +29,7 @@ namespace QrSorterSimulatorApp
         public static List<string> lstNonDeliveryList = new List<string>();     // 不着事由情報
         public const string DEF_NON_DELIVERY = "NonDeliveryReasonSorting.txt";  // 不着事由格納ファイル
 
-
         // 保守画面
-        //public const string DEF_MACHINE_NAME =         "号機名称";
-        //public const string DEF_LOGSAVE_MONTH =        "ログ保存期間";
-        //public const string DEF_HDD_SPACE =            "ディスク空き容量";
-        //public const string DEF_INTERNAL_TRAN_FOLDER = "内部実績ログ格納フォルダ";
         // COMポート
         public const string DEF_COMPORT =         "COMポート名";
         public const string DEF_COM_SPEED =       "COM通信速度";
@@ -43,19 +38,13 @@ namespace QrSorterSimulatorApp
         public const string DEF_COM_PARITY_VAR =  "COMパリティ種別";
         public const string DEF_COM_STOPBIT =     "COMストップビット";
 
-        // 保守画面
-        //public static string pblMachineName;            // 号機名                
-        //public static string pblSaveLogMonth;           // ログ保存期間
-        //public static string pblHddSpace;               // ディスク空き容量
-        //public static string pblInternalTranFolder;     // 内部実績ログ格納フォルダ
-
         public static string pblMainFormTitle;
         // COMポート
-        public static string pblComPort;                // COMポート名
-        public static string pblComSpeed;               // 通信速度
-        public static string pblComDataLength;          // データ長（0：8bit／1：7bit）
-        public static string pblComIsParity;            // パリティの有無（0：無効／1：有効）
-        public static string pblComParityVar;           // パリティ種別（0：奇数／1：偶数）
-        public static string pblComStopBit;             // ストップビット（0：1bit／1：2bit）
+        public static string pblComPort;                                        // COMポート名
+        public static string pblComSpeed;                                       // 通信速度
+        public static string pblComDataLength;                                  // データ長（0：8bit／1：7bit）
+        public static string pblComIsParity;                                    // パリティの有無（0：無効／1：有効）
+        public static string pblComParityVar;                                   // パリティ種別（0：奇数／1：偶数）
+        public static string pblComStopBit;                                     // ストップビット（0：1bit／1：2bit）
     }
 }
