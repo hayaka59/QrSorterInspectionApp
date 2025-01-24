@@ -258,7 +258,7 @@ namespace QrSorterInspectionApp
                 // シリアルポートのオープン
                 SerialPortMaint.Open();
                 // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m1+ "\r");
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m + ",1" + "\r");
                 SerialPortMaint.Write(dat, 0, dat.GetLength(0));
             }
             catch (Exception ex)
@@ -279,7 +279,7 @@ namespace QrSorterInspectionApp
                 if (SerialPortMaint.IsOpen)
                 {
                     // 送信データのセット
-                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m0 + "\r");
+                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m + ",0" + "\r");
                     SerialPortMaint.Write(dat, 0, dat.GetLength(0));
                     // シリアルポートクローズ
                     SerialPortMaint.Close();
