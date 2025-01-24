@@ -586,11 +586,11 @@
             // TxtUserAccount
             // 
             this.TxtUserAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtUserAccount.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtUserAccount.Location = new System.Drawing.Point(1130, 615);
+            this.TxtUserAccount.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtUserAccount.Location = new System.Drawing.Point(1130, 554);
             this.TxtUserAccount.Multiline = true;
             this.TxtUserAccount.Name = "TxtUserAccount";
-            this.TxtUserAccount.Size = new System.Drawing.Size(480, 155);
+            this.TxtUserAccount.Size = new System.Drawing.Size(480, 226);
             this.TxtUserAccount.TabIndex = 252;
             this.TxtUserAccount.Visible = false;
             // 
@@ -766,7 +766,7 @@
             // 
             this.BtnDecript.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnDecript.Image = global::QrSorterInspectionApp.Properties.Resources.decrypt;
-            this.BtnDecript.Location = new System.Drawing.Point(1130, 568);
+            this.BtnDecript.Location = new System.Drawing.Point(1130, 503);
             this.BtnDecript.Name = "BtnDecript";
             this.BtnDecript.Size = new System.Drawing.Size(227, 45);
             this.BtnDecript.TabIndex = 251;
@@ -781,7 +781,7 @@
             // 
             this.BtnEncript.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnEncript.Image = global::QrSorterInspectionApp.Properties.Resources.encrypt;
-            this.BtnEncript.Location = new System.Drawing.Point(1383, 568);
+            this.BtnEncript.Location = new System.Drawing.Point(1383, 503);
             this.BtnEncript.Name = "BtnEncript";
             this.BtnEncript.Size = new System.Drawing.Size(227, 45);
             this.BtnEncript.TabIndex = 250;
@@ -2902,7 +2902,7 @@
             // PctLogo
             // 
             this.PctLogo.Image = global::QrSorterInspectionApp.Properties.Resources.株式会社Ai_R横黒色背景透明;
-            this.PctLogo.Location = new System.Drawing.Point(1299, 954);
+            this.PctLogo.Location = new System.Drawing.Point(825, 954);
             this.PctLogo.Name = "PctLogo";
             this.PctLogo.Size = new System.Drawing.Size(288, 42);
             this.PctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
