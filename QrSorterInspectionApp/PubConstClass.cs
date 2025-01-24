@@ -17,6 +17,9 @@ namespace QrSorterInspectionApp
         public const string CMD_SEND_m1 = "m1";                                 // 保守画面に入ったら送信
         public const string CMD_SEND_m0 = "m0";                                 // 保守画面から抜けたら送信
 
+        public const string CMD_SEND_m = "m";                                   // 保守画面から抜けたら送信
+        public const string CMD_SEND_t = "t";                                   // アプリからのDIP-SW情報送信コマンド
+
 
         public const string CMD_RECIEVE_A = "A";                                // 制御側からの検査状況確認コマンド
         public const string CMD_RECIEVE_B = "B";                                // 制御側からの検査開始コマンド
@@ -25,6 +28,7 @@ namespace QrSorterInspectionApp
         public const string CMD_RECIEVE_E = "E";                                // 制御側からのエラー番号送信コマンド
 
         public const string CMD_RECIEVE_K = "K";                                // 制御側からのI/O状態送信コマンド
+        public const string CMD_RECIEVE_T = "T";                                // 制御側からのDIP-SW情報要求コマンド
 
         public const string DEF_VERSION = "Ver.0.0.0.0";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
         public static object objSyncHist;                                       // 排他制御用オブジェクト（操作ログ書込用）

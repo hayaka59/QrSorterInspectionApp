@@ -68,8 +68,16 @@ namespace QrSorterInspectionApp
 
                 if (LsvAccount.Items.Count > 0)
                 {
-                    LsvAccount.Items[iFindIndex].Selected = true;   // 設定行を選択
-                    LsvAccount.EnsureVisible(iFindIndex);           // 設定行を表示範囲に移動
+                    if (PubConstClass.sUserAuthority == "SV")
+                    {
+                        LsvAccount.Items[iFindIndex].Selected = true;   // 設定行を選択
+                        LsvAccount.EnsureVisible(iFindIndex);           // 設定行を表示範囲に移動
+                    }
+                    else
+                    {
+                        LsvAccount.Items[0].Selected = true;           // 一行目を選択
+                        //LsvAccount.EnsureVisible(0);                   // 設定行を表示範囲に移動
+                    }
                 }
                 else
                 {
@@ -114,17 +122,25 @@ namespace QrSorterInspectionApp
                         {
                             iFindIndex = iLoopIndex;
                         }
-                        iLoopIndex++;
+                        //iLoopIndex++;
                     }
                     else
                     {
                         // OP
                         if (PubConstClass.sUserId == sArray[0])
                         {
+                            //LsvAccount.Clear();
                             // ユーザーIDが一致したデータのみ表示
                             DisplayAccount(sArray[0], sArray[1], sArray[2]);
+                            TxtId.Text = sArray[0];
+                            TxtName.Text = sArray[1];
+                            TxtPassword.Text = sArray[3];
+                            CmbAuthority.Text = sArray[2];
+                            TxtId.Enabled = false;
+                            iFindIndex = iLoopIndex;
                         }
-                    }                    
+                    }
+                    iLoopIndex++;
                 }
             }
             catch (Exception ex)
@@ -305,6 +321,8 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
+            int idx;
+
             try
             {
                 string sMessage = GetAcountData();
@@ -320,17 +338,35 @@ namespace QrSorterInspectionApp
                 sData += TxtName.Text + ",";
                 sData += CmbAuthority.Text + ",";
                 sData += TxtPassword.Text;
-                // アカウントデータの更新
-                int idx = LsvAccount.SelectedItems[0].Index;
+
+                // アカウントデータの更新                
+                if (PubConstClass.sUserAuthority == "SV")
+                {
+                    idx = LsvAccount.SelectedItems[0].Index;                    
+                }
+                else
+                {
+                    idx = iFindIndex;
+                }
                 PubConstClass.lstUserAccount[idx] = sData;
+
                 // ユーザーアカウントファイルに書込
                 CommonModule.WriteEncodeUserAccountFile();
                 // アカウントデータ表示
                 DisplayAccountAll();
-                // 行選択とフォーカスセット
-                LsvAccount.Items[idx].Selected = true;
-                LsvAccount.Select();
-                LsvAccount.Items[idx].Focused = true;
+
+                if (PubConstClass.sUserAuthority == "SV")
+                {
+                    // 行選択とフォーカスセット
+                    LsvAccount.Items[idx].Selected = true;
+                    LsvAccount.Select();
+                    LsvAccount.Items[idx].Focused = true;
+                }
+                else
+                {
+                    // OPの場合は一行目をフォーカスセット
+                    LsvAccount.Items[0].Selected = true;
+                }
             }
             catch (Exception ex)
             {
@@ -400,6 +436,11 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                if (PubConstClass.sUserAuthority == "OP")
+                {
+                    // OPユーザーでログイン中は
+                    return;
+                }
 
                 // 選択項目があるかどうかを確認する
                 if (LsvAccount.SelectedItems.Count == 0)

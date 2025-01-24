@@ -100,6 +100,7 @@
             // 
             this.TxtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtId.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtId.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.TxtId.Location = new System.Drawing.Point(1119, 147);
             this.TxtId.Name = "TxtId";
             this.TxtId.Size = new System.Drawing.Size(353, 36);

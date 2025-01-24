@@ -129,24 +129,6 @@ namespace QrSorterInspectionApp
 
                 // 「装置状態」タブの名称設定
                 ReadInputAndOutputFileData();
-                // 「スタッカー状態と設定」タブの名称設定
-                ReadInputAndOutputStackerFileData();
-
-                // 自動結束動作サイクル
-                for (float N = 1; N <= 200; N++)
-                {
-                    CmbAutoBindOperationCycle.Items.Add((N / 10).ToString("    0.0"));
-                }
-                CmbAutoBindOperationCycle.SelectedIndex = 19;
-                // 「雑」判定枚数
-                for (int N = 1; N <= 99; N++)
-                {
-                    CmbMiscJudgmentNumber.Items.Add(N.ToString("    0"));
-                }
-                CmbMiscJudgmentNumber.SelectedIndex = 9;
-
-                // 「スタッカー状態と設定」タブの名称設定
-                ReadStackerSetValue();
 
                 // 定義ファイルからのDIP SWの値を展開
                 for (int iIndex = 0; iIndex < sDipSwitch.Length; iIndex++)
@@ -276,7 +258,7 @@ namespace QrSorterInspectionApp
                 // シリアルポートのオープン
                 SerialPortMaint.Open();
                 // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m1+ "\r");
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m + ",1" + "\r");
                 SerialPortMaint.Write(dat, 0, dat.GetLength(0));
             }
             catch (Exception ex)
@@ -297,7 +279,7 @@ namespace QrSorterInspectionApp
                 if (SerialPortMaint.IsOpen)
                 {
                     // 送信データのセット
-                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m0 + "\r");
+                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m + ",0" + "\r");
                     SerialPortMaint.Write(dat, 0, dat.GetLength(0));
                     // シリアルポートクローズ
                     SerialPortMaint.Close();
@@ -737,7 +719,6 @@ namespace QrSorterInspectionApp
                                     case 16:
                                         RdoOutPut16.Text = s;
                                         break;
-
                                     default:
                                         break;
                                 }
@@ -754,261 +735,7 @@ namespace QrSorterInspectionApp
             }
         }
 
-        /// <summary>
-        /// 入出力用ポート名の表示（スタッカー部）
-        /// </summary>
-        private void ReadInputAndOutputStackerFileData()
-        {
-            try
-            {
-                String sBasePath = Application.StartupPath.ToString();
-                String filePath = sBasePath + @"\InputStackerName.txt";
-                if (File.Exists(filePath))
-                {
-                    // ファイルが存在する場合は読み込む
-                    using (FileStream fs = new FileStream(filePath, FileMode.Open))
-                    using (StreamReader sr = new StreamReader(fs, Encoding.GetEncoding("shift_jis")))
-                    {
-                        do
-                        {
-                            for (int N = 1; N <= 16; N++)
-                            {
-                                String s = sr.ReadLine();
-                                switch (N)
-                                {
-                                    case 1:
-                                        LblInputStackerPortName1.Text = s;
-                                        break;
-                                    case 2:
-                                        LblInputStackerPortName2.Text = s;
-                                        break;
-                                    case 3:
-                                        LblInputStackerPortName3.Text = s;
-                                        break;
-                                    case 4:
-                                        LblInputStackerPortName4.Text = s;
-                                        break;
-                                    case 5:
-                                        LblInputStackerPortName5.Text = s;
-                                        break;
-                                    case 6:
-                                        LblInputStackerPortName6.Text = s;
-                                        break;
-                                    case 7:
-                                        LblInputStackerPortName7.Text = s;
-                                        break;
-                                    case 8:
-                                        LblInputStackerPortName8.Text = s;
-                                        break;
-                                    case 9:
-                                        LblInputStackerPortName9.Text = s;
-                                        break;
-                                    case 10:
-                                        LblInputStackerPortName10.Text = s;
-                                        break;
-                                    case 11:
-                                        LblInputStackerPortName11.Text = s;
-                                        break;
-                                    case 12:
-                                        LblInputStackerPortName12.Text = s;
-                                        break;
-                                    case 13:
-                                        LblInputStackerPortName13.Text = s;
-                                        break;
-                                    case 14:
-                                        LblInputStackerPortName14.Text = s;
-                                        break;
-                                    case 15:
-                                        LblInputStackerPortName15.Text = s;
-                                        break;
-                                    case 16:
-                                        LblInputStackerPortName16.Text = s;
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                            break;
-
-                        } while (!sr.EndOfStream);
-                    }
-                }
-
-                filePath = sBasePath + @"\OutputStackerName.txt";
-                if (File.Exists(filePath))
-                {
-                    // ファイルが存在する場合は読み込む
-                    using (FileStream fs = new FileStream(filePath, FileMode.Open))
-                    using (StreamReader sr = new StreamReader(fs, Encoding.GetEncoding("shift_jis")))
-                    {
-                        do
-                        {
-                            for (int N = 1; N <= 16; N++)
-                            {
-                                String s = sr.ReadLine();
-                                switch (N)
-                                {
-                                    case 1:
-                                        RdoStackerOutPut1.Text = s;
-                                        break;
-                                    case 2:
-                                        RdoStackerOutPut2.Text = s;
-                                        break;
-                                    case 3:
-                                        RdoStackerOutPut3.Text = s;
-                                        break;
-                                    case 4:
-                                        RdoStackerOutPut4.Text = s;
-                                        break;
-                                    case 5:
-                                        RdoStackerOutPut5.Text = s;
-                                        break;
-                                    case 6:
-                                        RdoStackerOutPut6.Text = s;
-                                        break;
-                                    case 7:
-                                        RdoStackerOutPut7.Text = s;
-                                        break;
-                                    case 8:
-                                        RdoStackerOutPut8.Text = s;
-                                        break;
-                                    case 9:
-                                        RdoStackerOutPut9.Text = s;
-                                        break;
-                                    case 10:
-                                        RdoStackerOutPut10.Text = s;
-                                        break;
-                                    case 11:
-                                        RdoStackerOutPut11.Text = s;
-                                        break;
-                                    case 12:
-                                        RdoStackerOutPut12.Text = s;
-                                        break;
-                                    case 13:
-                                        RdoStackerOutPut13.Text = s;
-                                        break;
-                                    case 14:
-                                        RdoStackerOutPut14.Text = s;
-                                        break;
-                                    case 15:
-                                        RdoStackerOutPut15.Text = s;
-                                        break;
-                                    case 16:
-                                        RdoStackerOutPut16.Text = s;
-                                        break;
-
-                                    default:
-                                        break;
-                                }
-                            }
-                            break;
-
-                        } while (!sr.EndOfStream);
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【ReadInputAndOutputStackerFileData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// スタッカー設定情報の読込
-        /// </summary>
-        private void ReadStackerSetValue()
-        {
-            try
-            {
-                string sBasePath = Application.StartupPath.ToString();
-                string filePath = sBasePath + @"\StackerSetName.txt";
-                if (File.Exists(filePath))
-                {
-                    // ファイルが存在する場合は読み込む
-                    using (FileStream fs = new FileStream(filePath, FileMode.Open))
-                    using (StreamReader sr = new StreamReader(fs, Encoding.GetEncoding("shift_jis")))
-                    {
-                        do
-                        {
-                            for (int N = 1; N <= 10; N++)
-                            {
-                                string[] s = sr.ReadLine().Split(',');
-                                switch (N)
-                                {
-                                    case 1:
-                                        LblStacker1.Text = s[0];
-                                        TxtStackerSet1.Text = s[1];
-                                        break;
-                                    case 2:
-                                        LblStacker2.Text = s[0];
-                                        TxtStackerSet2.Text = s[1];
-                                        break;
-                                    case 3:
-                                        LblStacker3.Text = s[0];
-                                        TxtStackerSet3.Text = s[1];
-                                        break;
-                                    case 4:
-                                        LblStacker4.Text = s[0];
-                                        TxtStackerSet4.Text = s[1];
-                                        break;
-                                    case 5:
-                                        LblStacker5.Text = s[0];
-                                        TxtStackerSet5.Text = s[1];
-                                        break;
-                                    case 6:
-                                        LblStacker6.Text = s[0];
-                                        TxtStackerSet6.Text = s[1];
-                                        break;
-                                    case 7:
-                                        LblStacker7.Text = s[0];
-                                        TxtStackerSet7.Text = s[1];
-                                        break;
-                                    case 8:
-                                        LblStacker8.Text = s[0];
-                                        TxtStackerSet8.Text = s[1];
-                                        break;
-                                    case 9:
-                                        // 自動結束動作サイクル
-                                        LblAutoBindOperationCycle.Text = s[0];
-                                        if (int.Parse(s[1]) <= CmbAutoBindOperationCycle.Items.Count)
-                                        {
-                                            CmbAutoBindOperationCycle.SelectedIndex = int.Parse(s[1]) - 1;
-                                        }
-                                        else
-                                        {
-                                            CmbAutoBindOperationCycle.SelectedIndex = 0;
-                                        }
-                                        break;
-                                    case 10:
-                                        // 「雑」判定枚数
-                                        LblMiscJudgmentNumber.Text = s[0];
-                                        if (int.Parse(s[1]) <= CmbMiscJudgmentNumber.Items.Count)
-                                        {
-                                            CmbMiscJudgmentNumber.SelectedIndex = int.Parse(s[1]) - 1;
-                                        }
-                                        else
-                                        {
-                                            CmbMiscJudgmentNumber.SelectedIndex = 0;
-                                        }
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                            break;
-
-                        } while (!sr.EndOfStream);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.StackTrace, "【ReadStackerSetValue】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-    
-
+ 
         private void SetDipSwitch(int row, string sDipSwitch, Button btnDipOn, Button btnDipOff)
         {
             if (sDipSwitch == "1")
