@@ -971,6 +971,7 @@
             this.TxtBoxQrItem25.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem25.TabIndex = 380;
             this.TxtBoxQrItem25.Text = "TxtBoxQrItem25";
+            this.TxtBoxQrItem25.Leave += new System.EventHandler(this.TxtBoxQrItem25_Leave);
             // 
             // TxtBoxQrItem35
             // 
@@ -981,6 +982,7 @@
             this.TxtBoxQrItem35.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem35.TabIndex = 381;
             this.TxtBoxQrItem35.Text = "TxtBoxQrItem35";
+            this.TxtBoxQrItem35.Leave += new System.EventHandler(this.TxtBoxQrItem35_Leave);
             // 
             // TxtGroup5
             // 
@@ -1003,6 +1005,7 @@
             this.TxtBoxQrItem15.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem15.TabIndex = 379;
             this.TxtBoxQrItem15.Text = "TxtBoxQrItem15";
+            this.TxtBoxQrItem15.Leave += new System.EventHandler(this.TxtBoxQrItem15_Leave);
             // 
             // TxtBoxQrItem45
             // 
@@ -1013,6 +1016,7 @@
             this.TxtBoxQrItem45.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem45.TabIndex = 382;
             this.TxtBoxQrItem45.Text = "TxtBoxQrItem45";
+            this.TxtBoxQrItem45.Leave += new System.EventHandler(this.TxtBoxQrItem45_Leave);
             // 
             // TxtBoxQrItem24
             // 
@@ -1023,6 +1027,7 @@
             this.TxtBoxQrItem24.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem24.TabIndex = 374;
             this.TxtBoxQrItem24.Text = "TxtBoxQrItem24";
+            this.TxtBoxQrItem24.Leave += new System.EventHandler(this.TxtBoxQrItem24_Leave);
             // 
             // TxtBoxQrItem34
             // 
@@ -1033,6 +1038,7 @@
             this.TxtBoxQrItem34.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem34.TabIndex = 375;
             this.TxtBoxQrItem34.Text = "TxtBoxQrItem34";
+            this.TxtBoxQrItem34.Leave += new System.EventHandler(this.TxtBoxQrItem34_Leave);
             // 
             // TxtGroup4
             // 
@@ -1055,6 +1061,7 @@
             this.TxtBoxQrItem14.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem14.TabIndex = 373;
             this.TxtBoxQrItem14.Text = "TxtBoxQrItem14";
+            this.TxtBoxQrItem14.Leave += new System.EventHandler(this.TxtBoxQrItem14_Leave);
             // 
             // TxtBoxQrItem44
             // 
@@ -1065,6 +1072,7 @@
             this.TxtBoxQrItem44.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem44.TabIndex = 376;
             this.TxtBoxQrItem44.Text = "TxtBoxQrItem44";
+            this.TxtBoxQrItem44.Leave += new System.EventHandler(this.TxtBoxQrItem44_Leave);
             // 
             // TxtBoxQrItem23
             // 
@@ -1075,6 +1083,7 @@
             this.TxtBoxQrItem23.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem23.TabIndex = 368;
             this.TxtBoxQrItem23.Text = "TxtBoxQrItem23";
+            this.TxtBoxQrItem23.Leave += new System.EventHandler(this.TxtBoxQrItem23_Leave);
             // 
             // TxtBoxQrItem33
             // 
@@ -1085,6 +1094,7 @@
             this.TxtBoxQrItem33.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem33.TabIndex = 369;
             this.TxtBoxQrItem33.Text = "TxtBoxQrItem33";
+            this.TxtBoxQrItem33.Leave += new System.EventHandler(this.TxtBoxQrItem33_Leave);
             // 
             // TxtGroup3
             // 
@@ -1107,6 +1117,7 @@
             this.TxtBoxQrItem13.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem13.TabIndex = 367;
             this.TxtBoxQrItem13.Text = "TxtBoxQrItem13";
+            this.TxtBoxQrItem13.Leave += new System.EventHandler(this.TxtBoxQrItem13_Leave);
             // 
             // TxtBoxQrItem43
             // 
@@ -1117,6 +1128,7 @@
             this.TxtBoxQrItem43.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem43.TabIndex = 370;
             this.TxtBoxQrItem43.Text = "TxtBoxQrItem43";
+            this.TxtBoxQrItem43.Leave += new System.EventHandler(this.TxtBoxQrItem43_Leave);
             // 
             // TxtBoxQrItem22
             // 
@@ -1127,6 +1139,7 @@
             this.TxtBoxQrItem22.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem22.TabIndex = 362;
             this.TxtBoxQrItem22.Text = "TxtBoxQrItem22";
+            this.TxtBoxQrItem22.Leave += new System.EventHandler(this.TxtBoxQrItem22_Leave);
             // 
             // TxtBoxQrItem32
             // 
@@ -1137,6 +1150,7 @@
             this.TxtBoxQrItem32.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem32.TabIndex = 363;
             this.TxtBoxQrItem32.Text = "TxtBoxQrItem32";
+            this.TxtBoxQrItem32.Leave += new System.EventHandler(this.TxtBoxQrItem32_Leave);
             // 
             // TxtGroup2
             // 
@@ -1159,6 +1173,7 @@
             this.TxtBoxQrItem12.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem12.TabIndex = 361;
             this.TxtBoxQrItem12.Text = "TxtBoxQrItem12";
+            this.TxtBoxQrItem12.Leave += new System.EventHandler(this.TxtBoxQrItem12_Leave);
             // 
             // TxtBoxQrItem42
             // 
@@ -1169,6 +1184,7 @@
             this.TxtBoxQrItem42.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem42.TabIndex = 364;
             this.TxtBoxQrItem42.Text = "TxtBoxQrItem42";
+            this.TxtBoxQrItem42.Leave += new System.EventHandler(this.TxtBoxQrItem42_Leave);
             // 
             // label29
             // 
@@ -1244,6 +1260,7 @@
             this.TxtBoxQrItem21.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem21.TabIndex = 321;
             this.TxtBoxQrItem21.Text = "TxtBoxQrItem21";
+            this.TxtBoxQrItem21.Leave += new System.EventHandler(this.TxtBoxQrItem21_Leave);
             // 
             // label22
             // 
@@ -1278,6 +1295,7 @@
             this.TxtBoxQrItem31.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem31.TabIndex = 322;
             this.TxtBoxQrItem31.Text = "TxtBoxQrItem31";
+            this.TxtBoxQrItem31.Leave += new System.EventHandler(this.TxtBoxQrItem31_Leave);
             // 
             // TxtGroup1
             // 
@@ -1300,6 +1318,7 @@
             this.TxtBoxQrItem11.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem11.TabIndex = 312;
             this.TxtBoxQrItem11.Text = "TxtBoxQrItem11";
+            this.TxtBoxQrItem11.Leave += new System.EventHandler(this.TxtBoxQrItem11_Leave);
             // 
             // TxtBoxQrItem41
             // 
@@ -1310,6 +1329,7 @@
             this.TxtBoxQrItem41.Size = new System.Drawing.Size(151, 31);
             this.TxtBoxQrItem41.TabIndex = 323;
             this.TxtBoxQrItem41.Text = "TxtBoxQrItem41";
+            this.TxtBoxQrItem41.Leave += new System.EventHandler(this.TxtBoxQrItem41_Leave);
             // 
             // CmbGroup6
             // 
