@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -1274,6 +1275,138 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【BtnPasteItem_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// 引数の文字列が半角英数字のみで構成されているかを調べる。
+        /// </summary>
+        /// <param name="text">チェック対象の文字列。</param>
+        /// <returns>引数が英数字のみで構成されていればtrue、そうでなければfalseを返す。</returns>
+        private bool IsOnlyAlphanumeric1(string sMessage, string text)
+        {
+            var enc = Encoding.GetEncoding("Shift_JIS");
+            // 「Shift_JISのバイト数＝文字数」なら英数字のみとみなす。
+            if (enc.GetByteCount(text) == text.Length)
+            {
+                return true;                
+            }
+            else
+            {
+                MessageBox.Show(sMessage, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 引数の文字列が半角英数字のみで構成されているかを調べる。
+        /// </summary>
+        /// <param name="text">チェック対象の文字列。</param>
+        /// <returns>引数が英数字のみで構成されていればtrue、そうでなければfalseを返す。</returns>
+        private bool IsOnlyAlphanumeric2(string text)
+        {
+            // 文字列の先頭から末尾までが、英数字のみとマッチするかを調べる。
+            return (Regex.IsMatch(text, @"^[0-9a-zA-Z]+$"));
+        }
+
+
+        private void TxtBoxQrItem11_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ１の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem11.Text}）に全角が含まれます", TxtBoxQrItem11.Text);
+        }
+
+        private void TxtBoxQrItem12_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ２の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem12.Text}）に全角が含まれます", TxtBoxQrItem12.Text);
+        }
+
+        private void TxtBoxQrItem13_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ３の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem13.Text}）に全角が含まれます", TxtBoxQrItem13.Text);
+        }
+
+        private void TxtBoxQrItem14_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ４の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem14.Text}）に全角が含まれます", TxtBoxQrItem14.Text);
+        }
+
+        private void TxtBoxQrItem15_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ５の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem15.Text}）に全角が含まれます", TxtBoxQrItem15.Text);
+        }
+
+        private void TxtBoxQrItem21_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ１の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem21.Text}）に全角が含まれます", TxtBoxQrItem21.Text);
+        }
+
+        private void TxtBoxQrItem22_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ２の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem22.Text}）に全角が含まれます", TxtBoxQrItem22.Text);
+        }
+
+        private void TxtBoxQrItem23_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ３の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem23.Text}）に全角が含まれます", TxtBoxQrItem23.Text);
+        }
+
+        private void TxtBoxQrItem24_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ４の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem24.Text}）に全角が含まれます", TxtBoxQrItem24.Text);
+        }
+
+        private void TxtBoxQrItem25_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ５の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem25.Text}）に全角が含まれます", TxtBoxQrItem25.Text);
+        }
+
+        private void TxtBoxQrItem31_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ１の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem31.Text}）に全角が含まれます", TxtBoxQrItem31.Text);
+        }
+
+        private void TxtBoxQrItem32_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ２の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem32.Text}）に全角が含まれます", TxtBoxQrItem32.Text);
+        }
+
+        private void TxtBoxQrItem33_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ３の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem33.Text}）に全角が含まれます", TxtBoxQrItem33.Text);
+        }
+
+        private void TxtBoxQrItem34_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ４の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem34.Text}）に全角が含まれます", TxtBoxQrItem34.Text);
+        }
+
+        private void TxtBoxQrItem35_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ５の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem35.Text}）に全角が含まれます", TxtBoxQrItem35.Text);
+        }
+
+        private void TxtBoxQrItem41_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ１の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem41.Text}）に全角が含まれます", TxtBoxQrItem41.Text);
+        }
+
+        private void TxtBoxQrItem42_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ２の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem42.Text}）に全角が含まれます", TxtBoxQrItem42.Text);
+        }
+
+        private void TxtBoxQrItem43_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ３の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem43.Text}）に全角が含まれます", TxtBoxQrItem43.Text);
+        }
+
+        private void TxtBoxQrItem44_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ４の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem44.Text}）に全角が含まれます", TxtBoxQrItem44.Text);
+        }
+
+        private void TxtBoxQrItem45_Leave(object sender, EventArgs e)
+        {
+            IsOnlyAlphanumeric1($"グループ５の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem45.Text}）に全角が含まれます", TxtBoxQrItem45.Text);
         }
     }
 }
