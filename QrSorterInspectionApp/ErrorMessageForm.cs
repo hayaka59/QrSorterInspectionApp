@@ -19,6 +19,18 @@ namespace QrSorterInspectionApp
         public ErrorMessageForm()
         {
             InitializeComponent();
+
+            // フォーム表示位置指定（画面の中央に表示）
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point((1920 - this.Width) / 2, (1080 - this.Height) / 2);
+            // フォームスタイル設定
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.WindowState = FormWindowState.Normal;
+            // ウィンドウサイズ設定
+            this.Width = 830;
+            this.Height = 281;
         }
 
         /// <summary>
@@ -43,7 +55,7 @@ namespace QrSorterInspectionApp
                 // エラー内容の表示
                 LblTitle.Text = sArray[1];
                 LblErrorMessage.Text = sArray[2];
-                LblErrorNumber.Text = sArray[0];
+                LblErrorNumber.Text = "エラーNo." + sArray[0];
             }
             catch (Exception ex)
             {
@@ -64,7 +76,7 @@ namespace QrSorterInspectionApp
                 // エラー内容の表示
                 LblTitle.Text = sArray[1];
                 LblErrorMessage.Text = sArray[2];
-                LblErrorNumber.Text = sArray[0];
+                LblErrorNumber.Text = "エラーNo." + sArray[0];
             }
             catch (Exception ex)
             {
