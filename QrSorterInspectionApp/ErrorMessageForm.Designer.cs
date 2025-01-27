@@ -38,7 +38,6 @@
             // 
             // Panel1
             // 
-            this.Panel1.Controls.Add(this.LblErrorNumber);
             this.Panel1.Controls.Add(this.BtnRelease);
             this.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Panel1.Location = new System.Drawing.Point(0, 168);
@@ -49,14 +48,15 @@
             // LblErrorNumber
             // 
             this.LblErrorNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.LblErrorNumber.AutoSize = true;
-            this.LblErrorNumber.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblErrorNumber.BackColor = System.Drawing.Color.White;
+            this.LblErrorNumber.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblErrorNumber.ForeColor = System.Drawing.Color.Blue;
-            this.LblErrorNumber.Location = new System.Drawing.Point(684, 45);
+            this.LblErrorNumber.Location = new System.Drawing.Point(3, 46);
             this.LblErrorNumber.Name = "LblErrorNumber";
-            this.LblErrorNumber.Size = new System.Drawing.Size(109, 20);
+            this.LblErrorNumber.Size = new System.Drawing.Size(184, 20);
             this.LblErrorNumber.TabIndex = 1;
             this.LblErrorNumber.Text = "LblErrorNumber";
+            this.LblErrorNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnRelease
             // 
@@ -103,6 +103,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 242);
+            this.ControlBox = false;
+            this.Controls.Add(this.LblErrorNumber);
             this.Controls.Add(this.Panel1);
             this.Controls.Add(this.LblErrorMessage);
             this.Controls.Add(this.LblTitle);
@@ -113,11 +115,10 @@
             this.MinimizeBox = false;
             this.Name = "ErrorMessageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ErrorMessageForm";
+            this.Text = "エラーメッセージ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ErrorMessageForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ErrorMessageForm_FormClosed);
             this.Panel1.ResumeLayout(false);
-            this.Panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
