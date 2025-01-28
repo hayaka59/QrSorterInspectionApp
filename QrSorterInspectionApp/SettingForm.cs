@@ -54,12 +54,6 @@ namespace QrSorterInspectionApp
                 SetComboOnOff(CmbUltrasonicDetection);
                 // 桁数チェック
                 SetComboOnOff(CmbCheckNumberOfDigits);                
-                #region ログ作成条件
-                CmbLogCreationConditions.Items.Clear();
-                CmbLogCreationConditions.Items.Add("ポケット単位");
-                CmbLogCreationConditions.Items.Add("全件");
-                CmbLogCreationConditions.SelectedIndex = 0;
-                #endregion                
                 #region 読取機能
                 CmbReadingFunction.Items.Clear();
                 CmbReadingFunction.Items.Add("QR");
@@ -296,8 +290,6 @@ namespace QrSorterInspectionApp
                 CmbUltrasonicDetection.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
                 // 桁数チェック
                 CmbCheckNumberOfDigits.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
-                // ログ作成条件
-                CmbLogCreationConditions.SelectedIndex = int.Parse(sArray[iIndex++].Trim()) - 1;
                 // 読取機能
                 CmbReadingFunction.SelectedIndex = int.Parse(sArray[iIndex++].Trim()) - 1;
 
@@ -576,8 +568,6 @@ namespace QrSorterInspectionApp
                 sData += CmbUltrasonicDetection.Text + ","; ;
                 // 桁数チェック
                 sData += CmbCheckNumberOfDigits.Text + ","; ;
-                // ログ作成条件
-                sData += (CmbLogCreationConditions.SelectedIndex + 1).ToString() + ","; ;
                 // 読取機能
                 sData += (CmbReadingFunction.SelectedIndex + 1).ToString() + ","; ;                
                                
@@ -674,9 +664,10 @@ namespace QrSorterInspectionApp
 
                 // 選択中ジョブフィル名クリア
                 LblSelectedFile.Text = "";
-                BtnAdd.Enabled = false;     // 「新規保存」ボタン使用不可
-                BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可
-                BtnDelete.Enabled = false;  // 「削除」　　ボタン使用不可
+                BtnAdd.Enabled = false;         // 「新規保存」　ボタン使用不可
+                BtnUpdate.Enabled = true;       // 「保存」　　　ボタン使用可
+                BtnDelete.Enabled = false;      // 「削除」　　　ボタン使用不可
+                BtnCopyItem.Enabled = false;    // 「項目コピー」ボタン使用不可
             }
             catch (Exception ex)
             {
@@ -1076,6 +1067,12 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                if (PubConstClass.lstGroupInfo.Count == 0)
+                {
+                    MessageBox.Show("JOB選択してください", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 DialogResult dialogResult = MessageBox.Show("表示項目をコピーしますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
                 {
@@ -1109,7 +1106,6 @@ namespace QrSorterInspectionApp
                 lstCopyItem.Add(CmbDoubleFeed.Text);
                 lstCopyItem.Add(CmbUltrasonicDetection.Text);
                 lstCopyItem.Add(CmbCheckNumberOfDigits.Text);
-                lstCopyItem.Add(CmbLogCreationConditions.Text);
                 lstCopyItem.Add(CmbReadingFunction.Text);
 
                 #region ポケット①～⑤
@@ -1152,7 +1148,7 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【BtnCopyItem_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.StackTrace, "【BtnCopyItem_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1196,7 +1192,6 @@ namespace QrSorterInspectionApp
                 CmbDoubleFeed.Text = lstCopyItem[iIndex++];
                 CmbUltrasonicDetection.Text = lstCopyItem[iIndex++];
                 CmbCheckNumberOfDigits.Text = lstCopyItem[iIndex++];
-                CmbLogCreationConditions.Text = lstCopyItem[iIndex++];
                 CmbReadingFunction.Text = lstCopyItem[iIndex++];
 
                 #region ポケット①～⑤

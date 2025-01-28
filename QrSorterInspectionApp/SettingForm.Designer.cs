@@ -58,8 +58,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.CmbDateReceipt = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.CmbLogCreationConditions = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.CmbReadingFunction = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.CmbCheckNumberOfDigits = new System.Windows.Forms.ComboBox();
@@ -659,33 +657,6 @@
             this.label12.TabIndex = 309;
             this.label12.Text = "受領日入力";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CmbLogCreationConditions
-            // 
-            this.CmbLogCreationConditions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbLogCreationConditions.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbLogCreationConditions.FormattingEnabled = true;
-            this.CmbLogCreationConditions.IntegralHeight = false;
-            this.CmbLogCreationConditions.ItemHeight = 28;
-            this.CmbLogCreationConditions.Location = new System.Drawing.Point(1273, 334);
-            this.CmbLogCreationConditions.Name = "CmbLogCreationConditions";
-            this.CmbLogCreationConditions.Size = new System.Drawing.Size(152, 36);
-            this.CmbLogCreationConditions.TabIndex = 308;
-            this.CmbLogCreationConditions.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(1103, 334);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(170, 36);
-            this.label10.TabIndex = 307;
-            this.label10.Text = "ログ作成条件";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label10.Visible = false;
             // 
             // CmbReadingFunction
             // 
@@ -1923,9 +1894,7 @@
             this.GrpFeederSetting.Controls.Add(this.groupBox1);
             this.GrpFeederSetting.Controls.Add(this.LblSelectedFile);
             this.GrpFeederSetting.Controls.Add(this.BtnAdd);
-            this.GrpFeederSetting.Controls.Add(this.CmbLogCreationConditions);
             this.GrpFeederSetting.Controls.Add(this.BtnJobSelect);
-            this.GrpFeederSetting.Controls.Add(this.label10);
             this.GrpFeederSetting.Controls.Add(this.CmbMedia);
             this.GrpFeederSetting.Controls.Add(this.CmbReadingFunction);
             this.GrpFeederSetting.Controls.Add(this.label6);
@@ -2131,8 +2100,6 @@
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.ComboBox CmbDateReceipt;
         internal System.Windows.Forms.Label label12;
-        internal System.Windows.Forms.ComboBox CmbLogCreationConditions;
-        internal System.Windows.Forms.Label label10;
         internal System.Windows.Forms.ComboBox CmbReadingFunction;
         internal System.Windows.Forms.Label label5;
         internal System.Windows.Forms.ComboBox CmbCheckNumberOfDigits;
