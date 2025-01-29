@@ -13,11 +13,14 @@ namespace QrSorterInspectionApp
         public const string CMD_SEND_c = "c";                                   // アプリからの検査終了コマンド
         public const string CMD_SEND_d = "d";                                   // アプリからのエラーリセットコマンド
         public const string CMD_SEND_e = "e";                                   // アプリからの動作不可コマンド
-
-        public const string CMD_SEND_m1 = "m1";                                 // 保守画面に入ったら送信
-        public const string CMD_SEND_m0 = "m0";                                 // 保守画面から抜けたら送信
-
+        public const string CMD_SEND_f = "f";                                   // アプリからのポケット投入条件情報コマンド
+        //public const string CMD_SEND_m1 = "m1";                                 // 保守画面に入ったら送信
+        //public const string CMD_SEND_m0 = "m0";                                 // 保守画面から抜けたら送信
         public const string CMD_SEND_m = "m";                                   // 保守画面から抜けたら送信
+
+        public const string CMD_SEND_i = "i";                                   // 送信コマンド
+        public const string CMD_SEND_j = "j";                                   // 送信コマンド
+
         public const string CMD_SEND_t = "t";                                   // アプリからのDIP-SW情報送信コマンド
 
 
