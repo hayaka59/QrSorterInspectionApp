@@ -551,6 +551,11 @@ namespace QrSorterSimulatorApp
             }
         }
 
+        /// <summary>
+        /// 「I」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnICommand_Click(object sender, EventArgs e)
         {
             string sData = "";
@@ -572,6 +577,11 @@ namespace QrSorterSimulatorApp
             }
         }
 
+        /// <summary>
+        /// 「J」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnJCommand_Click(object sender, EventArgs e)
         {
             string sData = "";
@@ -588,6 +598,27 @@ namespace QrSorterSimulatorApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnJCommand_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 「DIP-SW（T）」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnDipSw_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_T + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LsbSendBox.Items.Add($"{PubConstClass.CMD_SEND_T}<CR>");
+                LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnDipSw_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
