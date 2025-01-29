@@ -13,11 +13,14 @@ namespace QrSorterInspectionApp
         public const string CMD_SEND_c = "c";                                   // アプリからの検査終了コマンド
         public const string CMD_SEND_d = "d";                                   // アプリからのエラーリセットコマンド
         public const string CMD_SEND_e = "e";                                   // アプリからの動作不可コマンド
-
-        public const string CMD_SEND_m1 = "m1";                                 // 保守画面に入ったら送信
-        public const string CMD_SEND_m0 = "m0";                                 // 保守画面から抜けたら送信
-
+        public const string CMD_SEND_f = "f";                                   // アプリからのポケット投入条件情報コマンド
+        //public const string CMD_SEND_m1 = "m1";                                 // 保守画面に入ったら送信
+        //public const string CMD_SEND_m0 = "m0";                                 // 保守画面から抜けたら送信
         public const string CMD_SEND_m = "m";                                   // 保守画面から抜けたら送信
+
+        public const string CMD_SEND_i = "i";                                   // 送信コマンド
+        public const string CMD_SEND_j = "j";                                   // 送信コマンド
+
         public const string CMD_SEND_t = "t";                                   // アプリからのDIP-SW情報送信コマンド
 
 
@@ -26,6 +29,9 @@ namespace QrSorterInspectionApp
         public const string CMD_RECIEVE_C = "C";                                // 制御側からの検査終了コマンド
         public const string CMD_RECIEVE_D = "D";                                // 制御側からのQR読取りデータ
         public const string CMD_RECIEVE_E = "E";                                // 制御側からのエラー番号送信コマンド
+
+        public const string CMD_RECIEVE_I = "I";                                // 制御側からのアワーメーター送信コマンド
+        public const string CMD_RECIEVE_J = "J";                                // 制御側からのトータルカウンタ送信コマンド
 
         public const string CMD_RECIEVE_K = "K";                                // 制御側からのI/O状態送信コマンド
         public const string CMD_RECIEVE_T = "T";                                // 制御側からのDIP-SW情報要求コマンド

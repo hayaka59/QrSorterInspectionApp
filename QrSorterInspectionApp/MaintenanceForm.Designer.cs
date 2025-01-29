@@ -1252,6 +1252,7 @@
             this.BtnCounterClear.TabIndex = 88;
             this.BtnCounterClear.Text = "クリア";
             this.BtnCounterClear.UseVisualStyleBackColor = true;
+            this.BtnCounterClear.Click += new System.EventHandler(this.BtnCounterClear_Click);
             // 
             // Label5
             // 
@@ -1332,6 +1333,7 @@
             this.BtnTimeClear.TabIndex = 81;
             this.BtnTimeClear.Text = "クリア";
             this.BtnTimeClear.UseVisualStyleBackColor = true;
+            this.BtnTimeClear.Click += new System.EventHandler(this.BtnTimeClear_Click);
             // 
             // GrpBoxOutput
             // 

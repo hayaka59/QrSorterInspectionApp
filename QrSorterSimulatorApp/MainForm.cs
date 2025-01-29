@@ -550,5 +550,45 @@ namespace QrSorterSimulatorApp
                 MessageBox.Show(ex.Message, "【BtnConfirmation_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnICommand_Click(object sender, EventArgs e)
+        {
+            string sData = "";
+
+            try
+            {
+                sData = PubConstClass.CMD_SEND_I + ",";
+                sData += TxtICommand.Text;
+
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LsbSendBox.Items.Add($"{sData}<CR>");
+                LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnICommand_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnJCommand_Click(object sender, EventArgs e)
+        {
+            string sData = "";
+            try
+            {
+                sData = PubConstClass.CMD_SEND_J + ",";
+                sData += TxtJCommand.Text;
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LsbSendBox.Items.Add($"{sData}<CR>");
+                LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnJCommand_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

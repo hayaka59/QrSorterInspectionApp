@@ -61,6 +61,12 @@
             this.BtnSendTestData = new System.Windows.Forms.Button();
             this.BtnEnd = new System.Windows.Forms.Button();
             this.BtnInputOutput = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.TxtICommand = new System.Windows.Forms.TextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.TxtJCommand = new System.Windows.Forms.TextBox();
+            this.BtnICommand = new System.Windows.Forms.Button();
+            this.BtnJCommand = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -70,6 +76,8 @@
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -416,12 +424,86 @@
             this.BtnInputOutput.UseVisualStyleBackColor = true;
             this.BtnInputOutput.Click += new System.EventHandler(this.BtnInputOutput_Click);
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.BtnICommand);
+            this.groupBox10.Controls.Add(this.TxtICommand);
+            this.groupBox10.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox10.Location = new System.Drawing.Point(532, 495);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(196, 60);
+            this.groupBox10.TabIndex = 335;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "アワーメーター";
+            // 
+            // TxtICommand
+            // 
+            this.TxtICommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtICommand.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtICommand.Location = new System.Drawing.Point(6, 18);
+            this.TxtICommand.MaxLength = 17;
+            this.TxtICommand.Name = "TxtICommand";
+            this.TxtICommand.Size = new System.Drawing.Size(117, 31);
+            this.TxtICommand.TabIndex = 0;
+            this.TxtICommand.Text = "12345";
+            this.TxtICommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.BtnJCommand);
+            this.groupBox11.Controls.Add(this.TxtJCommand);
+            this.groupBox11.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox11.Location = new System.Drawing.Point(747, 495);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(196, 60);
+            this.groupBox11.TabIndex = 336;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "トータルカウンタ";
+            // 
+            // TxtJCommand
+            // 
+            this.TxtJCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtJCommand.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtJCommand.Location = new System.Drawing.Point(6, 18);
+            this.TxtJCommand.MaxLength = 17;
+            this.TxtJCommand.Name = "TxtJCommand";
+            this.TxtJCommand.Size = new System.Drawing.Size(117, 31);
+            this.TxtJCommand.TabIndex = 0;
+            this.TxtJCommand.Text = "123456789";
+            this.TxtJCommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BtnICommand
+            // 
+            this.BtnICommand.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnICommand.Location = new System.Drawing.Point(129, 14);
+            this.BtnICommand.Name = "BtnICommand";
+            this.BtnICommand.Size = new System.Drawing.Size(57, 40);
+            this.BtnICommand.TabIndex = 337;
+            this.BtnICommand.Text = "I";
+            this.BtnICommand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnICommand.UseVisualStyleBackColor = true;
+            this.BtnICommand.Click += new System.EventHandler(this.BtnICommand_Click);
+            // 
+            // BtnJCommand
+            // 
+            this.BtnJCommand.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnJCommand.Location = new System.Drawing.Point(129, 14);
+            this.BtnJCommand.Name = "BtnJCommand";
+            this.BtnJCommand.Size = new System.Drawing.Size(57, 40);
+            this.BtnJCommand.TabIndex = 338;
+            this.BtnJCommand.Text = "J";
+            this.BtnJCommand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnJCommand.UseVisualStyleBackColor = true;
+            this.BtnJCommand.Click += new System.EventHandler(this.BtnJCommand_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox11);
+            this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.BtnInputOutput);
             this.Controls.Add(this.BtnConfirmation);
             this.Controls.Add(this.BtnError);
@@ -460,6 +542,10 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -498,6 +584,12 @@
         private System.Windows.Forms.Button BtnError;
         private System.Windows.Forms.Button BtnConfirmation;
         private System.Windows.Forms.Button BtnInputOutput;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TextBox TxtICommand;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.TextBox TxtJCommand;
+        private System.Windows.Forms.Button BtnICommand;
+        private System.Windows.Forms.Button BtnJCommand;
     }
 }
 
