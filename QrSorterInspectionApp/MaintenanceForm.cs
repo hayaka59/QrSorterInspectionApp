@@ -1046,15 +1046,9 @@ namespace QrSorterInspectionApp
                         MyProcTotalCounter(data);
                         break;
 
-                    case PubConstClass.CMD_RECIEVE_D:
-                        // データコマンド
-                        // 先頭2文字（D,）を取り除く
-                        //MyProcData(data.Substring(2, data.Length - 2));
-                        break;
-
-                    case PubConstClass.CMD_RECIEVE_E:
-                        // エラーコマンド
-                        //MyProcError(data);
+                    case PubConstClass.CMD_RECIEVE_T:
+                        // DIP-SW情報要求コマンド
+                        MyProcDipSw();
                         break;
 
                     default:
@@ -1179,6 +1173,28 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【保守画面】【MyProcTotalCounter】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        /// <summary>
+        /// DIP-SW情報送信
+        /// </summary>
+        private void MyProcDipSw()
+        {
+            string sData = "";
+            try
+            {
+                sData = PubConstClass.CMD_SEND_t + ",";
+                for (int iIndex = 0; iIndex < 16; iIndex++) {
+                    sData += sDipSwitch[15 - iIndex];
+                }
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【保守画面】【MyProcDipSw】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>

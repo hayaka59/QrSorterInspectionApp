@@ -62,11 +62,12 @@
             this.BtnEnd = new System.Windows.Forms.Button();
             this.BtnInputOutput = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.BtnICommand = new System.Windows.Forms.Button();
             this.TxtICommand = new System.Windows.Forms.TextBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.TxtJCommand = new System.Windows.Forms.TextBox();
-            this.BtnICommand = new System.Windows.Forms.Button();
             this.BtnJCommand = new System.Windows.Forms.Button();
+            this.TxtJCommand = new System.Windows.Forms.TextBox();
+            this.BtnDipSw = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -359,7 +360,7 @@
             // 
             this.BtnAutoSend.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnAutoSend.Image = global::QrSorterSimulatorApp.Properties.Resources.repeat;
-            this.BtnAutoSend.Location = new System.Drawing.Point(38, 504);
+            this.BtnAutoSend.Location = new System.Drawing.Point(382, 561);
             this.BtnAutoSend.Name = "BtnAutoSend";
             this.BtnAutoSend.Size = new System.Drawing.Size(257, 45);
             this.BtnAutoSend.TabIndex = 329;
@@ -436,6 +437,18 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "アワーメーター";
             // 
+            // BtnICommand
+            // 
+            this.BtnICommand.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnICommand.Location = new System.Drawing.Point(129, 14);
+            this.BtnICommand.Name = "BtnICommand";
+            this.BtnICommand.Size = new System.Drawing.Size(57, 40);
+            this.BtnICommand.TabIndex = 337;
+            this.BtnICommand.Text = "I";
+            this.BtnICommand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnICommand.UseVisualStyleBackColor = true;
+            this.BtnICommand.Click += new System.EventHandler(this.BtnICommand_Click);
+            // 
             // TxtICommand
             // 
             this.TxtICommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -460,30 +473,6 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "トータルカウンタ";
             // 
-            // TxtJCommand
-            // 
-            this.TxtJCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtJCommand.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtJCommand.Location = new System.Drawing.Point(6, 18);
-            this.TxtJCommand.MaxLength = 17;
-            this.TxtJCommand.Name = "TxtJCommand";
-            this.TxtJCommand.Size = new System.Drawing.Size(117, 31);
-            this.TxtJCommand.TabIndex = 0;
-            this.TxtJCommand.Text = "123456789";
-            this.TxtJCommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BtnICommand
-            // 
-            this.BtnICommand.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnICommand.Location = new System.Drawing.Point(129, 14);
-            this.BtnICommand.Name = "BtnICommand";
-            this.BtnICommand.Size = new System.Drawing.Size(57, 40);
-            this.BtnICommand.TabIndex = 337;
-            this.BtnICommand.Text = "I";
-            this.BtnICommand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnICommand.UseVisualStyleBackColor = true;
-            this.BtnICommand.Click += new System.EventHandler(this.BtnICommand_Click);
-            // 
             // BtnJCommand
             // 
             this.BtnJCommand.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -496,12 +485,37 @@
             this.BtnJCommand.UseVisualStyleBackColor = true;
             this.BtnJCommand.Click += new System.EventHandler(this.BtnJCommand_Click);
             // 
+            // TxtJCommand
+            // 
+            this.TxtJCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtJCommand.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtJCommand.Location = new System.Drawing.Point(6, 18);
+            this.TxtJCommand.MaxLength = 17;
+            this.TxtJCommand.Name = "TxtJCommand";
+            this.TxtJCommand.Size = new System.Drawing.Size(117, 31);
+            this.TxtJCommand.TabIndex = 0;
+            this.TxtJCommand.Text = "123456789";
+            this.TxtJCommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BtnDipSw
+            // 
+            this.BtnDipSw.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnDipSw.Location = new System.Drawing.Point(38, 549);
+            this.BtnDipSw.Name = "BtnDipSw";
+            this.BtnDipSw.Size = new System.Drawing.Size(257, 45);
+            this.BtnDipSw.TabIndex = 337;
+            this.BtnDipSw.Text = "DIP-SW（T）";
+            this.BtnDipSw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnDipSw.UseVisualStyleBackColor = true;
+            this.BtnDipSw.Click += new System.EventHandler(this.BtnDipSw_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnDipSw);
             this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.groupBox10);
             this.Controls.Add(this.BtnInputOutput);
@@ -590,6 +604,7 @@
         private System.Windows.Forms.TextBox TxtJCommand;
         private System.Windows.Forms.Button BtnICommand;
         private System.Windows.Forms.Button BtnJCommand;
+        private System.Windows.Forms.Button BtnDipSw;
     }
 }
 
