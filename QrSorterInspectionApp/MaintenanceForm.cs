@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -1035,14 +1036,14 @@ namespace QrSorterInspectionApp
                         MyProcIOStatus(data);
                         break;
 
-                    case PubConstClass.CMD_RECIEVE_B:
-                        // 開始コマンド
-                        //MyProcStart();
+                    case PubConstClass.CMD_RECIEVE_I:
+                        // アワーメーター表示コマンド
+                        MyProcHourMeter(data);
                         break;
 
-                    case PubConstClass.CMD_RECIEVE_C:
-                        // 停止コマンド
-                        //MyProcStop();
+                    case PubConstClass.CMD_RECIEVE_J:
+                        // トータルカウンタ表示コマンド
+                        MyProcTotalCounter(data);
                         break;
 
                     case PubConstClass.CMD_RECIEVE_D:
@@ -1070,7 +1071,10 @@ namespace QrSorterInspectionApp
             }
         }
     
-    
+        /// <summary>
+        /// I/O状態表示コマンド処理
+        /// </summary>
+        /// <param name="data"></param>
         private void MyProcIOStatus(string data)
         {
             string sIndex;
@@ -1138,27 +1142,64 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// アワーメーター表示処理
+        /// </summary>
+        /// <param name="data"></param>
+        private void MyProcHourMeter(string data)
+        {
+            string sData;
+
+            try
+            {                
+                sData = data.Substring(2, data.Length - 3);
+                LblHourMeter.Text = sData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【保守画面】【MyProcHourMeter】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// トータルカウンタ表示処理
+        /// </summary>
+        /// <param name="data"></param>
+        private void MyProcTotalCounter(string data)
+        {
+            string sData;
+
+            try
+            {
+                sData = data.Substring(2, data.Length - 3);
+                LblTotalCounter.Text = sData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【保守画面】【MyProcTotalCounter】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        /// <summary>
+        /// 「クリア」ボタン処理（アワーメーター）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnTimeClear_Click(object sender, EventArgs e)
         {
             try
             {
-                // Shiftキーが押されているかのチェック
-                if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
-                {
-                    Console.WriteLine("Shiftキーが押されています。");
-                }
                 // Ctrlキーが押されているかのチェック
                 if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
                 {
-                    Console.WriteLine("Ctrlキーが押されています。");
-                    // 送信データのセット
-                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_i + "\r");
-                    SerialPortMaint.Write(dat, 0, dat.GetLength(0));
-                }
-                // Altキーが押されているかのチェック
-                if ((Control.ModifierKeys & Keys.Alt) == Keys.Alt)
-                {
-                    Console.WriteLine("Altキーが押されています。");
+                    DialogResult dialogResult = MessageBox.Show("アワーメーターをクリアしますか？","確認",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        // 送信データのセット
+                        byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_i + "\r");
+                        SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                    }
                 }
             }
             catch (Exception ex)
@@ -1167,6 +1208,11 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// 「クリア」ボタン処理（トータルカウンタ）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCounterClear_Click(object sender, EventArgs e)
         {
             try
@@ -1174,11 +1220,14 @@ namespace QrSorterInspectionApp
                 // Shiftキーが押されているかのチェック
                 if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
                 {
-                    // 送信データのセット
-                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_j + "\r");
-                    SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                    DialogResult dialogResult = MessageBox.Show("トータルカウンタをクリアしますか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        // 送信データのセット
+                        byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_j + "\r");
+                        SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                    }
                 }
-
             }
             catch (Exception ex)
             {

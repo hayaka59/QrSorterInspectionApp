@@ -30,6 +30,9 @@ namespace QrSorterInspectionApp
         public const string CMD_RECIEVE_D = "D";                                // 制御側からのQR読取りデータ
         public const string CMD_RECIEVE_E = "E";                                // 制御側からのエラー番号送信コマンド
 
+        public const string CMD_RECIEVE_I = "I";                                // 制御側からのアワーメーター送信コマンド
+        public const string CMD_RECIEVE_J = "J";                                // 制御側からのトータルカウンタ送信コマンド
+
         public const string CMD_RECIEVE_K = "K";                                // 制御側からのI/O状態送信コマンド
         public const string CMD_RECIEVE_T = "T";                                // 制御側からのDIP-SW情報要求コマンド
 
