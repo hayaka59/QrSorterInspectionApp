@@ -1137,5 +1137,54 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【保守画面】【MyProcIOStatus】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnTimeClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Shiftキーが押されているかのチェック
+                if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+                {
+                    Console.WriteLine("Shiftキーが押されています。");
+                }
+                // Ctrlキーが押されているかのチェック
+                if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
+                {
+                    Console.WriteLine("Ctrlキーが押されています。");
+                    // 送信データのセット
+                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_i + "\r");
+                    SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                }
+                // Altキーが押されているかのチェック
+                if ((Control.ModifierKeys & Keys.Alt) == Keys.Alt)
+                {
+                    Console.WriteLine("Altキーが押されています。");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【保守画面】【BtnTimeClear_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnCounterClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Shiftキーが押されているかのチェック
+                if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+                {
+                    // 送信データのセット
+                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_j + "\r");
+                    SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【保守画面】【BtnCounterClear_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
