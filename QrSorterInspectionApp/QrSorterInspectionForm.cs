@@ -542,6 +542,19 @@ namespace QrSorterInspectionApp
             {
                 // 現在時刻の表示
                 LblDateTime.Text = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH:mm:ss");
+
+                if (bIsReset)
+                {
+                    bIsReset = false;
+                    // シリアルデータ送信
+                    SendSerialData(PubConstClass.CMD_SEND_d);
+                    //// 送信データのセット
+                    //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_d + "\r");
+                    //SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                    LblError.Visible = false;
+                    // 停止中
+                    SetStatus(0);
+            }
             }
             catch (Exception ex)
             {
@@ -1471,6 +1484,20 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【GetEntryInfoAndDisplay】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    
+
+        private static bool bIsReset = false;
+        public static void SendResetCommand()
+        {
+            try
+            {
+                bIsReset = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SendResetCommand】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
