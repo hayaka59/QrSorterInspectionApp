@@ -178,21 +178,21 @@ namespace QrSorterInspectionApp
                 PubConstClass.sPrevNonDelivery1 = "";    // 前回の不着事由仕分け１
                 PubConstClass.sPrevNonDelivery2 = "";    // 前回の不着事由仕分け２
 
-                #region テスト確認用に過去に受信したQRデータ一覧（100万件）を作成する
-                string s1 = DateTime.Now.ToString("yyyyMMdd");
-                string s2 = DateTime.Now.ToString("yyMMdd");
-                Stopwatch sw = new Stopwatch();
-                sw.Start();
-                // 100万件の過去に受信したQRデータを作成する
-                for (int iIndex = 1; iIndex <= 1000000; iIndex++)
-                {
-                    lstPastReceivedQrData.Add($"D86571{s1}-{s2}_{iIndex:000000000}");
-                }
-                sw.Stop();
-                CommonModule.OutPutLogFile($"■最初のQRデータ：{lstPastReceivedQrData[0]}");
-                CommonModule.OutPutLogFile($"■最後のQRデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count-1]}");
-                CommonModule.OutPutLogFile($"■{lstPastReceivedQrData.Count:#,###,##0}件作成処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
-                #endregion
+                //#region テスト確認用に過去に受信したQRデータ一覧（100万件）を作成する
+                //string s1 = DateTime.Now.ToString("yyyyMMdd");
+                //string s2 = DateTime.Now.ToString("yyMMdd");
+                //Stopwatch sw = new Stopwatch();
+                //sw.Start();
+                //// 100万件の過去に受信したQRデータを作成する
+                //for (int iIndex = 1; iIndex <= 1000000; iIndex++)
+                //{
+                //    lstPastReceivedQrData.Add($"D86571{s1}-{s2}_{iIndex:000000000}");
+                //}
+                //sw.Stop();
+                //CommonModule.OutPutLogFile($"■最初のQRデータ：{lstPastReceivedQrData[0]}");
+                //CommonModule.OutPutLogFile($"■最後のQRデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count-1]}");
+                //CommonModule.OutPutLogFile($"■{lstPastReceivedQrData.Count:#,###,##0}件作成処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
+                //#endregion
 
                 // 停止中
                 SetStatus(0);
@@ -542,10 +542,42 @@ namespace QrSorterInspectionApp
             {
                 // 現在時刻の表示
                 LblDateTime.Text = DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH:mm:ss");
+
+                if (bIsReset)
+                {
+                    bIsReset = false;
+                    // シリアルデータ送信
+                    SendSerialData(PubConstClass.CMD_SEND_d);
+                    //// 送信データのセット
+                    //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_d + "\r");
+                    //SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                    LblError.Visible = false;
+                    // 停止中
+                    SetStatus(0);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【TimDateTime_Tick】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// シリアルデータ送信処理
+        /// </summary>
+        /// <param name="sData"></param>
+        private void SendSerialData(string sData)
+        {
+            try
+            {
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                CommonModule.OutPutLogFile($"〓送信データ：{sData}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SendSerialData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -558,9 +590,11 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_b + "\r");
-                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                // シリアルデータ送信
+                SendSerialData(PubConstClass.CMD_SEND_b);
+                //// 送信データのセット
+                //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_b + "\r");
+                //SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 // 検査開始時のチェック
                 CheckStartUp();
             }
@@ -615,13 +649,13 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_c + "\r");
-                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                // シリアルデータ送信
+                SendSerialData(PubConstClass.CMD_SEND_c);
+                //// 送信データのセット
+                //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_c + "\r");
+                //SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LblError.Visible = false;
-                
-                // 停止中
-                //SetStatus(0);
+
             }
             catch (Exception ex)
             {
@@ -770,15 +804,7 @@ namespace QrSorterInspectionApp
                 if (SerialPortQr.IsOpen == false)
                     return;
                 // <CR>まで読み込む
-                //data = SerialPortQr.ReadTo(ControlChars.Cr.ToString());
                 data = SerialPortQr.ReadTo("\r");
-
-                //if (data.IndexOf("?") > 0)
-                //{
-                //    CommonModule.OutPutLogFile("■受信（パリティエラー）：" + data.ToString() + "<CR>");
-                //    BeginInvoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), "パリティエラー：" + "data.ToString" + ControlChars.Cr);
-                //}
-
                 // 受信データの格納
                 BeginInvoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), data.ToString() + "\r");
             }
@@ -804,7 +830,7 @@ namespace QrSorterInspectionApp
 
             try
             {
-                CommonModule.OutPutLogFile($"受信データ：{data.Replace("\r", "<CR>")}");
+                CommonModule.OutPutLogFile($"〓受信データ：{data.Replace("\r", "<CR>")}");
 
                 // 受信データの先頭１文字を取得
                 string sCommandType = data.Substring(0, 1);
@@ -862,8 +888,10 @@ namespace QrSorterInspectionApp
                 if (LblSelectedFile.Text.Trim() == "")
                 {
                     // JOBが未選択
-                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_e + "\r");
-                    SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                    // シリアルデータ送信
+                    SendSerialData(PubConstClass.CMD_SEND_e);
+                    //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_e + "\r");
+                    //SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 }
                 else
                 {
@@ -904,9 +932,10 @@ namespace QrSorterInspectionApp
                     sData += ",";
                     sData += sArrayJob[22];                           // (16) 読取機能　　　 ：1桁
 
-                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
-                    SerialPortQr.Write(dat, 0, dat.GetLength(0));
-
+                    // シリアルデータ送信
+                    SendSerialData(sData);
+                    //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                    //SerialPortQr.Write(dat, 0, dat.GetLength(0));
                     Thread.Sleep(50);
                     // ソーター設定のポケット１～５の情報を送信
                     for (int iIndex = 0; iIndex < 5; iIndex++)
@@ -962,10 +991,10 @@ namespace QrSorterInspectionApp
                 sData += sArrayJob[10 + iPocketNumber];                         // ポケット切替件数
                 sData += ",";
                 sData += sArrayJob[15 + iPocketNumber] == "OFF" ? "0": "1";     // ポケット切替ON/OFF
-
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
-                SerialPortQr.Write(dat, 0, dat.GetLength(0));
-
+                // シリアルデータ送信
+                SendSerialData(sData);
+                //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                //SerialPortQr.Write(dat, 0, dat.GetLength(0));
             }
             catch (Exception ex)
             {
@@ -1066,7 +1095,6 @@ namespace QrSorterInspectionApp
             ListViewItem itm1;
             ListViewItem itm2;
             string[] strArray;
-            //string sNonDel;
             string sLogData = "";
             string sWriteDate;
             string sWriteTime;
@@ -1101,14 +1129,13 @@ namespace QrSorterInspectionApp
                     }
                     else
                     {
-                        CommonModule.OutPutLogFile($"■最初のデータ：{lstPastReceivedQrData[0]}");
-                        CommonModule.OutPutLogFile($"■最後のデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count - 1]}");                        
+                        //CommonModule.OutPutLogFile($"■最初のデータ：{lstPastReceivedQrData[0]}");
+                        //CommonModule.OutPutLogFile($"■最後のデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count - 1]}");                        
                     }
-                    CommonModule.OutPutLogFile($"■{lstPastReceivedQrData.Count:#,###,##0}件の検索処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
+                    //CommonModule.OutPutLogFile($"■{lstPastReceivedQrData.Count:#,###,##0}件の検索処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
                     #endregion
                 }
 
-                lstPastReceivedQrData.Add(col[2]);
                 // 判定（OK/NG）
                 //col[3] = strArray[1].Trim();
                 col[3] = strArray[1].Trim() == "0" ? "OK": "NG";
@@ -1179,7 +1206,6 @@ namespace QrSorterInspectionApp
                 sLogData += DQ + sWriteTime + DQ + ",";                             // 時刻
                 sLogData += DQ + DQ + ",";                                          // 期待値                       Null
                 sLogData += DQ + strArray[0].Trim() + DQ + ",";                     // 読取値
-                //sLogData += DQ + strArray[1].Trim() + DQ + ",";                     // 判定
                 sLogData += DQ + col[3] + DQ + ",";                                 // 判定
                 sLogData += DQ + sFileName + DQ + ",";                              // 正解データファイル名
                 sLogData += DQ + DQ + ",";                                          // 重量期待値[g]				Null
@@ -1203,6 +1229,7 @@ namespace QrSorterInspectionApp
                 // データの表示
                 if (col[3] == "OK")
                 {
+                    lstPastReceivedQrData.Add(col[2]);
                     // OKのカウント表示
                     iOKCount++;
                     LblOKCount.Text = iOKCount.ToString("#,##0");
@@ -1471,6 +1498,20 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【GetEntryInfoAndDisplay】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    
+
+        private static bool bIsReset = false;
+        public static void SendResetCommand()
+        {
+            try
+            {
+                bIsReset = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SendResetCommand】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
