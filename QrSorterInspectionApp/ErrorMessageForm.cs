@@ -92,7 +92,8 @@ namespace QrSorterInspectionApp
         private void BtnRelease_Click(object sender, EventArgs e)
         {
             // エラーリセットコマンド送信（d）            
-            //ClassEquipment.SendSetting_f();
+            QrSorterInspectionForm.SendResetCommand();
+            
             PubConstClass.bIsOpenErrorMessage = false;
             this.Hide();
         }
