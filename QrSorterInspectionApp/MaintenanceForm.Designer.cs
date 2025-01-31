@@ -1355,7 +1355,7 @@
             this.GrpBoxOutput.Controls.Add(this.RdoOutPut1);
             this.GrpBoxOutput.Location = new System.Drawing.Point(784, 79);
             this.GrpBoxOutput.Name = "GrpBoxOutput";
-            this.GrpBoxOutput.Size = new System.Drawing.Size(583, 528);
+            this.GrpBoxOutput.Size = new System.Drawing.Size(690, 528);
             this.GrpBoxOutput.TabIndex = 4;
             this.GrpBoxOutput.TabStop = false;
             this.GrpBoxOutput.Text = "出力設定";
@@ -1368,9 +1368,9 @@
             this.RdoOutPut16.ForeColor = System.Drawing.Color.White;
             this.RdoOutPut16.Image = ((System.Drawing.Image)(resources.GetObject("RdoOutPut16.Image")));
             this.RdoOutPut16.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RdoOutPut16.Location = new System.Drawing.Point(298, 419);
+            this.RdoOutPut16.Location = new System.Drawing.Point(347, 419);
             this.RdoOutPut16.Name = "RdoOutPut16";
-            this.RdoOutPut16.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut16.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut16.TabIndex = 15;
             this.RdoOutPut16.TabStop = true;
             this.RdoOutPut16.Tag = "16";
@@ -1386,9 +1386,9 @@
             this.RdoOutPut15.ForeColor = System.Drawing.Color.White;
             this.RdoOutPut15.Image = ((System.Drawing.Image)(resources.GetObject("RdoOutPut15.Image")));
             this.RdoOutPut15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RdoOutPut15.Location = new System.Drawing.Point(298, 364);
+            this.RdoOutPut15.Location = new System.Drawing.Point(347, 364);
             this.RdoOutPut15.Name = "RdoOutPut15";
-            this.RdoOutPut15.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut15.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut15.TabIndex = 14;
             this.RdoOutPut15.TabStop = true;
             this.RdoOutPut15.Tag = "15";
@@ -1404,9 +1404,9 @@
             this.RdoOutPut14.ForeColor = System.Drawing.Color.White;
             this.RdoOutPut14.Image = ((System.Drawing.Image)(resources.GetObject("RdoOutPut14.Image")));
             this.RdoOutPut14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RdoOutPut14.Location = new System.Drawing.Point(298, 310);
+            this.RdoOutPut14.Location = new System.Drawing.Point(347, 310);
             this.RdoOutPut14.Name = "RdoOutPut14";
-            this.RdoOutPut14.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut14.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut14.TabIndex = 13;
             this.RdoOutPut14.TabStop = true;
             this.RdoOutPut14.Tag = "14";
@@ -1422,9 +1422,9 @@
             this.RdoOutPut13.ForeColor = System.Drawing.Color.White;
             this.RdoOutPut13.Image = ((System.Drawing.Image)(resources.GetObject("RdoOutPut13.Image")));
             this.RdoOutPut13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RdoOutPut13.Location = new System.Drawing.Point(298, 256);
+            this.RdoOutPut13.Location = new System.Drawing.Point(347, 256);
             this.RdoOutPut13.Name = "RdoOutPut13";
-            this.RdoOutPut13.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut13.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut13.TabIndex = 12;
             this.RdoOutPut13.TabStop = true;
             this.RdoOutPut13.Tag = "13";
@@ -1440,9 +1440,9 @@
             this.RdoOutPut12.ForeColor = System.Drawing.Color.White;
             this.RdoOutPut12.Image = ((System.Drawing.Image)(resources.GetObject("RdoOutPut12.Image")));
             this.RdoOutPut12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RdoOutPut12.Location = new System.Drawing.Point(298, 202);
+            this.RdoOutPut12.Location = new System.Drawing.Point(347, 202);
             this.RdoOutPut12.Name = "RdoOutPut12";
-            this.RdoOutPut12.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut12.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut12.TabIndex = 11;
             this.RdoOutPut12.TabStop = true;
             this.RdoOutPut12.Tag = "12";
@@ -1458,9 +1458,9 @@
             this.RdoOutPut11.ForeColor = System.Drawing.Color.White;
             this.RdoOutPut11.Image = ((System.Drawing.Image)(resources.GetObject("RdoOutPut11.Image")));
             this.RdoOutPut11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RdoOutPut11.Location = new System.Drawing.Point(298, 148);
+            this.RdoOutPut11.Location = new System.Drawing.Point(347, 148);
             this.RdoOutPut11.Name = "RdoOutPut11";
-            this.RdoOutPut11.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut11.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut11.TabIndex = 10;
             this.RdoOutPut11.TabStop = true;
             this.RdoOutPut11.Tag = "11";
@@ -1476,9 +1476,9 @@
             this.RdoOutPut10.ForeColor = System.Drawing.Color.White;
             this.RdoOutPut10.Image = ((System.Drawing.Image)(resources.GetObject("RdoOutPut10.Image")));
             this.RdoOutPut10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RdoOutPut10.Location = new System.Drawing.Point(298, 95);
+            this.RdoOutPut10.Location = new System.Drawing.Point(347, 95);
             this.RdoOutPut10.Name = "RdoOutPut10";
-            this.RdoOutPut10.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut10.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut10.TabIndex = 9;
             this.RdoOutPut10.TabStop = true;
             this.RdoOutPut10.Tag = "10";
@@ -1494,9 +1494,9 @@
             this.RdoOutPut9.ForeColor = System.Drawing.Color.White;
             this.RdoOutPut9.Image = ((System.Drawing.Image)(resources.GetObject("RdoOutPut9.Image")));
             this.RdoOutPut9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RdoOutPut9.Location = new System.Drawing.Point(298, 42);
+            this.RdoOutPut9.Location = new System.Drawing.Point(347, 42);
             this.RdoOutPut9.Name = "RdoOutPut9";
-            this.RdoOutPut9.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut9.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut9.TabIndex = 8;
             this.RdoOutPut9.TabStop = true;
             this.RdoOutPut9.Tag = "9";
@@ -1514,7 +1514,7 @@
             this.RdoOutPut8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdoOutPut8.Location = new System.Drawing.Point(16, 419);
             this.RdoOutPut8.Name = "RdoOutPut8";
-            this.RdoOutPut8.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut8.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut8.TabIndex = 7;
             this.RdoOutPut8.TabStop = true;
             this.RdoOutPut8.Tag = "8";
@@ -1532,7 +1532,7 @@
             this.RdoOutPut7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdoOutPut7.Location = new System.Drawing.Point(16, 364);
             this.RdoOutPut7.Name = "RdoOutPut7";
-            this.RdoOutPut7.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut7.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut7.TabIndex = 6;
             this.RdoOutPut7.TabStop = true;
             this.RdoOutPut7.Tag = "7";
@@ -1550,7 +1550,7 @@
             this.RdoOutPut6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdoOutPut6.Location = new System.Drawing.Point(16, 310);
             this.RdoOutPut6.Name = "RdoOutPut6";
-            this.RdoOutPut6.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut6.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut6.TabIndex = 5;
             this.RdoOutPut6.TabStop = true;
             this.RdoOutPut6.Tag = "6";
@@ -1568,7 +1568,7 @@
             this.RdoOutPut5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdoOutPut5.Location = new System.Drawing.Point(16, 256);
             this.RdoOutPut5.Name = "RdoOutPut5";
-            this.RdoOutPut5.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut5.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut5.TabIndex = 4;
             this.RdoOutPut5.TabStop = true;
             this.RdoOutPut5.Tag = "5";
@@ -1586,7 +1586,7 @@
             this.RdoOutPut4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdoOutPut4.Location = new System.Drawing.Point(16, 202);
             this.RdoOutPut4.Name = "RdoOutPut4";
-            this.RdoOutPut4.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut4.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut4.TabIndex = 3;
             this.RdoOutPut4.TabStop = true;
             this.RdoOutPut4.Tag = "4";
@@ -1604,7 +1604,7 @@
             this.RdoOutPut3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdoOutPut3.Location = new System.Drawing.Point(16, 148);
             this.RdoOutPut3.Name = "RdoOutPut3";
-            this.RdoOutPut3.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut3.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut3.TabIndex = 2;
             this.RdoOutPut3.TabStop = true;
             this.RdoOutPut3.Tag = "3";
@@ -1622,7 +1622,7 @@
             this.RdoOutPut2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdoOutPut2.Location = new System.Drawing.Point(16, 95);
             this.RdoOutPut2.Name = "RdoOutPut2";
-            this.RdoOutPut2.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut2.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut2.TabIndex = 1;
             this.RdoOutPut2.TabStop = true;
             this.RdoOutPut2.Tag = "2";
@@ -1640,7 +1640,7 @@
             this.RdoOutPut1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RdoOutPut1.Location = new System.Drawing.Point(16, 42);
             this.RdoOutPut1.Name = "RdoOutPut1";
-            this.RdoOutPut1.Size = new System.Drawing.Size(270, 50);
+            this.RdoOutPut1.Size = new System.Drawing.Size(330, 50);
             this.RdoOutPut1.TabIndex = 0;
             this.RdoOutPut1.TabStop = true;
             this.RdoOutPut1.Tag = "1";
