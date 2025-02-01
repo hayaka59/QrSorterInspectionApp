@@ -52,6 +52,9 @@ namespace QrSorterInspectionApp
         private byte[] buffer = new byte[1024];
         private int bufferIndex = 0;
 
+        private string OK_FOLDER_NAME = "QRソーター設定検査ログ（OKのみ）\\";
+        private string ALL_FOLDER_NAME = "QRソーター設定検査ログ（全件）\\";
+
         public QrSorterInspectionForm()
         {
             InitializeComponent();
@@ -362,8 +365,10 @@ namespace QrSorterInspectionApp
                 }
                 else
                 {
-                    // 先頭に「0」を付加して16桁とする
-                    sJobName = sArray[0].PadLeft(16, '0');
+                    //// 先頭に「0」を付加して16桁とする
+                    //sJobName = sArray[0].PadLeft(16, '0');
+                    // 後ろに「0」を付加して16桁とする
+                    sJobName = sArray[0].PadRight(16, '0');
                 }
                 // 不着事由１と２の取得
                 sNonDeliveryReason1 = CmbNonDeliveryReasonSorting1.Text.Substring(0, 1);
@@ -405,14 +410,14 @@ namespace QrSorterInspectionApp
                 sArray = LblSelectedFile.Text.Split('.');
                 //sJobFolder = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + sArray[0];
                 sJobFolder = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) +
-                            "QRソーター設定検査ログ（全件）\\" + sArray[0];
+                            ALL_FOLDER_NAME + sArray[0];
                 if (Directory.Exists(sJobFolder) == false)
                 {
                     Directory.CreateDirectory(sJobFolder);
                 }
 
                 sJobFolder = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + 
-                            "QRソーター設定検査ログ（OKのみ）\\" + sArray[0];
+                            OK_FOLDER_NAME + sArray[0];
                 if (Directory.Exists(sJobFolder) == false)
                 {
                     Directory.CreateDirectory(sJobFolder);
@@ -420,16 +425,17 @@ namespace QrSorterInspectionApp
 
                 // グループ１フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[0].Split(',');
-                sFolderNameWork[0] = "グループ１_" + sArray[0];
+                //sFolderNameWork[0] = "グループ１_" + sArray[0];
+                sFolderNameWork[0] = "1_" + sArray[0];
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[0];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
                     Directory.CreateDirectory(sGrpFolder);
-                }
-                
+                }                
                 // グループ２フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[1].Split(',');
-                sFolderNameWork[1] = "グループ２_" + sArray[0];
+                //sFolderNameWork[1] = "グループ２_" + sArray[0];
+                sFolderNameWork[1] = "2_" + sArray[0];
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[1];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
@@ -437,7 +443,8 @@ namespace QrSorterInspectionApp
                 }
                 // グループ３フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[2].Split(',');
-                sFolderNameWork[2] = "グループ３_" + sArray[0];
+                //sFolderNameWork[2] = "グループ３_" + sArray[0];
+                sFolderNameWork[2] = "3_" + sArray[0];
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[2];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
@@ -445,7 +452,8 @@ namespace QrSorterInspectionApp
                 }
                 // グループ４フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[3].Split(',');
-                sFolderNameWork[3] = "グループ４_" + sArray[0];
+                //sFolderNameWork[3] = "グループ４_" + sArray[0];
+                sFolderNameWork[3] = "4_" + sArray[0];
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[3];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
@@ -453,14 +461,16 @@ namespace QrSorterInspectionApp
                 }
                 // グループ５フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[4].Split(',');
-                sFolderNameWork[4] = "グループ５_" + sArray[0];
+                //sFolderNameWork[4] = "グループ５_" + sArray[0];
+                sFolderNameWork[4] = "5_" + sArray[0];
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[4];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
                 // グループ６フォルダ（リジェクト用）の存在チェックと作成
-                sFolderNameWork[5] = "グループ６_リジェクト";
+                //sFolderNameWork[5] = "グループ６_リジェクト";
+                sFolderNameWork[5] = "6_リジェクト";
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[5];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
@@ -1225,6 +1235,7 @@ namespace QrSorterInspectionApp
                 // データの表示
                 if (col[3] == "OK")
                 {
+                    // 重複チェックの検査対象にする
                     lstPastReceivedQrData.Add(col[2]);
                     // OKのカウント表示
                     iOKCount++;
@@ -1246,8 +1257,8 @@ namespace QrSorterInspectionApp
                     }
 
                     sSaveFileName = ""; 
-                    sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
-                    sSaveFileName += sJobFolderName + "\\";
+                    sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);                    
+                    sSaveFileName += OK_FOLDER_NAME + sJobFolderName + "\\";
                     sSaveFileName += sFolderName + "\\";
                     sSaveFileName += sFileName;
                     // ヘッダー情報書込処理
@@ -1293,7 +1304,7 @@ namespace QrSorterInspectionApp
 
                 sSaveFileName = "";
                 sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
-                sSaveFileName += sJobFolderName + "\\";
+                sSaveFileName += ALL_FOLDER_NAME + sJobFolderName + "\\";
                 sSaveFileName += sFileNameForAllItems;
                 // ヘッダー情報書込処理
                 if (!File.Exists(sSaveFileName))
