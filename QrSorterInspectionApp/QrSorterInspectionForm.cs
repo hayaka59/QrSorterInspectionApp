@@ -155,6 +155,7 @@ namespace QrSorterInspectionApp
                 LblPocket3.Text = "";
                 LblPocket4.Text = "";
                 LblPocket5.Text = "";
+                LblPocketEject.Text = "";
                 #endregion
                 #region ソーターポケットタイトルクリア
                 LblBoxTitle1.Text = "";
@@ -178,7 +179,7 @@ namespace QrSorterInspectionApp
                 PubConstClass.sPrevNonDelivery1 = "";    // 前回の不着事由仕分け１
                 PubConstClass.sPrevNonDelivery2 = "";    // 前回の不着事由仕分け２
 
-                //#region テスト確認用に過去に受信したQRデータ一覧（100万件）を作成する
+                #region テスト確認用に過去に受信したQRデータ一覧（100万件）を作成する
                 //string s1 = DateTime.Now.ToString("yyyyMMdd");
                 //string s2 = DateTime.Now.ToString("yyMMdd");
                 //Stopwatch sw = new Stopwatch();
@@ -192,7 +193,7 @@ namespace QrSorterInspectionApp
                 //CommonModule.OutPutLogFile($"■最初のQRデータ：{lstPastReceivedQrData[0]}");
                 //CommonModule.OutPutLogFile($"■最後のQRデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count-1]}");
                 //CommonModule.OutPutLogFile($"■{lstPastReceivedQrData.Count:#,###,##0}件作成処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
-                //#endregion
+                #endregion
 
                 // 停止中
                 SetStatus(0);
@@ -402,12 +403,21 @@ namespace QrSorterInspectionApp
 
                 // JOB名までのフォルダの存在チェックと作成
                 sArray = LblSelectedFile.Text.Split('.');
-                sJobFolder = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + sArray[0];
+                //sJobFolder = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + sArray[0];
+                sJobFolder = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) +
+                            "QRソーター設定検査ログ（全件）\\" + sArray[0];
                 if (Directory.Exists(sJobFolder) == false)
                 {
                     Directory.CreateDirectory(sJobFolder);
                 }
-                
+
+                sJobFolder = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + 
+                            "QRソーター設定検査ログ（OKのみ）\\" + sArray[0];
+                if (Directory.Exists(sJobFolder) == false)
+                {
+                    Directory.CreateDirectory(sJobFolder);
+                }
+
                 // グループ１フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[0].Split(',');
                 sFolderNameWork[0] = "グループ１_" + sArray[0];
@@ -548,9 +558,6 @@ namespace QrSorterInspectionApp
                     bIsReset = false;
                     // シリアルデータ送信
                     SendSerialData(PubConstClass.CMD_SEND_d);
-                    //// 送信データのセット
-                    //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_d + "\r");
-                    //SerialPortQr.Write(dat, 0, dat.GetLength(0));
                     LblError.Visible = false;
                     // 停止中
                     SetStatus(0);
@@ -592,9 +599,6 @@ namespace QrSorterInspectionApp
             {
                 // シリアルデータ送信
                 SendSerialData(PubConstClass.CMD_SEND_b);
-                //// 送信データのセット
-                //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_b + "\r");
-                //SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 // 検査開始時のチェック
                 CheckStartUp();
             }
@@ -651,9 +655,6 @@ namespace QrSorterInspectionApp
             {
                 // シリアルデータ送信
                 SendSerialData(PubConstClass.CMD_SEND_c);
-                //// 送信データのセット
-                //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_c + "\r");
-                //SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LblError.Visible = false;
 
             }
@@ -881,7 +882,7 @@ namespace QrSorterInspectionApp
         /// </summary>
         private void MyProcJobInfomation()
         {
-            string sData = "";
+            string sData;
             
             try
             {
@@ -890,8 +891,6 @@ namespace QrSorterInspectionApp
                     // JOBが未選択
                     // シリアルデータ送信
                     SendSerialData(PubConstClass.CMD_SEND_e);
-                    //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_e + "\r");
-                    //SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 }
                 else
                 {
@@ -934,13 +933,13 @@ namespace QrSorterInspectionApp
 
                     // シリアルデータ送信
                     SendSerialData(sData);
-                    //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
-                    //SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                    // コマンドは連続して送信しない
                     Thread.Sleep(50);
                     // ソーター設定のポケット１～５の情報を送信
                     for (int iIndex = 0; iIndex < 5; iIndex++)
                     {
                         MyprocPocket(iIndex);
+                        // コマンドは連続して送信しない
                         Thread.Sleep(50);
                     }                    
                 }
@@ -957,8 +956,8 @@ namespace QrSorterInspectionApp
         /// <param name="iPocketNumber">0～4（ポケット１～５）</param>
         private void MyprocPocket(int iPocketNumber)
         {
-            string sData = "";
-            int iIndex = 0;
+            string sData;
+            int iIndex;
 
             try
             {
@@ -993,8 +992,6 @@ namespace QrSorterInspectionApp
                 sData += sArrayJob[15 + iPocketNumber] == "OFF" ? "0": "1";     // ポケット切替ON/OFF
                 // シリアルデータ送信
                 SendSerialData(sData);
-                //byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
-                //SerialPortQr.Write(dat, 0, dat.GetLength(0));
             }
             catch (Exception ex)
             {
@@ -1137,7 +1134,6 @@ namespace QrSorterInspectionApp
                 }
 
                 // 判定（OK/NG）
-                //col[3] = strArray[1].Trim();
                 col[3] = strArray[1].Trim() == "0" ? "OK": "NG";
                 // エラーコード
                 //col[4] = strArray[2];                
@@ -1470,7 +1466,7 @@ namespace QrSorterInspectionApp
                 // 受領日
                 DtpDateReceipt.Text = sArray[2];
                 // 受領日入力
-                bDateOfReceipt = sArray[3] == "ON" ? true : false;
+                bDateOfReceipt = sArray[3] == "ON";
 
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
                 // ポケット①名称

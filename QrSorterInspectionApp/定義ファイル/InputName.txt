@@ -10,7 +10,7 @@ CS 107
 CS 108
 CS 109
 DIP SW
-ŒúŒŸ ENC
-PICK ALM
+--------
+--------
 SPEED VR
 Ver.
