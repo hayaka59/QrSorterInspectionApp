@@ -390,6 +390,7 @@ namespace QrSorterInspectionApp
                 DateTime dtPostDate3 = dtCurrent.AddSeconds(3);
                 DateTime dtPostDate4 = dtCurrent.AddSeconds(4);
                 DateTime dtPostDate5 = dtCurrent.AddSeconds(5);
+                DateTime dtPostDate6 = dtCurrent.AddSeconds(6);
                 sFileNameForAllItems = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtCurrent.ToString("yyyyMMddHHmmss") + "全件.csv";
                 // グループ１～５の操作ログファイル名を取得
                 sFileNameForGroupWork[0] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
@@ -397,13 +398,12 @@ namespace QrSorterInspectionApp
                 sFileNameForGroupWork[2] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
                 sFileNameForGroupWork[3] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
                 sFileNameForGroupWork[4] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[5] = "リジェクト".PadRight(16,'0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate6.ToString("yyyyMMddHHmmss") + ".csv";
                 CommonModule.OutPutLogFile($"■sFileNameForGroupWork[0] = {sFileNameForGroupWork[0]}");
                 CommonModule.OutPutLogFile($"■sFileNameForGroupWork[1] = {sFileNameForGroupWork[1]}");
                 CommonModule.OutPutLogFile($"■sFileNameForGroupWork[2] = {sFileNameForGroupWork[2]}");
                 CommonModule.OutPutLogFile($"■sFileNameForGroupWork[3] = {sFileNameForGroupWork[3]}");
                 CommonModule.OutPutLogFile($"■sFileNameForGroupWork[4] = {sFileNameForGroupWork[4]}");
-
-                sFileNameForGroupWork[5] = "リジェクト.csv";
                 CommonModule.OutPutLogFile($"■sFileNameForGroupWork[5] = {sFileNameForGroupWork[5]}");
 
                 // JOB名までのフォルダの存在チェックと作成
