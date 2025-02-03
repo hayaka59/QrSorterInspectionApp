@@ -31,8 +31,8 @@ namespace QrSorterInspectionApp
                 CommonModule.OutPutLogFile("ログ画面を表示しました");
 
                 CmbLogType.Items.Clear();
-                CmbLogType.Items.Add("機械ログ");
-                CmbLogType.Items.Add("検査ログ");
+                CmbLogType.Items.Add("ＯＫログ");
+                CmbLogType.Items.Add("全件ログ");
                 CmbLogType.SelectedIndex = 0;
                 #region 検査ログのヘッダー設定
                 // ListViewのカラムヘッダー設定
@@ -96,11 +96,10 @@ namespace QrSorterInspectionApp
                 }
                 cmbReasonForNonDelivery.SelectedIndex = 0;
                 #endregion
-
-                ChkAllItem.Checked = true;
                 
                 LblLogFileCount.Text = "";
                 LblContentCount.Text = "";
+                LblSelectedFile.Text = "";
 
                 CmbLogType.SelectedIndex = 1;
             }
@@ -139,11 +138,20 @@ namespace QrSorterInspectionApp
             try
             {
                 if (CmbLogType.SelectedIndex == 0) {
+                    lstLogFileList.Clear();
                     LsbLogList.Items.Clear();
-                    LsbLogList.Items.Add("機械ログ_2024年10月28日_XXXXXXXXXXXX");
-                    LsbLogList.Items.Add("機械ログ_2024年10月29日_YYYYYYYYYYYY");
-                    LsbLogList.Items.Add("機械ログ_2024年10月30日_ZZZZZZZZZZZZ");
-
+                    // 検査ログ対象ファイルの取得
+                    foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                      PubConstClass.pblInternalTranFolder) +
+                                                                      "QRソーター設定検査ログ（OKのみ）\\",
+                                                                      "*", SearchOption.AllDirectories))
+                    {
+                        CommonModule.OutPutLogFile($"（OKのみ）検査ログ対象ファイル：{sTranFile}");
+                        sArray = sTranFile.Split('\\');
+                        LsbLogList.Items.Add(sArray[sArray.Length - 1]);
+                        lstLogFileList.Add(sTranFile);
+                    }
+                    LblLogFileCount.Text = $"（OKのみ）検査ログファイル件数：{LsbLogList.Items.Count:#,###} 件";
                 }
                 else
                 {
@@ -151,15 +159,16 @@ namespace QrSorterInspectionApp
                     LsbLogList.Items.Clear();
                     // 検査ログ対象ファイルの取得
                     foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
-                                                                      PubConstClass.pblInternalTranFolder),
+                                                                      PubConstClass.pblInternalTranFolder)+
+                                                                      "QRソーター設定検査ログ（全件）\\",
                                                                       "*", SearchOption.AllDirectories))
                     {
-                        CommonModule.OutPutLogFile($"検査ログ対象ファイル：{sTranFile}");
+                        CommonModule.OutPutLogFile($"（全件）検査ログ対象ファイル：{sTranFile}");
                         sArray = sTranFile.Split('\\');
                         LsbLogList.Items.Add(sArray[sArray.Length - 1]);
                         lstLogFileList.Add(sTranFile);
                     }
-                    LblLogFileCount.Text= $"検査ログファイル件数：{LsbLogList.Items.Count.ToString("#,###")} 件";
+                    LblLogFileCount.Text= $"（全件）検査ログファイル件数：{LsbLogList.Items.Count:#,###} 件";
                 }
             }
             catch (Exception ex)
@@ -208,7 +217,7 @@ namespace QrSorterInspectionApp
                         iCounter++;
                     }
                 }
-                LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count.ToString("#,###")} 件"; ;
+                LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count:#,###} 件"; ;
             }
             catch(Exception ex)
             {
@@ -285,27 +294,6 @@ namespace QrSorterInspectionApp
             }
         }
 
-        private void ChkAllItem_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ChkAllItem.Checked)
-                {
-                    GrpInspectionDate.Enabled = false;
-                    GrpReasonForNonDelivery.Enabled = false;                    
-                }
-                else
-                {
-                    GrpInspectionDate.Enabled = true;
-                    GrpReasonForNonDelivery.Enabled = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【ChkAllItem_CheckedChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         /// <summary>
         /// 「更新」ボタン処理
         /// </summary>
@@ -316,13 +304,6 @@ namespace QrSorterInspectionApp
             string[] sArray;
             try
             {
-                if (ChkAllItem.Checked)
-                {
-                    CmbLogType.SelectedIndex = 0;
-                    CmbLogType.SelectedIndex = 1;
-                    return;
-                }
-
                 lstLogFileList.Clear();
                 LsbLogList.Items.Clear();
                 // 検査ログ対象ファイルの取得
@@ -364,11 +345,90 @@ namespace QrSorterInspectionApp
                         }
                     }
                 }
-                LblLogFileCount.Text = $"検査ログファイル件数：{LsbLogList.Items.Count.ToString("#,###")} 件";
+                LblLogFileCount.Text = $"検査ログファイル件数：{LsbLogList.Items.Count:#,###} 件";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnJobSelect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+
+                CommonModule.OutPutLogFile("「JOB選択」ボタンクリック");
+                // 初期表示するフォルダの指定（「空の文字列」の時は現在のディレクトリを表示）
+                //ofd.InitialDirectory = @"C:\";
+                // 「ファイルの種類」に表示される選択肢の指定
+                ofd.Filter = "CSVファイル(*.csv;*.CSV)|*.csv;*.CSV|すべてのファイル(*.*)|*.*";
+                // 「ファイルの種類」ではじめに「CSVファイル(*.csv;*.CSV)」を選択
+                ofd.FilterIndex = 1;
+                // タイトルを設定
+                ofd.Title = "JOB設定ファイルを選択してください";
+                // ダイアログボックスを閉じる前に現在のディレクトリを復元
+                ofd.RestoreDirectory = true;
+                // 存在しないファイルの名前が指定されたとき警告を表示
+                ofd.CheckFileExists = true;
+                // 存在しないパスが指定されたとき警告を表示
+                ofd.CheckPathExists = true;
+                // ダイアログを表示する
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    // 「OK」ボタンがクリック（選択されたファイル名を表示）
+                    string sSelectedFile = ofd.FileName;
+                    string[] sArray = sSelectedFile.Split('\\');
+                    // ファイル名のみを表示する
+                    LblSelectedFile.Text = sArray[sArray.Length - 1];
+
+
+                    string[] sArrayJob = LblSelectedFile.Text.Split('.');
+                    lstLogFileList.Clear();
+                    LsbLogList.Items.Clear();
+                    if (CmbLogType.SelectedIndex == 0)
+                    {
+                        // 検査ログ対象ファイルの取得
+                        foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                          PubConstClass.pblInternalTranFolder) +
+                                                                          "QRソーター設定検査ログ（OKのみ）\\" +
+                                                                          sArrayJob[0] + "\\",
+                                                                          "*", SearchOption.AllDirectories))
+                        {
+                            CommonModule.OutPutLogFile($"（OKのみ）検査ログ対象ファイル：{sTranFile}");
+                            sArray = sTranFile.Split('\\');
+                            LsbLogList.Items.Add(sArray[sArray.Length - 1]);
+                            lstLogFileList.Add(sTranFile);
+                        }
+                        LblLogFileCount.Text = $"JOB名（{sArrayJob[0]}）（OKのみ）検査ログファイル件数：{LsbLogList.Items.Count:#,###} 件";
+                    }
+                    else
+                    {
+                        // 検査ログ対象ファイルの取得
+                        foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                          PubConstClass.pblInternalTranFolder) +
+                                                                          "QRソーター設定検査ログ（全件）\\" +
+                                                                          sArrayJob[0] + "\\",
+                                                                          "*", SearchOption.AllDirectories))
+                        {
+                            CommonModule.OutPutLogFile($"（全件）検査ログ対象ファイル：{sTranFile}");
+                            sArray = sTranFile.Split('\\');
+                            LsbLogList.Items.Add(sArray[sArray.Length - 1]);
+                            lstLogFileList.Add(sTranFile);
+                        }
+                        LblLogFileCount.Text = $"JOB名（{sArrayJob[0]}）（全件）検査ログファイル件数：{LsbLogList.Items.Count:#,###} 件";
+                    }
+
+
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnJobSelect_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

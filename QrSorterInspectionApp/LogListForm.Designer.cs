@@ -43,12 +43,13 @@
             this.GrpInspectionDate = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dtTimePickerTo = new System.Windows.Forms.DateTimePicker();
-            this.ChkAllItem = new System.Windows.Forms.CheckBox();
             this.GrpReasonForNonDelivery = new System.Windows.Forms.GroupBox();
             this.ChkReasonForNonDelivery = new System.Windows.Forms.CheckBox();
             this.LblLogFileCount = new System.Windows.Forms.Label();
             this.LblContentCount = new System.Windows.Forms.Label();
             this.BtnUpdate = new System.Windows.Forms.Button();
+            this.LblSelectedFile = new System.Windows.Forms.Label();
+            this.BtnJobSelect = new System.Windows.Forms.Button();
             this.GrpInspectionDate.SuspendLayout();
             this.GrpReasonForNonDelivery.SuspendLayout();
             this.SuspendLayout();
@@ -97,9 +98,9 @@
             this.CmbLogType.FormattingEnabled = true;
             this.CmbLogType.IntegralHeight = false;
             this.CmbLogType.ItemHeight = 28;
-            this.CmbLogType.Location = new System.Drawing.Point(208, 88);
+            this.CmbLogType.Location = new System.Drawing.Point(171, 88);
             this.CmbLogType.Name = "CmbLogType";
-            this.CmbLogType.Size = new System.Drawing.Size(299, 36);
+            this.CmbLogType.Size = new System.Drawing.Size(185, 36);
             this.CmbLogType.TabIndex = 261;
             this.CmbLogType.SelectedIndexChanged += new System.EventHandler(this.CmbLogType_SelectedIndexChanged);
             // 
@@ -111,7 +112,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(38, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(170, 36);
+            this.label3.Size = new System.Drawing.Size(132, 36);
             this.label3.TabIndex = 260;
             this.label3.Text = "ログの種類";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -202,7 +203,7 @@
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerTo);
             this.GrpInspectionDate.Controls.Add(this.ChkInspectionDate);
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerFrom);
-            this.GrpInspectionDate.Location = new System.Drawing.Point(661, 75);
+            this.GrpInspectionDate.Location = new System.Drawing.Point(902, 77);
             this.GrpInspectionDate.Name = "GrpInspectionDate";
             this.GrpInspectionDate.Size = new System.Drawing.Size(456, 60);
             this.GrpInspectionDate.TabIndex = 268;
@@ -228,23 +229,11 @@
             this.dtTimePickerTo.Size = new System.Drawing.Size(171, 31);
             this.dtTimePickerTo.TabIndex = 268;
             // 
-            // ChkAllItem
-            // 
-            this.ChkAllItem.AutoSize = true;
-            this.ChkAllItem.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ChkAllItem.Location = new System.Drawing.Point(522, 97);
-            this.ChkAllItem.Name = "ChkAllItem";
-            this.ChkAllItem.Size = new System.Drawing.Size(58, 20);
-            this.ChkAllItem.TabIndex = 269;
-            this.ChkAllItem.Text = "全件";
-            this.ChkAllItem.UseVisualStyleBackColor = true;
-            this.ChkAllItem.CheckedChanged += new System.EventHandler(this.ChkAllItem_CheckedChanged);
-            // 
             // GrpReasonForNonDelivery
             // 
             this.GrpReasonForNonDelivery.Controls.Add(this.ChkReasonForNonDelivery);
             this.GrpReasonForNonDelivery.Controls.Add(this.cmbReasonForNonDelivery);
-            this.GrpReasonForNonDelivery.Location = new System.Drawing.Point(1131, 75);
+            this.GrpReasonForNonDelivery.Location = new System.Drawing.Point(1372, 77);
             this.GrpReasonForNonDelivery.Name = "GrpReasonForNonDelivery";
             this.GrpReasonForNonDelivery.Size = new System.Drawing.Size(317, 60);
             this.GrpReasonForNonDelivery.TabIndex = 270;
@@ -268,7 +257,7 @@
             this.LblLogFileCount.ForeColor = System.Drawing.Color.White;
             this.LblLogFileCount.Location = new System.Drawing.Point(52, 157);
             this.LblLogFileCount.Name = "LblLogFileCount";
-            this.LblLogFileCount.Size = new System.Drawing.Size(414, 23);
+            this.LblLogFileCount.Size = new System.Drawing.Size(536, 23);
             this.LblLogFileCount.TabIndex = 271;
             this.LblLogFileCount.Text = "LblLogFileCount";
             this.LblLogFileCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -280,7 +269,7 @@
             this.LblContentCount.ForeColor = System.Drawing.Color.White;
             this.LblContentCount.Location = new System.Drawing.Point(52, 427);
             this.LblContentCount.Name = "LblContentCount";
-            this.LblContentCount.Size = new System.Drawing.Size(414, 23);
+            this.LblContentCount.Size = new System.Drawing.Size(536, 23);
             this.LblContentCount.TabIndex = 272;
             this.LblContentCount.Text = "LblContentCount";
             this.LblContentCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -289,7 +278,7 @@
             // 
             this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnUpdate.Location = new System.Drawing.Point(1477, 86);
+            this.BtnUpdate.Location = new System.Drawing.Point(1695, 87);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(170, 45);
             this.BtnUpdate.TabIndex = 273;
@@ -299,17 +288,44 @@
             this.BtnUpdate.UseVisualStyleBackColor = true;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
+            // LblSelectedFile
+            // 
+            this.LblSelectedFile.BackColor = System.Drawing.Color.White;
+            this.LblSelectedFile.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblSelectedFile.ForeColor = System.Drawing.Color.Black;
+            this.LblSelectedFile.Location = new System.Drawing.Point(539, 87);
+            this.LblSelectedFile.Name = "LblSelectedFile";
+            this.LblSelectedFile.Size = new System.Drawing.Size(298, 36);
+            this.LblSelectedFile.TabIndex = 325;
+            this.LblSelectedFile.Text = "LblSelectedFile";
+            this.LblSelectedFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnJobSelect
+            // 
+            this.BtnJobSelect.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnJobSelect.Image = global::QrSorterInspectionApp.Properties.Resources.search_file;
+            this.BtnJobSelect.Location = new System.Drawing.Point(378, 82);
+            this.BtnJobSelect.Name = "BtnJobSelect";
+            this.BtnJobSelect.Size = new System.Drawing.Size(155, 46);
+            this.BtnJobSelect.TabIndex = 324;
+            this.BtnJobSelect.Text = "JOB選択";
+            this.BtnJobSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnJobSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnJobSelect.UseVisualStyleBackColor = true;
+            this.BtnJobSelect.Click += new System.EventHandler(this.BtnJobSelect_Click);
+            // 
             // LogListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.LblSelectedFile);
+            this.Controls.Add(this.BtnJobSelect);
             this.Controls.Add(this.BtnUpdate);
             this.Controls.Add(this.LblContentCount);
             this.Controls.Add(this.LblLogFileCount);
             this.Controls.Add(this.GrpReasonForNonDelivery);
-            this.Controls.Add(this.ChkAllItem);
             this.Controls.Add(this.GrpInspectionDate);
             this.Controls.Add(this.LsbLogList);
             this.Controls.Add(this.label1);
@@ -332,7 +348,6 @@
             this.GrpReasonForNonDelivery.ResumeLayout(false);
             this.GrpReasonForNonDelivery.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -351,7 +366,6 @@
         private System.Windows.Forms.DateTimePicker dtTimePickerFrom;
         private System.Windows.Forms.CheckBox ChkInspectionDate;
         private System.Windows.Forms.GroupBox GrpInspectionDate;
-        private System.Windows.Forms.CheckBox ChkAllItem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtTimePickerTo;
         private System.Windows.Forms.GroupBox GrpReasonForNonDelivery;
@@ -359,5 +373,7 @@
         private System.Windows.Forms.Label LblLogFileCount;
         private System.Windows.Forms.Label LblContentCount;
         internal System.Windows.Forms.Button BtnUpdate;
+        internal System.Windows.Forms.Label LblSelectedFile;
+        internal System.Windows.Forms.Button BtnJobSelect;
     }
 }
