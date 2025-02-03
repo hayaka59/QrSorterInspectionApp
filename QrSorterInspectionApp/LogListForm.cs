@@ -154,7 +154,7 @@ namespace QrSorterInspectionApp
                                                                       PubConstClass.pblInternalTranFolder),
                                                                       "*", SearchOption.AllDirectories))
                     {
-                        CommonModule.OutPutLogFile($"■検査ログ対象ファイル：{sTranFile}");
+                        CommonModule.OutPutLogFile($"検査ログ対象ファイル：{sTranFile}");
                         sArray = sTranFile.Split('\\');
                         LsbLogList.Items.Add(sArray[sArray.Length - 1]);
                         lstLogFileList.Add(sTranFile);
@@ -330,7 +330,7 @@ namespace QrSorterInspectionApp
                                                                   PubConstClass.pblInternalTranFolder),
                                                                   "*", SearchOption.AllDirectories))
                 {
-                    CommonModule.OutPutLogFile($"■検査ログ対象ファイル：{sTranFile}");
+                    CommonModule.OutPutLogFile($"検査ログ対象ファイル：{sTranFile}");
                     sArray = sTranFile.Split('\\');
                     if (ChkInspectionDate.Checked)
                     {

@@ -1006,7 +1006,7 @@ namespace QrSorterInspectionApp
             catch (TimeoutException)
             {
                 // ディスカードするデータ
-                CommonModule.OutPutLogFile("【保守画面】■データ受信タイムアウトエラー：<CR>未受信で切り捨てたデータ：" + data);
+                CommonModule.OutPutLogFile("【保守画面】データ受信タイムアウトエラー：<CR>未受信で切り捨てたデータ：" + data);
             }
             catch (Exception ex)
             {
