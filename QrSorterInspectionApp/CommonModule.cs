@@ -649,7 +649,7 @@ namespace QrSorterInspectionApp
                         {
                             // 存在しない場合は登録する
                             PubConstClass.dicErrorCodeData.Add(strArray[0], strArray[1] + "," + strArray[2]);
-                            OutPutLogFile($"【エラーコード辞書追加】{strArray[0]}＝{strArray[1]},{strArray[2]}");
+                            //OutPutLogFile($"【エラーコード辞書追加】{strArray[0]}＝{strArray[1]},{strArray[2]}");
                         }
                         else
                         {

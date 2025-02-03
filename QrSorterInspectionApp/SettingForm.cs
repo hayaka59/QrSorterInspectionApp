@@ -945,7 +945,7 @@ namespace QrSorterInspectionApp
             {
                 OpenFileDialog ofd = new OpenFileDialog();
 
-                CommonModule.OutPutLogFile("■「JO選択」ボタンクリック");
+                CommonModule.OutPutLogFile("「JO選択」ボタンクリック");
                 // 初期表示するフォルダの指定（「空の文字列」の時は現在のディレクトリを表示）
                 //ofd.InitialDirectory = @"C:\";
                 // 「ファイルの種類」に表示される選択肢の指定

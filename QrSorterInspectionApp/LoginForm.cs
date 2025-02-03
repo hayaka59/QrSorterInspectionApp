@@ -33,7 +33,7 @@ namespace QrSorterInspectionApp
                 PubConstClass.objSyncHist = new object();
                 CommonModule.OutPutLogFile("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
                 CommonModule.OutPutLogFile("【" + "QRソータ検査アプリ" + "】を起動しました。");
-                CommonModule.OutPutLogFile("■QRソータ検査アプリバージョン「" + PubConstClass.DEF_VERSION + "」");
+                CommonModule.OutPutLogFile("QRソータ検査アプリバージョン「" + PubConstClass.DEF_VERSION + "」");
 
                 // 設定ファイルの存在チェック
                 if (ConfigurationFileExistenceCheck() == false)
@@ -72,15 +72,15 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                CommonModule.OutPutLogFile("■「ログイン」ボタンクリック");
+                CommonModule.OutPutLogFile("「ログイン」ボタンクリック");
 
                 bool bRet = CheckUserAndPassword();
                 if (!bRet)
                 {
-                    CommonModule.OutPutLogFile("■ログインエラー");
+                    CommonModule.OutPutLogFile("ログインエラー");
                     return;
                 }
-                CommonModule.OutPutLogFile("■ログイン成功");
+                CommonModule.OutPutLogFile("ログイン成功");
 
                 TxtUserId.Text = "";
                 TxtPassword.Text = "";

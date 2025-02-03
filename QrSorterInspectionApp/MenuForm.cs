@@ -153,7 +153,7 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
-            CommonModule.OutPutLogFile("■メニュー画面：「ログアウト」ボタンクリック");
+            CommonModule.OutPutLogFile("メニュー画面：「ログアウト」ボタンクリック");
             Owner.Show();
             this.Dispose();
         }
@@ -165,7 +165,7 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnEnd_Click(object sender, EventArgs e)
         {
-            CommonModule.OutPutLogFile("■メニュー画面：「終了」ボタンクリック");
+            CommonModule.OutPutLogFile("メニュー画面：「終了」ボタンクリック");
             Owner.Dispose();
             this.Dispose();
         }
@@ -179,7 +179,7 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                CommonModule.OutPutLogFile("■メニュー画面：「設定」ボタンクリック");
+                CommonModule.OutPutLogFile("メニュー画面：「設定」ボタンクリック");
                 PubConstClass.sJobFileNameFromInspectionForm = "";
                 SettingForm form = new SettingForm();
                 form.Show(this);
@@ -200,7 +200,7 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                CommonModule.OutPutLogFile("■メニュー画面：「QRソーター検査」ボタンクリック");
+                CommonModule.OutPutLogFile("メニュー画面：「QRソーター検査」ボタンクリック");
                 QrSorterInspectionForm form = new QrSorterInspectionForm();
                 form.Show(this);
                 this.Hide();
@@ -220,7 +220,7 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                CommonModule.OutPutLogFile("■メニュー画面：「SV・OP設定」ボタンクリック");
+                CommonModule.OutPutLogFile("メニュー画面：「SV・OP設定」ボタンクリック");
                 RegisterAccountForm form = new RegisterAccountForm();
                 form.Show(this);
                 this.Hide();
@@ -240,7 +240,7 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                CommonModule.OutPutLogFile("■メニュー画面：「ログ管理」ボタンクリック");
+                CommonModule.OutPutLogFile("メニュー画面：「ログ管理」ボタンクリック");
                 LogListForm form = new LogListForm();
                 form.Show(this);
                 this.Hide();
@@ -260,7 +260,7 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                CommonModule.OutPutLogFile("■メニュー画面：「保守」ボタンクリック");
+                CommonModule.OutPutLogFile("メニュー画面：「保守」ボタンクリック");
                 MaintenanceForm form = new MaintenanceForm();
                 form.Show(this);
                 this.Hide();
