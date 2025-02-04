@@ -50,6 +50,7 @@
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.LblSelectedFile = new System.Windows.Forms.Label();
             this.BtnJobSelect = new System.Windows.Forms.Button();
+            this.BtnJobClear = new System.Windows.Forms.Button();
             this.GrpInspectionDate.SuspendLayout();
             this.GrpReasonForNonDelivery.SuspendLayout();
             this.SuspendLayout();
@@ -203,7 +204,7 @@
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerTo);
             this.GrpInspectionDate.Controls.Add(this.ChkInspectionDate);
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerFrom);
-            this.GrpInspectionDate.Location = new System.Drawing.Point(902, 77);
+            this.GrpInspectionDate.Location = new System.Drawing.Point(717, 72);
             this.GrpInspectionDate.Name = "GrpInspectionDate";
             this.GrpInspectionDate.Size = new System.Drawing.Size(456, 60);
             this.GrpInspectionDate.TabIndex = 268;
@@ -233,7 +234,7 @@
             // 
             this.GrpReasonForNonDelivery.Controls.Add(this.ChkReasonForNonDelivery);
             this.GrpReasonForNonDelivery.Controls.Add(this.cmbReasonForNonDelivery);
-            this.GrpReasonForNonDelivery.Location = new System.Drawing.Point(1372, 77);
+            this.GrpReasonForNonDelivery.Location = new System.Drawing.Point(1191, 72);
             this.GrpReasonForNonDelivery.Name = "GrpReasonForNonDelivery";
             this.GrpReasonForNonDelivery.Size = new System.Drawing.Size(317, 60);
             this.GrpReasonForNonDelivery.TabIndex = 270;
@@ -278,7 +279,7 @@
             // 
             this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnUpdate.Location = new System.Drawing.Point(1695, 87);
+            this.BtnUpdate.Location = new System.Drawing.Point(1526, 80);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(170, 45);
             this.BtnUpdate.TabIndex = 273;
@@ -293,7 +294,7 @@
             this.LblSelectedFile.BackColor = System.Drawing.Color.White;
             this.LblSelectedFile.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblSelectedFile.ForeColor = System.Drawing.Color.Black;
-            this.LblSelectedFile.Location = new System.Drawing.Point(539, 87);
+            this.LblSelectedFile.Location = new System.Drawing.Point(389, 107);
             this.LblSelectedFile.Name = "LblSelectedFile";
             this.LblSelectedFile.Size = new System.Drawing.Size(298, 36);
             this.LblSelectedFile.TabIndex = 325;
@@ -304,9 +305,9 @@
             // 
             this.BtnJobSelect.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnJobSelect.Image = global::QrSorterInspectionApp.Properties.Resources.search_file;
-            this.BtnJobSelect.Location = new System.Drawing.Point(378, 82);
+            this.BtnJobSelect.Location = new System.Drawing.Point(387, 58);
             this.BtnJobSelect.Name = "BtnJobSelect";
-            this.BtnJobSelect.Size = new System.Drawing.Size(155, 46);
+            this.BtnJobSelect.Size = new System.Drawing.Size(144, 46);
             this.BtnJobSelect.TabIndex = 324;
             this.BtnJobSelect.Text = "JOB選択";
             this.BtnJobSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -314,12 +315,25 @@
             this.BtnJobSelect.UseVisualStyleBackColor = true;
             this.BtnJobSelect.Click += new System.EventHandler(this.BtnJobSelect_Click);
             // 
+            // BtnJobClear
+            // 
+            this.BtnJobClear.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnJobClear.Location = new System.Drawing.Point(543, 58);
+            this.BtnJobClear.Name = "BtnJobClear";
+            this.BtnJobClear.Size = new System.Drawing.Size(144, 46);
+            this.BtnJobClear.TabIndex = 326;
+            this.BtnJobClear.Text = "JOBクリア";
+            this.BtnJobClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnJobClear.UseVisualStyleBackColor = true;
+            this.BtnJobClear.Click += new System.EventHandler(this.BtnJobClear_Click);
+            // 
             // LogListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnJobClear);
             this.Controls.Add(this.LblSelectedFile);
             this.Controls.Add(this.BtnJobSelect);
             this.Controls.Add(this.BtnUpdate);
@@ -375,5 +389,6 @@
         internal System.Windows.Forms.Button BtnUpdate;
         internal System.Windows.Forms.Label LblSelectedFile;
         internal System.Windows.Forms.Button BtnJobSelect;
+        internal System.Windows.Forms.Button BtnJobClear;
     }
 }
