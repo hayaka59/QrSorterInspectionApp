@@ -410,12 +410,12 @@ namespace QrSorterInspectionApp
                 if (LblSelectedFile.Text != "")
                 {
                     sArrayJob = LblSelectedFile.Text.Split('.');
-                    sPath += "\\";
+                    sPath += sArrayJob[0] + "\\";
                 }
                 else
                 {
                     sArrayJob = ".csv".Split('.');
-                    sPath += sArrayJob[0] + "\\";
+                    sPath += "\\";
                 }
 
                 lstLogFileList.Clear();
