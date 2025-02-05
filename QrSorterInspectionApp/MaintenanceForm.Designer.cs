@@ -1377,6 +1377,7 @@
             this.RdoOutPut16.Text = "空き";
             this.RdoOutPut16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut16.UseVisualStyleBackColor = false;
+            this.RdoOutPut16.Click += new System.EventHandler(this.RdoOutPut16_Click);
             // 
             // RdoOutPut15
             // 
@@ -1395,6 +1396,7 @@
             this.RdoOutPut15.Text = "空き";
             this.RdoOutPut15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut15.UseVisualStyleBackColor = false;
+            this.RdoOutPut15.Click += new System.EventHandler(this.RdoOutPut15_Click);
             // 
             // RdoOutPut14
             // 
@@ -1413,6 +1415,7 @@
             this.RdoOutPut14.Text = "空き";
             this.RdoOutPut14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut14.UseVisualStyleBackColor = false;
+            this.RdoOutPut14.Click += new System.EventHandler(this.RdoOutPut14_Click);
             // 
             // RdoOutPut13
             // 
@@ -1431,6 +1434,7 @@
             this.RdoOutPut13.Text = "空き";
             this.RdoOutPut13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut13.UseVisualStyleBackColor = false;
+            this.RdoOutPut13.Click += new System.EventHandler(this.RdoOutPut13_Click);
             // 
             // RdoOutPut12
             // 
@@ -1449,6 +1453,7 @@
             this.RdoOutPut12.Text = "空き";
             this.RdoOutPut12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut12.UseVisualStyleBackColor = false;
+            this.RdoOutPut12.Click += new System.EventHandler(this.RdoOutPut12_Click);
             // 
             // RdoOutPut11
             // 
@@ -1467,6 +1472,7 @@
             this.RdoOutPut11.Text = "空き";
             this.RdoOutPut11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut11.UseVisualStyleBackColor = false;
+            this.RdoOutPut11.Click += new System.EventHandler(this.RdoOutPut11_Click);
             // 
             // RdoOutPut10
             // 
@@ -1485,6 +1491,7 @@
             this.RdoOutPut10.Text = "空き";
             this.RdoOutPut10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut10.UseVisualStyleBackColor = false;
+            this.RdoOutPut10.Click += new System.EventHandler(this.RdoOutPut10_Click);
             // 
             // RdoOutPut9
             // 
@@ -1503,6 +1510,7 @@
             this.RdoOutPut9.Text = "ＩＦＯＵＴ＿4";
             this.RdoOutPut9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut9.UseVisualStyleBackColor = false;
+            this.RdoOutPut9.Click += new System.EventHandler(this.RdoOutPut9_Click);
             // 
             // RdoOutPut8
             // 
@@ -1521,6 +1529,7 @@
             this.RdoOutPut8.Text = "ＩＦＯＵＴ＿３";
             this.RdoOutPut8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut8.UseVisualStyleBackColor = false;
+            this.RdoOutPut8.Click += new System.EventHandler(this.RdoOutPut8_Click);
             // 
             // RdoOutPut7
             // 
@@ -1539,6 +1548,7 @@
             this.RdoOutPut7.Text = "ＩＦ停止ＯＮ＿２";
             this.RdoOutPut7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut7.UseVisualStyleBackColor = false;
+            this.RdoOutPut7.Click += new System.EventHandler(this.RdoOutPut7_Click);
             // 
             // RdoOutPut6
             // 
@@ -1557,6 +1567,7 @@
             this.RdoOutPut6.Text = "ＩＦフィーダーＯＮ＿１";
             this.RdoOutPut6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut6.UseVisualStyleBackColor = false;
+            this.RdoOutPut6.Click += new System.EventHandler(this.RdoOutPut6_Click);
             // 
             // RdoOutPut5
             // 
@@ -1575,6 +1586,7 @@
             this.RdoOutPut5.Text = "カメラトリガ";
             this.RdoOutPut5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut5.UseVisualStyleBackColor = false;
+            this.RdoOutPut5.Click += new System.EventHandler(this.RdoOutPut5_Click);
             // 
             // RdoOutPut4
             // 
@@ -1593,6 +1605,7 @@
             this.RdoOutPut4.Text = "フラップ移動モーター";
             this.RdoOutPut4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut4.UseVisualStyleBackColor = false;
+            this.RdoOutPut4.Click += new System.EventHandler(this.RdoOutPut4_Click);
             // 
             // RdoOutPut3
             // 
@@ -1611,6 +1624,7 @@
             this.RdoOutPut3.Text = "カメラ移動モーター";
             this.RdoOutPut3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut3.UseVisualStyleBackColor = false;
+            this.RdoOutPut3.Click += new System.EventHandler(this.RdoOutPut3_Click);
             // 
             // RdoOutPut2
             // 
@@ -1629,6 +1643,7 @@
             this.RdoOutPut2.Text = "フラップエアー";
             this.RdoOutPut2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut2.UseVisualStyleBackColor = false;
+            this.RdoOutPut2.Click += new System.EventHandler(this.RdoOutPut2_Click);
             // 
             // RdoOutPut1
             // 
@@ -1647,6 +1662,7 @@
             this.RdoOutPut1.Text = "メイン搬送";
             this.RdoOutPut1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RdoOutPut1.UseVisualStyleBackColor = false;
+            this.RdoOutPut1.Click += new System.EventHandler(this.RdoOutPut1_Click);
             // 
             // tabPage3
             // 

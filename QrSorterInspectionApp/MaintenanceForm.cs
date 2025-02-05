@@ -1251,5 +1251,127 @@ namespace QrSorterInspectionApp
             }
 
         }
+
+        private void OutPutData(RadioButton radioButton, string data)
+        {
+            try
+            {
+                if (radioButton.Text.Trim() == "")
+                {
+                    return;
+                }
+                RdoOutPut1.BackColor = Color.Blue;
+                RdoOutPut2.BackColor = Color.Blue;
+                RdoOutPut3.BackColor = Color.Blue;
+                RdoOutPut4.BackColor = Color.Blue;
+                RdoOutPut5.BackColor = Color.Blue;
+                RdoOutPut6.BackColor = Color.Blue;
+                RdoOutPut7.BackColor = Color.Blue;
+                RdoOutPut8.BackColor = Color.Blue;
+                RdoOutPut9.BackColor = Color.Blue;
+
+                RdoOutPut10.BackColor = Color.Blue;
+                RdoOutPut11.BackColor = Color.Blue;
+                RdoOutPut12.BackColor = Color.Blue;
+                RdoOutPut13.BackColor = Color.Blue;
+                RdoOutPut14.BackColor = Color.Blue;
+                RdoOutPut15.BackColor = Color.Blue;
+                RdoOutPut16.BackColor = Color.Blue;
+
+                ushort outData = 1;
+                radioButton.BackColor = Color.Orange;
+                
+                string sData = PubConstClass.CMD_SEND_k + "," + data;
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【OutPutData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RdoOutPut1_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut1, "0001");
+        }
+
+        private void RdoOutPut2_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut2, "0002");
+        }
+
+        private void RdoOutPut3_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut3, "0004");
+        }
+
+        private void RdoOutPut4_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut4, "0008");
+        }
+
+        private void RdoOutPut5_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut5, "0010");
+        }
+
+        private void RdoOutPut6_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut6, "0020");
+        }
+
+        private void RdoOutPut7_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut7, "0040");
+        }
+
+        private void RdoOutPut8_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut8, "0080");
+        }
+
+        private void RdoOutPut9_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut9, "0100");
+        }
+
+        private void RdoOutPut10_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut10, "0200");
+        }
+
+        private void RdoOutPut11_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut11, "0400");
+        }
+
+        private void RdoOutPut12_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut12, "0800");
+        }
+
+        private void RdoOutPut13_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut13, "1000");
+        }
+
+        private void RdoOutPut14_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut14, "2000");
+        }
+
+        private void RdoOutPut15_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut15, "4000");
+        }
+
+        private void RdoOutPut16_Click(object sender, EventArgs e)
+        {
+            OutPutData(RdoOutPut16, "8000");
+        }
+
     }
 }

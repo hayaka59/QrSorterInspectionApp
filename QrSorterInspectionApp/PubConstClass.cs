@@ -17,6 +17,7 @@ namespace QrSorterInspectionApp
 
         public const string CMD_SEND_i = "i";                                   // 送信コマンド
         public const string CMD_SEND_j = "j";                                   // 送信コマンド
+        public const string CMD_SEND_k = "k";                                   // 送信コマンド
 
         public const string CMD_SEND_m = "m";                                   // 保守画面から抜けたら送信
 
