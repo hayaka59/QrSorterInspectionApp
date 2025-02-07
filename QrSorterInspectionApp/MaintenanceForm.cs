@@ -259,8 +259,7 @@ namespace QrSorterInspectionApp
                 // シリアルポートのオープン
                 SerialPortMaint.Open();
                 // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m + ",1" + "\r");
-                SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                SendSerialData(PubConstClass.CMD_SEND_m + ",1");
             }
             catch (Exception ex)
             {
@@ -280,8 +279,7 @@ namespace QrSorterInspectionApp
                 if (SerialPortMaint.IsOpen)
                 {
                     // 送信データのセット
-                    byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_m + ",0" + "\r");
-                    SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                    SendSerialData(PubConstClass.CMD_SEND_m + ",0");                    
                     // シリアルポートクローズ
                     SerialPortMaint.Close();
                 }
@@ -551,13 +549,6 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                //// 生協・デポ入力データの妥当性チェック
-                //bRet = CoopAndDepoInputValidation(TxtCoopDepo.Text);
-                //if (!bRet)
-                //{
-                //    // 妥当性チェックエラー
-                //    return;
-                //}
                 DialogResult dResult = MessageBox.Show("仕分けマスタファイルを保存しますか？", "保存確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dResult == DialogResult.No)
                 {
@@ -1180,7 +1171,7 @@ namespace QrSorterInspectionApp
         /// </summary>
         private void MyProcDipSw()
         {
-            string sData = "";
+            string sData;
             try
             {
                 sData = PubConstClass.CMD_SEND_t + ",";
@@ -1188,8 +1179,7 @@ namespace QrSorterInspectionApp
                     sData += sDipSwitch[15 - iIndex];
                 }
                 // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
-                SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                SendSerialData(sData);
             }
             catch (Exception ex)
             {
@@ -1213,8 +1203,7 @@ namespace QrSorterInspectionApp
                     if (dialogResult == DialogResult.OK)
                     {
                         // 送信データのセット
-                        byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_i + "\r");
-                        SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                        SendSerialData(PubConstClass.CMD_SEND_i);
                     }
                 }
             }
@@ -1240,8 +1229,7 @@ namespace QrSorterInspectionApp
                     if (dialogResult == DialogResult.OK)
                     {
                         // 送信データのセット
-                        byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_j + "\r");
-                        SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                        SendSerialData(PubConstClass.CMD_SEND_j);
                     }
                 }
             }
@@ -1251,6 +1239,26 @@ namespace QrSorterInspectionApp
             }
 
         }
+
+        /// <summary>
+        /// シリアルデータ送信処理
+        /// </summary>
+        /// <param name="sData"></param>
+        private void SendSerialData(string sData)
+        {
+            try
+            {
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                CommonModule.OutPutLogFile($"〓【保守画面】送信データ：{sData}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SendSerialData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void OutPutData(RadioButton radioButton, string data)
         {
@@ -1278,13 +1286,13 @@ namespace QrSorterInspectionApp
                 RdoOutPut15.BackColor = Color.Blue;
                 RdoOutPut16.BackColor = Color.Blue;
 
-                ushort outData = 1;
+                //ushort outData = 1;
                 radioButton.BackColor = Color.Orange;
                 
                 string sData = PubConstClass.CMD_SEND_k + "," + data;
                 // 送信データのセット
-                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
-                SerialPortMaint.Write(dat, 0, dat.GetLength(0));
+                SendSerialData(sData);
+
 
             }
             catch (Exception ex)
