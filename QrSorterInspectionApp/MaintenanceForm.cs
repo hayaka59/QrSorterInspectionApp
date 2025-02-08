@@ -1034,7 +1034,7 @@ namespace QrSorterInspectionApp
             try
             {
                 LblRcvData.Text = data.Replace("\r", "<CR>");
-                CommonModule.OutPutLogFile($"【保守画面】受信データ：{data.Replace("\r", "<CR>")}");
+                CommonModule.OutPutLogFile($"■【保守画面】受信データ：{data.Replace("\r", "<CR>")}");
 
                 // 受信データの先頭１文字を取得
                 string sCommandType = data.Substring(0, 1);
