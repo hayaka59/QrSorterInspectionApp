@@ -175,6 +175,7 @@ namespace QrSorterInspectionApp
                 LblQuantity5.Text = "---";
                 #endregion
 
+                LblQrReadData.Text = "";
                 // 過去に受信したQRデータ一覧のクリア
                 lstPastReceivedQrData.Clear();
 
@@ -912,6 +913,11 @@ namespace QrSorterInspectionApp
                         MyProcError(data);
                         break;
 
+                    case PubConstClass.CMD_RECIEVE_L:
+                        // QR読取り直後データコマンド
+                        MyProcQrData(data.Substring(2, data.Length - 2));
+                        break;
+
                     default:
                         // 未定義コマンド
                         CommonModule.OutPutLogFile($"未定義コマンドです：{data.Replace("\r", "<CR>")}");
@@ -1361,6 +1367,23 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【MyProcData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 CommonModule.OutPutLogFile("【MyProcData】" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sData"></param>
+        private void MyProcQrData(string sData)
+        {
+            try
+            {
+                LblQrReadData.Text = sData.Replace("\r","<CR>");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonModule.OutPutLogFile("【MyProcQrData】" + ex.Message);
             }
         }
 

@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="icon\question.png" />
+    <None Include="icon\barcode.png" />
     <Content Include="NonDeliveryReasonSorting.txt" />
     <Content Include="QrSorterSimulatorApp.def" />
   </ItemGroup>

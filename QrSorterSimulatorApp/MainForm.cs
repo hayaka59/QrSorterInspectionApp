@@ -621,5 +621,29 @@ namespace QrSorterSimulatorApp
                 MessageBox.Show(ex.Message, "【BtnDipSw_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnQrDataSend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sData = PubConstClass.CMD_SEND_L + ",";
+                // 読取値（31桁）：物件ID（5桁）＋（1st/2st）＋局出し日（YYYYMMDD）＋ユニークキー（17桁）
+                sData += TxtPropertyId.Text.Trim();                           // 物件ID
+                sData += "1";                                                       // （1st/2st）
+                sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");            // 局出し日（YYYYMMDD）
+                // ユニークキー（17桁）をセット
+                sData += "-" + DateTime.Now.ToString("yyMMdd_");                    // ユニークキー（8桁）
+                sData += int.Parse(TxtUniqueKey.Text).ToString("000000000") + ",";  // ユニークキー（9桁）
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                SerialPortQr.Write(dat, 0, dat.GetLength(0));
+                LsbSendBox.Items.Add($"{sData}<CR>");
+                LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnDipSw_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

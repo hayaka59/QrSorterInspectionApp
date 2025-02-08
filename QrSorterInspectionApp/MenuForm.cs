@@ -118,7 +118,7 @@ namespace QrSorterInspectionApp
                 // シリアルポートにデータ送信（動作可コマンド）
                 byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_a + "\r");
                 SerialPort.Write(dat, 0, dat.GetLength(0));
-                //LoggingSerialSendData(PubConstClass.CMD_SEND_a);
+                CommonModule.OutPutLogFile($"〓【メニュー画面】送信データ：{PubConstClass.CMD_SEND_a}");
                 SerialPort.Close();
 
                 // ディスクの空き領域をチェック

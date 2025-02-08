@@ -102,11 +102,14 @@
             this.LblFdrInfo4 = new System.Windows.Forms.Label();
             this.LblFdrInfo5 = new System.Windows.Forms.Label();
             this.LblPocketEject = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LblQrReadData = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -704,7 +707,7 @@
             // 
             this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnSetting.Image = global::QrSorterInspectionApp.Properties.Resources.setting_small;
-            this.BtnSetting.Location = new System.Drawing.Point(603, 232);
+            this.BtnSetting.Location = new System.Drawing.Point(918, 84);
             this.BtnSetting.Name = "BtnSetting";
             this.BtnSetting.Size = new System.Drawing.Size(215, 42);
             this.BtnSetting.TabIndex = 306;
@@ -988,12 +991,36 @@
             this.LblPocketEject.Text = "ポケットイジェクト";
             this.LblPocketEject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.LblQrReadData);
+            this.groupBox1.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox1.Location = new System.Drawing.Point(604, 229);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(576, 64);
+            this.groupBox1.TabIndex = 335;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "QR読取りデータ";
+            // 
+            // LblQrReadData
+            // 
+            this.LblQrReadData.BackColor = System.Drawing.Color.White;
+            this.LblQrReadData.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblQrReadData.ForeColor = System.Drawing.Color.Black;
+            this.LblQrReadData.Location = new System.Drawing.Point(8, 20);
+            this.LblQrReadData.Name = "LblQrReadData";
+            this.LblQrReadData.Size = new System.Drawing.Size(560, 35);
+            this.LblQrReadData.TabIndex = 324;
+            this.LblQrReadData.Text = "123456789*123456789*123456789*123456789*1234567";
+            this.LblQrReadData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LblPocketEject);
             this.Controls.Add(this.LblFdrInfo1);
             this.Controls.Add(this.LblFdrInfo2);
@@ -1076,6 +1103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1154,5 +1182,7 @@
         internal System.Windows.Forms.Label LblFdrInfo4;
         internal System.Windows.Forms.Label LblFdrInfo5;
         internal System.Windows.Forms.Label LblPocketEject;
+        private System.Windows.Forms.GroupBox groupBox1;
+        internal System.Windows.Forms.Label LblQrReadData;
     }
 }
