@@ -8,37 +8,35 @@ namespace QrSorterInspectionApp
 {
     internal class PubConstClass
     {
-        public const string CMD_SEND_a = "a";                                   // アプリからの
-        public const string CMD_SEND_b = "b";                                   // アプリからの検査開始コマンド
-        public const string CMD_SEND_c = "c";                                   // アプリからの検査終了コマンド
-        public const string CMD_SEND_d = "d";                                   // アプリからのエラーリセットコマンド
-        public const string CMD_SEND_e = "e";                                   // アプリからの動作不可コマンド
-        public const string CMD_SEND_f = "f";                                   // アプリからのポケット投入条件情報コマンド
+        /// <summary>
+        /// アプリから制御CPUへのコマンド
+        /// </summary>
+        public const string CMD_SEND_a = "a";                                   // 
+        public const string CMD_SEND_b = "b";                                   // 検査開始コマンド
+        public const string CMD_SEND_c = "c";                                   // 検査終了コマンド
+        public const string CMD_SEND_d = "d";                                   // エラーリセットコマンド
+        public const string CMD_SEND_e = "e";                                   // 動作不可コマンド
+        public const string CMD_SEND_f = "f";                                   // ポケット投入条件情報コマンド
+        public const string CMD_SEND_i = "i";                                   // アワーメータークリアコマンド
+        public const string CMD_SEND_j = "j";                                   // トータルカウンタクリアコマンド
+        public const string CMD_SEND_k = "k";                                   // 保守画面の出力チェックコマンド
+        public const string CMD_SEND_m = "m";                                   // m,0：通常モード／m,1：メンテナンスモード
+        public const string CMD_SEND_t = "t";                                   // パネルDIP-SW情報送信コマンド
+        /// <summary>
+        /// 制御CPUからアプリへのコマンド
+        /// </summary>
+        public const string CMD_RECIEVE_A = "A";                                // 検査状況確認コマンド
+        public const string CMD_RECIEVE_B = "B";                                // 検査開始コマンド
+        public const string CMD_RECIEVE_C = "C";                                // 検査終了コマンド
+        public const string CMD_RECIEVE_D = "D";                                // ポケット投入時QR読取りデータ
+        public const string CMD_RECIEVE_E = "E";                                // エラー番号送信コマンド
+        public const string CMD_RECIEVE_I = "I";                                // アワーメーター送信コマンド
+        public const string CMD_RECIEVE_J = "J";                                // トータルカウンタ送信コマンド
+        public const string CMD_RECIEVE_K = "K";                                // I/O状態送信コマンド
+        public const string CMD_RECIEVE_L = "L";                                // QR読取り直後のデータ送信コマンド
+        public const string CMD_RECIEVE_T = "T";                                // DIP-SW情報要求コマンド
 
-        public const string CMD_SEND_i = "i";                                   // 送信コマンド
-        public const string CMD_SEND_j = "j";                                   // 送信コマンド
-        public const string CMD_SEND_k = "k";                                   // 送信コマンド
-
-        public const string CMD_SEND_m = "m";                                   // 保守画面から抜けたら送信
-
-        public const string CMD_SEND_t = "t";                                   // アプリからのDIP-SW情報送信コマンド
-
-
-        public const string CMD_RECIEVE_A = "A";                                // 制御側からの検査状況確認コマンド
-        public const string CMD_RECIEVE_B = "B";                                // 制御側からの検査開始コマンド
-        public const string CMD_RECIEVE_C = "C";                                // 制御側からの検査終了コマンド
-        public const string CMD_RECIEVE_D = "D";                                // 制御側からのQR読取りデータ
-        public const string CMD_RECIEVE_E = "E";                                // 制御側からのエラー番号送信コマンド
-
-        public const string CMD_RECIEVE_I = "I";                                // 制御側からのアワーメーター送信コマンド
-        public const string CMD_RECIEVE_J = "J";                                // 制御側からのトータルカウンタ送信コマンド
-
-        public const string CMD_RECIEVE_K = "K";                                // 制御側からのI/O状態送信コマンド
-        public const string CMD_RECIEVE_L = "L";                                // 制御側からのQR読取りデータ
-
-        public const string CMD_RECIEVE_T = "T";                                // 制御側からのDIP-SW情報要求コマンド
-
-        public const string DEF_VERSION = "Ver.0.0.0.0";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
+        public const string DEF_VERSION = "Ver.0.1.0.0";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
         public static object objSyncHist;                                       // 排他制御用オブジェクト（操作ログ書込用）
 
         /// <summary>
