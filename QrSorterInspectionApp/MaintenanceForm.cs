@@ -400,6 +400,9 @@ namespace QrSorterInspectionApp
         {
             BtnDecript.Visible = true;
             TxtUserAccount.Visible = true;
+            LblBitOrder1.Visible = true;
+            LblBitOrder2.Visible = true;
+            LblRcvData.Visible = true;
         }
 
         private void LblVersion_Click(object sender, EventArgs e)
@@ -769,7 +772,21 @@ namespace QrSorterInspectionApp
                 SetDipSwitch(12, sDipSwitch[12], BtnDipOn13, BtnDipOff13);
                 SetDipSwitch(13, sDipSwitch[13], BtnDipOn14, BtnDipOff14);
                 SetDipSwitch(14, sDipSwitch[14], BtnDipOn15, BtnDipOff15);
-                SetDipSwitch(15, sDipSwitch[15], BtnDipOn16, BtnDipOff16);                
+                SetDipSwitch(15, sDipSwitch[15], BtnDipOn16, BtnDipOff16);
+                
+                string sData = "";
+                for (int iIndex = 7; iIndex >= 0; iIndex--)
+                {
+                    sData += sDipSwitch[iIndex];
+                }
+                LblBitOrder1.Text = sData;
+                
+                sData = "";
+                for (int iIndex = 7; iIndex >= 0; iIndex--)
+                {
+                    sData += sDipSwitch[iIndex + 8];
+                }
+                LblBitOrder2.Text = sData;
             }
             catch (Exception ex)
             {
@@ -1016,6 +1033,7 @@ namespace QrSorterInspectionApp
 
             try
             {
+                LblRcvData.Text = data.Replace("\r", "<CR>");
                 CommonModule.OutPutLogFile($"【保守画面】受信データ：{data.Replace("\r", "<CR>")}");
 
                 // 受信データの先頭１文字を取得
