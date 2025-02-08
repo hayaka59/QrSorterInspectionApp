@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.LblVersion = new System.Windows.Forms.Label();
             this.LsbRecvBox = new System.Windows.Forms.ListBox();
             this.LsbSendBox = new System.Windows.Forms.ListBox();
-            this.SerialPortQr = new System.IO.Ports.SerialPort(this.components);
+            this.SerialPortQr = new System.IO.Ports.SerialPort();
             this.LblError = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtPropertyId = new System.Windows.Forms.TextBox();
@@ -46,12 +45,21 @@
             this.CmbErrorCode = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.CmbTray = new System.Windows.Forms.ComboBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.TimSendData = new System.Windows.Forms.Timer(this.components);
+            this.TimSendData = new System.Windows.Forms.Timer();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.CmbNonDeliveryReasonSorting = new System.Windows.Forms.ComboBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.BtnICommand = new System.Windows.Forms.Button();
+            this.TxtICommand = new System.Windows.Forms.TextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.BtnJCommand = new System.Windows.Forms.Button();
+            this.TxtJCommand = new System.Windows.Forms.TextBox();
+            this.BtnDipSw = new System.Windows.Forms.Button();
+            this.BtnQrDataSend = new System.Windows.Forms.Button();
+            this.BtnInputOutput = new System.Windows.Forms.Button();
             this.BtnConfirmation = new System.Windows.Forms.Button();
             this.BtnError = new System.Windows.Forms.Button();
             this.BtnStop = new System.Windows.Forms.Button();
@@ -60,14 +68,6 @@
             this.BtnMaintenance = new System.Windows.Forms.Button();
             this.BtnSendTestData = new System.Windows.Forms.Button();
             this.BtnEnd = new System.Windows.Forms.Button();
-            this.BtnInputOutput = new System.Windows.Forms.Button();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.BtnICommand = new System.Windows.Forms.Button();
-            this.TxtICommand = new System.Windows.Forms.TextBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.BtnJCommand = new System.Windows.Forms.Button();
-            this.TxtJCommand = new System.Windows.Forms.TextBox();
-            this.BtnDipSw = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -300,6 +300,118 @@
             this.CmbNonDeliveryReasonSorting.Size = new System.Drawing.Size(244, 32);
             this.CmbNonDeliveryReasonSorting.TabIndex = 1;
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.BtnICommand);
+            this.groupBox10.Controls.Add(this.TxtICommand);
+            this.groupBox10.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox10.Location = new System.Drawing.Point(532, 495);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(196, 60);
+            this.groupBox10.TabIndex = 335;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "アワーメーター";
+            // 
+            // BtnICommand
+            // 
+            this.BtnICommand.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnICommand.Location = new System.Drawing.Point(129, 14);
+            this.BtnICommand.Name = "BtnICommand";
+            this.BtnICommand.Size = new System.Drawing.Size(57, 40);
+            this.BtnICommand.TabIndex = 337;
+            this.BtnICommand.Text = "I";
+            this.BtnICommand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnICommand.UseVisualStyleBackColor = true;
+            this.BtnICommand.Click += new System.EventHandler(this.BtnICommand_Click);
+            // 
+            // TxtICommand
+            // 
+            this.TxtICommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtICommand.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtICommand.Location = new System.Drawing.Point(6, 18);
+            this.TxtICommand.MaxLength = 17;
+            this.TxtICommand.Name = "TxtICommand";
+            this.TxtICommand.Size = new System.Drawing.Size(117, 31);
+            this.TxtICommand.TabIndex = 0;
+            this.TxtICommand.Text = "12345";
+            this.TxtICommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.BtnJCommand);
+            this.groupBox11.Controls.Add(this.TxtJCommand);
+            this.groupBox11.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox11.Location = new System.Drawing.Point(747, 495);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(196, 60);
+            this.groupBox11.TabIndex = 336;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "トータルカウンタ";
+            // 
+            // BtnJCommand
+            // 
+            this.BtnJCommand.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnJCommand.Location = new System.Drawing.Point(129, 14);
+            this.BtnJCommand.Name = "BtnJCommand";
+            this.BtnJCommand.Size = new System.Drawing.Size(57, 40);
+            this.BtnJCommand.TabIndex = 338;
+            this.BtnJCommand.Text = "J";
+            this.BtnJCommand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnJCommand.UseVisualStyleBackColor = true;
+            this.BtnJCommand.Click += new System.EventHandler(this.BtnJCommand_Click);
+            // 
+            // TxtJCommand
+            // 
+            this.TxtJCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtJCommand.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtJCommand.Location = new System.Drawing.Point(6, 18);
+            this.TxtJCommand.MaxLength = 17;
+            this.TxtJCommand.Name = "TxtJCommand";
+            this.TxtJCommand.Size = new System.Drawing.Size(117, 31);
+            this.TxtJCommand.TabIndex = 0;
+            this.TxtJCommand.Text = "123456789";
+            this.TxtJCommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BtnDipSw
+            // 
+            this.BtnDipSw.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnDipSw.Location = new System.Drawing.Point(38, 561);
+            this.BtnDipSw.Name = "BtnDipSw";
+            this.BtnDipSw.Size = new System.Drawing.Size(257, 45);
+            this.BtnDipSw.TabIndex = 337;
+            this.BtnDipSw.Text = "DIP-SW（T）";
+            this.BtnDipSw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnDipSw.UseVisualStyleBackColor = true;
+            this.BtnDipSw.Click += new System.EventHandler(this.BtnDipSw_Click);
+            // 
+            // BtnQrDataSend
+            // 
+            this.BtnQrDataSend.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnQrDataSend.Image = global::QrSorterSimulatorApp.Properties.Resources.barcode;
+            this.BtnQrDataSend.Location = new System.Drawing.Point(38, 507);
+            this.BtnQrDataSend.Name = "BtnQrDataSend";
+            this.BtnQrDataSend.Size = new System.Drawing.Size(257, 45);
+            this.BtnQrDataSend.TabIndex = 338;
+            this.BtnQrDataSend.Text = "QRデータ（L）";
+            this.BtnQrDataSend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnQrDataSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnQrDataSend.UseVisualStyleBackColor = true;
+            this.BtnQrDataSend.Click += new System.EventHandler(this.BtnQrDataSend_Click);
+            // 
+            // BtnInputOutput
+            // 
+            this.BtnInputOutput.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnInputOutput.Image = global::QrSorterSimulatorApp.Properties.Resources.bubble;
+            this.BtnInputOutput.Location = new System.Drawing.Point(38, 612);
+            this.BtnInputOutput.Name = "BtnInputOutput";
+            this.BtnInputOutput.Size = new System.Drawing.Size(257, 45);
+            this.BtnInputOutput.TabIndex = 334;
+            this.BtnInputOutput.Text = "I/O（K）";
+            this.BtnInputOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnInputOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnInputOutput.UseVisualStyleBackColor = true;
+            this.BtnInputOutput.Click += new System.EventHandler(this.BtnInputOutput_Click);
+            // 
             // BtnConfirmation
             // 
             this.BtnConfirmation.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -411,110 +523,13 @@
             this.BtnEnd.UseVisualStyleBackColor = true;
             this.BtnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
             // 
-            // BtnInputOutput
-            // 
-            this.BtnInputOutput.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnInputOutput.Image = global::QrSorterSimulatorApp.Properties.Resources.bubble;
-            this.BtnInputOutput.Location = new System.Drawing.Point(38, 600);
-            this.BtnInputOutput.Name = "BtnInputOutput";
-            this.BtnInputOutput.Size = new System.Drawing.Size(257, 45);
-            this.BtnInputOutput.TabIndex = 334;
-            this.BtnInputOutput.Text = "I/O（K）";
-            this.BtnInputOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnInputOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnInputOutput.UseVisualStyleBackColor = true;
-            this.BtnInputOutput.Click += new System.EventHandler(this.BtnInputOutput_Click);
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.BtnICommand);
-            this.groupBox10.Controls.Add(this.TxtICommand);
-            this.groupBox10.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox10.Location = new System.Drawing.Point(532, 495);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(196, 60);
-            this.groupBox10.TabIndex = 335;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "アワーメーター";
-            // 
-            // BtnICommand
-            // 
-            this.BtnICommand.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnICommand.Location = new System.Drawing.Point(129, 14);
-            this.BtnICommand.Name = "BtnICommand";
-            this.BtnICommand.Size = new System.Drawing.Size(57, 40);
-            this.BtnICommand.TabIndex = 337;
-            this.BtnICommand.Text = "I";
-            this.BtnICommand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnICommand.UseVisualStyleBackColor = true;
-            this.BtnICommand.Click += new System.EventHandler(this.BtnICommand_Click);
-            // 
-            // TxtICommand
-            // 
-            this.TxtICommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtICommand.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtICommand.Location = new System.Drawing.Point(6, 18);
-            this.TxtICommand.MaxLength = 17;
-            this.TxtICommand.Name = "TxtICommand";
-            this.TxtICommand.Size = new System.Drawing.Size(117, 31);
-            this.TxtICommand.TabIndex = 0;
-            this.TxtICommand.Text = "12345";
-            this.TxtICommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.BtnJCommand);
-            this.groupBox11.Controls.Add(this.TxtJCommand);
-            this.groupBox11.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox11.Location = new System.Drawing.Point(747, 495);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(196, 60);
-            this.groupBox11.TabIndex = 336;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "トータルカウンタ";
-            // 
-            // BtnJCommand
-            // 
-            this.BtnJCommand.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnJCommand.Location = new System.Drawing.Point(129, 14);
-            this.BtnJCommand.Name = "BtnJCommand";
-            this.BtnJCommand.Size = new System.Drawing.Size(57, 40);
-            this.BtnJCommand.TabIndex = 338;
-            this.BtnJCommand.Text = "J";
-            this.BtnJCommand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnJCommand.UseVisualStyleBackColor = true;
-            this.BtnJCommand.Click += new System.EventHandler(this.BtnJCommand_Click);
-            // 
-            // TxtJCommand
-            // 
-            this.TxtJCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtJCommand.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtJCommand.Location = new System.Drawing.Point(6, 18);
-            this.TxtJCommand.MaxLength = 17;
-            this.TxtJCommand.Name = "TxtJCommand";
-            this.TxtJCommand.Size = new System.Drawing.Size(117, 31);
-            this.TxtJCommand.TabIndex = 0;
-            this.TxtJCommand.Text = "123456789";
-            this.TxtJCommand.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // BtnDipSw
-            // 
-            this.BtnDipSw.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnDipSw.Location = new System.Drawing.Point(38, 549);
-            this.BtnDipSw.Name = "BtnDipSw";
-            this.BtnDipSw.Size = new System.Drawing.Size(257, 45);
-            this.BtnDipSw.TabIndex = 337;
-            this.BtnDipSw.Text = "DIP-SW（T）";
-            this.BtnDipSw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnDipSw.UseVisualStyleBackColor = true;
-            this.BtnDipSw.Click += new System.EventHandler(this.BtnDipSw_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnQrDataSend);
             this.Controls.Add(this.BtnDipSw);
             this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.groupBox10);
@@ -605,6 +620,7 @@
         private System.Windows.Forms.Button BtnICommand;
         private System.Windows.Forms.Button BtnJCommand;
         private System.Windows.Forms.Button BtnDipSw;
+        private System.Windows.Forms.Button BtnQrDataSend;
     }
 }
 
