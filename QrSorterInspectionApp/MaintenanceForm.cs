@@ -128,6 +128,7 @@ namespace QrSorterInspectionApp
                     }
                 }
 
+                LblRcvData.Text = "";
                 // 「装置状態」タブの名称設定
                 ReadInputAndOutputFileData();
 
