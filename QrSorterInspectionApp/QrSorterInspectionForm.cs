@@ -1070,6 +1070,8 @@ namespace QrSorterInspectionApp
                 SetStatus(1);
                 // 検査開始時のチェック
                 CheckStartUp();
+                // JOB設定情報の送信
+                MyProcJobInfomation();
             }
             catch (Exception ex)
             {
