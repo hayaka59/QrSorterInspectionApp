@@ -135,7 +135,7 @@ namespace QrSorterInspectionApp
                 // 定義ファイルからのDIP SWの値を展開
                 for (int iIndex = 0; iIndex < sDipSwitch.Length; iIndex++)
                 {
-                    sDipSwitch[iIndex] = PubConstClass.pblDipSw.Substring(iIndex, 1);
+                    sDipSwitch[15 - iIndex] = PubConstClass.pblDipSw.Substring(iIndex, 1);
                 }
                 // DIP SW の状態を更新
                 UpdateDipSwitchStatus();
@@ -279,6 +279,8 @@ namespace QrSorterInspectionApp
             {
                 if (SerialPortMaint.IsOpen)
                 {
+                    // DIP-SW 情報送信
+                    MyProcDipSw();
                     // 送信データのセット
                     SendSerialData(PubConstClass.CMD_SEND_m + ",0");                    
                     // シリアルポートクローズ
@@ -319,7 +321,7 @@ namespace QrSorterInspectionApp
                     PubConstClass.pblDipSw = "";
                     for (int iIndex = 0; iIndex < sDipSwitch.Length; iIndex++)
                     {
-                        PubConstClass.pblDipSw += sDipSwitch[iIndex];
+                        PubConstClass.pblDipSw += sDipSwitch[15 - iIndex];
                     }
                     // 通信設定
                     PubConstClass.pblComPort = CmbComPort.SelectedItem.ToString();
