@@ -581,8 +581,6 @@ namespace QrSorterInspectionApp
                     }
                 }
                 // メニュー画面へ戻る
-                Owner.Show();
-                Owner.Refresh();
                 this.Dispose();
             }
             catch (Exception ex)

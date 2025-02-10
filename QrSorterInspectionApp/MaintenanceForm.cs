@@ -286,8 +286,6 @@ namespace QrSorterInspectionApp
                     // シリアルポートクローズ
                     SerialPortMaint.Close();
                 }
-                Owner.Show();
-                Owner.Refresh();
                 this.Dispose();
             }
             catch (Exception ex)
