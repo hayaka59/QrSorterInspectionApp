@@ -15,6 +15,8 @@ namespace QrSorterInspectionApp
 {
     public partial class MenuForm : Form
     {
+        private delegate void Delegate_RcvDataToTextBox(string data);
+
         public MenuForm()
         {
             InitializeComponent();
@@ -38,6 +40,8 @@ namespace QrSorterInspectionApp
                 CommonModule.ReadErrorMessageFile();
 
                 #region シリアルポートの設定とオープン
+                // データ受信イベントの設定
+                SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialPort_DataReceived);
                 // シリアルポート名の設定
                 SerialPort.PortName = PubConstClass.pblComPort;
                 // シリアルポートの通信速度指定
@@ -119,7 +123,6 @@ namespace QrSorterInspectionApp
                 byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(PubConstClass.CMD_SEND_a + "\r");
                 SerialPort.Write(dat, 0, dat.GetLength(0));
                 CommonModule.OutPutLogFile($"〓【メニュー画面】送信データ：{PubConstClass.CMD_SEND_a}");
-                SerialPort.Close();
 
                 // ディスクの空き領域をチェック
                 CommonModule.CheckAvairableFreeSpace();
@@ -200,10 +203,19 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                if (SerialPort.IsOpen)
+                {
+                    SerialPort.Close();
+                }
+
                 CommonModule.OutPutLogFile("メニュー画面：「QRソーター検査」ボタンクリック");
                 QrSorterInspectionForm form = new QrSorterInspectionForm();
-                form.Show(this);
-                this.Hide();
+                form.ShowDialog();
+
+                if (!SerialPort.IsOpen)
+                {
+                    SerialPort.Open();
+                }
             }
             catch (Exception ex)
             {
@@ -260,10 +272,18 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                if (SerialPort.IsOpen) {
+                    SerialPort.Close();
+                }
+
                 CommonModule.OutPutLogFile("メニュー画面：「保守」ボタンクリック");
                 MaintenanceForm form = new MaintenanceForm();
-                form.Show(this);
-                this.Hide();
+                form.ShowDialog();
+
+                if (!SerialPort.IsOpen)
+                {
+                    SerialPort.Open();
+                }
             }
             catch (Exception ex)
             {
@@ -288,27 +308,153 @@ namespace QrSorterInspectionApp
                 {
                     LblUserInfo.Visible = false;
                 }
-                //string[] sArray;
-                //List<string> readData= new List<string>();
-                //string sDataAll;
-                //readData.Clear();
-                //CommonModule.OutPutLogFile("読込開始");
-                //string strReadDataPath = "C:\\GreenCoop\\GREENCOOP_DATA\\4EFYK520P2【500万件データ】.CSV";
-                //using (StreamReader sr = new StreamReader(strReadDataPath, Encoding.Default))
-                //{
-                //    sDataAll = sr.ReadToEnd();
-                //    //while (!sr.EndOfStream)
-                //    //{
-                //    //    string sData = sr.ReadLine();
-                //    //    readData.Add(sData);
-                //    //}
-                //}
-                //CommonModule.OutPutLogFile("読込終了");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【LblVersion_DoubleClick】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// 検査装置からのデータ受信処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <remarks></remarks>
+        private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            string data;
+            object[] args = new object[1];
+
+            data = "";
+
+            try
+            {
+                // シリアルポートをオープンしていない場合、処理を行わない。
+                if (SerialPort.IsOpen == false)
+                    return;
+                // <CR>まで読み込む
+                data = SerialPort.ReadTo("\r");
+                // 受信データの格納
+                BeginInvoke(new Delegate_RcvDataToTextBox(RcvDataToTextBox), data.ToString() + "\r");
+            }
+            catch (TimeoutException)
+            {
+                // ディスカードするデータ
+                CommonModule.OutPutLogFile("データ受信タイムアウトエラー：<CR>未受信で切り捨てたデータ：" + data);
+            }
+            catch (Exception ex)
+            {
+                CommonModule.OutPutLogFile("【SerialPortQr_DataReceived】" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 受信データによる各コマンド処理
+        /// </summary>
+        /// <param name="data">受信した文字列</param>
+        /// <remarks></remarks>
+        private void RcvDataToTextBox(string data)
+        {
+            string strMessage;
+
+            try
+            {
+                CommonModule.OutPutLogFile($"■【メニュー画面】受信データ：{data.Replace("\r", "<CR>")}");
+
+                // 受信データの先頭１文字を取得
+                string sCommandType = data.Substring(0, 1);
+                switch (sCommandType)
+                {
+                    case PubConstClass.CMD_RECIEVE_A:
+                    case PubConstClass.CMD_RECIEVE_B:
+                    case PubConstClass.CMD_RECIEVE_D:
+                    case PubConstClass.CMD_RECIEVE_L:
+                        // 検査不可コマンドの送信
+                        // シリアルデータ送信
+                        SendSerialData(PubConstClass.CMD_SEND_e);
+                        break;
+
+                    case PubConstClass.CMD_RECIEVE_C:
+                    case PubConstClass.CMD_RECIEVE_K:
+                    case PubConstClass.CMD_RECIEVE_I:
+                    case PubConstClass.CMD_RECIEVE_J:
+                        // コマンドを無視する
+                        break;
+
+                    case PubConstClass.CMD_RECIEVE_E:
+                        // エラーコマンド
+                        LblStatus.Text = data.Replace("\r","<CR>");
+                        LblStatus.Visible = true;
+                        break;
+
+                    case PubConstClass.CMD_RECIEVE_T:
+                        // DIP-SW 情報送信
+                        MyProcDipSw();
+                        break;
+
+                    //case PubConstClass.CMD_RECIEVE_K:
+                    //    break;
+
+                    //case PubConstClass.CMD_RECIEVE_I:
+                    //    break;
+
+                    //case PubConstClass.CMD_RECIEVE_J:
+                    //    break;
+
+                    default:
+                        // 未定義コマンド
+                        CommonModule.OutPutLogFile($"【メニュー画面】未定義コマンドです：{data.Replace("\r", "<CR>")}");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                strMessage = "【RcvDataToTextBox】" + ex.Message;
+                CommonModule.OutPutLogFile(strMessage);
+                MessageBox.Show(strMessage, "システムエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// シリアルデータ送信処理
+        /// </summary>
+        /// <param name="sData"></param>
+        private void SendSerialData(string sData)
+        {
+            try
+            {
+                // 送信データのセット
+                byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");
+                SerialPort.Write(dat, 0, dat.GetLength(0));
+                CommonModule.OutPutLogFile($"〓【メニュー画面】送信データ：{sData}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SendSerialData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// DIP-SW情報の送信
+        /// </summary>
+        private void MyProcDipSw()
+        {
+            string sData;
+
+            try
+            {
+                sData = PubConstClass.CMD_SEND_t + "," + PubConstClass.pblDipSw;
+                // シリアルデータ送信
+                SendSerialData(sData);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonModule.OutPutLogFile("【MyProcQrData】" + ex.Message);
+            }
+        }
+
+
     }
 }
