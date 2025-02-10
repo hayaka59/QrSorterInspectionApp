@@ -1376,7 +1376,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// QR読取り直後データの表示
         /// </summary>
         /// <param name="sData"></param>
         private void MyProcQrData(string sData)
@@ -1392,6 +1392,9 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// DIP-SW情報の送信
+        /// </summary>
         private void MyProcDipSw()
         {
             string sData;

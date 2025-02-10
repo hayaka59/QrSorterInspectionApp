@@ -370,14 +370,16 @@ namespace QrSorterInspectionApp
                     case PubConstClass.CMD_RECIEVE_B:
                     case PubConstClass.CMD_RECIEVE_D:
                     case PubConstClass.CMD_RECIEVE_L:
-                        // JOB設定情報の送信
+                        // 検査不可コマンドの送信
                         // シリアルデータ送信
                         SendSerialData(PubConstClass.CMD_SEND_e);
                         break;
 
                     case PubConstClass.CMD_RECIEVE_C:
-                        // 停止コマンド
-                        //MyProcStop();
+                    case PubConstClass.CMD_RECIEVE_K:
+                    case PubConstClass.CMD_RECIEVE_I:
+                    case PubConstClass.CMD_RECIEVE_J:
+                        // コマンドを無視する
                         break;
 
                     case PubConstClass.CMD_RECIEVE_E:
@@ -388,17 +390,17 @@ namespace QrSorterInspectionApp
 
                     case PubConstClass.CMD_RECIEVE_T:
                         // DIP-SW 情報送信
-                        //MyProcDipSw();
+                        MyProcDipSw();
                         break;
 
-                    case PubConstClass.CMD_RECIEVE_K:
-                        break;
+                    //case PubConstClass.CMD_RECIEVE_K:
+                    //    break;
 
-                    case PubConstClass.CMD_RECIEVE_I:
-                        break;
+                    //case PubConstClass.CMD_RECIEVE_I:
+                    //    break;
 
-                    case PubConstClass.CMD_RECIEVE_J:
-                        break;
+                    //case PubConstClass.CMD_RECIEVE_J:
+                    //    break;
 
                     default:
                         // 未定義コマンド
@@ -432,5 +434,27 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【SendSerialData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// DIP-SW情報の送信
+        /// </summary>
+        private void MyProcDipSw()
+        {
+            string sData;
+
+            try
+            {
+                sData = PubConstClass.CMD_SEND_t + "," + PubConstClass.pblDipSw;
+                // シリアルデータ送信
+                SendSerialData(sData);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonModule.OutPutLogFile("【MyProcQrData】" + ex.Message);
+            }
+        }
+
+
     }
 }
