@@ -77,10 +77,10 @@ namespace QrSorterInspectionApp
                 bool bRet = CheckUserAndPassword();
                 if (!bRet)
                 {
-                    CommonModule.OutPutLogFile("ログインエラー");
+                    CommonModule.OutPutLogFile($"ログインエラー（ユーザー：{TxtUserId.Text}／パスワード：{TxtPassword.Text}）");
                     return;
                 }
-                CommonModule.OutPutLogFile("ログイン成功");
+                CommonModule.OutPutLogFile($"ログイン成功（ユーザー：{TxtUserId.Text}）");
 
                 TxtUserId.Text = "";
                 TxtPassword.Text = "";
