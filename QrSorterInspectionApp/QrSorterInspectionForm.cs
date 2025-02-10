@@ -918,6 +918,11 @@ namespace QrSorterInspectionApp
                         MyProcQrData(data.Substring(2, data.Length - 2));
                         break;
 
+                    case PubConstClass.CMD_RECIEVE_T:
+                        // DIP-SW 情報送信
+                        MyProcDipSw();
+                        break;
+
                     default:
                         // 未定義コマンド
                         CommonModule.OutPutLogFile($"未定義コマンドです：{data.Replace("\r", "<CR>")}");
@@ -1379,6 +1384,23 @@ namespace QrSorterInspectionApp
             try
             {
                 LblQrReadData.Text = sData.Replace("\r","<CR>");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonModule.OutPutLogFile("【MyProcQrData】" + ex.Message);
+            }
+        }
+
+        private void MyProcDipSw()
+        {
+            string sData;
+
+            try
+            {
+                sData = PubConstClass.CMD_SEND_t + "," + PubConstClass.pblDipSw;
+                // シリアルデータ送信
+                SendSerialData(sData);
             }
             catch (Exception ex)
             {
