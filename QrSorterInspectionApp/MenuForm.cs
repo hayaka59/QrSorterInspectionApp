@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
@@ -216,6 +217,7 @@ namespace QrSorterInspectionApp
                 {
                     SerialPort.Open();
                 }
+                LblStatus.Visible = false;
             }
             catch (Exception ex)
             {
@@ -284,6 +286,7 @@ namespace QrSorterInspectionApp
                 {
                     SerialPort.Open();
                 }
+                LblStatus.Visible = false;
             }
             catch (Exception ex)
             {
@@ -371,7 +374,6 @@ namespace QrSorterInspectionApp
                     case PubConstClass.CMD_RECIEVE_D:
                     case PubConstClass.CMD_RECIEVE_L:
                         // 検査不可コマンドの送信
-                        // シリアルデータ送信
                         SendSerialData(PubConstClass.CMD_SEND_e);
                         break;
 
@@ -384,23 +386,13 @@ namespace QrSorterInspectionApp
 
                     case PubConstClass.CMD_RECIEVE_E:
                         // エラーコマンド
-                        LblStatus.Text = data.Replace("\r","<CR>");
-                        LblStatus.Visible = true;
+                        MyProcError(data);
                         break;
 
                     case PubConstClass.CMD_RECIEVE_T:
                         // DIP-SW 情報送信
                         MyProcDipSw();
                         break;
-
-                    //case PubConstClass.CMD_RECIEVE_K:
-                    //    break;
-
-                    //case PubConstClass.CMD_RECIEVE_I:
-                    //    break;
-
-                    //case PubConstClass.CMD_RECIEVE_J:
-                    //    break;
 
                     default:
                         // 未定義コマンド
@@ -455,6 +447,34 @@ namespace QrSorterInspectionApp
             }
         }
 
+        /// <summary>
+        /// エラーコマンド処理
+        /// </summary>
+        /// <param name="sData"></param>
+        private void MyProcError(string sData)
+        {
+            string sErrorCode;
 
+            try
+            {
+                sErrorCode = sData.Substring(2, 3);
+                if (PubConstClass.dicErrorCodeData.ContainsKey(sErrorCode))
+                {
+                    // 存在する場合
+                    LblStatus.Text = $"エラーNo.{sErrorCode}（{PubConstClass.dicErrorCodeData[sErrorCode].Replace(",","）")}";
+                    CommonModule.OutPutLogFile($"エラーNo.{sErrorCode}（{PubConstClass.dicErrorCodeData[sErrorCode].Replace(",", "）")}");
+                }
+                else
+                {
+                    LblStatus.Text = $"エラーNo.{sErrorCode}（未定義エラー）未定義のエラー番号です";
+                    CommonModule.OutPutLogFile($"エラーNo.{sErrorCode}（未定義エラー）未定義のエラー番号です");
+                }
+                LblStatus.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcError】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
