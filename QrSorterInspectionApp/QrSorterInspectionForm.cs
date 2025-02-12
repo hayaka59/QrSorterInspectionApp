@@ -36,7 +36,7 @@ namespace QrSorterInspectionApp
         private int iBox4Count = 0;             // ボックス４用カウンタ
         private int iBox5Count = 0;             // ボックス５用カウンタ
         private int iBoxECount = 0;             // ボックス（Eject）用カウンタ
-        private int intSesanCounter = 0;
+        private int intSesanCounter = 0;        // 処理数No.カウンタ
 
         private string sJobFolderName;          // JOBフォルダ名       
         private string sFolderName1;            // グループ１フォルダ名
@@ -384,31 +384,6 @@ namespace QrSorterInspectionApp
                 string[] sGroupName = new string[6];                // グループ名
                 string[] sFolderNameWork = new string[6];           // グループ１～５、リジェクト、フォルダ名        
                 string[] sFileNameForGroupWork = new string[6];     // グループ１～５、リジェクト、操作ログファイル名
-
-                //// 現在の日付（年月日）を求める
-                //DateTime dtCurrent = DateTime.Now;
-                //// 現在日付から１秒～５秒を加算
-                //DateTime dtPostDate1 = dtCurrent.AddSeconds(1);
-                //DateTime dtPostDate2 = dtCurrent.AddSeconds(2);
-                //DateTime dtPostDate3 = dtCurrent.AddSeconds(3);
-                //DateTime dtPostDate4 = dtCurrent.AddSeconds(4);
-                //DateTime dtPostDate5 = dtCurrent.AddSeconds(5);
-                //DateTime dtPostDate6 = dtCurrent.AddSeconds(6);
-                //sFileNameForAllItems = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtCurrent.ToString("yyyyMMddHHmmss") + "全件.csv";
-                //// グループ１～５の操作ログファイル名を取得
-                //sFileNameForGroupWork[0] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
-                //sFileNameForGroupWork[1] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
-                //sFileNameForGroupWork[2] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
-                //sFileNameForGroupWork[3] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
-                //sFileNameForGroupWork[4] = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
-                //sFileNameForGroupWork[5] = "リジェクト".PadRight(16,'0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate6.ToString("yyyyMMddHHmmss") + ".csv";
-                //CommonModule.OutPutLogFile($"sFileNameForGroupWork[0] = {sFileNameForGroupWork[0]}");
-                //CommonModule.OutPutLogFile($"sFileNameForGroupWork[1] = {sFileNameForGroupWork[1]}");
-                //CommonModule.OutPutLogFile($"sFileNameForGroupWork[2] = {sFileNameForGroupWork[2]}");
-                //CommonModule.OutPutLogFile($"sFileNameForGroupWork[3] = {sFileNameForGroupWork[3]}");
-                //CommonModule.OutPutLogFile($"sFileNameForGroupWork[4] = {sFileNameForGroupWork[4]}");
-                //CommonModule.OutPutLogFile($"sFileNameForGroupWork[5] = {sFileNameForGroupWork[5]}");
-
 
                 // JOB名までのフォルダ（全件）の存在チェックと作成
                 sArray = LblSelectedFile.Text.Split('.');                
@@ -1217,8 +1192,6 @@ namespace QrSorterInspectionApp
                     }
                     #endregion
                 }
-                // 判定（OK/NG）
-                col[3] = strArray[1].Trim() == "0" ? "OK": "NG";
                 // トレイ情報
                 col[4] = strArray[3].Trim();
 
@@ -1565,6 +1538,38 @@ namespace QrSorterInspectionApp
                     // 「設定」ボタン使用可
                     BtnSetting.Enabled = true;
                     PubConstClass.sJobFileNameFromInspectionForm = sSelectedFile;
+                    
+                    // 各表示カウンタクリア
+                    LblTotalCount.Text = "0";
+                    LblOKCount.Text = "0";
+                    LblNGCount.Text = "0";
+                    // ポケット１～５の表示カウンタクリア
+                    LblBox1.Text = "0";
+                    LblBox2.Text = "0";
+                    LblBox3.Text = "0";
+                    LblBox4.Text = "0";
+                    LblBox5.Text = "0";
+                    LblBoxEject.Text = "0";
+                    // 内部カウンタのクリア
+                    iOKCount = 0;               // OK用カウンタ
+                    iNGCount = 0;               // NG用カウンタ
+                    iBox1Count = 0;             // ボックス１用カウンタ
+                    iBox2Count = 0;             // ボックス２用カウンタ
+                    iBox3Count = 0;             // ボックス３用カウンタ
+                    iBox4Count = 0;             // ボックス４用カウンタ
+                    iBox5Count = 0;             // ボックス５用カウンタ
+                    iBoxECount = 0;             // ボックス（Eject）用カウンタ
+                    intSesanCounter = 0;        // 処理数No.カウンタ
+                    // 受信データ表示領域のクリア
+                    LblPocket1.Text = "";
+                    LblPocket2.Text = "";
+                    LblPocket3.Text = "";
+                    LblPocket4.Text = "";
+                    LblPocket5.Text = "";
+                    LblPocketEject.Text = "";
+                    // OK履歴とNG履歴のクリア
+                    LsvOKHistory.Items.Clear();
+                    LsvNGHistory.Items.Clear();
                 }
             }
             catch (Exception ex)
