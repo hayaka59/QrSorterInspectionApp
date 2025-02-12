@@ -27,7 +27,7 @@ namespace QrSorterInspectionApp
         private string sNonDeliveryReason1;     // 不着事由１
         private string sNonDeliveryReason2;     // 不着事由２
         private int    iStatus;                 // 検査中ステータス
-
+        private bool   bIsDuplicateCheck;       // 重複チェック
         private int iOKCount = 0;               // OK用カウンタ
         private int iNGCount = 0;               // NG用カウンタ
         private int iBox1Count = 0;             // ボックス１用カウンタ
@@ -179,7 +179,7 @@ namespace QrSorterInspectionApp
                 LblQrReadData.Text = "";
                 // 過去に受信したQRデータ一覧のクリア
                 lstPastReceivedQrData.Clear();
-
+                LblDuplicateCheck.Text = "重複チェック";
                 PubConstClass.sPrevDtpDateReceipt = "";  // 前回の受領日
                 PubConstClass.sPrevNonDelivery1 = "";    // 前回の不着事由仕分け１
                 PubConstClass.sPrevNonDelivery2 = "";    // 前回の不着事由仕分け２
@@ -1189,22 +1189,29 @@ namespace QrSorterInspectionApp
                 if (lstPastReceivedQrData.Count > 0)
                 {
                     #region 重複チェック
-                    Stopwatch sw = new Stopwatch();
-                    sw.Start();
-                    bool bFind = lstPastReceivedQrData.Contains(strArray[0]);
-                    sw.Stop();
-
-                    if (bFind)
+                    if(bIsDuplicateCheck)
                     {
-                        strArray[1] = "重複";
-                        CommonModule.OutPutLogFile($"重複データ：{strArray[0]}");
+                        Stopwatch sw = new Stopwatch();
+                        sw.Start();
+                        bool bFind = lstPastReceivedQrData.Contains(strArray[0]);
+                        sw.Stop();
+
+                        if (bFind)
+                        {
+                            strArray[1] = "重複";
+                            CommonModule.OutPutLogFile($"重複データ：{strArray[0]}");
+                        }
+                        else
+                        {
+                            //CommonModule.OutPutLogFile($"最初のデータ：{lstPastReceivedQrData[0]}");
+                            //CommonModule.OutPutLogFile($"最後のデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count - 1]}");                        
+                        }
+                        CommonModule.OutPutLogFile($"{lstPastReceivedQrData.Count:#,###,##0}件の検索処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
                     }
                     else
                     {
-                        //CommonModule.OutPutLogFile($"最初のデータ：{lstPastReceivedQrData[0]}");
-                        //CommonModule.OutPutLogFile($"最後のデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count - 1]}");                        
+                        CommonModule.OutPutLogFile($"重複チェック無し：{strArray[0]}");
                     }
-                    //CommonModule.OutPutLogFile($"{lstPastReceivedQrData.Count:#,###,##0}件の検索処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
                     #endregion
                 }
                 // 判定（OK/NG）
@@ -1576,6 +1583,17 @@ namespace QrSorterInspectionApp
                 DtpDateReceipt.Text = sArray[2];
                 // 受領日入力
                 bDateOfReceipt = sArray[3] == "ON";
+                // 重複チェック
+                if (sArray[18] == "ON")
+                {
+                    LblDuplicateCheck.Text = "重複チェック：有";
+                    bIsDuplicateCheck = true;
+                }
+                else
+                {
+                    LblDuplicateCheck.Text = "重複チェック：無";
+                    bIsDuplicateCheck = false;
+                }
 
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
                 // ポケット①名称
