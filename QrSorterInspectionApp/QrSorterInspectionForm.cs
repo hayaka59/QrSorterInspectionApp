@@ -26,6 +26,7 @@ namespace QrSorterInspectionApp
         private bool   bDateOfReceipt;          // 受領日入力
         private string sNonDeliveryReason1;     // 不着事由１
         private string sNonDeliveryReason2;     // 不着事由２
+        private int    iStatus;                 // 検査中ステータス
 
         private int iOKCount = 0;               // OK用カウンタ
         private int iNGCount = 0;               // NG用カウンタ
@@ -720,6 +721,8 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                iStatus = status;
+
                 switch (status)
                 {
                     case 0:
@@ -732,7 +735,7 @@ namespace QrSorterInspectionApp
                         CmbNonDeliveryReasonSorting2.Enabled = true;
                         BtnSetting.Enabled = true;
                         BtnStartInspection.Enabled = true;
-                        BtnClose.Enabled = true;
+                        BtnClose.Enabled = true;                        
                         break;
 
                     case 1:
@@ -1064,6 +1067,13 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                if (LblSelectedFile.Text.Trim() == "")
+                {
+                    // JOBが未選択
+                    // シリアルデータ送信
+                    SendSerialData(PubConstClass.CMD_SEND_e);
+                    return;
+                }
                 // 検査中
                 SetStatus(1);
                 // 検査開始時のチェック
@@ -1160,6 +1170,11 @@ namespace QrSorterInspectionApp
 
             try
             {
+                if (iStatus == 0)
+                {
+                    SendSerialData(PubConstClass.CMD_SEND_e);
+                    return;
+                }
                 sWriteDate = DateTime.Now.ToString("yyyy/MM/dd");
                 sWriteTime = DateTime.Now.ToString("HH:mm:ss");
 
