@@ -1186,6 +1186,8 @@ namespace QrSorterInspectionApp
                 col[1] = sWriteDate + " " + sWriteTime;
                 // 読取値（QRコード）
                 col[2] = strArray[0].Trim();
+                // 判定（OK/NG）
+                col[3] = strArray[1].Trim() == "0" ? "OK" : "NG";
                 if (lstPastReceivedQrData.Count > 0)
                 {
                     #region 重複チェック
@@ -1198,7 +1200,8 @@ namespace QrSorterInspectionApp
 
                         if (bFind)
                         {
-                            strArray[1] = "重複";
+                            //strArray[1] = "重複";
+                            col[3] = "重複";                           
                             CommonModule.OutPutLogFile($"重複データ：{strArray[0]}");
                         }
                         else
