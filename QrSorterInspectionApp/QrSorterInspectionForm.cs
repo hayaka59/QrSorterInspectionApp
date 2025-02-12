@@ -504,11 +504,11 @@ namespace QrSorterInspectionApp
                 DateTime dtPostDate6 = dtCurrent.AddSeconds(6);
                 sFileNameForAllItems = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtCurrent.ToString("yyyyMMddHHmmss") + "全件.csv";
                 // グループ１～５の操作ログファイル名を取得
-                sFileNameForGroupWork[0] = sGroupName[0] + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroupWork[1] = sGroupName[1] + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroupWork[2] = sGroupName[2] + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroupWork[3] = sGroupName[3] + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroupWork[4] = sGroupName[4] + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[0] = sGroupName[0].PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[1] = sGroupName[1].PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[2] = sGroupName[2].PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[3] = sGroupName[3].PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[4] = sGroupName[4].PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
                 sFileNameForGroupWork[5] = "リジェクト".PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate6.ToString("yyyyMMddHHmmss") + ".csv";
                 CommonModule.OutPutLogFile($"グループ１ = {sFileNameForGroupWork[0]}");
                 CommonModule.OutPutLogFile($"グループ２ = {sFileNameForGroupWork[1]}");
