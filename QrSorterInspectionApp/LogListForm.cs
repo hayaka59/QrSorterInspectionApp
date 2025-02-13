@@ -29,7 +29,7 @@ namespace QrSorterInspectionApp
             {
                 LblVersion.Text = PubConstClass.DEF_VERSION;
                 CommonModule.OutPutLogFile("ログ画面を表示しました");
-
+                LblSelectedFile.Text = "";
                 CmbLogType.Items.Clear();
                 CmbLogType.Items.Add("ＯＫログ");
                 CmbLogType.Items.Add("全件ログ");
