@@ -28,6 +28,8 @@ namespace QrSorterInspectionApp
         private string sNonDeliveryReason2;     // 不着事由２
         private int    iStatus;                 // 検査中ステータス
         private bool   bIsDuplicateCheck;       // 重複チェック
+        private bool   bIsJobChange;            // JOB変更フラグ
+
         private int iOKCount = 0;               // OK用カウンタ
         private int iNGCount = 0;               // NG用カウンタ
         private int iBox1Count = 0;             // ボックス１用カウンタ
@@ -177,6 +179,7 @@ namespace QrSorterInspectionApp
                 #endregion
 
                 LblQrReadData.Text = "";
+                bIsJobChange = false;
                 // 過去に受信したQRデータ一覧のクリア
                 lstPastReceivedQrData.Clear();
                 LblDuplicateCheck.Text = "重複チェック";
@@ -648,15 +651,22 @@ namespace QrSorterInspectionApp
                 }
                 else
                 {
-                    if (PubConstClass.sPrevDtpDateReceipt != DtpDateReceipt.Text ||
+                    if (bIsJobChange ||
+                        PubConstClass.sPrevDtpDateReceipt != DtpDateReceipt.Text ||
                         PubConstClass.sPrevNonDelivery1 != CmbNonDeliveryReasonSorting1.Text ||
                         PubConstClass.sPrevNonDelivery2 != CmbNonDeliveryReasonSorting2.Text)
                     {
-                        // 受領日または不着事由仕分け１、２が変更された。
-                        MessageBox.Show("JOB設定が変更されました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        // JOBが変更された、受領日または不着事由仕分け１、２が変更された。
+                        //MessageBox.Show("JOB設定が変更されました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        CommonModule.OutPutLogFile($"【JOB設定が変更されました】" +
+                                                    $"JOB変更フラグ＝{bIsJobChange}／" +
+                                                    $"受領日＝{DtpDateReceipt.Text}／" +
+                                                    $"仕分け１＝{CmbNonDeliveryReasonSorting1.Text}／" +
+                                                    $"仕分け２＝{CmbNonDeliveryReasonSorting2.Text}");
                         CreateInspectionLogFolder();
                     }
                 }
+                bIsJobChange = false;
                 // 設定値の保存
                 PubConstClass.sPrevDtpDateReceipt = DtpDateReceipt.Text;                // 前回の受領日
                 PubConstClass.sPrevNonDelivery1 = CmbNonDeliveryReasonSorting1.Text;    // 前回の不着事由仕分け１
@@ -1538,7 +1548,8 @@ namespace QrSorterInspectionApp
                     // 「設定」ボタン使用可
                     BtnSetting.Enabled = true;
                     PubConstClass.sJobFileNameFromInspectionForm = sSelectedFile;
-                    
+                    // JOB変更フラグON
+                    bIsJobChange = true;
                     // 各表示カウンタクリア
                     LblTotalCount.Text = "0";
                     LblOKCount.Text = "0";
