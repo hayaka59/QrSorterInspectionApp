@@ -87,16 +87,19 @@ namespace QrSorterInspectionApp
                                                    };
                 LsvLogContent.Columns.AddRange(colHeaderOK);
                 #endregion
-                #region 不着事由の項目設定
+                #region 不着事由仕分け１と２の項目設定
                 CommonModule.ReadNonDeliveryList();
-                cmbReasonForNonDelivery.Items.Clear();
-                foreach(var items in PubConstClass.lstNonDeliveryList)
+                CmbReasonForNonDelivery1.Items.Clear();
+                CmbReasonForNonDelivery1.Items.Clear();
+                foreach (var items in PubConstClass.lstNonDeliveryList)
                 {
-                    cmbReasonForNonDelivery.Items.Add(items);
+                    CmbReasonForNonDelivery1.Items.Add(items);
+                    CmbReasonForNonDelivery2.Items.Add(items);
                 }
-                cmbReasonForNonDelivery.SelectedIndex = 0;
+                CmbReasonForNonDelivery1.SelectedIndex = 0;
+                CmbReasonForNonDelivery2.SelectedIndex = 0;
                 #endregion
-                
+
                 LblLogFileCount.Text = "";
                 LblContentCount.Text = "";
                 LblSelectedFile.Text = "";
@@ -268,72 +271,8 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            string[] sArray;            
-            string sLogType;
-
-            try
-            {
-                if (CmbLogType.SelectedIndex == 0)
-                {
-                    sLogType = "QRソーター設定検査ログ（OKのみ）\\";
-                }
-                else
-                {
-                    sLogType = "QRソーター設定検査ログ（全件）\\";
-                }
-                                               
-                lstLogFileList.Clear();
-                LsbLogList.Items.Clear();
-
-                // 検査ログ対象ファイルの取得
-                foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
-                                                                  PubConstClass.pblInternalTranFolder)+
-                                                                  sLogType,
-                                                                  "*", SearchOption.AllDirectories))
-                {
-                    CommonModule.OutPutLogFile($"検査ログ対象ファイル：{sTranFile}");
-                    sArray = sTranFile.Split('\\');
-                    string sFileName = sArray[sArray.Length - 1];
-                    string[] sArrayDate = sFileName.Split('_');
-
-                    if (ChkInspectionDate.Checked)
-                    {
-                        if (int.Parse(dtTimePickerFrom.Value.ToString("yyyyMMdd")) <= int.Parse(sArrayDate[4].Substring(0,8)) &
-                            int.Parse(dtTimePickerTo.Value.ToString("yyyyMMdd")) >= int.Parse(sArrayDate[4].Substring(0, 8)))
-                        {
-                            if (ChkReasonForNonDelivery.Checked)
-                            {
-                                if (cmbReasonForNonDelivery.SelectedIndex + 1 == int.Parse(sArray[sArray.Length - 2]))
-                                {
-                                    LsbLogList.Items.Add(sArray[sArray.Length - 1]);
-                                    lstLogFileList.Add(sTranFile);
-                                }
-                            }
-                            else
-                            {
-                                LsbLogList.Items.Add(sArray[sArray.Length - 1]);
-                                lstLogFileList.Add(sTranFile);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (ChkReasonForNonDelivery.Checked)
-                        {
-                            if (cmbReasonForNonDelivery.SelectedIndex + 1 == int.Parse(sArray[sArray.Length - 2]))
-                            {
-                                LsbLogList.Items.Add(sArray[sArray.Length - 1]);
-                                lstLogFileList.Add(sTranFile);
-                            }
-                        }
-                    }
-                }
-                LblLogFileCount.Text = $"検査ログファイル件数：{LsbLogList.Items.Count:#,###} 件";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【BtnUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // 検査ログ一覧表示処理
+            InspectionLogList();
         }
 
         /// <summary>
@@ -429,8 +368,57 @@ namespace QrSorterInspectionApp
                 {
                     CommonModule.OutPutLogFile($"{sMes}検査ログ対象ファイル：{sTranFile}");
                     sArray = sTranFile.Split('\\');
-                    LsbLogList.Items.Add(sArray[sArray.Length - 1]);
-                    lstLogFileList.Add(sTranFile);
+                    string sFileName = sArray[sArray.Length - 1];
+                    string sFileNameFullPath = sTranFile;
+                    // 検査日付で絞り込む
+                    if (ChkInspectionDate.Checked)
+                    {
+                        string[] sArrayDate = sFileName.Split('_');
+                        if (!(int.Parse(dtTimePickerFrom.Value.ToString("yyyyMMdd")) <= int.Parse(sArrayDate[4].Substring(0, 8)) &
+                            int.Parse(dtTimePickerTo.Value.ToString("yyyyMMdd")) >= int.Parse(sArrayDate[4].Substring(0, 8))))
+                        {
+                            // 該当しないので対象ファイルから外す
+                            sFileName = "";
+                            sFileNameFullPath = "";
+                        }
+                    }
+                    // 不着事由仕分け１で絞り込む
+                    if (ChkReasonForNonDelivery1.Checked)
+                    {
+                        if (sFileName != "")
+                        {
+                            string[] sArrayNonDeli1 = sFileName.Split('_');
+                            if (CmbReasonForNonDelivery1.SelectedIndex + 1 != int.Parse(sArrayNonDeli1[1]))
+                            {
+                                // 該当しないので対象ファイルから外す
+                                sFileName = "";
+                                sFileNameFullPath = "";
+                            }
+
+                        }
+                    }
+                    // 不着事由仕分け２で絞り込む
+                    if (ChkReasonForNonDelivery2.Checked)
+                    {
+                        if (sFileName != "")
+                        {
+                            string[] sArrayNonDeli2 = sFileName.Split('_');
+                            if (CmbReasonForNonDelivery2.SelectedIndex + 1 != int.Parse(sArrayNonDeli2[2]))
+                            {
+                                // 該当しないので対象ファイルから外す
+                                sFileName = "";
+                                sFileNameFullPath = "";
+                            }
+                        }
+                    }
+
+                    if (sFileName != "")
+                    {
+                        LsbLogList.Items.Add(sArray[sArray.Length - 1]);
+                        lstLogFileList.Add(sTranFile);
+                    }
+
+
                 }
 
                 if (sArrayJob[0] == "")
@@ -448,6 +436,24 @@ namespace QrSorterInspectionApp
         private void BtnJobClear_Click(object sender, EventArgs e)
         {
             LblSelectedFile.Text = "";
+            // 検査ログ一覧表示処理
+            InspectionLogList();
+        }
+
+        private void ChkInspectionDate_CheckedChanged(object sender, EventArgs e)
+        {
+            // 検査ログ一覧表示処理
+            InspectionLogList();
+        }
+
+        private void ChkReasonForNonDelivery1_CheckedChanged(object sender, EventArgs e)
+        {
+            // 検査ログ一覧表示処理
+            InspectionLogList();
+        }
+        private void ChkReasonForNonDelivery2_CheckedChanged(object sender, EventArgs e)
+        {
+            // 検査ログ一覧表示処理
             InspectionLogList();
         }
     }
