@@ -414,11 +414,20 @@ namespace QrSorterInspectionApp
 
                     if (sFileName != "")
                     {
-                        LsbLogList.Items.Add(sArray[sArray.Length - 1]);
+                        string sPathName;
+                        if (CmbLogType.SelectedIndex == 0)
+                        {
+                            // OKログ
+                            sPathName = sArray[0] + "/" + sArray[1] + "/" + sArray[2] + "/" + sArray[3] + "/" + sArray[4];
+                        }
+                        else
+                        {
+                            // 全件ログ
+                            sPathName = sArray[0] + "/" + sArray[1] + "/" + sArray[2] + "/" + sArray[3];
+                        }                        
+                        LsbLogList.Items.Add($"{sArray[sArray.Length - 1]}　　 （格納フォルダ：{sPathName}）");
                         lstLogFileList.Add(sTranFile);
                     }
-
-
                 }
 
                 if (sArrayJob[0] == "")
