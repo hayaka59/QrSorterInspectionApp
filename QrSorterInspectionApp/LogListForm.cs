@@ -104,7 +104,7 @@ namespace QrSorterInspectionApp
                 LblContentCount.Text = "";
                 LblSelectedFile.Text = "";
 
-                CmbLogType.SelectedIndex = 1;
+                //CmbLogType.SelectedIndex = 1;
             }
             catch (Exception ex)
             {
@@ -359,7 +359,8 @@ namespace QrSorterInspectionApp
 
                 lstLogFileList.Clear();
                 LsbLogList.Items.Clear();
-      
+                LsvLogContent.Items.Clear();
+
                 // 検査ログ対象ファイルの取得
                 foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
                                                                   PubConstClass.pblInternalTranFolder) + 
