@@ -124,6 +124,8 @@
   <ItemGroup>
     <None Include="icon\question.png" />
     <None Include="icon\barcode.png" />
+    <None Include="icon\warning.png" />
+    <None Include="icon\qr_code.png" />
     <Content Include="NonDeliveryReasonSorting.txt" />
     <Content Include="QrSorterSimulatorApp.def" />
   </ItemGroup>
