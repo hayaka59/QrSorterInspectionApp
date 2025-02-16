@@ -59,6 +59,7 @@
             this.BtnJCommand = new System.Windows.Forms.Button();
             this.TxtJCommand = new System.Windows.Forms.TextBox();
             this.BtnDipSw = new System.Windows.Forms.Button();
+            this.BtnAutoTest = new System.Windows.Forms.Button();
             this.BtnQrDataSend = new System.Windows.Forms.Button();
             this.BtnInputOutput = new System.Windows.Forms.Button();
             this.BtnConfirmation = new System.Windows.Forms.Button();
@@ -69,6 +70,8 @@
             this.BtnMaintenance = new System.Windows.Forms.Button();
             this.BtnSendTestData = new System.Windows.Forms.Button();
             this.BtnEnd = new System.Windows.Forms.Button();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.CmbTestCount = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -80,13 +83,14 @@
             this.groupBox9.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblVersion
             // 
             this.LblVersion.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblVersion.ForeColor = System.Drawing.Color.Blue;
-            this.LblVersion.Location = new System.Drawing.Point(822, 726);
+            this.LblVersion.Location = new System.Drawing.Point(822, 731);
             this.LblVersion.Name = "LblVersion";
             this.LblVersion.Size = new System.Drawing.Size(148, 25);
             this.LblVersion.TabIndex = 11;
@@ -283,7 +287,7 @@
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.CmbNonDeliveryReasonSorting);
-            this.groupBox9.Location = new System.Drawing.Point(883, 608);
+            this.groupBox9.Location = new System.Drawing.Point(713, 726);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(87, 60);
             this.groupBox9.TabIndex = 327;
@@ -384,6 +388,20 @@
             this.BtnDipSw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDipSw.UseVisualStyleBackColor = true;
             this.BtnDipSw.Click += new System.EventHandler(this.BtnDipSw_Click);
+            // 
+            // BtnAutoTest
+            // 
+            this.BtnAutoTest.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnAutoTest.Image = global::QrSorterSimulatorApp.Properties.Resources.detective;
+            this.BtnAutoTest.Location = new System.Drawing.Point(686, 584);
+            this.BtnAutoTest.Name = "BtnAutoTest";
+            this.BtnAutoTest.Size = new System.Drawing.Size(257, 45);
+            this.BtnAutoTest.TabIndex = 339;
+            this.BtnAutoTest.Text = "自動テスト";
+            this.BtnAutoTest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnAutoTest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAutoTest.UseVisualStyleBackColor = true;
+            this.BtnAutoTest.Click += new System.EventHandler(this.BtnAutoTest_Click);
             // 
             // BtnQrDataSend
             // 
@@ -514,7 +532,7 @@
             // 
             this.BtnEnd.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnEnd.Image = global::QrSorterSimulatorApp.Properties.Resources.exit_icon_small;
-            this.BtnEnd.Location = new System.Drawing.Point(822, 674);
+            this.BtnEnd.Location = new System.Drawing.Point(821, 682);
             this.BtnEnd.Name = "BtnEnd";
             this.BtnEnd.Size = new System.Drawing.Size(149, 45);
             this.BtnEnd.TabIndex = 2;
@@ -524,12 +542,34 @@
             this.BtnEnd.UseVisualStyleBackColor = true;
             this.BtnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
             // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.CmbTestCount);
+            this.groupBox12.Location = new System.Drawing.Point(686, 634);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(83, 60);
+            this.groupBox12.TabIndex = 340;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "テスト通数";
+            // 
+            // CmbTestCount
+            // 
+            this.CmbTestCount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTestCount.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbTestCount.FormattingEnabled = true;
+            this.CmbTestCount.Location = new System.Drawing.Point(6, 18);
+            this.CmbTestCount.Name = "CmbTestCount";
+            this.CmbTestCount.Size = new System.Drawing.Size(63, 32);
+            this.CmbTestCount.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox12);
+            this.Controls.Add(this.BtnAutoTest);
             this.Controls.Add(this.BtnQrDataSend);
             this.Controls.Add(this.BtnDipSw);
             this.Controls.Add(this.groupBox11);
@@ -576,6 +616,7 @@
             this.groupBox10.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -622,6 +663,9 @@
         private System.Windows.Forms.Button BtnJCommand;
         private System.Windows.Forms.Button BtnDipSw;
         private System.Windows.Forms.Button BtnQrDataSend;
+        private System.Windows.Forms.Button BtnAutoTest;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.ComboBox CmbTestCount;
     }
 }
 

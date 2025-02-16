@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -198,8 +199,17 @@ namespace QrSorterSimulatorApp
                     string[] sArray = items.Split(',');
                     CmbNonDeliveryReasonSorting.Items.Add(sArray[0] + "：" + sArray[1]);                    
                 }
-                CmbNonDeliveryReasonSorting.SelectedIndex = 0;                
-                #endregion     
+                CmbNonDeliveryReasonSorting.SelectedIndex = 0;
+                #endregion
+
+                #region テスト通数
+                CmbTestCount.Items.Clear();
+                for(int i = 1; i < 100; i++)
+                {
+                    CmbTestCount.Items.Add(i.ToString("000"));
+                }
+                CmbTestCount.SelectedIndex = 4;
+                #endregion
 
                 // シリアルポートのオープン
                 SerialPortQr.Open();
@@ -643,6 +653,38 @@ namespace QrSorterSimulatorApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnDipSw_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 「自動テスト」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnAutoTest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int iCount = CmbTestCount.SelectedIndex + 1;
+
+                for (int iTrayCount = 0; iTrayCount < 6; iTrayCount++) {
+
+                    CmbTray.SelectedIndex = iTrayCount;
+
+                    for (int iIndex = 0; iIndex < iCount; iIndex++) {
+                        BtnQrDataSend.PerformClick();
+                        // 100ミリ秒待機
+                        Thread.Sleep(100);
+
+                        BtnSendTestData.PerformClick();
+                        // 700ミリ秒待機
+                        Thread.Sleep(400);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnAutoTest_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
