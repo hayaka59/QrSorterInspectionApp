@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LblVersion = new System.Windows.Forms.Label();
             this.LsbRecvBox = new System.Windows.Forms.ListBox();
             this.LsbSendBox = new System.Windows.Forms.ListBox();
-            this.SerialPortQr = new System.IO.Ports.SerialPort();
+            this.SerialPortQr = new System.IO.Ports.SerialPort(this.components);
             this.LblError = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtPropertyId = new System.Windows.Forms.TextBox();
@@ -45,10 +46,10 @@
             this.CmbErrorCode = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.CmbTray = new System.Windows.Forms.ComboBox();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.TimSendData = new System.Windows.Forms.Timer();
+            this.TimSendData = new System.Windows.Forms.Timer(this.components);
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.CmbNonDeliveryReasonSorting = new System.Windows.Forms.ComboBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -85,9 +86,9 @@
             // 
             this.LblVersion.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblVersion.ForeColor = System.Drawing.Color.Blue;
-            this.LblVersion.Location = new System.Drawing.Point(16, 711);
+            this.LblVersion.Location = new System.Drawing.Point(822, 726);
             this.LblVersion.Name = "LblVersion";
-            this.LblVersion.Size = new System.Drawing.Size(130, 25);
+            this.LblVersion.Size = new System.Drawing.Size(148, 25);
             this.LblVersion.TabIndex = 11;
             this.LblVersion.Text = "LblVersion";
             this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -117,9 +118,9 @@
             this.LblError.BackColor = System.Drawing.Color.LightCoral;
             this.LblError.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblError.ForeColor = System.Drawing.Color.Blue;
-            this.LblError.Location = new System.Drawing.Point(152, 691);
+            this.LblError.Location = new System.Drawing.Point(12, 701);
             this.LblError.Name = "LblError";
-            this.LblError.Size = new System.Drawing.Size(648, 45);
+            this.LblError.Size = new System.Drawing.Size(776, 45);
             this.LblError.TabIndex = 318;
             this.LblError.Text = "LblError";
             this.LblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -210,7 +211,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.CmbErrorCode);
-            this.groupBox5.Location = new System.Drawing.Point(123, 226);
+            this.groupBox5.Location = new System.Drawing.Point(22, 492);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(83, 60);
             this.groupBox5.TabIndex = 325;
@@ -230,7 +231,7 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.CmbTray);
-            this.groupBox6.Location = new System.Drawing.Point(221, 226);
+            this.groupBox6.Location = new System.Drawing.Point(111, 226);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(74, 60);
             this.groupBox6.TabIndex = 326;
@@ -282,9 +283,9 @@
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.CmbNonDeliveryReasonSorting);
-            this.groupBox9.Location = new System.Drawing.Point(689, 625);
+            this.groupBox9.Location = new System.Drawing.Point(883, 608);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(263, 60);
+            this.groupBox9.Size = new System.Drawing.Size(87, 60);
             this.groupBox9.TabIndex = 327;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "不着事由";
@@ -297,7 +298,7 @@
             this.CmbNonDeliveryReasonSorting.FormattingEnabled = true;
             this.CmbNonDeliveryReasonSorting.Location = new System.Drawing.Point(6, 18);
             this.CmbNonDeliveryReasonSorting.Name = "CmbNonDeliveryReasonSorting";
-            this.CmbNonDeliveryReasonSorting.Size = new System.Drawing.Size(244, 32);
+            this.CmbNonDeliveryReasonSorting.Size = new System.Drawing.Size(72, 32);
             this.CmbNonDeliveryReasonSorting.TabIndex = 1;
             // 
             // groupBox10
@@ -305,7 +306,7 @@
             this.groupBox10.Controls.Add(this.BtnICommand);
             this.groupBox10.Controls.Add(this.TxtICommand);
             this.groupBox10.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox10.Location = new System.Drawing.Point(532, 495);
+            this.groupBox10.Location = new System.Drawing.Point(534, 492);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(196, 60);
             this.groupBox10.TabIndex = 335;
@@ -341,7 +342,7 @@
             this.groupBox11.Controls.Add(this.BtnJCommand);
             this.groupBox11.Controls.Add(this.TxtJCommand);
             this.groupBox11.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox11.Location = new System.Drawing.Point(747, 495);
+            this.groupBox11.Location = new System.Drawing.Point(756, 492);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(196, 60);
             this.groupBox11.TabIndex = 336;
@@ -375,7 +376,7 @@
             // BtnDipSw
             // 
             this.BtnDipSw.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnDipSw.Location = new System.Drawing.Point(38, 561);
+            this.BtnDipSw.Location = new System.Drawing.Point(38, 584);
             this.BtnDipSw.Name = "BtnDipSw";
             this.BtnDipSw.Size = new System.Drawing.Size(257, 45);
             this.BtnDipSw.TabIndex = 337;
@@ -387,8 +388,8 @@
             // BtnQrDataSend
             // 
             this.BtnQrDataSend.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnQrDataSend.Image = global::QrSorterSimulatorApp.Properties.Resources.barcode;
-            this.BtnQrDataSend.Location = new System.Drawing.Point(38, 507);
+            this.BtnQrDataSend.Image = global::QrSorterSimulatorApp.Properties.Resources.qr_code;
+            this.BtnQrDataSend.Location = new System.Drawing.Point(393, 584);
             this.BtnQrDataSend.Name = "BtnQrDataSend";
             this.BtnQrDataSend.Size = new System.Drawing.Size(257, 45);
             this.BtnQrDataSend.TabIndex = 338;
@@ -402,7 +403,7 @@
             // 
             this.BtnInputOutput.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnInputOutput.Image = global::QrSorterSimulatorApp.Properties.Resources.bubble;
-            this.BtnInputOutput.Location = new System.Drawing.Point(38, 612);
+            this.BtnInputOutput.Location = new System.Drawing.Point(38, 642);
             this.BtnInputOutput.Name = "BtnInputOutput";
             this.BtnInputOutput.Size = new System.Drawing.Size(257, 45);
             this.BtnInputOutput.TabIndex = 334;
@@ -415,7 +416,7 @@
             // BtnConfirmation
             // 
             this.BtnConfirmation.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnConfirmation.Image = global::QrSorterSimulatorApp.Properties.Resources.question;
+            this.BtnConfirmation.Image = global::QrSorterSimulatorApp.Properties.Resources.bubble;
             this.BtnConfirmation.Location = new System.Drawing.Point(38, 299);
             this.BtnConfirmation.Name = "BtnConfirmation";
             this.BtnConfirmation.Size = new System.Drawing.Size(257, 45);
@@ -429,10 +430,10 @@
             // BtnError
             // 
             this.BtnError.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnError.Image = global::QrSorterSimulatorApp.Properties.Resources.bubble;
-            this.BtnError.Location = new System.Drawing.Point(38, 453);
+            this.BtnError.Image = global::QrSorterSimulatorApp.Properties.Resources.warning;
+            this.BtnError.Location = new System.Drawing.Point(111, 500);
             this.BtnError.Name = "BtnError";
-            this.BtnError.Size = new System.Drawing.Size(257, 45);
+            this.BtnError.Size = new System.Drawing.Size(246, 45);
             this.BtnError.TabIndex = 332;
             this.BtnError.Text = "エラー送信（E）";
             this.BtnError.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -472,7 +473,7 @@
             // 
             this.BtnAutoSend.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnAutoSend.Image = global::QrSorterSimulatorApp.Properties.Resources.repeat;
-            this.BtnAutoSend.Location = new System.Drawing.Point(382, 561);
+            this.BtnAutoSend.Location = new System.Drawing.Point(393, 642);
             this.BtnAutoSend.Name = "BtnAutoSend";
             this.BtnAutoSend.Size = new System.Drawing.Size(257, 45);
             this.BtnAutoSend.TabIndex = 329;
@@ -486,7 +487,7 @@
             // 
             this.BtnMaintenance.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnMaintenance.Image = global::QrSorterSimulatorApp.Properties.Resources.settei;
-            this.BtnMaintenance.Location = new System.Drawing.Point(382, 504);
+            this.BtnMaintenance.Location = new System.Drawing.Point(393, 501);
             this.BtnMaintenance.Name = "BtnMaintenance";
             this.BtnMaintenance.Size = new System.Drawing.Size(113, 45);
             this.BtnMaintenance.TabIndex = 320;
@@ -513,9 +514,9 @@
             // 
             this.BtnEnd.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnEnd.Image = global::QrSorterSimulatorApp.Properties.Resources.exit_icon_small;
-            this.BtnEnd.Location = new System.Drawing.Point(806, 691);
+            this.BtnEnd.Location = new System.Drawing.Point(822, 674);
             this.BtnEnd.Name = "BtnEnd";
-            this.BtnEnd.Size = new System.Drawing.Size(146, 45);
+            this.BtnEnd.Size = new System.Drawing.Size(149, 45);
             this.BtnEnd.TabIndex = 2;
             this.BtnEnd.Text = " 終了";
             this.BtnEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
