@@ -899,6 +899,11 @@ namespace QrSorterInspectionApp
                         MyProcError(data);
                         break;
 
+                    case PubConstClass.CMD_RECIEVE_F:
+                        // エラーリセットコマンド
+                        MyProcErrorReset();
+                        break;
+
                     case PubConstClass.CMD_RECIEVE_L:
                         // QR読取り直後データコマンド
                         MyProcQrData(data.Substring(2, data.Length - 2));
@@ -1419,6 +1424,31 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【MyProcQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 CommonModule.OutPutLogFile("【MyProcQrData】" + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void MyProcErrorReset()
+        {
+            try
+            {
+                ErrorMessageForm form = ErrorMessageForm.GetInstance();
+
+                if (form.Visible == true)
+                {
+                    //form.Close();
+
+                    SendResetCommand();
+                    PubConstClass.bIsOpenErrorMessage = false;
+                    form.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcErrorReset】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonModule.OutPutLogFile("【MyProcErrorReset】" + ex.Message);
             }
         }
 

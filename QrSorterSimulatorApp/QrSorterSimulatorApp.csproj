@@ -127,6 +127,7 @@
     <None Include="icon\warning.png" />
     <None Include="icon\qr_code.png" />
     <None Include="icon\detective.png" />
+    <None Include="icon\peke_icon.png" />
     <Content Include="NonDeliveryReasonSorting.txt" />
     <Content Include="QrSorterSimulatorApp.def" />
   </ItemGroup>

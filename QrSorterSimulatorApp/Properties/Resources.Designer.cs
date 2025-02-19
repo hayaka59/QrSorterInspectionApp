@@ -133,6 +133,16 @@ namespace QrSorterSimulatorApp.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap peke_icon {
+            get {
+                object obj = ResourceManager.GetObject("peke_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap qr_code {
             get {
                 object obj = ResourceManager.GetObject("qr_code", resourceCulture);

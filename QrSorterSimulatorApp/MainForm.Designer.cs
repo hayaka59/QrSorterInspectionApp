@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.LblVersion = new System.Windows.Forms.Label();
             this.LsbRecvBox = new System.Windows.Forms.ListBox();
             this.LsbSendBox = new System.Windows.Forms.ListBox();
-            this.SerialPortQr = new System.IO.Ports.SerialPort(this.components);
+            this.SerialPortQr = new System.IO.Ports.SerialPort();
             this.LblError = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtPropertyId = new System.Windows.Forms.TextBox();
@@ -46,10 +45,10 @@
             this.CmbErrorCode = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.CmbTray = new System.Windows.Forms.ComboBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.TimSendData = new System.Windows.Forms.Timer(this.components);
+            this.TimSendData = new System.Windows.Forms.Timer();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.CmbNonDeliveryReasonSorting = new System.Windows.Forms.ComboBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -59,6 +58,9 @@
             this.BtnJCommand = new System.Windows.Forms.Button();
             this.TxtJCommand = new System.Windows.Forms.TextBox();
             this.BtnDipSw = new System.Windows.Forms.Button();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.CmbTestCount = new System.Windows.Forms.ComboBox();
+            this.BtnReset = new System.Windows.Forms.Button();
             this.BtnAutoTest = new System.Windows.Forms.Button();
             this.BtnQrDataSend = new System.Windows.Forms.Button();
             this.BtnInputOutput = new System.Windows.Forms.Button();
@@ -70,8 +72,6 @@
             this.BtnMaintenance = new System.Windows.Forms.Button();
             this.BtnSendTestData = new System.Windows.Forms.Button();
             this.BtnEnd = new System.Windows.Forms.Button();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.CmbTestCount = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -215,7 +215,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.CmbErrorCode);
-            this.groupBox5.Location = new System.Drawing.Point(22, 492);
+            this.groupBox5.Location = new System.Drawing.Point(22, 518);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(83, 60);
             this.groupBox5.TabIndex = 325;
@@ -380,7 +380,7 @@
             // BtnDipSw
             // 
             this.BtnDipSw.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnDipSw.Location = new System.Drawing.Point(38, 584);
+            this.BtnDipSw.Location = new System.Drawing.Point(38, 592);
             this.BtnDipSw.Name = "BtnDipSw";
             this.BtnDipSw.Size = new System.Drawing.Size(257, 45);
             this.BtnDipSw.TabIndex = 337;
@@ -388,6 +388,40 @@
             this.BtnDipSw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDipSw.UseVisualStyleBackColor = true;
             this.BtnDipSw.Click += new System.EventHandler(this.BtnDipSw_Click);
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.CmbTestCount);
+            this.groupBox12.Location = new System.Drawing.Point(686, 634);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(83, 60);
+            this.groupBox12.TabIndex = 340;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "テスト通数";
+            // 
+            // CmbTestCount
+            // 
+            this.CmbTestCount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTestCount.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbTestCount.FormattingEnabled = true;
+            this.CmbTestCount.Location = new System.Drawing.Point(6, 18);
+            this.CmbTestCount.Name = "CmbTestCount";
+            this.CmbTestCount.Size = new System.Drawing.Size(63, 32);
+            this.CmbTestCount.TabIndex = 1;
+            // 
+            // BtnReset
+            // 
+            this.BtnReset.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnReset.Image = global::QrSorterSimulatorApp.Properties.Resources.peke_icon;
+            this.BtnReset.Location = new System.Drawing.Point(38, 453);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(257, 45);
+            this.BtnReset.TabIndex = 341;
+            this.BtnReset.Text = "リセット（F）";
+            this.BtnReset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnReset.UseVisualStyleBackColor = true;
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
             // BtnAutoTest
             // 
@@ -421,7 +455,7 @@
             // 
             this.BtnInputOutput.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnInputOutput.Image = global::QrSorterSimulatorApp.Properties.Resources.bubble;
-            this.BtnInputOutput.Location = new System.Drawing.Point(38, 642);
+            this.BtnInputOutput.Location = new System.Drawing.Point(38, 650);
             this.BtnInputOutput.Name = "BtnInputOutput";
             this.BtnInputOutput.Size = new System.Drawing.Size(257, 45);
             this.BtnInputOutput.TabIndex = 334;
@@ -449,7 +483,7 @@
             // 
             this.BtnError.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnError.Image = global::QrSorterSimulatorApp.Properties.Resources.warning;
-            this.BtnError.Location = new System.Drawing.Point(111, 500);
+            this.BtnError.Location = new System.Drawing.Point(111, 526);
             this.BtnError.Name = "BtnError";
             this.BtnError.Size = new System.Drawing.Size(246, 45);
             this.BtnError.TabIndex = 332;
@@ -542,32 +576,13 @@
             this.BtnEnd.UseVisualStyleBackColor = true;
             this.BtnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
             // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.CmbTestCount);
-            this.groupBox12.Location = new System.Drawing.Point(686, 634);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(83, 60);
-            this.groupBox12.TabIndex = 340;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "テスト通数";
-            // 
-            // CmbTestCount
-            // 
-            this.CmbTestCount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbTestCount.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbTestCount.FormattingEnabled = true;
-            this.CmbTestCount.Location = new System.Drawing.Point(6, 18);
-            this.CmbTestCount.Name = "CmbTestCount";
-            this.CmbTestCount.Size = new System.Drawing.Size(63, 32);
-            this.CmbTestCount.TabIndex = 1;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.BtnAutoTest);
             this.Controls.Add(this.BtnQrDataSend);
@@ -666,6 +681,7 @@
         private System.Windows.Forms.Button BtnAutoTest;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.ComboBox CmbTestCount;
+        private System.Windows.Forms.Button BtnReset;
     }
 }
 
