@@ -157,6 +157,10 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
+            if (SerialPort.IsOpen)
+            {
+                SerialPort.Close();
+            }
             CommonModule.OutPutLogFile("メニュー画面：「ログアウト」ボタンクリック");
             Owner.Show();
             this.Dispose();

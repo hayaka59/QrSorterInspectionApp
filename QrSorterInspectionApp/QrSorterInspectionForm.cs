@@ -1428,7 +1428,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// エラーリセットコマンド送信
         /// </summary>
         private void MyProcErrorReset()
         {
@@ -1438,10 +1438,8 @@ namespace QrSorterInspectionApp
 
                 if (form.Visible == true)
                 {
-                    //form.Close();
-
                     SendResetCommand();
-                    PubConstClass.bIsOpenErrorMessage = false;
+                    //PubConstClass.bIsOpenErrorMessage = false;
                     form.Hide();
                 }
             }
