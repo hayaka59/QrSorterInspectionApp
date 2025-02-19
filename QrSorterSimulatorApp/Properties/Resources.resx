@@ -121,8 +121,8 @@
   <data name="bubble" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\bubble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="qr_code" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\qr_code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="running_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\running_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="barcode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\barcode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,10 +154,13 @@
   <data name="settei" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\settei.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="running_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icon\running_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="detective" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icon\detective.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="qr_code" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\qr_code.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="peke_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\peke_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

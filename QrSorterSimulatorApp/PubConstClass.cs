@@ -13,10 +13,9 @@ namespace QrSorterSimulatorApp
         public const string CMD_SEND_C = "C";      // 
         public const string CMD_SEND_D = "D";      // 
         public const string CMD_SEND_E = "E";      // 
-
+        public const string CMD_SEND_F = "F";      // 
         public const string CMD_SEND_I = "I";      // アワーメーター
         public const string CMD_SEND_J = "J";      // トータルカウンタ
-
         public const string CMD_SEND_K = "K";      // 
         public const string CMD_SEND_L = "L";      // 
         public const string CMD_SEND_T = "T";      // DIP-DW情報
