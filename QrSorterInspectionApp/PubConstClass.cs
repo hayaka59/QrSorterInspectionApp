@@ -16,10 +16,8 @@ namespace QrSorterInspectionApp
         public const string CMD_SEND_c = "c";                                   // 検査終了コマンド
         public const string CMD_SEND_d = "d";                                   // エラーリセットコマンド
         public const string CMD_SEND_e = "e";                                   // 動作不可コマンド
-        public const string CMD_SEND_f = "f";                                   // ポケット投入条件情報コマンド
-        
+        public const string CMD_SEND_f = "f";                                   // ポケット投入条件情報コマンド        
         public const string CMD_SEND_g = "g";                                   // 重複エラー発生コマンド
-
         public const string CMD_SEND_i = "i";                                   // アワーメータークリアコマンド
         public const string CMD_SEND_j = "j";                                   // トータルカウンタクリアコマンド
         public const string CMD_SEND_k = "k";                                   // 保守画面の出力チェックコマンド
@@ -33,6 +31,7 @@ namespace QrSorterInspectionApp
         public const string CMD_RECIEVE_C = "C";                                // 検査終了コマンド
         public const string CMD_RECIEVE_D = "D";                                // ポケット投入時QR読取りデータ
         public const string CMD_RECIEVE_E = "E";                                // エラー番号送信コマンド
+        public const string CMD_RECIEVE_F = "F";                                // エラーリセット送信コマンド
         public const string CMD_RECIEVE_I = "I";                                // アワーメーター送信コマンド
         public const string CMD_RECIEVE_J = "J";                                // トータルカウンタ送信コマンド
         public const string CMD_RECIEVE_K = "K";                                // I/O状態送信コマンド
