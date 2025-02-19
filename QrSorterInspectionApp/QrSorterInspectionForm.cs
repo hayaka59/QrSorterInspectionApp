@@ -1188,6 +1188,8 @@ namespace QrSorterInspectionApp
                             //strArray[1] = "重複";
                             col[3] = "重複";                           
                             CommonModule.OutPutLogFile($"重複データ：{strArray[0]}");
+                            // シリアルデータ送信（重複エラー発生）
+                            SendSerialData(PubConstClass.CMD_SEND_g);
                         }
                         else
                         {
