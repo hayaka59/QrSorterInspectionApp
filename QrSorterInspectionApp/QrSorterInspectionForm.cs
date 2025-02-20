@@ -648,6 +648,8 @@ namespace QrSorterInspectionApp
                 {
                     // １回目の検査開始処理
                     CreateInspectionLogFolder();
+                    // シリアルデータ送信（JOB選択）
+                    SendSerialData(PubConstClass.CMD_SEND_h);
                 }
                 else
                 {
@@ -664,6 +666,8 @@ namespace QrSorterInspectionApp
                                                     $"仕分け１＝{CmbNonDeliveryReasonSorting1.Text}／" +
                                                     $"仕分け２＝{CmbNonDeliveryReasonSorting2.Text}");
                         CreateInspectionLogFolder();
+                        // シリアルデータ送信（JOB選択）
+                        SendSerialData(PubConstClass.CMD_SEND_h);
                     }
                 }
                 bIsJobChange = false;
@@ -1614,6 +1618,9 @@ namespace QrSorterInspectionApp
                     // OK履歴とNG履歴のクリア
                     LsvOKHistory.Items.Clear();
                     LsvNGHistory.Items.Clear();
+
+                    //// シリアルデータ送信（JOB選択）
+                    //SendSerialData(PubConstClass.CMD_SEND_h);
                 }
             }
             catch (Exception ex)
