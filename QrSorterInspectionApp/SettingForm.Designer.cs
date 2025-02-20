@@ -669,6 +669,7 @@
             this.CmbReadingFunction.Name = "CmbReadingFunction";
             this.CmbReadingFunction.Size = new System.Drawing.Size(105, 36);
             this.CmbReadingFunction.TabIndex = 306;
+            this.CmbReadingFunction.SelectedIndexChanged += new System.EventHandler(this.CmbReadingFunction_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -1596,7 +1597,9 @@
             // 
             // CmbGroup1
             // 
+            this.CmbGroup1.BackColor = System.Drawing.Color.White;
             this.CmbGroup1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGroup1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbGroup1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbGroup1.FormattingEnabled = true;
             this.CmbGroup1.IntegralHeight = false;

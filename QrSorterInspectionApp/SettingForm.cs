@@ -1403,5 +1403,37 @@ namespace QrSorterInspectionApp
         {
             IsOnlyAlphanumeric1($"グループ５の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem45.Text}）に全角が含まれます", TxtBoxQrItem45.Text);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CmbReadingFunction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // 読取昨日＝読み取りなし
+                if (CmbReadingFunction.SelectedIndex == 5)
+                {
+                    // 読取チェック＝OFF
+                    CmbReadCheck.SelectedIndex = 1;
+
+                    CmbGroup1.BackColor = Color.DarkGray;
+                    CmbGroup2.BackColor = Color.DarkGray;
+                    CmbGroup3.BackColor = Color.DarkGray;
+                    CmbGroup4.BackColor = Color.DarkGray;
+                    CmbGroup5.BackColor = Color.DarkGray;
+                }
+                else
+                {
+                    CmbGroup1.BackColor = Color.Wheat;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, "【CmbReadingFunction_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
