@@ -1438,8 +1438,11 @@ namespace QrSorterInspectionApp
 
                 if (form.Visible == true)
                 {
-                    SendResetCommand();
-                    //PubConstClass.bIsOpenErrorMessage = false;
+                    // エラー表示をクリア
+                    LblError.Visible = false;
+                    // 停止中
+                    SetStatus(0);
+                    // エラーメッセージウィンドウを隠す
                     form.Hide();
                 }
             }
