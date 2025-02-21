@@ -1427,7 +1427,11 @@ namespace QrSorterInspectionApp
                 }
                 else
                 {
-                    CmbGroup1.BackColor = Color.Wheat;
+                    CmbGroup1.BackColor = Color.White;
+                    CmbGroup2.BackColor = Color.White;
+                    CmbGroup3.BackColor = Color.White;
+                    CmbGroup4.BackColor = Color.White;
+                    CmbGroup5.BackColor = Color.White;
                 }
             }
             catch (Exception ex)

@@ -1306,6 +1306,7 @@
             // CmbGroup6
             // 
             this.CmbGroup6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGroup6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbGroup6.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbGroup6.FormattingEnabled = true;
             this.CmbGroup6.IntegralHeight = false;
@@ -1522,6 +1523,7 @@
             // CmbGroup5
             // 
             this.CmbGroup5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGroup5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbGroup5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbGroup5.FormattingEnabled = true;
             this.CmbGroup5.IntegralHeight = false;
@@ -1624,6 +1626,7 @@
             // CmbGroup4
             // 
             this.CmbGroup4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGroup4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbGroup4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbGroup4.FormattingEnabled = true;
             this.CmbGroup4.IntegralHeight = false;
@@ -1648,6 +1651,7 @@
             // CmbGroup3
             // 
             this.CmbGroup3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGroup3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbGroup3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbGroup3.FormattingEnabled = true;
             this.CmbGroup3.IntegralHeight = false;
@@ -1672,6 +1676,7 @@
             // CmbGroup2
             // 
             this.CmbGroup2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGroup2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbGroup2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbGroup2.FormattingEnabled = true;
             this.CmbGroup2.IntegralHeight = false;
