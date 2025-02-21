@@ -189,6 +189,10 @@ namespace QrSorterSimulatorApp
                 CmbTray.Items.Add("4");
                 CmbTray.Items.Add("5");
                 CmbTray.Items.Add("E");
+                CmbTray.Items.Add("6");
+                CmbTray.Items.Add("7");
+                CmbTray.Items.Add("8");
+                CmbTray.Items.Add("9");                
                 CmbTray.SelectedIndex = 0;
 
                 #region 不着事由区分

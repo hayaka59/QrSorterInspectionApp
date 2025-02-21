@@ -11,16 +11,14 @@ namespace QrSorterInspectionApp
         /// <summary>
         /// アプリから制御CPUへのコマンド
         /// </summary>
-        public const string CMD_SEND_a = "a";                                   // 
+        public const string CMD_SEND_a = "a";                                   // JOBの設定内容送信コマンド
         public const string CMD_SEND_b = "b";                                   // 検査開始コマンド
         public const string CMD_SEND_c = "c";                                   // 検査終了コマンド
         public const string CMD_SEND_d = "d";                                   // エラーリセットコマンド
         public const string CMD_SEND_e = "e";                                   // 動作不可コマンド
         public const string CMD_SEND_f = "f";                                   // ポケット投入条件情報コマンド        
         public const string CMD_SEND_g = "g";                                   // 重複エラー発生コマンド
-
         public const string CMD_SEND_h = "h";                                   // JOB選択コマンド
-
         public const string CMD_SEND_i = "i";                                   // アワーメータークリアコマンド
         public const string CMD_SEND_j = "j";                                   // トータルカウンタクリアコマンド
         public const string CMD_SEND_k = "k";                                   // 保守画面の出力チェックコマンド
@@ -41,7 +39,7 @@ namespace QrSorterInspectionApp
         public const string CMD_RECIEVE_L = "L";                                // QR読取り直後のデータ送信コマンド
         public const string CMD_RECIEVE_T = "T";                                // DIP-SW情報要求コマンド
 
-        public const string DEF_VERSION = "Ver.0.2.2.0";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
+        public const string DEF_VERSION = "Ver.0.2.2.1";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
         public static object objSyncHist;                                       // 排他制御用オブジェクト（操作ログ書込用）
 
         /// <summary>
