@@ -1218,7 +1218,7 @@ namespace QrSorterInspectionApp
 
                 string sFolderName = "";
                 string sFileName = "";
-
+                bool bIsTrayOk = true;
                 switch (col[4])
                 {
                     // トレイ情報の確認
@@ -1263,14 +1263,20 @@ namespace QrSorterInspectionApp
                         sFileName = sFileNameForGroup5;
                         break;
                     case "E":
-                        // イジェクト
+                        // リジェクト
                         iBoxECount++;
                         LblBoxEject.Text = iBoxECount.ToString("0");
                         LblPocketEject.Text = col[2];
-                        col[3]= "EJECT";
+                        col[3]= "REJECT";
                         break;
 
                     default:
+                        // ポケット情報が不明（イジェクトする）
+                        iBoxECount++;
+                        LblBoxEject.Text = iBoxECount.ToString("0");
+                        LblPocketEject.Text = col[2];
+                        col[3] = "ﾎﾟｹｯﾄ不明";
+                        bIsTrayOk = false;
                         break;
                 }
                 sLogData += DQ + sWriteDate + DQ + ",";                             // 日付
@@ -1298,7 +1304,7 @@ namespace QrSorterInspectionApp
                 sLogData += DQ + DQ + ",";                                          // 工場コード					Null
 
                 // データの表示（判定が「OK」でトレイ情報が「E」以外）
-                if (col[3] == "OK" && col[4] != "E")
+                if (col[3] == "OK" && col[4] != "E" && bIsTrayOk == true)
                 {
                     // 重複チェックの検査対象にする
                     lstPastReceivedQrData.Add(col[2]);

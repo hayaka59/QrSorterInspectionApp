@@ -989,7 +989,7 @@
             this.LblPocketEject.Name = "LblPocketEject";
             this.LblPocketEject.Size = new System.Drawing.Size(280, 40);
             this.LblPocketEject.TabIndex = 334;
-            this.LblPocketEject.Text = "ポケットイジェクト";
+            this.LblPocketEject.Text = "ポケットリジェクト";
             this.LblPocketEject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox1
