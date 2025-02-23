@@ -984,7 +984,8 @@ namespace QrSorterInspectionApp
                     sData += ",";
                     sData += sArrayJob[21] == "OFF" ? "0" : "1";      // (15) 桁数チェック　 ：1桁
                     sData += ",";
-                    sData += sArrayJob[22];                           // (16) 読取機能　　　 ：1桁
+                    // 「読取機能：読取無し」の場合は「6」を「0」に変更する
+                    sData += sArrayJob[22].Replace("6", "0");         // (16) 読取機能　　　 ：1桁
 
                     // シリアルデータ送信
                     SendSerialData(sData);
