@@ -1418,7 +1418,7 @@ namespace QrSorterInspectionApp
                 {
                     // 読取チェック＝OFF
                     CmbReadCheck.SelectedIndex = 1;
-
+                    CmbReadCheck.Enabled = false;
                     CmbGroup1.BackColor = Color.DarkGray;
                     CmbGroup2.BackColor = Color.DarkGray;
                     CmbGroup3.BackColor = Color.DarkGray;
@@ -1427,6 +1427,7 @@ namespace QrSorterInspectionApp
                 }
                 else
                 {
+                    CmbReadCheck.Enabled = true;
                     CmbGroup1.BackColor = Color.White;
                     CmbGroup2.BackColor = Color.White;
                     CmbGroup3.BackColor = Color.White;

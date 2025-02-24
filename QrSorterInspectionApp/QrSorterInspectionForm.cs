@@ -984,7 +984,8 @@ namespace QrSorterInspectionApp
                     sData += ",";
                     sData += sArrayJob[21] == "OFF" ? "0" : "1";      // (15) 桁数チェック　 ：1桁
                     sData += ",";
-                    sData += sArrayJob[22];                           // (16) 読取機能　　　 ：1桁
+                    // 「読取機能：読取無し」の場合は「6」を「0」に変更する
+                    sData += sArrayJob[22].Replace("6", "0");         // (16) 読取機能　　　 ：1桁
 
                     // シリアルデータ送信
                     SendSerialData(sData);
@@ -1023,16 +1024,23 @@ namespace QrSorterInspectionApp
 
                 iIndex = int.Parse(sArrayJob[iPocketNumber * 2 + 1]) - 1;
 
-                string[] sArrayPocket = PubConstClass.lstGroupInfo[iIndex].Split(',');
-                //        0     1        2 3          4
-                // コメリ１,D4830,20241209,1,A123456789,
-                // コメリ２,D4831,20241210,2,B123456789,
-                // コメリ３,D4833,20241211,3,C123456789,
-                // コメリ４,D4834,20241212,4,D123456789,
-                // コメリ５,D4835,20241213,5,E123456789,
+                string[] sArrayPocket;
+                string sPocketInfo = "";
+                if (iIndex == 5)
+                {
+                    sArrayPocket = ",,,,,,,,,".Split(',');
+                    sPocketInfo = "E";      // イジェクト
+                }
+                else
+                {
+                    sArrayPocket = PubConstClass.lstGroupInfo[iIndex].Split(',');
+                    sPocketInfo = "0";      // ポケット
+                }
 
                 sData = PubConstClass.CMD_SEND_f + ",";
                 sData += (iPocketNumber + 1).ToString("0");                     // ポケット番号
+                sData += ",";
+                sData += sPocketInfo;                                           // ポケット情報
                 sData += ",";
                 sData += sArrayPocket[1];                                       // 物件ID
                 sData += ",";
