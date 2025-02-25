@@ -375,8 +375,8 @@ namespace QrSorterInspectionApp
                     if (ChkInspectionDate.Checked)
                     {
                         string[] sArrayDate = sFileName.Split('_');
-                        if (!(int.Parse(dtTimePickerFrom.Value.ToString("yyyyMMdd")) <= int.Parse(sArrayDate[4].Substring(0, 8)) &
-                            int.Parse(dtTimePickerTo.Value.ToString("yyyyMMdd")) >= int.Parse(sArrayDate[4].Substring(0, 8))))
+                        if (!(int.Parse(dtTimePickerFrom.Value.ToString("yyyyMMdd")) <= int.Parse(sArrayDate[sArrayDate.Length-1].Substring(0, 8)) &
+                            int.Parse(dtTimePickerTo.Value.ToString("yyyyMMdd")) >= int.Parse(sArrayDate[sArrayDate.Length - 1].Substring(0, 8))))
                         {
                             // 該当しないので対象ファイルから外す
                             sFileName = "";
@@ -389,7 +389,7 @@ namespace QrSorterInspectionApp
                         if (sFileName != "")
                         {
                             string[] sArrayNonDeli1 = sFileName.Split('_');
-                            if (CmbReasonForNonDelivery1.SelectedIndex + 1 != int.Parse(sArrayNonDeli1[1]))
+                            if (CmbReasonForNonDelivery1.SelectedIndex + 1 != int.Parse(sArrayNonDeli1[sArrayNonDeli1.Length-4]))
                             {
                                 // 該当しないので対象ファイルから外す
                                 sFileName = "";
@@ -404,7 +404,7 @@ namespace QrSorterInspectionApp
                         if (sFileName != "")
                         {
                             string[] sArrayNonDeli2 = sFileName.Split('_');
-                            if (CmbReasonForNonDelivery2.SelectedIndex + 1 != int.Parse(sArrayNonDeli2[2]))
+                            if (CmbReasonForNonDelivery2.SelectedIndex + 1 != int.Parse(sArrayNonDeli2[sArrayNonDeli2.Length-3]))
                             {
                                 // 該当しないので対象ファイルから外す
                                 sFileName = "";
