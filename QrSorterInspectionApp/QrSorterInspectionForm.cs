@@ -1304,7 +1304,7 @@ namespace QrSorterInspectionApp
                 sLogData += DQ + DQ + ",";                                          // イベント（コメント）			Null
                 sLogData += DQ + sDateOfReceipt + DQ + ",";                         // 受領日
                 sLogData += DQ + PubConstClass.sUserId + DQ + ",";                  // 作業者情報                
-                sLogData += DQ + strArray[0].Trim().Substring(0, 5) + DQ + ",";     // 物件ID
+                sLogData += DQ + strArray[0].Substring(0, 5) + DQ + ",";     // 物件ID
                 sLogData += DQ + strArray[2] + DQ + ",";                            // エラー
                 sLogData += DQ + DQ + ",";                                          // 生産管理番号					Null
                 sLogData += DQ + sNonDeliveryReason1 + DQ + ",";                    // 仕分１

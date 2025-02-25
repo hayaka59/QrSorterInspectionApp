@@ -322,7 +322,7 @@ namespace QrSorterSimulatorApp
             }
             catch (Exception ex)
             {
-                strMessage = "【RcvDataToTextBox】" + ex.Message;
+                strMessage　 = "【RcvDataToTextBox】" + ex.Message;
                 CommonModule.OutPutLogFile(strMessage);
                 MessageBox.Show(strMessage, "システムエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -337,15 +337,29 @@ namespace QrSorterSimulatorApp
         {
             try
             {
-                // 読取値（31桁）：物件ID（5桁）＋（1st/2st）＋局出し日（YYYYMMDD）＋ユニークキー（17桁）
-                string sData = TxtPropertyId.Text.Trim();                           // 物件ID
-                sData += "1";                                                       // （1st/2st）
-                sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");            // 局出し日（YYYYMMDD）
+                string sData = "";
                 // ユニークキー（17桁）をセット
-                sData += "-" + DateTime.Now.ToString("yyMMdd_");                    // ユニークキー（8桁）
-                sData += int.Parse(TxtUniqueKey.Text).ToString("000000000") + ",";  // ユニークキー（9桁）
-                // ユニークキーのインクリメント
-                TxtUniqueKey.Text = (int.Parse(TxtUniqueKey.Text) + 1).ToString("000000000");
+                if (TxtUniqueKey.Text.Trim() == "")
+                {
+                    sData += "     ";               // 物件ID（5桁）
+                    sData += " ";                   // （1st/2st）
+                    sData += "        ";            // 局出し日（YYYYMMDD）
+                    sData += "                 ";   // ユニークキー（スペース：17桁）
+                    sData += ",";
+                }
+                else
+                {
+                    // 読取値（31桁）：物件ID（5桁）＋（1st/2st）＋局出し日（YYYYMMDD）＋ユニークキー（17桁）
+                    sData = TxtPropertyId.Text.Trim();                                  // 物件ID
+                    sData += "1";                                                       // （1st/2st）
+                    sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");            // 局出し日（YYYYMMDD）
+
+                    sData += "-" + DateTime.Now.ToString("yyMMdd_");                    // ユニークキー（8桁）
+                    sData += int.Parse(TxtUniqueKey.Text).ToString("000000000") + ",";  // ユニークキー（9桁）
+                                                                                        // ユニークキーのインクリメント
+                    TxtUniqueKey.Text = (int.Parse(TxtUniqueKey.Text) + 1).ToString("000000000");
+                }
+
                 // 判定（OK="0"/NG="1"）
                 sData += CmbJudge.SelectedIndex.ToString("0") + ",";
                 // エラーコード
