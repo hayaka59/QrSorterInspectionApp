@@ -98,6 +98,12 @@ namespace QrSorterInspectionApp
                 SetComboOnOff(CmbQuantOnOff5);
                 #endregion
 
+                PubConstClass.lstGroupInfo.Add("");
+                PubConstClass.lstGroupInfo.Add("");
+                PubConstClass.lstGroupInfo.Add("");
+                PubConstClass.lstGroupInfo.Add("");
+                PubConstClass.lstGroupInfo.Add("");
+
                 // 設定画面の項目クリア
                 ClearDisplayData();
                 // 選択中ジョブフィル名クリア
@@ -226,6 +232,14 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnClose_Click(object sender, EventArgs e)
         {
+            if (PubConstClass.sJobFileNameFromInspectionForm != "")
+            {
+                //// ジョブ登録情報及びグループ１～５情報の読取り
+                //CommonModule.ReadJobEntryListFile(sSelectedFile);
+                // 登録ジョブ項目を取得し表示
+                GetEntryJobItem(0);
+            }
+
             Owner.Show();
             Owner.Refresh();
             this.Dispose();
@@ -782,7 +796,8 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【BtnUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CommonModule.OutPutLogFile($"【BtnUpdate_Click】{ex.StackTrace}");
+                MessageBox.Show(ex.StackTrace, "【BtnUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
