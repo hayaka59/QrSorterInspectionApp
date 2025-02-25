@@ -1029,12 +1029,14 @@ namespace QrSorterInspectionApp
                 if (iIndex == 5)
                 {
                     sArrayPocket = ",,,,,,,,,".Split(',');
-                    sPocketInfo = "E";      // イジェクト
+                    // イジェクト設定
+                    sPocketInfo = "E";
                 }
                 else
                 {
                     sArrayPocket = PubConstClass.lstGroupInfo[iIndex].Split(',');
-                    sPocketInfo = "0";      // ポケット
+                    // グループ設定
+                    sPocketInfo = (iIndex + 1).ToString("0");
                 }
 
                 sData = PubConstClass.CMD_SEND_f + ",";
