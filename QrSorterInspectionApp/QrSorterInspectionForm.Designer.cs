@@ -547,7 +547,7 @@
             this.LblPocket1.ForeColor = System.Drawing.Color.Black;
             this.LblPocket1.Location = new System.Drawing.Point(1491, 916);
             this.LblPocket1.Name = "LblPocket1";
-            this.LblPocket1.Size = new System.Drawing.Size(280, 40);
+            this.LblPocket1.Size = new System.Drawing.Size(280, 50);
             this.LblPocket1.TabIndex = 281;
             this.LblPocket1.Text = "ポケット１";
             this.LblPocket1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -560,7 +560,7 @@
             this.LblPocket2.ForeColor = System.Drawing.Color.Black;
             this.LblPocket2.Location = new System.Drawing.Point(1212, 916);
             this.LblPocket2.Name = "LblPocket2";
-            this.LblPocket2.Size = new System.Drawing.Size(280, 40);
+            this.LblPocket2.Size = new System.Drawing.Size(280, 50);
             this.LblPocket2.TabIndex = 282;
             this.LblPocket2.Text = "ポケット２";
             this.LblPocket2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -573,7 +573,7 @@
             this.LblPocket4.ForeColor = System.Drawing.Color.Black;
             this.LblPocket4.Location = new System.Drawing.Point(654, 916);
             this.LblPocket4.Name = "LblPocket4";
-            this.LblPocket4.Size = new System.Drawing.Size(280, 40);
+            this.LblPocket4.Size = new System.Drawing.Size(280, 50);
             this.LblPocket4.TabIndex = 284;
             this.LblPocket4.Text = "ポケット４";
             this.LblPocket4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -586,7 +586,7 @@
             this.LblPocket3.ForeColor = System.Drawing.Color.Black;
             this.LblPocket3.Location = new System.Drawing.Point(933, 916);
             this.LblPocket3.Name = "LblPocket3";
-            this.LblPocket3.Size = new System.Drawing.Size(280, 40);
+            this.LblPocket3.Size = new System.Drawing.Size(280, 50);
             this.LblPocket3.TabIndex = 283;
             this.LblPocket3.Text = "ポケット３";
             this.LblPocket3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -699,7 +699,7 @@
             this.LblPocket5.ForeColor = System.Drawing.Color.Black;
             this.LblPocket5.Location = new System.Drawing.Point(375, 916);
             this.LblPocket5.Name = "LblPocket5";
-            this.LblPocket5.Size = new System.Drawing.Size(280, 40);
+            this.LblPocket5.Size = new System.Drawing.Size(280, 50);
             this.LblPocket5.TabIndex = 305;
             this.LblPocket5.Text = "ポケット５";
             this.LblPocket5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -762,7 +762,7 @@
             // 
             this.BtnStopInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnStopInspection.Image = global::QrSorterInspectionApp.Properties.Resources.standing;
-            this.BtnStopInspection.Location = new System.Drawing.Point(313, 969);
+            this.BtnStopInspection.Location = new System.Drawing.Point(313, 974);
             this.BtnStopInspection.Name = "BtnStopInspection";
             this.BtnStopInspection.Size = new System.Drawing.Size(205, 50);
             this.BtnStopInspection.TabIndex = 182;
@@ -776,7 +776,7 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1542, 969);
+            this.BtnClose.Location = new System.Drawing.Point(1542, 974);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(205, 50);
             this.BtnClose.TabIndex = 181;
@@ -790,7 +790,7 @@
             // 
             this.BtnStartInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnStartInspection.Image = global::QrSorterInspectionApp.Properties.Resources.running_icon;
-            this.BtnStartInspection.Location = new System.Drawing.Point(102, 969);
+            this.BtnStartInspection.Location = new System.Drawing.Point(102, 974);
             this.BtnStartInspection.Name = "BtnStartInspection";
             this.BtnStartInspection.Size = new System.Drawing.Size(205, 50);
             this.BtnStartInspection.TabIndex = 180;
@@ -987,7 +987,7 @@
             this.LblPocketEject.ForeColor = System.Drawing.Color.Black;
             this.LblPocketEject.Location = new System.Drawing.Point(96, 916);
             this.LblPocketEject.Name = "LblPocketEject";
-            this.LblPocketEject.Size = new System.Drawing.Size(280, 40);
+            this.LblPocketEject.Size = new System.Drawing.Size(280, 50);
             this.LblPocketEject.TabIndex = 334;
             this.LblPocketEject.Text = "ポケットリジェクト";
             this.LblPocketEject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

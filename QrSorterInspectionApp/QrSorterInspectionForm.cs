@@ -38,7 +38,8 @@ namespace QrSorterInspectionApp
         private int iBox4Count = 0;             // ボックス４用カウンタ
         private int iBox5Count = 0;             // ボックス５用カウンタ
         private int iBoxECount = 0;             // ボックス（Eject）用カウンタ
-        private int intSesanCounter = 0;        // 処理数No.カウンタ
+        private int intOkSesanCounter = 0;      // 処理数No.カウンタ
+        private int intNgSesanCounter = 0;      // 処理数No.カウンタ
 
         private string sJobFolderName;          // JOBフォルダ名       
         private string sFolderName1;            // グループ１フォルダ名
@@ -96,10 +97,10 @@ namespace QrSorterInspectionApp
                 colOK3.TextAlign = HorizontalAlignment.Center;
                 colOK4.TextAlign = HorizontalAlignment.Center;
                 colOK5.TextAlign = HorizontalAlignment.Center;
-                colOK1.Width = 80;          // 
+                colOK1.Width = 75;          // 
                 colOK2.Width = 200;         // 
                 colOK3.Width = 370;         // 
-                colOK4.Width = 70;          // 
+                colOK4.Width = 75;          // 
                 colOK5.Width = 70;          // 
                 ColumnHeader[] colHeaderOK = new[] { colOK1, colOK2, colOK3, colOK4, colOK5 };                
                 LsvOKHistory.Columns.AddRange(colHeaderOK);
@@ -121,10 +122,10 @@ namespace QrSorterInspectionApp
                 colNG3.TextAlign = HorizontalAlignment.Center;
                 colNG4.TextAlign = HorizontalAlignment.Center;
                 colNG5.TextAlign = HorizontalAlignment.Center;
-                colNG1.Width = 80;          // 
+                colNG1.Width = 75;          // 
                 colNG2.Width = 200;         // 
                 colNG3.Width = 370;         // 
-                colNG4.Width = 70;          // 
+                colNG4.Width = 75;          // 
                 colNG5.Width = 70;          // 
                 ColumnHeader[] colHeaderNG = new[] { colNG1, colNG2, colNG3, colNG4, colNG5 };
                 LsvNGHistory.Columns.AddRange(colHeaderNG);
@@ -1182,9 +1183,11 @@ namespace QrSorterInspectionApp
                 sWriteDate = DateTime.Now.ToString("yyyy/MM/dd");
                 sWriteTime = DateTime.Now.ToString("HH:mm:ss");
 
-                intSesanCounter += 1;                
-                // No.
-                col[0] = intSesanCounter.ToString("00000");                
+                //intSesanCounter += 1;                
+                //// No.
+                //col[0] = intSesanCounter.ToString("00000");
+                
+
                 strArray = sData.Split(',');
                 // 日時
                 col[1] = sWriteDate + " " + sWriteTime;
@@ -1304,7 +1307,7 @@ namespace QrSorterInspectionApp
                 sLogData += DQ + DQ + ",";                                          // イベント（コメント）			Null
                 sLogData += DQ + sDateOfReceipt + DQ + ",";                         // 受領日
                 sLogData += DQ + PubConstClass.sUserId + DQ + ",";                  // 作業者情報                
-                sLogData += DQ + strArray[0].Substring(0, 5) + DQ + ",";     // 物件ID
+                sLogData += DQ + strArray[0].Substring(0, 5) + DQ + ",";            // 物件ID
                 sLogData += DQ + strArray[2] + DQ + ",";                            // エラー
                 sLogData += DQ + DQ + ",";                                          // 生産管理番号					Null
                 sLogData += DQ + sNonDeliveryReason1 + DQ + ",";                    // 仕分１
@@ -1316,6 +1319,10 @@ namespace QrSorterInspectionApp
                 // データの表示（判定が「OK」でトレイ情報が「E」以外）
                 if (col[3] == "OK" && col[4] != "E" && bIsTrayOk == true)
                 {
+                    intOkSesanCounter += 1;
+                    // No.
+                    col[0] = intOkSesanCounter.ToString("00000");
+
                     // 重複チェックの検査対象にする
                     lstPastReceivedQrData.Add(col[2]);
                     // OKのカウント表示
@@ -1360,6 +1367,10 @@ namespace QrSorterInspectionApp
                 }
                 else
                 {
+                    intNgSesanCounter += 1;
+                    // No.
+                    col[0] = intNgSesanCounter.ToString("00000");
+
                     // NGのカウント表示
                     iNGCount++;
                     LblNGCount.Text = iNGCount.ToString("#,##0");
@@ -1623,7 +1634,8 @@ namespace QrSorterInspectionApp
                     iBox4Count = 0;             // ボックス４用カウンタ
                     iBox5Count = 0;             // ボックス５用カウンタ
                     iBoxECount = 0;             // ボックス（Eject）用カウンタ
-                    intSesanCounter = 0;        // 処理数No.カウンタ
+                    intOkSesanCounter = 0;      // OK処理数No.カウンタ
+                    intNgSesanCounter = 0;      // NG処理数No.カウンタ
                     // 受信データ表示領域のクリア
                     LblPocket1.Text = "";
                     LblPocket2.Text = "";
