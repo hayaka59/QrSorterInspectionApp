@@ -134,7 +134,7 @@ namespace QrSorterInspectionApp
                 LblUserInfo.Text += "権限：" + PubConstClass.sUserAuthority + Environment.NewLine;
                 LblUserInfo.Text += "ＰＷ：" + PubConstClass.sUserPassword;
 
-                if (PubConstClass.sUserAuthority=="OP")
+                if (PubConstClass.sUserAuthority == "OP")
                 {
                     BtnSetting.Enabled = false;
                     BtnMaintenance.Enabled = false;
@@ -278,7 +278,8 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                if (SerialPort.IsOpen) {
+                if (SerialPort.IsOpen)
+                {
                     SerialPort.Close();
                 }
 
@@ -393,6 +394,11 @@ namespace QrSorterInspectionApp
                         MyProcError(data);
                         break;
 
+                    case PubConstClass.CMD_RECIEVE_F:
+                        // エラーリセットコマンド
+                        MyProcErrorReset();
+                        break;
+
                     case PubConstClass.CMD_RECIEVE_T:
                         // DIP-SW 情報送信
                         MyProcDipSw();
@@ -465,7 +471,7 @@ namespace QrSorterInspectionApp
                 if (PubConstClass.dicErrorCodeData.ContainsKey(sErrorCode))
                 {
                     // 存在する場合
-                    LblStatus.Text = $"エラーNo.{sErrorCode}（{PubConstClass.dicErrorCodeData[sErrorCode].Replace(",","）")}";
+                    LblStatus.Text = $"エラーNo.{sErrorCode}（{PubConstClass.dicErrorCodeData[sErrorCode].Replace(",", "）")}";
                     CommonModule.OutPutLogFile($"エラーNo.{sErrorCode}（{PubConstClass.dicErrorCodeData[sErrorCode].Replace(",", "）")}");
                 }
                 else
@@ -478,6 +484,22 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【MyProcError】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// エラーリセットコマンド
+        /// </summary>
+        private void MyProcErrorReset()
+        {
+            try
+            {
+                LblStatus.Text = "";
+                LblStatus.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【MyProcErrorReset】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
