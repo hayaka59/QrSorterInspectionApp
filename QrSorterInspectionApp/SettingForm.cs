@@ -790,9 +790,12 @@ namespace QrSorterInspectionApp
                 CmbGroup4.SelectedIndex = iIndex4;
                 CmbGroup5.SelectedIndex = iIndex5;
 
-                BtnAdd.Enabled = true;      // 「新規保存」ボタン使用可
-                BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可
-                BtnDelete.Enabled = true;   // 「削除」　　ボタン使用可
+                if (PubConstClass.sJobFileNameFromInspectionForm == "")
+                {
+                    BtnAdd.Enabled = true;      // 「新規保存」ボタン使用可
+                    BtnUpdate.Enabled = true;   // 「保存」　　ボタン使用可
+                    BtnDelete.Enabled = true;   // 「削除」　　ボタン使用可
+                }
             }
             catch (Exception ex)
             {
