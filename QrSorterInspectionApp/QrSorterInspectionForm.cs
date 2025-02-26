@@ -809,17 +809,12 @@ namespace QrSorterInspectionApp
                 SettingForm form = new SettingForm();
                 form.ShowDialog(this);
 
-                #region ジョブ名
-                // ジョブ登録リストファイル読込
-                //CommonModule.ReadJobEntryListFile();
-                //CmbJobName.Items.Clear();
-                //foreach (var items in PubConstClass.lstJobEntryList)
-                //{
-                //    string[] sArray = items.Split(',');
-                //    CmbJobName.Items.Add(sArray[0]);
-                //}
-                //CmbJobName.SelectedIndex = 0;
-                #endregion
+                // ジョブ登録情報及びグループ１～５情報の読取り
+                CommonModule.ReadJobEntryListFile(PubConstClass.sJobFileNameFromInspectionForm);
+                // 登録ジョブ項目を取得し表示
+                GetEntryInfoAndDisplay();
+                // 受領日
+                DtpDateReceipt.Enabled = bDateOfReceipt;
             }
             catch (Exception ex)
             {
