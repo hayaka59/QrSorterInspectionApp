@@ -181,6 +181,15 @@ namespace QrSorterInspectionApp
 
                 LblQrReadData.Text = "";
                 bIsJobChange = false;
+
+                LstSettingInfomation.Items.Clear();
+                LstSettingInfomation.Items.Add("【設定内容】");
+                LstSettingInfomation.Items.Add("Ｗフィード検査：");
+                LstSettingInfomation.Items.Add("超音波検査　　：");
+                LstSettingInfomation.Items.Add("桁数チェック　：");
+                LstSettingInfomation.Items.Add("読取機能　　　：");
+                LstSettingInfomation.Items.Add("読取チェック　：");
+
                 // 過去に受信したQRデータ一覧のクリア
                 lstPastReceivedQrData.Clear();
                 LblDuplicateCheck.Text = "重複チェック";
@@ -483,12 +492,12 @@ namespace QrSorterInspectionApp
                 DateTime dtPostDate6 = dtCurrent.AddSeconds(6);
                 sFileNameForAllItems = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtCurrent.ToString("yyyyMMddHHmmss") + "全件.csv";
                 // グループ１～５の操作ログファイル名を取得
-                sFileNameForGroupWork[0] = sGroupName[0].PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroupWork[1] = sGroupName[1].PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroupWork[2] = sGroupName[2].PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroupWork[3] = sGroupName[3].PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroupWork[4] = sGroupName[4].PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
-                sFileNameForGroupWork[5] = "リジェクト".PadRight(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate6.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[0] = sGroupName[0].PadLeft(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[1] = sGroupName[1].PadLeft(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[2] = sGroupName[2].PadLeft(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate3.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[3] = sGroupName[3].PadLeft(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate4.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[4] = sGroupName[4].PadLeft(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate5.ToString("yyyyMMddHHmmss") + ".csv";
+                sFileNameForGroupWork[5] = "リジェクト".PadLeft(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate6.ToString("yyyyMMddHHmmss") + ".csv";
                 CommonModule.OutPutLogFile($"グループ１ = {sFileNameForGroupWork[0]}");
                 CommonModule.OutPutLogFile($"グループ２ = {sFileNameForGroupWork[1]}");
                 CommonModule.OutPutLogFile($"グループ３ = {sFileNameForGroupWork[2]}");
@@ -986,13 +995,13 @@ namespace QrSorterInspectionApp
                     // シリアルデータ送信
                     SendSerialData(sData);
                     // コマンドは連続して送信しない
-                    Thread.Sleep(50);
+                    Thread.Sleep(150);
                     // ソーター設定のポケット１～５の情報を送信
                     for (int iIndex = 0; iIndex < 5; iIndex++)
                     {
                         MyprocPocket(iIndex);
                         // コマンドは連続して送信しない
-                        Thread.Sleep(50);
+                        Thread.Sleep(150);
                     }                    
                 }
             }
@@ -1676,6 +1685,15 @@ namespace QrSorterInspectionApp
                     LblDuplicateCheck.Text = "重複チェック：無";
                     bIsDuplicateCheck = false;
                 }
+
+                string[] sReadCheck = new string[6] {"QR", "NW7", "CODE39", "CODE128", "JAN", "読取無し"};
+                LstSettingInfomation.Items.Clear();
+                LstSettingInfomation.Items.Add("【設定内容】");
+                LstSettingInfomation.Items.Add($"Ｗフィード検査：{sArray[19]}");
+                LstSettingInfomation.Items.Add($"超音波検査　　：{sArray[20]}");
+                LstSettingInfomation.Items.Add($"桁数チェック　：{sArray[21]}");
+                LstSettingInfomation.Items.Add($"読取機能　　　：{sReadCheck[int.Parse(sArray[22]) - 1]}");
+                LstSettingInfomation.Items.Add($"読取チェック　：{sArray[5]}");
 
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
                 // ポケット①名称
