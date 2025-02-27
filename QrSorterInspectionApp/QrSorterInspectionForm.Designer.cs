@@ -105,6 +105,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LblQrReadData = new System.Windows.Forms.Label();
             this.LblDuplicateCheck = new System.Windows.Forms.Label();
+            this.LstSettingInfomation = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -708,7 +709,7 @@
             // 
             this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnSetting.Image = global::QrSorterInspectionApp.Properties.Resources.setting_small;
-            this.BtnSetting.Location = new System.Drawing.Point(918, 65);
+            this.BtnSetting.Location = new System.Drawing.Point(918, 61);
             this.BtnSetting.Name = "BtnSetting";
             this.BtnSetting.Size = new System.Drawing.Size(215, 46);
             this.BtnSetting.TabIndex = 306;
@@ -996,7 +997,7 @@
             // 
             this.groupBox1.Controls.Add(this.LblQrReadData);
             this.groupBox1.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox1.Location = new System.Drawing.Point(597, 229);
+            this.groupBox1.Location = new System.Drawing.Point(597, 231);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(576, 64);
             this.groupBox1.TabIndex = 335;
@@ -1028,12 +1029,25 @@
             this.LblDuplicateCheck.Text = "LblDuplicateCheck";
             this.LblDuplicateCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // LstSettingInfomation
+            // 
+            this.LstSettingInfomation.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.LstSettingInfomation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LstSettingInfomation.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LstSettingInfomation.FormattingEnabled = true;
+            this.LstSettingInfomation.ItemHeight = 20;
+            this.LstSettingInfomation.Location = new System.Drawing.Point(933, 113);
+            this.LstSettingInfomation.Name = "LstSettingInfomation";
+            this.LstSettingInfomation.Size = new System.Drawing.Size(183, 120);
+            this.LstSettingInfomation.TabIndex = 337;
+            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.LstSettingInfomation);
             this.Controls.Add(this.LblDuplicateCheck);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LblPocketEject);
@@ -1200,5 +1214,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         internal System.Windows.Forms.Label LblQrReadData;
         internal System.Windows.Forms.Label LblDuplicateCheck;
+        private System.Windows.Forms.ListBox LstSettingInfomation;
     }
 }

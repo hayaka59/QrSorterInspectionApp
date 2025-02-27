@@ -181,6 +181,15 @@ namespace QrSorterInspectionApp
 
                 LblQrReadData.Text = "";
                 bIsJobChange = false;
+
+                LstSettingInfomation.Items.Clear();
+                LstSettingInfomation.Items.Add("【設定内容】");
+                LstSettingInfomation.Items.Add("Ｗフィード検査：");
+                LstSettingInfomation.Items.Add("超音波検査　　：");
+                LstSettingInfomation.Items.Add("桁数チェック　：");
+                LstSettingInfomation.Items.Add("読取機能　　　：");
+                LstSettingInfomation.Items.Add("読取チェック　：");
+
                 // 過去に受信したQRデータ一覧のクリア
                 lstPastReceivedQrData.Clear();
                 LblDuplicateCheck.Text = "重複チェック";
@@ -1676,6 +1685,15 @@ namespace QrSorterInspectionApp
                     LblDuplicateCheck.Text = "重複チェック：無";
                     bIsDuplicateCheck = false;
                 }
+
+                string[] sReadCheck = new string[6] {"QR", "NW7", "CODE39", "CODE128", "JAN", "読取無し"};
+                LstSettingInfomation.Items.Clear();
+                LstSettingInfomation.Items.Add("【設定内容】");
+                LstSettingInfomation.Items.Add($"Ｗフィード検査：{sArray[19]}");
+                LstSettingInfomation.Items.Add($"超音波検査　　：{sArray[20]}");
+                LstSettingInfomation.Items.Add($"桁数チェック　：{sArray[21]}");
+                LstSettingInfomation.Items.Add($"読取機能　　　：{sReadCheck[int.Parse(sArray[22]) - 1]}");
+                LstSettingInfomation.Items.Add($"読取チェック　：{sArray[5]}");
 
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
                 // ポケット①名称
