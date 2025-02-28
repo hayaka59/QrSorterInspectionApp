@@ -261,7 +261,7 @@
             0});
             this.NmUpDnManagementNoKeta.Name = "NmUpDnManagementNoKeta";
             this.NmUpDnManagementNoKeta.Size = new System.Drawing.Size(67, 36);
-            this.NmUpDnManagementNoKeta.TabIndex = 324;
+            this.NmUpDnManagementNoKeta.TabIndex = 18;
             this.NmUpDnManagementNoKeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NmUpDnManagementNoKeta.Value = new decimal(new int[] {
             10,
@@ -286,7 +286,7 @@
             0});
             this.NmUpDnManagementNoStart.Name = "NmUpDnManagementNoStart";
             this.NmUpDnManagementNoStart.Size = new System.Drawing.Size(67, 36);
-            this.NmUpDnManagementNoStart.TabIndex = 323;
+            this.NmUpDnManagementNoStart.TabIndex = 17;
             this.NmUpDnManagementNoStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NmUpDnManagementNoStart.Value = new decimal(new int[] {
             15,
@@ -335,7 +335,7 @@
             0});
             this.NmUpDnFileTypeKeta.Name = "NmUpDnFileTypeKeta";
             this.NmUpDnFileTypeKeta.Size = new System.Drawing.Size(67, 36);
-            this.NmUpDnFileTypeKeta.TabIndex = 320;
+            this.NmUpDnFileTypeKeta.TabIndex = 15;
             this.NmUpDnFileTypeKeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NmUpDnFileTypeKeta.Value = new decimal(new int[] {
             1,
@@ -360,7 +360,7 @@
             0});
             this.NmUpDnFileTypeStart.Name = "NmUpDnFileTypeStart";
             this.NmUpDnFileTypeStart.Size = new System.Drawing.Size(67, 36);
-            this.NmUpDnFileTypeStart.TabIndex = 319;
+            this.NmUpDnFileTypeStart.TabIndex = 14;
             this.NmUpDnFileTypeStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NmUpDnFileTypeStart.Value = new decimal(new int[] {
             6,
@@ -409,7 +409,7 @@
             0});
             this.NmUpDnPostalDateKeta.Name = "NmUpDnPostalDateKeta";
             this.NmUpDnPostalDateKeta.Size = new System.Drawing.Size(67, 36);
-            this.NmUpDnPostalDateKeta.TabIndex = 316;
+            this.NmUpDnPostalDateKeta.TabIndex = 12;
             this.NmUpDnPostalDateKeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NmUpDnPostalDateKeta.Value = new decimal(new int[] {
             8,
@@ -434,7 +434,7 @@
             0});
             this.NmUpDnPostalDateStart.Name = "NmUpDnPostalDateStart";
             this.NmUpDnPostalDateStart.Size = new System.Drawing.Size(67, 36);
-            this.NmUpDnPostalDateStart.TabIndex = 315;
+            this.NmUpDnPostalDateStart.TabIndex = 11;
             this.NmUpDnPostalDateStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NmUpDnPostalDateStart.Value = new decimal(new int[] {
             7,
@@ -489,7 +489,7 @@
             this.TxtQrReadItem4.Location = new System.Drawing.Point(186, 188);
             this.TxtQrReadItem4.Name = "TxtQrReadItem4";
             this.TxtQrReadItem4.Size = new System.Drawing.Size(300, 36);
-            this.TxtQrReadItem4.TabIndex = 314;
+            this.TxtQrReadItem4.TabIndex = 16;
             this.TxtQrReadItem4.Text = "管理No.";
             // 
             // TxtQrReadItem3
@@ -499,7 +499,7 @@
             this.TxtQrReadItem3.Location = new System.Drawing.Point(185, 147);
             this.TxtQrReadItem3.Name = "TxtQrReadItem3";
             this.TxtQrReadItem3.Size = new System.Drawing.Size(300, 36);
-            this.TxtQrReadItem3.TabIndex = 313;
+            this.TxtQrReadItem3.TabIndex = 13;
             this.TxtQrReadItem3.Text = "ファイル区分";
             // 
             // TxtQrReadItem2
@@ -509,7 +509,7 @@
             this.TxtQrReadItem2.Location = new System.Drawing.Point(185, 106);
             this.TxtQrReadItem2.Name = "TxtQrReadItem2";
             this.TxtQrReadItem2.Size = new System.Drawing.Size(300, 36);
-            this.TxtQrReadItem2.TabIndex = 312;
+            this.TxtQrReadItem2.TabIndex = 10;
             this.TxtQrReadItem2.Text = "局出し日";
             // 
             // CmbReadCheck
@@ -522,7 +522,7 @@
             this.CmbReadCheck.Location = new System.Drawing.Point(185, 27);
             this.CmbReadCheck.Name = "CmbReadCheck";
             this.CmbReadCheck.Size = new System.Drawing.Size(105, 36);
-            this.CmbReadCheck.TabIndex = 308;
+            this.CmbReadCheck.TabIndex = 6;
             // 
             // label21
             // 
@@ -556,7 +556,7 @@
             this.TxtQrReadItem1.Location = new System.Drawing.Point(184, 66);
             this.TxtQrReadItem1.Name = "TxtQrReadItem1";
             this.TxtQrReadItem1.Size = new System.Drawing.Size(300, 36);
-            this.TxtQrReadItem1.TabIndex = 221;
+            this.TxtQrReadItem1.TabIndex = 7;
             this.TxtQrReadItem1.Text = "物件ID";
             // 
             // NmUpDnPropertyIdStart
@@ -575,7 +575,7 @@
             0});
             this.NmUpDnPropertyIdStart.Name = "NmUpDnPropertyIdStart";
             this.NmUpDnPropertyIdStart.Size = new System.Drawing.Size(67, 36);
-            this.NmUpDnPropertyIdStart.TabIndex = 269;
+            this.NmUpDnPropertyIdStart.TabIndex = 8;
             this.NmUpDnPropertyIdStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NmUpDnPropertyIdStart.Value = new decimal(new int[] {
             1,
@@ -600,7 +600,7 @@
             0});
             this.NmUpDnPropertyIdKeta.Name = "NmUpDnPropertyIdKeta";
             this.NmUpDnPropertyIdKeta.Size = new System.Drawing.Size(67, 36);
-            this.NmUpDnPropertyIdKeta.TabIndex = 270;
+            this.NmUpDnPropertyIdKeta.TabIndex = 9;
             this.NmUpDnPropertyIdKeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NmUpDnPropertyIdKeta.Value = new decimal(new int[] {
             5,
@@ -643,7 +643,7 @@
             this.CmbDateReceipt.Location = new System.Drawing.Point(1023, 121);
             this.CmbDateReceipt.Name = "CmbDateReceipt";
             this.CmbDateReceipt.Size = new System.Drawing.Size(93, 36);
-            this.CmbDateReceipt.TabIndex = 310;
+            this.CmbDateReceipt.TabIndex = 5;
             // 
             // label12
             // 
@@ -668,7 +668,7 @@
             this.CmbReadingFunction.Location = new System.Drawing.Point(1321, 279);
             this.CmbReadingFunction.Name = "CmbReadingFunction";
             this.CmbReadingFunction.Size = new System.Drawing.Size(105, 36);
-            this.CmbReadingFunction.TabIndex = 306;
+            this.CmbReadingFunction.TabIndex = 23;
             this.CmbReadingFunction.SelectedIndexChanged += new System.EventHandler(this.CmbReadingFunction_SelectedIndexChanged);
             // 
             // label5
@@ -694,7 +694,7 @@
             this.CmbCheckNumberOfDigits.Location = new System.Drawing.Point(1321, 240);
             this.CmbCheckNumberOfDigits.Name = "CmbCheckNumberOfDigits";
             this.CmbCheckNumberOfDigits.Size = new System.Drawing.Size(105, 36);
-            this.CmbCheckNumberOfDigits.TabIndex = 304;
+            this.CmbCheckNumberOfDigits.TabIndex = 22;
             // 
             // label3
             // 
@@ -719,7 +719,7 @@
             this.CmbUltrasonicDetection.Location = new System.Drawing.Point(1321, 201);
             this.CmbUltrasonicDetection.Name = "CmbUltrasonicDetection";
             this.CmbUltrasonicDetection.Size = new System.Drawing.Size(105, 36);
-            this.CmbUltrasonicDetection.TabIndex = 302;
+            this.CmbUltrasonicDetection.TabIndex = 21;
             // 
             // label1
             // 
@@ -1109,7 +1109,7 @@
             this.TxtBoxQrItem22.Location = new System.Drawing.Point(756, 94);
             this.TxtBoxQrItem22.Name = "TxtBoxQrItem22";
             this.TxtBoxQrItem22.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem22.TabIndex = 362;
+            this.TxtBoxQrItem22.TabIndex = 31;
             this.TxtBoxQrItem22.Text = "TxtBoxQrItem22";
             this.TxtBoxQrItem22.Leave += new System.EventHandler(this.TxtBoxQrItem22_Leave);
             // 
@@ -1120,7 +1120,7 @@
             this.TxtBoxQrItem32.Location = new System.Drawing.Point(908, 94);
             this.TxtBoxQrItem32.Name = "TxtBoxQrItem32";
             this.TxtBoxQrItem32.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem32.TabIndex = 363;
+            this.TxtBoxQrItem32.TabIndex = 32;
             this.TxtBoxQrItem32.Text = "TxtBoxQrItem32";
             this.TxtBoxQrItem32.Leave += new System.EventHandler(this.TxtBoxQrItem32_Leave);
             // 
@@ -1132,7 +1132,7 @@
             this.TxtGroup2.Location = new System.Drawing.Point(303, 94);
             this.TxtGroup2.Name = "TxtGroup2";
             this.TxtGroup2.Size = new System.Drawing.Size(300, 31);
-            this.TxtGroup2.TabIndex = 365;
+            this.TxtGroup2.TabIndex = 29;
             this.TxtGroup2.Text = "TxtGroup2";
             this.TxtGroup2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1143,7 +1143,7 @@
             this.TxtBoxQrItem12.Location = new System.Drawing.Point(604, 94);
             this.TxtBoxQrItem12.Name = "TxtBoxQrItem12";
             this.TxtBoxQrItem12.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem12.TabIndex = 361;
+            this.TxtBoxQrItem12.TabIndex = 30;
             this.TxtBoxQrItem12.Text = "TxtBoxQrItem12";
             this.TxtBoxQrItem12.Leave += new System.EventHandler(this.TxtBoxQrItem12_Leave);
             // 
@@ -1154,7 +1154,7 @@
             this.TxtBoxQrItem42.Location = new System.Drawing.Point(1060, 94);
             this.TxtBoxQrItem42.Name = "TxtBoxQrItem42";
             this.TxtBoxQrItem42.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem42.TabIndex = 364;
+            this.TxtBoxQrItem42.TabIndex = 33;
             this.TxtBoxQrItem42.Text = "TxtBoxQrItem42";
             this.TxtBoxQrItem42.Leave += new System.EventHandler(this.TxtBoxQrItem42_Leave);
             // 
@@ -1230,7 +1230,7 @@
             this.TxtBoxQrItem21.Location = new System.Drawing.Point(756, 61);
             this.TxtBoxQrItem21.Name = "TxtBoxQrItem21";
             this.TxtBoxQrItem21.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem21.TabIndex = 321;
+            this.TxtBoxQrItem21.TabIndex = 26;
             this.TxtBoxQrItem21.Text = "TxtBoxQrItem21";
             this.TxtBoxQrItem21.Leave += new System.EventHandler(this.TxtBoxQrItem21_Leave);
             // 
@@ -1265,7 +1265,7 @@
             this.TxtBoxQrItem31.Location = new System.Drawing.Point(908, 61);
             this.TxtBoxQrItem31.Name = "TxtBoxQrItem31";
             this.TxtBoxQrItem31.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem31.TabIndex = 322;
+            this.TxtBoxQrItem31.TabIndex = 27;
             this.TxtBoxQrItem31.Text = "TxtBoxQrItem31";
             this.TxtBoxQrItem31.Leave += new System.EventHandler(this.TxtBoxQrItem31_Leave);
             // 
@@ -1277,7 +1277,7 @@
             this.TxtGroup1.Location = new System.Drawing.Point(303, 61);
             this.TxtGroup1.Name = "TxtGroup1";
             this.TxtGroup1.Size = new System.Drawing.Size(300, 31);
-            this.TxtGroup1.TabIndex = 324;
+            this.TxtGroup1.TabIndex = 24;
             this.TxtGroup1.Text = "TxtGroup1";
             this.TxtGroup1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1288,7 +1288,7 @@
             this.TxtBoxQrItem11.Location = new System.Drawing.Point(604, 61);
             this.TxtBoxQrItem11.Name = "TxtBoxQrItem11";
             this.TxtBoxQrItem11.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem11.TabIndex = 312;
+            this.TxtBoxQrItem11.TabIndex = 25;
             this.TxtBoxQrItem11.Text = "TxtBoxQrItem11";
             this.TxtBoxQrItem11.Leave += new System.EventHandler(this.TxtBoxQrItem11_Leave);
             // 
@@ -1299,7 +1299,7 @@
             this.TxtBoxQrItem41.Location = new System.Drawing.Point(1060, 61);
             this.TxtBoxQrItem41.Name = "TxtBoxQrItem41";
             this.TxtBoxQrItem41.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem41.TabIndex = 323;
+            this.TxtBoxQrItem41.TabIndex = 28;
             this.TxtBoxQrItem41.Text = "TxtBoxQrItem41";
             this.TxtBoxQrItem41.Leave += new System.EventHandler(this.TxtBoxQrItem41_Leave);
             // 
@@ -1749,7 +1749,7 @@
             this.CmbDoubleFeed.Location = new System.Drawing.Point(1321, 162);
             this.CmbDoubleFeed.Name = "CmbDoubleFeed";
             this.CmbDoubleFeed.Size = new System.Drawing.Size(105, 36);
-            this.CmbDoubleFeed.TabIndex = 243;
+            this.CmbDoubleFeed.TabIndex = 20;
             // 
             // CmbDuplication
             // 
@@ -1761,7 +1761,7 @@
             this.CmbDuplication.Location = new System.Drawing.Point(1321, 122);
             this.CmbDuplication.Name = "CmbDuplication";
             this.CmbDuplication.Size = new System.Drawing.Size(105, 36);
-            this.CmbDuplication.TabIndex = 242;
+            this.CmbDuplication.TabIndex = 19;
             // 
             // label14
             // 
@@ -1822,7 +1822,7 @@
             this.TxtJobName.Location = new System.Drawing.Point(564, 32);
             this.TxtJobName.Name = "TxtJobName";
             this.TxtJobName.Size = new System.Drawing.Size(300, 36);
-            this.TxtJobName.TabIndex = 220;
+            this.TxtJobName.TabIndex = 2;
             this.TxtJobName.Text = "チューリッヒ①ハガキ";
             // 
             // DtpDateReceipt
@@ -1831,7 +1831,7 @@
             this.DtpDateReceipt.Location = new System.Drawing.Point(564, 120);
             this.DtpDateReceipt.Name = "DtpDateReceipt";
             this.DtpDateReceipt.Size = new System.Drawing.Size(299, 36);
-            this.DtpDateReceipt.TabIndex = 207;
+            this.DtpDateReceipt.TabIndex = 4;
             // 
             // label4
             // 
@@ -1869,7 +1869,7 @@
             this.CmbMedia.Location = new System.Drawing.Point(565, 76);
             this.CmbMedia.Name = "CmbMedia";
             this.CmbMedia.Size = new System.Drawing.Size(299, 36);
-            this.CmbMedia.TabIndex = 198;
+            this.CmbMedia.TabIndex = 3;
             // 
             // LblTitle
             // 
@@ -1983,7 +1983,7 @@
             this.BtnJobSelect.Location = new System.Drawing.Point(20, 30);
             this.BtnJobSelect.Name = "BtnJobSelect";
             this.BtnJobSelect.Size = new System.Drawing.Size(360, 61);
-            this.BtnJobSelect.TabIndex = 319;
+            this.BtnJobSelect.TabIndex = 1;
             this.BtnJobSelect.Text = "JOB選択";
             this.BtnJobSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnJobSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
