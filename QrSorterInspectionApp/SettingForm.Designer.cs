@@ -217,7 +217,7 @@
             this.groupBox1.Location = new System.Drawing.Point(395, 163);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(734, 239);
-            this.groupBox1.TabIndex = 313;
+            this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "QR読取項目";
             // 
@@ -813,7 +813,7 @@
             this.GrpSorterSetting.Location = new System.Drawing.Point(225, 543);
             this.GrpSorterSetting.Name = "GrpSorterSetting";
             this.GrpSorterSetting.Size = new System.Drawing.Size(1449, 486);
-            this.GrpSorterSetting.TabIndex = 298;
+            this.GrpSorterSetting.TabIndex = 24;
             this.GrpSorterSetting.TabStop = false;
             this.GrpSorterSetting.Text = "ソータ設定";
             // 
@@ -826,7 +826,7 @@
             this.LblGroup5.Location = new System.Drawing.Point(604, 403);
             this.LblGroup5.Name = "LblGroup5";
             this.LblGroup5.Size = new System.Drawing.Size(300, 31);
-            this.LblGroup5.TabIndex = 393;
+            this.LblGroup5.TabIndex = 71;
             this.LblGroup5.Text = "LblGroup5";
             this.LblGroup5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -839,7 +839,7 @@
             this.LblGroup4.Location = new System.Drawing.Point(604, 369);
             this.LblGroup4.Name = "LblGroup4";
             this.LblGroup4.Size = new System.Drawing.Size(300, 31);
-            this.LblGroup4.TabIndex = 392;
+            this.LblGroup4.TabIndex = 66;
             this.LblGroup4.Text = "LblGroup4";
             this.LblGroup4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -852,7 +852,7 @@
             this.LblGroup3.Location = new System.Drawing.Point(604, 335);
             this.LblGroup3.Name = "LblGroup3";
             this.LblGroup3.Size = new System.Drawing.Size(300, 31);
-            this.LblGroup3.TabIndex = 391;
+            this.LblGroup3.TabIndex = 61;
             this.LblGroup3.Text = "LblGroup3";
             this.LblGroup3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -865,7 +865,7 @@
             this.LblGroup2.Location = new System.Drawing.Point(604, 300);
             this.LblGroup2.Name = "LblGroup2";
             this.LblGroup2.Size = new System.Drawing.Size(300, 31);
-            this.LblGroup2.TabIndex = 390;
+            this.LblGroup2.TabIndex = 56;
             this.LblGroup2.Text = "LblGroup2";
             this.LblGroup2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -878,7 +878,7 @@
             this.LblGroup1.Location = new System.Drawing.Point(604, 266);
             this.LblGroup1.Name = "LblGroup1";
             this.LblGroup1.Size = new System.Drawing.Size(300, 31);
-            this.LblGroup1.TabIndex = 389;
+            this.LblGroup1.TabIndex = 51;
             this.LblGroup1.Text = "LblGroup1";
             this.LblGroup1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -941,7 +941,7 @@
             this.TxtBoxQrItem25.Location = new System.Drawing.Point(756, 191);
             this.TxtBoxQrItem25.Name = "TxtBoxQrItem25";
             this.TxtBoxQrItem25.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem25.TabIndex = 380;
+            this.TxtBoxQrItem25.TabIndex = 46;
             this.TxtBoxQrItem25.Text = "TxtBoxQrItem25";
             this.TxtBoxQrItem25.Leave += new System.EventHandler(this.TxtBoxQrItem25_Leave);
             // 
@@ -952,7 +952,7 @@
             this.TxtBoxQrItem35.Location = new System.Drawing.Point(908, 191);
             this.TxtBoxQrItem35.Name = "TxtBoxQrItem35";
             this.TxtBoxQrItem35.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem35.TabIndex = 381;
+            this.TxtBoxQrItem35.TabIndex = 47;
             this.TxtBoxQrItem35.Text = "TxtBoxQrItem35";
             this.TxtBoxQrItem35.Leave += new System.EventHandler(this.TxtBoxQrItem35_Leave);
             // 
@@ -964,7 +964,7 @@
             this.TxtGroup5.Location = new System.Drawing.Point(303, 191);
             this.TxtGroup5.Name = "TxtGroup5";
             this.TxtGroup5.Size = new System.Drawing.Size(300, 31);
-            this.TxtGroup5.TabIndex = 383;
+            this.TxtGroup5.TabIndex = 44;
             this.TxtGroup5.Text = "TxtGroup5";
             this.TxtGroup5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -975,7 +975,7 @@
             this.TxtBoxQrItem15.Location = new System.Drawing.Point(604, 191);
             this.TxtBoxQrItem15.Name = "TxtBoxQrItem15";
             this.TxtBoxQrItem15.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem15.TabIndex = 379;
+            this.TxtBoxQrItem15.TabIndex = 45;
             this.TxtBoxQrItem15.Text = "TxtBoxQrItem15";
             this.TxtBoxQrItem15.Leave += new System.EventHandler(this.TxtBoxQrItem15_Leave);
             // 
@@ -986,7 +986,7 @@
             this.TxtBoxQrItem45.Location = new System.Drawing.Point(1060, 191);
             this.TxtBoxQrItem45.Name = "TxtBoxQrItem45";
             this.TxtBoxQrItem45.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem45.TabIndex = 382;
+            this.TxtBoxQrItem45.TabIndex = 48;
             this.TxtBoxQrItem45.Text = "TxtBoxQrItem45";
             this.TxtBoxQrItem45.Leave += new System.EventHandler(this.TxtBoxQrItem45_Leave);
             // 
@@ -997,7 +997,7 @@
             this.TxtBoxQrItem24.Location = new System.Drawing.Point(756, 159);
             this.TxtBoxQrItem24.Name = "TxtBoxQrItem24";
             this.TxtBoxQrItem24.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem24.TabIndex = 374;
+            this.TxtBoxQrItem24.TabIndex = 41;
             this.TxtBoxQrItem24.Text = "TxtBoxQrItem24";
             this.TxtBoxQrItem24.Leave += new System.EventHandler(this.TxtBoxQrItem24_Leave);
             // 
@@ -1008,7 +1008,7 @@
             this.TxtBoxQrItem34.Location = new System.Drawing.Point(908, 159);
             this.TxtBoxQrItem34.Name = "TxtBoxQrItem34";
             this.TxtBoxQrItem34.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem34.TabIndex = 375;
+            this.TxtBoxQrItem34.TabIndex = 42;
             this.TxtBoxQrItem34.Text = "TxtBoxQrItem34";
             this.TxtBoxQrItem34.Leave += new System.EventHandler(this.TxtBoxQrItem34_Leave);
             // 
@@ -1020,7 +1020,7 @@
             this.TxtGroup4.Location = new System.Drawing.Point(303, 159);
             this.TxtGroup4.Name = "TxtGroup4";
             this.TxtGroup4.Size = new System.Drawing.Size(300, 31);
-            this.TxtGroup4.TabIndex = 377;
+            this.TxtGroup4.TabIndex = 39;
             this.TxtGroup4.Text = "TxtGroup4";
             this.TxtGroup4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1031,7 +1031,7 @@
             this.TxtBoxQrItem14.Location = new System.Drawing.Point(604, 159);
             this.TxtBoxQrItem14.Name = "TxtBoxQrItem14";
             this.TxtBoxQrItem14.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem14.TabIndex = 373;
+            this.TxtBoxQrItem14.TabIndex = 40;
             this.TxtBoxQrItem14.Text = "TxtBoxQrItem14";
             this.TxtBoxQrItem14.Leave += new System.EventHandler(this.TxtBoxQrItem14_Leave);
             // 
@@ -1042,7 +1042,7 @@
             this.TxtBoxQrItem44.Location = new System.Drawing.Point(1060, 159);
             this.TxtBoxQrItem44.Name = "TxtBoxQrItem44";
             this.TxtBoxQrItem44.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem44.TabIndex = 376;
+            this.TxtBoxQrItem44.TabIndex = 43;
             this.TxtBoxQrItem44.Text = "TxtBoxQrItem44";
             this.TxtBoxQrItem44.Leave += new System.EventHandler(this.TxtBoxQrItem44_Leave);
             // 
@@ -1053,7 +1053,7 @@
             this.TxtBoxQrItem23.Location = new System.Drawing.Point(756, 127);
             this.TxtBoxQrItem23.Name = "TxtBoxQrItem23";
             this.TxtBoxQrItem23.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem23.TabIndex = 368;
+            this.TxtBoxQrItem23.TabIndex = 36;
             this.TxtBoxQrItem23.Text = "TxtBoxQrItem23";
             this.TxtBoxQrItem23.Leave += new System.EventHandler(this.TxtBoxQrItem23_Leave);
             // 
@@ -1064,7 +1064,7 @@
             this.TxtBoxQrItem33.Location = new System.Drawing.Point(908, 127);
             this.TxtBoxQrItem33.Name = "TxtBoxQrItem33";
             this.TxtBoxQrItem33.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem33.TabIndex = 369;
+            this.TxtBoxQrItem33.TabIndex = 37;
             this.TxtBoxQrItem33.Text = "TxtBoxQrItem33";
             this.TxtBoxQrItem33.Leave += new System.EventHandler(this.TxtBoxQrItem33_Leave);
             // 
@@ -1076,7 +1076,7 @@
             this.TxtGroup3.Location = new System.Drawing.Point(303, 127);
             this.TxtGroup3.Name = "TxtGroup3";
             this.TxtGroup3.Size = new System.Drawing.Size(300, 31);
-            this.TxtGroup3.TabIndex = 371;
+            this.TxtGroup3.TabIndex = 34;
             this.TxtGroup3.Text = "TxtGroup3";
             this.TxtGroup3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1087,7 +1087,7 @@
             this.TxtBoxQrItem13.Location = new System.Drawing.Point(604, 127);
             this.TxtBoxQrItem13.Name = "TxtBoxQrItem13";
             this.TxtBoxQrItem13.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem13.TabIndex = 367;
+            this.TxtBoxQrItem13.TabIndex = 35;
             this.TxtBoxQrItem13.Text = "TxtBoxQrItem13";
             this.TxtBoxQrItem13.Leave += new System.EventHandler(this.TxtBoxQrItem13_Leave);
             // 
@@ -1098,7 +1098,7 @@
             this.TxtBoxQrItem43.Location = new System.Drawing.Point(1060, 127);
             this.TxtBoxQrItem43.Name = "TxtBoxQrItem43";
             this.TxtBoxQrItem43.Size = new System.Drawing.Size(151, 31);
-            this.TxtBoxQrItem43.TabIndex = 370;
+            this.TxtBoxQrItem43.TabIndex = 38;
             this.TxtBoxQrItem43.Text = "TxtBoxQrItem43";
             this.TxtBoxQrItem43.Leave += new System.EventHandler(this.TxtBoxQrItem43_Leave);
             // 
@@ -1254,7 +1254,7 @@
             this.textBox6.Location = new System.Drawing.Point(303, 436);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(195, 31);
-            this.textBox6.TabIndex = 355;
+            this.textBox6.TabIndex = 74;
             this.textBox6.Text = "リジェクト";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1314,7 +1314,7 @@
             this.CmbGroup6.Location = new System.Drawing.Point(497, 435);
             this.CmbGroup6.Name = "CmbGroup6";
             this.CmbGroup6.Size = new System.Drawing.Size(105, 32);
-            this.CmbGroup6.TabIndex = 356;
+            this.CmbGroup6.TabIndex = 75;
             // 
             // LblBox1QrReadItem1
             // 
@@ -1391,7 +1391,7 @@
             this.CmbQuantOnOff5.Location = new System.Drawing.Point(993, 403);
             this.CmbQuantOnOff5.Name = "CmbQuantOnOff5";
             this.CmbQuantOnOff5.Size = new System.Drawing.Size(76, 32);
-            this.CmbQuantOnOff5.TabIndex = 348;
+            this.CmbQuantOnOff5.TabIndex = 73;
             // 
             // TxtQuantity5
             // 
@@ -1400,7 +1400,7 @@
             this.TxtQuantity5.Location = new System.Drawing.Point(910, 404);
             this.TxtQuantity5.Name = "TxtQuantity5";
             this.TxtQuantity5.Size = new System.Drawing.Size(83, 31);
-            this.TxtQuantity5.TabIndex = 347;
+            this.TxtQuantity5.TabIndex = 72;
             this.TxtQuantity5.Text = "TxtQuantity5";
             this.TxtQuantity5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1414,7 +1414,7 @@
             this.CmbQuantOnOff4.Location = new System.Drawing.Point(993, 369);
             this.CmbQuantOnOff4.Name = "CmbQuantOnOff4";
             this.CmbQuantOnOff4.Size = new System.Drawing.Size(76, 32);
-            this.CmbQuantOnOff4.TabIndex = 346;
+            this.CmbQuantOnOff4.TabIndex = 68;
             // 
             // TxtQuantity4
             // 
@@ -1423,7 +1423,7 @@
             this.TxtQuantity4.Location = new System.Drawing.Point(910, 370);
             this.TxtQuantity4.Name = "TxtQuantity4";
             this.TxtQuantity4.Size = new System.Drawing.Size(83, 31);
-            this.TxtQuantity4.TabIndex = 345;
+            this.TxtQuantity4.TabIndex = 67;
             this.TxtQuantity4.Text = "TxtQuantity4";
             this.TxtQuantity4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1437,7 +1437,7 @@
             this.CmbQuantOnOff3.Location = new System.Drawing.Point(993, 335);
             this.CmbQuantOnOff3.Name = "CmbQuantOnOff3";
             this.CmbQuantOnOff3.Size = new System.Drawing.Size(76, 32);
-            this.CmbQuantOnOff3.TabIndex = 344;
+            this.CmbQuantOnOff3.TabIndex = 63;
             // 
             // TxtQuantity3
             // 
@@ -1446,7 +1446,7 @@
             this.TxtQuantity3.Location = new System.Drawing.Point(910, 335);
             this.TxtQuantity3.Name = "TxtQuantity3";
             this.TxtQuantity3.Size = new System.Drawing.Size(83, 31);
-            this.TxtQuantity3.TabIndex = 343;
+            this.TxtQuantity3.TabIndex = 62;
             this.TxtQuantity3.Text = "TxtQuantity3";
             this.TxtQuantity3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1460,7 +1460,7 @@
             this.CmbQuantOnOff2.Location = new System.Drawing.Point(993, 300);
             this.CmbQuantOnOff2.Name = "CmbQuantOnOff2";
             this.CmbQuantOnOff2.Size = new System.Drawing.Size(76, 32);
-            this.CmbQuantOnOff2.TabIndex = 342;
+            this.CmbQuantOnOff2.TabIndex = 58;
             // 
             // TxtQuantity2
             // 
@@ -1469,7 +1469,7 @@
             this.TxtQuantity2.Location = new System.Drawing.Point(910, 301);
             this.TxtQuantity2.Name = "TxtQuantity2";
             this.TxtQuantity2.Size = new System.Drawing.Size(83, 31);
-            this.TxtQuantity2.TabIndex = 341;
+            this.TxtQuantity2.TabIndex = 57;
             this.TxtQuantity2.Text = "TxtQuantity2";
             this.TxtQuantity2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1483,7 +1483,7 @@
             this.CmbQuantOnOff1.Location = new System.Drawing.Point(993, 266);
             this.CmbQuantOnOff1.Name = "CmbQuantOnOff1";
             this.CmbQuantOnOff1.Size = new System.Drawing.Size(76, 32);
-            this.CmbQuantOnOff1.TabIndex = 340;
+            this.CmbQuantOnOff1.TabIndex = 53;
             // 
             // TxtQuantity1
             // 
@@ -1492,7 +1492,7 @@
             this.TxtQuantity1.Location = new System.Drawing.Point(910, 266);
             this.TxtQuantity1.Name = "TxtQuantity1";
             this.TxtQuantity1.Size = new System.Drawing.Size(83, 31);
-            this.TxtQuantity1.TabIndex = 339;
+            this.TxtQuantity1.TabIndex = 52;
             this.TxtQuantity1.Text = "TxtQuantity1";
             this.TxtQuantity1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1516,7 +1516,7 @@
             this.TxtPocketName5.Location = new System.Drawing.Point(303, 402);
             this.TxtPocketName5.Name = "TxtPocketName5";
             this.TxtPocketName5.Size = new System.Drawing.Size(195, 31);
-            this.TxtPocketName5.TabIndex = 337;
+            this.TxtPocketName5.TabIndex = 69;
             this.TxtPocketName5.Text = "TxtPocketName5";
             this.TxtPocketName5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1531,7 +1531,7 @@
             this.CmbGroup5.Location = new System.Drawing.Point(497, 401);
             this.CmbGroup5.Name = "CmbGroup5";
             this.CmbGroup5.Size = new System.Drawing.Size(105, 32);
-            this.CmbGroup5.TabIndex = 338;
+            this.CmbGroup5.TabIndex = 70;
             this.CmbGroup5.SelectedIndexChanged += new System.EventHandler(this.CmbGroup5_SelectedIndexChanged);
             // 
             // label45
@@ -1593,7 +1593,7 @@
             this.TxtPocketName1.Location = new System.Drawing.Point(303, 266);
             this.TxtPocketName1.Name = "TxtPocketName1";
             this.TxtPocketName1.Size = new System.Drawing.Size(195, 31);
-            this.TxtPocketName1.TabIndex = 300;
+            this.TxtPocketName1.TabIndex = 49;
             this.TxtPocketName1.Text = "TxtPocketName1";
             this.TxtPocketName1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1609,7 +1609,7 @@
             this.CmbGroup1.Location = new System.Drawing.Point(497, 265);
             this.CmbGroup1.Name = "CmbGroup1";
             this.CmbGroup1.Size = new System.Drawing.Size(105, 32);
-            this.CmbGroup1.TabIndex = 334;
+            this.CmbGroup1.TabIndex = 50;
             this.CmbGroup1.SelectedIndexChanged += new System.EventHandler(this.CmbGroup1_SelectedIndexChanged);
             // 
             // TxtPocketName4
@@ -1619,7 +1619,7 @@
             this.TxtPocketName4.Location = new System.Drawing.Point(303, 368);
             this.TxtPocketName4.Name = "TxtPocketName4";
             this.TxtPocketName4.Size = new System.Drawing.Size(195, 31);
-            this.TxtPocketName4.TabIndex = 332;
+            this.TxtPocketName4.TabIndex = 64;
             this.TxtPocketName4.Text = "TxtPocketName4";
             this.TxtPocketName4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1634,7 +1634,7 @@
             this.CmbGroup4.Location = new System.Drawing.Point(497, 368);
             this.CmbGroup4.Name = "CmbGroup4";
             this.CmbGroup4.Size = new System.Drawing.Size(105, 32);
-            this.CmbGroup4.TabIndex = 333;
+            this.CmbGroup4.TabIndex = 65;
             this.CmbGroup4.SelectedIndexChanged += new System.EventHandler(this.CmbGroup4_SelectedIndexChanged);
             // 
             // TxtPocketName3
@@ -1644,7 +1644,7 @@
             this.TxtPocketName3.Location = new System.Drawing.Point(303, 334);
             this.TxtPocketName3.Name = "TxtPocketName3";
             this.TxtPocketName3.Size = new System.Drawing.Size(195, 31);
-            this.TxtPocketName3.TabIndex = 329;
+            this.TxtPocketName3.TabIndex = 59;
             this.TxtPocketName3.Text = "TxtPocketName3";
             this.TxtPocketName3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1659,7 +1659,7 @@
             this.CmbGroup3.Location = new System.Drawing.Point(497, 334);
             this.CmbGroup3.Name = "CmbGroup3";
             this.CmbGroup3.Size = new System.Drawing.Size(105, 32);
-            this.CmbGroup3.TabIndex = 330;
+            this.CmbGroup3.TabIndex = 60;
             this.CmbGroup3.SelectedIndexChanged += new System.EventHandler(this.CmbGroup3_SelectedIndexChanged);
             // 
             // TxtPocketName2
@@ -1669,7 +1669,7 @@
             this.TxtPocketName2.Location = new System.Drawing.Point(303, 300);
             this.TxtPocketName2.Name = "TxtPocketName2";
             this.TxtPocketName2.Size = new System.Drawing.Size(195, 31);
-            this.TxtPocketName2.TabIndex = 326;
+            this.TxtPocketName2.TabIndex = 54;
             this.TxtPocketName2.Text = "TxtPocketName2";
             this.TxtPocketName2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1684,7 +1684,7 @@
             this.CmbGroup2.Location = new System.Drawing.Point(497, 300);
             this.CmbGroup2.Name = "CmbGroup2";
             this.CmbGroup2.Size = new System.Drawing.Size(105, 32);
-            this.CmbGroup2.TabIndex = 327;
+            this.CmbGroup2.TabIndex = 55;
             this.CmbGroup2.SelectedIndexChanged += new System.EventHandler(this.CmbGroup2_SelectedIndexChanged);
             // 
             // BtnClose
@@ -1930,7 +1930,7 @@
             this.GrpFeederSetting.Location = new System.Drawing.Point(225, 63);
             this.GrpFeederSetting.Name = "GrpFeederSetting";
             this.GrpFeederSetting.Size = new System.Drawing.Size(1451, 469);
-            this.GrpFeederSetting.TabIndex = 179;
+            this.GrpFeederSetting.TabIndex = 1;
             this.GrpFeederSetting.TabStop = false;
             this.GrpFeederSetting.Text = "QRフィーダー設定";
             // 
