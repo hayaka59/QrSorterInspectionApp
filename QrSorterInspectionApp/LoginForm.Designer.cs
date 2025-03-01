@@ -59,7 +59,7 @@
             this.TxtUserId.Location = new System.Drawing.Point(185, 79);
             this.TxtUserId.Name = "TxtUserId";
             this.TxtUserId.Size = new System.Drawing.Size(293, 43);
-            this.TxtUserId.TabIndex = 3;
+            this.TxtUserId.TabIndex = 0;
             this.TxtUserId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TxtPassword
@@ -71,7 +71,7 @@
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '*';
             this.TxtPassword.Size = new System.Drawing.Size(293, 43);
-            this.TxtPassword.TabIndex = 4;
+            this.TxtPassword.TabIndex = 1;
             this.TxtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -112,7 +112,7 @@
             this.BtnEnd.Location = new System.Drawing.Point(343, 217);
             this.BtnEnd.Name = "BtnEnd";
             this.BtnEnd.Size = new System.Drawing.Size(220, 45);
-            this.BtnEnd.TabIndex = 1;
+            this.BtnEnd.TabIndex = 4;
             this.BtnEnd.Text = " 終了";
             this.BtnEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -126,7 +126,7 @@
             this.BtnLogin.Location = new System.Drawing.Point(23, 217);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(220, 45);
-            this.BtnLogin.TabIndex = 0;
+            this.BtnLogin.TabIndex = 3;
             this.BtnLogin.Text = " ログイン";
             this.BtnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -140,7 +140,7 @@
             this.BtnPassword.Location = new System.Drawing.Point(486, 145);
             this.BtnPassword.Name = "BtnPassword";
             this.BtnPassword.Size = new System.Drawing.Size(65, 40);
-            this.BtnPassword.TabIndex = 262;
+            this.BtnPassword.TabIndex = 2;
             this.BtnPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnPassword.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnPassword.UseVisualStyleBackColor = true;

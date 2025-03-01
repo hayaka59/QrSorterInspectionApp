@@ -75,7 +75,7 @@
             this.BtnEnd.Location = new System.Drawing.Point(961, 742);
             this.BtnEnd.Name = "BtnEnd";
             this.BtnEnd.Size = new System.Drawing.Size(750, 200);
-            this.BtnEnd.TabIndex = 19;
+            this.BtnEnd.TabIndex = 7;
             this.BtnEnd.Text = "終了";
             this.BtnEnd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnEnd.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@
             this.BtnLogOut.Location = new System.Drawing.Point(194, 742);
             this.BtnLogOut.Name = "BtnLogOut";
             this.BtnLogOut.Size = new System.Drawing.Size(750, 200);
-            this.BtnLogOut.TabIndex = 18;
+            this.BtnLogOut.TabIndex = 6;
             this.BtnLogOut.Text = "ログアウト";
             this.BtnLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnLogOut.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@
             this.BtnLogManagement.Location = new System.Drawing.Point(961, 520);
             this.BtnLogManagement.Name = "BtnLogManagement";
             this.BtnLogManagement.Size = new System.Drawing.Size(750, 200);
-            this.BtnLogManagement.TabIndex = 17;
+            this.BtnLogManagement.TabIndex = 5;
             this.BtnLogManagement.Text = "ログ管理";
             this.BtnLogManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnLogManagement.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@
             this.BtnMaintenance.Location = new System.Drawing.Point(194, 520);
             this.BtnMaintenance.Name = "BtnMaintenance";
             this.BtnMaintenance.Size = new System.Drawing.Size(750, 200);
-            this.BtnMaintenance.TabIndex = 16;
+            this.BtnMaintenance.TabIndex = 4;
             this.BtnMaintenance.Text = "保守";
             this.BtnMaintenance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnMaintenance.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             this.BtnAccountSet.Location = new System.Drawing.Point(961, 300);
             this.BtnAccountSet.Name = "BtnAccountSet";
             this.BtnAccountSet.Size = new System.Drawing.Size(750, 200);
-            this.BtnAccountSet.TabIndex = 15;
+            this.BtnAccountSet.TabIndex = 3;
             this.BtnAccountSet.Text = "SV・OP";
             this.BtnAccountSet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnAccountSet.UseVisualStyleBackColor = true;
@@ -145,7 +145,7 @@
             this.BtnSetting.Location = new System.Drawing.Point(194, 300);
             this.BtnSetting.Name = "BtnSetting";
             this.BtnSetting.Size = new System.Drawing.Size(750, 200);
-            this.BtnSetting.TabIndex = 14;
+            this.BtnSetting.TabIndex = 2;
             this.BtnSetting.Text = "設定";
             this.BtnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnSetting.UseVisualStyleBackColor = true;
@@ -159,7 +159,7 @@
             this.BtnQrSorterInspect.Location = new System.Drawing.Point(194, 83);
             this.BtnQrSorterInspect.Name = "BtnQrSorterInspect";
             this.BtnQrSorterInspect.Size = new System.Drawing.Size(1517, 200);
-            this.BtnQrSorterInspect.TabIndex = 13;
+            this.BtnQrSorterInspect.TabIndex = 1;
             this.BtnQrSorterInspect.Text = "QRソータ検査";
             this.BtnQrSorterInspect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnQrSorterInspect.UseVisualStyleBackColor = true;

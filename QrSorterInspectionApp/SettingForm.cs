@@ -1321,105 +1321,138 @@ namespace QrSorterInspectionApp
             return (Regex.IsMatch(text, @"^[0-9a-zA-Z]+$"));
         }
 
+        private void CheckNumberOfDigits(string sMessage, TextBox textBox, NumericUpDown numericUpDown)
+        {
+            if (textBox.Text.Trim() != "")
+            {
+                // NULL以外でチェックする
+                if (textBox.TextLength != numericUpDown.Value)
+                {
+                    MessageBox.Show(sMessage, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
 
         private void TxtBoxQrItem11_Leave(object sender, EventArgs e)
-        {
+        {                        
             IsOnlyAlphanumeric1($"グループ１の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem11.Text}）に全角が含まれます", TxtBoxQrItem11.Text);
+            CheckNumberOfDigits($"グループ１の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem11.Text}）の桁数は{NmUpDnPropertyIdKeta.Value}桁にして下さい", TxtBoxQrItem11, NmUpDnPropertyIdKeta);
         }
 
         private void TxtBoxQrItem12_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ２の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem12.Text}）に全角が含まれます", TxtBoxQrItem12.Text);
+            CheckNumberOfDigits($"グループ２の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem12.Text}）の桁数は{NmUpDnPropertyIdKeta.Value}桁にして下さい", TxtBoxQrItem12, NmUpDnPropertyIdKeta);
         }
 
         private void TxtBoxQrItem13_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ３の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem13.Text}）に全角が含まれます", TxtBoxQrItem13.Text);
+            CheckNumberOfDigits($"グループ３の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem13.Text}）の桁数は{NmUpDnPropertyIdKeta.Value}桁にして下さい", TxtBoxQrItem13, NmUpDnPropertyIdKeta);
         }
 
         private void TxtBoxQrItem14_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ４の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem14.Text}）に全角が含まれます", TxtBoxQrItem14.Text);
+            CheckNumberOfDigits($"グループ４の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem14.Text}）の桁数は{NmUpDnPropertyIdKeta.Value}桁にして下さい", TxtBoxQrItem14, NmUpDnPropertyIdKeta);
         }
 
         private void TxtBoxQrItem15_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ５の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem15.Text}）に全角が含まれます", TxtBoxQrItem15.Text);
+            CheckNumberOfDigits($"グループ５の{LblBox1QrReadItem1.Text}（{TxtBoxQrItem15.Text}）の桁数は{NmUpDnPropertyIdKeta.Value}桁にして下さい", TxtBoxQrItem15, NmUpDnPropertyIdKeta);
         }
 
         private void TxtBoxQrItem21_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ１の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem21.Text}）に全角が含まれます", TxtBoxQrItem21.Text);
+            CheckNumberOfDigits($"グループ１の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem21.Text}）の桁数は{NmUpDnPostalDateKeta.Value}桁にして下さい", TxtBoxQrItem21, NmUpDnPostalDateKeta);
         }
 
         private void TxtBoxQrItem22_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ２の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem22.Text}）に全角が含まれます", TxtBoxQrItem22.Text);
+            CheckNumberOfDigits($"グループ２の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem22.Text}）の桁数は{NmUpDnPostalDateKeta.Value}桁にして下さい", TxtBoxQrItem22, NmUpDnPostalDateKeta);
         }
 
         private void TxtBoxQrItem23_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ３の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem23.Text}）に全角が含まれます", TxtBoxQrItem23.Text);
+            CheckNumberOfDigits($"グループ３の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem23.Text}）の桁数は{NmUpDnPostalDateKeta.Value}桁にして下さい", TxtBoxQrItem23, NmUpDnPostalDateKeta);
         }
 
         private void TxtBoxQrItem24_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ４の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem24.Text}）に全角が含まれます", TxtBoxQrItem24.Text);
+            CheckNumberOfDigits($"グループ４の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem24.Text}）の桁数は{NmUpDnPostalDateKeta.Value}桁にして下さい", TxtBoxQrItem24, NmUpDnPostalDateKeta);
         }
 
         private void TxtBoxQrItem25_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ５の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem25.Text}）に全角が含まれます", TxtBoxQrItem25.Text);
+            CheckNumberOfDigits($"グループ５の{LblBox1QrReadItem2.Text}（{TxtBoxQrItem25.Text}）の桁数は{NmUpDnPostalDateKeta.Value}桁にして下さい", TxtBoxQrItem25, NmUpDnPostalDateKeta);
         }
 
         private void TxtBoxQrItem31_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ１の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem31.Text}）に全角が含まれます", TxtBoxQrItem31.Text);
+            CheckNumberOfDigits($"グループ１の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem31.Text}）の桁数は{NmUpDnFileTypeKeta.Value}桁にして下さい", TxtBoxQrItem31, NmUpDnFileTypeKeta);
         }
 
         private void TxtBoxQrItem32_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ２の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem32.Text}）に全角が含まれます", TxtBoxQrItem32.Text);
+            CheckNumberOfDigits($"グループ２の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem32.Text}）の桁数は{NmUpDnFileTypeKeta.Value}桁にして下さい", TxtBoxQrItem32, NmUpDnFileTypeKeta);
         }
 
         private void TxtBoxQrItem33_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ３の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem33.Text}）に全角が含まれます", TxtBoxQrItem33.Text);
+            CheckNumberOfDigits($"グループ３の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem33.Text}）の桁数は{NmUpDnFileTypeKeta.Value}桁にして下さい", TxtBoxQrItem33, NmUpDnFileTypeKeta);
         }
 
         private void TxtBoxQrItem34_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ４の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem34.Text}）に全角が含まれます", TxtBoxQrItem34.Text);
+            CheckNumberOfDigits($"グループ４の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem34.Text}）の桁数は{NmUpDnFileTypeKeta.Value}桁にして下さい", TxtBoxQrItem34, NmUpDnFileTypeKeta);
+
         }
 
         private void TxtBoxQrItem35_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ５の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem35.Text}）に全角が含まれます", TxtBoxQrItem35.Text);
+            CheckNumberOfDigits($"グループ５の{LblBox1QrReadItem3.Text}（{TxtBoxQrItem35.Text}）の桁数は{NmUpDnFileTypeKeta.Value}桁にして下さい", TxtBoxQrItem35, NmUpDnFileTypeKeta);
         }
 
         private void TxtBoxQrItem41_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ１の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem41.Text}）に全角が含まれます", TxtBoxQrItem41.Text);
+            CheckNumberOfDigits($"グループ１の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem41.Text}）の桁数は{NmUpDnManagementNoKeta.Value}桁にして下さい", TxtBoxQrItem41, NmUpDnManagementNoKeta);
         }
 
         private void TxtBoxQrItem42_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ２の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem42.Text}）に全角が含まれます", TxtBoxQrItem42.Text);
+            CheckNumberOfDigits($"グループ２の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem42.Text}）の桁数は{NmUpDnManagementNoKeta.Value}桁にして下さい", TxtBoxQrItem42, NmUpDnManagementNoKeta);
         }
 
         private void TxtBoxQrItem43_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ３の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem43.Text}）に全角が含まれます", TxtBoxQrItem43.Text);
+            CheckNumberOfDigits($"グループ３の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem43.Text}）の桁数は{NmUpDnManagementNoKeta.Value}桁にして下さい", TxtBoxQrItem43, NmUpDnManagementNoKeta);
         }
 
         private void TxtBoxQrItem44_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ４の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem44.Text}）に全角が含まれます", TxtBoxQrItem44.Text);
+            CheckNumberOfDigits($"グループ４の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem44.Text}）の桁数は{NmUpDnManagementNoKeta.Value}桁にして下さい", TxtBoxQrItem44, NmUpDnManagementNoKeta);
+
         }
 
         private void TxtBoxQrItem45_Leave(object sender, EventArgs e)
         {
             IsOnlyAlphanumeric1($"グループ５の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem45.Text}）に全角が含まれます", TxtBoxQrItem45.Text);
+            CheckNumberOfDigits($"グループ５の{LblBox1QrReadItem4.Text}（{TxtBoxQrItem45.Text}）の桁数は{NmUpDnManagementNoKeta.Value}桁にして下さい", TxtBoxQrItem45, NmUpDnManagementNoKeta);
         }
 
         /// <summary>
