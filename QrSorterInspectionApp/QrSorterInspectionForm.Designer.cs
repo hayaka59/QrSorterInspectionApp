@@ -709,9 +709,9 @@
             // 
             this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnSetting.Image = global::QrSorterInspectionApp.Properties.Resources.setting_small;
-            this.BtnSetting.Location = new System.Drawing.Point(918, 61);
+            this.BtnSetting.Location = new System.Drawing.Point(946, 186);
             this.BtnSetting.Name = "BtnSetting";
-            this.BtnSetting.Size = new System.Drawing.Size(215, 46);
+            this.BtnSetting.Size = new System.Drawing.Size(178, 46);
             this.BtnSetting.TabIndex = 306;
             this.BtnSetting.Text = "設定";
             this.BtnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1018,7 +1018,7 @@
             // 
             // LblDuplicateCheck
             // 
-            this.LblDuplicateCheck.BackColor = System.Drawing.Color.MistyRose;
+            this.LblDuplicateCheck.BackColor = System.Drawing.Color.WhiteSmoke;
             this.LblDuplicateCheck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblDuplicateCheck.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblDuplicateCheck.ForeColor = System.Drawing.Color.Black;
@@ -1031,14 +1031,14 @@
             // 
             // LstSettingInfomation
             // 
-            this.LstSettingInfomation.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.LstSettingInfomation.BackColor = System.Drawing.SystemColors.Control;
             this.LstSettingInfomation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LstSettingInfomation.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LstSettingInfomation.FormattingEnabled = true;
             this.LstSettingInfomation.ItemHeight = 20;
-            this.LstSettingInfomation.Location = new System.Drawing.Point(933, 113);
+            this.LstSettingInfomation.Location = new System.Drawing.Point(949, 61);
             this.LstSettingInfomation.Name = "LstSettingInfomation";
-            this.LstSettingInfomation.Size = new System.Drawing.Size(183, 120);
+            this.LstSettingInfomation.Size = new System.Drawing.Size(171, 120);
             this.LstSettingInfomation.TabIndex = 337;
             // 
             // QrSorterInspectionForm
@@ -1047,6 +1047,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnSetting);
             this.Controls.Add(this.LstSettingInfomation);
             this.Controls.Add(this.LblDuplicateCheck);
             this.Controls.Add(this.groupBox1);
@@ -1065,7 +1066,6 @@
             this.Controls.Add(this.LblSelectedFile);
             this.Controls.Add(this.BtnJobSelect);
             this.Controls.Add(this.LblError);
-            this.Controls.Add(this.BtnSetting);
             this.Controls.Add(this.LblPocket5);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.CmbNonDeliveryReasonSorting2);
