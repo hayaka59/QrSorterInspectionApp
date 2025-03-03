@@ -476,7 +476,14 @@ namespace QrSorterInspectionApp
                 {
                     Directory.CreateDirectory(sGrpFolder);
                 }
-
+                // グループ名の長さが16桁を超える場合は16桁に切り出す
+                for (int i = 0; i < 5; i++)
+                {
+                    if (sGroupName[i].Length > 16)
+                    {
+                        sGroupName[i] = sGroupName[i].Substring(0, 16);
+                    }
+                }
                 //             0 1              2 3        4 5                  6 7                  8 9  0
                 //コメリ①ハガキ,1,コメリ②ハガキ,2,武蔵野BK,3,西日本シティーBK①,4,西日本シティーBK②,5,50,50,50,50,50,ON,ON,ON,ON,ON,
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
