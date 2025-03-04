@@ -1201,8 +1201,8 @@ namespace QrSorterInspectionApp
                 col[2] = strArray[0].Trim();
                 // 判定（OK/NG）
                 col[3] = strArray[1].Trim() == "0" ? "OK" : "NG";
-                // 重複エラー（033）なら判定を「重複」とする
-                if (strArray[2] == "033")
+                // 判定がNGでエラー番号（033：重複）なら判定を「重複」とする
+                if (col[3] == "NG" && strArray[2] == "033")
                 {
                     col[3] = "重複";
                 }
