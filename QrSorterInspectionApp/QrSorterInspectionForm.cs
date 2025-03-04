@@ -1193,12 +1193,7 @@ namespace QrSorterInspectionApp
                 }
                 sWriteDate = DateTime.Now.ToString("yyyy/MM/dd");
                 sWriteTime = DateTime.Now.ToString("HH:mm:ss");
-
-                //intSesanCounter += 1;                
-                //// No.
-                //col[0] = intSesanCounter.ToString("00000");
-                
-
+               
                 strArray = sData.Split(',');
                 // 日時
                 col[1] = sWriteDate + " " + sWriteTime;
@@ -1206,37 +1201,42 @@ namespace QrSorterInspectionApp
                 col[2] = strArray[0].Trim();
                 // 判定（OK/NG）
                 col[3] = strArray[1].Trim() == "0" ? "OK" : "NG";
-                if (lstPastReceivedQrData.Count > 0)
+                // 重複エラー（033）なら判定を「重複」とする
+                if (strArray[2] == "033")
                 {
-                    #region 重複チェック
-                    if(bIsDuplicateCheck)
-                    {
-                        Stopwatch sw = new Stopwatch();
-                        sw.Start();
-                        bool bFind = lstPastReceivedQrData.Contains(strArray[0]);
-                        sw.Stop();
-
-                        if (bFind)
-                        {
-                            //strArray[1] = "重複";
-                            col[3] = "重複";                           
-                            CommonModule.OutPutLogFile($"重複データ：{strArray[0]}");
-                            // シリアルデータ送信（重複エラー発生）
-                            SendSerialData(PubConstClass.CMD_SEND_g);
-                        }
-                        else
-                        {
-                            //CommonModule.OutPutLogFile($"最初のデータ：{lstPastReceivedQrData[0]}");
-                            //CommonModule.OutPutLogFile($"最後のデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count - 1]}");                        
-                        }
-                        CommonModule.OutPutLogFile($"{lstPastReceivedQrData.Count:#,###,##0}件の検索処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
-                    }
-                    else
-                    {
-                        CommonModule.OutPutLogFile($"重複チェック無し：{strArray[0]}");
-                    }
-                    #endregion
+                    col[3] = "重複";
                 }
+                //if (lstPastReceivedQrData.Count > 0)
+                //{
+                //    #region 重複チェック
+                //    if(bIsDuplicateCheck)
+                //    {
+                //        Stopwatch sw = new Stopwatch();
+                //        sw.Start();
+                //        bool bFind = lstPastReceivedQrData.Contains(col[2]);
+                //        sw.Stop();
+
+                //        if (bFind)
+                //        {
+                //            //strArray[1] = "重複";
+                //            col[3] = "重複";                           
+                //            CommonModule.OutPutLogFile($"重複データ：{strArray[0]}");
+                //            // シリアルデータ送信（重複エラー発生）
+                //            SendSerialData(PubConstClass.CMD_SEND_g);
+                //        }
+                //        else
+                //        {
+                //            //CommonModule.OutPutLogFile($"最初のデータ：{lstPastReceivedQrData[0]}");
+                //            //CommonModule.OutPutLogFile($"最後のデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count - 1]}");                        
+                //        }
+                //        CommonModule.OutPutLogFile($"{lstPastReceivedQrData.Count:#,###,##0}件の検索処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
+                //    }
+                //    else
+                //    {
+                //        CommonModule.OutPutLogFile($"重複チェック無し：{strArray[0]}");
+                //    }
+                //    #endregion
+                //}
                 // トレイ情報
                 col[4] = strArray[3].Trim();
 
@@ -1438,9 +1438,44 @@ namespace QrSorterInspectionApp
         /// <param name="sData"></param>
         private void MyProcQrData(string sData)
         {
+            string sQrData = "";
             try
             {
-                LblQrReadData.Text = sData.Replace("\r","<CR>");
+                //LblQrReadData.Text = sData.Replace("\r","<CR>");
+                sQrData = sData.Replace("\r", "").Trim();
+                LblQrReadData.Text = sQrData;
+
+                if (lstPastReceivedQrData.Count > 0)
+                {
+                    #region 重複チェック
+                    if (bIsDuplicateCheck)
+                    {
+                        Stopwatch sw = new Stopwatch();
+                        sw.Start();
+                        bool bFind = lstPastReceivedQrData.Contains(sQrData);
+                        sw.Stop();
+
+                        if (bFind)
+                        {
+                            //strArray[1] = "重複";
+                            //col[3] = "重複";
+                            CommonModule.OutPutLogFile($"【Lコマンド受信時】重複データ：{sQrData}");
+                            // シリアルデータ送信（重複エラー発生）
+                            SendSerialData(PubConstClass.CMD_SEND_g);
+                        }
+                        else
+                        {
+                            //CommonModule.OutPutLogFile($"最初のデータ：{lstPastReceivedQrData[0]}");
+                            //CommonModule.OutPutLogFile($"最後のデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count - 1]}");                        
+                        }
+                        CommonModule.OutPutLogFile($"{lstPastReceivedQrData.Count:#,###,##0}件の検索処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
+                    }
+                    else
+                    {
+                        CommonModule.OutPutLogFile($"重複チェック無し：{sQrData}");
+                    }
+                    #endregion
+                }
             }
             catch (Exception ex)
             {
