@@ -1693,8 +1693,8 @@ namespace QrSorterInspectionApp
                     LsvOKHistory.Items.Clear();
                     LsvNGHistory.Items.Clear();
 
-                    //// シリアルデータ送信（JOB選択）
-                    //SendSerialData(PubConstClass.CMD_SEND_h);
+                    // 過去に受信したQRデータ一覧のクリア
+                    lstPastReceivedQrData.Clear();
                 }
             }
             catch (Exception ex)
