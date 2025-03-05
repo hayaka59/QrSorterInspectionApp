@@ -53,16 +53,21 @@ namespace QrSorterInspectionApp
                 // 超音波検知
                 SetComboOnOff(CmbUltrasonicDetection);
                 // 桁数チェック
-                SetComboOnOff(CmbCheckNumberOfDigits);                
+                SetComboOnOff(CmbCheckNumberOfDigits);
                 #region 読取機能
                 CmbReadingFunction.Items.Clear();
-                CmbReadingFunction.Items.Add("QR");
-                CmbReadingFunction.Items.Add("NW7");
-                CmbReadingFunction.Items.Add("CODE39");
-                CmbReadingFunction.Items.Add("CODE128");
-                CmbReadingFunction.Items.Add("JAN");
-                CmbReadingFunction.Items.Add("読取無し");
-                CmbReadingFunction.SelectedIndex = 0;
+                foreach (string sData in PubConstClass.lstReadFunctionList)
+                {
+                    CmbReadingFunction.Items.Add(sData);
+                }
+                //CmbReadingFunction.Items.Clear();
+                //CmbReadingFunction.Items.Add("QR");
+                //CmbReadingFunction.Items.Add("NW7");
+                //CmbReadingFunction.Items.Add("CODE39");
+                //CmbReadingFunction.Items.Add("CODE128");
+                //CmbReadingFunction.Items.Add("JAN");
+                //CmbReadingFunction.Items.Add("読取無し");
+                //CmbReadingFunction.SelectedIndex = 0;
                 #endregion                
                 #region QR桁数
                 RchTxtQrInfo.Text = "1234567890";
@@ -305,7 +310,7 @@ namespace QrSorterInspectionApp
                 // 桁数チェック
                 CmbCheckNumberOfDigits.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
                 // 読取機能
-                CmbReadingFunction.SelectedIndex = int.Parse(sArray[iIndex++].Trim()) - 1;
+                CmbReadingFunction.SelectedIndex = int.Parse(sArray[iIndex++].Trim());
 
                 iIndex = 0;
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
@@ -583,7 +588,7 @@ namespace QrSorterInspectionApp
                 // 桁数チェック
                 sData += CmbCheckNumberOfDigits.Text + ","; ;
                 // 読取機能
-                sData += (CmbReadingFunction.SelectedIndex + 1).ToString() + ","; ;                
+                sData += (CmbReadingFunction.SelectedIndex).ToString() + ",";
                                
                 // ソーター設定のQR読取項目①～⑤名称更新
                 LblBox1QrReadItem1.Text = TxtQrReadItem1.Text;
@@ -1456,7 +1461,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// 読取機能コンボボックス処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1464,8 +1469,8 @@ namespace QrSorterInspectionApp
         {
             try
             {
-                // 読取昨日＝読み取りなし
-                if (CmbReadingFunction.SelectedIndex == 5)
+                // 読取機能：読み取りなし
+                if (CmbReadingFunction.SelectedIndex == 0)
                 {
                     // 読取チェック＝OFF
                     CmbReadCheck.SelectedIndex = 1;

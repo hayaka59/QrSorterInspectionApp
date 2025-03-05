@@ -996,8 +996,7 @@ namespace QrSorterInspectionApp
                     sData += ",";
                     sData += sArrayJob[21] == "OFF" ? "0" : "1";      // (15) 桁数チェック　 ：1桁
                     sData += ",";
-                    // 「読取機能：読取無し」の場合は「6」を「0」に変更する
-                    sData += sArrayJob[22].Replace("6", "0");         // (16) 読取機能　　　 ：1桁
+                    sData += sArrayJob[22];                           // (16) 読取機能　　　 ：1桁
 
                     // シリアルデータ送信
                     SendSerialData(sData);
@@ -1201,11 +1200,8 @@ namespace QrSorterInspectionApp
                 col[2] = strArray[0].Trim();
                 // 判定（OK/NG）
                 col[3] = strArray[1].Trim() == "0" ? "OK" : "NG";
-                // 判定がNGでエラー番号（033：重複）なら判定を「重複」とする
-                if (col[3] == "NG" && strArray[2] == "033")
-                {
-                    col[3] = "重複";
-                }
+
+                #region 「D」コマンドでの重複チェックは削除→「L」コマンドで行う
                 //if (lstPastReceivedQrData.Count > 0)
                 //{
                 //    #region 重複チェック
@@ -1237,6 +1233,8 @@ namespace QrSorterInspectionApp
                 //    }
                 //    #endregion
                 //}
+                #endregion
+                
                 // トレイ情報
                 col[4] = strArray[3].Trim();
 
@@ -1303,6 +1301,13 @@ namespace QrSorterInspectionApp
                         bIsTrayOk = false;
                         break;
                 }
+
+                // 判定がOK以外でエラー番号（033：重複）なら判定を「重複」とする
+                if (strArray[1].Trim() != "0" && strArray[2] == "033")
+                {
+                    col[3] = "重複";
+                }
+
                 sLogData += DQ + sWriteDate + DQ + ",";                             // 日付
                 sLogData += DQ + sWriteTime + DQ + ",";                             // 時刻
                 sLogData += DQ + DQ + ",";                                          // 期待値                       Null
@@ -1457,8 +1462,6 @@ namespace QrSorterInspectionApp
 
                         if (bFind)
                         {
-                            //strArray[1] = "重複";
-                            //col[3] = "重複";
                             CommonModule.OutPutLogFile($"【Lコマンド受信時】重複データ：{sQrData}");
                             // シリアルデータ送信（重複エラー発生）
                             SendSerialData(PubConstClass.CMD_SEND_g);
@@ -1728,13 +1731,12 @@ namespace QrSorterInspectionApp
                     bIsDuplicateCheck = false;
                 }
 
-                string[] sReadCheck = new string[6] {"QR", "NW7", "CODE39", "CODE128", "JAN", "読取無し"};
                 LstSettingInfomation.Items.Clear();
                 LstSettingInfomation.Items.Add("【設定内容】");
                 LstSettingInfomation.Items.Add($"Ｗフィード検査：{sArray[19]}");
                 LstSettingInfomation.Items.Add($"超音波検査　　：{sArray[20]}");
                 LstSettingInfomation.Items.Add($"桁数チェック　：{sArray[21]}");
-                LstSettingInfomation.Items.Add($"読取機能　　　：{sReadCheck[int.Parse(sArray[22]) - 1]}");
+                LstSettingInfomation.Items.Add($"読取機能　　　：{PubConstClass.lstReadFunctionList[int.Parse(sArray[22])]}");
                 LstSettingInfomation.Items.Add($"読取チェック　：{sArray[5]}");
 
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
