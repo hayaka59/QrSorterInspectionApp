@@ -1130,6 +1130,8 @@ namespace QrSorterInspectionApp
                 lstCopyItem.Add(CmbUltrasonicDetection.Text);
                 lstCopyItem.Add(CmbCheckNumberOfDigits.Text);
                 lstCopyItem.Add(CmbReadingFunction.Text);
+                // QR桁数
+                lstCopyItem.Add(NumUpDwnQrAllDigit.Value.ToString());
 
                 #region ポケット①～⑤
                 lstCopyItem.Add(TxtPocketName1.Text);
@@ -1168,6 +1170,15 @@ namespace QrSorterInspectionApp
                 lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[3]);
                 lstCopyGroupInfo.Add(PubConstClass.lstGroupInfo[4]);
                 #endregion
+
+                // グループ１～６の選択インデックスを保持
+                lstCopyItem.Add(CmbGroup1.SelectedIndex.ToString());
+                lstCopyItem.Add(CmbGroup2.SelectedIndex.ToString());
+                lstCopyItem.Add(CmbGroup3.SelectedIndex.ToString());
+                lstCopyItem.Add(CmbGroup4.SelectedIndex.ToString());
+                lstCopyItem.Add(CmbGroup5.SelectedIndex.ToString());
+                lstCopyItem.Add(CmbGroup6.SelectedIndex.ToString());
+
             }
             catch (Exception ex)
             {
@@ -1216,6 +1227,8 @@ namespace QrSorterInspectionApp
                 CmbUltrasonicDetection.Text = lstCopyItem[iIndex++];
                 CmbCheckNumberOfDigits.Text = lstCopyItem[iIndex++];
                 CmbReadingFunction.Text = lstCopyItem[iIndex++];
+                // QR桁数
+                NumUpDwnQrAllDigit.Value = int.Parse(lstCopyItem[iIndex++]);
 
                 #region ポケット①～⑤
                 TxtPocketName1.Text = lstCopyItem[iIndex++];
@@ -1288,6 +1301,14 @@ namespace QrSorterInspectionApp
                 TxtBoxQrItem25.Text = sArray[2];
                 TxtBoxQrItem35.Text = sArray[3];
                 TxtBoxQrItem45.Text = sArray[4];
+
+                // グループ１～６のコンボ
+                CmbGroup1.SelectedIndex = int.Parse(lstCopyItem[iIndex++]);
+                CmbGroup2.SelectedIndex = int.Parse(lstCopyItem[iIndex++]);
+                CmbGroup3.SelectedIndex = int.Parse(lstCopyItem[iIndex++]);
+                CmbGroup4.SelectedIndex = int.Parse(lstCopyItem[iIndex++]);
+                CmbGroup5.SelectedIndex = int.Parse(lstCopyItem[iIndex++]);
+                CmbGroup6.SelectedIndex = int.Parse(lstCopyItem[iIndex++]);
             }
             catch (Exception ex)
             {
