@@ -996,8 +996,7 @@ namespace QrSorterInspectionApp
                     sData += ",";
                     sData += sArrayJob[21] == "OFF" ? "0" : "1";      // (15) 桁数チェック　 ：1桁
                     sData += ",";
-                    // 「読取機能：読取無し」の場合は「6」を「0」に変更する
-                    sData += sArrayJob[22].Replace("6", "0");         // (16) 読取機能　　　 ：1桁
+                    sData += sArrayJob[22];                           // (16) 読取機能　　　 ：1桁
 
                     // シリアルデータ送信
                     SendSerialData(sData);
@@ -1732,13 +1731,12 @@ namespace QrSorterInspectionApp
                     bIsDuplicateCheck = false;
                 }
 
-                string[] sReadCheck = new string[6] {"QR", "NW7", "CODE39", "CODE128", "JAN", "読取無し"};
                 LstSettingInfomation.Items.Clear();
                 LstSettingInfomation.Items.Add("【設定内容】");
                 LstSettingInfomation.Items.Add($"Ｗフィード検査：{sArray[19]}");
                 LstSettingInfomation.Items.Add($"超音波検査　　：{sArray[20]}");
                 LstSettingInfomation.Items.Add($"桁数チェック　：{sArray[21]}");
-                LstSettingInfomation.Items.Add($"読取機能　　　：{sReadCheck[int.Parse(sArray[22]) - 1]}");
+                LstSettingInfomation.Items.Add($"読取機能　　　：{PubConstClass.lstReadFunctionList[int.Parse(sArray[22])]}");
                 LstSettingInfomation.Items.Add($"読取チェック　：{sArray[5]}");
 
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
