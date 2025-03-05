@@ -663,5 +663,35 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【ReadErrorMessageFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// 読取機能項目ファイルの読込
+        /// </summary>
+        public static void ReadReadFunctionItemFile()
+        {
+            string strReadDataPath;
+            string sData;
+
+            try
+            {
+                strReadDataPath = IncludeTrailingPathDelimiter(Application.StartupPath) + PubConstClass.DEF_READ_FUNCTION__FILE;
+                using (StreamReader sr = new StreamReader(strReadDataPath, Encoding.Default))
+                {
+                    PubConstClass.lstReadFunctionList.Clear();
+                    while (!sr.EndOfStream)
+                    {
+                        sData = sr.ReadLine();
+                        if (sData.Trim() != "")
+                        {
+                            PubConstClass.lstReadFunctionList.Add(sData);
+                        }                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ReadReadFunctionItemFile】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

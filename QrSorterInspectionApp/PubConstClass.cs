@@ -55,6 +55,8 @@ namespace QrSorterInspectionApp
         /// </summary>
         public const string DEF_ERROR_FILE = "ErrorMessage.txt";                // エラーメッセージファイル名称
         public static Dictionary<string, string> dicErrorCodeData;              // エラーコード変換用辞書
+        public const string DEF_READ_FUNCTION__FILE = "ReadFunctionItem.txt";   // 読取機能項目ファイル名称
+        public static List<string> lstReadFunctionList = new List<string>();    // 読取機能項目情報
 
         /// <summary>
         /// 検査画面

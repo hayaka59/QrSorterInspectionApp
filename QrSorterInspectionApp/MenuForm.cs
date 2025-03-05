@@ -39,6 +39,8 @@ namespace QrSorterInspectionApp
                 // エラーメッセージファイル読込
                 PubConstClass.dicErrorCodeData = new Dictionary<string, string>();
                 CommonModule.ReadErrorMessageFile();
+                // 読取機能項目ファイル読込
+                CommonModule.ReadReadFunctionItemFile();
 
                 #region シリアルポートの設定とオープン
                 // データ受信イベントの設定
