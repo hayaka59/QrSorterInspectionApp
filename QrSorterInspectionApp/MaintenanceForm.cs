@@ -8,6 +8,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -282,9 +283,13 @@ namespace QrSorterInspectionApp
                     // DIP-SW 情報送信
                     MyProcDipSw();
                     // 送信データのセット
-                    SendSerialData(PubConstClass.CMD_SEND_m + ",0");                    
+                    SendSerialData(PubConstClass.CMD_SEND_m + ",0");
+                    // 1.0秒待機
+                    Thread.Sleep(1000);
+                    CommonModule.OutPutLogFile("シリアルポートクローズ処理開始");
                     // シリアルポートクローズ
                     SerialPortMaint.Close();
+                    CommonModule.OutPutLogFile("シリアルポートクローズ処理終了");
                 }
                 this.Dispose();
             }
