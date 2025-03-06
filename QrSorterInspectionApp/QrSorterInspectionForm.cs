@@ -1051,21 +1051,21 @@ namespace QrSorterInspectionApp
                 }
 
                 sData = PubConstClass.CMD_SEND_f + ",";
-                sData += (iPocketNumber + 1).ToString("0");                     // ポケット番号
+                sData += (iPocketNumber + 1).ToString("0");                         // ポケット番号
                 sData += ",";
-                sData += sPocketInfo;                                           // ポケット情報
+                sData += sPocketInfo;                                               // ポケット情報
                 sData += ",";
-                sData += sArrayPocket[1];                                       // 物件ID
+                sData += sArrayPocket[1];                                           // 物件ID
                 sData += ",";
-                sData += sArrayPocket[2];                                       // 届出日
+                sData += sArrayPocket[2];                                           // 届出日
                 sData += ",";
-                sData += sArrayPocket[3];                                       // ファイル区分
+                sData += sArrayPocket[3];                                           // ファイル区分
                 sData += ",";
-                sData += sArrayPocket[4];                                       // 管理番号
+                sData += sArrayPocket[4];                                           // 管理番号
                 sData += ",";
-                sData += sArrayJob[10 + iPocketNumber];                         // ポケット切替件数
+                sData += int.Parse(sArrayJob[10 + iPocketNumber]).ToString("000");  // ポケット切替件数
                 sData += ",";
-                sData += sArrayJob[15 + iPocketNumber] == "OFF" ? "0": "1";     // ポケット切替ON/OFF
+                sData += sArrayJob[15 + iPocketNumber] == "OFF" ? "0": "1";         // ポケット切替ON/OFF
                 // シリアルデータ送信
                 SendSerialData(sData);
             }
