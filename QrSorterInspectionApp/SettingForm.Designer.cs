@@ -1824,6 +1824,7 @@
             this.TxtJobName.Size = new System.Drawing.Size(300, 36);
             this.TxtJobName.TabIndex = 2;
             this.TxtJobName.Text = "チューリッヒ①ハガキ";
+            this.TxtJobName.Leave += new System.EventHandler(this.TxtJobName_Leave);
             // 
             // DtpDateReceipt
             // 

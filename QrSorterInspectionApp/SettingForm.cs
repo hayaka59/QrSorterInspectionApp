@@ -1517,5 +1517,45 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.StackTrace, "【CmbReadingFunction_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // 禁則文字のリスト
+        //private static readonly char[] InvalidFileNameChars = Path.GetInvalidFileNameChars();
+        private static readonly char[] InvalidFileNameChars = new char[] { '/', ':', '*', '?', '"', '<', '>', '|', '¥' };
+        
+        /// <summary>
+        /// ファイル名に使用できない文字が含まれているかを判定する
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        private bool IsFileNameValid(string fileName)
+        {
+            return fileName.Any(ch => InvalidFileNameChars.Contains(ch));
+        }
+
+        /// <summary>
+        /// ジョブ名テキストボックスからフォーカスが外れたときの処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TxtJobName_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                bool isValid = IsFileNameValid(TxtJobName.Text.Trim());
+                if (isValid) {
+                    string sData = "";
+                    foreach(char c in InvalidFileNameChars)
+                    {
+                        sData += c + " ";
+                    }
+                    MessageBox.Show($"禁則文字（{sData}）が含まれています", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, "【TxtJobName_Leave】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
