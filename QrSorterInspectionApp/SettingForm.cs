@@ -715,7 +715,14 @@ namespace QrSorterInspectionApp
                         LblSelectedFile.Text = TxtJobName.Text + ".csv";
                     }
                 }
-                
+
+                CheckInvalidString(TxtJobName.Text, "JOB名");
+                CheckInvalidString(TxtGroup1.Text, "グループ１のグループ名");
+                CheckInvalidString(TxtGroup2.Text, "グループ２のグループ名");
+                CheckInvalidString(TxtGroup3.Text, "グループ３のグループ名");
+                CheckInvalidString(TxtGroup4.Text, "グループ４のグループ名");
+                CheckInvalidString(TxtGroup5.Text, "グループ５のグループ名");
+
                 string sMessage = GetJobEntryData();
                 DialogResult dialogResult = MessageBox.Show($"下記ジョブデータを更新しますか？{sMessage}", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Cancel)
@@ -1520,8 +1527,8 @@ namespace QrSorterInspectionApp
 
         // 禁則文字のリスト
         //private static readonly char[] InvalidFileNameChars = Path.GetInvalidFileNameChars();
-        private static readonly char[] InvalidFileNameChars = new char[] { '/', ':', '*', '?', '"', '<', '>', '|', '¥' };
-        
+        private static readonly char[] InvalidFileNameChars = new char[] { '\\' , '/', ':', '*', '?', '"', '<', '>', '|'};
+
         /// <summary>
         /// ファイル名に使用できない文字が含まれているかを判定する
         /// </summary>
@@ -1533,29 +1540,67 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
+        /// 禁則文字が含まれているかをチェックする
+        /// </summary>
+        /// <param name="sCheckString"></param>
+        /// <returns></returns>
+        private bool CheckInvalidString(string sCheckString, string sMessage)
+        {
+            try
+            {
+                bool isValid = IsFileNameValid(sCheckString.Trim());
+                if (isValid)
+                {
+                    string sData = "";
+                    foreach (char c in InvalidFileNameChars)
+                    {
+                        sData += c + " ";
+                    }
+                    MessageBox.Show($"{sMessage}に禁則文字（{sData}）が含まれています", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CheckInvalidString】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
         /// ジョブ名テキストボックスからフォーカスが外れたときの処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void TxtJobName_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                bool isValid = IsFileNameValid(TxtJobName.Text.Trim());
-                if (isValid) {
-                    string sData = "";
-                    foreach(char c in InvalidFileNameChars)
-                    {
-                        sData += c + " ";
-                    }
-                    MessageBox.Show($"禁則文字（{sData}）が含まれています", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+            CheckInvalidString(TxtJobName.Text, "JOB名");
+        }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.StackTrace, "【TxtJobName_Leave】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        private void TxtGroup1_Leave(object sender, EventArgs e)
+        {
+            CheckInvalidString(TxtGroup1.Text, "グループ１のグループ名");
+        }
+
+        private void TxtGroup2_Leave(object sender, EventArgs e)
+        {
+            CheckInvalidString(TxtGroup2.Text, "グループ２のグループ名");
+        }
+
+        private void TxtGroup3_Leave(object sender, EventArgs e)
+        {
+            CheckInvalidString(TxtGroup3.Text, "グループ３のグループ名");
+        }
+
+        private void TxtGroup4_Leave(object sender, EventArgs e)
+        {
+            CheckInvalidString(TxtGroup4.Text, "グループ４のグループ名");
+        }
+
+        private void TxtGroup5_Leave(object sender, EventArgs e)
+        {
+            CheckInvalidString(TxtGroup5.Text, "グループ５のグループ名");
         }
     }
 }
