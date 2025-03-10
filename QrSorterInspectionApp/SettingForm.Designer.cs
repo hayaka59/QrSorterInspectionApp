@@ -967,6 +967,7 @@
             this.TxtGroup5.TabIndex = 44;
             this.TxtGroup5.Text = "TxtGroup5";
             this.TxtGroup5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtGroup5.Leave += new System.EventHandler(this.TxtGroup5_Leave);
             // 
             // TxtBoxQrItem15
             // 
@@ -1023,6 +1024,7 @@
             this.TxtGroup4.TabIndex = 39;
             this.TxtGroup4.Text = "TxtGroup4";
             this.TxtGroup4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtGroup4.Leave += new System.EventHandler(this.TxtGroup4_Leave);
             // 
             // TxtBoxQrItem14
             // 
@@ -1079,6 +1081,7 @@
             this.TxtGroup3.TabIndex = 34;
             this.TxtGroup3.Text = "TxtGroup3";
             this.TxtGroup3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtGroup3.Leave += new System.EventHandler(this.TxtGroup3_Leave);
             // 
             // TxtBoxQrItem13
             // 
@@ -1135,6 +1138,7 @@
             this.TxtGroup2.TabIndex = 29;
             this.TxtGroup2.Text = "TxtGroup2";
             this.TxtGroup2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtGroup2.Leave += new System.EventHandler(this.TxtGroup2_Leave);
             // 
             // TxtBoxQrItem12
             // 
@@ -1280,6 +1284,7 @@
             this.TxtGroup1.TabIndex = 24;
             this.TxtGroup1.Text = "TxtGroup1";
             this.TxtGroup1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtGroup1.Leave += new System.EventHandler(this.TxtGroup1_Leave);
             // 
             // TxtBoxQrItem11
             // 
