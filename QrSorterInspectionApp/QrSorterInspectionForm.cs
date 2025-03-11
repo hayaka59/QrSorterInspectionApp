@@ -685,6 +685,42 @@ namespace QrSorterInspectionApp
                         CreateInspectionLogFolder();
                         // シリアルデータ送信（JOB選択）
                         SendSerialData(PubConstClass.CMD_SEND_h);
+
+                        // 各表示カウンタクリア
+                        LblTotalCount.Text = "0";
+                        LblOKCount.Text = "0";
+                        LblNGCount.Text = "0";
+                        // ポケット１～５の表示カウンタクリア
+                        LblBox1.Text = "0";
+                        LblBox2.Text = "0";
+                        LblBox3.Text = "0";
+                        LblBox4.Text = "0";
+                        LblBox5.Text = "0";
+                        LblBoxEject.Text = "0";
+                        // 内部カウンタのクリア
+                        iOKCount = 0;               // OK用カウンタ
+                        iNGCount = 0;               // NG用カウンタ
+                        iBox1Count = 0;             // ボックス１用カウンタ
+                        iBox2Count = 0;             // ボックス２用カウンタ
+                        iBox3Count = 0;             // ボックス３用カウンタ
+                        iBox4Count = 0;             // ボックス４用カウンタ
+                        iBox5Count = 0;             // ボックス５用カウンタ
+                        iBoxECount = 0;             // ボックス（Eject）用カウンタ
+                        intOkSesanCounter = 0;      // OK処理数No.カウンタ
+                        intNgSesanCounter = 0;      // NG処理数No.カウンタ
+                                                    // 受信データ表示領域のクリア
+                        LblPocket1.Text = "";
+                        LblPocket2.Text = "";
+                        LblPocket3.Text = "";
+                        LblPocket4.Text = "";
+                        LblPocket5.Text = "";
+                        LblPocketEject.Text = "";
+                        // OK履歴とNG履歴のクリア
+                        LsvOKHistory.Items.Clear();
+                        LsvNGHistory.Items.Clear();
+
+                        //// 過去に受信したQRデータ一覧のクリア
+                        //lstPastReceivedQrData.Clear();
                     }
                 }
                 bIsJobChange = false;
