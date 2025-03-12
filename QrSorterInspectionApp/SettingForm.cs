@@ -433,26 +433,41 @@ namespace QrSorterInspectionApp
                 richTextBox.Select(0, RchTxtQrInfo.Text.Length);
                 richTextBox.SelectionBackColor = Color.White;
                 richTextBox.SelectionColor = Color.Black;
+                
                 // 物件ID
-                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnPropertyIdStart.Value) - 1;
-                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnPropertyIdKeta.Value);
-                richTextBox.SelectionBackColor = Color.LimeGreen;
-                richTextBox.SelectionColor = Color.Black;
+                if (TxtQrReadItem1.Text.Trim() != "")
+                {
+                    richTextBox.SelectionStart = decimal.ToInt32(NmUpDnPropertyIdStart.Value) - 1;
+                    richTextBox.SelectionLength = decimal.ToInt32(NmUpDnPropertyIdKeta.Value);
+                    richTextBox.SelectionBackColor = Color.LimeGreen;
+                    richTextBox.SelectionColor = Color.Black;
+                }
+
                 // 局出し日
-                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnPostalDateStart.Value) - 1;
-                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnPostalDateKeta.Value);
-                richTextBox.SelectionBackColor = Color.SkyBlue;
-                richTextBox.SelectionColor = Color.Black;
+                if (TxtQrReadItem2.Text.Trim() != "")
+                {
+                    richTextBox.SelectionStart = decimal.ToInt32(NmUpDnPostalDateStart.Value) - 1;
+                    richTextBox.SelectionLength = decimal.ToInt32(NmUpDnPostalDateKeta.Value);
+                    richTextBox.SelectionBackColor = Color.SkyBlue;
+                    richTextBox.SelectionColor = Color.Black;
+                }
+
                 // ファイル区分
-                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnFileTypeStart.Value) - 1;
-                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnFileTypeKeta.Value);
-                richTextBox.SelectionBackColor = Color.Orange;
-                richTextBox.SelectionColor = Color.Black;
-                // 物件ID
-                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnManagementNoStart.Value) - 1;
-                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnManagementNoKeta.Value);
-                richTextBox.SelectionBackColor = Color.Red;
-                richTextBox.SelectionColor = Color.Black;
+                if (TxtQrReadItem3.Text.Trim() != "")
+                {
+                    richTextBox.SelectionStart = decimal.ToInt32(NmUpDnFileTypeStart.Value) - 1;
+                    richTextBox.SelectionLength = decimal.ToInt32(NmUpDnFileTypeKeta.Value);
+                    richTextBox.SelectionBackColor = Color.Orange;
+                    richTextBox.SelectionColor = Color.Black;
+                }
+
+                // 管理No.
+                if (TxtQrReadItem4.Text.Trim() != "") {
+                    richTextBox.SelectionStart = decimal.ToInt32(NmUpDnManagementNoStart.Value) - 1;
+                    richTextBox.SelectionLength = decimal.ToInt32(NmUpDnManagementNoKeta.Value);
+                    richTextBox.SelectionBackColor = Color.Red;
+                    richTextBox.SelectionColor = Color.Black;
+                }
             }
             catch (Exception ex)
             {
@@ -887,6 +902,8 @@ namespace QrSorterInspectionApp
                 CmbCheckNumberOfDigits.SelectedIndex = 0;
                 // 読取機能
                 CmbReadingFunction.SelectedIndex = 0;
+                // 読取位置
+                TxtReadingPosition.Text = "";
                 // QR読取項目①
                 TxtQrReadItem1.Text = "";
                 NmUpDnPropertyIdStart.Value = 1;
@@ -1148,6 +1165,8 @@ namespace QrSorterInspectionApp
                 lstCopyItem.Add(CmbUltrasonicDetection.Text);
                 lstCopyItem.Add(CmbCheckNumberOfDigits.Text);
                 lstCopyItem.Add(CmbReadingFunction.Text);
+                // 読取位置
+                lstCopyItem.Add(TxtReadingPosition.Text);
                 // QR桁数
                 lstCopyItem.Add(NumUpDwnQrAllDigit.Value.ToString());
 
@@ -1245,6 +1264,8 @@ namespace QrSorterInspectionApp
                 CmbUltrasonicDetection.Text = lstCopyItem[iIndex++];
                 CmbCheckNumberOfDigits.Text = lstCopyItem[iIndex++];
                 CmbReadingFunction.Text = lstCopyItem[iIndex++];
+                // 読取位置
+                TxtReadingPosition.Text = lstCopyItem[iIndex++];
                 // QR桁数
                 NumUpDwnQrAllDigit.Value = int.Parse(lstCopyItem[iIndex++]);
 
