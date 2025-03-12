@@ -361,12 +361,17 @@ namespace QrSorterInspectionApp
                     sPath += "\\";
                 }
 
+                if (!Directory.Exists(CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + sPath))
+                {
+                    //MessageBox.Show($"フォルダ：{CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + sPath}", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"JOB（{sArrayJob[0]}）は、未検査のJOBです", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
                 lstLogFileList.Clear();
                 LsbLogList.Items.Clear();
                 LsvLogContent.Items.Clear();
-
-                //Path.GetFileName( (Directory.GetFiles(FolderPath,"*.txt").OrderByDescending(Function(x) New FileInfo(x).LastWriteTime)).toList.First)
-
 
                 List<string> lstFileList = new List<string>();
                 lstFileList.Clear();
@@ -454,8 +459,11 @@ namespace QrSorterInspectionApp
                         {
                             // 全件ログ
                             sPathName = sArray[0] + "¥" + sArray[1] + "¥" + sArray[2] + "¥" + sArray[4];
-                        }                        
-                        LsbLogList.Items.Add($"{sArray[sArray.Length - 1]}　　 （格納フォルダ：{sPathName}）");
+                        }
+
+                        string[] Lines = File.ReadAllLines(sTranFile);
+
+                        LsbLogList.Items.Add($"{sArray[sArray.Length - 1]}　件数：{Lines.Length - 1}件　 （格納フォルダ：{sPathName}）");
                         lstLogFileList.Add(sTranFile);
                     }
                 }
