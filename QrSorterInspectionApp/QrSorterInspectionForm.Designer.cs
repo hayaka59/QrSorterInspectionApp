@@ -709,7 +709,7 @@
             // 
             this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnSetting.Image = global::QrSorterInspectionApp.Properties.Resources.setting_small;
-            this.BtnSetting.Location = new System.Drawing.Point(946, 186);
+            this.BtnSetting.Location = new System.Drawing.Point(946, 189);
             this.BtnSetting.Name = "BtnSetting";
             this.BtnSetting.Size = new System.Drawing.Size(178, 46);
             this.BtnSetting.TabIndex = 306;
@@ -1036,9 +1036,9 @@
             this.LstSettingInfomation.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LstSettingInfomation.FormattingEnabled = true;
             this.LstSettingInfomation.ItemHeight = 20;
-            this.LstSettingInfomation.Location = new System.Drawing.Point(949, 61);
+            this.LstSettingInfomation.Location = new System.Drawing.Point(949, 51);
             this.LstSettingInfomation.Name = "LstSettingInfomation";
-            this.LstSettingInfomation.Size = new System.Drawing.Size(171, 120);
+            this.LstSettingInfomation.Size = new System.Drawing.Size(171, 140);
             this.LstSettingInfomation.TabIndex = 337;
             // 
             // QrSorterInspectionForm

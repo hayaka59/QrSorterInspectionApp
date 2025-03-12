@@ -77,6 +77,19 @@ namespace QrSorterInspectionApp
                 LblTitle.Text = sArray[1];
                 LblErrorMessage.Text = sArray[2];
                 LblErrorNumber.Text = "エラーNo." + sArray[0];
+
+                if (PubConstClass.bIsErrorMessage)
+                {
+                    LblErrorNumber.Text = "エラーNo." + sArray[0];
+                    this.Text = "エラーメッセージ";
+                    LblTitle.BackColor = Color.Salmon;
+                }
+                else
+                {
+                    LblErrorNumber.Text = "No." + sArray[0];
+                    this.Text = "確認メッセージ";
+                    LblTitle.BackColor = Color.Green;
+                }
             }
             catch (Exception ex)
             {

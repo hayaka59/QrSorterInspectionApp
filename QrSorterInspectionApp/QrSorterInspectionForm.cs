@@ -189,6 +189,7 @@ namespace QrSorterInspectionApp
                 LstSettingInfomation.Items.Add("桁数チェック　：");
                 LstSettingInfomation.Items.Add("読取機能　　　：");
                 LstSettingInfomation.Items.Add("読取チェック　：");
+                LstSettingInfomation.Items.Add("読取位置　　　：");
 
                 // 過去に受信したQRデータ一覧のクリア
                 lstPastReceivedQrData.Clear();
@@ -1033,6 +1034,8 @@ namespace QrSorterInspectionApp
                     sData += sArrayJob[21] == "OFF" ? "0" : "1";      // (15) 桁数チェック　 ：1桁
                     sData += ",";
                     sData += sArrayJob[22];                           // (16) 読取機能　　　 ：1桁
+                    sData += ",";
+                    sData += sArrayJob[23].PadLeft(3, '0');           // (17) 読取位置　　　 ：3桁
 
                     // シリアルデータ送信
                     SendSerialData(sData);
@@ -1131,6 +1134,14 @@ namespace QrSorterInspectionApp
                 CheckStartUp();
                 // JOB設定情報の送信
                 MyProcJobInfomation();
+
+                string sData = PubConstClass.CMD_SEND_l + ",";
+                sData += int.Parse(LblBox1.Text).ToString("000") + ",";
+                sData += int.Parse(LblBox2.Text).ToString("000") + ",";
+                sData += int.Parse(LblBox3.Text).ToString("000") + ",";
+                sData += int.Parse(LblBox4.Text).ToString("000") + ",";
+                sData += int.Parse(LblBox5.Text).ToString("000") + ",";
+                SendSerialData(sData);
             }
             catch (Exception ex)
             {
@@ -1167,10 +1178,21 @@ namespace QrSorterInspectionApp
                 LblError.Text = $"エラーコマンド「{sData.Replace("\r","<CR>")}」受信";
                 LblError.Visible = true;
 
-                // エラー
-                SetStatus(2);
-
                 sErrorCode = sData.Substring(2, 3);
+
+                if (sErrorCode == "005" || sErrorCode == "013")
+                {
+                    // 停止中（005：用紙終了／013：セットカウントエラー）
+                    SetStatus(0);
+                    PubConstClass.bIsErrorMessage = false;
+                    LblError.Visible = false;
+                }
+                else
+                {
+                    // エラー
+                    SetStatus(2);
+                    PubConstClass.bIsErrorMessage = true;
+                }
 
                 ErrorMessageForm form = ErrorMessageForm.GetInstance();
                 //form.SetMessage($"{sData.Replace("\r", "<CR>")},{sData.Replace("\r", "<CR>")},{sData.Replace("\r", "<CR>")}");                
@@ -1774,6 +1796,7 @@ namespace QrSorterInspectionApp
                 LstSettingInfomation.Items.Add($"桁数チェック　：{sArray[21]}");
                 LstSettingInfomation.Items.Add($"読取機能　　　：{PubConstClass.lstReadFunctionList[int.Parse(sArray[22])]}");
                 LstSettingInfomation.Items.Add($"読取チェック　：{sArray[5]}");
+                LstSettingInfomation.Items.Add($"読取位置　　　：{sArray[23]} mm");
 
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
                 // ポケット①名称
