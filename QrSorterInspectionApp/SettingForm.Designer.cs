@@ -672,9 +672,9 @@
             this.CmbReadingFunction.FormattingEnabled = true;
             this.CmbReadingFunction.IntegralHeight = false;
             this.CmbReadingFunction.ItemHeight = 28;
-            this.CmbReadingFunction.Location = new System.Drawing.Point(1259, 279);
+            this.CmbReadingFunction.Location = new System.Drawing.Point(1321, 279);
             this.CmbReadingFunction.Name = "CmbReadingFunction";
-            this.CmbReadingFunction.Size = new System.Drawing.Size(186, 36);
+            this.CmbReadingFunction.Size = new System.Drawing.Size(213, 36);
             this.CmbReadingFunction.TabIndex = 23;
             this.CmbReadingFunction.SelectedIndexChanged += new System.EventHandler(this.CmbReadingFunction_SelectedIndexChanged);
             // 
@@ -686,7 +686,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(1151, 279);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 36);
+            this.label5.Size = new System.Drawing.Size(170, 36);
             this.label5.TabIndex = 305;
             this.label5.Text = "読取機能";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -817,9 +817,9 @@
             this.GrpSorterSetting.Controls.Add(this.TxtPocketName2);
             this.GrpSorterSetting.Controls.Add(this.CmbGroup2);
             this.GrpSorterSetting.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GrpSorterSetting.Location = new System.Drawing.Point(225, 543);
+            this.GrpSorterSetting.Location = new System.Drawing.Point(169, 543);
             this.GrpSorterSetting.Name = "GrpSorterSetting";
-            this.GrpSorterSetting.Size = new System.Drawing.Size(1449, 486);
+            this.GrpSorterSetting.Size = new System.Drawing.Size(1554, 486);
             this.GrpSorterSetting.TabIndex = 24;
             this.GrpSorterSetting.TabStop = false;
             this.GrpSorterSetting.Text = "ソータ設定";
@@ -1703,9 +1703,9 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1700, 938);
+            this.BtnClose.Location = new System.Drawing.Point(1733, 938);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(166, 50);
+            this.BtnClose.Size = new System.Drawing.Size(137, 50);
             this.BtnClose.TabIndex = 178;
             this.BtnClose.Text = "戻る";
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1900,9 +1900,9 @@
             // 
             this.LblVersion.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblVersion.ForeColor = System.Drawing.Color.Blue;
-            this.LblVersion.Location = new System.Drawing.Point(1700, 1000);
+            this.LblVersion.Location = new System.Drawing.Point(1730, 1000);
             this.LblVersion.Name = "LblVersion";
-            this.LblVersion.Size = new System.Drawing.Size(166, 25);
+            this.LblVersion.Size = new System.Drawing.Size(145, 25);
             this.LblVersion.TabIndex = 176;
             this.LblVersion.Text = "LblVersion";
             this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1943,9 +1943,9 @@
             this.GrpFeederSetting.Controls.Add(this.label16);
             this.GrpFeederSetting.Controls.Add(this.label7);
             this.GrpFeederSetting.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GrpFeederSetting.Location = new System.Drawing.Point(225, 63);
+            this.GrpFeederSetting.Location = new System.Drawing.Point(168, 63);
             this.GrpFeederSetting.Name = "GrpFeederSetting";
-            this.GrpFeederSetting.Size = new System.Drawing.Size(1451, 469);
+            this.GrpFeederSetting.Size = new System.Drawing.Size(1557, 469);
             this.GrpFeederSetting.TabIndex = 1;
             this.GrpFeederSetting.TabStop = false;
             this.GrpFeederSetting.Text = "QRフィーダー設定";
