@@ -154,15 +154,15 @@
             this.LblTitle = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
             this.GrpFeederSetting = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TxtReadingPosition = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.BtnPasteItem = new System.Windows.Forms.Button();
             this.BtnCopyItem = new System.Windows.Forms.Button();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtReadingPosition = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
@@ -494,6 +494,7 @@
             this.TxtQrReadItem4.Size = new System.Drawing.Size(300, 36);
             this.TxtQrReadItem4.TabIndex = 16;
             this.TxtQrReadItem4.Text = "管理No.";
+            this.TxtQrReadItem4.Leave += new System.EventHandler(this.SetColorForQrData);
             // 
             // TxtQrReadItem3
             // 
@@ -504,6 +505,7 @@
             this.TxtQrReadItem3.Size = new System.Drawing.Size(300, 36);
             this.TxtQrReadItem3.TabIndex = 13;
             this.TxtQrReadItem3.Text = "ファイル区分";
+            this.TxtQrReadItem3.Leave += new System.EventHandler(this.SetColorForQrData);
             // 
             // TxtQrReadItem2
             // 
@@ -514,6 +516,7 @@
             this.TxtQrReadItem2.Size = new System.Drawing.Size(300, 36);
             this.TxtQrReadItem2.TabIndex = 10;
             this.TxtQrReadItem2.Text = "局出し日";
+            this.TxtQrReadItem2.Leave += new System.EventHandler(this.SetColorForQrData);
             // 
             // CmbReadCheck
             // 
@@ -561,6 +564,7 @@
             this.TxtQrReadItem1.Size = new System.Drawing.Size(300, 36);
             this.TxtQrReadItem1.TabIndex = 7;
             this.TxtQrReadItem1.Text = "物件ID";
+            this.TxtQrReadItem1.Leave += new System.EventHandler(this.SetColorForQrData);
             // 
             // NmUpDnPropertyIdStart
             // 
@@ -1946,6 +1950,42 @@
             this.GrpFeederSetting.TabStop = false;
             this.GrpFeederSetting.Text = "QRフィーダー設定";
             // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(1392, 320);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 36);
+            this.label10.TabIndex = 326;
+            this.label10.Text = "mm";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TxtReadingPosition
+            // 
+            this.TxtReadingPosition.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtReadingPosition.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtReadingPosition.Location = new System.Drawing.Point(1320, 320);
+            this.TxtReadingPosition.Name = "TxtReadingPosition";
+            this.TxtReadingPosition.Size = new System.Drawing.Size(71, 36);
+            this.TxtReadingPosition.TabIndex = 325;
+            this.TxtReadingPosition.Text = "999";
+            this.TxtReadingPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(1151, 320);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(170, 36);
+            this.label2.TabIndex = 324;
+            this.label2.Text = "読取位置";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // BtnPasteItem
             // 
             this.BtnPasteItem.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -2029,42 +2069,6 @@
             this.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1151, 320);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 36);
-            this.label2.TabIndex = 324;
-            this.label2.Text = "読取位置";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TxtReadingPosition
-            // 
-            this.TxtReadingPosition.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtReadingPosition.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtReadingPosition.Location = new System.Drawing.Point(1320, 320);
-            this.TxtReadingPosition.Name = "TxtReadingPosition";
-            this.TxtReadingPosition.Size = new System.Drawing.Size(71, 36);
-            this.TxtReadingPosition.TabIndex = 325;
-            this.TxtReadingPosition.Text = "999";
-            this.TxtReadingPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(1392, 320);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 36);
-            this.label10.TabIndex = 326;
-            this.label10.Text = "mm";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SettingForm
             // 

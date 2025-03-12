@@ -104,6 +104,10 @@ namespace QrSorterInspectionApp
                 LblContentCount.Text = "";
                 LblSelectedFile.Text = "";
 
+                CmbSortBy.Items.Clear();
+                CmbSortBy.Items.Add("ファイル作成順");
+                CmbSortBy.Items.Add("ファイル名順");
+                CmbSortBy.SelectedIndex = 0;
                 //CmbLogType.SelectedIndex = 1;
             }
             catch (Exception ex)
@@ -361,11 +365,36 @@ namespace QrSorterInspectionApp
                 LsbLogList.Items.Clear();
                 LsvLogContent.Items.Clear();
 
+                //Path.GetFileName( (Directory.GetFiles(FolderPath,"*.txt").OrderByDescending(Function(x) New FileInfo(x).LastWriteTime)).toList.First)
+
+
+                List<string> lstFileList = new List<string>();
+                lstFileList.Clear();
+                if (CmbSortBy.SelectedIndex == 0)
+                {
+                    // ファイル作成順
+                    foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                          PubConstClass.pblInternalTranFolder) +
+                                                                          sPath,
+                                                                          "*", SearchOption.AllDirectories).OrderByDescending(f => File.GetLastWriteTime(f)))
+                    {
+                        lstFileList.Add(sTranFile);
+                    }
+                }
+                else
+                {
+                    // ファイル名順
+                    foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                          PubConstClass.pblInternalTranFolder) +
+                                                                          sPath,
+                                                                          "*", SearchOption.AllDirectories))
+                    {
+                        lstFileList.Add(sTranFile);
+                    }
+                }
+
                 // 検査ログ対象ファイルの取得
-                foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
-                                                                  PubConstClass.pblInternalTranFolder) + 
-                                                                  sPath,
-                                                                  "*", SearchOption.AllDirectories))
+                foreach (string sTranFile in lstFileList)
                 {
                     CommonModule.OutPutLogFile($"{sMes}検査ログ対象ファイル：{sTranFile}");
                     sArray = sTranFile.Split('\\');
@@ -447,24 +476,24 @@ namespace QrSorterInspectionApp
         {
             LblSelectedFile.Text = "";
             // 検査ログ一覧表示処理
-            InspectionLogList();
+            //InspectionLogList();
         }
 
         private void ChkInspectionDate_CheckedChanged(object sender, EventArgs e)
         {
             // 検査ログ一覧表示処理
-            InspectionLogList();
+            //InspectionLogList();
         }
 
         private void ChkReasonForNonDelivery1_CheckedChanged(object sender, EventArgs e)
         {
             // 検査ログ一覧表示処理
-            InspectionLogList();
+            //InspectionLogList();
         }
         private void ChkReasonForNonDelivery2_CheckedChanged(object sender, EventArgs e)
         {
             // 検査ログ一覧表示処理
-            InspectionLogList();
+            //InspectionLogList();
         }
     }
 }

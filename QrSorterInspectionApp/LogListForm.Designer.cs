@@ -54,9 +54,12 @@
             this.GrpReasonForNonDelivery2 = new System.Windows.Forms.GroupBox();
             this.ChkReasonForNonDelivery2 = new System.Windows.Forms.CheckBox();
             this.CmbReasonForNonDelivery2 = new System.Windows.Forms.ComboBox();
+            this.GrpSortBy = new System.Windows.Forms.GroupBox();
+            this.CmbSortBy = new System.Windows.Forms.ComboBox();
             this.GrpInspectionDate.SuspendLayout();
             this.GrpReasonForNonDelivery1.SuspendLayout();
             this.GrpReasonForNonDelivery2.SuspendLayout();
+            this.GrpSortBy.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -178,7 +181,7 @@
             this.CmbReasonForNonDelivery1.FormattingEnabled = true;
             this.CmbReasonForNonDelivery1.IntegralHeight = false;
             this.CmbReasonForNonDelivery1.ItemHeight = 28;
-            this.CmbReasonForNonDelivery1.Location = new System.Drawing.Point(66, 14);
+            this.CmbReasonForNonDelivery1.Location = new System.Drawing.Point(15, 38);
             this.CmbReasonForNonDelivery1.Name = "CmbReasonForNonDelivery1";
             this.CmbReasonForNonDelivery1.Size = new System.Drawing.Size(207, 36);
             this.CmbReasonForNonDelivery1.TabIndex = 265;
@@ -187,7 +190,7 @@
             // 
             this.dtTimePickerFrom.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.dtTimePickerFrom.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dtTimePickerFrom.Location = new System.Drawing.Point(67, 17);
+            this.dtTimePickerFrom.Location = new System.Drawing.Point(15, 41);
             this.dtTimePickerFrom.Name = "dtTimePickerFrom";
             this.dtTimePickerFrom.Size = new System.Drawing.Size(171, 31);
             this.dtTimePickerFrom.TabIndex = 266;
@@ -195,7 +198,7 @@
             // ChkInspectionDate
             // 
             this.ChkInspectionDate.AutoSize = true;
-            this.ChkInspectionDate.Location = new System.Drawing.Point(17, 26);
+            this.ChkInspectionDate.Location = new System.Drawing.Point(17, 19);
             this.ChkInspectionDate.Name = "ChkInspectionDate";
             this.ChkInspectionDate.Size = new System.Drawing.Size(46, 16);
             this.ChkInspectionDate.TabIndex = 267;
@@ -209,9 +212,9 @@
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerTo);
             this.GrpInspectionDate.Controls.Add(this.ChkInspectionDate);
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerFrom);
-            this.GrpInspectionDate.Location = new System.Drawing.Point(680, 72);
+            this.GrpInspectionDate.Location = new System.Drawing.Point(677, 58);
             this.GrpInspectionDate.Name = "GrpInspectionDate";
-            this.GrpInspectionDate.Size = new System.Drawing.Size(456, 60);
+            this.GrpInspectionDate.Size = new System.Drawing.Size(407, 85);
             this.GrpInspectionDate.TabIndex = 268;
             this.GrpInspectionDate.TabStop = false;
             this.GrpInspectionDate.Text = "検査日付";
@@ -220,7 +223,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(242, 21);
+            this.label4.Location = new System.Drawing.Point(190, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 24);
             this.label4.TabIndex = 269;
@@ -230,7 +233,7 @@
             // 
             this.dtTimePickerTo.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.dtTimePickerTo.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dtTimePickerTo.Location = new System.Drawing.Point(271, 17);
+            this.dtTimePickerTo.Location = new System.Drawing.Point(219, 41);
             this.dtTimePickerTo.Name = "dtTimePickerTo";
             this.dtTimePickerTo.Size = new System.Drawing.Size(171, 31);
             this.dtTimePickerTo.TabIndex = 268;
@@ -239,9 +242,9 @@
             // 
             this.GrpReasonForNonDelivery1.Controls.Add(this.ChkReasonForNonDelivery1);
             this.GrpReasonForNonDelivery1.Controls.Add(this.CmbReasonForNonDelivery1);
-            this.GrpReasonForNonDelivery1.Location = new System.Drawing.Point(1147, 72);
+            this.GrpReasonForNonDelivery1.Location = new System.Drawing.Point(1095, 58);
             this.GrpReasonForNonDelivery1.Name = "GrpReasonForNonDelivery1";
-            this.GrpReasonForNonDelivery1.Size = new System.Drawing.Size(288, 60);
+            this.GrpReasonForNonDelivery1.Size = new System.Drawing.Size(234, 85);
             this.GrpReasonForNonDelivery1.TabIndex = 270;
             this.GrpReasonForNonDelivery1.TabStop = false;
             this.GrpReasonForNonDelivery1.Text = "不着事由仕分け１";
@@ -249,7 +252,7 @@
             // ChkReasonForNonDelivery1
             // 
             this.ChkReasonForNonDelivery1.AutoSize = true;
-            this.ChkReasonForNonDelivery1.Location = new System.Drawing.Point(17, 26);
+            this.ChkReasonForNonDelivery1.Location = new System.Drawing.Point(17, 16);
             this.ChkReasonForNonDelivery1.Name = "ChkReasonForNonDelivery1";
             this.ChkReasonForNonDelivery1.Size = new System.Drawing.Size(46, 16);
             this.ChkReasonForNonDelivery1.TabIndex = 267;
@@ -293,7 +296,6 @@
             this.BtnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnUpdate.UseVisualStyleBackColor = true;
-            this.BtnUpdate.Visible = false;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // LblSelectedFile
@@ -338,9 +340,9 @@
             // 
             this.GrpReasonForNonDelivery2.Controls.Add(this.ChkReasonForNonDelivery2);
             this.GrpReasonForNonDelivery2.Controls.Add(this.CmbReasonForNonDelivery2);
-            this.GrpReasonForNonDelivery2.Location = new System.Drawing.Point(1449, 72);
+            this.GrpReasonForNonDelivery2.Location = new System.Drawing.Point(1341, 58);
             this.GrpReasonForNonDelivery2.Name = "GrpReasonForNonDelivery2";
-            this.GrpReasonForNonDelivery2.Size = new System.Drawing.Size(288, 60);
+            this.GrpReasonForNonDelivery2.Size = new System.Drawing.Size(234, 85);
             this.GrpReasonForNonDelivery2.TabIndex = 271;
             this.GrpReasonForNonDelivery2.TabStop = false;
             this.GrpReasonForNonDelivery2.Text = "不着事由仕分け２";
@@ -348,7 +350,7 @@
             // ChkReasonForNonDelivery2
             // 
             this.ChkReasonForNonDelivery2.AutoSize = true;
-            this.ChkReasonForNonDelivery2.Location = new System.Drawing.Point(17, 26);
+            this.ChkReasonForNonDelivery2.Location = new System.Drawing.Point(17, 16);
             this.ChkReasonForNonDelivery2.Name = "ChkReasonForNonDelivery2";
             this.ChkReasonForNonDelivery2.Size = new System.Drawing.Size(46, 16);
             this.ChkReasonForNonDelivery2.TabIndex = 267;
@@ -363,17 +365,40 @@
             this.CmbReasonForNonDelivery2.FormattingEnabled = true;
             this.CmbReasonForNonDelivery2.IntegralHeight = false;
             this.CmbReasonForNonDelivery2.ItemHeight = 28;
-            this.CmbReasonForNonDelivery2.Location = new System.Drawing.Point(66, 14);
+            this.CmbReasonForNonDelivery2.Location = new System.Drawing.Point(15, 38);
             this.CmbReasonForNonDelivery2.Name = "CmbReasonForNonDelivery2";
             this.CmbReasonForNonDelivery2.Size = new System.Drawing.Size(207, 36);
             this.CmbReasonForNonDelivery2.TabIndex = 265;
+            // 
+            // GrpSortBy
+            // 
+            this.GrpSortBy.Controls.Add(this.CmbSortBy);
+            this.GrpSortBy.Location = new System.Drawing.Point(1588, 77);
+            this.GrpSortBy.Name = "GrpSortBy";
+            this.GrpSortBy.Size = new System.Drawing.Size(146, 56);
+            this.GrpSortBy.TabIndex = 272;
+            this.GrpSortBy.TabStop = false;
+            this.GrpSortBy.Text = "並び順";
+            // 
+            // CmbSortBy
+            // 
+            this.CmbSortBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbSortBy.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbSortBy.FormattingEnabled = true;
+            this.CmbSortBy.IntegralHeight = false;
+            this.CmbSortBy.ItemHeight = 23;
+            this.CmbSortBy.Location = new System.Drawing.Point(7, 15);
+            this.CmbSortBy.Name = "CmbSortBy";
+            this.CmbSortBy.Size = new System.Drawing.Size(133, 31);
+            this.CmbSortBy.TabIndex = 265;
             // 
             // LogListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1904, 1066);
             this.ControlBox = false;
+            this.Controls.Add(this.GrpSortBy);
             this.Controls.Add(this.GrpReasonForNonDelivery2);
             this.Controls.Add(this.BtnJobClear);
             this.Controls.Add(this.LblSelectedFile);
@@ -405,6 +430,7 @@
             this.GrpReasonForNonDelivery1.PerformLayout();
             this.GrpReasonForNonDelivery2.ResumeLayout(false);
             this.GrpReasonForNonDelivery2.PerformLayout();
+            this.GrpSortBy.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -437,5 +463,7 @@
         private System.Windows.Forms.GroupBox GrpReasonForNonDelivery2;
         private System.Windows.Forms.CheckBox ChkReasonForNonDelivery2;
         internal System.Windows.Forms.ComboBox CmbReasonForNonDelivery2;
+        private System.Windows.Forms.GroupBox GrpSortBy;
+        internal System.Windows.Forms.ComboBox CmbSortBy;
     }
 }
