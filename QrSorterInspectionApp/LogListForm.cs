@@ -108,7 +108,9 @@ namespace QrSorterInspectionApp
                 CmbSortBy.Items.Add("ファイル作成順");
                 CmbSortBy.Items.Add("ファイル名順");
                 CmbSortBy.SelectedIndex = 0;
-                //CmbLogType.SelectedIndex = 1;
+
+                // 検査ログ一覧表示処理
+                InspectionLogList();
             }
             catch (Exception ex)
             {
@@ -315,7 +317,7 @@ namespace QrSorterInspectionApp
                     LblSelectedFile.Text = sArray[sArray.Length - 1];
 
                     // 検査ログ一覧表示処理
-                    InspectionLogList();
+                    //InspectionLogList();
                 }
             }
             catch (Exception ex)

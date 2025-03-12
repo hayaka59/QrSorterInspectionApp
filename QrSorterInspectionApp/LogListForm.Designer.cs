@@ -212,7 +212,7 @@
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerTo);
             this.GrpInspectionDate.Controls.Add(this.ChkInspectionDate);
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerFrom);
-            this.GrpInspectionDate.Location = new System.Drawing.Point(677, 58);
+            this.GrpInspectionDate.Location = new System.Drawing.Point(967, 58);
             this.GrpInspectionDate.Name = "GrpInspectionDate";
             this.GrpInspectionDate.Size = new System.Drawing.Size(407, 85);
             this.GrpInspectionDate.TabIndex = 268;
@@ -242,7 +242,7 @@
             // 
             this.GrpReasonForNonDelivery1.Controls.Add(this.ChkReasonForNonDelivery1);
             this.GrpReasonForNonDelivery1.Controls.Add(this.CmbReasonForNonDelivery1);
-            this.GrpReasonForNonDelivery1.Location = new System.Drawing.Point(1095, 58);
+            this.GrpReasonForNonDelivery1.Location = new System.Drawing.Point(1385, 58);
             this.GrpReasonForNonDelivery1.Name = "GrpReasonForNonDelivery1";
             this.GrpReasonForNonDelivery1.Size = new System.Drawing.Size(234, 85);
             this.GrpReasonForNonDelivery1.TabIndex = 270;
@@ -288,9 +288,9 @@
             // 
             this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnUpdate.Location = new System.Drawing.Point(1749, 83);
+            this.BtnUpdate.Location = new System.Drawing.Point(836, 77);
             this.BtnUpdate.Name = "BtnUpdate";
-            this.BtnUpdate.Size = new System.Drawing.Size(116, 45);
+            this.BtnUpdate.Size = new System.Drawing.Size(116, 53);
             this.BtnUpdate.TabIndex = 273;
             this.BtnUpdate.Text = "更新";
             this.BtnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -340,7 +340,7 @@
             // 
             this.GrpReasonForNonDelivery2.Controls.Add(this.ChkReasonForNonDelivery2);
             this.GrpReasonForNonDelivery2.Controls.Add(this.CmbReasonForNonDelivery2);
-            this.GrpReasonForNonDelivery2.Location = new System.Drawing.Point(1341, 58);
+            this.GrpReasonForNonDelivery2.Location = new System.Drawing.Point(1631, 58);
             this.GrpReasonForNonDelivery2.Name = "GrpReasonForNonDelivery2";
             this.GrpReasonForNonDelivery2.Size = new System.Drawing.Size(234, 85);
             this.GrpReasonForNonDelivery2.TabIndex = 271;
@@ -373,7 +373,7 @@
             // GrpSortBy
             // 
             this.GrpSortBy.Controls.Add(this.CmbSortBy);
-            this.GrpSortBy.Location = new System.Drawing.Point(1588, 77);
+            this.GrpSortBy.Location = new System.Drawing.Point(684, 74);
             this.GrpSortBy.Name = "GrpSortBy";
             this.GrpSortBy.Size = new System.Drawing.Size(146, 56);
             this.GrpSortBy.TabIndex = 272;
