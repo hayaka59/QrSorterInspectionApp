@@ -1038,7 +1038,7 @@
             this.LstSettingInfomation.ItemHeight = 20;
             this.LstSettingInfomation.Location = new System.Drawing.Point(949, 51);
             this.LstSettingInfomation.Name = "LstSettingInfomation";
-            this.LstSettingInfomation.Size = new System.Drawing.Size(171, 140);
+            this.LstSettingInfomation.Size = new System.Drawing.Size(231, 140);
             this.LstSettingInfomation.TabIndex = 337;
             // 
             // QrSorterInspectionForm

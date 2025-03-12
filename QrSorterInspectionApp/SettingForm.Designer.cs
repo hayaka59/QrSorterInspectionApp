@@ -672,9 +672,9 @@
             this.CmbReadingFunction.FormattingEnabled = true;
             this.CmbReadingFunction.IntegralHeight = false;
             this.CmbReadingFunction.ItemHeight = 28;
-            this.CmbReadingFunction.Location = new System.Drawing.Point(1321, 279);
+            this.CmbReadingFunction.Location = new System.Drawing.Point(1259, 279);
             this.CmbReadingFunction.Name = "CmbReadingFunction";
-            this.CmbReadingFunction.Size = new System.Drawing.Size(105, 36);
+            this.CmbReadingFunction.Size = new System.Drawing.Size(186, 36);
             this.CmbReadingFunction.TabIndex = 23;
             this.CmbReadingFunction.SelectedIndexChanged += new System.EventHandler(this.CmbReadingFunction_SelectedIndexChanged);
             // 
@@ -686,7 +686,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(1151, 279);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(170, 36);
+            this.label5.Size = new System.Drawing.Size(108, 36);
             this.label5.TabIndex = 305;
             this.label5.Text = "読取機能";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1910,6 +1910,7 @@
             // GrpFeederSetting
             // 
             this.GrpFeederSetting.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.GrpFeederSetting.Controls.Add(this.label5);
             this.GrpFeederSetting.Controls.Add(this.label10);
             this.GrpFeederSetting.Controls.Add(this.TxtReadingPosition);
             this.GrpFeederSetting.Controls.Add(this.label2);
@@ -1922,7 +1923,6 @@
             this.GrpFeederSetting.Controls.Add(this.CmbMedia);
             this.GrpFeederSetting.Controls.Add(this.CmbReadingFunction);
             this.GrpFeederSetting.Controls.Add(this.label6);
-            this.GrpFeederSetting.Controls.Add(this.label5);
             this.GrpFeederSetting.Controls.Add(this.label4);
             this.GrpFeederSetting.Controls.Add(this.DtpDateReceipt);
             this.GrpFeederSetting.Controls.Add(this.CmbCheckNumberOfDigits);
