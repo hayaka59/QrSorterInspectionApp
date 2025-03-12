@@ -22,6 +22,7 @@ namespace QrSorterInspectionApp
         public const string CMD_SEND_i = "i";                                   // アワーメータークリアコマンド
         public const string CMD_SEND_j = "j";                                   // トータルカウンタクリアコマンド
         public const string CMD_SEND_k = "k";                                   // 保守画面の出力チェックコマンド
+        public const string CMD_SEND_l = "l";                                   // 検査画面カウンタ送信コマンド
         public const string CMD_SEND_m = "m";                                   // m,0：通常モード／m,1：メンテナンスモード
         public const string CMD_SEND_t = "t";                                   // パネルDIP-SW情報送信コマンド
         /// <summary>
@@ -39,7 +40,7 @@ namespace QrSorterInspectionApp
         public const string CMD_RECIEVE_L = "L";                                // QR読取り直後のデータ送信コマンド
         public const string CMD_RECIEVE_T = "T";                                // DIP-SW情報要求コマンド
 
-        public const string DEF_VERSION = "Ver.0.3.1.1";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
+        public const string DEF_VERSION = "Ver.0.3.1.2";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
         public static object objSyncHist;                                       // 排他制御用オブジェクト（操作ログ書込用）
 
         /// <summary>
@@ -64,8 +65,8 @@ namespace QrSorterInspectionApp
         public static string sPrevDtpDateReceipt = "";                          // 前回の受領日
         public static string sPrevNonDelivery1 = "";                            // 前回の不着事由仕分け１
         public static string sPrevNonDelivery2 = "";                            // 前回の不着事由仕分け２
-        public static bool bIsOpenErrorMessage = false;                         // エラーメッセージ画面表示・非表示フラグ
-
+        public static bool   bIsOpenErrorMessage = false;                       // エラーメッセージ画面表示・非表示フラグ
+        public static bool   bIsErrorMessage = false;                           // true：エラーメッセージ／false：情報メッセージ
         /// <summary>
         /// 設定画面        
         /// </summary>
