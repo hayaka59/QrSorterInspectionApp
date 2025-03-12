@@ -160,6 +160,9 @@
             this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtReadingPosition = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
@@ -1903,6 +1906,9 @@
             // GrpFeederSetting
             // 
             this.GrpFeederSetting.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.GrpFeederSetting.Controls.Add(this.label10);
+            this.GrpFeederSetting.Controls.Add(this.TxtReadingPosition);
+            this.GrpFeederSetting.Controls.Add(this.label2);
             this.GrpFeederSetting.Controls.Add(this.BtnPasteItem);
             this.GrpFeederSetting.Controls.Add(this.BtnCopyItem);
             this.GrpFeederSetting.Controls.Add(this.groupBox1);
@@ -2023,6 +2029,42 @@
             this.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(1151, 320);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(170, 36);
+            this.label2.TabIndex = 324;
+            this.label2.Text = "読取位置";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TxtReadingPosition
+            // 
+            this.TxtReadingPosition.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtReadingPosition.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtReadingPosition.Location = new System.Drawing.Point(1320, 320);
+            this.TxtReadingPosition.Name = "TxtReadingPosition";
+            this.TxtReadingPosition.Size = new System.Drawing.Size(71, 36);
+            this.TxtReadingPosition.TabIndex = 325;
+            this.TxtReadingPosition.Text = "999";
+            this.TxtReadingPosition.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(1392, 320);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 36);
+            this.label10.TabIndex = 326;
+            this.label10.Text = "mm";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SettingForm
             // 
@@ -2195,5 +2237,8 @@
         internal System.Windows.Forms.Label LblGroup3;
         internal System.Windows.Forms.Label LblGroup2;
         internal System.Windows.Forms.Label LblGroup1;
+        internal System.Windows.Forms.Label label2;
+        internal System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox TxtReadingPosition;
     }
 }

@@ -312,6 +312,16 @@ namespace QrSorterInspectionApp
                 // 読取機能
                 CmbReadingFunction.SelectedIndex = int.Parse(sArray[iIndex++].Trim());
 
+                // 読取り位置
+                if (iIndex > sArray.Length)
+                {
+                    TxtReadingPosition.Text = "100";
+                }
+                else
+                {
+                    TxtReadingPosition.Text = sArray[iIndex++].Trim();
+                }
+                
                 iIndex = 0;
                 sArray = PubConstClass.lstPocketInfo[0].Split(',');
                 // ポケット①：名称
@@ -354,8 +364,6 @@ namespace QrSorterInspectionApp
                 CmbQuantOnOff4.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
                 // ポケット⑤切替件数チェック
                 CmbQuantOnOff5.SelectedIndex = sArray[iIndex++].Trim() == "ON" ? 0 : 1;
-
-
 
                 sArray = PubConstClass.lstGroupInfo[0].Split(',');
                 TxtGroup1.Text = sArray[0];
@@ -589,7 +597,10 @@ namespace QrSorterInspectionApp
                 sData += CmbCheckNumberOfDigits.Text + ","; ;
                 // 読取機能
                 sData += (CmbReadingFunction.SelectedIndex).ToString() + ",";
-                               
+
+                // 読取位置
+                sData += TxtReadingPosition.Text + ",";
+
                 // ソーター設定のQR読取項目①～⑤名称更新
                 LblBox1QrReadItem1.Text = TxtQrReadItem1.Text;
                 LblBox1QrReadItem2.Text = TxtQrReadItem2.Text;
