@@ -1136,11 +1136,11 @@ namespace QrSorterInspectionApp
                 MyProcJobInfomation();
 
                 string sData = PubConstClass.CMD_SEND_l + ",";
-                sData += int.Parse(LblBox1.Text).ToString("000") + ",";
-                sData += int.Parse(LblBox2.Text).ToString("000") + ",";
-                sData += int.Parse(LblBox3.Text).ToString("000") + ",";
-                sData += int.Parse(LblBox4.Text).ToString("000") + ",";
-                sData += int.Parse(LblBox5.Text).ToString("000") + ",";
+                sData += int.Parse(LblBox1.Text).ToString("0000") + ",";
+                sData += int.Parse(LblBox2.Text).ToString("0000") + ",";
+                sData += int.Parse(LblBox3.Text).ToString("0000") + ",";
+                sData += int.Parse(LblBox4.Text).ToString("0000") + ",";
+                sData += int.Parse(LblBox5.Text).ToString("0000") + ",";
                 SendSerialData(sData);
             }
             catch (Exception ex)
