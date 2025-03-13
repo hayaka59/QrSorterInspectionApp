@@ -53,11 +53,14 @@ namespace QrSorterInspectionApp
         private string sFileNameForGroup4;      // グループ４操作ログファイル名
         private string sFileNameForGroup5;      // グループ５操作ログファイル名
         private string sFileNameForAllItems;    // 全件用の操作ログファイル名
+        private string sFileNameForErrorLog;    // エラーログファイル名
+
         private byte[] buffer = new byte[1024];
         private int bufferIndex = 0;
 
         private string OK_FOLDER_NAME = "QRソーター設定検査ログ（OKのみ）\\";
         private string ALL_FOLDER_NAME = "QRソーター設定検査ログ（全件）\\";
+        private string ERROR_FOLDER_NAME = "エラーログファイル\\";
 
         public QrSorterInspectionForm()
         {
@@ -417,6 +420,14 @@ namespace QrSorterInspectionApp
                     Directory.CreateDirectory(sGrpFolder);
                 }
 
+                // JOB名までのエラーフォルダの存在チェックと作成
+                sJobFolder = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) +
+                            ERROR_FOLDER_NAME + sArray[0];
+                if (Directory.Exists(sJobFolder) == false)
+                {
+                    Directory.CreateDirectory(sJobFolder);
+                }
+
                 // JOB名までのフォルダ（OKのみ）の存在チェックと作成
                 sJobFolder = CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + 
                             OK_FOLDER_NAME + sArray[0];
@@ -424,6 +435,7 @@ namespace QrSorterInspectionApp
                 {
                     Directory.CreateDirectory(sJobFolder);
                 }
+
                 // グループ６フォルダ（リジェクト用）の存在チェックと作成
                 // 全件フォルダの配下に作成する                
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[5];
@@ -499,6 +511,9 @@ namespace QrSorterInspectionApp
                 DateTime dtPostDate5 = dtCurrent.AddSeconds(5);
                 DateTime dtPostDate6 = dtCurrent.AddSeconds(6);
                 sFileNameForAllItems = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtCurrent.ToString("yyyyMMddHHmmss") + "全件.csv";
+
+                sFileNameForErrorLog = sJobName + sReasonForNonDelivery1 + sReasonForNonDelivery2 + "_errorlog_" + dtCurrent.ToString("yyyyMMddHHmmss") + ".csv";
+
                 // グループ１～５の操作ログファイル名を取得
                 sFileNameForGroupWork[0] = sGroupName[0].PadLeft(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate1.ToString("yyyyMMddHHmmss") + ".csv";
                 sFileNameForGroupWork[1] = sGroupName[1].PadLeft(16, '0') + sReasonForNonDelivery1 + sReasonForNonDelivery2 + sDate + dtPostDate2.ToString("yyyyMMddHHmmss") + ".csv";
@@ -1177,6 +1192,8 @@ namespace QrSorterInspectionApp
         private void MyProcError(string sData)
         {
             string sErrorCode;
+            string sSaveFileName = "";
+            string sErrorData = "";
 
             try
             {
@@ -1200,17 +1217,31 @@ namespace QrSorterInspectionApp
                 }
 
                 ErrorMessageForm form = ErrorMessageForm.GetInstance();
-                //form.SetMessage($"{sData.Replace("\r", "<CR>")},{sData.Replace("\r", "<CR>")},{sData.Replace("\r", "<CR>")}");                
+
+                sErrorData = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + ",";
+                sErrorData += sErrorCode + ",";
                 if (PubConstClass.dicErrorCodeData.ContainsKey(sErrorCode))
                 {
                     // 存在する場合
                     form.SetMessage($"{sErrorCode},{PubConstClass.dicErrorCodeData[sErrorCode]}");
                     CommonModule.OutPutLogFile($"エラー内容：{sErrorCode},{PubConstClass.dicErrorCodeData[sErrorCode]}");
+                    sErrorData += PubConstClass.dicErrorCodeData[sErrorCode];
                 }
                 else
                 {
                     form.SetMessage($"{sErrorCode},未定義エラー番号,未定義のエラー番号です。");
                     CommonModule.OutPutLogFile($"エラー内容：{sErrorCode},未定義エラー番号,未定義のエラー番号です。");
+                    sErrorData += "未定義エラー番号,未定義のエラー番号です。";
+                }
+                // エラーファイル名の生成
+                sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
+                sSaveFileName += ERROR_FOLDER_NAME + sJobFolderName + "\\";
+                sSaveFileName += sFileNameForErrorLog;
+                // エラーデータ書込処理
+                using (StreamWriter sw = new StreamWriter(sSaveFileName, true, Encoding.Default))
+                {                    
+                    // エラーデータを追加モードで書き込む
+                    sw.WriteLine(sErrorData);
                 }
 
                 if (!PubConstClass.bIsOpenErrorMessage)
