@@ -858,6 +858,11 @@ namespace QrSorterInspectionApp
             try
             {
                 CommonModule.OutPutLogFile("検査画面：「設定」ボタンクリック");
+                if (LblSelectedFile.Text.Trim() == "")
+                {
+                    MessageBox.Show("JOBを選択して下さい", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 //PubConstClass.sJobFileNameFromInspectionForm = "";
                 SettingForm form = new SettingForm();
                 form.ShowDialog(this);
