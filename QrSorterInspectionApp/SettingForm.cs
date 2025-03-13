@@ -897,7 +897,7 @@ namespace QrSorterInspectionApp
                 // Wフィード検査
                 CmbDoubleFeed.SelectedIndex = 0;
                 // 超音波検知
-                CmbUltrasonicDetection.SelectedIndex = 0;
+                CmbUltrasonicDetection.SelectedIndex = 1;
                 // 桁数チェック
                 CmbCheckNumberOfDigits.SelectedIndex = 0;
                 // 読取機能

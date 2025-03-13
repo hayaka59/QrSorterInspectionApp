@@ -110,7 +110,7 @@ namespace QrSorterInspectionApp
                 CmbSortBy.SelectedIndex = 0;
 
                 // 検査ログ一覧表示処理
-                InspectionLogList();
+                //InspectionLogList();
             }
             catch (Exception ex)
             {
@@ -145,7 +145,7 @@ namespace QrSorterInspectionApp
             try
             {
                 // 検査ログ一覧表示処理
-                InspectionLogList();
+                //InspectionLogList();
             }
             catch (Exception ex)
             {
