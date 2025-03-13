@@ -141,6 +141,38 @@ namespace QrSorterInspectionApp
                 // DIP SW の状態を更新
                 UpdateDipSwitchStatus();
 
+                #region エラーログのヘッダー設定
+                // ListViewのカラムヘッダー設定
+                LsvLogContent.View = View.Details;
+                ColumnHeader col01 = new ColumnHeader();
+                ColumnHeader col02 = new ColumnHeader();
+                ColumnHeader col03 = new ColumnHeader();
+                ColumnHeader col04 = new ColumnHeader();                
+                col01.Text = "　　作成年月日 時分秒";
+                col02.Text = "エラー番号";
+                col03.Text = "エラー箇所";
+                col04.Text = "エラー内容";
+                col01.TextAlign = HorizontalAlignment.Center;
+                col02.TextAlign = HorizontalAlignment.Center;
+                col03.TextAlign = HorizontalAlignment.Center;
+                col04.TextAlign = HorizontalAlignment.Center;
+                col01.Width = 300;         // 作成年月日 時分秒
+                col02.Width = 200;         // エラー番号
+                col03.Width = 200;         // エラー箇所
+                col04.Width = 400;         // エラー内容
+                ColumnHeader[] colHeaderOK = new[] { col01, col02, col03, col04 };
+                LsvLogContent.Columns.AddRange(colHeaderOK);
+                #endregion
+
+                LblLogFileCount.Text = "";
+                LblContentCount.Text = "";
+                LblSelectedFile.Text = "";
+
+                CmbSortBy.Items.Clear();
+                CmbSortBy.Items.Add("ファイル作成順");
+                CmbSortBy.Items.Add("ファイル名順");
+                CmbSortBy.SelectedIndex = 0;
+
                 #region シリアルポートの設定
                 // データ受信イベントの設定
                 SerialPortMaint.DataReceived += new SerialDataReceivedEventHandler(SerialPortMaint_DataReceived);
@@ -1405,5 +1437,195 @@ namespace QrSorterInspectionApp
             OutPutData(RdoOutPut16, "8000");
         }
 
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            // エラーログ一覧表示処理
+            ErrorLogList();
+        }
+
+        // ログファイル一覧格納リスト
+        private List<string> lstLogFileList = new List<string>();
+
+        /// <summary>
+        /// エラーログ一覧表示処理
+        /// </summary>
+        private void ErrorLogList()
+        {
+            string[] sArray;
+            string[] sArrayJob;
+            string sPath;
+            string sMes;
+            string sTitle;
+
+            try
+            {
+                sPath = "エラーログファイル";
+                if (LblSelectedFile.Text != "")
+                {
+                    sArrayJob = LblSelectedFile.Text.Split('.');
+                    sPath += sArrayJob[0] + "\\";
+                }
+                else
+                {
+                    sArrayJob = ".csv".Split('.');
+                    sPath += "\\";
+                }
+
+                if (!Directory.Exists(CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + sPath))
+                {
+                    MessageBox.Show($"JOB（{sArrayJob[0]}）は、未検査のJOBです", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+                lstLogFileList.Clear();
+                LsbLogList.Items.Clear();
+                LsvLogContent.Items.Clear();
+
+                List<string> lstFileList = new List<string>();
+                lstFileList.Clear();
+                if (CmbSortBy.SelectedIndex == 0)
+                {
+                    // ファイル作成順
+                    foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                          PubConstClass.pblInternalTranFolder) +
+                                                                          sPath,
+                                                                          "*", SearchOption.AllDirectories).OrderByDescending(f => File.GetLastWriteTime(f)))
+                    {
+                        lstFileList.Add(sTranFile);
+                    }
+                }
+                else
+                {
+                    // ファイル名順
+                    foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                          PubConstClass.pblInternalTranFolder) +
+                                                                          sPath,
+                                                                          "*", SearchOption.AllDirectories))
+                    {
+                        lstFileList.Add(sTranFile);
+                    }
+                }
+
+                // 検査ログ対象ファイルの取得
+                foreach (string sTranFile in lstFileList)
+                {
+                    CommonModule.OutPutLogFile($"エラーログ対象ファイル：{sTranFile}");
+                    sArray = sTranFile.Split('\\');
+                    string sFileName = sArray[sArray.Length - 1];
+                    string sFileNameFullPath = sTranFile;
+
+                    if (sFileName != "")
+                    {
+                        string sPathName;
+
+                        // 全件ログ
+                        sPathName = sArray[0] + "¥" + sArray[1] + "¥" + sArray[2] + "¥" + sArray[4];
+
+                        string[] Lines = File.ReadAllLines(sTranFile);
+
+                        LsbLogList.Items.Add($"{sArray[sArray.Length - 1]}　件数：{Lines.Length - 1}件　 （格納フォルダ：{sPathName}）");
+                        lstLogFileList.Add(sTranFile);
+                    }
+                }
+
+                if (sArrayJob[0] == "")
+                {
+                    sArrayJob[0] = "指定なし";
+                }
+                LblLogFileCount.Text = $"JOB名（{sArrayJob[0]}）{LsbLogList.Items.Count:#,###} 件";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ErrorLogList】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        /// <summary>
+        /// エラーログファイル一覧表示の選択行の変更処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LsbLogList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sReadLogFile;
+            string sData;
+            int iCounter;
+
+            try
+            {
+                if (LsbLogList.SelectedItem == null)
+                {
+                    return;
+                }
+
+                LsvLogContent.Items.Clear();
+
+                sReadLogFile = lstLogFileList[LsbLogList.SelectedIndex];
+
+                iCounter = 0;
+                PubConstClass.lstJobEntryList.Clear();
+                using (StreamReader sr = new StreamReader(sReadLogFile, Encoding.Default))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        sData = sr.ReadLine();
+                        DisplayOneData(sData);
+                        iCounter++;
+                    }
+                }
+                LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count:#,###} 件"; ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【LsbLogList_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        /// <summary>
+        /// 検査ログデータの１行分の表示
+        /// </summary>
+        /// <param name="sData"></param>
+        private void DisplayOneData(string sData)
+        {
+            // ●（01）日付
+            // ●（02）時刻
+            // 　（03）期待値
+            // ●（04）読取値
+
+            try
+            {
+                string[] sArray = sData.Split(',');
+                // "日付","期待値","読取値","判定","正解データファイル名","重量期待値[g]","重量測定値[g]","重量公差","フラップ最大長[mm]","フラップ積算長[mm]","フラップ検出回数[回]","イベント（コメント）","受領日","作業員情報（機械情報）","物件情報（DPS/BPO/Broad等）","エラーコード","生産管理番号","仕分けコード１","仕分けコード２","ファイル名（画像）","ファイルパス（画像）","工場コード",
+                string[] col = new string[4];
+                ListViewItem itm;
+                col[0] = sArray[0];      // 日付
+                col[1] = sArray[1];      // 時刻
+                col[2] = sArray[2];      // 読取値
+                col[3] = sArray[3];      // 判定
+
+                // データの表示
+                itm = new ListViewItem(col);
+                LsvLogContent.Items.Add(itm);
+                LsvLogContent.Items[LsvLogContent.Items.Count - 1].UseItemStyleForSubItems = false;
+                LsvLogContent.Select();
+                LsvLogContent.Items[LsvLogContent.Items.Count - 1].EnsureVisible();
+
+                if (LsvLogContent.Items.Count % 2 == 1)
+                {
+                    for (int iIndex = 0; iIndex < 4; iIndex++)
+                    {
+                        // 奇数行の色反転
+                        LsvLogContent.Items[LsvLogContent.Items.Count - 1].SubItems[iIndex].BackColor = Color.FromArgb(200, 200, 230);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【DisplayOneData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

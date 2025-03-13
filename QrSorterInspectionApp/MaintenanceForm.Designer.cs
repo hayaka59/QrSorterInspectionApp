@@ -255,6 +255,19 @@
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.SerialPortMaint = new System.IO.Ports.SerialPort(this.components);
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.GrpSortBy = new System.Windows.Forms.GroupBox();
+            this.CmbSortBy = new System.Windows.Forms.ComboBox();
+            this.BtnJobClear = new System.Windows.Forms.Button();
+            this.LblSelectedFile = new System.Windows.Forms.Label();
+            this.BtnJobSelect = new System.Windows.Forms.Button();
+            this.BtnUpdate = new System.Windows.Forms.Button();
+            this.LblContentCount = new System.Windows.Forms.Label();
+            this.LblLogFileCount = new System.Windows.Forms.Label();
+            this.LsbLogList = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LsvLogContent = new System.Windows.Forms.ListView();
+            this.label9 = new System.Windows.Forms.Label();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox6.SuspendLayout();
@@ -286,6 +299,8 @@
             this.Panel2.SuspendLayout();
             this.Panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.GrpSortBy.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblTitle
@@ -736,6 +751,7 @@
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Controls.Add(this.tabPage3);
+            this.TabControl.Controls.Add(this.tabPage4);
             this.TabControl.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.TabControl.Location = new System.Drawing.Point(116, 85);
             this.TabControl.Name = "TabControl";
@@ -2955,6 +2971,172 @@
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.GrpSortBy);
+            this.tabPage4.Controls.Add(this.BtnJobClear);
+            this.tabPage4.Controls.Add(this.LblSelectedFile);
+            this.tabPage4.Controls.Add(this.BtnJobSelect);
+            this.tabPage4.Controls.Add(this.BtnUpdate);
+            this.tabPage4.Controls.Add(this.LblContentCount);
+            this.tabPage4.Controls.Add(this.LblLogFileCount);
+            this.tabPage4.Controls.Add(this.LsbLogList);
+            this.tabPage4.Controls.Add(this.label1);
+            this.tabPage4.Controls.Add(this.LsvLogContent);
+            this.tabPage4.Controls.Add(this.label9);
+            this.tabPage4.Location = new System.Drawing.Point(4, 33);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1664, 796);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "エラーログ";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // GrpSortBy
+            // 
+            this.GrpSortBy.Controls.Add(this.CmbSortBy);
+            this.GrpSortBy.Location = new System.Drawing.Point(345, 15);
+            this.GrpSortBy.Name = "GrpSortBy";
+            this.GrpSortBy.Size = new System.Drawing.Size(146, 72);
+            this.GrpSortBy.TabIndex = 332;
+            this.GrpSortBy.TabStop = false;
+            this.GrpSortBy.Text = "並び順";
+            // 
+            // CmbSortBy
+            // 
+            this.CmbSortBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbSortBy.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbSortBy.FormattingEnabled = true;
+            this.CmbSortBy.IntegralHeight = false;
+            this.CmbSortBy.ItemHeight = 23;
+            this.CmbSortBy.Location = new System.Drawing.Point(7, 28);
+            this.CmbSortBy.Name = "CmbSortBy";
+            this.CmbSortBy.Size = new System.Drawing.Size(133, 31);
+            this.CmbSortBy.TabIndex = 265;
+            // 
+            // BtnJobClear
+            // 
+            this.BtnJobClear.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnJobClear.Location = new System.Drawing.Point(185, 15);
+            this.BtnJobClear.Name = "BtnJobClear";
+            this.BtnJobClear.Size = new System.Drawing.Size(144, 46);
+            this.BtnJobClear.TabIndex = 337;
+            this.BtnJobClear.Text = "JOBクリア";
+            this.BtnJobClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnJobClear.UseVisualStyleBackColor = true;
+            // 
+            // LblSelectedFile
+            // 
+            this.LblSelectedFile.BackColor = System.Drawing.Color.White;
+            this.LblSelectedFile.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblSelectedFile.ForeColor = System.Drawing.Color.Black;
+            this.LblSelectedFile.Location = new System.Drawing.Point(29, 64);
+            this.LblSelectedFile.Name = "LblSelectedFile";
+            this.LblSelectedFile.Size = new System.Drawing.Size(298, 36);
+            this.LblSelectedFile.TabIndex = 336;
+            this.LblSelectedFile.Text = "LblSelectedFile";
+            this.LblSelectedFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnJobSelect
+            // 
+            this.BtnJobSelect.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnJobSelect.Image = global::QrSorterInspectionApp.Properties.Resources.search_file;
+            this.BtnJobSelect.Location = new System.Drawing.Point(27, 15);
+            this.BtnJobSelect.Name = "BtnJobSelect";
+            this.BtnJobSelect.Size = new System.Drawing.Size(144, 46);
+            this.BtnJobSelect.TabIndex = 335;
+            this.BtnJobSelect.Text = "JOB選択";
+            this.BtnJobSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnJobSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnJobSelect.UseVisualStyleBackColor = true;
+            // 
+            // BtnUpdate
+            // 
+            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
+            this.BtnUpdate.Location = new System.Drawing.Point(497, 34);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Size = new System.Drawing.Size(144, 53);
+            this.BtnUpdate.TabIndex = 334;
+            this.BtnUpdate.Text = "更新";
+            this.BtnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
+            // LblContentCount
+            // 
+            this.LblContentCount.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.LblContentCount.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblContentCount.ForeColor = System.Drawing.Color.White;
+            this.LblContentCount.Location = new System.Drawing.Point(43, 387);
+            this.LblContentCount.Name = "LblContentCount";
+            this.LblContentCount.Size = new System.Drawing.Size(536, 23);
+            this.LblContentCount.TabIndex = 333;
+            this.LblContentCount.Text = "LblContentCount";
+            this.LblContentCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LblLogFileCount
+            // 
+            this.LblLogFileCount.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.LblLogFileCount.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblLogFileCount.ForeColor = System.Drawing.Color.White;
+            this.LblLogFileCount.Location = new System.Drawing.Point(43, 117);
+            this.LblLogFileCount.Name = "LblLogFileCount";
+            this.LblLogFileCount.Size = new System.Drawing.Size(536, 23);
+            this.LblLogFileCount.TabIndex = 331;
+            this.LblLogFileCount.Text = "LblLogFileCount";
+            this.LblLogFileCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LsbLogList
+            // 
+            this.LsbLogList.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsbLogList.FormattingEnabled = true;
+            this.LsbLogList.ItemHeight = 24;
+            this.LsbLogList.Location = new System.Drawing.Point(27, 142);
+            this.LsbLogList.Name = "LsbLogList";
+            this.LsbLogList.Size = new System.Drawing.Size(1602, 220);
+            this.LsbLogList.TabIndex = 330;
+            this.LsbLogList.SelectedIndexChanged += new System.EventHandler(this.LsbLogList_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(27, 112);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1602, 31);
+            this.label1.TabIndex = 329;
+            this.label1.Text = "エラーログ一覧";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LsvLogContent
+            // 
+            this.LsvLogContent.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsvLogContent.FullRowSelect = true;
+            this.LsvLogContent.GridLines = true;
+            this.LsvLogContent.HideSelection = false;
+            this.LsvLogContent.Location = new System.Drawing.Point(27, 412);
+            this.LsvLogContent.Name = "LsvLogContent";
+            this.LsvLogContent.Size = new System.Drawing.Size(1602, 360);
+            this.LsvLogContent.TabIndex = 327;
+            this.LsvLogContent.UseCompatibleStateImageBehavior = false;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label9.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(27, 382);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(1602, 31);
+            this.label9.TabIndex = 328;
+            this.label9.Text = "選択したエラーログの内容";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3010,6 +3192,8 @@
             this.Panel2.ResumeLayout(false);
             this.Panel17.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.GrpSortBy.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3241,5 +3425,18 @@
         internal System.Windows.Forms.Button BtnDipOff1;
         internal System.Windows.Forms.Label Label54;
         internal System.IO.Ports.SerialPort SerialPortMaint;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.GroupBox GrpSortBy;
+        internal System.Windows.Forms.ComboBox CmbSortBy;
+        internal System.Windows.Forms.Button BtnJobClear;
+        internal System.Windows.Forms.Label LblSelectedFile;
+        internal System.Windows.Forms.Button BtnJobSelect;
+        internal System.Windows.Forms.Button BtnUpdate;
+        private System.Windows.Forms.Label LblContentCount;
+        private System.Windows.Forms.Label LblLogFileCount;
+        private System.Windows.Forms.ListBox LsbLogList;
+        internal System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListView LsvLogContent;
+        internal System.Windows.Forms.Label label9;
     }
 }
