@@ -251,10 +251,6 @@
             this.BtnDipOn1 = new System.Windows.Forms.Button();
             this.BtnDipOff1 = new System.Windows.Forms.Button();
             this.Label54 = new System.Windows.Forms.Label();
-            this.PctLogo = new System.Windows.Forms.PictureBox();
-            this.BtnApply = new System.Windows.Forms.Button();
-            this.BtnClose = new System.Windows.Forms.Button();
-            this.SerialPortMaint = new System.IO.Ports.SerialPort(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.GrpSortBy = new System.Windows.Forms.GroupBox();
             this.CmbSortBy = new System.Windows.Forms.ComboBox();
@@ -268,6 +264,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LsvLogContent = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
+            this.PctLogo = new System.Windows.Forms.PictureBox();
+            this.BtnApply = new System.Windows.Forms.Button();
+            this.BtnClose = new System.Windows.Forms.Button();
+            this.SerialPortMaint = new System.IO.Ports.SerialPort(this.components);
+            this.PicWaitContent = new System.Windows.Forms.PictureBox();
+            this.PicWaitList = new System.Windows.Forms.PictureBox();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox6.SuspendLayout();
@@ -298,9 +300,11 @@
             this.Panel3.SuspendLayout();
             this.Panel2.SuspendLayout();
             this.Panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.GrpSortBy.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicWaitContent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicWaitList)).BeginInit();
             this.SuspendLayout();
             // 
             // LblTitle
@@ -2933,46 +2937,10 @@
             this.Label54.Size = new System.Drawing.Size(60, 115);
             this.Label54.TabIndex = 0;
             // 
-            // PctLogo
-            // 
-            this.PctLogo.Image = global::QrSorterInspectionApp.Properties.Resources.株式会社Ai_R横黒色背景透明;
-            this.PctLogo.Location = new System.Drawing.Point(825, 954);
-            this.PctLogo.Name = "PctLogo";
-            this.PctLogo.Size = new System.Drawing.Size(288, 42);
-            this.PctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PctLogo.TabIndex = 256;
-            this.PctLogo.TabStop = false;
-            // 
-            // BtnApply
-            // 
-            this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnApply.Image = global::QrSorterInspectionApp.Properties.Resources.check;
-            this.BtnApply.Location = new System.Drawing.Point(120, 946);
-            this.BtnApply.Name = "BtnApply";
-            this.BtnApply.Size = new System.Drawing.Size(166, 50);
-            this.BtnApply.TabIndex = 242;
-            this.BtnApply.Text = "適用";
-            this.BtnApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnApply.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnApply.UseVisualStyleBackColor = true;
-            this.BtnApply.Click += new System.EventHandler(this.BtnApply_Click);
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1618, 946);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(166, 50);
-            this.BtnClose.TabIndex = 240;
-            this.BtnClose.Text = "戻る";
-            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.PicWaitContent);
+            this.tabPage4.Controls.Add(this.PicWaitList);
             this.tabPage4.Controls.Add(this.GrpSortBy);
             this.tabPage4.Controls.Add(this.BtnJobClear);
             this.tabPage4.Controls.Add(this.LblSelectedFile);
@@ -3137,6 +3105,64 @@
             this.label9.Text = "選択したエラーログの内容";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // PctLogo
+            // 
+            this.PctLogo.Image = global::QrSorterInspectionApp.Properties.Resources.株式会社Ai_R横黒色背景透明;
+            this.PctLogo.Location = new System.Drawing.Point(825, 954);
+            this.PctLogo.Name = "PctLogo";
+            this.PctLogo.Size = new System.Drawing.Size(288, 42);
+            this.PctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PctLogo.TabIndex = 256;
+            this.PctLogo.TabStop = false;
+            // 
+            // BtnApply
+            // 
+            this.BtnApply.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnApply.Image = global::QrSorterInspectionApp.Properties.Resources.check;
+            this.BtnApply.Location = new System.Drawing.Point(120, 946);
+            this.BtnApply.Name = "BtnApply";
+            this.BtnApply.Size = new System.Drawing.Size(166, 50);
+            this.BtnApply.TabIndex = 242;
+            this.BtnApply.Text = "適用";
+            this.BtnApply.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnApply.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnApply.UseVisualStyleBackColor = true;
+            this.BtnApply.Click += new System.EventHandler(this.BtnApply_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
+            this.BtnClose.Location = new System.Drawing.Point(1618, 946);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(166, 50);
+            this.BtnClose.TabIndex = 240;
+            this.BtnClose.Text = "戻る";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // PicWaitContent
+            // 
+            this.PicWaitContent.Image = global::QrSorterInspectionApp.Properties.Resources.waiting;
+            this.PicWaitContent.Location = new System.Drawing.Point(783, 531);
+            this.PicWaitContent.Name = "PicWaitContent";
+            this.PicWaitContent.Size = new System.Drawing.Size(100, 100);
+            this.PicWaitContent.TabIndex = 339;
+            this.PicWaitContent.TabStop = false;
+            this.PicWaitContent.Visible = false;
+            // 
+            // PicWaitList
+            // 
+            this.PicWaitList.Image = global::QrSorterInspectionApp.Properties.Resources.waiting;
+            this.PicWaitList.Location = new System.Drawing.Point(782, 196);
+            this.PicWaitList.Name = "PicWaitList";
+            this.PicWaitList.Size = new System.Drawing.Size(100, 100);
+            this.PicWaitList.TabIndex = 338;
+            this.PicWaitList.TabStop = false;
+            this.PicWaitList.Visible = false;
+            // 
             // MaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3191,9 +3217,11 @@
             this.Panel3.ResumeLayout(false);
             this.Panel2.ResumeLayout(false);
             this.Panel17.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.GrpSortBy.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicWaitContent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicWaitList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3438,5 +3466,7 @@
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView LsvLogContent;
         internal System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox PicWaitContent;
+        private System.Windows.Forms.PictureBox PicWaitList;
     }
 }
