@@ -1439,8 +1439,13 @@ namespace QrSorterInspectionApp
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
+            BtnUpdate.Enabled = false;
+            PicWaitList.Visible = true;
+            PicWaitList.Refresh();
             // エラーログ一覧表示処理
             ErrorLogList();
+            PicWaitList.Visible = false;
+            BtnUpdate.Enabled = true;
         }
 
         // ログファイル一覧格納リスト
@@ -1524,7 +1529,7 @@ namespace QrSorterInspectionApp
 
                         string[] Lines = File.ReadAllLines(sTranFile);
 
-                        LsbLogList.Items.Add($"{sArray[sArray.Length - 1]}　件数：{Lines.Length - 1}件　 （格納フォルダ：{sPathName}）");
+                        LsbLogList.Items.Add($"{sArray[sArray.Length - 1]}　件数：{Lines.Length}件　 （格納フォルダ：{sPathName}）");
                         lstLogFileList.Add(sTranFile);
                     }
                 }
@@ -1564,6 +1569,7 @@ namespace QrSorterInspectionApp
 
                 sReadLogFile = lstLogFileList[LsbLogList.SelectedIndex];
 
+                PicWaitContent.Visible = true;
                 iCounter = 0;
                 PubConstClass.lstJobEntryList.Clear();
                 using (StreamReader sr = new StreamReader(sReadLogFile, Encoding.Default))
@@ -1575,7 +1581,12 @@ namespace QrSorterInspectionApp
                         iCounter++;
                     }
                 }
+                PicWaitContent.Visible = false;
                 LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count:#,###} 件"; ;
+
+                LsvLogContent.Items[0].UseItemStyleForSubItems = false;
+                LsvLogContent.Select();
+                LsvLogContent.Items[0].EnsureVisible();
             }
             catch (Exception ex)
             {
@@ -1597,6 +1608,7 @@ namespace QrSorterInspectionApp
 
             try
             {
+                PicWaitContent.Refresh();
                 string[] sArray = sData.Split(',');
                 // "日付","期待値","読取値","判定","正解データファイル名","重量期待値[g]","重量測定値[g]","重量公差","フラップ最大長[mm]","フラップ積算長[mm]","フラップ検出回数[回]","イベント（コメント）","受領日","作業員情報（機械情報）","物件情報（DPS/BPO/Broad等）","エラーコード","生産管理番号","仕分けコード１","仕分けコード２","ファイル名（画像）","ファイルパス（画像）","工場コード",
                 string[] col = new string[4];

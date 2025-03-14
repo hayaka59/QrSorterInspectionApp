@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QrSorterInspectionApp
 {
@@ -109,6 +111,8 @@ namespace QrSorterInspectionApp
                 CmbSortBy.Items.Add("ファイル名順");
                 CmbSortBy.SelectedIndex = 0;
 
+                EnableDoubleBuffering(LsbLogList);
+
                 // 検査ログ一覧表示処理
                 //InspectionLogList();
             }
@@ -116,6 +120,20 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【LogListForm_Load】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// コントロールのDoubleBufferedプロパティをTrueにする
+        /// </summary>
+        /// <param name="control"></param>
+        private void EnableDoubleBuffering(Control control)
+        {
+            control.GetType().InvokeMember("DoubleBuffered",
+                                            BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+                                            null/* TODO Change to default(_) if this is not a reference type */,
+                                            control,
+                                            new object[] { true }
+                                            );
         }
 
         /// <summary>
@@ -140,19 +158,6 @@ namespace QrSorterInspectionApp
         // ログファイル一覧格納リスト
         private List<string> lstLogFileList = new List<string>();
 
-        private void CmbLogType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                // 検査ログ一覧表示処理
-                //InspectionLogList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【CmbLogType_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         /// <summary>
         /// 検査ログファイル一覧表示の選択行の変更処理
         /// </summary>
@@ -175,16 +180,18 @@ namespace QrSorterInspectionApp
 
                 sReadLogFile = lstLogFileList[LsbLogList.SelectedIndex];
 
+                PicWaitContent.Visible = true;
                 iCounter = 0;
                 PubConstClass.lstJobEntryList.Clear();
                 using (StreamReader sr = new StreamReader(sReadLogFile, Encoding.Default))
                 {
                     while (!sr.EndOfStream)
                     {
+                        //PicWaitContent.Refresh();
                         sData = sr.ReadLine();
                         if (iCounter > 0)
-                        {
-                            DisplayOneData(sData);
+                        {                            
+                            DisplayOneData(sData);                            
                         }
                         else
                         {
@@ -193,7 +200,12 @@ namespace QrSorterInspectionApp
                         iCounter++;
                     }
                 }
-                LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count:#,###} 件"; ;
+                PicWaitContent.Visible = false;
+                LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count:#,###} 件";
+                
+                LsvLogContent.Items[0].UseItemStyleForSubItems = false;
+                LsvLogContent.Select();
+                LsvLogContent.Items[0].EnsureVisible();
             }
             catch(Exception ex)
             {
@@ -232,6 +244,8 @@ namespace QrSorterInspectionApp
             // 　（23）工場コード
             try
             {
+                PicWaitContent.Refresh();
+                //Application.DoEvents();
                 string[] sArray = sData.Split(',');
                 // "日付","期待値","読取値","判定","正解データファイル名","重量期待値[g]","重量測定値[g]","重量公差","フラップ最大長[mm]","フラップ積算長[mm]","フラップ検出回数[回]","イベント（コメント）","受領日","作業員情報（機械情報）","物件情報（DPS/BPO/Broad等）","エラーコード","生産管理番号","仕分けコード１","仕分けコード２","ファイル名（画像）","ファイルパス（画像）","工場コード",
                 string[] col = new string[11];                                              
@@ -268,17 +282,6 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【DisplayOneData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        /// <summary>
-        /// 「更新」ボタン処理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnUpdate_Click(object sender, EventArgs e)
-        {
-            // 検査ログ一覧表示処理
-            InspectionLogList();
         }
 
         /// <summary>
@@ -403,6 +406,7 @@ namespace QrSorterInspectionApp
                 // 検査ログ対象ファイルの取得
                 foreach (string sTranFile in lstFileList)
                 {
+                    PicWaitList.Refresh();
                     CommonModule.OutPutLogFile($"{sMes}検査ログ対象ファイル：{sTranFile}");
                     sArray = sTranFile.Split('\\');
                     string sFileName = sArray[sArray.Length - 1];
@@ -485,25 +489,22 @@ namespace QrSorterInspectionApp
         private void BtnJobClear_Click(object sender, EventArgs e)
         {
             LblSelectedFile.Text = "";
-            // 検査ログ一覧表示処理
-            //InspectionLogList();
         }
 
-        private void ChkInspectionDate_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// 「更新」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnUpdate_Click(object sender, EventArgs e)
         {
+            BtnUpdate.Enabled = false;
+            PicWaitList.Visible = true;
+            PicWaitList.Refresh();
             // 検査ログ一覧表示処理
-            //InspectionLogList();
-        }
-
-        private void ChkReasonForNonDelivery1_CheckedChanged(object sender, EventArgs e)
-        {
-            // 検査ログ一覧表示処理
-            //InspectionLogList();
-        }
-        private void ChkReasonForNonDelivery2_CheckedChanged(object sender, EventArgs e)
-        {
-            // 検査ログ一覧表示処理
-            //InspectionLogList();
+            InspectionLogList();
+            PicWaitList.Visible = false;
+            BtnUpdate.Enabled = true;
         }
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.LblVersion = new System.Windows.Forms.Label();
-            this.BtnClose = new System.Windows.Forms.Button();
             this.LblTitle = new System.Windows.Forms.Label();
             this.CmbLogType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,19 +46,24 @@
             this.ChkReasonForNonDelivery1 = new System.Windows.Forms.CheckBox();
             this.LblLogFileCount = new System.Windows.Forms.Label();
             this.LblContentCount = new System.Windows.Forms.Label();
-            this.BtnUpdate = new System.Windows.Forms.Button();
             this.LblSelectedFile = new System.Windows.Forms.Label();
-            this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnJobClear = new System.Windows.Forms.Button();
             this.GrpReasonForNonDelivery2 = new System.Windows.Forms.GroupBox();
             this.ChkReasonForNonDelivery2 = new System.Windows.Forms.CheckBox();
             this.CmbReasonForNonDelivery2 = new System.Windows.Forms.ComboBox();
             this.GrpSortBy = new System.Windows.Forms.GroupBox();
             this.CmbSortBy = new System.Windows.Forms.ComboBox();
+            this.PicWaitList = new System.Windows.Forms.PictureBox();
+            this.BtnJobSelect = new System.Windows.Forms.Button();
+            this.BtnUpdate = new System.Windows.Forms.Button();
+            this.BtnClose = new System.Windows.Forms.Button();
+            this.PicWaitContent = new System.Windows.Forms.PictureBox();
             this.GrpInspectionDate.SuspendLayout();
             this.GrpReasonForNonDelivery1.SuspendLayout();
             this.GrpReasonForNonDelivery2.SuspendLayout();
             this.GrpSortBy.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicWaitList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicWaitContent)).BeginInit();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -72,20 +76,6 @@
             this.LblVersion.TabIndex = 242;
             this.LblVersion.Text = "LblVersion";
             this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1547, 973);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(205, 50);
-            this.BtnClose.TabIndex = 241;
-            this.BtnClose.Text = "戻る";
-            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // LblTitle
             // 
@@ -110,7 +100,6 @@
             this.CmbLogType.Name = "CmbLogType";
             this.CmbLogType.Size = new System.Drawing.Size(185, 36);
             this.CmbLogType.TabIndex = 261;
-            this.CmbLogType.SelectedIndexChanged += new System.EventHandler(this.CmbLogType_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -198,13 +187,12 @@
             // ChkInspectionDate
             // 
             this.ChkInspectionDate.AutoSize = true;
-            this.ChkInspectionDate.Location = new System.Drawing.Point(17, 19);
+            this.ChkInspectionDate.Location = new System.Drawing.Point(17, 20);
             this.ChkInspectionDate.Name = "ChkInspectionDate";
-            this.ChkInspectionDate.Size = new System.Drawing.Size(46, 16);
+            this.ChkInspectionDate.Size = new System.Drawing.Size(103, 16);
             this.ChkInspectionDate.TabIndex = 267;
-            this.ChkInspectionDate.Text = "含む";
+            this.ChkInspectionDate.Text = "更新条件に含む";
             this.ChkInspectionDate.UseVisualStyleBackColor = true;
-            this.ChkInspectionDate.CheckedChanged += new System.EventHandler(this.ChkInspectionDate_CheckedChanged);
             // 
             // GrpInspectionDate
             // 
@@ -252,13 +240,12 @@
             // ChkReasonForNonDelivery1
             // 
             this.ChkReasonForNonDelivery1.AutoSize = true;
-            this.ChkReasonForNonDelivery1.Location = new System.Drawing.Point(17, 16);
+            this.ChkReasonForNonDelivery1.Location = new System.Drawing.Point(17, 18);
             this.ChkReasonForNonDelivery1.Name = "ChkReasonForNonDelivery1";
-            this.ChkReasonForNonDelivery1.Size = new System.Drawing.Size(46, 16);
+            this.ChkReasonForNonDelivery1.Size = new System.Drawing.Size(103, 16);
             this.ChkReasonForNonDelivery1.TabIndex = 267;
-            this.ChkReasonForNonDelivery1.Text = "含む";
+            this.ChkReasonForNonDelivery1.Text = "更新条件に含む";
             this.ChkReasonForNonDelivery1.UseVisualStyleBackColor = true;
-            this.ChkReasonForNonDelivery1.CheckedChanged += new System.EventHandler(this.ChkReasonForNonDelivery1_CheckedChanged);
             // 
             // LblLogFileCount
             // 
@@ -284,20 +271,6 @@
             this.LblContentCount.Text = "LblContentCount";
             this.LblContentCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // BtnUpdate
-            // 
-            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnUpdate.Location = new System.Drawing.Point(836, 77);
-            this.BtnUpdate.Name = "BtnUpdate";
-            this.BtnUpdate.Size = new System.Drawing.Size(116, 53);
-            this.BtnUpdate.TabIndex = 273;
-            this.BtnUpdate.Text = "更新";
-            this.BtnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnUpdate.UseVisualStyleBackColor = true;
-            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
-            // 
             // LblSelectedFile
             // 
             this.LblSelectedFile.BackColor = System.Drawing.Color.White;
@@ -309,20 +282,6 @@
             this.LblSelectedFile.TabIndex = 325;
             this.LblSelectedFile.Text = "LblSelectedFile";
             this.LblSelectedFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnJobSelect
-            // 
-            this.BtnJobSelect.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnJobSelect.Image = global::QrSorterInspectionApp.Properties.Resources.search_file;
-            this.BtnJobSelect.Location = new System.Drawing.Point(366, 58);
-            this.BtnJobSelect.Name = "BtnJobSelect";
-            this.BtnJobSelect.Size = new System.Drawing.Size(144, 46);
-            this.BtnJobSelect.TabIndex = 324;
-            this.BtnJobSelect.Text = "JOB選択";
-            this.BtnJobSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnJobSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnJobSelect.UseVisualStyleBackColor = true;
-            this.BtnJobSelect.Click += new System.EventHandler(this.BtnJobSelect_Click);
             // 
             // BtnJobClear
             // 
@@ -350,13 +309,12 @@
             // ChkReasonForNonDelivery2
             // 
             this.ChkReasonForNonDelivery2.AutoSize = true;
-            this.ChkReasonForNonDelivery2.Location = new System.Drawing.Point(17, 16);
+            this.ChkReasonForNonDelivery2.Location = new System.Drawing.Point(17, 18);
             this.ChkReasonForNonDelivery2.Name = "ChkReasonForNonDelivery2";
-            this.ChkReasonForNonDelivery2.Size = new System.Drawing.Size(46, 16);
+            this.ChkReasonForNonDelivery2.Size = new System.Drawing.Size(103, 16);
             this.ChkReasonForNonDelivery2.TabIndex = 267;
-            this.ChkReasonForNonDelivery2.Text = "含む";
+            this.ChkReasonForNonDelivery2.Text = "更新条件に含む";
             this.ChkReasonForNonDelivery2.UseVisualStyleBackColor = true;
-            this.ChkReasonForNonDelivery2.CheckedChanged += new System.EventHandler(this.ChkReasonForNonDelivery2_CheckedChanged);
             // 
             // CmbReasonForNonDelivery2
             // 
@@ -392,12 +350,76 @@
             this.CmbSortBy.Size = new System.Drawing.Size(133, 31);
             this.CmbSortBy.TabIndex = 265;
             // 
+            // PicWaitList
+            // 
+            this.PicWaitList.Image = global::QrSorterInspectionApp.Properties.Resources.waiting;
+            this.PicWaitList.Location = new System.Drawing.Point(901, 237);
+            this.PicWaitList.Name = "PicWaitList";
+            this.PicWaitList.Size = new System.Drawing.Size(100, 100);
+            this.PicWaitList.TabIndex = 327;
+            this.PicWaitList.TabStop = false;
+            this.PicWaitList.Visible = false;
+            // 
+            // BtnJobSelect
+            // 
+            this.BtnJobSelect.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnJobSelect.Image = global::QrSorterInspectionApp.Properties.Resources.search_file;
+            this.BtnJobSelect.Location = new System.Drawing.Point(366, 58);
+            this.BtnJobSelect.Name = "BtnJobSelect";
+            this.BtnJobSelect.Size = new System.Drawing.Size(144, 46);
+            this.BtnJobSelect.TabIndex = 324;
+            this.BtnJobSelect.Text = "JOB選択";
+            this.BtnJobSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnJobSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnJobSelect.UseVisualStyleBackColor = true;
+            this.BtnJobSelect.Click += new System.EventHandler(this.BtnJobSelect_Click);
+            // 
+            // BtnUpdate
+            // 
+            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
+            this.BtnUpdate.Location = new System.Drawing.Point(836, 77);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Size = new System.Drawing.Size(116, 53);
+            this.BtnUpdate.TabIndex = 273;
+            this.BtnUpdate.Text = "更新";
+            this.BtnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
+            this.BtnClose.Location = new System.Drawing.Point(1547, 973);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(205, 50);
+            this.BtnClose.TabIndex = 241;
+            this.BtnClose.Text = "戻る";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // PicWaitContent
+            // 
+            this.PicWaitContent.Image = global::QrSorterInspectionApp.Properties.Resources.waiting;
+            this.PicWaitContent.Location = new System.Drawing.Point(902, 602);
+            this.PicWaitContent.Name = "PicWaitContent";
+            this.PicWaitContent.Size = new System.Drawing.Size(100, 100);
+            this.PicWaitContent.TabIndex = 328;
+            this.PicWaitContent.TabStop = false;
+            this.PicWaitContent.Visible = false;
+            // 
             // LogListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1066);
             this.ControlBox = false;
+            this.Controls.Add(this.PicWaitContent);
+            this.Controls.Add(this.PicWaitList);
             this.Controls.Add(this.GrpSortBy);
             this.Controls.Add(this.GrpReasonForNonDelivery2);
             this.Controls.Add(this.BtnJobClear);
@@ -431,6 +453,8 @@
             this.GrpReasonForNonDelivery2.ResumeLayout(false);
             this.GrpReasonForNonDelivery2.PerformLayout();
             this.GrpSortBy.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PicWaitList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicWaitContent)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -465,5 +489,7 @@
         internal System.Windows.Forms.ComboBox CmbReasonForNonDelivery2;
         private System.Windows.Forms.GroupBox GrpSortBy;
         internal System.Windows.Forms.ComboBox CmbSortBy;
+        private System.Windows.Forms.PictureBox PicWaitList;
+        private System.Windows.Forms.PictureBox PicWaitContent;
     }
 }
