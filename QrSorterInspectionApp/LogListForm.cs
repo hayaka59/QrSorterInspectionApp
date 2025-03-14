@@ -179,7 +179,7 @@ namespace QrSorterInspectionApp
                 LsvLogContent.Items.Clear();
 
                 sReadLogFile = lstLogFileList[LsbLogList.SelectedIndex];
-
+                SetEnableControl(false);
                 PicWaitContent.Visible = true;
                 iCounter = 0;
                 PubConstClass.lstJobEntryList.Clear();
@@ -200,6 +200,7 @@ namespace QrSorterInspectionApp
                         iCounter++;
                     }
                 }
+                SetEnableControl(true);
                 PicWaitContent.Visible = false;
                 LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count:#,###} 件";
                 
@@ -498,13 +499,38 @@ namespace QrSorterInspectionApp
         /// <param name="e"></param>
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            BtnUpdate.Enabled = false;
+            SetEnableControl(false);
+            
             PicWaitList.Visible = true;
             PicWaitList.Refresh();
             // 検査ログ一覧表示処理
             InspectionLogList();
             PicWaitList.Visible = false;
-            BtnUpdate.Enabled = true;
+            
+            SetEnableControl(true);
+        }
+
+        /// <summary>
+        /// コントロールの有効／無効設定
+        /// </summary>
+        /// <param name="bEnabled"></param>
+        private void SetEnableControl(bool bEnabled)
+        {
+            try
+            {
+                CmbLogType.Enabled = bEnabled;
+                BtnJobSelect.Enabled = bEnabled;
+                BtnJobClear.Enabled = bEnabled;
+                GrpSortBy.Enabled = bEnabled;
+                BtnUpdate.Enabled = bEnabled;
+                GrpInspectionDate.Enabled = bEnabled;
+                GrpReasonForNonDelivery1.Enabled = bEnabled;
+                GrpReasonForNonDelivery2.Enabled = bEnabled;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SetEnableControl】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
