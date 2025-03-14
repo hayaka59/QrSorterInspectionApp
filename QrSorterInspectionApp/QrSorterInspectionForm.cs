@@ -1284,7 +1284,7 @@ namespace QrSorterInspectionApp
                     SendSerialData(PubConstClass.CMD_SEND_e);
                     return;
                 }
-                sWriteDate = DateTime.Now.ToString("yyyy/MM/dd");
+                sWriteDate = DateTime.Now.ToString("yyyyMMdd");
                 sWriteTime = DateTime.Now.ToString("HH:mm:ss");
                
                 strArray = sData.Split(',');
