@@ -2939,6 +2939,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.tabPage4.Controls.Add(this.PicWaitContent);
             this.tabPage4.Controls.Add(this.PicWaitList);
             this.tabPage4.Controls.Add(this.GrpSortBy);
@@ -2958,7 +2959,6 @@
             this.tabPage4.Size = new System.Drawing.Size(1664, 796);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "エラーログ";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // GrpSortBy
             // 
@@ -2992,6 +2992,7 @@
             this.BtnJobClear.Text = "JOBクリア";
             this.BtnJobClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnJobClear.UseVisualStyleBackColor = true;
+            this.BtnJobClear.Click += new System.EventHandler(this.BtnJobClear_Click);
             // 
             // LblSelectedFile
             // 
@@ -3017,6 +3018,7 @@
             this.BtnJobSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnJobSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnJobSelect.UseVisualStyleBackColor = true;
+            this.BtnJobSelect.Click += new System.EventHandler(this.BtnJobSelect_Click);
             // 
             // BtnUpdate
             // 
