@@ -1464,7 +1464,7 @@ namespace QrSorterInspectionApp
 
             try
             {
-                sPath = "エラーログファイル";
+                sPath = "エラーログファイル\\";
                 if (LblSelectedFile.Text != "")
                 {
                     sArrayJob = LblSelectedFile.Text.Split('.');
@@ -1638,6 +1638,48 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【DisplayOneData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void BtnJobSelect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+
+                CommonModule.OutPutLogFile("「JOB選択」ボタンクリック");
+                // 初期表示するフォルダの指定（「空の文字列」の時は現在のディレクトリを表示）
+                //ofd.InitialDirectory = @"C:\";
+                // 「ファイルの種類」に表示される選択肢の指定
+                ofd.Filter = "CSVファイル(*.csv;*.CSV)|*.csv;*.CSV|すべてのファイル(*.*)|*.*";
+                // 「ファイルの種類」ではじめに「CSVファイル(*.csv;*.CSV)」を選択
+                ofd.FilterIndex = 1;
+                // タイトルを設定
+                ofd.Title = "JOB設定ファイルを選択してください";
+                // ダイアログボックスを閉じる前に現在のディレクトリを復元
+                ofd.RestoreDirectory = true;
+                // 存在しないファイルの名前が指定されたとき警告を表示
+                ofd.CheckFileExists = true;
+                // 存在しないパスが指定されたとき警告を表示
+                ofd.CheckPathExists = true;
+                // ダイアログを表示する
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    // 「OK」ボタンがクリック（選択されたファイル名を表示）
+                    string sSelectedFile = ofd.FileName;
+                    string[] sArray = sSelectedFile.Split('\\');
+                    // ファイル名のみを表示する
+                    LblSelectedFile.Text = sArray[sArray.Length - 1];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnJobSelect_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnJobClear_Click(object sender, EventArgs e)
+        {
+            LblSelectedFile.Text = "";
         }
     }
 }
