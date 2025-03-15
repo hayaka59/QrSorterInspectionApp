@@ -316,8 +316,8 @@ namespace QrSorterInspectionApp
                     MyProcDipSw();
                     // 送信データのセット
                     SendSerialData(PubConstClass.CMD_SEND_m + ",0");
-                    // 1.0秒待機
-                    Thread.Sleep(1000);
+                    // 500ミリ秒待機
+                    Thread.Sleep(500);
                     CommonModule.OutPutLogFile("シリアルポートクローズ処理開始");
                     // シリアルポートクローズ
                     SerialPortMaint.Close();
@@ -1437,15 +1437,21 @@ namespace QrSorterInspectionApp
             OutPutData(RdoOutPut16, "8000");
         }
 
+        /// <summary>
+        /// 「更新」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            BtnUpdate.Enabled = false;
+            SetEnableControl(false);
             PicWaitList.Visible = true;
             PicWaitList.Refresh();
             // エラーログ一覧表示処理
             ErrorLogList();
             PicWaitList.Visible = false;
             BtnUpdate.Enabled = true;
+            SetEnableControl(true);
         }
 
         // ログファイル一覧格納リスト
@@ -1569,6 +1575,7 @@ namespace QrSorterInspectionApp
 
                 sReadLogFile = lstLogFileList[LsbLogList.SelectedIndex];
 
+                SetEnableControl(false);
                 PicWaitContent.Visible = true;
                 iCounter = 0;
                 PubConstClass.lstJobEntryList.Clear();
@@ -1581,6 +1588,7 @@ namespace QrSorterInspectionApp
                         iCounter++;
                     }
                 }
+                SetEnableControl(true);
                 PicWaitContent.Visible = false;
                 LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count:#,###} 件"; ;
 
@@ -1680,6 +1688,25 @@ namespace QrSorterInspectionApp
         private void BtnJobClear_Click(object sender, EventArgs e)
         {
             LblSelectedFile.Text = "";
+        }
+
+        /// <summary>
+        /// コントロールの有効／無効設定
+        /// </summary>
+        /// <param name="bEnabled"></param>
+        private void SetEnableControl(bool bEnabled)
+        {
+            try
+            {
+                BtnJobSelect.Enabled = bEnabled;
+                BtnJobClear.Enabled = bEnabled;
+                GrpSortBy.Enabled = bEnabled;
+                BtnUpdate.Enabled = bEnabled;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SetEnableControl】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
