@@ -1284,7 +1284,7 @@ namespace QrSorterInspectionApp
                     SendSerialData(PubConstClass.CMD_SEND_e);
                     return;
                 }
-                sWriteDate = DateTime.Now.ToString("yyyyMMdd");
+                sWriteDate = DateTime.Now.ToString("yyyy/MM/dd");
                 sWriteTime = DateTime.Now.ToString("HH:mm:ss");
                
                 strArray = sData.Split(',');
@@ -1402,7 +1402,7 @@ namespace QrSorterInspectionApp
                     col[3] = "重複";
                 }
 
-                sLogData += DQ + sWriteDate + DQ + ",";                             // 日付
+                sLogData += DQ + sWriteDate.Replace("/", "") + DQ + ",";            // 日付
                 sLogData += DQ + sWriteTime + DQ + ",";                             // 時刻
                 sLogData += DQ + DQ + ",";                                          // 期待値                       Null
                 sLogData += DQ + strArray[0].Trim() + DQ + ",";                     // 読取値
