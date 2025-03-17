@@ -148,18 +148,18 @@ namespace QrSorterInspectionApp
                 ColumnHeader col02 = new ColumnHeader();
                 ColumnHeader col03 = new ColumnHeader();
                 ColumnHeader col04 = new ColumnHeader();                
-                col01.Text = "　　作成年月日 時分秒";
+                col01.Text = "　　発生年月日 時分秒";
                 col02.Text = "エラー番号";
                 col03.Text = "エラー箇所";
-                col04.Text = "エラー内容";
+                col04.Text = "　　　エラー内容";
                 col01.TextAlign = HorizontalAlignment.Center;
                 col02.TextAlign = HorizontalAlignment.Center;
                 col03.TextAlign = HorizontalAlignment.Center;
-                col04.TextAlign = HorizontalAlignment.Center;
-                col01.Width = 300;         // 作成年月日 時分秒
-                col02.Width = 200;         // エラー番号
-                col03.Width = 200;         // エラー箇所
-                col04.Width = 400;         // エラー内容
+                col04.TextAlign = HorizontalAlignment.Left;
+                col01.Width = 200;         // 発生年月日 時分秒
+                col02.Width = 150;         // エラー番号
+                col03.Width = 300;         // エラー箇所
+                col04.Width = 800;         // エラー内容
                 ColumnHeader[] colHeaderOK = new[] { col01, col02, col03, col04 };
                 LsvLogContent.Columns.AddRange(colHeaderOK);
                 #endregion
@@ -1525,6 +1525,19 @@ namespace QrSorterInspectionApp
                     sArray = sTranFile.Split('\\');
                     string sFileName = sArray[sArray.Length - 1];
                     string sFileNameFullPath = sTranFile;
+
+                    // 検査日付で絞り込む
+                    if (ChkInspectionDate.Checked)
+                    {
+                        string[] sArrayDate = sFileName.Split('_');
+                        if (!(int.Parse(dtTimePickerFrom.Value.ToString("yyyyMMdd")) <= int.Parse(sArrayDate[sArrayDate.Length - 1].Substring(0, 8)) &
+                            int.Parse(dtTimePickerTo.Value.ToString("yyyyMMdd")) >= int.Parse(sArrayDate[sArrayDate.Length - 1].Substring(0, 8))))
+                        {
+                            // 該当しないので対象ファイルから外す
+                            sFileName = "";
+                            sFileNameFullPath = "";
+                        }
+                    }
 
                     if (sFileName != "")
                     {
