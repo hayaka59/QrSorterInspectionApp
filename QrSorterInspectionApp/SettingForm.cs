@@ -144,6 +144,7 @@ namespace QrSorterInspectionApp
                 if (PubConstClass.pblOffLineMode == "1")
                 {
                     GrpSorterSetting.Text = "ソーター設定（オフラインモード）";
+                    GrpSorterSetting.Enabled = false;
                 }
                 else
                 {
