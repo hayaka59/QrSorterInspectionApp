@@ -40,7 +40,7 @@ namespace QrSorterInspectionApp
         public const string CMD_RECIEVE_L = "L";                                // QR読取り直後のデータ送信コマンド
         public const string CMD_RECIEVE_T = "T";                                // DIP-SW情報要求コマンド
 
-        public const string DEF_VERSION = "Ver.0.3.1.7";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
+        public const string DEF_VERSION = "Ver.0.3.1.9";                        // バージョン情報（メジャー.マイナー.ビルド.リビジョン） 
         public static object objSyncHist;                                       // 排他制御用オブジェクト（操作ログ書込用）
 
         /// <summary>
@@ -96,6 +96,7 @@ namespace QrSorterInspectionApp
         public const string DEF_HDD_SPACE            = "ディスク空き容量";
         public const string DEF_INTERNAL_TRAN_FOLDER = "内部実績ログ格納フォルダ";
         public const string DEF_DIP_SW               = "DIPSW";
+        public const string DEF_OFFLINE_MODE         = "オフラインモード";
         // COMポート１
         public const string DEF_COMPORT              = "COMポート名";
         public const string DEF_COM_SPEED            = "COM通信速度";
@@ -109,6 +110,7 @@ namespace QrSorterInspectionApp
         public static string pblHddSpace;                                       // ディスク空き容量
         public static string pblInternalTranFolder;                             // 内部実績ログ格納フォルダ
         public static string pblDipSw;                                          // DIP-SW
+        public static string pblOffLineMode;                                    // オフラインモード
         // COMポート１
         public static string pblComPort;                                        // COMポート名
         public static string pblComSpeed;                                       // 通信速度
