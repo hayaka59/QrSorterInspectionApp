@@ -96,6 +96,7 @@ namespace QrSorterInspectionApp
         public const string DEF_HDD_SPACE            = "ディスク空き容量";
         public const string DEF_INTERNAL_TRAN_FOLDER = "内部実績ログ格納フォルダ";
         public const string DEF_DIP_SW               = "DIPSW";
+        public const string DEF_OFFLINE_MODE         = "オフラインモード";
         // COMポート１
         public const string DEF_COMPORT              = "COMポート名";
         public const string DEF_COM_SPEED            = "COM通信速度";
@@ -109,6 +110,7 @@ namespace QrSorterInspectionApp
         public static string pblHddSpace;                                       // ディスク空き容量
         public static string pblInternalTranFolder;                             // 内部実績ログ格納フォルダ
         public static string pblDipSw;                                          // DIP-SW
+        public static string pblOffLineMode;                                    // オフラインモード
         // COMポート１
         public static string pblComPort;                                        // COMポート名
         public static string pblComSpeed;                                       // 通信速度

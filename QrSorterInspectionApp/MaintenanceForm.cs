@@ -63,7 +63,8 @@ namespace QrSorterInspectionApp
 
                 // 内部実績ログ格納フォルダ
                 TxtInternalTran.Text = PubConstClass.pblInternalTranFolder;
-
+                // オフラインモードを有効とする
+                ChkOffLine.Checked = PubConstClass.pblOffLineMode == "1" ? true : false;
                 // COMポート名
                 CmbComPort.Items.Clear();
                 for (int iIndex = 1; iIndex <= 15; iIndex++)
@@ -358,6 +359,8 @@ namespace QrSorterInspectionApp
                     {
                         PubConstClass.pblDipSw += sDipSwitch[15 - iIndex];
                     }
+                    // オフラインモードを有効とする
+                    PubConstClass.pblOffLineMode = ChkOffLine.Checked == true ? "1": "0";
                     // 通信設定
                     PubConstClass.pblComPort = CmbComPort.SelectedItem.ToString();
                     PubConstClass.pblComSpeed = CmbComSpeed.SelectedIndex.ToString();
@@ -1465,8 +1468,6 @@ namespace QrSorterInspectionApp
             string[] sArray;
             string[] sArrayJob;
             string sPath;
-            string sMes;
-            string sTitle;
 
             try
             {

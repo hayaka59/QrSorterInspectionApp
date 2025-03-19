@@ -350,6 +350,21 @@ namespace QrSorterInspectionApp
                 // リストビューのダブルバッファを有効とする
                 EnableDoubleBuffering(LsvOKHistory);
                 EnableDoubleBuffering(LsvNGHistory);
+
+                if (PubConstClass.pblOffLineMode == "1")
+                {
+                    LblTitle.Text = "QRフィーダー＆ソーター検査画面（オフラインモード）";
+                    LblOffLine.Visible = true;
+                    
+                    //LblBoxTitle2.Visible = false;
+                    //pictureBox4.Visible = false;
+                    //LblPocket2.Visible = false;
+                }
+                else
+                {
+                    LblTitle.Text = "QRフィーダー＆ソーター検査画面";
+                    LblOffLine.Visible = false;
+                }
             }
             catch (Exception ex)
             {

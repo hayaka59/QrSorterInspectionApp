@@ -34,6 +34,7 @@ namespace QrSorterInspectionApp
             {
                 LblVersion.Text = PubConstClass.DEF_VERSION;
                 CommonModule.OutPutLogFile("メニュー画面を表示しました");
+                PubConstClass.pblOffLineMode = "0";
                 // システム定義ファイル読込
                 CommonModule.ReadSystemDefinition();
                 // エラーメッセージファイル読込
