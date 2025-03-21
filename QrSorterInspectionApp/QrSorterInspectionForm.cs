@@ -1197,7 +1197,7 @@ namespace QrSorterInspectionApp
 
             try
             {
-                LblError.Text = $"エラーコマンド「{sData.Replace("\r","<CR>")}」受信";
+                LblError.Text = $"エラーコマンド「{sData.Replace("\r", "<CR>")}」受信";
                 LblError.Visible = true;
 
                 sErrorCode = sData.Substring(2, 3);
@@ -1233,10 +1233,25 @@ namespace QrSorterInspectionApp
                     CommonModule.OutPutLogFile($"エラー内容：{sErrorCode},未定義エラー番号,未定義のエラー番号です。");
                     sErrorData += "未定義エラー番号,未定義のエラー番号です。";
                 }
+                // エラーフォルダ及びエラーファイル名のチェック
+                if (sJobFolderName == null || sFileNameForErrorLog == null) {
+                    // NULLの場合
+                    sJobFolderName = "JOB未選択0000000000";
+                    sFileNameForErrorLog = "JOB未選択0000000000_0_0_errorlog_" + DateTime.Now.ToString("yyyyMMdd")+"000000.csv";
+                    CommonModule.OutPutLogFile($"エラーファイル名を作成しました：{sFileNameForErrorLog}");
+                    string sFolderName = "";
+                    sFolderName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
+                    sFolderName += ERROR_FOLDER_NAME + sJobFolderName + "\\";
+                    if (!Directory.Exists(sFolderName)) { 
+                        Directory.CreateDirectory(sFolderName);
+                        CommonModule.OutPutLogFile($"エラーフォルダを作成しました：{sFolderName}");
+                    }
+                }
                 // エラーファイル名の生成
                 sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);
                 sSaveFileName += ERROR_FOLDER_NAME + sJobFolderName + "\\";
                 sSaveFileName += sFileNameForErrorLog;
+
                 // エラーデータ書込処理
                 using (StreamWriter sw = new StreamWriter(sSaveFileName, true, Encoding.Default))
                 {                    
