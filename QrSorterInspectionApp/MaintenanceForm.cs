@@ -1522,7 +1522,7 @@ namespace QrSorterInspectionApp
                 // 検査ログ対象ファイルの取得
                 foreach (string sTranFile in lstFileList)
                 {
-                    CommonModule.OutPutLogFile($"エラーログ対象ファイル：{sTranFile}");
+                    //CommonModule.OutPutLogFile($"エラーログ対象ファイル：{sTranFile}");
                     sArray = sTranFile.Split('\\');
                     string sFileName = sArray[sArray.Length - 1];
                     string sFileNameFullPath = sTranFile;
