@@ -144,6 +144,9 @@ namespace QrSorterInspectionApp
                 }
 
                 LblStatus.Visible = false;
+
+                // DIP-SW 情報送信
+                MyProcDipSw();
             }
             catch (Exception ex)
             {
