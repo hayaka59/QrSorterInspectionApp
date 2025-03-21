@@ -106,6 +106,7 @@
             this.LblQrReadData = new System.Windows.Forms.Label();
             this.LblDuplicateCheck = new System.Windows.Forms.Label();
             this.LstSettingInfomation = new System.Windows.Forms.ListBox();
+            this.LblOffLine = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -1041,12 +1042,26 @@
             this.LstSettingInfomation.Size = new System.Drawing.Size(231, 140);
             this.LstSettingInfomation.TabIndex = 337;
             // 
+            // LblOffLine
+            // 
+            this.LblOffLine.BackColor = System.Drawing.Color.White;
+            this.LblOffLine.Font = new System.Drawing.Font("メイリオ", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblOffLine.ForeColor = System.Drawing.Color.Blue;
+            this.LblOffLine.Location = new System.Drawing.Point(379, 740);
+            this.LblOffLine.Name = "LblOffLine";
+            this.LblOffLine.Size = new System.Drawing.Size(1110, 216);
+            this.LblOffLine.TabIndex = 338;
+            this.LblOffLine.Text = "オフラインモード";
+            this.LblOffLine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblOffLine.Visible = false;
+            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.LblOffLine);
             this.Controls.Add(this.BtnSetting);
             this.Controls.Add(this.LstSettingInfomation);
             this.Controls.Add(this.LblDuplicateCheck);
@@ -1215,5 +1230,6 @@
         internal System.Windows.Forms.Label LblQrReadData;
         internal System.Windows.Forms.Label LblDuplicateCheck;
         private System.Windows.Forms.ListBox LstSettingInfomation;
+        internal System.Windows.Forms.Label LblOffLine;
     }
 }

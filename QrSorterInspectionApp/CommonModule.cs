@@ -432,6 +432,12 @@ namespace QrSorterInspectionApp
                                     PubConstClass.pblDipSw = strArray[1];
                                     break;
                                 }
+                            // オフラインモード
+                            case PubConstClass.DEF_OFFLINE_MODE:
+                                {
+                                    PubConstClass.pblOffLineMode = strArray[1];
+                                    break;
+                                }
                             // COMポート名
                             case PubConstClass.DEF_COMPORT:
                                 {
@@ -507,6 +513,8 @@ namespace QrSorterInspectionApp
                     sw.WriteLine(PubConstClass.DEF_INTERNAL_TRAN_FOLDER + "," + PubConstClass.pblInternalTranFolder);
                     // DIP-SW
                     sw.WriteLine(PubConstClass.DEF_DIP_SW + "," + PubConstClass.pblDipSw);
+                    // オフラインモード
+                    sw.WriteLine(PubConstClass.DEF_OFFLINE_MODE + "," + PubConstClass.pblOffLineMode);
                     // COMポート名
                     sw.WriteLine(PubConstClass.DEF_COMPORT + "," + PubConstClass.pblComPort);
                     // COM通信速度

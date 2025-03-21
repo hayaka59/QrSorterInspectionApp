@@ -252,6 +252,11 @@
             this.BtnDipOff1 = new System.Windows.Forms.Button();
             this.Label54 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.GrpInspectionDate = new System.Windows.Forms.GroupBox();
+            this.dtTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtTimePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.ChkInspectionDate = new System.Windows.Forms.CheckBox();
             this.PicWaitContent = new System.Windows.Forms.PictureBox();
             this.PicWaitList = new System.Windows.Forms.PictureBox();
             this.GrpSortBy = new System.Windows.Forms.GroupBox();
@@ -270,11 +275,7 @@
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.SerialPortMaint = new System.IO.Ports.SerialPort(this.components);
-            this.GrpInspectionDate = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtTimePickerTo = new System.Windows.Forms.DateTimePicker();
-            this.ChkInspectionDate = new System.Windows.Forms.CheckBox();
-            this.dtTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.ChkOffLine = new System.Windows.Forms.CheckBox();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox6.SuspendLayout();
@@ -306,11 +307,11 @@
             this.Panel2.SuspendLayout();
             this.Panel17.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.GrpInspectionDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicWaitContent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicWaitList)).BeginInit();
             this.GrpSortBy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).BeginInit();
-            this.GrpInspectionDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblTitle
@@ -771,6 +772,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ChkOffLine);
             this.tabPage1.Controls.Add(this.BtnDecript);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.BtnEncript);
@@ -2967,6 +2969,58 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "エラーログ";
             // 
+            // GrpInspectionDate
+            // 
+            this.GrpInspectionDate.Controls.Add(this.dtTimePickerFrom);
+            this.GrpInspectionDate.Controls.Add(this.label3);
+            this.GrpInspectionDate.Controls.Add(this.dtTimePickerTo);
+            this.GrpInspectionDate.Controls.Add(this.ChkInspectionDate);
+            this.GrpInspectionDate.Location = new System.Drawing.Point(665, 15);
+            this.GrpInspectionDate.Name = "GrpInspectionDate";
+            this.GrpInspectionDate.Size = new System.Drawing.Size(407, 85);
+            this.GrpInspectionDate.TabIndex = 340;
+            this.GrpInspectionDate.TabStop = false;
+            this.GrpInspectionDate.Text = "検査日付";
+            // 
+            // dtTimePickerFrom
+            // 
+            this.dtTimePickerFrom.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerFrom.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerFrom.Location = new System.Drawing.Point(15, 41);
+            this.dtTimePickerFrom.Name = "dtTimePickerFrom";
+            this.dtTimePickerFrom.Size = new System.Drawing.Size(171, 31);
+            this.dtTimePickerFrom.TabIndex = 266;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label3.Location = new System.Drawing.Point(190, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 24);
+            this.label3.TabIndex = 269;
+            this.label3.Text = "～";
+            // 
+            // dtTimePickerTo
+            // 
+            this.dtTimePickerTo.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerTo.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtTimePickerTo.Location = new System.Drawing.Point(219, 41);
+            this.dtTimePickerTo.Name = "dtTimePickerTo";
+            this.dtTimePickerTo.Size = new System.Drawing.Size(171, 31);
+            this.dtTimePickerTo.TabIndex = 268;
+            // 
+            // ChkInspectionDate
+            // 
+            this.ChkInspectionDate.AutoSize = true;
+            this.ChkInspectionDate.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ChkInspectionDate.Location = new System.Drawing.Point(17, 20);
+            this.ChkInspectionDate.Name = "ChkInspectionDate";
+            this.ChkInspectionDate.Size = new System.Drawing.Size(119, 24);
+            this.ChkInspectionDate.TabIndex = 267;
+            this.ChkInspectionDate.Text = "更新条件に含む";
+            this.ChkInspectionDate.UseVisualStyleBackColor = true;
+            // 
             // PicWaitContent
             // 
             this.PicWaitContent.Image = global::QrSorterInspectionApp.Properties.Resources.waiting;
@@ -3172,57 +3226,16 @@
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // GrpInspectionDate
+            // ChkOffLine
             // 
-            this.GrpInspectionDate.Controls.Add(this.dtTimePickerFrom);
-            this.GrpInspectionDate.Controls.Add(this.label3);
-            this.GrpInspectionDate.Controls.Add(this.dtTimePickerTo);
-            this.GrpInspectionDate.Controls.Add(this.ChkInspectionDate);
-            this.GrpInspectionDate.Location = new System.Drawing.Point(665, 15);
-            this.GrpInspectionDate.Name = "GrpInspectionDate";
-            this.GrpInspectionDate.Size = new System.Drawing.Size(407, 85);
-            this.GrpInspectionDate.TabIndex = 340;
-            this.GrpInspectionDate.TabStop = false;
-            this.GrpInspectionDate.Text = "検査日付";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(190, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 24);
-            this.label3.TabIndex = 269;
-            this.label3.Text = "～";
-            // 
-            // dtTimePickerTo
-            // 
-            this.dtTimePickerTo.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dtTimePickerTo.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dtTimePickerTo.Location = new System.Drawing.Point(219, 41);
-            this.dtTimePickerTo.Name = "dtTimePickerTo";
-            this.dtTimePickerTo.Size = new System.Drawing.Size(171, 31);
-            this.dtTimePickerTo.TabIndex = 268;
-            // 
-            // ChkInspectionDate
-            // 
-            this.ChkInspectionDate.AutoSize = true;
-            this.ChkInspectionDate.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ChkInspectionDate.Location = new System.Drawing.Point(17, 20);
-            this.ChkInspectionDate.Name = "ChkInspectionDate";
-            this.ChkInspectionDate.Size = new System.Drawing.Size(119, 24);
-            this.ChkInspectionDate.TabIndex = 267;
-            this.ChkInspectionDate.Text = "更新条件に含む";
-            this.ChkInspectionDate.UseVisualStyleBackColor = true;
-            // 
-            // dtTimePickerFrom
-            // 
-            this.dtTimePickerFrom.CalendarFont = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dtTimePickerFrom.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dtTimePickerFrom.Location = new System.Drawing.Point(15, 41);
-            this.dtTimePickerFrom.Name = "dtTimePickerFrom";
-            this.dtTimePickerFrom.Size = new System.Drawing.Size(171, 31);
-            this.dtTimePickerFrom.TabIndex = 266;
+            this.ChkOffLine.AutoSize = true;
+            this.ChkOffLine.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ChkOffLine.Location = new System.Drawing.Point(63, 396);
+            this.ChkOffLine.Name = "ChkOffLine";
+            this.ChkOffLine.Size = new System.Drawing.Size(253, 28);
+            this.ChkOffLine.TabIndex = 268;
+            this.ChkOffLine.Text = "オフラインモードを有効とする";
+            this.ChkOffLine.UseVisualStyleBackColor = true;
             // 
             // MaintenanceForm
             // 
@@ -3279,12 +3292,12 @@
             this.Panel2.ResumeLayout(false);
             this.Panel17.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.GrpInspectionDate.ResumeLayout(false);
+            this.GrpInspectionDate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicWaitContent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicWaitList)).EndInit();
             this.GrpSortBy.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PctLogo)).EndInit();
-            this.GrpInspectionDate.ResumeLayout(false);
-            this.GrpInspectionDate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3536,5 +3549,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtTimePickerTo;
         private System.Windows.Forms.CheckBox ChkInspectionDate;
+        private System.Windows.Forms.CheckBox ChkOffLine;
     }
 }

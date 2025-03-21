@@ -140,6 +140,16 @@ namespace QrSorterInspectionApp
                 {
                     LblTitle.Text = "設定";
                 }
+
+                if (PubConstClass.pblOffLineMode == "1")
+                {
+                    GrpSorterSetting.Text = "ソーター設定（オフラインモード）";
+                    GrpSorterSetting.Enabled = false;
+                }
+                else
+                {
+                    GrpSorterSetting.Text = "ソーター設定";
+                }
             }
             catch (Exception ex)
             {
