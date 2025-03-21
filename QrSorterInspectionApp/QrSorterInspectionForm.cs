@@ -1454,7 +1454,7 @@ namespace QrSorterInspectionApp
                 sLogData += DQ + sNonDeliveryReason2 + DQ + ",";                    // 仕分２
                 sLogData += DQ + DQ + ",";                                          // ファイル名（画像）			Null
                 sLogData += DQ + DQ + ",";                                          // ファイルパス（画像）			Null
-                sLogData += DQ + DQ + ",";                                          // 工場コード					Null
+                sLogData += DQ + DQ;                                          // 工場コード					Null
 
                 // データの表示（判定が「OK」でトレイ情報が「E」以外）
                 if (col[3] == "OK" && col[4] != "E" && bIsTrayOk == true)
@@ -1689,7 +1689,7 @@ namespace QrSorterInspectionApp
                 sHeader += "\"仕分けコード２\",";
                 sHeader += "\"ファイル名（画像）\",";
                 sHeader += "\"ファイルパス（画像）\",";
-                sHeader += "\"工場コード\",";
+                sHeader += "\"工場コード\"";
                 return sHeader;
             }
             catch (Exception ex)
