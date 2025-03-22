@@ -35,7 +35,6 @@
             this.LsvLogContent = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.LsbLogList = new System.Windows.Forms.ListBox();
             this.CmbReasonForNonDelivery1 = new System.Windows.Forms.ComboBox();
             this.dtTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.ChkInspectionDate = new System.Windows.Forms.CheckBox();
@@ -58,6 +57,7 @@
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.PicWaitContent = new System.Windows.Forms.PictureBox();
+            this.LsvLogList = new System.Windows.Forms.ListView();
             this.GrpInspectionDate.SuspendLayout();
             this.GrpReasonForNonDelivery1.SuspendLayout();
             this.GrpReasonForNonDelivery2.SuspendLayout();
@@ -151,17 +151,6 @@
             this.label1.TabIndex = 262;
             this.label1.Text = "検査ログ一覧";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LsbLogList
-            // 
-            this.LsbLogList.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LsbLogList.FormattingEnabled = true;
-            this.LsbLogList.ItemHeight = 24;
-            this.LsbLogList.Location = new System.Drawing.Point(38, 182);
-            this.LsbLogList.Name = "LsbLogList";
-            this.LsbLogList.Size = new System.Drawing.Size(1827, 220);
-            this.LsbLogList.TabIndex = 263;
-            this.LsbLogList.SelectedIndexChanged += new System.EventHandler(this.LsbLogList_SelectedIndexChanged);
             // 
             // CmbReasonForNonDelivery1
             // 
@@ -412,6 +401,19 @@
             this.PicWaitContent.TabStop = false;
             this.PicWaitContent.Visible = false;
             // 
+            // LsvLogList
+            // 
+            this.LsvLogList.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsvLogList.FullRowSelect = true;
+            this.LsvLogList.GridLines = true;
+            this.LsvLogList.HideSelection = false;
+            this.LsvLogList.Location = new System.Drawing.Point(38, 181);
+            this.LsvLogList.Name = "LsvLogList";
+            this.LsvLogList.Size = new System.Drawing.Size(1827, 221);
+            this.LsvLogList.TabIndex = 329;
+            this.LsvLogList.UseCompatibleStateImageBehavior = false;
+            this.LsvLogList.SelectedIndexChanged += new System.EventHandler(this.LsvLogList_SelectedIndexChanged);
+            // 
             // LogListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -430,7 +432,6 @@
             this.Controls.Add(this.LblLogFileCount);
             this.Controls.Add(this.GrpReasonForNonDelivery1);
             this.Controls.Add(this.GrpInspectionDate);
-            this.Controls.Add(this.LsbLogList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbLogType);
             this.Controls.Add(this.label3);
@@ -439,6 +440,7 @@
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.LblTitle);
+            this.Controls.Add(this.LsvLogList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -469,7 +471,6 @@
         private System.Windows.Forms.ListView LsvLogContent;
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox LsbLogList;
         internal System.Windows.Forms.ComboBox CmbReasonForNonDelivery1;
         private System.Windows.Forms.DateTimePicker dtTimePickerFrom;
         private System.Windows.Forms.CheckBox ChkInspectionDate;
@@ -491,5 +492,6 @@
         internal System.Windows.Forms.ComboBox CmbSortBy;
         private System.Windows.Forms.PictureBox PicWaitList;
         private System.Windows.Forms.PictureBox PicWaitContent;
+        private System.Windows.Forms.ListView LsvLogList;
     }
 }

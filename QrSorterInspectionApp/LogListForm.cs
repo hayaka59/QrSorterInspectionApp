@@ -36,7 +36,27 @@ namespace QrSorterInspectionApp
                 CmbLogType.Items.Add("ＯＫログ");
                 CmbLogType.Items.Add("全件ログ");
                 CmbLogType.SelectedIndex = 0;
-                #region 検査ログのヘッダー設定
+
+                #region 検査ログ一覧のヘッダー設定
+                // ListViewのカラムヘッダー設定
+                LsvLogList.View = View.Details;
+                ColumnHeader col1 = new ColumnHeader();
+                ColumnHeader col2 = new ColumnHeader();
+                ColumnHeader col3 = new ColumnHeader();
+                col1.Text = "　　検査ログファイル名";
+                col2.Text = "件数";
+                col3.Text = "格納フォルダ";
+                col1.TextAlign = HorizontalAlignment.Left;
+                col2.TextAlign = HorizontalAlignment.Center;
+                col3.TextAlign = HorizontalAlignment.Left;
+                col1.Width = 600;         // 検査ログファイル名
+                col2.Width = 100;         // 件数
+                col3.Width = 1100;        // 格納フォルダ
+                ColumnHeader[] colHeaderList = new[] { col1, col2, col3 };
+                LsvLogList.Columns.AddRange(colHeaderList);
+                #endregion
+
+                #region 検査ログ内容のヘッダー設定
                 // ListViewのカラムヘッダー設定
                 LsvLogContent.View = View.Details;
                 ColumnHeader col01 = new ColumnHeader();
@@ -111,8 +131,9 @@ namespace QrSorterInspectionApp
                 CmbSortBy.Items.Add("ファイル名順");
                 CmbSortBy.SelectedIndex = 0;
 
-                EnableDoubleBuffering(LsbLogList);
-
+                //EnableDoubleBuffering(LsbLogList);
+                //EnableDoubleBuffering(LsvLogContent);
+                
                 // 検査ログ一覧表示処理
                 //InspectionLogList();
             }
@@ -157,62 +178,6 @@ namespace QrSorterInspectionApp
 
         // ログファイル一覧格納リスト
         private List<string> lstLogFileList = new List<string>();
-
-        /// <summary>
-        /// 検査ログファイル一覧表示の選択行の変更処理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LsbLogList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string sReadLogFile;
-            string sData;
-            int iCounter;
-
-            try
-            {
-                if (LsbLogList.SelectedItem == null)
-                {
-                    return;
-                }
-
-                LsvLogContent.Items.Clear();
-
-                sReadLogFile = lstLogFileList[LsbLogList.SelectedIndex];
-                SetEnableControl(false);
-                PicWaitContent.Visible = true;
-                iCounter = 0;
-                PubConstClass.lstJobEntryList.Clear();
-                using (StreamReader sr = new StreamReader(sReadLogFile, Encoding.Default))
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        //PicWaitContent.Refresh();
-                        sData = sr.ReadLine();
-                        if (iCounter > 0)
-                        {                            
-                            DisplayOneData(sData);                            
-                        }
-                        else
-                        {
-                            CommonModule.OutPutLogFile($"ヘッダー情報をスキップ：{sData}");
-                        }
-                        iCounter++;
-                    }
-                }
-                SetEnableControl(true);
-                PicWaitContent.Visible = false;
-                LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count:#,###} 件";
-                
-                LsvLogContent.Items[0].UseItemStyleForSubItems = false;
-                LsvLogContent.Select();
-                LsvLogContent.Items[0].EnsureVisible();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "【LsbLogList_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         /// <summary>
         /// 検査ログデータの１行分の表示
@@ -374,9 +339,11 @@ namespace QrSorterInspectionApp
                     return;
                 }
 
-
+                // ログファイル一覧格納リストのクリア
                 lstLogFileList.Clear();
-                LsbLogList.Items.Clear();
+                // 検査ログ一覧のクリア
+                LsvLogList.Items.Clear();
+                // 検査ログの内容のクリア
                 LsvLogContent.Items.Clear();
 
                 List<string> lstFileList = new List<string>();
@@ -457,21 +424,53 @@ namespace QrSorterInspectionApp
                     if (sFileName != "")
                     {
                         string sPathName;
+
+
                         if (CmbLogType.SelectedIndex == 0)
                         {
                             // OKログ
-                            sPathName = sArray[0] + "¥" + sArray[1] + "¥" + sArray[2] + "¥" + sArray[4] + "¥" + sArray[5];
+                            if (sArray[3] == "")
+                            {
+                                // JOB名でのフィルタ無し
+                                sPathName = sArray[0] + "¥" + sArray[1] + "¥" + sArray[2] + "¥" + sArray[4] + "¥" + sArray[5];
+                            }
+                            else
+                            {
+                                // JOB名でのフィルタ有り
+                                sPathName = sArray[0] + "¥" + sArray[1] + "¥" + sArray[2] + "¥" + sArray[3] + "¥" + sArray[4];
+                            }
                         }
                         else
                         {
-                            // 全件ログ
-                            sPathName = sArray[0] + "¥" + sArray[1] + "¥" + sArray[2] + "¥" + sArray[4];
+                            // 全件ログ                           
+                            if (sArray[3] == "")
+                            {
+                                // JOB名でのフィルタ無し
+                                sPathName = sArray[0] + "¥" + sArray[1] + "¥" + sArray[2] + "¥" + sArray[4];
+                            }
+                            else
+                            {
+                                // JOB名でのフィルタ有り
+                                sPathName = sArray[0] + "¥" + sArray[1] + "¥" + sArray[2] + "¥" + sArray[3];
+                            }
                         }
-
+                        // 件数の取得
                         string[] Lines = File.ReadAllLines(sTranFile);
-
-                        LsbLogList.Items.Add($"{sArray[sArray.Length - 1]}　件数：{Lines.Length - 1}件　 （格納フォルダ：{sPathName}）");
+                        // 検査ログファイル一覧格納リストに追加
                         lstLogFileList.Add(sTranFile);
+
+                        string[] col = new string[3];
+                        ListViewItem itm;
+                        col[0] = sArray[sArray.Length - 1];     // ファイル名
+                        col[1] = $"{Lines.Length - 1}件";       // 件数
+                        col[2] = sPathName;                     // 格納フォルダ
+
+                        // データの表示
+                        itm = new ListViewItem(col);
+                        LsvLogList.Items.Add(itm);
+                        LsvLogList.Items[0].UseItemStyleForSubItems = false;
+                        LsvLogList.Select();
+                        LsvLogList.Items[0].EnsureVisible();
                     }
                 }
 
@@ -479,7 +478,7 @@ namespace QrSorterInspectionApp
                 {
                     sArrayJob[0] = "指定なし";
                 }
-                LblLogFileCount.Text = $"JOB名（{sArrayJob[0]}）{sTitle}{LsbLogList.Items.Count:#,###} 件";
+                LblLogFileCount.Text = $"JOB名（{sArrayJob[0]}）{sTitle}{LsvLogList.Items.Count:#,###} 件";
             }
             catch (Exception ex)
             {
@@ -530,6 +529,64 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【SetEnableControl】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LsvLogList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sReadLogFile;
+            string sData;
+            int iCounter;
+
+            try
+            {
+                if (LsvLogList.SelectedItems.Count == 0)
+                {
+                    return;
+                }
+
+                LsvLogContent.Items.Clear();
+
+                sReadLogFile = lstLogFileList[LsvLogList.SelectedItems[0].Index];
+                //sReadLogFile = LsvLogList.Items[0].Text;
+
+                SetEnableControl(false);
+                PicWaitContent.Visible = true;
+                iCounter = 0;
+                PubConstClass.lstJobEntryList.Clear();
+                using (StreamReader sr = new StreamReader(sReadLogFile, Encoding.Default))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        //PicWaitContent.Refresh();
+                        sData = sr.ReadLine();
+                        if (iCounter > 0)
+                        {
+                            DisplayOneData(sData);
+                        }
+                        else
+                        {
+                            CommonModule.OutPutLogFile($"ヘッダー情報をスキップ：{sData}");
+                        }
+                        iCounter++;
+                    }
+                }
+                SetEnableControl(true);
+                PicWaitContent.Visible = false;
+                LblContentCount.Text = $"表示ログ件数：{LsvLogContent.Items.Count:#,###} 件";
+
+                LsvLogContent.Items[0].UseItemStyleForSubItems = false;
+                LsvLogContent.Select();
+                LsvLogContent.Items[0].EnsureVisible();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【LsvLogList_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
