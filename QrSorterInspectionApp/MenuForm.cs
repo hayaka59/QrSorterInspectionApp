@@ -147,6 +147,14 @@ namespace QrSorterInspectionApp
 
                 // DIP-SW 情報送信
                 MyProcDipSw();
+
+                // 現在の日付（年月日）を求める
+                DateTime dtCurrent = DateTime.Now;
+                int intMinusMonth = Convert.ToInt32(PubConstClass.pblSaveLogMonth);
+                // 現在日付から１ヶ月を減算
+                DateTime dtPassDate = dtCurrent.AddMonths(-(intMinusMonth));
+                CommonModule.OutPutLogFile($"現在の日付から{intMinusMonth}ヶ月より前（{dtPassDate}）のファイルを削除します。");
+                CommonModule.DeleteLogFiles(intMinusMonth);
             }
             catch (Exception ex)
             {

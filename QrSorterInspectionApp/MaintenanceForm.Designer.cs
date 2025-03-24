@@ -69,6 +69,7 @@
             this.LblNonDelivery = new System.Windows.Forms.Label();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ChkOffLine = new System.Windows.Forms.CheckBox();
             this.BtnDecript = new System.Windows.Forms.Button();
             this.BtnEncript = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -267,7 +268,6 @@
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.LblContentCount = new System.Windows.Forms.Label();
             this.LblLogFileCount = new System.Windows.Forms.Label();
-            this.LsbLogList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LsvLogContent = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
@@ -275,7 +275,7 @@
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.SerialPortMaint = new System.IO.Ports.SerialPort(this.components);
-            this.ChkOffLine = new System.Windows.Forms.CheckBox();
+            this.LsvLogList = new System.Windows.Forms.ListView();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox6.SuspendLayout();
@@ -789,6 +789,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "システム設定";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ChkOffLine
+            // 
+            this.ChkOffLine.AutoSize = true;
+            this.ChkOffLine.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ChkOffLine.Location = new System.Drawing.Point(63, 396);
+            this.ChkOffLine.Name = "ChkOffLine";
+            this.ChkOffLine.Size = new System.Drawing.Size(253, 28);
+            this.ChkOffLine.TabIndex = 268;
+            this.ChkOffLine.Text = "オフラインモードを有効とする";
+            this.ChkOffLine.UseVisualStyleBackColor = true;
             // 
             // BtnDecript
             // 
@@ -2958,10 +2969,10 @@
             this.tabPage4.Controls.Add(this.BtnUpdate);
             this.tabPage4.Controls.Add(this.LblContentCount);
             this.tabPage4.Controls.Add(this.LblLogFileCount);
-            this.tabPage4.Controls.Add(this.LsbLogList);
             this.tabPage4.Controls.Add(this.label1);
             this.tabPage4.Controls.Add(this.LsvLogContent);
             this.tabPage4.Controls.Add(this.label9);
+            this.tabPage4.Controls.Add(this.LsvLogList);
             this.tabPage4.Location = new System.Drawing.Point(4, 33);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -3139,17 +3150,6 @@
             this.LblLogFileCount.Text = "LblLogFileCount";
             this.LblLogFileCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // LsbLogList
-            // 
-            this.LsbLogList.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LsbLogList.FormattingEnabled = true;
-            this.LsbLogList.ItemHeight = 24;
-            this.LsbLogList.Location = new System.Drawing.Point(27, 142);
-            this.LsbLogList.Name = "LsbLogList";
-            this.LsbLogList.Size = new System.Drawing.Size(1602, 220);
-            this.LsbLogList.TabIndex = 330;
-            this.LsbLogList.SelectedIndexChanged += new System.EventHandler(this.LsbLogList_SelectedIndexChanged);
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -3226,16 +3226,18 @@
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // ChkOffLine
+            // LsvLogList
             // 
-            this.ChkOffLine.AutoSize = true;
-            this.ChkOffLine.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ChkOffLine.Location = new System.Drawing.Point(63, 396);
-            this.ChkOffLine.Name = "ChkOffLine";
-            this.ChkOffLine.Size = new System.Drawing.Size(253, 28);
-            this.ChkOffLine.TabIndex = 268;
-            this.ChkOffLine.Text = "オフラインモードを有効とする";
-            this.ChkOffLine.UseVisualStyleBackColor = true;
+            this.LsvLogList.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsvLogList.FullRowSelect = true;
+            this.LsvLogList.GridLines = true;
+            this.LsvLogList.HideSelection = false;
+            this.LsvLogList.Location = new System.Drawing.Point(27, 143);
+            this.LsvLogList.Name = "LsvLogList";
+            this.LsvLogList.Size = new System.Drawing.Size(1602, 224);
+            this.LsvLogList.TabIndex = 341;
+            this.LsvLogList.UseCompatibleStateImageBehavior = false;
+            this.LsvLogList.SelectedIndexChanged += new System.EventHandler(this.LsvLogList_SelectedIndexChanged);
             // 
             // MaintenanceForm
             // 
@@ -3538,7 +3540,6 @@
         internal System.Windows.Forms.Button BtnUpdate;
         private System.Windows.Forms.Label LblContentCount;
         private System.Windows.Forms.Label LblLogFileCount;
-        private System.Windows.Forms.ListBox LsbLogList;
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView LsvLogContent;
         internal System.Windows.Forms.Label label9;
@@ -3550,5 +3551,6 @@
         private System.Windows.Forms.DateTimePicker dtTimePickerTo;
         private System.Windows.Forms.CheckBox ChkInspectionDate;
         private System.Windows.Forms.CheckBox ChkOffLine;
+        private System.Windows.Forms.ListView LsvLogList;
     }
 }

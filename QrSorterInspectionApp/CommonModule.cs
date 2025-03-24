@@ -593,19 +593,19 @@ namespace QrSorterInspectionApp
                 }
                 else
                 {
-                    // 削除対象ファイル（稼動ログ）の取得
-                    foreach (string strDeleteFolder in Directory.GetDirectories(IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder),
-                                                                                                             "*", SearchOption.TopDirectoryOnly))
+                    // 削除対象ファイル（OK／全件／エラーログ）の取得
+                    foreach (string strDeleteFile in Directory.GetFiles(IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder),
+                                                                                                             "*.csv", SearchOption.AllDirectories))
                     {
-                        // OutPutLogFile("ログファイル一覧取得：" & strDeleteFile)
-                        strArray = strDeleteFolder.Split('\\');
+                        //OutPutLogFile($"ログファイル一覧取得：{strDeleteFile}");
+                        strArray = strDeleteFile.Split('_');
                         // 「YYYYMMDD」部分を切り出す                    
-                        strCompDate = strArray[strArray.Length - 1];
+                        strCompDate = strArray[strArray.Length - 1].Substring(0,8);
                         if (string.Compare(strCompDate, dtPassDate.ToString("yyyyMMdd")) < 0)
                         {
                             // ファイルを削除する
-                            Directory.Delete(strDeleteFolder, true);
-                            OutPutLogFile("【稼動ログ】削除対象ファイル（" + strDeleteFolder + "）を削除しました。");
+                            File.Delete(strDeleteFile);
+                            OutPutLogFile("【稼動ログ】削除対象ファイル（" + strDeleteFile + "）を削除しました。");
                         }
                     }
                 }
