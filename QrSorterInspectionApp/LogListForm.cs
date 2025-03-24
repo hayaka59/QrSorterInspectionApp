@@ -55,7 +55,6 @@ namespace QrSorterInspectionApp
                 ColumnHeader[] colHeaderList = new[] { col1, col2, col3 };
                 LsvLogList.Columns.AddRange(colHeaderList);
                 #endregion
-
                 #region 検査ログ内容のヘッダー設定
                 // ListViewのカラムヘッダー設定
                 LsvLogContent.View = View.Details;
@@ -533,7 +532,7 @@ namespace QrSorterInspectionApp
         }
 
         /// <summary>
-        /// 
+        /// 検査ログ一覧の選択クリック処理
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -553,7 +552,6 @@ namespace QrSorterInspectionApp
                 LsvLogContent.Items.Clear();
 
                 sReadLogFile = lstLogFileList[LsvLogList.SelectedItems[0].Index];
-                //sReadLogFile = LsvLogList.Items[0].Text;
 
                 SetEnableControl(false);
                 PicWaitContent.Visible = true;
