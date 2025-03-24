@@ -332,8 +332,8 @@ namespace QrSorterInspectionApp
                 }
 
                 if (!Directory.Exists(CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + sPath))
-                {
-                    //MessageBox.Show($"フォルダ：{CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder) + sPath}", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                {                    
+                    CommonModule.OutPutLogFile($"【ログ管理】JOB（{sArrayJob[0]}）は、未検査のJOBです");
                     MessageBox.Show($"JOB（{sArrayJob[0]}）は、未検査のJOBです", "確認", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -374,7 +374,7 @@ namespace QrSorterInspectionApp
                 foreach (string sTranFile in lstFileList)
                 {
                     PicWaitList.Refresh();
-                    CommonModule.OutPutLogFile($"{sMes}検査ログ対象ファイル：{sTranFile}");
+                    //CommonModule.OutPutLogFile($"{sMes}検査ログ対象ファイル：{sTranFile}");
                     sArray = sTranFile.Split('\\');
                     string sFileName = sArray[sArray.Length - 1];
                     string sFileNameFullPath = sTranFile;
@@ -569,7 +569,8 @@ namespace QrSorterInspectionApp
                         }
                         else
                         {
-                            CommonModule.OutPutLogFile($"ヘッダー情報をスキップ：{sData}");
+                            //CommonModule.OutPutLogFile($"ヘッダー情報をスキップ：{sData}");
+                            CommonModule.OutPutLogFile("ヘッダー情報をスキップ");
                         }
                         iCounter++;
                     }
