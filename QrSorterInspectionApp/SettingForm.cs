@@ -109,6 +109,9 @@ namespace QrSorterInspectionApp
                 PubConstClass.lstGroupInfo.Add("");
                 PubConstClass.lstGroupInfo.Add("");
 
+                //LblSelecttedFolder.Text = "";
+                LblSelecttedFolder.Text = Properties.Settings.Default.SaveFolder;
+
                 // 設定画面の項目クリア
                 ClearDisplayData();
                 // 選択中ジョブフィル名クリア
@@ -516,8 +519,15 @@ namespace QrSorterInspectionApp
 
             try
             {
-                sPutDataPath += CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath);
-                sPutDataPath += "\\JOB\\";
+                if (LblSelecttedFolder.Text == "")
+                {
+                    sPutDataPath += CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath);
+                    sPutDataPath += "\\JOB\\";
+                }
+                else
+                {
+                    sPutDataPath = CommonModule.IncludeTrailingPathDelimiter(LblSelecttedFolder.Text);
+                }
                 sPutDataPath += sFileName;
 
                 // 上書モードで書き込む
@@ -546,6 +556,7 @@ namespace QrSorterInspectionApp
                         sw.WriteLine(PubConstClass.lstGroupInfo[4]);
                     }
                 }
+                CommonModule.OutPutLogFile($"JOBファイル（{sPutDataPath}）保存しました");
             }
             catch (Exception ex)
             {
@@ -768,11 +779,23 @@ namespace QrSorterInspectionApp
 
                 if (LblSelectedFile.Text != (TxtJobName.Text + ".csv"))
                 {
+                    // JOB名が異なる場合の、元ファイルの削除
                     string sPutDataPath = "";
-                    sPutDataPath += CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath);
-                    sPutDataPath += "\\JOB\\";
+
+                    if (LblSelecttedFolder.Text == "")
+                    {
+                        sPutDataPath += CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath);
+                        sPutDataPath += "\\JOB\\";
+                    }
+                    else
+                    {
+                        sPutDataPath = LblSelecttedFolder.Text;
+                    }
+
                     sPutDataPath += LblSelectedFile.Text;
                     File.Delete(sPutDataPath);
+                    CommonModule.OutPutLogFile($"JOBファイル（{sPutDataPath}）を削除しました");
+
                     LblSelectedFile.Text = TxtJobName.Text + ".csv";
                 }
 
@@ -816,8 +839,10 @@ namespace QrSorterInspectionApp
                 PubConstClass.lstGroupInfo[4] += TxtBoxQrItem25.Text + ",";
                 PubConstClass.lstGroupInfo[4] += TxtBoxQrItem35.Text + ",";
                 PubConstClass.lstGroupInfo[4] += TxtBoxQrItem45.Text + ",";
+                
                 // ジョブファイルの保存
                 WriteNewJobFile(LblSelectedFile.Text, sFeederData, sPocketData);
+                
                 // グループ名の更新
                 // 現在の選択インデックスを保持
                 int iIndex1 = CmbGroup1.SelectedIndex;
@@ -1041,6 +1066,15 @@ namespace QrSorterInspectionApp
                     // 登録ジョブ項目を取得し表示
                     GetEntryJobItem(0);
 
+                    LblSelecttedFolder.Text = "";
+                    for (int iIndex=0; iIndex < sArray.Length-1; iIndex++)
+                    {
+                        LblSelecttedFolder.Text += sArray[iIndex] + "\\";
+                    }
+
+                    Properties.Settings.Default.SaveFolder = LblSelecttedFolder.Text;
+                    Properties.Settings.Default.Save();
+
                     BtnAdd.Enabled = true;          // 「新規保存」　ボタン使用可
                     BtnUpdate.Enabled = true;       // 「保存」　　　ボタン使用可                    
                     BtnDelete.Enabled = true;       // 「削除」　　　ボタン使用可
@@ -1066,10 +1100,17 @@ namespace QrSorterInspectionApp
             if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup1.SelectedIndex > 4)
             {
                 LblGroup1.Text = "リジェクト";
+                CmbGroup1.BackColor = Color.White;
                 return;
             }
             string[] sArray = PubConstClass.lstGroupInfo[CmbGroup1.SelectedIndex].Split(',');
             LblGroup1.Text = sArray[0];
+
+
+            if(CmbReadCheck.SelectedIndex == 1)
+            {
+                CmbGroup1.BackColor = Color.DarkGray;
+            }
         }
 
         private void CmbGroup2_SelectedIndexChanged(object sender, EventArgs e)
@@ -1077,11 +1118,16 @@ namespace QrSorterInspectionApp
             if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup2.SelectedIndex > 4)
             {
                 LblGroup2.Text = "リジェクト";
+                CmbGroup2.BackColor = Color.White;
                 return;
             }
             string[] sArray = PubConstClass.lstGroupInfo[CmbGroup2.SelectedIndex].Split(',');
             LblGroup2.Text = sArray[0];
-
+            
+            if (CmbReadCheck.SelectedIndex == 1)
+            {
+                CmbGroup2.BackColor = Color.DarkGray;
+            }
         }
 
         private void CmbGroup3_SelectedIndexChanged(object sender, EventArgs e)
@@ -1089,12 +1135,17 @@ namespace QrSorterInspectionApp
             if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup3.SelectedIndex > 4)
             {
                 LblGroup3.Text = "リジェクト";
+                CmbGroup3.BackColor = Color.White;
                 return;
             }
 
             string[] sArray = PubConstClass.lstGroupInfo[CmbGroup3.SelectedIndex].Split(',');
             LblGroup3.Text = sArray[0];
 
+            if (CmbReadCheck.SelectedIndex == 1)
+            {
+                CmbGroup3.BackColor = Color.DarkGray;
+            }
         }
 
         private void CmbGroup4_SelectedIndexChanged(object sender, EventArgs e)
@@ -1102,12 +1153,17 @@ namespace QrSorterInspectionApp
             if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup4.SelectedIndex > 4)
             {
                 LblGroup4.Text = "リジェクト";
+                CmbGroup4.BackColor = Color.White;
                 return;
             }
 
             string[] sArray = PubConstClass.lstGroupInfo[CmbGroup4.SelectedIndex].Split(',');
             LblGroup4.Text = sArray[0];
 
+            if (CmbReadCheck.SelectedIndex == 1)
+            {
+                CmbGroup4.BackColor = Color.DarkGray;
+            }
         }
 
         private void CmbGroup5_SelectedIndexChanged(object sender, EventArgs e)
@@ -1115,12 +1171,17 @@ namespace QrSorterInspectionApp
             if (PubConstClass.lstGroupInfo.Count == 0 || CmbGroup5.SelectedIndex > 4)
             {
                 LblGroup5.Text = "リジェクト";
+                CmbGroup5.BackColor = Color.White;
                 return;
             }
 
             string[] sArray = PubConstClass.lstGroupInfo[CmbGroup5.SelectedIndex].Split(',');
             LblGroup5.Text = sArray[0];
 
+            if (CmbReadCheck.SelectedIndex == 1)
+            {
+                CmbGroup5.BackColor = Color.DarkGray;
+            }
         }
 
         private List<string> lstCopyItem = new List<string>();
@@ -1545,20 +1606,20 @@ namespace QrSorterInspectionApp
                     // 読取チェック＝OFF
                     CmbReadCheck.SelectedIndex = 1;
                     CmbReadCheck.Enabled = false;
-                    CmbGroup1.BackColor = Color.DarkGray;
-                    CmbGroup2.BackColor = Color.DarkGray;
-                    CmbGroup3.BackColor = Color.DarkGray;
-                    CmbGroup4.BackColor = Color.DarkGray;
-                    CmbGroup5.BackColor = Color.DarkGray;
+                    //CmbGroup1.BackColor = Color.DarkGray;
+                    //CmbGroup2.BackColor = Color.DarkGray;
+                    //CmbGroup3.BackColor = Color.DarkGray;
+                    //CmbGroup4.BackColor = Color.DarkGray;
+                    //CmbGroup5.BackColor = Color.DarkGray;
                 }
                 else
                 {
                     CmbReadCheck.Enabled = true;
-                    CmbGroup1.BackColor = Color.White;
-                    CmbGroup2.BackColor = Color.White;
-                    CmbGroup3.BackColor = Color.White;
-                    CmbGroup4.BackColor = Color.White;
-                    CmbGroup5.BackColor = Color.White;
+                    //CmbGroup1.BackColor = Color.White;
+                    //CmbGroup2.BackColor = Color.White;
+                    //CmbGroup3.BackColor = Color.White;
+                    //CmbGroup4.BackColor = Color.White;
+                    //CmbGroup5.BackColor = Color.White;
                 }
             }
             catch (Exception ex)
@@ -1643,6 +1704,50 @@ namespace QrSorterInspectionApp
         private void TxtGroup5_Leave(object sender, EventArgs e)
         {
             CheckInvalidString(TxtGroup5.Text, "グループ５のグループ名");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CmbReadCheck_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // 読取機能：読み取りなし
+                if (CmbReadCheck.SelectedIndex == 1)
+                {
+                    CmbGroup1.BackColor = Color.DarkGray;
+                    CmbGroup2.BackColor = Color.DarkGray;
+                    CmbGroup3.BackColor = Color.DarkGray;
+                    CmbGroup4.BackColor = Color.DarkGray;
+                    CmbGroup5.BackColor = Color.DarkGray;
+                }
+                else
+                {
+                    CmbGroup1.BackColor = Color.White;
+                    CmbGroup2.BackColor = Color.White;
+                    CmbGroup3.BackColor = Color.White;
+                    CmbGroup4.BackColor = Color.White;
+                    CmbGroup5.BackColor = Color.White;
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message, "【CmbReadCheck_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LblVersion_DoubleClick(object sender, EventArgs e)
+        {
+            if (LblSelecttedFolder.Visible)
+            {
+                LblSelecttedFolder.Visible = false;
+            }
+            else
+            {
+                LblSelecttedFolder.Visible= true;
+            }
         }
     }
 }
