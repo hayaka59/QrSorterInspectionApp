@@ -1013,11 +1013,11 @@ namespace QrSorterInspectionApp
                 TxtQuantity4.Text = "0";
                 TxtQuantity5.Text = "0";
                 // ポケット切替件数ON/OFFクリア
-                CmbQuantOnOff1.Text = "OFF";
-                CmbQuantOnOff2.Text = "OFF";
-                CmbQuantOnOff3.Text = "OFF";
-                CmbQuantOnOff4.Text = "OFF";
-                CmbQuantOnOff5.Text = "OFF";
+                CmbQuantOnOff1.Text = "ON";
+                CmbQuantOnOff2.Text = "ON";
+                CmbQuantOnOff3.Text = "ON";
+                CmbQuantOnOff4.Text = "ON";
+                CmbQuantOnOff5.Text = "ON";
 
                 // 「保存」ボタンを使用不可とする
                 BtnUpdate.Enabled = false;
