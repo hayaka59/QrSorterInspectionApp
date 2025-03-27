@@ -750,8 +750,8 @@ namespace QrSorterInspectionApp
                         LsvOKHistory.Items.Clear();
                         LsvNGHistory.Items.Clear();
 
-                        //// 過去に受信したQRデータ一覧のクリア
-                        //lstPastReceivedQrData.Clear();
+                        // 過去に受信したQRデータ一覧のクリア
+                        lstPastReceivedQrData.Clear();
                     }
                 }
                 bIsJobChange = false;
