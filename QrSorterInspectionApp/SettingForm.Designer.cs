@@ -163,6 +163,7 @@
             this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
+            this.LblSelecttedFolder = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
@@ -529,6 +530,7 @@
             this.CmbReadCheck.Name = "CmbReadCheck";
             this.CmbReadCheck.Size = new System.Drawing.Size(105, 36);
             this.CmbReadCheck.TabIndex = 6;
+            this.CmbReadCheck.SelectedIndexChanged += new System.EventHandler(this.CmbReadCheck_SelectedIndexChanged);
             // 
             // label21
             // 
@@ -1906,10 +1908,12 @@
             this.LblVersion.TabIndex = 176;
             this.LblVersion.Text = "LblVersion";
             this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblVersion.DoubleClick += new System.EventHandler(this.LblVersion_DoubleClick);
             // 
             // GrpFeederSetting
             // 
             this.GrpFeederSetting.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.GrpFeederSetting.Controls.Add(this.LblSelecttedFolder);
             this.GrpFeederSetting.Controls.Add(this.label5);
             this.GrpFeederSetting.Controls.Add(this.label10);
             this.GrpFeederSetting.Controls.Add(this.TxtReadingPosition);
@@ -2069,6 +2073,19 @@
             this.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // LblSelecttedFolder
+            // 
+            this.LblSelecttedFolder.BackColor = System.Drawing.Color.White;
+            this.LblSelecttedFolder.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblSelecttedFolder.ForeColor = System.Drawing.Color.Black;
+            this.LblSelecttedFolder.Location = new System.Drawing.Point(23, 230);
+            this.LblSelecttedFolder.Name = "LblSelecttedFolder";
+            this.LblSelecttedFolder.Size = new System.Drawing.Size(360, 59);
+            this.LblSelecttedFolder.TabIndex = 327;
+            this.LblSelecttedFolder.Text = "LblSelecttedFolder";
+            this.LblSelecttedFolder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblSelecttedFolder.Visible = false;
             // 
             // SettingForm
             // 
@@ -2244,5 +2261,6 @@
         internal System.Windows.Forms.Label label2;
         internal System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TxtReadingPosition;
+        internal System.Windows.Forms.Label LblSelecttedFolder;
     }
 }
