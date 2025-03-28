@@ -817,7 +817,13 @@ namespace QrSorterInspectionApp
                         CmbNonDeliveryReasonSorting2.Enabled = true;
                         BtnSetting.Enabled = true;
                         BtnStartInspection.Enabled = true;
-                        BtnClose.Enabled = true;                        
+                        BtnClose.Enabled = true;
+
+                        BtnCounterClear1.Visible = true;
+                        BtnCounterClear2.Visible = true;
+                        BtnCounterClear3.Visible = true;
+                        BtnCounterClear4.Visible = true;
+                        BtnCounterClear5.Visible = true;
                         break;
 
                     case 1:
@@ -831,12 +837,24 @@ namespace QrSorterInspectionApp
                         BtnSetting.Enabled = false;
                         BtnStartInspection.Enabled = false;
                         BtnClose.Enabled = false;
+
+                        BtnCounterClear1.Visible = false;
+                        BtnCounterClear2.Visible = false;
+                        BtnCounterClear3.Visible = false;
+                        BtnCounterClear4.Visible = false;
+                        BtnCounterClear5.Visible = false;
                         break;
 
                     case 2:
                         LblStatus.Text = "エラー";
                         LblStatus.BackColor = Color.OrangeRed;
                         LblStatus.ForeColor = Color.White;
+
+                        BtnCounterClear1.Visible = false;
+                        BtnCounterClear2.Visible = false;
+                        BtnCounterClear3.Visible = false;
+                        BtnCounterClear4.Visible = false;
+                        BtnCounterClear5.Visible = false;
                         break;
 
                     default:
@@ -1924,6 +1942,54 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【SendResetCommand】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// ポケットのカウンタクリア
+        /// </summary>
+        /// <param name="sMessage"></param>
+        /// <param name="label"></param>
+        /// <param name="iBoxCounter"></param>
+        private void CounterClear(string sMessage, Label label, ref int iBoxCounter)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show($"{sMessage}のカウンタをクリアしますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    label.Text = "0";
+                    iBoxCounter = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CounterClear】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnCounterClear1_Click(object sender, EventArgs e)
+        {
+            CounterClear("ポケット１", LblBox1, ref iBox1Count);
+        }
+
+        private void BtnCounterClear2_Click(object sender, EventArgs e)
+        {
+            CounterClear("ポケット２", LblBox2, ref iBox2Count);
+        }
+
+        private void BtnCounterClear3_Click(object sender, EventArgs e)
+        {
+            CounterClear("ポケット３", LblBox3, ref iBox3Count);
+        }
+
+        private void BtnCounterClear4_Click(object sender, EventArgs e)
+        {
+            CounterClear("ポケット４", LblBox4, ref iBox4Count);
+        }
+
+        private void BtnCounterClear5_Click(object sender, EventArgs e)
+        {
+            CounterClear("ポケット５", LblBox5, ref iBox5Count);
         }
     }
 }
