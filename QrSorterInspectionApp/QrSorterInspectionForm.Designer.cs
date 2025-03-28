@@ -78,19 +78,9 @@
             this.CmbNonDeliveryReasonSorting2 = new System.Windows.Forms.ComboBox();
             this.CmbNonDeliveryReasonSorting1 = new System.Windows.Forms.ComboBox();
             this.LblPocket5 = new System.Windows.Forms.Label();
-            this.BtnSetting = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnStopInspection = new System.Windows.Forms.Button();
-            this.BtnClose = new System.Windows.Forms.Button();
-            this.BtnStartInspection = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.SerialPortQr = new System.IO.Ports.SerialPort(this.components);
             this.LblError = new System.Windows.Forms.Label();
             this.LblSelectedFile = new System.Windows.Forms.Label();
-            this.BtnJobSelect = new System.Windows.Forms.Button();
             this.LblGrpInfo5 = new System.Windows.Forms.Label();
             this.LblGrpInfo4 = new System.Windows.Forms.Label();
             this.LblGrpInfo3 = new System.Windows.Forms.Label();
@@ -107,12 +97,27 @@
             this.LblDuplicateCheck = new System.Windows.Forms.Label();
             this.LstSettingInfomation = new System.Windows.Forms.ListBox();
             this.LblOffLine = new System.Windows.Forms.Label();
+            this.BtnCounterClear1 = new System.Windows.Forms.Button();
+            this.BtnSetting = new System.Windows.Forms.Button();
+            this.BtnJobSelect = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnStopInspection = new System.Windows.Forms.Button();
+            this.BtnClose = new System.Windows.Forms.Button();
+            this.BtnStartInspection = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.BtnCounterClear2 = new System.Windows.Forms.Button();
+            this.BtnCounterClear3 = new System.Windows.Forms.Button();
+            this.BtnCounterClear4 = new System.Windows.Forms.Button();
+            this.BtnCounterClear5 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -706,112 +711,6 @@
             this.LblPocket5.Text = "ポケット５";
             this.LblPocket5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BtnSetting
-            // 
-            this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnSetting.Image = global::QrSorterInspectionApp.Properties.Resources.setting_small;
-            this.BtnSetting.Location = new System.Drawing.Point(946, 189);
-            this.BtnSetting.Name = "BtnSetting";
-            this.BtnSetting.Size = new System.Drawing.Size(178, 46);
-            this.BtnSetting.TabIndex = 306;
-            this.BtnSetting.Text = "設定";
-            this.BtnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnSetting.UseVisualStyleBackColor = true;
-            this.BtnSetting.Click += new System.EventHandler(this.BtnSetting_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1212, 737);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(280, 180);
-            this.pictureBox4.TabIndex = 269;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(654, 737);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(280, 180);
-            this.pictureBox3.TabIndex = 266;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = global::QrSorterInspectionApp.Properties.Resources.sorter_back_thin1;
-            this.pictureBox2.Location = new System.Drawing.Point(1491, 737);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(280, 180);
-            this.pictureBox2.TabIndex = 263;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::QrSorterInspectionApp.Properties.Resources.sorter_back_thin1;
-            this.pictureBox1.Location = new System.Drawing.Point(933, 737);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(280, 180);
-            this.pictureBox1.TabIndex = 260;
-            this.pictureBox1.TabStop = false;
-            // 
-            // BtnStopInspection
-            // 
-            this.BtnStopInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnStopInspection.Image = global::QrSorterInspectionApp.Properties.Resources.standing;
-            this.BtnStopInspection.Location = new System.Drawing.Point(313, 974);
-            this.BtnStopInspection.Name = "BtnStopInspection";
-            this.BtnStopInspection.Size = new System.Drawing.Size(205, 50);
-            this.BtnStopInspection.TabIndex = 182;
-            this.BtnStopInspection.Text = "検査終了";
-            this.BtnStopInspection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnStopInspection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnStopInspection.UseVisualStyleBackColor = true;
-            this.BtnStopInspection.Click += new System.EventHandler(this.BtnStopInspection_Click);
-            // 
-            // BtnClose
-            // 
-            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1542, 974);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(205, 50);
-            this.BtnClose.TabIndex = 181;
-            this.BtnClose.Text = "戻る";
-            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnClose.UseVisualStyleBackColor = true;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
-            // BtnStartInspection
-            // 
-            this.BtnStartInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnStartInspection.Image = global::QrSorterInspectionApp.Properties.Resources.running_icon;
-            this.BtnStartInspection.Location = new System.Drawing.Point(102, 974);
-            this.BtnStartInspection.Name = "BtnStartInspection";
-            this.BtnStartInspection.Size = new System.Drawing.Size(205, 50);
-            this.BtnStartInspection.TabIndex = 180;
-            this.BtnStartInspection.Text = "検査開始";
-            this.BtnStartInspection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnStartInspection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnStartInspection.UseVisualStyleBackColor = true;
-            this.BtnStartInspection.Click += new System.EventHandler(this.BtnStartInspection_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(375, 737);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(280, 180);
-            this.pictureBox5.TabIndex = 288;
-            this.pictureBox5.TabStop = false;
-            // 
             // LblError
             // 
             this.LblError.BackColor = System.Drawing.Color.LightCoral;
@@ -836,20 +735,6 @@
             this.LblSelectedFile.TabIndex = 323;
             this.LblSelectedFile.Text = "LblSelectedFile";
             this.LblSelectedFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnJobSelect
-            // 
-            this.BtnJobSelect.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnJobSelect.Image = global::QrSorterInspectionApp.Properties.Resources.search_file;
-            this.BtnJobSelect.Location = new System.Drawing.Point(96, 62);
-            this.BtnJobSelect.Name = "BtnJobSelect";
-            this.BtnJobSelect.Size = new System.Drawing.Size(469, 61);
-            this.BtnJobSelect.TabIndex = 322;
-            this.BtnJobSelect.Text = "JOB選択";
-            this.BtnJobSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnJobSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnJobSelect.UseVisualStyleBackColor = true;
-            this.BtnJobSelect.Click += new System.EventHandler(this.BtnJobSelect_Click);
             // 
             // LblGrpInfo5
             // 
@@ -1049,11 +934,201 @@
             this.LblOffLine.ForeColor = System.Drawing.Color.Blue;
             this.LblOffLine.Location = new System.Drawing.Point(379, 740);
             this.LblOffLine.Name = "LblOffLine";
-            this.LblOffLine.Size = new System.Drawing.Size(1110, 216);
+            this.LblOffLine.Size = new System.Drawing.Size(1110, 126);
             this.LblOffLine.TabIndex = 338;
             this.LblOffLine.Text = "オフラインモード";
             this.LblOffLine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblOffLine.Visible = false;
+            // 
+            // BtnCounterClear1
+            // 
+            this.BtnCounterClear1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCounterClear1.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnCounterClear1.Location = new System.Drawing.Point(1498, 876);
+            this.BtnCounterClear1.Name = "BtnCounterClear1";
+            this.BtnCounterClear1.Size = new System.Drawing.Size(104, 34);
+            this.BtnCounterClear1.TabIndex = 339;
+            this.BtnCounterClear1.Text = "クリア";
+            this.BtnCounterClear1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCounterClear1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCounterClear1.UseVisualStyleBackColor = true;
+            this.BtnCounterClear1.Click += new System.EventHandler(this.BtnCounterClear1_Click);
+            // 
+            // BtnSetting
+            // 
+            this.BtnSetting.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnSetting.Image = global::QrSorterInspectionApp.Properties.Resources.setting_small;
+            this.BtnSetting.Location = new System.Drawing.Point(946, 189);
+            this.BtnSetting.Name = "BtnSetting";
+            this.BtnSetting.Size = new System.Drawing.Size(178, 46);
+            this.BtnSetting.TabIndex = 306;
+            this.BtnSetting.Text = "設定";
+            this.BtnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnSetting.UseVisualStyleBackColor = true;
+            this.BtnSetting.Click += new System.EventHandler(this.BtnSetting_Click);
+            // 
+            // BtnJobSelect
+            // 
+            this.BtnJobSelect.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnJobSelect.Image = global::QrSorterInspectionApp.Properties.Resources.search_file;
+            this.BtnJobSelect.Location = new System.Drawing.Point(96, 62);
+            this.BtnJobSelect.Name = "BtnJobSelect";
+            this.BtnJobSelect.Size = new System.Drawing.Size(469, 61);
+            this.BtnJobSelect.TabIndex = 322;
+            this.BtnJobSelect.Text = "JOB選択";
+            this.BtnJobSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnJobSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnJobSelect.UseVisualStyleBackColor = true;
+            this.BtnJobSelect.Click += new System.EventHandler(this.BtnJobSelect_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(1212, 737);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(280, 180);
+            this.pictureBox4.TabIndex = 269;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(654, 737);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(280, 180);
+            this.pictureBox3.TabIndex = 266;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Image = global::QrSorterInspectionApp.Properties.Resources.sorter_back_thin1;
+            this.pictureBox2.Location = new System.Drawing.Point(1491, 737);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(280, 180);
+            this.pictureBox2.TabIndex = 263;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = global::QrSorterInspectionApp.Properties.Resources.sorter_back_thin1;
+            this.pictureBox1.Location = new System.Drawing.Point(933, 737);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(280, 180);
+            this.pictureBox1.TabIndex = 260;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BtnStopInspection
+            // 
+            this.BtnStopInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnStopInspection.Image = global::QrSorterInspectionApp.Properties.Resources.standing;
+            this.BtnStopInspection.Location = new System.Drawing.Point(313, 974);
+            this.BtnStopInspection.Name = "BtnStopInspection";
+            this.BtnStopInspection.Size = new System.Drawing.Size(205, 50);
+            this.BtnStopInspection.TabIndex = 182;
+            this.BtnStopInspection.Text = "検査終了";
+            this.BtnStopInspection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnStopInspection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnStopInspection.UseVisualStyleBackColor = true;
+            this.BtnStopInspection.Click += new System.EventHandler(this.BtnStopInspection_Click);
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
+            this.BtnClose.Location = new System.Drawing.Point(1542, 974);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(205, 50);
+            this.BtnClose.TabIndex = 181;
+            this.BtnClose.Text = "戻る";
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnClose.UseVisualStyleBackColor = true;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // BtnStartInspection
+            // 
+            this.BtnStartInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnStartInspection.Image = global::QrSorterInspectionApp.Properties.Resources.running_icon;
+            this.BtnStartInspection.Location = new System.Drawing.Point(102, 974);
+            this.BtnStartInspection.Name = "BtnStartInspection";
+            this.BtnStartInspection.Size = new System.Drawing.Size(205, 50);
+            this.BtnStartInspection.TabIndex = 180;
+            this.BtnStartInspection.Text = "検査開始";
+            this.BtnStartInspection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnStartInspection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnStartInspection.UseVisualStyleBackColor = true;
+            this.BtnStartInspection.Click += new System.EventHandler(this.BtnStartInspection_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(375, 737);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(280, 180);
+            this.pictureBox5.TabIndex = 288;
+            this.pictureBox5.TabStop = false;
+            // 
+            // BtnCounterClear2
+            // 
+            this.BtnCounterClear2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCounterClear2.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnCounterClear2.Location = new System.Drawing.Point(1219, 876);
+            this.BtnCounterClear2.Name = "BtnCounterClear2";
+            this.BtnCounterClear2.Size = new System.Drawing.Size(104, 34);
+            this.BtnCounterClear2.TabIndex = 340;
+            this.BtnCounterClear2.Text = "クリア";
+            this.BtnCounterClear2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCounterClear2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCounterClear2.UseVisualStyleBackColor = true;
+            this.BtnCounterClear2.Click += new System.EventHandler(this.BtnCounterClear2_Click);
+            // 
+            // BtnCounterClear3
+            // 
+            this.BtnCounterClear3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCounterClear3.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnCounterClear3.Location = new System.Drawing.Point(941, 876);
+            this.BtnCounterClear3.Name = "BtnCounterClear3";
+            this.BtnCounterClear3.Size = new System.Drawing.Size(104, 34);
+            this.BtnCounterClear3.TabIndex = 341;
+            this.BtnCounterClear3.Text = "クリア";
+            this.BtnCounterClear3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCounterClear3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCounterClear3.UseVisualStyleBackColor = true;
+            this.BtnCounterClear3.Click += new System.EventHandler(this.BtnCounterClear3_Click);
+            // 
+            // BtnCounterClear4
+            // 
+            this.BtnCounterClear4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCounterClear4.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnCounterClear4.Location = new System.Drawing.Point(661, 876);
+            this.BtnCounterClear4.Name = "BtnCounterClear4";
+            this.BtnCounterClear4.Size = new System.Drawing.Size(104, 34);
+            this.BtnCounterClear4.TabIndex = 342;
+            this.BtnCounterClear4.Text = "クリア";
+            this.BtnCounterClear4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCounterClear4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCounterClear4.UseVisualStyleBackColor = true;
+            this.BtnCounterClear4.Click += new System.EventHandler(this.BtnCounterClear4_Click);
+            // 
+            // BtnCounterClear5
+            // 
+            this.BtnCounterClear5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCounterClear5.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnCounterClear5.Location = new System.Drawing.Point(382, 875);
+            this.BtnCounterClear5.Name = "BtnCounterClear5";
+            this.BtnCounterClear5.Size = new System.Drawing.Size(104, 34);
+            this.BtnCounterClear5.TabIndex = 343;
+            this.BtnCounterClear5.Text = "クリア";
+            this.BtnCounterClear5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCounterClear5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCounterClear5.UseVisualStyleBackColor = true;
+            this.BtnCounterClear5.Click += new System.EventHandler(this.BtnCounterClear5_Click);
             // 
             // QrSorterInspectionForm
             // 
@@ -1061,6 +1136,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnCounterClear5);
+            this.Controls.Add(this.BtnCounterClear4);
+            this.Controls.Add(this.BtnCounterClear3);
+            this.Controls.Add(this.BtnCounterClear2);
+            this.Controls.Add(this.BtnCounterClear1);
             this.Controls.Add(this.LblOffLine);
             this.Controls.Add(this.BtnSetting);
             this.Controls.Add(this.LstSettingInfomation);
@@ -1142,12 +1222,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QRフィーダー＆ソーター検査画面";
             this.Load += new System.EventHandler(this.QrSorterInspectionForm_Load);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1231,5 +1311,10 @@
         internal System.Windows.Forms.Label LblDuplicateCheck;
         private System.Windows.Forms.ListBox LstSettingInfomation;
         internal System.Windows.Forms.Label LblOffLine;
+        internal System.Windows.Forms.Button BtnCounterClear1;
+        internal System.Windows.Forms.Button BtnCounterClear2;
+        internal System.Windows.Forms.Button BtnCounterClear3;
+        internal System.Windows.Forms.Button BtnCounterClear4;
+        internal System.Windows.Forms.Button BtnCounterClear5;
     }
 }
