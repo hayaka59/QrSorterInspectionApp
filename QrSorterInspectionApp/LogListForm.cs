@@ -396,7 +396,9 @@ namespace QrSorterInspectionApp
                         if (sFileName != "")
                         {
                             string[] sArrayNonDeli1 = sFileName.Split('_');
-                            if (CmbReasonForNonDelivery1.SelectedIndex + 1 != int.Parse(sArrayNonDeli1[sArrayNonDeli1.Length-4]))
+                            string[] sArrayCmbNonDeli1 = CmbReasonForNonDelivery1.Text.Split(',');
+
+                            if (int.Parse(sArrayCmbNonDeli1[0]) != int.Parse(sArrayNonDeli1[sArrayNonDeli1.Length-4]))
                             {
                                 // 該当しないので対象ファイルから外す
                                 sFileName = "";
@@ -411,7 +413,9 @@ namespace QrSorterInspectionApp
                         if (sFileName != "")
                         {
                             string[] sArrayNonDeli2 = sFileName.Split('_');
-                            if (CmbReasonForNonDelivery2.SelectedIndex + 1 != int.Parse(sArrayNonDeli2[sArrayNonDeli2.Length-3]))
+                            string[] sArrayCmbNonDeli2 = CmbReasonForNonDelivery2.Text.Split(',');
+
+                            if (int.Parse(sArrayCmbNonDeli2[0]) != int.Parse(sArrayNonDeli2[sArrayNonDeli2.Length-3]))
                             {
                                 // 該当しないので対象ファイルから外す
                                 sFileName = "";

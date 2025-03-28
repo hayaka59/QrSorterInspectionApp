@@ -98,7 +98,7 @@
             this.CmbLogType.ItemHeight = 28;
             this.CmbLogType.Location = new System.Drawing.Point(171, 88);
             this.CmbLogType.Name = "CmbLogType";
-            this.CmbLogType.Size = new System.Drawing.Size(185, 36);
+            this.CmbLogType.Size = new System.Drawing.Size(134, 36);
             this.CmbLogType.TabIndex = 261;
             // 
             // label3
@@ -189,7 +189,7 @@
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerTo);
             this.GrpInspectionDate.Controls.Add(this.ChkInspectionDate);
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerFrom);
-            this.GrpInspectionDate.Location = new System.Drawing.Point(972, 58);
+            this.GrpInspectionDate.Location = new System.Drawing.Point(794, 58);
             this.GrpInspectionDate.Name = "GrpInspectionDate";
             this.GrpInspectionDate.Size = new System.Drawing.Size(407, 85);
             this.GrpInspectionDate.TabIndex = 268;
@@ -219,7 +219,7 @@
             // 
             this.GrpReasonForNonDelivery1.Controls.Add(this.ChkReasonForNonDelivery1);
             this.GrpReasonForNonDelivery1.Controls.Add(this.CmbReasonForNonDelivery1);
-            this.GrpReasonForNonDelivery1.Location = new System.Drawing.Point(1385, 58);
+            this.GrpReasonForNonDelivery1.Location = new System.Drawing.Point(1207, 58);
             this.GrpReasonForNonDelivery1.Name = "GrpReasonForNonDelivery1";
             this.GrpReasonForNonDelivery1.Size = new System.Drawing.Size(234, 85);
             this.GrpReasonForNonDelivery1.TabIndex = 270;
@@ -265,7 +265,7 @@
             this.LblSelectedFile.BackColor = System.Drawing.Color.White;
             this.LblSelectedFile.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblSelectedFile.ForeColor = System.Drawing.Color.Black;
-            this.LblSelectedFile.Location = new System.Drawing.Point(368, 107);
+            this.LblSelectedFile.Location = new System.Drawing.Point(316, 107);
             this.LblSelectedFile.Name = "LblSelectedFile";
             this.LblSelectedFile.Size = new System.Drawing.Size(298, 36);
             this.LblSelectedFile.TabIndex = 325;
@@ -275,7 +275,7 @@
             // BtnJobClear
             // 
             this.BtnJobClear.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnJobClear.Location = new System.Drawing.Point(524, 58);
+            this.BtnJobClear.Location = new System.Drawing.Point(472, 58);
             this.BtnJobClear.Name = "BtnJobClear";
             this.BtnJobClear.Size = new System.Drawing.Size(144, 46);
             this.BtnJobClear.TabIndex = 326;
@@ -288,7 +288,7 @@
             // 
             this.GrpReasonForNonDelivery2.Controls.Add(this.ChkReasonForNonDelivery2);
             this.GrpReasonForNonDelivery2.Controls.Add(this.CmbReasonForNonDelivery2);
-            this.GrpReasonForNonDelivery2.Location = new System.Drawing.Point(1631, 58);
+            this.GrpReasonForNonDelivery2.Location = new System.Drawing.Point(1453, 58);
             this.GrpReasonForNonDelivery2.Name = "GrpReasonForNonDelivery2";
             this.GrpReasonForNonDelivery2.Size = new System.Drawing.Size(234, 85);
             this.GrpReasonForNonDelivery2.TabIndex = 271;
@@ -320,7 +320,7 @@
             // GrpSortBy
             // 
             this.GrpSortBy.Controls.Add(this.CmbSortBy);
-            this.GrpSortBy.Location = new System.Drawing.Point(684, 74);
+            this.GrpSortBy.Location = new System.Drawing.Point(632, 74);
             this.GrpSortBy.Name = "GrpSortBy";
             this.GrpSortBy.Size = new System.Drawing.Size(146, 56);
             this.GrpSortBy.TabIndex = 272;
@@ -353,7 +353,7 @@
             // 
             this.BtnJobSelect.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnJobSelect.Image = global::QrSorterInspectionApp.Properties.Resources.search_file;
-            this.BtnJobSelect.Location = new System.Drawing.Point(366, 58);
+            this.BtnJobSelect.Location = new System.Drawing.Point(314, 58);
             this.BtnJobSelect.Name = "BtnJobSelect";
             this.BtnJobSelect.Size = new System.Drawing.Size(144, 46);
             this.BtnJobSelect.TabIndex = 324;
@@ -365,16 +365,17 @@
             // 
             // BtnUpdate
             // 
-            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnUpdate.BackColor = System.Drawing.Color.LightGreen;
+            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnUpdate.Location = new System.Drawing.Point(836, 77);
+            this.BtnUpdate.Location = new System.Drawing.Point(1697, 58);
             this.BtnUpdate.Name = "BtnUpdate";
-            this.BtnUpdate.Size = new System.Drawing.Size(116, 53);
+            this.BtnUpdate.Size = new System.Drawing.Size(168, 85);
             this.BtnUpdate.TabIndex = 273;
             this.BtnUpdate.Text = "更新";
             this.BtnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.UseVisualStyleBackColor = false;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // BtnClose
