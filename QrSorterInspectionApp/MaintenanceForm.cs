@@ -573,7 +573,7 @@ namespace QrSorterInspectionApp
                 LstNonDelivery.Columns.AddRange(colHeader);
 
                 int iCount = 0;
-                // 生協・デポ一覧ファイル格納リスト取得
+                // 不着事由情報リスト取得
                 foreach (string sData in PubConstClass.lstNonDeliveryList)
                 {
                     sAray = sData.Split(',');
@@ -598,7 +598,7 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【CoopDepoMaintenance】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【NonDeliveryMaintenance】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -611,8 +611,14 @@ namespace QrSorterInspectionApp
         {
             try
             {
+                // 不着事由の入力項目をチェック
+                if (!CheckNonDeliveryList(TxtNonDelivery.Text))
+                {
+                    return;
+                }
+
                 DialogResult dResult = MessageBox.Show("仕分けマスタファイルを保存しますか？", "保存確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dResult == DialogResult.No)
+                if (dResult == DialogResult.Cancel)
                 {
                     // 保存しない
                     return;
@@ -628,6 +634,49 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnNonDeliverySave_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);  
+            }
+        }
+
+        /// <summary>
+        /// 不着事由の入力項目をチェック
+        /// </summary>
+        /// <param name="sData"></param>
+        /// <returns></returns>
+        private bool CheckNonDeliveryList(string sData)
+        {
+            string[] sArray;
+            string[] sCheckArray;
+
+            try
+            {
+                char sSplitChar = '\r';
+                sData = sData.Replace("\n", "");
+
+                sArray = sData.Split(sSplitChar);
+                foreach (var a in sArray)
+                {
+                    if (a.Trim() != "")
+                    {
+                        sCheckArray = a.Split(',');
+                        if (sCheckArray.Length < 2)
+                        {
+                            MessageBox.Show($"入力項目（{a}）は「番号,仕分け項目名」で入力してください", "入力フォーマットエラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        // int.TryParseを使って数字かどうか確認
+                        if (!int.TryParse(sCheckArray[0], out int result))
+                        {
+                            MessageBox.Show($"入力項目（{sCheckArray[0]}）は半角数字で入力してください", "入力番号エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CheckNonDeliveryList】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
