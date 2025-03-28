@@ -385,6 +385,8 @@ namespace QrSorterInspectionApp
             string sReasonForNonDelivery1;
             string sReasonForNonDelivery2;
             string[] sArray;
+            string[] sNonDeliveryReasonArray;
+
 
             try
             {
@@ -405,8 +407,15 @@ namespace QrSorterInspectionApp
                     sJobName = sArray[0].PadRight(16, '0');
                 }
                 // 不着事由１と２の取得
-                sNonDeliveryReason1 = CmbNonDeliveryReasonSorting1.Text.Substring(0, 1);
-                sNonDeliveryReason2 = CmbNonDeliveryReasonSorting2.Text.Substring(0, 1);
+                //sNonDeliveryReason1 = CmbNonDeliveryReasonSorting1.Text.Substring(0, 1);
+                //sNonDeliveryReason2 = CmbNonDeliveryReasonSorting2.Text.Substring(0, 1);
+
+                sNonDeliveryReasonArray = CmbNonDeliveryReasonSorting1.Text.Split('：');
+                sNonDeliveryReason1 = sNonDeliveryReasonArray[0];
+                
+                sNonDeliveryReasonArray = CmbNonDeliveryReasonSorting2.Text.Split('：');
+                sNonDeliveryReason2 = sNonDeliveryReasonArray[0];
+
                 sReasonForNonDelivery1 = "_" + sNonDeliveryReason1;
                 sReasonForNonDelivery2 = "_" + sNonDeliveryReason2;
                 // 受領日を取得
@@ -432,7 +441,7 @@ namespace QrSorterInspectionApp
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[5];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
-                    Directory.CreateDirectory(sGrpFolder);
+                    //Directory.CreateDirectory(sGrpFolder);
                 }
 
                 // JOB名までのエラーフォルダの存在チェックと作成
@@ -456,7 +465,7 @@ namespace QrSorterInspectionApp
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[5];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
-                    Directory.CreateDirectory(sGrpFolder);
+                    //Directory.CreateDirectory(sGrpFolder);
                 }
 
                 // グループ１フォルダの存在チェックと作成
@@ -466,7 +475,7 @@ namespace QrSorterInspectionApp
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[0];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
-                    Directory.CreateDirectory(sGrpFolder);
+                    //Directory.CreateDirectory(sGrpFolder);
                 }                
                 // グループ２フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[1].Split(',');
@@ -475,7 +484,7 @@ namespace QrSorterInspectionApp
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[1];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
-                    Directory.CreateDirectory(sGrpFolder);
+                    //Directory.CreateDirectory(sGrpFolder);
                 }
                 // グループ３フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[2].Split(',');                
@@ -484,7 +493,7 @@ namespace QrSorterInspectionApp
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[2];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
-                    Directory.CreateDirectory(sGrpFolder);
+                    //Directory.CreateDirectory(sGrpFolder);
                 }
                 // グループ４フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[3].Split(',');
@@ -493,7 +502,7 @@ namespace QrSorterInspectionApp
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[3];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
-                    Directory.CreateDirectory(sGrpFolder);
+                    //Directory.CreateDirectory(sGrpFolder);
                 }
                 // グループ５フォルダの存在チェックと作成
                 sArray = PubConstClass.lstGroupInfo[4].Split(',');
@@ -502,7 +511,7 @@ namespace QrSorterInspectionApp
                 sGrpFolder = sJobFolder + "\\" + sFolderNameWork[4];
                 if (Directory.Exists(sGrpFolder) == false)
                 {
-                    Directory.CreateDirectory(sGrpFolder);
+                    //Directory.CreateDirectory(sGrpFolder);
                 }
                 // グループ名の長さが16桁を超える場合は16桁に切り出す
                 for (int i = 0; i < 5; i++)
@@ -808,7 +817,13 @@ namespace QrSorterInspectionApp
                         CmbNonDeliveryReasonSorting2.Enabled = true;
                         BtnSetting.Enabled = true;
                         BtnStartInspection.Enabled = true;
-                        BtnClose.Enabled = true;                        
+                        BtnClose.Enabled = true;
+
+                        BtnCounterClear1.Visible = true;
+                        BtnCounterClear2.Visible = true;
+                        BtnCounterClear3.Visible = true;
+                        BtnCounterClear4.Visible = true;
+                        BtnCounterClear5.Visible = true;
                         break;
 
                     case 1:
@@ -822,12 +837,24 @@ namespace QrSorterInspectionApp
                         BtnSetting.Enabled = false;
                         BtnStartInspection.Enabled = false;
                         BtnClose.Enabled = false;
+
+                        BtnCounterClear1.Visible = false;
+                        BtnCounterClear2.Visible = false;
+                        BtnCounterClear3.Visible = false;
+                        BtnCounterClear4.Visible = false;
+                        BtnCounterClear5.Visible = false;
                         break;
 
                     case 2:
                         LblStatus.Text = "エラー";
                         LblStatus.BackColor = Color.OrangeRed;
                         LblStatus.ForeColor = Color.White;
+
+                        BtnCounterClear1.Visible = false;
+                        BtnCounterClear2.Visible = false;
+                        BtnCounterClear3.Visible = false;
+                        BtnCounterClear4.Visible = false;
+                        BtnCounterClear5.Visible = false;
                         break;
 
                     default:
@@ -1217,9 +1244,9 @@ namespace QrSorterInspectionApp
 
                 sErrorCode = sData.Substring(2, 3);
 
-                if (sErrorCode == "005" || sErrorCode == "013")
+                if (sErrorCode == "005" || sErrorCode == "013" || sErrorCode == "050")
                 {
-                    // 停止中（005：用紙終了／013：セットカウントエラー）
+                    // 停止中（005：用紙終了／013：セットカウントエラー／050：リジェクト停止）
                     SetStatus(0);
                     PubConstClass.bIsErrorMessage = false;
                     LblError.Visible = false;
@@ -1487,8 +1514,18 @@ namespace QrSorterInspectionApp
                     sSaveFileName = ""; 
                     sSaveFileName += CommonModule.IncludeTrailingPathDelimiter(PubConstClass.pblInternalTranFolder);                    
                     sSaveFileName += OK_FOLDER_NAME + sJobFolderName + "\\";
-                    sSaveFileName += sFolderName + "\\";
-                    sSaveFileName += sFileName;
+                    //sSaveFileName += sFolderName + "\\";
+                    //sSaveFileName += sFileName;
+
+                    sSaveFileName += sFolderName;
+                    if (!Directory.Exists(sSaveFileName)) 
+                    {
+                        Directory.CreateDirectory(sSaveFileName);
+                        CommonModule.OutPutLogFile($"OKフォルダを作成しました：{sSaveFileName}");
+                    }
+                    sSaveFileName += "\\" + sFileName;
+
+
                     // ヘッダー情報書込処理
                     if (!File.Exists(sSaveFileName))
                     {
@@ -1905,6 +1942,54 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【SendResetCommand】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// ポケットのカウンタクリア
+        /// </summary>
+        /// <param name="sMessage"></param>
+        /// <param name="label"></param>
+        /// <param name="iBoxCounter"></param>
+        private void CounterClear(string sMessage, Label label, ref int iBoxCounter)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show($"{sMessage}のカウンタをクリアしますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    label.Text = "0";
+                    iBoxCounter = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CounterClear】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnCounterClear1_Click(object sender, EventArgs e)
+        {
+            CounterClear("ポケット１", LblBox1, ref iBox1Count);
+        }
+
+        private void BtnCounterClear2_Click(object sender, EventArgs e)
+        {
+            CounterClear("ポケット２", LblBox2, ref iBox2Count);
+        }
+
+        private void BtnCounterClear3_Click(object sender, EventArgs e)
+        {
+            CounterClear("ポケット３", LblBox3, ref iBox3Count);
+        }
+
+        private void BtnCounterClear4_Click(object sender, EventArgs e)
+        {
+            CounterClear("ポケット４", LblBox4, ref iBox4Count);
+        }
+
+        private void BtnCounterClear5_Click(object sender, EventArgs e)
+        {
+            CounterClear("ポケット５", LblBox5, ref iBox5Count);
         }
     }
 }
