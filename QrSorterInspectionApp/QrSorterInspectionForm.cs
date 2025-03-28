@@ -1217,9 +1217,9 @@ namespace QrSorterInspectionApp
 
                 sErrorCode = sData.Substring(2, 3);
 
-                if (sErrorCode == "005" || sErrorCode == "013")
+                if (sErrorCode == "005" || sErrorCode == "013" || sErrorCode == "050")
                 {
-                    // 停止中（005：用紙終了／013：セットカウントエラー）
+                    // 停止中（005：用紙終了／013：セットカウントエラー／050：リジェクト停止）
                     SetStatus(0);
                     PubConstClass.bIsErrorMessage = false;
                     LblError.Visible = false;
