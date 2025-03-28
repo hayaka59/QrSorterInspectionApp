@@ -405,8 +405,15 @@ namespace QrSorterInspectionApp
                     sJobName = sArray[0].PadRight(16, '0');
                 }
                 // 不着事由１と２の取得
-                sNonDeliveryReason1 = CmbNonDeliveryReasonSorting1.Text.Substring(0, 1);
-                sNonDeliveryReason2 = CmbNonDeliveryReasonSorting2.Text.Substring(0, 1);
+                //sNonDeliveryReason1 = CmbNonDeliveryReasonSorting1.Text.Substring(0, 1);
+                //sNonDeliveryReason2 = CmbNonDeliveryReasonSorting2.Text.Substring(0, 1);
+
+                sNonDeliveryReasonArray = CmbNonDeliveryReasonSorting1.Text.Split('：');
+                sNonDeliveryReason1 = sNonDeliveryReasonArray[0];
+                
+                sNonDeliveryReasonArray = CmbNonDeliveryReasonSorting2.Text.Split('：');
+                sNonDeliveryReason2 = sNonDeliveryReasonArray[0];
+
                 sReasonForNonDelivery1 = "_" + sNonDeliveryReason1;
                 sReasonForNonDelivery2 = "_" + sNonDeliveryReason2;
                 // 受領日を取得
