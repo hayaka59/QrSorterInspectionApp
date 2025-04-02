@@ -154,6 +154,7 @@
             this.LblTitle = new System.Windows.Forms.Label();
             this.LblVersion = new System.Windows.Forms.Label();
             this.GrpFeederSetting = new System.Windows.Forms.GroupBox();
+            this.LblSelecttedFolder = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.TxtReadingPosition = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -163,7 +164,6 @@
             this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.LblSelecttedFolder = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
@@ -254,7 +254,7 @@
             this.NmUpDnManagementNoKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.NmUpDnManagementNoKeta.Location = new System.Drawing.Point(655, 188);
             this.NmUpDnManagementNoKeta.Maximum = new decimal(new int[] {
-            128,
+            47,
             0,
             0,
             0});
@@ -328,7 +328,7 @@
             this.NmUpDnFileTypeKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.NmUpDnFileTypeKeta.Location = new System.Drawing.Point(655, 147);
             this.NmUpDnFileTypeKeta.Maximum = new decimal(new int[] {
-            128,
+            47,
             0,
             0,
             0});
@@ -402,7 +402,7 @@
             this.NmUpDnPostalDateKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.NmUpDnPostalDateKeta.Location = new System.Drawing.Point(654, 107);
             this.NmUpDnPostalDateKeta.Maximum = new decimal(new int[] {
-            128,
+            47,
             0,
             0,
             0});
@@ -598,7 +598,7 @@
             this.NmUpDnPropertyIdKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.NmUpDnPropertyIdKeta.Location = new System.Drawing.Point(654, 66);
             this.NmUpDnPropertyIdKeta.Maximum = new decimal(new int[] {
-            128,
+            47,
             0,
             0,
             0});
@@ -819,9 +819,9 @@
             this.GrpSorterSetting.Controls.Add(this.TxtPocketName2);
             this.GrpSorterSetting.Controls.Add(this.CmbGroup2);
             this.GrpSorterSetting.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GrpSorterSetting.Location = new System.Drawing.Point(169, 543);
+            this.GrpSorterSetting.Location = new System.Drawing.Point(148, 543);
             this.GrpSorterSetting.Name = "GrpSorterSetting";
-            this.GrpSorterSetting.Size = new System.Drawing.Size(1554, 486);
+            this.GrpSorterSetting.Size = new System.Drawing.Size(1612, 486);
             this.GrpSorterSetting.TabIndex = 24;
             this.GrpSorterSetting.TabStop = false;
             this.GrpSorterSetting.Text = "ソータ設定";
@@ -1705,9 +1705,9 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1733, 938);
+            this.BtnClose.Location = new System.Drawing.Point(1768, 941);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(137, 50);
+            this.BtnClose.Size = new System.Drawing.Size(128, 50);
             this.BtnClose.TabIndex = 178;
             this.BtnClose.Text = "戻る";
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1724,9 +1724,10 @@
             this.RchTxtQrInfo.Name = "RchTxtQrInfo";
             this.RchTxtQrInfo.ReadOnly = true;
             this.RchTxtQrInfo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.RchTxtQrInfo.Size = new System.Drawing.Size(856, 38);
+            this.RchTxtQrInfo.Size = new System.Drawing.Size(1565, 38);
             this.RchTxtQrInfo.TabIndex = 286;
-            this.RchTxtQrInfo.Text = "";
+            this.RchTxtQrInfo.Text = "123456789*123456789*123456789*123456789*123456789*123456789*123456789*123456789*1" +
+    "23456789*123456789*123456789*123456789*12345678";
             // 
             // NumUpDwnQrAllDigit
             // 
@@ -1902,9 +1903,9 @@
             // 
             this.LblVersion.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblVersion.ForeColor = System.Drawing.Color.Blue;
-            this.LblVersion.Location = new System.Drawing.Point(1730, 1000);
+            this.LblVersion.Location = new System.Drawing.Point(1759, 1002);
             this.LblVersion.Name = "LblVersion";
-            this.LblVersion.Size = new System.Drawing.Size(145, 25);
+            this.LblVersion.Size = new System.Drawing.Size(142, 25);
             this.LblVersion.TabIndex = 176;
             this.LblVersion.Text = "LblVersion";
             this.LblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1947,12 +1948,25 @@
             this.GrpFeederSetting.Controls.Add(this.label16);
             this.GrpFeederSetting.Controls.Add(this.label7);
             this.GrpFeederSetting.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GrpFeederSetting.Location = new System.Drawing.Point(168, 63);
+            this.GrpFeederSetting.Location = new System.Drawing.Point(148, 63);
             this.GrpFeederSetting.Name = "GrpFeederSetting";
-            this.GrpFeederSetting.Size = new System.Drawing.Size(1557, 469);
+            this.GrpFeederSetting.Size = new System.Drawing.Size(1612, 469);
             this.GrpFeederSetting.TabIndex = 1;
             this.GrpFeederSetting.TabStop = false;
             this.GrpFeederSetting.Text = "QRフィーダー設定";
+            // 
+            // LblSelecttedFolder
+            // 
+            this.LblSelecttedFolder.BackColor = System.Drawing.Color.White;
+            this.LblSelecttedFolder.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblSelecttedFolder.ForeColor = System.Drawing.Color.Black;
+            this.LblSelecttedFolder.Location = new System.Drawing.Point(23, 230);
+            this.LblSelecttedFolder.Name = "LblSelecttedFolder";
+            this.LblSelecttedFolder.Size = new System.Drawing.Size(360, 59);
+            this.LblSelecttedFolder.TabIndex = 327;
+            this.LblSelecttedFolder.Text = "LblSelecttedFolder";
+            this.LblSelecttedFolder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblSelecttedFolder.Visible = false;
             // 
             // label10
             // 
@@ -2073,19 +2087,6 @@
             this.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
-            // LblSelecttedFolder
-            // 
-            this.LblSelecttedFolder.BackColor = System.Drawing.Color.White;
-            this.LblSelecttedFolder.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblSelecttedFolder.ForeColor = System.Drawing.Color.Black;
-            this.LblSelecttedFolder.Location = new System.Drawing.Point(23, 230);
-            this.LblSelecttedFolder.Name = "LblSelecttedFolder";
-            this.LblSelecttedFolder.Size = new System.Drawing.Size(360, 59);
-            this.LblSelecttedFolder.TabIndex = 327;
-            this.LblSelecttedFolder.Text = "LblSelecttedFolder";
-            this.LblSelecttedFolder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LblSelecttedFolder.Visible = false;
             // 
             // SettingForm
             // 
