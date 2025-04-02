@@ -390,6 +390,11 @@ namespace QrSorterInspectionApp
 
             try
             {
+                if (LblSelectedFile.Text.Trim()=="")
+                {
+                    CommonModule.OutPutLogFile("JOB未選択状態で CreateInspectionLogFolder() が呼ばれました");
+                    return;
+                }
                 sArray = LblSelectedFile.Text.Split('.');
                 // JOBフォルダ名
                 sJobFolderName = sArray[0];
@@ -581,7 +586,7 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【CreateInspectionLogFolder】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.StackTrace, "【CreateInspectionLogFolder】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

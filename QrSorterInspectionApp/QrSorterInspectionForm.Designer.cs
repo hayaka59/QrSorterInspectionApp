@@ -323,9 +323,9 @@
             this.LblStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblStatus.Font = new System.Drawing.Font("メイリオ", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblStatus.ForeColor = System.Drawing.Color.Black;
-            this.LblStatus.Location = new System.Drawing.Point(1186, 62);
+            this.LblStatus.Location = new System.Drawing.Point(1186, 56);
             this.LblStatus.Name = "LblStatus";
-            this.LblStatus.Size = new System.Drawing.Size(585, 208);
+            this.LblStatus.Size = new System.Drawing.Size(585, 172);
             this.LblStatus.TabIndex = 257;
             this.LblStatus.Text = "検査中";
             this.LblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -885,7 +885,7 @@
             this.groupBox1.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox1.Location = new System.Drawing.Point(597, 231);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(576, 64);
+            this.groupBox1.Size = new System.Drawing.Size(1175, 64);
             this.groupBox1.TabIndex = 335;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "QR読取りデータ";
@@ -893,14 +893,15 @@
             // LblQrReadData
             // 
             this.LblQrReadData.BackColor = System.Drawing.Color.White;
-            this.LblQrReadData.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblQrReadData.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblQrReadData.ForeColor = System.Drawing.Color.Black;
-            this.LblQrReadData.Location = new System.Drawing.Point(8, 20);
+            this.LblQrReadData.Location = new System.Drawing.Point(8, 19);
             this.LblQrReadData.Name = "LblQrReadData";
-            this.LblQrReadData.Size = new System.Drawing.Size(560, 35);
+            this.LblQrReadData.Size = new System.Drawing.Size(1161, 35);
             this.LblQrReadData.TabIndex = 324;
-            this.LblQrReadData.Text = "123456789*123456789*123456789*123456789*1234567";
-            this.LblQrReadData.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblQrReadData.Text = "123456789*123456789*123456789*123456789*123456789*123456789*123456789*123456789*1" +
+    "23456789*123456789*";
+            this.LblQrReadData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LblDuplicateCheck
             // 
@@ -929,12 +930,12 @@
             // 
             // LblOffLine
             // 
-            this.LblOffLine.BackColor = System.Drawing.Color.White;
+            this.LblOffLine.BackColor = System.Drawing.Color.WhiteSmoke;
             this.LblOffLine.Font = new System.Drawing.Font("メイリオ", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblOffLine.ForeColor = System.Drawing.Color.Blue;
             this.LblOffLine.Location = new System.Drawing.Point(379, 740);
             this.LblOffLine.Name = "LblOffLine";
-            this.LblOffLine.Size = new System.Drawing.Size(1110, 126);
+            this.LblOffLine.Size = new System.Drawing.Size(1112, 220);
             this.LblOffLine.TabIndex = 338;
             this.LblOffLine.Text = "オフラインモード";
             this.LblOffLine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1136,12 +1137,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.LblOffLine);
             this.Controls.Add(this.BtnCounterClear5);
             this.Controls.Add(this.BtnCounterClear4);
             this.Controls.Add(this.BtnCounterClear3);
             this.Controls.Add(this.BtnCounterClear2);
             this.Controls.Add(this.BtnCounterClear1);
-            this.Controls.Add(this.LblOffLine);
             this.Controls.Add(this.BtnSetting);
             this.Controls.Add(this.LstSettingInfomation);
             this.Controls.Add(this.LblDuplicateCheck);
