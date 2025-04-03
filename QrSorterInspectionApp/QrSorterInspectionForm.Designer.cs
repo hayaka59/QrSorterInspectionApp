@@ -931,7 +931,7 @@
             // LblOffLine
             // 
             this.LblOffLine.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.LblOffLine.Font = new System.Drawing.Font("メイリオ", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblOffLine.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblOffLine.ForeColor = System.Drawing.Color.Blue;
             this.LblOffLine.Location = new System.Drawing.Point(379, 740);
             this.LblOffLine.Name = "LblOffLine";

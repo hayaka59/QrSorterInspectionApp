@@ -254,7 +254,7 @@
             this.NmUpDnManagementNoKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.NmUpDnManagementNoKeta.Location = new System.Drawing.Point(655, 188);
             this.NmUpDnManagementNoKeta.Maximum = new decimal(new int[] {
-            47,
+            99,
             0,
             0,
             0});
@@ -328,7 +328,7 @@
             this.NmUpDnFileTypeKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.NmUpDnFileTypeKeta.Location = new System.Drawing.Point(655, 147);
             this.NmUpDnFileTypeKeta.Maximum = new decimal(new int[] {
-            47,
+            99,
             0,
             0,
             0});
@@ -402,7 +402,7 @@
             this.NmUpDnPostalDateKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.NmUpDnPostalDateKeta.Location = new System.Drawing.Point(654, 107);
             this.NmUpDnPostalDateKeta.Maximum = new decimal(new int[] {
-            47,
+            99,
             0,
             0,
             0});
@@ -598,7 +598,7 @@
             this.NmUpDnPropertyIdKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.NmUpDnPropertyIdKeta.Location = new System.Drawing.Point(654, 66);
             this.NmUpDnPropertyIdKeta.Maximum = new decimal(new int[] {
-            47,
+            99,
             0,
             0,
             0});

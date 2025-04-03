@@ -406,18 +406,12 @@ namespace QrSorterInspectionApp
                 }
                 else
                 {
-                    //// 先頭に「0」を付加して16桁とする
-                    //sJobName = sArray[0].PadLeft(16, '0');
                     // 後ろに「0」を付加して16桁とする
                     sJobName = sArray[0].PadRight(16, '0');
                 }
                 // 不着事由１と２の取得
-                //sNonDeliveryReason1 = CmbNonDeliveryReasonSorting1.Text.Substring(0, 1);
-                //sNonDeliveryReason2 = CmbNonDeliveryReasonSorting2.Text.Substring(0, 1);
-
                 sNonDeliveryReasonArray = CmbNonDeliveryReasonSorting1.Text.Split('：');
-                sNonDeliveryReason1 = sNonDeliveryReasonArray[0];
-                
+                sNonDeliveryReason1 = sNonDeliveryReasonArray[0];               
                 sNonDeliveryReasonArray = CmbNonDeliveryReasonSorting2.Text.Split('：');
                 sNonDeliveryReason2 = sNonDeliveryReasonArray[0];
 
@@ -1072,23 +1066,23 @@ namespace QrSorterInspectionApp
                     sData = PubConstClass.CMD_SEND_a + ",";
                     sData += sArrayJob[1] == "ハガキ" ? "0" : "1";    // (01) 媒体           ：1桁
                     sData += ",";
-                    sData += sArrayJob[4].PadLeft(2, '0');            // (02) QR桁数         ：2桁
+                    sData += sArrayJob[4].PadLeft(3, '0');            // (02) QR桁数         ：2桁→3桁
                     sData += ","; 
                     sData += sArrayJob[5] == "OFF" ? "0" : "1";       // (03) 読取チェック   ：1桁
                     sData += ","; 
-                    sData += sArrayJob[7].PadLeft(2, '0');            // (04) QR読取項目1開始：2桁
+                    sData += sArrayJob[7].PadLeft(3, '0');            // (04) QR読取項目1開始：2桁→3桁
                     sData += ","; 
                     sData += sArrayJob[8].PadLeft(2, '0');            // (05) QR読取項目1桁数：2桁                    
                     sData += ","; 
-                    sData += sArrayJob[10].PadLeft(2, '0');           // (06) QR読取項目2開始：2桁
+                    sData += sArrayJob[10].PadLeft(3, '0');           // (06) QR読取項目2開始：2桁→3桁
                     sData += ","; 
                     sData += sArrayJob[11].PadLeft(2, '0');           // (07) QR読取項目2桁数：2桁                    
                     sData += ","; 
-                    sData += sArrayJob[13].PadLeft(2, '0');           // (08) QR読取項目3開始：2桁
+                    sData += sArrayJob[13].PadLeft(3, '0');           // (08) QR読取項目3開始：2桁→3桁
                     sData += ","; 
                     sData += sArrayJob[14].PadLeft(2, '0');           // (09) QR読取項目3桁数：2桁                    
                     sData += ","; 
-                    sData += sArrayJob[16].PadLeft(2, '0');           // (10) QR読取項目4開始：2桁
+                    sData += sArrayJob[16].PadLeft(3, '0');           // (10) QR読取項目4開始：2桁→3桁
                     sData += ","; 
                     sData += sArrayJob[17].PadLeft(2, '0');           // (11) QR読取項目4桁数：2桁
                     sData += ",";
