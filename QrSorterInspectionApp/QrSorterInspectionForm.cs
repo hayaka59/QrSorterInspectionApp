@@ -406,18 +406,12 @@ namespace QrSorterInspectionApp
                 }
                 else
                 {
-                    //// 先頭に「0」を付加して16桁とする
-                    //sJobName = sArray[0].PadLeft(16, '0');
                     // 後ろに「0」を付加して16桁とする
                     sJobName = sArray[0].PadRight(16, '0');
                 }
                 // 不着事由１と２の取得
-                //sNonDeliveryReason1 = CmbNonDeliveryReasonSorting1.Text.Substring(0, 1);
-                //sNonDeliveryReason2 = CmbNonDeliveryReasonSorting2.Text.Substring(0, 1);
-
                 sNonDeliveryReasonArray = CmbNonDeliveryReasonSorting1.Text.Split('：');
-                sNonDeliveryReason1 = sNonDeliveryReasonArray[0];
-                
+                sNonDeliveryReason1 = sNonDeliveryReasonArray[0];               
                 sNonDeliveryReasonArray = CmbNonDeliveryReasonSorting2.Text.Split('：');
                 sNonDeliveryReason2 = sNonDeliveryReasonArray[0];
 
@@ -1072,7 +1066,8 @@ namespace QrSorterInspectionApp
                     sData = PubConstClass.CMD_SEND_a + ",";
                     sData += sArrayJob[1] == "ハガキ" ? "0" : "1";    // (01) 媒体           ：1桁
                     sData += ",";
-                    sData += sArrayJob[4].PadLeft(2, '0');            // (02) QR桁数         ：2桁
+                    //sData += sArrayJob[4].PadLeft(2, '0');            // (02) QR桁数         ：2桁
+                    sData += sArrayJob[4].PadLeft(3, '0');            // (02) QR桁数         ：3桁
                     sData += ","; 
                     sData += sArrayJob[5] == "OFF" ? "0" : "1";       // (03) 読取チェック   ：1桁
                     sData += ","; 
