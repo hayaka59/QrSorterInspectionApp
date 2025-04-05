@@ -302,7 +302,7 @@ namespace QrSorterInspectionApp
             string[] sArray;
             string[] sArrayJob;
             string sPath;
-            string sMes;
+            //string sMes;
             string sTitle;
 
             try
@@ -310,13 +310,13 @@ namespace QrSorterInspectionApp
                 if (CmbLogType.SelectedIndex == 0)
                 {
                     sPath = "QRソーター設定検査ログ（OKのみ）\\";
-                    sMes = "（OKのみ）";
+                    //sMes = "（OKのみ）";
                     sTitle = "（OKのみ）検査ログファイル件数：";
                 }
                 else
                 {
                     sPath = "QRソーター設定検査ログ（全件）\\";
-                    sMes = "（全件）";
+                    //sMes = "（全件）";
                     sTitle = "（全件）検査ログファイル件数：";
                 }
 
