@@ -195,6 +195,13 @@ namespace QrSorterSimulatorApp
                 CmbTray.Items.Add("9");                
                 CmbTray.SelectedIndex = 0;
 
+                CmbQRDigit.Items.Clear();
+                for (int i = 0; i <= 128 - 31; i++)
+                {
+                    CmbQRDigit.Items.Add((i + 31).ToString("000"));
+                }   
+                CmbQRDigit.SelectedIndex = 0;
+
                 #region 不着事由区分
                 CommonModule.ReadNonDeliveryList();
                 CmbNonDeliveryReasonSorting.Items.Clear();                
@@ -353,11 +360,10 @@ namespace QrSorterSimulatorApp
                     sData = TxtPropertyId.Text.Trim();                                          // 物件ID
                     sData += "1";                                                               // （1st/2st）
                     sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");                    // 局出し日（YYYYMMDD）
-                    sData += "-" + DateTime.Now.ToString("yyMMdd_");                            // ユニークキー（8桁）
-                    sData += int.Parse(TxtUniqueKey.Text).ToString("00000000000000000") + ",";  // ユニークキー（17桁）
-
-                    // ユニークキーのインクリメント
-                    TxtUniqueKey.Text = (int.Parse(TxtUniqueKey.Text) + 1).ToString("00000000000000000");
+                    sData += "-" + DateTime.Now.ToString("yyMMdd_");                             // ユニークキー（7桁）                    
+                    sData += int.Parse(TxtUniqueKey.Text).ToString().PadLeft(CmbQRDigit.SelectedIndex + 9, '0') + ",";  // ユニークキー（xx桁）
+                    // ユニークキーのインクリメント                        
+                    TxtUniqueKey.Text = (int.Parse(TxtUniqueKey.Text) + 1).ToString().PadLeft(CmbQRDigit.SelectedIndex + 9, '0');
                 }
 
                 // 判定（OK="0"/NG="1"）
@@ -376,6 +382,7 @@ namespace QrSorterSimulatorApp
                 SerialPortQr.Write(dat, 0, dat.GetLength(0));
                 LsbSendBox.Items.Add(sData);
                 LsbSendBox.SelectedIndex = LsbSendBox.Items.Count - 1;
+                CommonModule.OutPutLogFile($"送信データ：{sData}");
             }
             catch (Exception ex)
             {
@@ -666,7 +673,8 @@ namespace QrSorterSimulatorApp
                 sData += "1";                                                           // （1st/2st）
                 sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");                // 局出し日（YYYYMMDD）
                 sData += "-" + DateTime.Now.ToString("yyMMdd_");                        // ユニークキー（8桁）
-                sData += int.Parse(TxtUniqueKey.Text).ToString("00000000000000000");    // ユニークキー（17桁）
+                //sData += int.Parse(TxtUniqueKey.Text).ToString("00000000000000000");    // ユニークキー（17桁）
+                sData += int.Parse(TxtUniqueKey.Text).ToString().PadLeft(CmbQRDigit.SelectedIndex, '0') + ",";  // ユニークキー（17桁）
 
                 // 送信データのセット
                 byte[] dat = Encoding.GetEncoding("SHIFT-JIS").GetBytes(sData + "\r");

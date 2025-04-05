@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LblVersion = new System.Windows.Forms.Label();
             this.LsbRecvBox = new System.Windows.Forms.ListBox();
             this.LsbSendBox = new System.Windows.Forms.ListBox();
-            this.SerialPortQr = new System.IO.Ports.SerialPort();
+            this.SerialPortQr = new System.IO.Ports.SerialPort(this.components);
             this.LblError = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtPropertyId = new System.Windows.Forms.TextBox();
@@ -45,10 +46,10 @@
             this.CmbErrorCode = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.CmbTray = new System.Windows.Forms.ComboBox();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.TimSendData = new System.Windows.Forms.Timer();
+            this.TimSendData = new System.Windows.Forms.Timer(this.components);
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.CmbNonDeliveryReasonSorting = new System.Windows.Forms.ComboBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -72,6 +73,8 @@
             this.BtnMaintenance = new System.Windows.Forms.Button();
             this.BtnSendTestData = new System.Windows.Forms.Button();
             this.BtnEnd = new System.Windows.Forms.Button();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.CmbQRDigit = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -84,6 +87,7 @@
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblVersion
@@ -576,12 +580,33 @@
             this.BtnEnd.UseVisualStyleBackColor = true;
             this.BtnEnd.Click += new System.EventHandler(this.BtnEnd_Click);
             // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.CmbQRDigit);
+            this.groupBox13.Location = new System.Drawing.Point(221, 226);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(74, 60);
+            this.groupBox13.TabIndex = 327;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "QR桁数";
+            // 
+            // CmbQRDigit
+            // 
+            this.CmbQRDigit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbQRDigit.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbQRDigit.FormattingEnabled = true;
+            this.CmbQRDigit.Location = new System.Drawing.Point(6, 18);
+            this.CmbQRDigit.Name = "CmbQRDigit";
+            this.CmbQRDigit.Size = new System.Drawing.Size(56, 32);
+            this.CmbQRDigit.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox13);
             this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.BtnAutoTest);
@@ -632,6 +657,7 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox12.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -682,6 +708,8 @@
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.ComboBox CmbTestCount;
         private System.Windows.Forms.Button BtnReset;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.ComboBox CmbQRDigit;
     }
 }
 
