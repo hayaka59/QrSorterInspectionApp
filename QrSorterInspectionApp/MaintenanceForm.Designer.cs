@@ -271,11 +271,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LsvLogContent = new System.Windows.Forms.ListView();
             this.label9 = new System.Windows.Forms.Label();
+            this.LsvLogList = new System.Windows.Forms.ListView();
             this.PctLogo = new System.Windows.Forms.PictureBox();
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.SerialPortMaint = new System.IO.Ports.SerialPort(this.components);
-            this.LsvLogList = new System.Windows.Forms.ListView();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox6.SuspendLayout();
@@ -2986,7 +2986,7 @@
             this.GrpInspectionDate.Controls.Add(this.label3);
             this.GrpInspectionDate.Controls.Add(this.dtTimePickerTo);
             this.GrpInspectionDate.Controls.Add(this.ChkInspectionDate);
-            this.GrpInspectionDate.Location = new System.Drawing.Point(665, 15);
+            this.GrpInspectionDate.Location = new System.Drawing.Point(509, 15);
             this.GrpInspectionDate.Name = "GrpInspectionDate";
             this.GrpInspectionDate.Size = new System.Drawing.Size(407, 85);
             this.GrpInspectionDate.TabIndex = 340;
@@ -3114,16 +3114,17 @@
             // 
             // BtnUpdate
             // 
-            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnUpdate.BackColor = System.Drawing.Color.LightGreen;
+            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnUpdate.Image = global::QrSorterInspectionApp.Properties.Resources.update;
-            this.BtnUpdate.Location = new System.Drawing.Point(497, 34);
+            this.BtnUpdate.Location = new System.Drawing.Point(1460, 15);
             this.BtnUpdate.Name = "BtnUpdate";
-            this.BtnUpdate.Size = new System.Drawing.Size(144, 53);
+            this.BtnUpdate.Size = new System.Drawing.Size(168, 85);
             this.BtnUpdate.TabIndex = 334;
             this.BtnUpdate.Text = "更新";
             this.BtnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.UseVisualStyleBackColor = false;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // LblContentCount
@@ -3188,6 +3189,19 @@
             this.label9.Text = "選択したエラーログの内容";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // LsvLogList
+            // 
+            this.LsvLogList.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LsvLogList.FullRowSelect = true;
+            this.LsvLogList.GridLines = true;
+            this.LsvLogList.HideSelection = false;
+            this.LsvLogList.Location = new System.Drawing.Point(27, 143);
+            this.LsvLogList.Name = "LsvLogList";
+            this.LsvLogList.Size = new System.Drawing.Size(1602, 224);
+            this.LsvLogList.TabIndex = 341;
+            this.LsvLogList.UseCompatibleStateImageBehavior = false;
+            this.LsvLogList.SelectedIndexChanged += new System.EventHandler(this.LsvLogList_SelectedIndexChanged);
+            // 
             // PctLogo
             // 
             this.PctLogo.Image = global::QrSorterInspectionApp.Properties.Resources.株式会社Ai_R横黒色背景透明;
@@ -3225,19 +3239,6 @@
             this.BtnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
-            // LsvLogList
-            // 
-            this.LsvLogList.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LsvLogList.FullRowSelect = true;
-            this.LsvLogList.GridLines = true;
-            this.LsvLogList.HideSelection = false;
-            this.LsvLogList.Location = new System.Drawing.Point(27, 143);
-            this.LsvLogList.Name = "LsvLogList";
-            this.LsvLogList.Size = new System.Drawing.Size(1602, 224);
-            this.LsvLogList.TabIndex = 341;
-            this.LsvLogList.UseCompatibleStateImageBehavior = false;
-            this.LsvLogList.SelectedIndexChanged += new System.EventHandler(this.LsvLogList_SelectedIndexChanged);
             // 
             // MaintenanceForm
             // 
