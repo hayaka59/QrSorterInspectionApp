@@ -112,6 +112,8 @@
             this.BtnCounterClear3 = new System.Windows.Forms.Button();
             this.BtnCounterClear4 = new System.Windows.Forms.Button();
             this.BtnCounterClear5 = new System.Windows.Forms.Button();
+            this.CmbFontSize = new System.Windows.Forms.ComboBox();
+            this.CmbDigit = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -273,7 +275,7 @@
             this.LsvOKHistory.FullRowSelect = true;
             this.LsvOKHistory.GridLines = true;
             this.LsvOKHistory.HideSelection = false;
-            this.LsvOKHistory.Location = new System.Drawing.Point(96, 365);
+            this.LsvOKHistory.Location = new System.Drawing.Point(96, 363);
             this.LsvOKHistory.Name = "LsvOKHistory";
             this.LsvOKHistory.Size = new System.Drawing.Size(830, 300);
             this.LsvOKHistory.TabIndex = 245;
@@ -285,7 +287,7 @@
             this.LsvNGHistory.FullRowSelect = true;
             this.LsvNGHistory.GridLines = true;
             this.LsvNGHistory.HideSelection = false;
-            this.LsvNGHistory.Location = new System.Drawing.Point(941, 365);
+            this.LsvNGHistory.Location = new System.Drawing.Point(941, 363);
             this.LsvNGHistory.Name = "LsvNGHistory";
             this.LsvNGHistory.Size = new System.Drawing.Size(830, 300);
             this.LsvNGHistory.TabIndex = 246;
@@ -297,7 +299,7 @@
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label9.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(96, 334);
+            this.label9.Location = new System.Drawing.Point(96, 332);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(830, 31);
             this.label9.TabIndex = 247;
@@ -310,7 +312,7 @@
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label10.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(941, 334);
+            this.label10.Location = new System.Drawing.Point(941, 332);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(830, 31);
             this.label10.TabIndex = 248;
@@ -523,7 +525,7 @@
             this.label33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label33.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label33.ForeColor = System.Drawing.Color.Black;
-            this.label33.Location = new System.Drawing.Point(96, 303);
+            this.label33.Location = new System.Drawing.Point(96, 301);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(1675, 32);
             this.label33.TabIndex = 279;
@@ -550,11 +552,11 @@
             // 
             this.LblPocket1.BackColor = System.Drawing.Color.White;
             this.LblPocket1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblPocket1.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblPocket1.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F);
             this.LblPocket1.ForeColor = System.Drawing.Color.Black;
             this.LblPocket1.Location = new System.Drawing.Point(1491, 916);
             this.LblPocket1.Name = "LblPocket1";
-            this.LblPocket1.Size = new System.Drawing.Size(280, 50);
+            this.LblPocket1.Size = new System.Drawing.Size(280, 57);
             this.LblPocket1.TabIndex = 281;
             this.LblPocket1.Text = "ポケット１";
             this.LblPocket1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -563,11 +565,11 @@
             // 
             this.LblPocket2.BackColor = System.Drawing.Color.White;
             this.LblPocket2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblPocket2.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblPocket2.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblPocket2.ForeColor = System.Drawing.Color.Black;
             this.LblPocket2.Location = new System.Drawing.Point(1212, 916);
             this.LblPocket2.Name = "LblPocket2";
-            this.LblPocket2.Size = new System.Drawing.Size(280, 50);
+            this.LblPocket2.Size = new System.Drawing.Size(280, 57);
             this.LblPocket2.TabIndex = 282;
             this.LblPocket2.Text = "ポケット２";
             this.LblPocket2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -576,11 +578,11 @@
             // 
             this.LblPocket4.BackColor = System.Drawing.Color.White;
             this.LblPocket4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblPocket4.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblPocket4.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblPocket4.ForeColor = System.Drawing.Color.Black;
             this.LblPocket4.Location = new System.Drawing.Point(654, 916);
             this.LblPocket4.Name = "LblPocket4";
-            this.LblPocket4.Size = new System.Drawing.Size(280, 50);
+            this.LblPocket4.Size = new System.Drawing.Size(280, 57);
             this.LblPocket4.TabIndex = 284;
             this.LblPocket4.Text = "ポケット４";
             this.LblPocket4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -589,11 +591,11 @@
             // 
             this.LblPocket3.BackColor = System.Drawing.Color.White;
             this.LblPocket3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblPocket3.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblPocket3.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblPocket3.ForeColor = System.Drawing.Color.Black;
             this.LblPocket3.Location = new System.Drawing.Point(933, 916);
             this.LblPocket3.Name = "LblPocket3";
-            this.LblPocket3.Size = new System.Drawing.Size(280, 50);
+            this.LblPocket3.Size = new System.Drawing.Size(280, 57);
             this.LblPocket3.TabIndex = 283;
             this.LblPocket3.Text = "ポケット３";
             this.LblPocket3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -702,11 +704,11 @@
             // 
             this.LblPocket5.BackColor = System.Drawing.Color.White;
             this.LblPocket5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblPocket5.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblPocket5.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblPocket5.ForeColor = System.Drawing.Color.Black;
             this.LblPocket5.Location = new System.Drawing.Point(375, 916);
             this.LblPocket5.Name = "LblPocket5";
-            this.LblPocket5.Size = new System.Drawing.Size(280, 50);
+            this.LblPocket5.Size = new System.Drawing.Size(280, 57);
             this.LblPocket5.TabIndex = 305;
             this.LblPocket5.Text = "ポケット５";
             this.LblPocket5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -716,7 +718,7 @@
             this.LblError.BackColor = System.Drawing.Color.LightCoral;
             this.LblError.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblError.ForeColor = System.Drawing.Color.Blue;
-            this.LblError.Location = new System.Drawing.Point(538, 969);
+            this.LblError.Location = new System.Drawing.Point(538, 975);
             this.LblError.Name = "LblError";
             this.LblError.Size = new System.Drawing.Size(970, 62);
             this.LblError.TabIndex = 317;
@@ -741,7 +743,7 @@
             this.LblGrpInfo5.BackColor = System.Drawing.Color.Moccasin;
             this.LblGrpInfo5.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblGrpInfo5.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.LblGrpInfo5.Location = new System.Drawing.Point(375, 943);
+            this.LblGrpInfo5.Location = new System.Drawing.Point(375, 974);
             this.LblGrpInfo5.Name = "LblGrpInfo5";
             this.LblGrpInfo5.Size = new System.Drawing.Size(280, 35);
             this.LblGrpInfo5.TabIndex = 324;
@@ -754,7 +756,7 @@
             this.LblGrpInfo4.BackColor = System.Drawing.Color.Moccasin;
             this.LblGrpInfo4.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblGrpInfo4.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.LblGrpInfo4.Location = new System.Drawing.Point(655, 943);
+            this.LblGrpInfo4.Location = new System.Drawing.Point(655, 974);
             this.LblGrpInfo4.Name = "LblGrpInfo4";
             this.LblGrpInfo4.Size = new System.Drawing.Size(280, 35);
             this.LblGrpInfo4.TabIndex = 325;
@@ -767,7 +769,7 @@
             this.LblGrpInfo3.BackColor = System.Drawing.Color.Moccasin;
             this.LblGrpInfo3.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblGrpInfo3.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.LblGrpInfo3.Location = new System.Drawing.Point(934, 943);
+            this.LblGrpInfo3.Location = new System.Drawing.Point(934, 974);
             this.LblGrpInfo3.Name = "LblGrpInfo3";
             this.LblGrpInfo3.Size = new System.Drawing.Size(280, 35);
             this.LblGrpInfo3.TabIndex = 326;
@@ -780,7 +782,7 @@
             this.LblGrpInfo2.BackColor = System.Drawing.Color.Moccasin;
             this.LblGrpInfo2.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblGrpInfo2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.LblGrpInfo2.Location = new System.Drawing.Point(1213, 943);
+            this.LblGrpInfo2.Location = new System.Drawing.Point(1213, 974);
             this.LblGrpInfo2.Name = "LblGrpInfo2";
             this.LblGrpInfo2.Size = new System.Drawing.Size(280, 35);
             this.LblGrpInfo2.TabIndex = 327;
@@ -793,7 +795,7 @@
             this.LblGrpInfo1.BackColor = System.Drawing.Color.Moccasin;
             this.LblGrpInfo1.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblGrpInfo1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.LblGrpInfo1.Location = new System.Drawing.Point(1492, 943);
+            this.LblGrpInfo1.Location = new System.Drawing.Point(1492, 974);
             this.LblGrpInfo1.Name = "LblGrpInfo1";
             this.LblGrpInfo1.Size = new System.Drawing.Size(280, 35);
             this.LblGrpInfo1.TabIndex = 328;
@@ -870,11 +872,11 @@
             // 
             this.LblPocketEject.BackColor = System.Drawing.Color.White;
             this.LblPocketEject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblPocketEject.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblPocketEject.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblPocketEject.ForeColor = System.Drawing.Color.Black;
             this.LblPocketEject.Location = new System.Drawing.Point(96, 916);
             this.LblPocketEject.Name = "LblPocketEject";
-            this.LblPocketEject.Size = new System.Drawing.Size(280, 50);
+            this.LblPocketEject.Size = new System.Drawing.Size(280, 57);
             this.LblPocketEject.TabIndex = 334;
             this.LblPocketEject.Text = "ポケットリジェクト";
             this.LblPocketEject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -893,14 +895,14 @@
             // LblQrReadData
             // 
             this.LblQrReadData.BackColor = System.Drawing.Color.White;
-            this.LblQrReadData.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblQrReadData.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblQrReadData.ForeColor = System.Drawing.Color.Black;
             this.LblQrReadData.Location = new System.Drawing.Point(8, 19);
             this.LblQrReadData.Name = "LblQrReadData";
             this.LblQrReadData.Size = new System.Drawing.Size(1161, 35);
             this.LblQrReadData.TabIndex = 324;
             this.LblQrReadData.Text = "123456789*123456789*123456789*123456789*123456789*123456789*123456789*123456789*1" +
-    "23456789*123456789*";
+    "23456789*123456789*123456789*123456789*12345678";
             this.LblQrReadData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LblDuplicateCheck
@@ -931,7 +933,7 @@
             // LblOffLine
             // 
             this.LblOffLine.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.LblOffLine.Font = new System.Drawing.Font("メイリオ", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblOffLine.Font = new System.Drawing.Font("メイリオ", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblOffLine.ForeColor = System.Drawing.Color.Blue;
             this.LblOffLine.Location = new System.Drawing.Point(379, 740);
             this.LblOffLine.Name = "LblOffLine";
@@ -1027,7 +1029,7 @@
             // 
             this.BtnStopInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnStopInspection.Image = global::QrSorterInspectionApp.Properties.Resources.standing;
-            this.BtnStopInspection.Location = new System.Drawing.Point(313, 974);
+            this.BtnStopInspection.Location = new System.Drawing.Point(313, 982);
             this.BtnStopInspection.Name = "BtnStopInspection";
             this.BtnStopInspection.Size = new System.Drawing.Size(205, 50);
             this.BtnStopInspection.TabIndex = 182;
@@ -1041,7 +1043,7 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1542, 974);
+            this.BtnClose.Location = new System.Drawing.Point(1542, 984);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(205, 50);
             this.BtnClose.TabIndex = 181;
@@ -1055,7 +1057,7 @@
             // 
             this.BtnStartInspection.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnStartInspection.Image = global::QrSorterInspectionApp.Properties.Resources.running_icon;
-            this.BtnStartInspection.Location = new System.Drawing.Point(102, 974);
+            this.BtnStartInspection.Location = new System.Drawing.Point(102, 982);
             this.BtnStartInspection.Name = "BtnStartInspection";
             this.BtnStartInspection.Size = new System.Drawing.Size(205, 50);
             this.BtnStartInspection.TabIndex = 180;
@@ -1131,12 +1133,36 @@
             this.BtnCounterClear5.UseVisualStyleBackColor = true;
             this.BtnCounterClear5.Click += new System.EventHandler(this.BtnCounterClear5_Click);
             // 
+            // CmbFontSize
+            // 
+            this.CmbFontSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbFontSize.FormattingEnabled = true;
+            this.CmbFontSize.Location = new System.Drawing.Point(1786, 916);
+            this.CmbFontSize.Name = "CmbFontSize";
+            this.CmbFontSize.Size = new System.Drawing.Size(106, 20);
+            this.CmbFontSize.TabIndex = 344;
+            this.CmbFontSize.Visible = false;
+            this.CmbFontSize.SelectedIndexChanged += new System.EventHandler(this.CmbFontSize_SelectedIndexChanged);
+            // 
+            // CmbDigit
+            // 
+            this.CmbDigit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDigit.FormattingEnabled = true;
+            this.CmbDigit.Location = new System.Drawing.Point(1786, 883);
+            this.CmbDigit.Name = "CmbDigit";
+            this.CmbDigit.Size = new System.Drawing.Size(106, 20);
+            this.CmbDigit.TabIndex = 345;
+            this.CmbDigit.Visible = false;
+            this.CmbDigit.SelectedIndexChanged += new System.EventHandler(this.CmbDigit_SelectedIndexChanged);
+            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.CmbDigit);
+            this.Controls.Add(this.CmbFontSize);
             this.Controls.Add(this.LblOffLine);
             this.Controls.Add(this.BtnCounterClear5);
             this.Controls.Add(this.BtnCounterClear4);
@@ -1317,5 +1343,7 @@
         internal System.Windows.Forms.Button BtnCounterClear3;
         internal System.Windows.Forms.Button BtnCounterClear4;
         internal System.Windows.Forms.Button BtnCounterClear5;
+        private System.Windows.Forms.ComboBox CmbFontSize;
+        private System.Windows.Forms.ComboBox CmbDigit;
     }
 }
