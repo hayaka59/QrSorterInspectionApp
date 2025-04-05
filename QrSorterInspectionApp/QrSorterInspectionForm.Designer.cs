@@ -552,7 +552,7 @@
             // 
             this.LblPocket1.BackColor = System.Drawing.Color.White;
             this.LblPocket1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LblPocket1.Font = new System.Drawing.Font("ＭＳ ゴシック", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblPocket1.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F);
             this.LblPocket1.ForeColor = System.Drawing.Color.Black;
             this.LblPocket1.Location = new System.Drawing.Point(1491, 916);
             this.LblPocket1.Name = "LblPocket1";

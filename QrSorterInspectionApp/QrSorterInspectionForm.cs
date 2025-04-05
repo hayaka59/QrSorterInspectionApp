@@ -2083,7 +2083,7 @@ namespace QrSorterInspectionApp
 
 
         /// <summary>
-        /// 
+        /// ラベルのフォントサイズの変更
         /// </summary>
         /// <param name="sDigit"></param>
         private void ChangeLabelFontSize(string sDigit)
@@ -2093,27 +2093,27 @@ namespace QrSorterInspectionApp
 
             try
             {
-                // 何か処理を行う
+                // 桁数でフォントの大きさを変更
                 iDigit = int.Parse(sDigit);
                 
-                if (iDigit <= 48)
+                if (iDigit <= 52)
                 {
+                    // 1桁数～52桁
                     fFontSize = 14.0f;                    
                 }
                 else if(iDigit <= 60)
                 {
+                    // 53桁数～60桁
                     fFontSize = 12.0f;
                 }
-                else if (iDigit <= 90)
+                else if (iDigit <= 66)
                 {
-                    fFontSize = 11.0f;
-                }
-                else if (iDigit <= 99)
-                {
+                    // 61桁数～66桁
                     fFontSize = 10.0f;
                 }
                 else if (iDigit <= 128)
                 {
+                    // 67桁数～128桁
                     fFontSize = 9.0f;
                 }
                 
