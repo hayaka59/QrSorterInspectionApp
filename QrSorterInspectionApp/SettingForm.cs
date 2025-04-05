@@ -727,6 +727,11 @@ namespace QrSorterInspectionApp
                 ClearDisplayData();
                 
                 PubConstClass.lstGroupInfo.Clear();
+                PubConstClass.lstGroupInfo.Add("");
+                PubConstClass.lstGroupInfo.Add("");
+                PubConstClass.lstGroupInfo.Add("");
+                PubConstClass.lstGroupInfo.Add("");
+                PubConstClass.lstGroupInfo.Add("");
 
                 // 選択中ジョブフィル名クリア
                 LblSelectedFile.Text = "";
