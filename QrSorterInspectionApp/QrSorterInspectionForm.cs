@@ -1382,7 +1382,8 @@ namespace QrSorterInspectionApp
                 // 日時
                 col[1] = sWriteDate + " " + sWriteTime;
                 // 読取値（QRコード）
-                col[2] = strArray[0].Trim();
+                //col[2] = strArray[0].Trim();
+                col[2] = strArray[0];
                 // 判定（OK/NG）
                 col[3] = strArray[1].Trim() == "0" ? "OK" : "NG";
 
@@ -1496,7 +1497,8 @@ namespace QrSorterInspectionApp
                 sLogData += DQ + sWriteDate.Replace("/", "") + DQ + ",";            // 日付
                 sLogData += DQ + sWriteTime + DQ + ",";                             // 時刻
                 sLogData += DQ + DQ + ",";                                          // 期待値                       Null
-                sLogData += DQ + strArray[0].Trim() + DQ + ",";                     // 読取値
+                //sLogData += DQ + strArray[0].Trim() + DQ + ",";                     // 読取値
+                sLogData += DQ + strArray[0] + DQ + ",";                            // 読取値
                 sLogData += DQ + col[3] + DQ + ",";                                 // 判定
                 sLogData += DQ + sFileName + DQ + ",";                              // 正解データファイル名
                 sLogData += DQ + DQ + ",";                                          // 重量期待値[g]				Null
