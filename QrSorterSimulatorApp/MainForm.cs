@@ -361,7 +361,9 @@ namespace QrSorterSimulatorApp
                     sData += "1";                                                               // （1st/2st）
                     sData += dtTimPickPostalDate.Value.ToString("yyyyMMdd");                    // 局出し日（YYYYMMDD）
                     sData += "-" + DateTime.Now.ToString("yyMMdd_");                             // ユニークキー（7桁）                    
-                    sData += int.Parse(TxtUniqueKey.Text).ToString().PadLeft(CmbQRDigit.SelectedIndex + 9, '0') + ",";  // ユニークキー（xx桁）
+                    //sData += int.Parse(TxtUniqueKey.Text).ToString().PadLeft(CmbQRDigit.SelectedIndex + 9, '0') + ",";  // ユニークキー（xx桁）
+                    sData += int.Parse(TxtUniqueKey.Text).ToString().PadLeft(CmbQRDigit.SelectedIndex + 9 - 7, '0') + "       ,";  // ユニークキー（xx桁）
+                    
                     // ユニークキーのインクリメント                        
                     TxtUniqueKey.Text = (int.Parse(TxtUniqueKey.Text) + 1).ToString().PadLeft(CmbQRDigit.SelectedIndex + 9, '0');
                 }
