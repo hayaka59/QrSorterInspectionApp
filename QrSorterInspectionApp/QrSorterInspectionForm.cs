@@ -888,6 +888,30 @@ namespace QrSorterInspectionApp
                 LblGrpInfo3.Visible = true;
                 LblGrpInfo4.Visible = true;
                 LblGrpInfo5.Visible = true;
+
+                CmbDigit.Visible = true;
+                CmbFontSize.Visible = true;
+
+                CmbDigit.Items.Clear();
+                for (int iIndex = 31; iIndex <= 128; iIndex++)
+                {
+                    CmbDigit.Items.Add(iIndex.ToString());
+                }
+                CmbDigit.SelectedIndex = 0;
+
+                CmbFontSize.Items.Clear();
+                CmbFontSize.Items.Add("8");
+                CmbFontSize.Items.Add("9");
+                CmbFontSize.Items.Add("10");
+                CmbFontSize.Items.Add("11");
+                CmbFontSize.Items.Add("12");
+                CmbFontSize.Items.Add("14");
+                CmbFontSize.Items.Add("16");
+                CmbFontSize.Items.Add("18");
+                CmbFontSize.Items.Add("20");
+                CmbFontSize.Items.Add("22");
+                CmbFontSize.Items.Add("24");
+                CmbFontSize.SelectedIndex = 0;
             }
             else
             {
@@ -901,6 +925,15 @@ namespace QrSorterInspectionApp
                 LblGrpInfo3.Visible = false;
                 LblGrpInfo4.Visible = false;
                 LblGrpInfo5.Visible = false;
+
+                CmbDigit.Visible = false;
+                CmbFontSize.Visible = false;
+                LblPocket1.Text = "";
+                LblPocket2.Text = "";
+                LblPocket3.Text = "";
+                LblPocket4.Text = "";
+                LblPocket5.Text = "";
+                LblPocketEject.Text = "";
             }
         }
 
@@ -1067,6 +1100,8 @@ namespace QrSorterInspectionApp
                     sData += sArrayJob[1] == "ハガキ" ? "0" : "1";    // (01) 媒体           ：1桁
                     sData += ",";
                     sData += sArrayJob[4].PadLeft(3, '0');            // (02) QR桁数         ：2桁→3桁
+                    // ラベルのフォントサイズを変更する
+                    ChangeLabelFontSize(sArrayJob[4]);
                     sData += ","; 
                     sData += sArrayJob[5] == "OFF" ? "0" : "1";       // (03) 読取チェック   ：1桁
                     sData += ","; 
@@ -1989,6 +2024,111 @@ namespace QrSorterInspectionApp
         private void BtnCounterClear5_Click(object sender, EventArgs e)
         {
             CounterClear("ポケット５", LblBox5, ref iBox5Count);
+        }
+
+        private void CmbDigit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sData = "AB3456789*CD3456789*EF3456789*GH3456789*IJ3456789*KL3456789*MN3456789*OP3456789*QR3456789*ST3456789*UV3456789*WX3456789*YZ345678";
+            try
+            {
+                LblQrReadData.Text = sData.Substring(0, int.Parse(CmbDigit.Text));
+                LblPocket1.Text = sData.Substring(0, int.Parse(CmbDigit.Text));
+                LblPocket2.Text = sData.Substring(0, int.Parse(CmbDigit.Text));
+                LblPocket3.Text = sData.Substring(0, int.Parse(CmbDigit.Text));
+                LblPocket4.Text = sData.Substring(0, int.Parse(CmbDigit.Text));
+                LblPocket5.Text = sData.Substring(0, int.Parse(CmbDigit.Text));
+                LblPocketEject.Text = sData.Substring(0, int.Parse(CmbDigit.Text));               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CmbDigit_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CmbFontSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ChangeFontSize(LblQrReadData, float.Parse(CmbFontSize.Text));
+                ChangeFontSize(LblPocket1, float.Parse(CmbFontSize.Text));
+                ChangeFontSize(LblPocket2, float.Parse(CmbFontSize.Text));
+                ChangeFontSize(LblPocket3, float.Parse(CmbFontSize.Text));
+                ChangeFontSize(LblPocket4, float.Parse(CmbFontSize.Text));
+                ChangeFontSize(LblPocket5, float.Parse(CmbFontSize.Text));
+                ChangeFontSize(LblPocketEject, float.Parse(CmbFontSize.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CmbFontSize_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// ラベルのフォントサイズの変更
+        /// </summary>
+        /// <param name="label"></param>
+        /// <param name="newSize"></param>
+        private void ChangeFontSize(Label label, float newSize)
+        {
+            try 
+            {
+                // 元のフォント情報を取得して、新しいサイズで再作成
+                label.Font = new Font(label.Font.FontFamily, newSize, label.Font.Style);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ChangeFontSize】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sDigit"></param>
+        private void ChangeLabelFontSize(string sDigit)
+        {
+            int iDigit;
+            float fFontSize = 0;
+
+            try
+            {
+                // 何か処理を行う
+                iDigit = int.Parse(sDigit);
+                
+                if (iDigit <= 48)
+                {
+                    fFontSize = 14.0f;                    
+                }
+                else if(iDigit <= 60)
+                {
+                    fFontSize = 12.0f;
+                }
+                else if (iDigit <= 90)
+                {
+                    fFontSize = 11.0f;
+                }
+                else if (iDigit <= 99)
+                {
+                    fFontSize = 10.0f;
+                }
+                else if (iDigit <= 128)
+                {
+                    fFontSize = 9.0f;
+                }
+                
+                CommonModule.OutPutLogFile($"フォントサイズ：{fFontSize}");
+                ChangeFontSize(LblPocket1, fFontSize);
+                ChangeFontSize(LblPocket2, fFontSize);
+                ChangeFontSize(LblPocket3, fFontSize);
+                ChangeFontSize(LblPocket4, fFontSize);
+                ChangeFontSize(LblPocket5, fFontSize);
+                ChangeFontSize(LblPocketEject, fFontSize);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【wkwk】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
