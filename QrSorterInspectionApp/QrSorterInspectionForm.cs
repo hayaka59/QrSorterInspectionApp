@@ -209,11 +209,11 @@ namespace QrSorterInspectionApp
                 //// 100万件の過去に受信したQRデータを作成する
                 //for (int iIndex = 1; iIndex <= 1000000; iIndex++)
                 //{
-                //    lstPastReceivedQrData.Add($"D86571{s1}-{s2}_{iIndex:000000000}");
+                //    lstPastReceivedQrData.Add($"D86571{s1}-{s2}_{iIndex:0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000}");
                 //}
                 //sw.Stop();
                 //CommonModule.OutPutLogFile($"最初のQRデータ：{lstPastReceivedQrData[0]}");
-                //CommonModule.OutPutLogFile($"最後のQRデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count-1]}");
+                //CommonModule.OutPutLogFile($"最後のQRデータ：{lstPastReceivedQrData[lstPastReceivedQrData.Count - 1]}");
                 //CommonModule.OutPutLogFile($"{lstPastReceivedQrData.Count:#,###,##0}件作成処理時間: {sw.Elapsed.TotalMilliseconds}ミリ秒");
                 #endregion
 
@@ -1644,7 +1644,8 @@ namespace QrSorterInspectionApp
             try
             {
                 //LblQrReadData.Text = sData.Replace("\r","<CR>");
-                sQrData = sData.Replace("\r", "").Trim();
+                //sQrData = sData.Replace("\r", "").Trim();
+                sQrData = sData.Replace("\r", "");
                 LblQrReadData.Text = sQrData;
 
                 if (lstPastReceivedQrData.Count > 0)
