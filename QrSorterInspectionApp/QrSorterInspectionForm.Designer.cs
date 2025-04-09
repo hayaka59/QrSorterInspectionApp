@@ -114,6 +114,7 @@
             this.BtnCounterClear5 = new System.Windows.Forms.Button();
             this.CmbFontSize = new System.Windows.Forms.ComboBox();
             this.CmbDigit = new System.Windows.Forms.ComboBox();
+            this.BtnRejectCounterClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -488,7 +489,7 @@
             this.LblBoxEject.ForeColor = System.Drawing.Color.OrangeRed;
             this.LblBoxEject.Location = new System.Drawing.Point(96, 736);
             this.LblBoxEject.Name = "LblBoxEject";
-            this.LblBoxEject.Size = new System.Drawing.Size(280, 220);
+            this.LblBoxEject.Size = new System.Drawing.Size(280, 181);
             this.LblBoxEject.TabIndex = 276;
             this.LblBoxEject.Text = "99999";
             this.LblBoxEject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -937,7 +938,7 @@
             this.LblOffLine.ForeColor = System.Drawing.Color.Blue;
             this.LblOffLine.Location = new System.Drawing.Point(379, 740);
             this.LblOffLine.Name = "LblOffLine";
-            this.LblOffLine.Size = new System.Drawing.Size(1112, 220);
+            this.LblOffLine.Size = new System.Drawing.Size(1112, 231);
             this.LblOffLine.TabIndex = 338;
             this.LblOffLine.Text = "オフラインモード";
             this.LblOffLine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1155,12 +1156,27 @@
             this.CmbDigit.Visible = false;
             this.CmbDigit.SelectedIndexChanged += new System.EventHandler(this.CmbDigit_SelectedIndexChanged);
             // 
+            // BtnRejectCounterClear
+            // 
+            this.BtnRejectCounterClear.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnRejectCounterClear.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnRejectCounterClear.Location = new System.Drawing.Point(102, 875);
+            this.BtnRejectCounterClear.Name = "BtnRejectCounterClear";
+            this.BtnRejectCounterClear.Size = new System.Drawing.Size(104, 34);
+            this.BtnRejectCounterClear.TabIndex = 346;
+            this.BtnRejectCounterClear.Text = "クリア";
+            this.BtnRejectCounterClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnRejectCounterClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnRejectCounterClear.UseVisualStyleBackColor = true;
+            this.BtnRejectCounterClear.Click += new System.EventHandler(this.BtnRejectCounterClear_Click);
+            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnRejectCounterClear);
             this.Controls.Add(this.CmbDigit);
             this.Controls.Add(this.CmbFontSize);
             this.Controls.Add(this.LblOffLine);
@@ -1345,5 +1361,6 @@
         internal System.Windows.Forms.Button BtnCounterClear5;
         private System.Windows.Forms.ComboBox CmbFontSize;
         private System.Windows.Forms.ComboBox CmbDigit;
+        internal System.Windows.Forms.Button BtnRejectCounterClear;
     }
 }
