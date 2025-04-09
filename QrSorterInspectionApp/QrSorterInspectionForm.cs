@@ -823,6 +823,7 @@ namespace QrSorterInspectionApp
                         BtnCounterClear3.Visible = true;
                         BtnCounterClear4.Visible = true;
                         BtnCounterClear5.Visible = true;
+                        BtnRejectCounterClear.Visible = true;
                         break;
 
                     case 1:
@@ -842,6 +843,7 @@ namespace QrSorterInspectionApp
                         BtnCounterClear3.Visible = false;
                         BtnCounterClear4.Visible = false;
                         BtnCounterClear5.Visible = false;
+                        BtnRejectCounterClear.Visible = false;
                         break;
 
                     case 2:
@@ -1269,7 +1271,7 @@ namespace QrSorterInspectionApp
         {
             string sErrorCode;
             string sSaveFileName = "";
-            string sErrorData = "";
+            string sErrorData;
 
             try
             {
@@ -1640,7 +1642,7 @@ namespace QrSorterInspectionApp
         /// <param name="sData"></param>
         private void MyProcQrData(string sData)
         {
-            string sQrData = "";
+            string sQrData;
             try
             {
                 //LblQrReadData.Text = sData.Replace("\r","<CR>");
@@ -2028,6 +2030,10 @@ namespace QrSorterInspectionApp
         {
             CounterClear("ポケット５", LblBox5, ref iBox5Count);
         }
+        private void BtnRejectCounterClear_Click(object sender, EventArgs e)
+        {
+            CounterClear("リジェクト", LblBoxEject, ref iBoxECount);
+        }
 
         private void CmbDigit_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2130,7 +2136,7 @@ namespace QrSorterInspectionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "【wkwk】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "【ChangeLabelFontSize】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
