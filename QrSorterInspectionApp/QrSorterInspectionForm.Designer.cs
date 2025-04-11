@@ -348,13 +348,13 @@
             // LblBox3
             // 
             this.LblBox3.BackColor = System.Drawing.Color.White;
-            this.LblBox3.Font = new System.Drawing.Font("メイリオ", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblBox3.Font = new System.Drawing.Font("メイリオ", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblBox3.ForeColor = System.Drawing.Color.OrangeRed;
             this.LblBox3.Location = new System.Drawing.Point(940, 759);
             this.LblBox3.Name = "LblBox3";
             this.LblBox3.Size = new System.Drawing.Size(201, 84);
             this.LblBox3.TabIndex = 262;
-            this.LblBox3.Text = "9999";
+            this.LblBox3.Text = "9999999";
             this.LblBox3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox1
@@ -366,7 +366,7 @@
             this.LblBox1.Name = "LblBox1";
             this.LblBox1.Size = new System.Drawing.Size(201, 84);
             this.LblBox1.TabIndex = 265;
-            this.LblBox1.Text = "9999";
+            this.LblBox1.Text = "9999999";
             this.LblBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblQuantity1
@@ -384,13 +384,13 @@
             // LblBox4
             // 
             this.LblBox4.BackColor = System.Drawing.Color.White;
-            this.LblBox4.Font = new System.Drawing.Font("メイリオ", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblBox4.Font = new System.Drawing.Font("メイリオ", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblBox4.ForeColor = System.Drawing.Color.OrangeRed;
             this.LblBox4.Location = new System.Drawing.Point(661, 759);
             this.LblBox4.Name = "LblBox4";
             this.LblBox4.Size = new System.Drawing.Size(201, 84);
             this.LblBox4.TabIndex = 268;
-            this.LblBox4.Text = "9999";
+            this.LblBox4.Text = "9999999";
             this.LblBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblQuantity5
@@ -408,13 +408,13 @@
             // LblBox2
             // 
             this.LblBox2.BackColor = System.Drawing.Color.White;
-            this.LblBox2.Font = new System.Drawing.Font("メイリオ", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblBox2.Font = new System.Drawing.Font("メイリオ", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblBox2.ForeColor = System.Drawing.Color.OrangeRed;
             this.LblBox2.Location = new System.Drawing.Point(1219, 759);
             this.LblBox2.Name = "LblBox2";
             this.LblBox2.Size = new System.Drawing.Size(201, 84);
             this.LblBox2.TabIndex = 271;
-            this.LblBox2.Text = "9999";
+            this.LblBox2.Text = "9999999";
             this.LblBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblQuantity2
@@ -656,13 +656,13 @@
             // LblBox5
             // 
             this.LblBox5.BackColor = System.Drawing.Color.White;
-            this.LblBox5.Font = new System.Drawing.Font("メイリオ", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblBox5.Font = new System.Drawing.Font("メイリオ", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblBox5.ForeColor = System.Drawing.Color.OrangeRed;
             this.LblBox5.Location = new System.Drawing.Point(382, 759);
             this.LblBox5.Name = "LblBox5";
             this.LblBox5.Size = new System.Drawing.Size(201, 84);
             this.LblBox5.TabIndex = 290;
-            this.LblBox5.Text = "9999";
+            this.LblBox5.Text = "9999999";
             this.LblBox5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblQuantity4

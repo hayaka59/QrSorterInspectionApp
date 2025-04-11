@@ -364,7 +364,7 @@ namespace QrSorterInspectionApp
                 {
                     LblTitle.Text = "QRフィーダー＆ソーター検査画面";
                     LblOffLine.Visible = false;
-                }
+                }                
             }
             catch (Exception ex)
             {
