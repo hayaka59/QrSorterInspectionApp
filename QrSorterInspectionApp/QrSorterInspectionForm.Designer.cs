@@ -115,6 +115,8 @@
             this.CmbFontSize = new System.Windows.Forms.ComboBox();
             this.CmbDigit = new System.Windows.Forms.ComboBox();
             this.BtnRejectCounterClear = new System.Windows.Forms.Button();
+            this.TxtTestCounter = new System.Windows.Forms.TextBox();
+            this.BtnTestCounter = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -360,7 +362,7 @@
             // LblBox1
             // 
             this.LblBox1.BackColor = System.Drawing.Color.White;
-            this.LblBox1.Font = new System.Drawing.Font("メイリオ", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblBox1.Font = new System.Drawing.Font("メイリオ", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblBox1.ForeColor = System.Drawing.Color.OrangeRed;
             this.LblBox1.Location = new System.Drawing.Point(1498, 759);
             this.LblBox1.Name = "LblBox1";
@@ -1170,12 +1172,33 @@
             this.BtnRejectCounterClear.UseVisualStyleBackColor = true;
             this.BtnRejectCounterClear.Click += new System.EventHandler(this.BtnRejectCounterClear_Click);
             // 
+            // TxtTestCounter
+            // 
+            this.TxtTestCounter.Location = new System.Drawing.Point(1786, 824);
+            this.TxtTestCounter.Name = "TxtTestCounter";
+            this.TxtTestCounter.Size = new System.Drawing.Size(108, 19);
+            this.TxtTestCounter.TabIndex = 347;
+            this.TxtTestCounter.Visible = false;
+            // 
+            // BtnTestCounter
+            // 
+            this.BtnTestCounter.Location = new System.Drawing.Point(1786, 849);
+            this.BtnTestCounter.Name = "BtnTestCounter";
+            this.BtnTestCounter.Size = new System.Drawing.Size(108, 23);
+            this.BtnTestCounter.TabIndex = 348;
+            this.BtnTestCounter.Text = "ボックスカウンタ変更";
+            this.BtnTestCounter.UseVisualStyleBackColor = true;
+            this.BtnTestCounter.Visible = false;
+            this.BtnTestCounter.Click += new System.EventHandler(this.BtnTestCounter_Click);
+            // 
             // QrSorterInspectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnTestCounter);
+            this.Controls.Add(this.TxtTestCounter);
             this.Controls.Add(this.BtnRejectCounterClear);
             this.Controls.Add(this.CmbDigit);
             this.Controls.Add(this.CmbFontSize);
@@ -1272,6 +1295,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1362,5 +1386,7 @@
         private System.Windows.Forms.ComboBox CmbFontSize;
         private System.Windows.Forms.ComboBox CmbDigit;
         internal System.Windows.Forms.Button BtnRejectCounterClear;
+        private System.Windows.Forms.TextBox TxtTestCounter;
+        private System.Windows.Forms.Button BtnTestCounter;
     }
 }

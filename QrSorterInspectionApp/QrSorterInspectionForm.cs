@@ -355,15 +355,23 @@ namespace QrSorterInspectionApp
                 {
                     LblTitle.Text = "QRフィーダー＆ソーター検査画面（オフラインモード）";
                     LblOffLine.Visible = true;
-                    
-                    //LblBoxTitle2.Visible = false;
-                    //pictureBox4.Visible = false;
-                    //LblPocket2.Visible = false;
+                    // ボックス１～５のカウンタの表示フォントを変更
+                    LblBox1.Font = new Font("メイリオ", 28);
+                    LblBox2.Font = new Font("メイリオ", 28);
+                    LblBox3.Font = new Font("メイリオ", 28);
+                    LblBox4.Font = new Font("メイリオ", 28);
+                    LblBox5.Font = new Font("メイリオ", 28);
                 }
                 else
                 {
                     LblTitle.Text = "QRフィーダー＆ソーター検査画面";
                     LblOffLine.Visible = false;
+                    // ボックス１～５のカウンタの表示フォントを変更
+                    LblBox1.Font = new Font("メイリオ", 48);
+                    LblBox2.Font = new Font("メイリオ", 48);
+                    LblBox3.Font = new Font("メイリオ", 48);
+                    LblBox4.Font = new Font("メイリオ", 48);
+                    LblBox5.Font = new Font("メイリオ", 48);
                 }                
             }
             catch (Exception ex)
@@ -890,9 +898,10 @@ namespace QrSorterInspectionApp
                 LblGrpInfo3.Visible = true;
                 LblGrpInfo4.Visible = true;
                 LblGrpInfo5.Visible = true;
-
                 CmbDigit.Visible = true;
                 CmbFontSize.Visible = true;
+                TxtTestCounter.Visible = true;
+                BtnTestCounter.Visible = true;
 
                 CmbDigit.Items.Clear();
                 for (int iIndex = 31; iIndex <= 128; iIndex++)
@@ -927,9 +936,11 @@ namespace QrSorterInspectionApp
                 LblGrpInfo3.Visible = false;
                 LblGrpInfo4.Visible = false;
                 LblGrpInfo5.Visible = false;
-
                 CmbDigit.Visible = false;
                 CmbFontSize.Visible = false;
+                TxtTestCounter.Visible = false;
+                BtnTestCounter.Visible = false;
+
                 LblPocket1.Text = "";
                 LblPocket2.Text = "";
                 LblPocket3.Text = "";
@@ -1233,17 +1244,47 @@ namespace QrSorterInspectionApp
                 // JOB設定情報の送信
                 MyProcJobInfomation();
 
+                string sPocketCount1 = GetPocketCounter(LblBox1);
+                string sPocketCount2 = GetPocketCounter(LblBox2);
+                string sPocketCount3 = GetPocketCounter(LblBox3);
+                string sPocketCount4 = GetPocketCounter(LblBox4);
+                string sPocketCount5 = GetPocketCounter(LblBox5);
+
                 string sData = PubConstClass.CMD_SEND_l + ",";
-                sData += int.Parse(LblBox1.Text).ToString("0000") + ",";
-                sData += int.Parse(LblBox2.Text).ToString("0000") + ",";
-                sData += int.Parse(LblBox3.Text).ToString("0000") + ",";
-                sData += int.Parse(LblBox4.Text).ToString("0000") + ",";
-                sData += int.Parse(LblBox5.Text).ToString("0000") + ",";
+                sData += sPocketCount1 + ",";
+                sData += sPocketCount2 + ",";
+                sData += sPocketCount3 + ",";
+                sData += sPocketCount4 + ",";
+                sData += sPocketCount5 + ",";
                 SendSerialData(sData);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【MyProcStart】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// ポケットの表示桁数を取得
+        /// </summary>
+        /// <param name="label">ポケットの表示桁数</param>
+        /// <returns></returns>
+        private string GetPocketCounter(Label label)
+        {
+            string sPocketCount;
+            try
+            {
+                sPocketCount = int.Parse(label.Text).ToString("0000");
+                if (label.Text.Length > 4)
+                {
+                    sPocketCount = "9999";
+                }
+                return sPocketCount;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【GetPocketCounter】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "0000";
             }
         }
 
@@ -2138,6 +2179,15 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【ChangeLabelFontSize】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void BtnTestCounter_Click(object sender, EventArgs e)
+        {
+            LblBox1.Text = TxtTestCounter.Text;
+            LblBox2.Text = TxtTestCounter.Text;
+            LblBox3.Text = TxtTestCounter.Text;
+            LblBox4.Text = TxtTestCounter.Text;
+            LblBox5.Text = TxtTestCounter.Text;
         }
     }
 }
