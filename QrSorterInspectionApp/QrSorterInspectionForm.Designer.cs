@@ -97,6 +97,16 @@
             this.LblDuplicateCheck = new System.Windows.Forms.Label();
             this.LstSettingInfomation = new System.Windows.Forms.ListBox();
             this.LblOffLine = new System.Windows.Forms.Label();
+            this.CmbFontSize = new System.Windows.Forms.ComboBox();
+            this.CmbDigit = new System.Windows.Forms.ComboBox();
+            this.TxtTestCounter = new System.Windows.Forms.TextBox();
+            this.BtnTestCounter = new System.Windows.Forms.Button();
+            this.BtnAllCounterClear = new System.Windows.Forms.Button();
+            this.BtnRejectCounterClear = new System.Windows.Forms.Button();
+            this.BtnCounterClear5 = new System.Windows.Forms.Button();
+            this.BtnCounterClear4 = new System.Windows.Forms.Button();
+            this.BtnCounterClear3 = new System.Windows.Forms.Button();
+            this.BtnCounterClear2 = new System.Windows.Forms.Button();
             this.BtnCounterClear1 = new System.Windows.Forms.Button();
             this.BtnSetting = new System.Windows.Forms.Button();
             this.BtnJobSelect = new System.Windows.Forms.Button();
@@ -108,15 +118,6 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.BtnStartInspection = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.BtnCounterClear2 = new System.Windows.Forms.Button();
-            this.BtnCounterClear3 = new System.Windows.Forms.Button();
-            this.BtnCounterClear4 = new System.Windows.Forms.Button();
-            this.BtnCounterClear5 = new System.Windows.Forms.Button();
-            this.CmbFontSize = new System.Windows.Forms.ComboBox();
-            this.CmbDigit = new System.Windows.Forms.ComboBox();
-            this.BtnRejectCounterClear = new System.Windows.Forms.Button();
-            this.TxtTestCounter = new System.Windows.Forms.TextBox();
-            this.BtnTestCounter = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -129,7 +130,7 @@
             // 
             this.LblVersion.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblVersion.ForeColor = System.Drawing.Color.Blue;
-            this.LblVersion.Location = new System.Drawing.Point(1753, 997);
+            this.LblVersion.Location = new System.Drawing.Point(1767, 1003);
             this.LblVersion.Name = "LblVersion";
             this.LblVersion.Size = new System.Drawing.Size(130, 25);
             this.LblVersion.TabIndex = 179;
@@ -721,9 +722,9 @@
             this.LblError.BackColor = System.Drawing.Color.LightCoral;
             this.LblError.Font = new System.Drawing.Font("メイリオ", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblError.ForeColor = System.Drawing.Color.Blue;
-            this.LblError.Location = new System.Drawing.Point(538, 975);
+            this.LblError.Location = new System.Drawing.Point(522, 975);
             this.LblError.Name = "LblError";
-            this.LblError.Size = new System.Drawing.Size(970, 62);
+            this.LblError.Size = new System.Drawing.Size(826, 62);
             this.LblError.TabIndex = 317;
             this.LblError.Text = "LblError";
             this.LblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -946,6 +947,131 @@
             this.LblOffLine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblOffLine.Visible = false;
             // 
+            // CmbFontSize
+            // 
+            this.CmbFontSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbFontSize.FormattingEnabled = true;
+            this.CmbFontSize.Location = new System.Drawing.Point(1786, 916);
+            this.CmbFontSize.Name = "CmbFontSize";
+            this.CmbFontSize.Size = new System.Drawing.Size(106, 20);
+            this.CmbFontSize.TabIndex = 344;
+            this.CmbFontSize.Visible = false;
+            this.CmbFontSize.SelectedIndexChanged += new System.EventHandler(this.CmbFontSize_SelectedIndexChanged);
+            // 
+            // CmbDigit
+            // 
+            this.CmbDigit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDigit.FormattingEnabled = true;
+            this.CmbDigit.Location = new System.Drawing.Point(1786, 883);
+            this.CmbDigit.Name = "CmbDigit";
+            this.CmbDigit.Size = new System.Drawing.Size(106, 20);
+            this.CmbDigit.TabIndex = 345;
+            this.CmbDigit.Visible = false;
+            this.CmbDigit.SelectedIndexChanged += new System.EventHandler(this.CmbDigit_SelectedIndexChanged);
+            // 
+            // TxtTestCounter
+            // 
+            this.TxtTestCounter.Location = new System.Drawing.Point(1786, 824);
+            this.TxtTestCounter.Name = "TxtTestCounter";
+            this.TxtTestCounter.Size = new System.Drawing.Size(108, 19);
+            this.TxtTestCounter.TabIndex = 347;
+            this.TxtTestCounter.Visible = false;
+            // 
+            // BtnTestCounter
+            // 
+            this.BtnTestCounter.Location = new System.Drawing.Point(1786, 849);
+            this.BtnTestCounter.Name = "BtnTestCounter";
+            this.BtnTestCounter.Size = new System.Drawing.Size(108, 23);
+            this.BtnTestCounter.TabIndex = 348;
+            this.BtnTestCounter.Text = "ボックスカウンタ変更";
+            this.BtnTestCounter.UseVisualStyleBackColor = true;
+            this.BtnTestCounter.Visible = false;
+            this.BtnTestCounter.Click += new System.EventHandler(this.BtnTestCounter_Click);
+            // 
+            // BtnAllCounterClear
+            // 
+            this.BtnAllCounterClear.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnAllCounterClear.Image = global::QrSorterInspectionApp.Properties.Resources.pen2;
+            this.BtnAllCounterClear.Location = new System.Drawing.Point(1352, 984);
+            this.BtnAllCounterClear.Name = "BtnAllCounterClear";
+            this.BtnAllCounterClear.Size = new System.Drawing.Size(200, 50);
+            this.BtnAllCounterClear.TabIndex = 349;
+            this.BtnAllCounterClear.Text = "全カウンタクリア";
+            this.BtnAllCounterClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnAllCounterClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAllCounterClear.UseVisualStyleBackColor = true;
+            this.BtnAllCounterClear.Click += new System.EventHandler(this.BtnAllCounterClear_Click);
+            // 
+            // BtnRejectCounterClear
+            // 
+            this.BtnRejectCounterClear.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnRejectCounterClear.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnRejectCounterClear.Location = new System.Drawing.Point(102, 875);
+            this.BtnRejectCounterClear.Name = "BtnRejectCounterClear";
+            this.BtnRejectCounterClear.Size = new System.Drawing.Size(104, 34);
+            this.BtnRejectCounterClear.TabIndex = 346;
+            this.BtnRejectCounterClear.Text = "クリア";
+            this.BtnRejectCounterClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnRejectCounterClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnRejectCounterClear.UseVisualStyleBackColor = true;
+            this.BtnRejectCounterClear.Click += new System.EventHandler(this.BtnRejectCounterClear_Click);
+            // 
+            // BtnCounterClear5
+            // 
+            this.BtnCounterClear5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCounterClear5.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnCounterClear5.Location = new System.Drawing.Point(382, 875);
+            this.BtnCounterClear5.Name = "BtnCounterClear5";
+            this.BtnCounterClear5.Size = new System.Drawing.Size(104, 34);
+            this.BtnCounterClear5.TabIndex = 343;
+            this.BtnCounterClear5.Text = "クリア";
+            this.BtnCounterClear5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCounterClear5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCounterClear5.UseVisualStyleBackColor = true;
+            this.BtnCounterClear5.Click += new System.EventHandler(this.BtnCounterClear5_Click);
+            // 
+            // BtnCounterClear4
+            // 
+            this.BtnCounterClear4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCounterClear4.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnCounterClear4.Location = new System.Drawing.Point(661, 876);
+            this.BtnCounterClear4.Name = "BtnCounterClear4";
+            this.BtnCounterClear4.Size = new System.Drawing.Size(104, 34);
+            this.BtnCounterClear4.TabIndex = 342;
+            this.BtnCounterClear4.Text = "クリア";
+            this.BtnCounterClear4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCounterClear4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCounterClear4.UseVisualStyleBackColor = true;
+            this.BtnCounterClear4.Click += new System.EventHandler(this.BtnCounterClear4_Click);
+            // 
+            // BtnCounterClear3
+            // 
+            this.BtnCounterClear3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCounterClear3.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnCounterClear3.Location = new System.Drawing.Point(941, 876);
+            this.BtnCounterClear3.Name = "BtnCounterClear3";
+            this.BtnCounterClear3.Size = new System.Drawing.Size(104, 34);
+            this.BtnCounterClear3.TabIndex = 341;
+            this.BtnCounterClear3.Text = "クリア";
+            this.BtnCounterClear3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCounterClear3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCounterClear3.UseVisualStyleBackColor = true;
+            this.BtnCounterClear3.Click += new System.EventHandler(this.BtnCounterClear3_Click);
+            // 
+            // BtnCounterClear2
+            // 
+            this.BtnCounterClear2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCounterClear2.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
+            this.BtnCounterClear2.Location = new System.Drawing.Point(1219, 876);
+            this.BtnCounterClear2.Name = "BtnCounterClear2";
+            this.BtnCounterClear2.Size = new System.Drawing.Size(104, 34);
+            this.BtnCounterClear2.TabIndex = 340;
+            this.BtnCounterClear2.Text = "クリア";
+            this.BtnCounterClear2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCounterClear2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCounterClear2.UseVisualStyleBackColor = true;
+            this.BtnCounterClear2.Click += new System.EventHandler(this.BtnCounterClear2_Click);
+            // 
             // BtnCounterClear1
             // 
             this.BtnCounterClear1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -1046,9 +1172,9 @@
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.Image = global::QrSorterInspectionApp.Properties.Resources.back_arrow;
-            this.BtnClose.Location = new System.Drawing.Point(1542, 984);
+            this.BtnClose.Location = new System.Drawing.Point(1558, 984);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(205, 50);
+            this.BtnClose.Size = new System.Drawing.Size(200, 50);
             this.BtnClose.TabIndex = 181;
             this.BtnClose.Text = "戻る";
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1079,117 +1205,6 @@
             this.pictureBox5.Size = new System.Drawing.Size(280, 180);
             this.pictureBox5.TabIndex = 288;
             this.pictureBox5.TabStop = false;
-            // 
-            // BtnCounterClear2
-            // 
-            this.BtnCounterClear2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnCounterClear2.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
-            this.BtnCounterClear2.Location = new System.Drawing.Point(1219, 876);
-            this.BtnCounterClear2.Name = "BtnCounterClear2";
-            this.BtnCounterClear2.Size = new System.Drawing.Size(104, 34);
-            this.BtnCounterClear2.TabIndex = 340;
-            this.BtnCounterClear2.Text = "クリア";
-            this.BtnCounterClear2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCounterClear2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCounterClear2.UseVisualStyleBackColor = true;
-            this.BtnCounterClear2.Click += new System.EventHandler(this.BtnCounterClear2_Click);
-            // 
-            // BtnCounterClear3
-            // 
-            this.BtnCounterClear3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnCounterClear3.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
-            this.BtnCounterClear3.Location = new System.Drawing.Point(941, 876);
-            this.BtnCounterClear3.Name = "BtnCounterClear3";
-            this.BtnCounterClear3.Size = new System.Drawing.Size(104, 34);
-            this.BtnCounterClear3.TabIndex = 341;
-            this.BtnCounterClear3.Text = "クリア";
-            this.BtnCounterClear3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCounterClear3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCounterClear3.UseVisualStyleBackColor = true;
-            this.BtnCounterClear3.Click += new System.EventHandler(this.BtnCounterClear3_Click);
-            // 
-            // BtnCounterClear4
-            // 
-            this.BtnCounterClear4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnCounterClear4.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
-            this.BtnCounterClear4.Location = new System.Drawing.Point(661, 876);
-            this.BtnCounterClear4.Name = "BtnCounterClear4";
-            this.BtnCounterClear4.Size = new System.Drawing.Size(104, 34);
-            this.BtnCounterClear4.TabIndex = 342;
-            this.BtnCounterClear4.Text = "クリア";
-            this.BtnCounterClear4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCounterClear4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCounterClear4.UseVisualStyleBackColor = true;
-            this.BtnCounterClear4.Click += new System.EventHandler(this.BtnCounterClear4_Click);
-            // 
-            // BtnCounterClear5
-            // 
-            this.BtnCounterClear5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnCounterClear5.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
-            this.BtnCounterClear5.Location = new System.Drawing.Point(382, 875);
-            this.BtnCounterClear5.Name = "BtnCounterClear5";
-            this.BtnCounterClear5.Size = new System.Drawing.Size(104, 34);
-            this.BtnCounterClear5.TabIndex = 343;
-            this.BtnCounterClear5.Text = "クリア";
-            this.BtnCounterClear5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCounterClear5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCounterClear5.UseVisualStyleBackColor = true;
-            this.BtnCounterClear5.Click += new System.EventHandler(this.BtnCounterClear5_Click);
-            // 
-            // CmbFontSize
-            // 
-            this.CmbFontSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbFontSize.FormattingEnabled = true;
-            this.CmbFontSize.Location = new System.Drawing.Point(1786, 916);
-            this.CmbFontSize.Name = "CmbFontSize";
-            this.CmbFontSize.Size = new System.Drawing.Size(106, 20);
-            this.CmbFontSize.TabIndex = 344;
-            this.CmbFontSize.Visible = false;
-            this.CmbFontSize.SelectedIndexChanged += new System.EventHandler(this.CmbFontSize_SelectedIndexChanged);
-            // 
-            // CmbDigit
-            // 
-            this.CmbDigit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDigit.FormattingEnabled = true;
-            this.CmbDigit.Location = new System.Drawing.Point(1786, 883);
-            this.CmbDigit.Name = "CmbDigit";
-            this.CmbDigit.Size = new System.Drawing.Size(106, 20);
-            this.CmbDigit.TabIndex = 345;
-            this.CmbDigit.Visible = false;
-            this.CmbDigit.SelectedIndexChanged += new System.EventHandler(this.CmbDigit_SelectedIndexChanged);
-            // 
-            // BtnRejectCounterClear
-            // 
-            this.BtnRejectCounterClear.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnRejectCounterClear.Image = global::QrSorterInspectionApp.Properties.Resources.pen;
-            this.BtnRejectCounterClear.Location = new System.Drawing.Point(102, 875);
-            this.BtnRejectCounterClear.Name = "BtnRejectCounterClear";
-            this.BtnRejectCounterClear.Size = new System.Drawing.Size(104, 34);
-            this.BtnRejectCounterClear.TabIndex = 346;
-            this.BtnRejectCounterClear.Text = "クリア";
-            this.BtnRejectCounterClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnRejectCounterClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnRejectCounterClear.UseVisualStyleBackColor = true;
-            this.BtnRejectCounterClear.Click += new System.EventHandler(this.BtnRejectCounterClear_Click);
-            // 
-            // TxtTestCounter
-            // 
-            this.TxtTestCounter.Location = new System.Drawing.Point(1786, 824);
-            this.TxtTestCounter.Name = "TxtTestCounter";
-            this.TxtTestCounter.Size = new System.Drawing.Size(108, 19);
-            this.TxtTestCounter.TabIndex = 347;
-            this.TxtTestCounter.Visible = false;
-            // 
-            // BtnTestCounter
-            // 
-            this.BtnTestCounter.Location = new System.Drawing.Point(1786, 849);
-            this.BtnTestCounter.Name = "BtnTestCounter";
-            this.BtnTestCounter.Size = new System.Drawing.Size(108, 23);
-            this.BtnTestCounter.TabIndex = 348;
-            this.BtnTestCounter.Text = "ボックスカウンタ変更";
-            this.BtnTestCounter.UseVisualStyleBackColor = true;
-            this.BtnTestCounter.Visible = false;
-            this.BtnTestCounter.Click += new System.EventHandler(this.BtnTestCounter_Click);
             // 
             // QrSorterInspectionForm
             // 
@@ -1281,6 +1296,7 @@
             this.Controls.Add(this.BtnStartInspection);
             this.Controls.Add(this.LblVersion);
             this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.BtnAllCounterClear);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1388,5 +1404,6 @@
         internal System.Windows.Forms.Button BtnRejectCounterClear;
         private System.Windows.Forms.TextBox TxtTestCounter;
         private System.Windows.Forms.Button BtnTestCounter;
+        internal System.Windows.Forms.Button BtnAllCounterClear;
     }
 }

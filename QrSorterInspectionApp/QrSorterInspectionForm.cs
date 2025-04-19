@@ -832,6 +832,7 @@ namespace QrSorterInspectionApp
                         BtnCounterClear4.Visible = true;
                         BtnCounterClear5.Visible = true;
                         BtnRejectCounterClear.Visible = true;
+                        BtnAllCounterClear.Visible = true;
                         break;
 
                     case 1:
@@ -852,6 +853,7 @@ namespace QrSorterInspectionApp
                         BtnCounterClear4.Visible = false;
                         BtnCounterClear5.Visible = false;
                         BtnRejectCounterClear.Visible = false;
+                        BtnAllCounterClear.Visible = false;
                         break;
 
                     case 2:
@@ -2188,6 +2190,33 @@ namespace QrSorterInspectionApp
             LblBox3.Text = TxtTestCounter.Text;
             LblBox4.Text = TxtTestCounter.Text;
             LblBox5.Text = TxtTestCounter.Text;
+        }
+
+        private void BtnAllCounterClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("ポケット１～５とリジェクトのカウンタをクリアしますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    LblBox1.Text = "0";
+                    LblBox2.Text = "0";
+                    LblBox3.Text = "0";
+                    LblBox4.Text = "0";
+                    LblBox5.Text = "0";
+                    LblBoxEject.Text = "0";
+                    iBox1Count = 0;
+                    iBox2Count = 0;
+                    iBox3Count = 0;
+                    iBox4Count = 0;
+                    iBox5Count = 0;
+                    iBoxECount = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnAllCounterClear_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
