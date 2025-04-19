@@ -292,6 +292,8 @@
     <None Include="icon\株式会社Ai-R横黒色背景透明.png" />
     <None Include="icon\waiting.gif" />
     <None Include="icon\pen.png" />
+    <None Include="icon\pen2red.png" />
+    <None Include="icon\pen2.png" />
     <Content Include="定義ファイル\JobEntryList.txt" />
     <Content Include="定義ファイル\NonDeliveryReasonSorting.txt" />
     <Content Include="定義ファイル\QrSorterInspectionApp.def" />
