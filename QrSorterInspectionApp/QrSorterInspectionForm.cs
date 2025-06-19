@@ -1555,14 +1555,24 @@ namespace QrSorterInspectionApp
                 sLogData += DQ + DQ + ",";                                          // イベント（コメント）			Null
                 sLogData += DQ + sDateOfReceipt + DQ + ",";                         // 受領日
                 sLogData += DQ + PubConstClass.sUserId + DQ + ",";                  // 作業者情報                
-                sLogData += DQ + strArray[0].Substring(0, 5) + DQ + ",";            // 物件ID
+                if (strArray[0].Length >= intPropertyIdNumber)
+                {
+                    // 物件IDの切り出し
+                    sLogData += DQ + strArray[0].Substring(0, intPropertyIdNumber) + DQ + ",";
+                    //CommonModule.OutPutLogFile($"ログ出力時の物件ID = {strArray[0].Substring(0, intPropertyIdNumber)}");
+                }
+                else
+                {
+                    // 読取値を物件IDとする
+                    sLogData += DQ + strArray[0] + DQ + ",";
+                }                
                 sLogData += DQ + strArray[2] + DQ + ",";                            // エラー
                 sLogData += DQ + DQ + ",";                                          // 生産管理番号					Null
                 sLogData += DQ + sNonDeliveryReason1 + DQ + ",";                    // 仕分１
                 sLogData += DQ + sNonDeliveryReason2 + DQ + ",";                    // 仕分２
                 sLogData += DQ + DQ + ",";                                          // ファイル名（画像）			Null
                 sLogData += DQ + DQ + ",";                                          // ファイルパス（画像）			Null
-                sLogData += DQ + DQ;                                          // 工場コード					Null
+                sLogData += DQ + DQ;                                                // 工場コード					Null
 
                 // データの表示（判定が「OK」でトレイ情報が「E」以外）
                 if (col[3] == "OK" && col[4] != "E" && bIsTrayOk == true)
@@ -1948,7 +1958,9 @@ namespace QrSorterInspectionApp
                 MessageBox.Show(ex.Message, "【BtnJobSelect_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
+        // 物件ID桁数（デフォルト：5桁）
+        private int intPropertyIdNumber = 5;
         /// <summary>
         /// 
         /// </summary>
@@ -1958,6 +1970,10 @@ namespace QrSorterInspectionApp
             try
             {
                 sArray = PubConstClass.lstJobEntryList[0].Split(',');
+                // 物件ID桁数
+                intPropertyIdNumber = int.Parse(sArray[8]);
+                CommonModule.OutPutLogFile($"物件ID桁数(intPropertyIdNumber) = {intPropertyIdNumber}");
+
                 // 受領日
                 DtpDateReceipt.Text = sArray[2];
                 // 受領日入力
