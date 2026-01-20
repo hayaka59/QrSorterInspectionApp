@@ -153,6 +153,16 @@ namespace QrSorterInspectionApp
                 {
                     GrpSorterSetting.Text = "ソーター設定";
                 }
+
+                // 抜き取りポケット設定
+                CmbExtraction.Items.Clear();
+                CmbExtraction.Items.Add("ポケット１");
+                CmbExtraction.Items.Add("ポケット５");
+                CmbExtraction.SelectedIndex = 1;
+                // 抜き取りファイル表示クリア
+                LstExtraction.Items.Clear();
+                LblExtraction.Text = "";
+                LblExtractionFileName.Text = "";
             }
             catch (Exception ex)
             {
@@ -1752,6 +1762,68 @@ namespace QrSorterInspectionApp
             else
             {
                 LblSelecttedFolder.Visible= true;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnExtraction_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+
+                CommonModule.OutPutLogFile("「JO選択」ボタンクリック");
+                // 初期表示するフォルダの指定（「空の文字列」の時は現在のディレクトリを表示）
+                //ofd.InitialDirectory = @"C:\";
+                // 「ファイルの種類」に表示される選択肢の指定
+                ofd.Filter = "CSVファイル(*.csv;*.CSV)|*.csv;*.CSV|すべてのファイル(*.*)|*.*";
+                // 「ファイルの種類」ではじめに「CSVファイル(*.csv;*.CSV)」を選択
+                ofd.FilterIndex = 1;
+                // タイトルを設定
+                ofd.Title = "JOB設定ファイルを選択してください";
+                // ダイアログボックスを閉じる前に現在のディレクトリを復元
+                ofd.RestoreDirectory = true;
+                // 存在しないファイルの名前が指定されたとき警告を表示
+                ofd.CheckFileExists = true;
+                // 存在しないパスが指定されたとき警告を表示
+                ofd.CheckPathExists = true;
+                // ダイアログを表示する
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    // 「OK」ボタンがクリック（選択されたファイル名を表示）
+                    sSelectedFile = ofd.FileName;
+                    string[] sArray = sSelectedFile.Split('\\');
+                    // ファイル名のみを表示する
+                    LblExtractionFileName.Text = sArray[sArray.Length - 1];
+                    LstExtraction.Items.Clear();
+                    using (StreamReader sr = new StreamReader(sSelectedFile, Encoding.Default))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            string sData = sr.ReadLine();
+                            LstExtraction.Items.Add(sData);
+                        }
+                    }
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnExtraction_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void UpdateExtraction(object sender, EventArgs e)
+        {
+            try
+            {
+                LblExtraction.Text = RchTxtQrInfo.Text.Substring((int)NmUpDnExtractionStart.Value - 1, (int)NmUpDnExtractionKeta.Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【UpdateExtraction】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
