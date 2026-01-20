@@ -164,6 +164,27 @@
             this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.ChkLoop1 = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
@@ -176,6 +197,16 @@
             this.GrpSorterSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).BeginInit();
             this.GrpFeederSetting.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblSelectedFile
@@ -746,6 +777,12 @@
             // GrpSorterSetting
             // 
             this.GrpSorterSetting.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.GrpSorterSetting.Controls.Add(this.panel9);
+            this.GrpSorterSetting.Controls.Add(this.panel7);
+            this.GrpSorterSetting.Controls.Add(this.panel5);
+            this.GrpSorterSetting.Controls.Add(this.panel3);
+            this.GrpSorterSetting.Controls.Add(this.panel1);
+            this.GrpSorterSetting.Controls.Add(this.label17);
             this.GrpSorterSetting.Controls.Add(this.LblGroup5);
             this.GrpSorterSetting.Controls.Add(this.LblGroup4);
             this.GrpSorterSetting.Controls.Add(this.LblGroup3);
@@ -832,7 +869,7 @@
             this.LblGroup5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblGroup5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblGroup5.ForeColor = System.Drawing.Color.Black;
-            this.LblGroup5.Location = new System.Drawing.Point(604, 403);
+            this.LblGroup5.Location = new System.Drawing.Point(603, 403);
             this.LblGroup5.Name = "LblGroup5";
             this.LblGroup5.Size = new System.Drawing.Size(300, 31);
             this.LblGroup5.TabIndex = 71;
@@ -845,7 +882,7 @@
             this.LblGroup4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblGroup4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblGroup4.ForeColor = System.Drawing.Color.Black;
-            this.LblGroup4.Location = new System.Drawing.Point(604, 369);
+            this.LblGroup4.Location = new System.Drawing.Point(603, 369);
             this.LblGroup4.Name = "LblGroup4";
             this.LblGroup4.Size = new System.Drawing.Size(300, 31);
             this.LblGroup4.TabIndex = 66;
@@ -858,7 +895,7 @@
             this.LblGroup3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblGroup3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblGroup3.ForeColor = System.Drawing.Color.Black;
-            this.LblGroup3.Location = new System.Drawing.Point(604, 335);
+            this.LblGroup3.Location = new System.Drawing.Point(603, 335);
             this.LblGroup3.Name = "LblGroup3";
             this.LblGroup3.Size = new System.Drawing.Size(300, 31);
             this.LblGroup3.TabIndex = 61;
@@ -871,7 +908,7 @@
             this.LblGroup2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblGroup2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblGroup2.ForeColor = System.Drawing.Color.Black;
-            this.LblGroup2.Location = new System.Drawing.Point(604, 300);
+            this.LblGroup2.Location = new System.Drawing.Point(603, 300);
             this.LblGroup2.Name = "LblGroup2";
             this.LblGroup2.Size = new System.Drawing.Size(300, 31);
             this.LblGroup2.TabIndex = 56;
@@ -884,7 +921,7 @@
             this.LblGroup1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblGroup1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.LblGroup1.ForeColor = System.Drawing.Color.Black;
-            this.LblGroup1.Location = new System.Drawing.Point(604, 266);
+            this.LblGroup1.Location = new System.Drawing.Point(603, 266);
             this.LblGroup1.Name = "LblGroup1";
             this.LblGroup1.Size = new System.Drawing.Size(300, 31);
             this.LblGroup1.TabIndex = 51;
@@ -895,24 +932,24 @@
             // 
             this.label39.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label39.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label39.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(498, 243);
+            this.label39.Location = new System.Drawing.Point(498, 233);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(102, 23);
+            this.label39.Size = new System.Drawing.Size(102, 30);
             this.label39.TabIndex = 388;
             this.label39.Text = "グループ";
             this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label38
             // 
-            this.label38.BackColor = System.Drawing.Color.Transparent;
+            this.label38.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label38.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label38.ForeColor = System.Drawing.Color.Black;
-            this.label38.Location = new System.Drawing.Point(303, 28);
+            this.label38.ForeColor = System.Drawing.Color.White;
+            this.label38.Location = new System.Drawing.Point(303, 29);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(300, 31);
+            this.label38.Size = new System.Drawing.Size(300, 30);
             this.label38.TabIndex = 387;
             this.label38.Text = "グループ名";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -921,11 +958,11 @@
             // 
             this.label37.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label37.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label37.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label37.ForeColor = System.Drawing.Color.White;
-            this.label37.Location = new System.Drawing.Point(302, 243);
+            this.label37.Location = new System.Drawing.Point(302, 233);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(195, 21);
+            this.label37.Size = new System.Drawing.Size(195, 30);
             this.label37.TabIndex = 386;
             this.label37.Text = "ポケット名";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -934,11 +971,11 @@
             // 
             this.label36.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label36.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label36.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label36.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label36.ForeColor = System.Drawing.Color.White;
-            this.label36.Location = new System.Drawing.Point(604, 244);
+            this.label36.Location = new System.Drawing.Point(603, 234);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(300, 21);
+            this.label36.Size = new System.Drawing.Size(300, 30);
             this.label36.TabIndex = 385;
             this.label36.Text = "グループ名";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1332,52 +1369,52 @@
             // 
             // LblBox1QrReadItem1
             // 
-            this.LblBox1QrReadItem1.BackColor = System.Drawing.Color.Transparent;
+            this.LblBox1QrReadItem1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.LblBox1QrReadItem1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblBox1QrReadItem1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblBox1QrReadItem1.ForeColor = System.Drawing.Color.Black;
-            this.LblBox1QrReadItem1.Location = new System.Drawing.Point(604, 28);
+            this.LblBox1QrReadItem1.ForeColor = System.Drawing.Color.White;
+            this.LblBox1QrReadItem1.Location = new System.Drawing.Point(604, 29);
             this.LblBox1QrReadItem1.Name = "LblBox1QrReadItem1";
-            this.LblBox1QrReadItem1.Size = new System.Drawing.Size(151, 31);
+            this.LblBox1QrReadItem1.Size = new System.Drawing.Size(151, 30);
             this.LblBox1QrReadItem1.TabIndex = 311;
             this.LblBox1QrReadItem1.Text = "QR読取項目１";
             this.LblBox1QrReadItem1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox1QrReadItem2
             // 
-            this.LblBox1QrReadItem2.BackColor = System.Drawing.Color.Transparent;
+            this.LblBox1QrReadItem2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.LblBox1QrReadItem2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblBox1QrReadItem2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblBox1QrReadItem2.ForeColor = System.Drawing.Color.Black;
-            this.LblBox1QrReadItem2.Location = new System.Drawing.Point(756, 28);
+            this.LblBox1QrReadItem2.ForeColor = System.Drawing.Color.White;
+            this.LblBox1QrReadItem2.Location = new System.Drawing.Point(756, 29);
             this.LblBox1QrReadItem2.Name = "LblBox1QrReadItem2";
-            this.LblBox1QrReadItem2.Size = new System.Drawing.Size(151, 31);
+            this.LblBox1QrReadItem2.Size = new System.Drawing.Size(151, 30);
             this.LblBox1QrReadItem2.TabIndex = 318;
             this.LblBox1QrReadItem2.Text = "QR読取項目２";
             this.LblBox1QrReadItem2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox1QrReadItem3
             // 
-            this.LblBox1QrReadItem3.BackColor = System.Drawing.Color.Transparent;
+            this.LblBox1QrReadItem3.BackColor = System.Drawing.Color.CornflowerBlue;
             this.LblBox1QrReadItem3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblBox1QrReadItem3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblBox1QrReadItem3.ForeColor = System.Drawing.Color.Black;
-            this.LblBox1QrReadItem3.Location = new System.Drawing.Point(908, 28);
+            this.LblBox1QrReadItem3.ForeColor = System.Drawing.Color.White;
+            this.LblBox1QrReadItem3.Location = new System.Drawing.Point(908, 29);
             this.LblBox1QrReadItem3.Name = "LblBox1QrReadItem3";
-            this.LblBox1QrReadItem3.Size = new System.Drawing.Size(151, 31);
+            this.LblBox1QrReadItem3.Size = new System.Drawing.Size(151, 30);
             this.LblBox1QrReadItem3.TabIndex = 319;
             this.LblBox1QrReadItem3.Text = "QR読取項目３";
             this.LblBox1QrReadItem3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblBox1QrReadItem4
             // 
-            this.LblBox1QrReadItem4.BackColor = System.Drawing.Color.Transparent;
+            this.LblBox1QrReadItem4.BackColor = System.Drawing.Color.CornflowerBlue;
             this.LblBox1QrReadItem4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LblBox1QrReadItem4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblBox1QrReadItem4.ForeColor = System.Drawing.Color.Black;
-            this.LblBox1QrReadItem4.Location = new System.Drawing.Point(1060, 28);
+            this.LblBox1QrReadItem4.ForeColor = System.Drawing.Color.White;
+            this.LblBox1QrReadItem4.Location = new System.Drawing.Point(1060, 29);
             this.LblBox1QrReadItem4.Name = "LblBox1QrReadItem4";
-            this.LblBox1QrReadItem4.Size = new System.Drawing.Size(151, 31);
+            this.LblBox1QrReadItem4.Size = new System.Drawing.Size(151, 30);
             this.LblBox1QrReadItem4.TabIndex = 320;
             this.LblBox1QrReadItem4.Text = "QR読取項目４";
             this.LblBox1QrReadItem4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1386,11 +1423,11 @@
             // 
             this.label20.BackColor = System.Drawing.Color.CornflowerBlue;
             this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label20.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label20.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(910, 244);
+            this.label20.Location = new System.Drawing.Point(905, 234);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(160, 21);
+            this.label20.Size = new System.Drawing.Size(160, 30);
             this.label20.TabIndex = 313;
             this.label20.Text = "ポケット切替件数";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1402,7 +1439,7 @@
             this.CmbQuantOnOff5.FormattingEnabled = true;
             this.CmbQuantOnOff5.IntegralHeight = false;
             this.CmbQuantOnOff5.ItemHeight = 24;
-            this.CmbQuantOnOff5.Location = new System.Drawing.Point(993, 403);
+            this.CmbQuantOnOff5.Location = new System.Drawing.Point(989, 403);
             this.CmbQuantOnOff5.Name = "CmbQuantOnOff5";
             this.CmbQuantOnOff5.Size = new System.Drawing.Size(76, 32);
             this.CmbQuantOnOff5.TabIndex = 73;
@@ -1411,7 +1448,7 @@
             // 
             this.TxtQuantity5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtQuantity5.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtQuantity5.Location = new System.Drawing.Point(910, 404);
+            this.TxtQuantity5.Location = new System.Drawing.Point(905, 404);
             this.TxtQuantity5.Name = "TxtQuantity5";
             this.TxtQuantity5.Size = new System.Drawing.Size(83, 31);
             this.TxtQuantity5.TabIndex = 72;
@@ -1425,7 +1462,7 @@
             this.CmbQuantOnOff4.FormattingEnabled = true;
             this.CmbQuantOnOff4.IntegralHeight = false;
             this.CmbQuantOnOff4.ItemHeight = 24;
-            this.CmbQuantOnOff4.Location = new System.Drawing.Point(993, 369);
+            this.CmbQuantOnOff4.Location = new System.Drawing.Point(989, 369);
             this.CmbQuantOnOff4.Name = "CmbQuantOnOff4";
             this.CmbQuantOnOff4.Size = new System.Drawing.Size(76, 32);
             this.CmbQuantOnOff4.TabIndex = 68;
@@ -1434,7 +1471,7 @@
             // 
             this.TxtQuantity4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtQuantity4.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtQuantity4.Location = new System.Drawing.Point(910, 370);
+            this.TxtQuantity4.Location = new System.Drawing.Point(905, 370);
             this.TxtQuantity4.Name = "TxtQuantity4";
             this.TxtQuantity4.Size = new System.Drawing.Size(83, 31);
             this.TxtQuantity4.TabIndex = 67;
@@ -1448,7 +1485,7 @@
             this.CmbQuantOnOff3.FormattingEnabled = true;
             this.CmbQuantOnOff3.IntegralHeight = false;
             this.CmbQuantOnOff3.ItemHeight = 24;
-            this.CmbQuantOnOff3.Location = new System.Drawing.Point(993, 335);
+            this.CmbQuantOnOff3.Location = new System.Drawing.Point(989, 335);
             this.CmbQuantOnOff3.Name = "CmbQuantOnOff3";
             this.CmbQuantOnOff3.Size = new System.Drawing.Size(76, 32);
             this.CmbQuantOnOff3.TabIndex = 63;
@@ -1457,7 +1494,7 @@
             // 
             this.TxtQuantity3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtQuantity3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtQuantity3.Location = new System.Drawing.Point(910, 335);
+            this.TxtQuantity3.Location = new System.Drawing.Point(905, 335);
             this.TxtQuantity3.Name = "TxtQuantity3";
             this.TxtQuantity3.Size = new System.Drawing.Size(83, 31);
             this.TxtQuantity3.TabIndex = 62;
@@ -1471,7 +1508,7 @@
             this.CmbQuantOnOff2.FormattingEnabled = true;
             this.CmbQuantOnOff2.IntegralHeight = false;
             this.CmbQuantOnOff2.ItemHeight = 24;
-            this.CmbQuantOnOff2.Location = new System.Drawing.Point(993, 300);
+            this.CmbQuantOnOff2.Location = new System.Drawing.Point(989, 300);
             this.CmbQuantOnOff2.Name = "CmbQuantOnOff2";
             this.CmbQuantOnOff2.Size = new System.Drawing.Size(76, 32);
             this.CmbQuantOnOff2.TabIndex = 58;
@@ -1480,7 +1517,7 @@
             // 
             this.TxtQuantity2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtQuantity2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtQuantity2.Location = new System.Drawing.Point(910, 301);
+            this.TxtQuantity2.Location = new System.Drawing.Point(905, 301);
             this.TxtQuantity2.Name = "TxtQuantity2";
             this.TxtQuantity2.Size = new System.Drawing.Size(83, 31);
             this.TxtQuantity2.TabIndex = 57;
@@ -1494,7 +1531,7 @@
             this.CmbQuantOnOff1.FormattingEnabled = true;
             this.CmbQuantOnOff1.IntegralHeight = false;
             this.CmbQuantOnOff1.ItemHeight = 24;
-            this.CmbQuantOnOff1.Location = new System.Drawing.Point(993, 266);
+            this.CmbQuantOnOff1.Location = new System.Drawing.Point(989, 266);
             this.CmbQuantOnOff1.Name = "CmbQuantOnOff1";
             this.CmbQuantOnOff1.Size = new System.Drawing.Size(76, 32);
             this.CmbQuantOnOff1.TabIndex = 53;
@@ -1503,7 +1540,7 @@
             // 
             this.TxtQuantity1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtQuantity1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TxtQuantity1.Location = new System.Drawing.Point(910, 266);
+            this.TxtQuantity1.Location = new System.Drawing.Point(905, 266);
             this.TxtQuantity1.Name = "TxtQuantity1";
             this.TxtQuantity1.Size = new System.Drawing.Size(83, 31);
             this.TxtQuantity1.TabIndex = 52;
@@ -2088,6 +2125,214 @@
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label17.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(1067, 234);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(102, 30);
+            this.label17.TabIndex = 389;
+            this.label17.Text = "ループ設定";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ChkLoop1
+            // 
+            this.ChkLoop1.AutoSize = true;
+            this.ChkLoop1.Location = new System.Drawing.Point(43, 6);
+            this.ChkLoop1.Name = "ChkLoop1";
+            this.ChkLoop1.Size = new System.Drawing.Size(15, 14);
+            this.ChkLoop1.TabIndex = 390;
+            this.ChkLoop1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.ChkLoop1);
+            this.panel1.Location = new System.Drawing.Point(1066, 267);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(102, 30);
+            this.panel1.TabIndex = 391;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Location = new System.Drawing.Point(-1, 37);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(102, 30);
+            this.panel2.TabIndex = 392;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(43, 6);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 390;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(43, 6);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.TabIndex = 390;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.checkBox2);
+            this.panel3.Location = new System.Drawing.Point(1066, 301);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(102, 30);
+            this.panel3.TabIndex = 392;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.checkBox3);
+            this.panel4.Location = new System.Drawing.Point(-1, 37);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(102, 30);
+            this.panel4.TabIndex = 392;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(43, 6);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(15, 14);
+            this.checkBox3.TabIndex = 390;
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(43, 6);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(15, 14);
+            this.checkBox4.TabIndex = 390;
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Controls.Add(this.checkBox4);
+            this.panel5.Location = new System.Drawing.Point(1066, 335);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(102, 30);
+            this.panel5.TabIndex = 393;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.checkBox5);
+            this.panel6.Location = new System.Drawing.Point(-1, 37);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(102, 30);
+            this.panel6.TabIndex = 392;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(43, 6);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(15, 14);
+            this.checkBox5.TabIndex = 390;
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(43, 6);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(15, 14);
+            this.checkBox6.TabIndex = 390;
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.panel8);
+            this.panel7.Controls.Add(this.checkBox6);
+            this.panel7.Location = new System.Drawing.Point(1066, 370);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(102, 30);
+            this.panel7.TabIndex = 394;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.checkBox7);
+            this.panel8.Location = new System.Drawing.Point(-1, 37);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(102, 30);
+            this.panel8.TabIndex = 392;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(43, 6);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(15, 14);
+            this.checkBox7.TabIndex = 390;
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(43, 6);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(15, 14);
+            this.checkBox8.TabIndex = 390;
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Controls.Add(this.checkBox8);
+            this.panel9.Location = new System.Drawing.Point(1066, 404);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(102, 30);
+            this.panel9.TabIndex = 395;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.checkBox9);
+            this.panel10.Location = new System.Drawing.Point(-1, 37);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(102, 30);
+            this.panel10.TabIndex = 392;
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(43, 6);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(15, 14);
+            this.checkBox9.TabIndex = 390;
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2122,6 +2367,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).EndInit();
             this.GrpFeederSetting.ResumeLayout(false);
             this.GrpFeederSetting.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2263,5 +2528,26 @@
         internal System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TxtReadingPosition;
         internal System.Windows.Forms.Label LblSelecttedFolder;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox ChkLoop1;
+        internal System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
