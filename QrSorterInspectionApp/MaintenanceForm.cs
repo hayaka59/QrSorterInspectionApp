@@ -328,7 +328,9 @@ namespace QrSorterInspectionApp
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567890";
                 RchTxtQrInfo.Text += "1234567";
-                #endregion     
+                #endregion
+
+                ClearTestTextBox();
             }
             catch (Exception ex)
             {
@@ -1919,6 +1921,95 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【SetColorForQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 「抜取ファイル作成」ボタンクリック処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnCreateExtractionFile_Click(object sender, EventArgs e)
+        {
+            string sPutDataPath;
+            int iNumber = 1;
+
+            try
+            {
+                sPutDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + "テスト用抜取りファイル.csv";
+                // 上書モードで書き込む
+                using (StreamWriter sw = new StreamWriter(sPutDataPath, false, Encoding.Default))
+                {
+                    for (int N=1; N <= 5000; N++)
+                    {
+                        sw.WriteLine(iNumber.ToString("000000000000"));
+                        iNumber++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnCreateExtractionFile_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    
+    
+        private void ClearTestTextBox()
+        {
+            try
+            {
+                TxtGroup1.Text = "";
+                TxtGroup2.Text = "";
+                TxtGroup3.Text = "";
+                TxtGroup4.Text = "";
+                TxtGroup5.Text = "";
+
+                TxtBoxQrItem11.Text = "";
+                TxtBoxQrItem12.Text = "";
+                TxtBoxQrItem13.Text = "";
+                TxtBoxQrItem14.Text = "";
+                TxtBoxQrItem15.Text = "";
+
+                TxtBoxQrItem21.Text = "";
+                TxtBoxQrItem22.Text = "";
+                TxtBoxQrItem23.Text = "";
+                TxtBoxQrItem24.Text = "";
+                TxtBoxQrItem25.Text = "";
+
+                TxtBoxQrItem31.Text = "";
+                TxtBoxQrItem32.Text = "";
+                TxtBoxQrItem33.Text = "";
+                TxtBoxQrItem34.Text = "";
+                TxtBoxQrItem35.Text = "";
+
+                TxtBoxQrItem41.Text = "";
+                TxtBoxQrItem42.Text = "";
+                TxtBoxQrItem43.Text = "";
+                TxtBoxQrItem44.Text = "";
+                TxtBoxQrItem45.Text = "";
+
+                TxtPocketName1.Text = "";
+                TxtPocketName2.Text = "";
+                TxtPocketName3.Text = "";
+                TxtPocketName4.Text = "";
+                TxtPocketName5.Text = "";
+                textBox6.Text = "";
+
+                LblGroup1.Text = "";
+                LblGroup2.Text = "";
+                LblGroup3.Text = "";
+                LblGroup4.Text = "";
+                LblGroup5.Text = "";
+
+                TxtQuantity1.Text = "";
+                TxtQuantity2.Text = "";
+                TxtQuantity3.Text = "";
+                TxtQuantity4.Text = "";
+                TxtQuantity5.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【ClearTestTextBox】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
