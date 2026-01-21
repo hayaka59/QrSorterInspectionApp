@@ -313,6 +313,22 @@ namespace QrSorterInspectionApp
                 SerialPortMaint.Open();
                 // 送信データのセット
                 SendSerialData(PubConstClass.CMD_SEND_m + ",1");
+
+                // 抜き取りポケット設定
+                CmbExtraction.Items.Clear();
+                CmbExtraction.Items.Add("ポケット１");
+                CmbExtraction.Items.Add("ポケット５");
+                CmbExtraction.SelectedIndex = 1;
+                // 抜き取りファイル表示クリア
+                LstExtraction.Items.Clear();
+                LblExtractionFileName.Text = "";
+                #region QR桁数
+                RchTxtQrInfo.Text = "1234567890";
+                RchTxtQrInfo.Text += "1234567890";
+                RchTxtQrInfo.Text += "1234567890";
+                RchTxtQrInfo.Text += "1234567890";
+                RchTxtQrInfo.Text += "1234567";
+                #endregion     
             }
             catch (Exception ex)
             {
@@ -1808,6 +1824,101 @@ namespace QrSorterInspectionApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【LsvLogList_SelectedIndexChanged】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        string sSelectedFile = "";
+
+        private void BtnExtraction_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+
+                CommonModule.OutPutLogFile("「JO選択」ボタンクリック");
+                // 初期表示するフォルダの指定（「空の文字列」の時は現在のディレクトリを表示）
+                //ofd.InitialDirectory = @"C:\";
+                // 「ファイルの種類」に表示される選択肢の指定
+                ofd.Filter = "CSVファイル(*.csv;*.CSV)|*.csv;*.CSV|すべてのファイル(*.*)|*.*";
+                // 「ファイルの種類」ではじめに「CSVファイル(*.csv;*.CSV)」を選択
+                ofd.FilterIndex = 1;
+                // タイトルを設定
+                ofd.Title = "JOB設定ファイルを選択してください";
+                // ダイアログボックスを閉じる前に現在のディレクトリを復元
+                ofd.RestoreDirectory = true;
+                // 存在しないファイルの名前が指定されたとき警告を表示
+                ofd.CheckFileExists = true;
+                // 存在しないパスが指定されたとき警告を表示
+                ofd.CheckPathExists = true;
+                // ダイアログを表示する
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    // 「OK」ボタンがクリック（選択されたファイル名を表示）
+                    sSelectedFile = ofd.FileName;
+                    string[] sArray = sSelectedFile.Split('\\');
+                    // ファイル名のみを表示する
+                    LblExtractionFileName.Text = sArray[sArray.Length - 1];
+                    LstExtraction.Items.Clear();
+                    using (StreamReader sr = new StreamReader(sSelectedFile, Encoding.Default))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            string sData = sr.ReadLine();
+                            LstExtraction.Items.Add(sData);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnExtraction_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void SetColorForQrData(object sender, EventArgs e)
+        {
+            try
+            {
+                SetColorForQrDataSub(RchTxtQrInfo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SetColorForQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// QR桁数情報色の設定（サブ）
+        /// </summary>
+        /// <param name="richTextBox"></param>
+        private void SetColorForQrDataSub(RichTextBox richTextBox)
+        {
+            try
+            {
+                // QR全体
+                richTextBox.Select(0, RchTxtQrInfo.Text.Length);
+                richTextBox.SelectionBackColor = Color.White;
+                richTextBox.SelectionColor = Color.Black;
+
+                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnPropertyIdStart.Value) - 1;
+                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnPropertyIdKeta.Value);
+                richTextBox.SelectionBackColor = Color.LimeGreen;
+                richTextBox.SelectionColor = Color.Black;
+
+                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnPostalDateStart.Value) - 1;
+                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnPostalDateKeta.Value);
+                richTextBox.SelectionBackColor = Color.SkyBlue;
+                richTextBox.SelectionColor = Color.Black;
+
+                richTextBox.SelectionStart = decimal.ToInt32(NmUpDnFileTypeStart.Value) - 1;
+                richTextBox.SelectionLength = decimal.ToInt32(NmUpDnFileTypeKeta.Value);
+                richTextBox.SelectionBackColor = Color.Orange;
+                richTextBox.SelectionColor = Color.Black;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SetColorForQrData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
