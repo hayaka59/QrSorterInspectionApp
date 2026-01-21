@@ -65,6 +65,38 @@
             this.CmbUltrasonicDetection = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.GrpSorterSetting = new System.Windows.Forms.GroupBox();
+            this.LblExtractionFileName = new System.Windows.Forms.Label();
+            this.LstExtraction = new System.Windows.Forms.ListBox();
+            this.BtnExtraction = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LblExtraction = new System.Windows.Forms.Label();
+            this.CmbExtraction = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.NmUpDnExtractionKeta = new System.Windows.Forms.NumericUpDown();
+            this.NmUpDnExtractionStart = new System.Windows.Forms.NumericUpDown();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ChkLoop1 = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.LblGroup5 = new System.Windows.Forms.Label();
             this.LblGroup4 = new System.Windows.Forms.Label();
             this.LblGroup3 = new System.Windows.Forms.Label();
@@ -164,38 +196,6 @@
             this.BtnJobSelect = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.ChkLoop1 = new System.Windows.Forms.CheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.NmUpDnExtractionKeta = new System.Windows.Forms.NumericUpDown();
-            this.NmUpDnExtractionStart = new System.Windows.Forms.NumericUpDown();
-            this.CmbExtraction = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.BtnExtraction = new System.Windows.Forms.Button();
-            this.LstExtraction = new System.Windows.Forms.ListBox();
-            this.LblExtractionFileName = new System.Windows.Forms.Label();
-            this.LblExtraction = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnManagementNoStart)).BeginInit();
@@ -206,21 +206,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdKeta)).BeginInit();
             this.GrpSorterSetting.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).BeginInit();
-            this.GrpFeederSetting.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnExtractionKeta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnExtractionStart)).BeginInit();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).BeginInit();
+            this.GrpFeederSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblSelectedFile
@@ -880,6 +880,375 @@
             this.GrpSorterSetting.TabIndex = 24;
             this.GrpSorterSetting.TabStop = false;
             this.GrpSorterSetting.Text = "ソータ設定";
+            // 
+            // LblExtractionFileName
+            // 
+            this.LblExtractionFileName.BackColor = System.Drawing.Color.White;
+            this.LblExtractionFileName.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblExtractionFileName.Location = new System.Drawing.Point(1379, 154);
+            this.LblExtractionFileName.Name = "LblExtractionFileName";
+            this.LblExtractionFileName.Size = new System.Drawing.Size(199, 24);
+            this.LblExtractionFileName.TabIndex = 405;
+            this.LblExtractionFileName.Text = "LblExtractionFileName";
+            this.LblExtractionFileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LstExtraction
+            // 
+            this.LstExtraction.FormattingEnabled = true;
+            this.LstExtraction.ItemHeight = 24;
+            this.LstExtraction.Location = new System.Drawing.Point(1175, 193);
+            this.LstExtraction.Name = "LstExtraction";
+            this.LstExtraction.Size = new System.Drawing.Size(407, 244);
+            this.LstExtraction.TabIndex = 404;
+            // 
+            // BtnExtraction
+            // 
+            this.BtnExtraction.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnExtraction.Image = global::QrSorterInspectionApp.Properties.Resources.copy_icon;
+            this.BtnExtraction.Location = new System.Drawing.Point(1175, 145);
+            this.BtnExtraction.Name = "BtnExtraction";
+            this.BtnExtraction.Size = new System.Drawing.Size(196, 40);
+            this.BtnExtraction.TabIndex = 403;
+            this.BtnExtraction.Text = "抜取ファイル読込";
+            this.BtnExtraction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnExtraction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnExtraction.UseVisualStyleBackColor = true;
+            this.BtnExtraction.Click += new System.EventHandler(this.BtnExtraction_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.LblExtraction);
+            this.groupBox2.Controls.Add(this.CmbExtraction);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.label40);
+            this.groupBox2.Controls.Add(this.label41);
+            this.groupBox2.Controls.Add(this.NmUpDnExtractionKeta);
+            this.groupBox2.Controls.Add(this.NmUpDnExtractionStart);
+            this.groupBox2.Location = new System.Drawing.Point(1175, 29);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(418, 102);
+            this.groupBox2.TabIndex = 402;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "抜取情報設定";
+            // 
+            // LblExtraction
+            // 
+            this.LblExtraction.BackColor = System.Drawing.Color.White;
+            this.LblExtraction.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblExtraction.Location = new System.Drawing.Point(12, 69);
+            this.LblExtraction.Name = "LblExtraction";
+            this.LblExtraction.Size = new System.Drawing.Size(234, 24);
+            this.LblExtraction.TabIndex = 408;
+            this.LblExtraction.Text = "LblExtraction";
+            this.LblExtraction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CmbExtraction
+            // 
+            this.CmbExtraction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbExtraction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CmbExtraction.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbExtraction.FormattingEnabled = true;
+            this.CmbExtraction.IntegralHeight = false;
+            this.CmbExtraction.ItemHeight = 24;
+            this.CmbExtraction.Location = new System.Drawing.Point(260, 59);
+            this.CmbExtraction.Name = "CmbExtraction";
+            this.CmbExtraction.Size = new System.Drawing.Size(147, 32);
+            this.CmbExtraction.TabIndex = 407;
+            // 
+            // label19
+            // 
+            this.label19.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label19.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(259, 27);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(147, 30);
+            this.label19.TabIndex = 406;
+            this.label19.Text = "抜取ポケット設定";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label40
+            // 
+            this.label40.BackColor = System.Drawing.Color.Transparent;
+            this.label40.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label40.ForeColor = System.Drawing.Color.Black;
+            this.label40.Location = new System.Drawing.Point(132, 29);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(46, 36);
+            this.label40.TabIndex = 405;
+            this.label40.Text = "桁数";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label41
+            // 
+            this.label41.BackColor = System.Drawing.Color.Transparent;
+            this.label41.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(12, 27);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(46, 36);
+            this.label41.TabIndex = 404;
+            this.label41.Text = "開始";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NmUpDnExtractionKeta
+            // 
+            this.NmUpDnExtractionKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NmUpDnExtractionKeta.Location = new System.Drawing.Point(179, 26);
+            this.NmUpDnExtractionKeta.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.NmUpDnExtractionKeta.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NmUpDnExtractionKeta.Name = "NmUpDnExtractionKeta";
+            this.NmUpDnExtractionKeta.Size = new System.Drawing.Size(67, 36);
+            this.NmUpDnExtractionKeta.TabIndex = 403;
+            this.NmUpDnExtractionKeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NmUpDnExtractionKeta.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.NmUpDnExtractionKeta.ValueChanged += new System.EventHandler(this.UpdateExtraction);
+            // 
+            // NmUpDnExtractionStart
+            // 
+            this.NmUpDnExtractionStart.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.NmUpDnExtractionStart.Location = new System.Drawing.Point(61, 26);
+            this.NmUpDnExtractionStart.Maximum = new decimal(new int[] {
+            128,
+            0,
+            0,
+            0});
+            this.NmUpDnExtractionStart.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NmUpDnExtractionStart.Name = "NmUpDnExtractionStart";
+            this.NmUpDnExtractionStart.Size = new System.Drawing.Size(67, 36);
+            this.NmUpDnExtractionStart.TabIndex = 402;
+            this.NmUpDnExtractionStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NmUpDnExtractionStart.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NmUpDnExtractionStart.ValueChanged += new System.EventHandler(this.UpdateExtraction);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Controls.Add(this.checkBox8);
+            this.panel9.Location = new System.Drawing.Point(1010, 404);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(102, 30);
+            this.panel9.TabIndex = 395;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.checkBox9);
+            this.panel10.Location = new System.Drawing.Point(-1, 37);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(102, 30);
+            this.panel10.TabIndex = 392;
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(43, 6);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(15, 14);
+            this.checkBox9.TabIndex = 390;
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(43, 6);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(15, 14);
+            this.checkBox8.TabIndex = 390;
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.panel8);
+            this.panel7.Controls.Add(this.checkBox6);
+            this.panel7.Location = new System.Drawing.Point(1010, 370);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(102, 30);
+            this.panel7.TabIndex = 394;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.checkBox7);
+            this.panel8.Location = new System.Drawing.Point(-1, 37);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(102, 30);
+            this.panel8.TabIndex = 392;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(43, 6);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(15, 14);
+            this.checkBox7.TabIndex = 390;
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(43, 6);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(15, 14);
+            this.checkBox6.TabIndex = 390;
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Controls.Add(this.checkBox4);
+            this.panel5.Location = new System.Drawing.Point(1010, 335);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(102, 30);
+            this.panel5.TabIndex = 393;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.checkBox5);
+            this.panel6.Location = new System.Drawing.Point(-1, 37);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(102, 30);
+            this.panel6.TabIndex = 392;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(43, 6);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(15, 14);
+            this.checkBox5.TabIndex = 390;
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(43, 6);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(15, 14);
+            this.checkBox4.TabIndex = 390;
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.checkBox2);
+            this.panel3.Location = new System.Drawing.Point(1010, 301);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(102, 30);
+            this.panel3.TabIndex = 392;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.checkBox3);
+            this.panel4.Location = new System.Drawing.Point(-1, 37);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(102, 30);
+            this.panel4.TabIndex = 392;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(43, 6);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(15, 14);
+            this.checkBox3.TabIndex = 390;
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(43, 6);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.TabIndex = 390;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.ChkLoop1);
+            this.panel1.Location = new System.Drawing.Point(1010, 267);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(102, 30);
+            this.panel1.TabIndex = 391;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Location = new System.Drawing.Point(-1, 37);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(102, 30);
+            this.panel2.TabIndex = 392;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(43, 6);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 390;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // ChkLoop1
+            // 
+            this.ChkLoop1.AutoSize = true;
+            this.ChkLoop1.Location = new System.Drawing.Point(43, 6);
+            this.ChkLoop1.Name = "ChkLoop1";
+            this.ChkLoop1.Size = new System.Drawing.Size(15, 14);
+            this.ChkLoop1.TabIndex = 390;
+            this.ChkLoop1.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label17.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(1011, 234);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(102, 30);
+            this.label17.TabIndex = 389;
+            this.label17.Text = "ループ設定";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LblGroup5
             // 
@@ -2143,375 +2512,6 @@
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label17.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(1011, 234);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(102, 30);
-            this.label17.TabIndex = 389;
-            this.label17.Text = "ループ設定";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ChkLoop1
-            // 
-            this.ChkLoop1.AutoSize = true;
-            this.ChkLoop1.Location = new System.Drawing.Point(43, 6);
-            this.ChkLoop1.Name = "ChkLoop1";
-            this.ChkLoop1.Size = new System.Drawing.Size(15, 14);
-            this.ChkLoop1.TabIndex = 390;
-            this.ChkLoop1.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.ChkLoop1);
-            this.panel1.Location = new System.Drawing.Point(1010, 267);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(102, 30);
-            this.panel1.TabIndex = 391;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.checkBox1);
-            this.panel2.Location = new System.Drawing.Point(-1, 37);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(102, 30);
-            this.panel2.TabIndex = 392;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(43, 6);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 390;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(43, 6);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 390;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.checkBox2);
-            this.panel3.Location = new System.Drawing.Point(1010, 301);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(102, 30);
-            this.panel3.TabIndex = 392;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.checkBox3);
-            this.panel4.Location = new System.Drawing.Point(-1, 37);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(102, 30);
-            this.panel4.TabIndex = 392;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(43, 6);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 390;
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(43, 6);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 14);
-            this.checkBox4.TabIndex = 390;
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Controls.Add(this.checkBox4);
-            this.panel5.Location = new System.Drawing.Point(1010, 335);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(102, 30);
-            this.panel5.TabIndex = 393;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.checkBox5);
-            this.panel6.Location = new System.Drawing.Point(-1, 37);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(102, 30);
-            this.panel6.TabIndex = 392;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(43, 6);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(15, 14);
-            this.checkBox5.TabIndex = 390;
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(43, 6);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(15, 14);
-            this.checkBox6.TabIndex = 390;
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.panel8);
-            this.panel7.Controls.Add(this.checkBox6);
-            this.panel7.Location = new System.Drawing.Point(1010, 370);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(102, 30);
-            this.panel7.TabIndex = 394;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.checkBox7);
-            this.panel8.Location = new System.Drawing.Point(-1, 37);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(102, 30);
-            this.panel8.TabIndex = 392;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(43, 6);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(15, 14);
-            this.checkBox7.TabIndex = 390;
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(43, 6);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(15, 14);
-            this.checkBox8.TabIndex = 390;
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.White;
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Controls.Add(this.checkBox8);
-            this.panel9.Location = new System.Drawing.Point(1010, 404);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(102, 30);
-            this.panel9.TabIndex = 395;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.checkBox9);
-            this.panel10.Location = new System.Drawing.Point(-1, 37);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(102, 30);
-            this.panel10.TabIndex = 392;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(43, 6);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(15, 14);
-            this.checkBox9.TabIndex = 390;
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.LblExtraction);
-            this.groupBox2.Controls.Add(this.CmbExtraction);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label40);
-            this.groupBox2.Controls.Add(this.label41);
-            this.groupBox2.Controls.Add(this.NmUpDnExtractionKeta);
-            this.groupBox2.Controls.Add(this.NmUpDnExtractionStart);
-            this.groupBox2.Location = new System.Drawing.Point(1175, 29);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(418, 102);
-            this.groupBox2.TabIndex = 402;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "抜取情報設定";
-            // 
-            // label40
-            // 
-            this.label40.BackColor = System.Drawing.Color.Transparent;
-            this.label40.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label40.ForeColor = System.Drawing.Color.Black;
-            this.label40.Location = new System.Drawing.Point(132, 29);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(46, 36);
-            this.label40.TabIndex = 405;
-            this.label40.Text = "桁数";
-            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label41
-            // 
-            this.label41.BackColor = System.Drawing.Color.Transparent;
-            this.label41.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label41.ForeColor = System.Drawing.Color.Black;
-            this.label41.Location = new System.Drawing.Point(12, 27);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(46, 36);
-            this.label41.TabIndex = 404;
-            this.label41.Text = "開始";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // NmUpDnExtractionKeta
-            // 
-            this.NmUpDnExtractionKeta.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.NmUpDnExtractionKeta.Location = new System.Drawing.Point(179, 26);
-            this.NmUpDnExtractionKeta.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.NmUpDnExtractionKeta.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NmUpDnExtractionKeta.Name = "NmUpDnExtractionKeta";
-            this.NmUpDnExtractionKeta.Size = new System.Drawing.Size(67, 36);
-            this.NmUpDnExtractionKeta.TabIndex = 403;
-            this.NmUpDnExtractionKeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NmUpDnExtractionKeta.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.NmUpDnExtractionKeta.ValueChanged += new System.EventHandler(this.UpdateExtraction);
-            // 
-            // NmUpDnExtractionStart
-            // 
-            this.NmUpDnExtractionStart.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.NmUpDnExtractionStart.Location = new System.Drawing.Point(61, 26);
-            this.NmUpDnExtractionStart.Maximum = new decimal(new int[] {
-            128,
-            0,
-            0,
-            0});
-            this.NmUpDnExtractionStart.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NmUpDnExtractionStart.Name = "NmUpDnExtractionStart";
-            this.NmUpDnExtractionStart.Size = new System.Drawing.Size(67, 36);
-            this.NmUpDnExtractionStart.TabIndex = 402;
-            this.NmUpDnExtractionStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NmUpDnExtractionStart.Value = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.NmUpDnExtractionStart.ValueChanged += new System.EventHandler(this.UpdateExtraction);
-            // 
-            // CmbExtraction
-            // 
-            this.CmbExtraction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbExtraction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CmbExtraction.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbExtraction.FormattingEnabled = true;
-            this.CmbExtraction.IntegralHeight = false;
-            this.CmbExtraction.ItemHeight = 24;
-            this.CmbExtraction.Location = new System.Drawing.Point(260, 59);
-            this.CmbExtraction.Name = "CmbExtraction";
-            this.CmbExtraction.Size = new System.Drawing.Size(147, 32);
-            this.CmbExtraction.TabIndex = 407;
-            // 
-            // label19
-            // 
-            this.label19.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label19.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(259, 27);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(147, 30);
-            this.label19.TabIndex = 406;
-            this.label19.Text = "抜取ポケット設定";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnExtraction
-            // 
-            this.BtnExtraction.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnExtraction.Image = global::QrSorterInspectionApp.Properties.Resources.copy_icon;
-            this.BtnExtraction.Location = new System.Drawing.Point(1175, 145);
-            this.BtnExtraction.Name = "BtnExtraction";
-            this.BtnExtraction.Size = new System.Drawing.Size(196, 40);
-            this.BtnExtraction.TabIndex = 403;
-            this.BtnExtraction.Text = "抜取ファイル読込";
-            this.BtnExtraction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnExtraction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnExtraction.UseVisualStyleBackColor = true;
-            this.BtnExtraction.Click += new System.EventHandler(this.BtnExtraction_Click);
-            // 
-            // LstExtraction
-            // 
-            this.LstExtraction.FormattingEnabled = true;
-            this.LstExtraction.ItemHeight = 24;
-            this.LstExtraction.Location = new System.Drawing.Point(1175, 193);
-            this.LstExtraction.Name = "LstExtraction";
-            this.LstExtraction.Size = new System.Drawing.Size(407, 244);
-            this.LstExtraction.TabIndex = 404;
-            // 
-            // LblExtractionFileName
-            // 
-            this.LblExtractionFileName.BackColor = System.Drawing.Color.White;
-            this.LblExtractionFileName.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblExtractionFileName.Location = new System.Drawing.Point(1379, 154);
-            this.LblExtractionFileName.Name = "LblExtractionFileName";
-            this.LblExtractionFileName.Size = new System.Drawing.Size(199, 24);
-            this.LblExtractionFileName.TabIndex = 405;
-            this.LblExtractionFileName.Text = "LblExtractionFileName";
-            this.LblExtractionFileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LblExtraction
-            // 
-            this.LblExtraction.BackColor = System.Drawing.Color.White;
-            this.LblExtraction.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.LblExtraction.Location = new System.Drawing.Point(12, 69);
-            this.LblExtraction.Name = "LblExtraction";
-            this.LblExtraction.Size = new System.Drawing.Size(234, 24);
-            this.LblExtraction.TabIndex = 408;
-            this.LblExtraction.Text = "LblExtraction";
-            this.LblExtraction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2543,32 +2543,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnPropertyIdKeta)).EndInit();
             this.GrpSorterSetting.ResumeLayout(false);
             this.GrpSorterSetting.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).EndInit();
-            this.GrpFeederSetting.ResumeLayout(false);
-            this.GrpFeederSetting.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnExtractionKeta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnExtractionStart)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnExtractionKeta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NmUpDnExtractionStart)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumUpDwnQrAllDigit)).EndInit();
+            this.GrpFeederSetting.ResumeLayout(false);
+            this.GrpFeederSetting.PerformLayout();
             this.ResumeLayout(false);
 
         }
