@@ -393,6 +393,7 @@
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.SerialPortMaint = new System.IO.Ports.SerialPort(this.components);
+            this.BtnCreateExtractionFile = new System.Windows.Forms.Button();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox6.SuspendLayout();
@@ -3341,6 +3342,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.BtnCreateExtractionFile);
             this.tabPage5.Controls.Add(this.GrpSorterSetting);
             this.tabPage5.Controls.Add(this.label19);
             this.tabPage5.Controls.Add(this.CmbExtraction);
@@ -4894,6 +4896,20 @@
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // BtnCreateExtractionFile
+            // 
+            this.BtnCreateExtractionFile.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCreateExtractionFile.Image = global::QrSorterInspectionApp.Properties.Resources.save_icon;
+            this.BtnCreateExtractionFile.Location = new System.Drawing.Point(1201, 87);
+            this.BtnCreateExtractionFile.Name = "BtnCreateExtractionFile";
+            this.BtnCreateExtractionFile.Size = new System.Drawing.Size(196, 40);
+            this.BtnCreateExtractionFile.TabIndex = 408;
+            this.BtnCreateExtractionFile.Text = "抜取ファイル作成";
+            this.BtnCreateExtractionFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCreateExtractionFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCreateExtractionFile.UseVisualStyleBackColor = true;
+            this.BtnCreateExtractionFile.Click += new System.EventHandler(this.BtnCreateExtractionFile_Click);
+            // 
             // MaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -5355,5 +5371,6 @@
         private System.Windows.Forms.CheckBox checkBox12;
         private System.Windows.Forms.CheckBox checkBox11;
         private System.Windows.Forms.CheckBox checkBox10;
+        internal System.Windows.Forms.Button BtnCreateExtractionFile;
     }
 }
