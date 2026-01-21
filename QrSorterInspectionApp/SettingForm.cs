@@ -82,6 +82,7 @@ namespace QrSorterInspectionApp
                 SetGroupItem(CmbGroup3);
                 SetGroupItem(CmbGroup4);
                 SetGroupItem(CmbGroup5);
+                CmbGroup5.Items.Add("抜き取り");
                 CmbGroup1.SelectedIndex = 0;
                 CmbGroup2.SelectedIndex = 0;
                 CmbGroup3.SelectedIndex = 0;
