@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Ports;
@@ -18,7 +19,7 @@ namespace QrSorterInspectionApp
     {
         private delegate void Delegate_RcvDataToTextBox(string data);
 
-        private string[] sDipSwitch = new string[16] {"1","0","1","0","1","0","1","0","1","0","1","0","1","0","1","0" };
+        private readonly string[] sDipSwitch = new string[16] {"1","0","1","0","1","0","1","0","1","0","1","0","1","0","1","0" };
 
         public MaintenanceForm()
         {
@@ -64,7 +65,7 @@ namespace QrSorterInspectionApp
                 // 内部実績ログ格納フォルダ
                 TxtInternalTran.Text = PubConstClass.pblInternalTranFolder;
                 // オフラインモードを有効とする
-                ChkOffLine.Checked = PubConstClass.pblOffLineMode == "1" ? true : false;
+                ChkOffLine.Checked = PubConstClass.pblOffLineMode == "1";
                 // COMポート名
                 CmbComPort.Items.Clear();
                 for (int iIndex = 1; iIndex <= 15; iIndex++)
@@ -330,6 +331,30 @@ namespace QrSorterInspectionApp
                 RchTxtQrInfo.Text += "1234567";
                 #endregion
 
+                TxtExtractionData1.Text = "123456789012";
+                TxtExtractionData2.Text = "12345678";
+                TxtExtractionData3.Text = "12";
+                TxtCreateCount.Text = "5000";
+                LblExtractioCount.Text = "";
+                TxtFindExtraction1.Text = "-------";
+                TxtFindExtraction2.Text = "-------";
+                TxtFindExtraction3.Text = "-------";
+                TxtExtractionMax.Text = "";
+                TxtExtractionMin.Text = "";
+                LstExtractionResult.Items.Clear();
+                CmbExtractionTimer.Items.Clear();
+                CmbExtractionTimer.Items.Add("50ms");
+                CmbExtractionTimer.Items.Add("100ms");
+                CmbExtractionTimer.Items.Add("200ms");
+                CmbExtractionTimer.Items.Add("300ms");
+                CmbExtractionTimer.Items.Add("400ms");
+                CmbExtractionTimer.Items.Add("500ms");
+                CmbExtractionTimer.Items.Add("600ms");
+                CmbExtractionTimer.Items.Add("700ms");
+                CmbExtractionTimer.Items.Add("800ms");
+                CmbExtractionTimer.Items.Add("900ms");
+                CmbExtractionTimer.Items.Add("1000ms");
+                CmbExtractionTimer.SelectedIndex = 5;
                 ClearTestTextBox();
             }
             catch (Exception ex)
@@ -1543,7 +1568,7 @@ namespace QrSorterInspectionApp
         }
 
         // ログファイル一覧格納リスト
-        private List<string> lstLogFileList = new List<string>();
+        private readonly List<string> lstLogFileList = new List<string>();
 
         /// <summary>
         /// エラーログ一覧表示処理
@@ -1829,7 +1854,10 @@ namespace QrSorterInspectionApp
             }
         }
 
-        string sSelectedFile = "";
+        private string sSelectedFile = "";
+        private readonly List<string> lstExtractionData1 = new List<string>();
+        private readonly List<string> lstExtractionData2 = new List<string>();
+        private readonly List<string> lstExtractionData3 = new List<string>();
 
         private void BtnExtraction_Click(object sender, EventArgs e)
         {
@@ -1860,15 +1888,23 @@ namespace QrSorterInspectionApp
                     string[] sArray = sSelectedFile.Split('\\');
                     // ファイル名のみを表示する
                     LblExtractionFileName.Text = sArray[sArray.Length - 1];
+                    lstExtractionData1.Clear();
+                    lstExtractionData2.Clear();
+                    lstExtractionData3.Clear();
                     LstExtraction.Items.Clear();
                     using (StreamReader sr = new StreamReader(sSelectedFile, Encoding.Default))
                     {
                         while (!sr.EndOfStream)
                         {
                             string sData = sr.ReadLine();
+                            sArray = sData.Split(',');
+                            lstExtractionData1.Add(sArray[0]);
+                            lstExtractionData2.Add(sArray[1]);
+                            lstExtractionData3.Add(sArray[2]);
                             LstExtraction.Items.Add(sData);
                         }
                     }
+                    LblExtractioCount.Text = $"抜取データ件数：{lstExtractionData1.Count:#,###} 件";
                 }
             }
             catch (Exception ex)
@@ -1933,19 +1969,21 @@ namespace QrSorterInspectionApp
         {
             string sPutDataPath;
             int iNumber = 1;
-
+            string sData;
             try
             {
                 sPutDataPath = CommonModule.IncludeTrailingPathDelimiter(Application.StartupPath) + "テスト用抜取りファイル.csv";
                 // 上書モードで書き込む
                 using (StreamWriter sw = new StreamWriter(sPutDataPath, false, Encoding.Default))
                 {
-                    for (int N=1; N <= 5000; N++)
+                    for (int N=1; N <= int.Parse(TxtCreateCount.Text); N++)
                     {
-                        sw.WriteLine(iNumber.ToString("000000000000"));
+                        sData = $"{iNumber:000000000000},{iNumber:00000000},{iNumber:00}";                        
+                        sw.WriteLine(sData);
                         iNumber++;
                     }
                 }
+                MessageBox.Show($"抜取ファイルを作成しました。\r\n\r\nファイル名：{sPutDataPath}", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -2011,6 +2049,133 @@ namespace QrSorterInspectionApp
             {
                 MessageBox.Show(ex.Message, "【ClearTestTextBox】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private long lngMaxValue = 0;
+        private long lngMinValue = 99999999;
+
+        /// <summary>
+        /// 「抜取データ確認」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnCheckExtractionData_Click(object sender, EventArgs e)
+        {
+            CheckExtractionData();
+        }
+
+        /// <summary>
+        /// 抜取データ確認処理
+        /// </summary>
+        private void CheckExtractionData()
+        {
+            try
+            {
+                if (lstExtractionData1.Count < 1)
+                {
+                    MessageBox.Show($"lstExtractionData = {lstExtractionData1.Count} です", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                TxtFindExtraction1.Text = "-------";
+                TxtFindExtraction2.Text = "-------";
+                TxtFindExtraction3.Text = "-------";
+
+                var sw = Stopwatch.StartNew();
+
+                #region 計測したい処理
+                if (ChkUsed1.Checked)
+                {
+                    foreach (var item in lstExtractionData1)
+                    {
+                        if (TxtExtractionData1.Text.Contains(item))
+                        {
+                            TxtFindExtraction1.Text = TxtExtractionData1.Text;
+                        }
+                    }
+                }
+
+                if (ChkUsed2.Checked)
+                {
+                    foreach (var item in lstExtractionData2)
+                    {
+                        if (TxtExtractionData2.Text.Contains(item))
+                        {
+                            TxtFindExtraction2.Text = TxtExtractionData2.Text;
+                        }
+                    }
+                }
+
+                if (ChkUsed3.Checked)
+                {
+                    foreach (var item in lstExtractionData3)
+                    {
+                        if (TxtExtractionData3.Text.Contains(item))
+                        {
+                            TxtFindExtraction3.Text = TxtExtractionData3.Text;
+                        }
+                    }
+                }
+                #endregion
+
+                sw.Stop();
+
+                long ticks = sw.ElapsedMilliseconds;
+                LstExtractionResult.Items.Add($"{LstExtractionResult.Items.Count:00000}：{ticks} ms");
+                LstExtractionResult.SelectedIndex = LstExtractionResult.Items.Count - 1;
+
+                if (ticks > lngMaxValue)
+                {
+                    lngMaxValue = ticks;
+                    TxtExtractionMax.Text = $"{LstExtractionResult.Items.Count:00000}：{ticks} ms";
+                }
+                if (ticks < lngMinValue)
+                {
+                    lngMinValue = ticks;
+                    TxtExtractionMin.Text = $"{LstExtractionResult.Items.Count:00000}：{ticks} ms";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【CheckExtractionData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 「自動計測開始」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnExtractionAuto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(TimExtraction.Enabled)
+                {
+                    TimExtraction.Enabled = false;
+                    BtnExtractionAuto.Text = "自動計測開始";
+                }
+                else
+                {
+                    TimExtraction.Interval = int.Parse(CmbExtractionTimer.Text.Replace("ms",""));
+                    TimExtraction.Enabled = true;
+                    BtnExtractionAuto.Text = "自動計測停止";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnExtractionAuto_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TimExtraction_Tick(object sender, EventArgs e)
+        {
+            CheckExtractionData();
         }
     }
 }

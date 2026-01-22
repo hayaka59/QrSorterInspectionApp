@@ -273,7 +273,25 @@
             this.label9 = new System.Windows.Forms.Label();
             this.LsvLogList = new System.Windows.Forms.ListView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.TxtExtractionMin = new System.Windows.Forms.TextBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.TxtExtractionMax = new System.Windows.Forms.TextBox();
+            this.LstExtractionResult = new System.Windows.Forms.ListBox();
+            this.TxtFindExtraction3 = new System.Windows.Forms.TextBox();
+            this.TxtFindExtraction2 = new System.Windows.Forms.TextBox();
+            this.TxtFindExtraction1 = new System.Windows.Forms.TextBox();
+            this.ChkUsed3 = new System.Windows.Forms.CheckBox();
+            this.ChkUsed2 = new System.Windows.Forms.CheckBox();
+            this.ChkUsed1 = new System.Windows.Forms.CheckBox();
+            this.TxtExtractionData3 = new System.Windows.Forms.TextBox();
+            this.TxtExtractionData2 = new System.Windows.Forms.TextBox();
+            this.TxtCreateCount = new System.Windows.Forms.TextBox();
+            this.BtnCheckExtractionData = new System.Windows.Forms.Button();
+            this.TxtExtractionData1 = new System.Windows.Forms.TextBox();
+            this.BtnCreateExtractionFile = new System.Windows.Forms.Button();
             this.GrpSorterSetting = new System.Windows.Forms.GroupBox();
+            this.LblExtractioCount = new System.Windows.Forms.Label();
             this.LblExtractionFileName = new System.Windows.Forms.Label();
             this.LstExtraction = new System.Windows.Forms.ListBox();
             this.BtnExtraction = new System.Windows.Forms.Button();
@@ -290,8 +308,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.NmUpDnPostalDateKeta = new System.Windows.Forms.NumericUpDown();
             this.NmUpDnPostalDateStart = new System.Windows.Forms.NumericUpDown();
-            this.CmbExtraction = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.NmUpDnPropertyIdKeta = new System.Windows.Forms.NumericUpDown();
@@ -389,11 +405,15 @@
             this.CmbGroup3 = new System.Windows.Forms.ComboBox();
             this.TxtPocketName2 = new System.Windows.Forms.TextBox();
             this.CmbGroup2 = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.CmbExtraction = new System.Windows.Forms.ComboBox();
             this.PctLogo = new System.Windows.Forms.PictureBox();
             this.BtnApply = new System.Windows.Forms.Button();
             this.BtnClose = new System.Windows.Forms.Button();
             this.SerialPortMaint = new System.IO.Ports.SerialPort(this.components);
-            this.BtnCreateExtractionFile = new System.Windows.Forms.Button();
+            this.BtnExtractionAuto = new System.Windows.Forms.Button();
+            this.TimExtraction = new System.Windows.Forms.Timer(this.components);
+            this.CmbExtractionTimer = new System.Windows.Forms.ComboBox();
             this.GroupBox11.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             this.GroupBox6.SuspendLayout();
@@ -430,6 +450,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicWaitList)).BeginInit();
             this.GrpSortBy.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.GrpSorterSetting.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NmUpDnFileTypeKeta)).BeginInit();
@@ -3342,6 +3364,22 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.CmbExtractionTimer);
+            this.tabPage5.Controls.Add(this.BtnExtractionAuto);
+            this.tabPage5.Controls.Add(this.groupBox10);
+            this.tabPage5.Controls.Add(this.groupBox9);
+            this.tabPage5.Controls.Add(this.LstExtractionResult);
+            this.tabPage5.Controls.Add(this.TxtFindExtraction3);
+            this.tabPage5.Controls.Add(this.TxtFindExtraction2);
+            this.tabPage5.Controls.Add(this.TxtFindExtraction1);
+            this.tabPage5.Controls.Add(this.ChkUsed3);
+            this.tabPage5.Controls.Add(this.ChkUsed2);
+            this.tabPage5.Controls.Add(this.ChkUsed1);
+            this.tabPage5.Controls.Add(this.TxtExtractionData3);
+            this.tabPage5.Controls.Add(this.TxtExtractionData2);
+            this.tabPage5.Controls.Add(this.TxtCreateCount);
+            this.tabPage5.Controls.Add(this.BtnCheckExtractionData);
+            this.tabPage5.Controls.Add(this.TxtExtractionData1);
             this.tabPage5.Controls.Add(this.BtnCreateExtractionFile);
             this.tabPage5.Controls.Add(this.GrpSorterSetting);
             this.tabPage5.Controls.Add(this.label19);
@@ -3354,9 +3392,204 @@
             this.tabPage5.Text = "テスト画面作成";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.TxtExtractionMin);
+            this.groupBox10.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox10.Location = new System.Drawing.Point(1178, 708);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(197, 70);
+            this.groupBox10.TabIndex = 428;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "最小処理時間";
+            // 
+            // TxtExtractionMin
+            // 
+            this.TxtExtractionMin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtExtractionMin.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtExtractionMin.Location = new System.Drawing.Point(12, 26);
+            this.TxtExtractionMin.Name = "TxtExtractionMin";
+            this.TxtExtractionMin.Size = new System.Drawing.Size(175, 27);
+            this.TxtExtractionMin.TabIndex = 426;
+            this.TxtExtractionMin.Text = "TxtExtractionMin";
+            this.TxtExtractionMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.TxtExtractionMax);
+            this.groupBox9.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox9.Location = new System.Drawing.Point(961, 708);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(197, 70);
+            this.groupBox9.TabIndex = 427;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "最大処理時間";
+            // 
+            // TxtExtractionMax
+            // 
+            this.TxtExtractionMax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtExtractionMax.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtExtractionMax.Location = new System.Drawing.Point(11, 27);
+            this.TxtExtractionMax.Name = "TxtExtractionMax";
+            this.TxtExtractionMax.Size = new System.Drawing.Size(175, 27);
+            this.TxtExtractionMax.TabIndex = 425;
+            this.TxtExtractionMax.Text = "TxtExtractionMax";
+            this.TxtExtractionMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // LstExtractionResult
+            // 
+            this.LstExtractionResult.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LstExtractionResult.FormattingEnabled = true;
+            this.LstExtractionResult.ItemHeight = 24;
+            this.LstExtractionResult.Location = new System.Drawing.Point(705, 554);
+            this.LstExtractionResult.Name = "LstExtractionResult";
+            this.LstExtractionResult.Size = new System.Drawing.Size(237, 220);
+            this.LstExtractionResult.TabIndex = 424;
+            // 
+            // TxtFindExtraction3
+            // 
+            this.TxtFindExtraction3.BackColor = System.Drawing.Color.LightGreen;
+            this.TxtFindExtraction3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtFindExtraction3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtFindExtraction3.Location = new System.Drawing.Point(1404, 631);
+            this.TxtFindExtraction3.Name = "TxtFindExtraction3";
+            this.TxtFindExtraction3.Size = new System.Drawing.Size(205, 31);
+            this.TxtFindExtraction3.TabIndex = 423;
+            this.TxtFindExtraction3.Text = "TxtFindExtraction3";
+            this.TxtFindExtraction3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtFindExtraction2
+            // 
+            this.TxtFindExtraction2.BackColor = System.Drawing.Color.LightGreen;
+            this.TxtFindExtraction2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtFindExtraction2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtFindExtraction2.Location = new System.Drawing.Point(1404, 594);
+            this.TxtFindExtraction2.Name = "TxtFindExtraction2";
+            this.TxtFindExtraction2.Size = new System.Drawing.Size(205, 31);
+            this.TxtFindExtraction2.TabIndex = 422;
+            this.TxtFindExtraction2.Text = "TxtFindExtraction2";
+            this.TxtFindExtraction2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtFindExtraction1
+            // 
+            this.TxtFindExtraction1.BackColor = System.Drawing.Color.LightGreen;
+            this.TxtFindExtraction1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtFindExtraction1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtFindExtraction1.Location = new System.Drawing.Point(1404, 557);
+            this.TxtFindExtraction1.Name = "TxtFindExtraction1";
+            this.TxtFindExtraction1.Size = new System.Drawing.Size(205, 31);
+            this.TxtFindExtraction1.TabIndex = 421;
+            this.TxtFindExtraction1.Text = "TxtFindExtraction1";
+            this.TxtFindExtraction1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ChkUsed3
+            // 
+            this.ChkUsed3.AutoSize = true;
+            this.ChkUsed3.Checked = true;
+            this.ChkUsed3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkUsed3.Location = new System.Drawing.Point(1180, 639);
+            this.ChkUsed3.Name = "ChkUsed3";
+            this.ChkUsed3.Size = new System.Drawing.Size(15, 14);
+            this.ChkUsed3.TabIndex = 420;
+            this.ChkUsed3.UseVisualStyleBackColor = true;
+            // 
+            // ChkUsed2
+            // 
+            this.ChkUsed2.AutoSize = true;
+            this.ChkUsed2.Checked = true;
+            this.ChkUsed2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkUsed2.Location = new System.Drawing.Point(1180, 601);
+            this.ChkUsed2.Name = "ChkUsed2";
+            this.ChkUsed2.Size = new System.Drawing.Size(15, 14);
+            this.ChkUsed2.TabIndex = 419;
+            this.ChkUsed2.UseVisualStyleBackColor = true;
+            // 
+            // ChkUsed1
+            // 
+            this.ChkUsed1.AutoSize = true;
+            this.ChkUsed1.Checked = true;
+            this.ChkUsed1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkUsed1.Location = new System.Drawing.Point(1180, 565);
+            this.ChkUsed1.Name = "ChkUsed1";
+            this.ChkUsed1.Size = new System.Drawing.Size(15, 14);
+            this.ChkUsed1.TabIndex = 418;
+            this.ChkUsed1.UseVisualStyleBackColor = true;
+            // 
+            // TxtExtractionData3
+            // 
+            this.TxtExtractionData3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtExtractionData3.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtExtractionData3.Location = new System.Drawing.Point(1201, 631);
+            this.TxtExtractionData3.Name = "TxtExtractionData3";
+            this.TxtExtractionData3.Size = new System.Drawing.Size(197, 31);
+            this.TxtExtractionData3.TabIndex = 413;
+            this.TxtExtractionData3.Text = "TxtExtractionData3";
+            this.TxtExtractionData3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtExtractionData2
+            // 
+            this.TxtExtractionData2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtExtractionData2.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtExtractionData2.Location = new System.Drawing.Point(1201, 594);
+            this.TxtExtractionData2.Name = "TxtExtractionData2";
+            this.TxtExtractionData2.Size = new System.Drawing.Size(197, 31);
+            this.TxtExtractionData2.TabIndex = 412;
+            this.TxtExtractionData2.Text = "TxtExtractionData2";
+            this.TxtExtractionData2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtCreateCount
+            // 
+            this.TxtCreateCount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtCreateCount.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtCreateCount.Location = new System.Drawing.Point(1209, 21);
+            this.TxtCreateCount.Name = "TxtCreateCount";
+            this.TxtCreateCount.Size = new System.Drawing.Size(197, 36);
+            this.TxtCreateCount.TabIndex = 411;
+            this.TxtCreateCount.Text = "TxtCreateCount";
+            this.TxtCreateCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BtnCheckExtractionData
+            // 
+            this.BtnCheckExtractionData.Image = global::QrSorterInspectionApp.Properties.Resources.search_file;
+            this.BtnCheckExtractionData.Location = new System.Drawing.Point(958, 554);
+            this.BtnCheckExtractionData.Name = "BtnCheckExtractionData";
+            this.BtnCheckExtractionData.Size = new System.Drawing.Size(200, 50);
+            this.BtnCheckExtractionData.TabIndex = 410;
+            this.BtnCheckExtractionData.Text = "抜取データ確認";
+            this.BtnCheckExtractionData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCheckExtractionData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCheckExtractionData.UseVisualStyleBackColor = true;
+            this.BtnCheckExtractionData.Click += new System.EventHandler(this.BtnCheckExtractionData_Click);
+            // 
+            // TxtExtractionData1
+            // 
+            this.TxtExtractionData1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtExtractionData1.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.TxtExtractionData1.Location = new System.Drawing.Point(1201, 557);
+            this.TxtExtractionData1.Name = "TxtExtractionData1";
+            this.TxtExtractionData1.Size = new System.Drawing.Size(197, 31);
+            this.TxtExtractionData1.TabIndex = 409;
+            this.TxtExtractionData1.Text = "TxtExtractionData1";
+            this.TxtExtractionData1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BtnCreateExtractionFile
+            // 
+            this.BtnCreateExtractionFile.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnCreateExtractionFile.Image = global::QrSorterInspectionApp.Properties.Resources.save_icon;
+            this.BtnCreateExtractionFile.Location = new System.Drawing.Point(1414, 19);
+            this.BtnCreateExtractionFile.Name = "BtnCreateExtractionFile";
+            this.BtnCreateExtractionFile.Size = new System.Drawing.Size(196, 40);
+            this.BtnCreateExtractionFile.TabIndex = 408;
+            this.BtnCreateExtractionFile.Text = "抜取ファイル作成";
+            this.BtnCreateExtractionFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCreateExtractionFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCreateExtractionFile.UseVisualStyleBackColor = true;
+            this.BtnCreateExtractionFile.Click += new System.EventHandler(this.BtnCreateExtractionFile_Click);
+            // 
             // GrpSorterSetting
             // 
             this.GrpSorterSetting.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.GrpSorterSetting.Controls.Add(this.LblExtractioCount);
             this.GrpSorterSetting.Controls.Add(this.LblExtractionFileName);
             this.GrpSorterSetting.Controls.Add(this.LstExtraction);
             this.GrpSorterSetting.Controls.Add(this.BtnExtraction);
@@ -3440,12 +3673,23 @@
             this.GrpSorterSetting.Controls.Add(this.TxtPocketName2);
             this.GrpSorterSetting.Controls.Add(this.CmbGroup2);
             this.GrpSorterSetting.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.GrpSorterSetting.Location = new System.Drawing.Point(26, 155);
+            this.GrpSorterSetting.Location = new System.Drawing.Point(26, 54);
             this.GrpSorterSetting.Name = "GrpSorterSetting";
             this.GrpSorterSetting.Size = new System.Drawing.Size(1612, 486);
             this.GrpSorterSetting.TabIndex = 25;
             this.GrpSorterSetting.TabStop = false;
             this.GrpSorterSetting.Text = "ソータ設定";
+            // 
+            // LblExtractioCount
+            // 
+            this.LblExtractioCount.BackColor = System.Drawing.Color.Transparent;
+            this.LblExtractioCount.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.LblExtractioCount.Location = new System.Drawing.Point(1376, 440);
+            this.LblExtractioCount.Name = "LblExtractioCount";
+            this.LblExtractioCount.Size = new System.Drawing.Size(199, 24);
+            this.LblExtractioCount.TabIndex = 406;
+            this.LblExtractioCount.Text = "LblExtractioCount";
+            this.LblExtractioCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LblExtractionFileName
             // 
@@ -3702,34 +3946,6 @@
             0,
             0});
             this.NmUpDnPostalDateStart.ValueChanged += new System.EventHandler(this.SetColorForQrData);
-            // 
-            // CmbExtraction
-            // 
-            this.CmbExtraction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbExtraction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CmbExtraction.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CmbExtraction.FormattingEnabled = true;
-            this.CmbExtraction.IntegralHeight = false;
-            this.CmbExtraction.ItemHeight = 24;
-            this.CmbExtraction.Location = new System.Drawing.Point(1490, 118);
-            this.CmbExtraction.Name = "CmbExtraction";
-            this.CmbExtraction.Size = new System.Drawing.Size(135, 32);
-            this.CmbExtraction.TabIndex = 407;
-            this.CmbExtraction.Visible = false;
-            // 
-            // label19
-            // 
-            this.label19.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label19.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(1490, 86);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(134, 30);
-            this.label19.TabIndex = 406;
-            this.label19.Text = "抜取ポケット設定";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label19.Visible = false;
             // 
             // label40
             // 
@@ -4858,6 +5074,34 @@
             this.CmbGroup2.Size = new System.Drawing.Size(105, 32);
             this.CmbGroup2.TabIndex = 55;
             // 
+            // label19
+            // 
+            this.label19.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label19.Font = new System.Drawing.Font("メイリオ", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(895, 25);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(134, 30);
+            this.label19.TabIndex = 406;
+            this.label19.Text = "抜取ポケット設定";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label19.Visible = false;
+            // 
+            // CmbExtraction
+            // 
+            this.CmbExtraction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbExtraction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CmbExtraction.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbExtraction.FormattingEnabled = true;
+            this.CmbExtraction.IntegralHeight = false;
+            this.CmbExtraction.ItemHeight = 24;
+            this.CmbExtraction.Location = new System.Drawing.Point(1031, 24);
+            this.CmbExtraction.Name = "CmbExtraction";
+            this.CmbExtraction.Size = new System.Drawing.Size(135, 32);
+            this.CmbExtraction.TabIndex = 407;
+            this.CmbExtraction.Visible = false;
+            // 
             // PctLogo
             // 
             this.PctLogo.Image = global::QrSorterInspectionApp.Properties.Resources.株式会社Ai_R横黒色背景透明;
@@ -4896,19 +5140,34 @@
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // BtnCreateExtractionFile
+            // BtnExtractionAuto
             // 
-            this.BtnCreateExtractionFile.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnCreateExtractionFile.Image = global::QrSorterInspectionApp.Properties.Resources.save_icon;
-            this.BtnCreateExtractionFile.Location = new System.Drawing.Point(1201, 87);
-            this.BtnCreateExtractionFile.Name = "BtnCreateExtractionFile";
-            this.BtnCreateExtractionFile.Size = new System.Drawing.Size(196, 40);
-            this.BtnCreateExtractionFile.TabIndex = 408;
-            this.BtnCreateExtractionFile.Text = "抜取ファイル作成";
-            this.BtnCreateExtractionFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCreateExtractionFile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCreateExtractionFile.UseVisualStyleBackColor = true;
-            this.BtnCreateExtractionFile.Click += new System.EventHandler(this.BtnCreateExtractionFile_Click);
+            this.BtnExtractionAuto.Image = global::QrSorterInspectionApp.Properties.Resources.update;
+            this.BtnExtractionAuto.Location = new System.Drawing.Point(958, 612);
+            this.BtnExtractionAuto.Name = "BtnExtractionAuto";
+            this.BtnExtractionAuto.Size = new System.Drawing.Size(200, 50);
+            this.BtnExtractionAuto.TabIndex = 429;
+            this.BtnExtractionAuto.Text = "自動計測開始";
+            this.BtnExtractionAuto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnExtractionAuto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnExtractionAuto.UseVisualStyleBackColor = true;
+            this.BtnExtractionAuto.Click += new System.EventHandler(this.BtnExtractionAuto_Click);
+            // 
+            // TimExtraction
+            // 
+            this.TimExtraction.Tick += new System.EventHandler(this.TimExtraction_Tick);
+            // 
+            // CmbExtractionTimer
+            // 
+            this.CmbExtractionTimer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbExtractionTimer.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbExtractionTimer.FormattingEnabled = true;
+            this.CmbExtractionTimer.IntegralHeight = false;
+            this.CmbExtractionTimer.ItemHeight = 24;
+            this.CmbExtractionTimer.Location = new System.Drawing.Point(972, 668);
+            this.CmbExtractionTimer.Name = "CmbExtractionTimer";
+            this.CmbExtractionTimer.Size = new System.Drawing.Size(175, 32);
+            this.CmbExtractionTimer.TabIndex = 430;
             // 
             // MaintenanceForm
             // 
@@ -4971,6 +5230,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicWaitList)).EndInit();
             this.GrpSortBy.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.GrpSorterSetting.ResumeLayout(false);
             this.GrpSorterSetting.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -5372,5 +5636,25 @@
         private System.Windows.Forms.CheckBox checkBox11;
         private System.Windows.Forms.CheckBox checkBox10;
         internal System.Windows.Forms.Button BtnCreateExtractionFile;
+        private System.Windows.Forms.Button BtnCheckExtractionData;
+        private System.Windows.Forms.TextBox TxtExtractionData1;
+        private System.Windows.Forms.TextBox TxtCreateCount;
+        private System.Windows.Forms.Label LblExtractioCount;
+        private System.Windows.Forms.TextBox TxtExtractionData3;
+        private System.Windows.Forms.TextBox TxtExtractionData2;
+        private System.Windows.Forms.CheckBox ChkUsed3;
+        private System.Windows.Forms.CheckBox ChkUsed2;
+        private System.Windows.Forms.CheckBox ChkUsed1;
+        private System.Windows.Forms.TextBox TxtFindExtraction3;
+        private System.Windows.Forms.TextBox TxtFindExtraction2;
+        private System.Windows.Forms.TextBox TxtFindExtraction1;
+        private System.Windows.Forms.TextBox TxtExtractionMax;
+        private System.Windows.Forms.ListBox LstExtractionResult;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TextBox TxtExtractionMin;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Button BtnExtractionAuto;
+        internal System.Windows.Forms.ComboBox CmbExtractionTimer;
+        private System.Windows.Forms.Timer TimExtraction;
     }
 }
